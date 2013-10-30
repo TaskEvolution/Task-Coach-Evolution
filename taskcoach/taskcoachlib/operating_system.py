@@ -1,0 +1,84 @@
+'''
+Task Coach - Your friendly task manager
+Copyright (C) 2004-2013 Task Coach developers <developers@taskcoach.org>
+
+Task Coach is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Task Coach is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+'''
+
+import wx, sys, platform
+
+# This module is meant to be imported like this: 
+#   from taskcoachlib import operating_system
+# so that the function calls read: 
+#   operating_system.isWindows(), operating_system.isMac(), etc.
+
+def isMac():
+    return isPlatform('MAC')
+
+
+def isWindows():
+    return isPlatform('MSW')
+
+
+def isGTK():
+    return isPlatform('GTK')
+
+
+def isPlatform(threeLetterPlatformAbbreviation, wxPlatform=wx.Platform):
+    return '__WX%s__'%threeLetterPlatformAbbreviation == wxPlatform
+
+
+def isWindows7_OrNewer(): # pragma: no cover
+    if isWindows(): 
+        major, minor = sys.getwindowsversion()[:2] # pylint: disable=E1101
+        return (major, minor) >= (6, 1)
+    else:
+        return False
+
+
+def _platformVersion():
+    return tuple(map(int, platform.release().split('.')))
+
+def isMacOsXLion_OrNewer(): # pragma: no cover
+    if isMac():
+        return _platformVersion() >= (11, 1)
+    else:
+        return False
+
+def isMacOsXTiger_OrOlder(): # pragma no cover
+    if isMac():
+        return _platformVersion() <= (8, 11, 1) # Darwin release number for Tiger
+    else:
+        return False
+
+def isMacOsXMountainLion_OrNewer(): # pragma no cover
+    if isMac():
+        return _platformVersion() >= (12,)
+    else:
+        return False
+
+
+def defaultEncodingName():
+    return wx.Locale.GetSystemEncodingName() or 'utf-8'
+
+def decodeSystemString(s):
+    if isinstance(s, unicode):
+        return s
+    encoding = defaultEncodingName()
+    # Python does not define the windows_XXX aliases for every code page...
+    if encoding.startswith('windows-'):
+        encoding = 'cp' + encoding[8:]
+    if not encoding:
+        encoding = 'utf-8'
+    return s.decode(encoding, 'ignore')

@@ -1,0 +1,2 @@
+User-agent: *    # Applies to all robots
+Disallow:        # Allow indexing of all pages

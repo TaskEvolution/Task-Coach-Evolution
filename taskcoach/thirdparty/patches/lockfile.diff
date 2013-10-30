@@ -1,0 +1,141 @@
+--- lockfile-0.8/lockfile.py	2009-03-30 12:44:14.000000000 +0200
++++ lockfile/lockfile.py	2012-10-14 14:13:27.000000000 +0200
+@@ -56,10 +56,11 @@
+ import thread
+ import threading
+ import time
+ import errno
+ import urllib
++import shutil
+ 
+ # Work with PEP8 and non-PEP8 versions of threading module.
+ if not hasattr(threading, "current_thread"):
+     threading.current_thread = threading.currentThread
+ if not hasattr(threading.Thread, "get_name"):
+@@ -167,14 +168,17 @@
+             name = threading.current_thread().get_name()
+             tname = "%s-" % urllib.quote(name, safe="")
+         else:
+             tname = ""
+         dirname = os.path.dirname(self.lock_file)
+-        self.unique_name = os.path.join(dirname,
+-                                        "%s.%s%s" % (self.hostname,
+-                                                     tname,
+-                                                     self.pid))
++        basename = os.path.basename(self.lock_file)
++        try:
++            self.unique_name = os.path.join(dirname, "%s.%s.%s%s" % (basename, 
++                                            self.hostname, tname, self.pid))
++        except UnicodeDecodeError:
++            self.unique_name = os.path.join(dirname, "%s%s" % (tname, self.pid))
++
+ 
+     def acquire(self, timeout=None):
+         """
+         Acquire the lock.
+ 
+@@ -259,11 +263,11 @@
+                         os.unlink(self.unique_name)
+                         if timeout > 0:
+                             raise LockTimeout
+                         else:
+                             raise AlreadyLocked
+-                    time.sleep(timeout is not None and timeout/10 or 0.1)
++                    time.sleep(timeout/10. if timeout > 0 else 0.1)
+             else:
+                 # Link creation succeeded.  We're good to go.
+                 return
+ 
+     def release(self):
+@@ -298,14 +302,19 @@
+             tname = "%x-" % thread.get_ident()
+         else:
+             tname = ""
+         # Lock file itself is a directory.  Place the unique file name into
+         # it.
+-        self.unique_name  = os.path.join(self.lock_file,
+-                                         "%s.%s%s" % (self.hostname,
+-                                                      tname,
+-                                                      self.pid))
++        try:
++            self.unique_name = os.path.join(self.lock_file,
++                                            "%s.%s%s" % (self.hostname,
++                                                         tname,
++                                                         self.pid))
++        except UnicodeDecodeError:
++            self.unique_name = os.path.join(self.lock_file,
++                                            "non-ascii-hostname.%s%s"% (tname, 
++                                                                        self.pid))
+ 
+     def acquire(self, timeout=None):
+         end_time = time.time()
+         if timeout is not None and timeout > 0:
+             end_time += timeout
+@@ -354,13 +363,11 @@
+         return (self.is_locked() and
+                 os.path.exists(self.unique_name))
+ 
+     def break_lock(self):
+         if os.path.exists(self.lock_file):
+-            for name in os.listdir(self.lock_file):
+-                os.unlink(os.path.join(self.lock_file, name))
+-            os.rmdir(self.lock_file)
++            shutil.rmtree(self.lock_file)
+ 
+ class SQLiteFileLock(LockBase):
+     "Demonstration of using same SQL-based locking."
+ 
+     import tempfile
+@@ -490,9 +497,48 @@
+         cursor.execute("delete from locks"
+                        "  where lock_file = ?",
+                        (self.lock_file,))
+         self.connection.commit()
+ 
+-if hasattr(os, "link"):
+-    FileLock = LinkFileLock
+-else:
+-    FileLock = MkdirFileLock
++
++def canLinkExistingPath(path, linkPath):
++    try:
++        os.link(path, linkPath)
++        return True
++    except OSError:
++        return False
++    finally:
++        if os.path.exists(linkPath):
++            os.remove(linkPath)
++ 
++
++def canLink(path):
++    if not hasattr(os, "link"):
++        return False
++    linkPath = path + '.lnk'
++    if os.path.exists(path):
++        if os.path.islink(linkPath):
++            # Both path and linkPath exist, so we can link
++            return True
++        elif os.path.exists(linkPath):
++            # Hmm, linkPath exists, but is not a link, check again recursively
++            return canLink(linkPath)
++        else:
++            return canLinkExistingPath(path, linkPath)
++    else: 
++        # path does not exist, create it temporarily
++        try:
++            open(path, "wb").close()
++            # Success, now try to link
++            return canLinkExistingPath(path, linkPath)
++        except OSError:
++            # Failed to create path, what to do?
++            # Assume linking works since os.link exists
++            return True
++        finally:
++            if os.path.exists(path):
++                os.remove(path)
++
++
++def FileLock(path, *args, **kwargs):
++    Lock = LinkFileLock if canLink(path) else MkdirFileLock
++    return Lock(path, *args, **kwargs)

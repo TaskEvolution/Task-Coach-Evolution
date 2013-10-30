@@ -1,0 +1,80 @@
+diff -r -U 4 APScheduler-2.0.3/apscheduler/job.py APScheduler-2.0.3-taskcoach/apscheduler/job.py
+--- APScheduler-2.0.3/apscheduler/job.py	2012-04-02 10:26:54.000000000 +0200
++++ APScheduler-2.0.3-taskcoach/apscheduler/job.py	2012-10-14 12:36:26.000000000 +0200
+@@ -24,9 +24,10 @@
+     :param args: list of positional arguments to call func with
+     :param kwargs: dict of keyword arguments to call func with
+     :param name: name of the job (optional)
+     :param misfire_grace_time: seconds after the designated run time that
+-        the job is still allowed to be run
++        the job is still allowed to be run, or 0 if it must always be
++        allowed to run.
+     :param coalesce: run once instead of many times if the scheduler determines
+         that the job should be run more than once in succession
+     :param max_runs: maximum number of times this job is allowed to be
+         triggered
+@@ -45,10 +46,10 @@
+         if not hasattr(args, '__getitem__'):
+             raise TypeError('args must be a list-like object')
+         if not hasattr(kwargs, '__getitem__'):
+             raise TypeError('kwargs must be a dict-like object')
+-        if misfire_grace_time <= 0:
+-            raise ValueError('misfire_grace_time must be a positive value')
++        if misfire_grace_time < 0:
++            raise ValueError('misfire_grace_time must be a positive value or 0')
+         if max_runs is not None and max_runs <= 0:
+             raise ValueError('max_runs must be a positive value')
+         if max_instances <= 0:
+             raise ValueError('max_instances must be a positive value')
+diff -r -U 4 APScheduler-2.0.3/apscheduler/scheduler.py APScheduler-2.0.3-taskcoach/apscheduler/scheduler.py
+--- APScheduler-2.0.3/apscheduler/scheduler.py	2012-04-02 10:26:54.000000000 +0200
++++ APScheduler-2.0.3-taskcoach/apscheduler/scheduler.py	2012-10-14 12:36:26.000000000 +0200
+@@ -291,9 +291,10 @@
+         :param date: the date/time to run the job at
+         :param name: name of the job
+         :param jobstore: stored the job in the named (or given) job store
+         :param misfire_grace_time: seconds after the designated run time that
+-            the job is still allowed to be run
++            the job is still allowed to be run, or 0 if it must always be
++            allowed to run.
+         :type date: :class:`datetime.date`
+         :rtype: :class:`~apscheduler.job.Job`
+         """
+         trigger = SimpleTrigger(date)
+@@ -317,9 +318,10 @@
+         :param kwargs: dict of keyword arguments to call func with
+         :param name: name of the job
+         :param jobstore: alias of the job store to add the job to
+         :param misfire_grace_time: seconds after the designated run time that
+-            the job is still allowed to be run
++            the job is still allowed to be run, or 0 if it must always be
++            allowed to run.
+         :rtype: :class:`~apscheduler.job.Job`
+         """
+         interval = timedelta(weeks=weeks, days=days, hours=hours,
+                              minutes=minutes, seconds=seconds)
+@@ -345,9 +347,10 @@
+         :param kwargs: dict of keyword arguments to call func with
+         :param name: name of the job
+         :param jobstore: alias of the job store to add the job to
+         :param misfire_grace_time: seconds after the designated run time that
+-            the job is still allowed to be run
++            the job is still allowed to be run, or 0 if it must always be
++            allowed to run.
+         :return: the scheduled job
+         :rtype: :class:`~apscheduler.job.Job`
+         """
+         trigger = CronTrigger(year=year, month=month, day=day, week=week,
+@@ -460,10 +463,9 @@
+         for run_time in run_times:
+             # See if the job missed its run time window, and handle possible
+             # misfires accordingly
+             difference = datetime.now() - run_time
+-            grace_time = timedelta(seconds=job.misfire_grace_time)
+-            if difference > grace_time:
++	    if job.misfire_grace_time != 0 and timedelta(seconds=job.misfire_grace_time) < difference:
+                 # Notify listeners about a missed run
+                 event = JobEvent(EVENT_JOB_MISSED, job, run_time)
+                 self._notify_listeners(event)
+                 logger.warning('Run time of job "%s" was missed by %s',
+Only in APScheduler-2.0.3-taskcoach/apscheduler: scheduler.py.orig

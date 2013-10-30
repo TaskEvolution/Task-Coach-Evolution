@@ -1,0 +1,199 @@
+10
+
+dir
+6290
+svn://svn.code.sf.net/p/taskcoach/code/trunk/taskcoach/taskcoachlib
+svn://svn.code.sf.net/p/taskcoach/code
+
+
+
+2013-08-28T21:12:43.515052Z
+6278
+fraca7
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+1bde7e76-c350-445e-a5b0-d0792d1e7eef
+
+i18n
+dir
+
+iphone
+dir
+
+operating_system.py
+file
+
+
+
+
+2013-09-18T09:34:32.000000Z
+57c90ef64a17dfe9b04ab28f543a5538
+2013-02-06T00:27:59.435027Z
+5973
+fraca7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2517
+
+gui
+dir
+
+filesystem
+dir
+
+persistence
+dir
+
+meta
+dir
+
+__init__.py
+file
+
+
+
+
+2013-09-18T09:34:32.000000Z
+8bbc8ea24f95d4bc90ccf67a4c0af076
+2013-07-30T08:40:22.716255Z
+6248
+fraca7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1066
+
+help
+dir
+
+thirdparty
+dir
+
+patterns
+dir
+
+tools
+dir
+
+application
+dir
+
+speak
+dir
+
+powermgt
+dir
+
+syncml
+dir
+
+config
+dir
+
+widgets
+dir
+
+render.py
+file
+
+
+
+
+2013-09-18T09:34:32.000000Z
+e1452f8ee3e6854f3fd1c3430287d8a9
+2013-03-24T19:40:34.260528Z
+6187
+fraca7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12800
+
+domain
+dir
+
+notify
+dir
+
+changes
+dir
+
+mailer
+dir
+
+bin.in
+dir
+
+command
+dir
+
+workarounds
+dir
+

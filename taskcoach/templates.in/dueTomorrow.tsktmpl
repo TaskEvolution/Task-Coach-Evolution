@@ -1,0 +1,1 @@
+<?xml version="1.0" ?><?taskcoach release="1.1.0" tskversion="30"?><tasks><task duedatetmpl="Now().endOfDay() + oneDay" startdatetmpl="Now()" status="2" subject="New task due tomorrow"/></tasks>

@@ -1,0 +1,10 @@
+K 10
+svn:ignore
+V 66
+*.pyc
+changes.html
+md5digests.html
+all_changes.html
+md5digests.py
+
+END

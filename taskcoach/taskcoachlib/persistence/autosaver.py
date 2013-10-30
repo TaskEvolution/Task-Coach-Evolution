@@ -1,0 +1,55 @@
+'''
+Task Coach - Your friendly task manager
+Copyright (C) 2004-2013 Task Coach developers <developers@taskcoach.org>
+
+Task Coach is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Task Coach is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+'''
+
+from taskcoachlib.thirdparty.pubsub import pub
+import wx
+
+
+class AutoSaver(object):
+    ''' AutoSaver observes task files. If a task file is changed by the user 
+        (gets 'dirty') and auto save is on, AutoSaver saves the task file. '''
+        
+    def __init__(self, settings, *args, **kwargs):
+        super(AutoSaver, self).__init__(*args, **kwargs)
+        self.__settings = settings
+        self.__task_files = set()
+        pub.subscribe(self.onTaskFileDirty, 'taskfile.dirty')
+        wx.GetApp().Bind(wx.EVT_IDLE, self.on_idle)
+            
+    def onTaskFileDirty(self, taskFile):
+        ''' When a task file gets dirty and auto save is on, note it so 
+            it can be saved during idle time. '''
+        if self._needSave(taskFile):
+            self.__task_files.add(taskFile)
+
+    def _needSave(self, task_file):
+        ''' Return whether the task file needs to be saved. '''
+        return task_file.filename() and task_file.needSave() and \
+            self.__settings.getboolean('file', 'autosave')
+
+    def _needLoad(self, taskFile):
+        return taskFile.changedOnDisk() and \
+            self.__settings.getboolean('file', 'autoload')
+
+    def on_idle(self, event):
+        ''' Actually save the dirty files during idle time. '''
+        event.Skip()
+        while self.__task_files:
+            task_file = self.__task_files.pop()
+            if self._needSave(task_file):
+                task_file.save()

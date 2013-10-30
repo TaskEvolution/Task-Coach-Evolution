@@ -1,0 +1,50 @@
+Task Coach - Your friendly task manager
+Copyright (C) 2004-2013 Task Coach developers <developers@taskcoach.org>
+
+Task Coach developers are:
+Copyright (C) 2012 Aaron Wolf <wolftune@gmail.com>
+Copyright (C) 2005-2011 Jérôme Laheurte <fraca7@free.fr>
+Copyright (C) 2004-2011 Frank Niessink <frank@niessink.com>
+
+Portions were contributed by:
+Copyright (C) 2012 Nicola Chiapolini <nicola.chiapolini@physik.uzh.ch>
+Copyright (C) 2011 David Harks <dave@dwink.net>
+Copyright (C) 2010 Svetoslav Trochev <sal_electronics@hotmail.com>
+Copyright (C) 2009 George Weeks <gcw52@telus.net>
+Copyright (C) 2008 Rob McMullen <rob.mcmullen@gmail.com>
+Copyright (C) 2008 Carl Zmola <zmola@acm.org>
+Copyright (C) 2008 Thomas Sonne Olesen <tpo@sonnet.dk>
+Copyright (C) 2008 Joăo Alexandre de Toledo <jtoledo@griffo.com.br>
+Copyright (C) 2008 Marcin Zajaczkowski <mszpak@wp.pl>
+Copyright (C) 2011 Tobias Gradl <https://sourceforge.net/users/greentomato>
+Copyright (C) 2013 Ivan Romanov <https://sourceforge.net/u/ivanromanov/>
+
+Files under taskcoachlib/thirdparty are, well, third party. They come
+with their own license. They may include modifications from the
+original, in which cases those modifications comply with the original
+license.
+
+The following files do not include any copyright information except
+for the original author's name:
+
+ - taskcoachlib/thirdparty/snarl.py: that's how we found it on the Interwebs.
+ - taskcoachlib/i18n/po2dict.py: same.
+ - taskcoachlib/persistence/xml/templates.py: because it's a generated
+    file.
+
+Also thanks to Nicolas Boulenguez for helping make this list complete,
+doing some anal harm to various lepidopterans in the process (French
+expression, I'm not sure it translates well in English).
+
+Task Coach is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Task Coach is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.

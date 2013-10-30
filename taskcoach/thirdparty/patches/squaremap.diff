@@ -1,0 +1,24 @@
+diff -r -U 4 squaremap/squaremap.py squaremap-taskcoach/squaremap.py
+--- squaremap/squaremap.py	2011-05-12 04:04:09.000000000 +0200
++++ squaremap-taskcoach/squaremap.py	2012-09-18 20:29:16.000000000 +0200
+@@ -119,8 +119,9 @@
+         self.labels = labels
+         self.highlight = highlight
+         self.selectedNode = None
+         self.highlightedNode = None
++        self._buffer = wx.EmptyBitmap(20, 20) # Have a default buffer ready
+         self.Bind( wx.EVT_PAINT, self.OnPaint)
+         self.Bind( wx.EVT_SIZE, self.OnSize )
+         if highlight:
+             self.Bind( wx.EVT_MOTION, self.OnMouse )
+@@ -213,8 +214,10 @@
+     def OnSize(self, event):
+         # The buffer is initialized in here, so that the buffer is always
+         # the same size as the Window.
+         width, height = self.GetClientSizeTuple()
++        if width <= 0 or height <=0:
++            return
+         # Make new off-screen bitmap: this bitmap will always have the
+         # current drawing in it, so it can be used to save the image to
+         # a file, or whatever.
+         if width and height:

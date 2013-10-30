@@ -1,0 +1,26 @@
+digraph task_states {
+    rankdir=LR;
+    node [shape = circle, width = 1];
+    Inactive [shape = doublecircle, style = filled, fillcolor = grey];
+    Late [style = filled, fillcolor = purple];
+    Active [style = filled, fillcolor = deepskyblue];
+    "Due soon" [style = filled, fillcolor = orange];
+    Overdue [style = filled, fillcolor = red];
+    Completed [shape = doublecircle, style = filled, fillcolor = green];
+
+    Inactive -> Late [ label = "past planned start date" ];
+    Inactive -> Active [ label = "past actual start date" ];
+    Inactive -> "Due soon" [ label = "soon due date" ];
+    Inactive -> Overdue [ label = "past due date" ];
+    Inactive -> Completed [ label = "completion date" ];
+    Late -> Active [ label = "past actual start date" ];
+    Late -> "Due soon" [ label = "soon due date" ];
+    Late -> Overdue [ label = "past due date" ];
+    Late -> Completed [ label = "completion date" ];
+    Active -> "Due soon" [ label = "soon due date" ];
+    Active -> Overdue [ label = "past due date" ];
+    Active -> Completed [ label = "completion date" ];
+    "Due soon" -> Overdue [ label = "past due date" ];
+    "Due soon" -> Completed [ label = "completion date" ];
+    Overdue -> Completed [ label = "completion date" ];
+}
