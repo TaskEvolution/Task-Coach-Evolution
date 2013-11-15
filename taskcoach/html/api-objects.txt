@@ -1,0 +1,3 @@
+taskcoach	taskcoach-module.html
+taskcoach.__package__	taskcoach-module.html#__package__
+taskcoach.start	taskcoach-module.html#start
