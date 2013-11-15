@@ -211,6 +211,7 @@ class BaseTaskTreeViewer(BaseTaskViewer):  # pylint: disable=W0223
         return (uicommand.TaskNew(taskList=self.presentation(),
                                   settings=self.settings),
                 uicommand.NewSubItem(viewer=self),
+ 				uicommand.QuickAdd(taskList=self.presentation,viewer=self,settings=self.settings),
                 uicommand.TaskNewFromTemplateButton(taskList=self.presentation(),
                                                     settings=self.settings,
                                                     bitmap='newtmpl')) + \

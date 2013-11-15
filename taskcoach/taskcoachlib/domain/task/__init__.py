@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
 from task import Task
+from quickAddParser import Parser
 from tasklist import TaskList
 from status import *
 import filter  # pylint: disable=W0622

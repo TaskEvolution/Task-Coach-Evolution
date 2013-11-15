@@ -319,7 +319,8 @@ class ImportMenu(Menu):
         super(ImportMenu, self).__init__(mainwindow)
         self.appendUICommands(
             uicommand.FileImportCSV(iocontroller=iocontroller),
-            uicommand.FileImportTodoTxt(iocontroller=iocontroller))
+            uicommand.FileImportTodoTxt(iocontroller=iocontroller),
+			uicommand.FileImportGoogleCalendar(iocontroller=iocontroller))
 
 
 class TaskTemplateMenu(DynamicMenu):
@@ -551,9 +552,9 @@ class NewMenu(Menu):
                 viewer=viewerContainer, settings=settings),
             uicommand.NewTaskWithSelectedTasksAsDependencies(taskList=tasks, 
                 viewer=viewerContainer, settings=settings))
-        self.appendMenu(_('New task from &template'),
-            TaskTemplateMenu(mainwindow, taskList=tasks, settings=settings),
-            'newtmpl')
+	self.appendMenu(_('New task from &template'),
+            	TaskTemplateMenu(mainwindow, taskList=tasks, settings=settings),
+            	'newtmpl')
         self.appendUICommands(None)
         if settings.getboolean('feature', 'effort'):
             self.appendUICommands(

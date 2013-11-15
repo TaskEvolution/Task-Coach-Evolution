@@ -33,11 +33,13 @@ from taskcoachlib.thirdparty.wxScheduler import wxSCHEDULER_NEXT, \
     wxSCHEDULER_PREV, wxSCHEDULER_TODAY
 from taskcoachlib.tools import anonymize
 from taskcoachlib.workarounds import ExceptionAsUnicode
+import quickAddParser
 import wx
 import base_uicommand
 import mixin_uicommand
 import settings_uicommand
-
+import uicommand
+#import taskcoachlib.domain.date.dateandtime
 
 class IOCommand(base_uicommand.UICommand):  # pylint: disable=W0223
     def __init__(self, *args, **kwargs):
@@ -456,7 +458,65 @@ class FileImportTodoTxt(IOCommand):
         filename = wx.FileSelector(_('Import Todo.txt'), wildcard='*.txt')
         if filename:
             self.iocontroller.importTodoTxt(filename)
-            
+
+class FileImportGoogleCalendar(IOCommand):
+	def __init__(self, *args, **kwargs):
+		super(FileImportGoogleCalendar,self).__init__(\
+		menuText=_('&Import Google Calendar...'),
+		helpText=_('Import Tasks from your Google Calendar account'),
+		bitmap='exportascsv',*args,**kwargs)
+		
+	def doCommand(self, event):
+		app = wx.PySimpleApp()
+		dialog = wx.TextEntryDialog(None,
+				"What kind of text would you like to enter?",
+	              "Text Entry", "Default Value", style=wx.OK|wx.CANCEL)
+		if dialog.ShowModal() == wx.ID_OK:
+			print "You entered: %s" % dialog.GetValue()
+			dialog.Destroy()
+		
+		"""wx.Frame.__init__(self,None,-1,'Text Entry Example',size=(300,100))
+		panel = wx.Panel(self,-1)
+		emailLabel = wx.StaticText(panel,-1,'E-mail:')
+		emailInput = wx.TextCtrl(panel,-1,'example@example.com',size=(175,-1))
+		emailInput.SetInsertionPoint(0)
+		passwordLabel = wx.staticText(panel,-1,'Password:')
+		passwordInput = wx.TextCtrl(panel,-1,'Password',size=(175,-1),style=wx.TE_PASSWORD)
+		sizer = wx.FlexGridSizer(cols=2,hgap=6,vgap=6)
+		sizer.AddMany([emailLabel,emailInput,passwordLabel,passwordInput])
+		panel.SetSizer(sizer)
+		
+		app = wx.PySimpleApp()
+		self.Show()
+		app.MainLoop()
+		
+		
+		class TextFrame(wx.Frame):
+		       def __init__(self):
+		           wx.Frame.__init__(self, None, -1, 'Text Entry Example',
+		                   size=(300, 100))
+		           panel = wx.Panel(self, -1)
+		           basicLabel = wx.StaticText(panel, -1, "Basic Control:")
+		           basicText = wx.TextCtrl(panel, -1, "I've entered some text!",
+		                   size=(175, -1))
+		           basicText.SetInsertionPoint(0)
+		           pwdLabel = wx.StaticText(panel, -1, "Password:")
+		           pwdText = wx.TextCtrl(panel, -1, "password", size=(175, -1),
+		                   style=wx.TE_PASSWORD)
+		           sizer = wx.FlexGridSizer(cols=2, hgap=6, vgap=6)
+		           sizer.AddMany([basicLabel, basicText, pwdLabel, pwdText])
+		           panel.SetSizer(sizer)
+		if __name__ == '__main__':
+			app = wx.PySimpleApp()
+			frame = TextFrame()
+			frame.Show()
+			app.MainLoop()
+		
+		
+		
+		filename = wx.FileSelector(_('Import Todo.txt'),wildcard='*.txt')
+		if filename:
+				self.iocontroller.importTodoTxt(filename)"""
 
 class FileSynchronize(IOCommand, settings_uicommand.SettingsCommand):
     ''' Action for synchronizing the current task file with a SyncML 
@@ -1189,7 +1249,7 @@ class TaskNew(TaskListCommand, settings_uicommand.SettingsCommand):
     def __shouldPresetReminderDateTime(self):
         return 'reminder' not in self.taskKeywords and \
             self.settings.get('view', 'defaultreminderdatetime').startswith('preset')
-    
+
 
 class TaskNewFromTemplate(TaskNew):
     def __init__(self, filename, *args, **kwargs):
@@ -1218,7 +1278,6 @@ class TaskNewFromTemplate(TaskNew):
         newTaskDialog.Show(show)
         return newTaskDialog  # for testing purposes
    
-   
 class TaskNewFromTemplateButton(mixin_uicommand.PopupButtonMixin, 
                                 TaskListCommand, 
                                 settings_uicommand.SettingsCommand):
@@ -1228,11 +1287,10 @@ class TaskNewFromTemplateButton(mixin_uicommand.PopupButtonMixin,
                                      self.settings)
 
     def getMenuText(self):
-        return _('New task from &template')
+        return _('New from &template')
 
     def getHelpText(self):
         return _('Create a new task from a template')
-
 
 class NewTaskWithSelectedCategories(TaskNew, ViewerCommand):
     def __init__(self, *args, **kwargs):
@@ -2105,7 +2163,6 @@ class MainWindowRestore(base_uicommand.UICommand):
 
     def doCommand(self, event):
         self.mainWindow().restore(event)
-    
 
 class Search(ViewerCommand, settings_uicommand.SettingsCommand):
     # Search can only be attached to a real viewer, not to a viewercontainer
@@ -2124,7 +2181,7 @@ class Search(ViewerCommand, settings_uicommand.SettingsCommand):
         self.__bound = True
         searchString, matchCase, includeSubItems, searchDescription, regularExpression = \
             self.viewer.getSearchFilter()
-        # pylint: disable=W0201
+        #pylint: disable=W0201
         self.searchControl = widgets.SearchCtrl(toolbar, value=searchString,
             style=wx.TE_PROCESS_ENTER, matchCase=matchCase, 
             includeSubItems=includeSubItems, 
@@ -2175,6 +2232,60 @@ class Search(ViewerCommand, settings_uicommand.SettingsCommand):
     def doCommand(self, event):
         pass  # Not used
     
+
+class QuickAdd(TaskListCommand,ViewerCommand, settings_uicommand.SettingsCommand):
+    # Search can only be attached to a real viewer, not to a viewercontainer
+    def __init__(self, *args, **kwargs):
+        self.__bound = False
+        super(QuickAdd, self).__init__(*args, helpText=_('QuickAdd'), **kwargs)
+
+    def appendToToolBar(self, toolbar):
+        self.__bound = True
+        self.QuickAddControl = wx.TextCtrl(toolbar,-1,"",style=wx.TE_PROCESS_ENTER)
+       
+        toolbar.AddControl(self.QuickAddControl)
+        self.bindKeyDownEnter()
+        self.bindKeyDownInSearchCtrl()
+
+    def bindKeyDownInSearchCtrl(self):
+        ''' Bind wx.EVT_KEY_DOWN to self.onSearchCtrlKeyDown so we can catch 
+            the Escape key'''
+        self.QuickAddControl.Bind(wx.EVT_KEY_DOWN, self.onSearchCtrlKeyDown)
+   
+    def bindKeyDownEnter(self):
+        ''' Bind wx.EVT_KEY_DOWN to self.onViewerKeyDown so we can catch
+            Ctrl-F. '''
+        self.QuickAddControl.Bind(wx.EVT_KEY_DOWN, self.onEnterKey)
+	
+    def unbind(self, window, id_):
+        self.__bound = False
+        super(QuickAdd, self).unbind(window, id_)
+
+    def onSearchCtrlKeyDown(self, event):
+        ''' On Escape, move focus to the viewer'''
+        if event.KeyCode == wx.WXK_ESCAPE:
+            self.viewer.SetFocus()
+        else:
+            event.Skip()
+	
+    def onEnterKey(self,event):
+        if event.KeyCode == wx.WXK_RETURN:
+            taskArgs = quickAddParser.Parser().getAnswers(self.QuickAddControl.GetValue())
+            newTaskCommand = command.NewTaskCommand(self.mainWindow().taskFile.tasks(), 
+                subject=taskArgs['Title'],description=taskArgs['Description'],plannedStartDateTime=taskArgs['StartDate'],dueDateTime=taskArgs['EndDate'],
+					priority=taskArgs['Priority'],actualStartDateTime=taskArgs['ActualStartDate'],completionDateTime=taskArgs['CompletionDate'])
+            newTaskCommand.do()
+            #newTask=uicommand.TaskNew(taskList=self.mainWindow().taskFile.tasks(), settings=self.settings)
+            #newTask.doCommand(None)
+            self.QuickAddControl.Clear()
+        else:
+            event.Skip()
+  
+    def categoriesForTheNewTask(self):
+        return self.mainWindow().taskFile.categories().filteredCategories()
+
+    def doCommand(self, event):
+        pass  # Not used
 
 class ToolbarChoiceCommandMixin(object):
     def __init__(self, *args, **kwargs):
