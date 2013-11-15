@@ -311,7 +311,8 @@ class ExportMenu(Menu):
             uicommand.FileExportAsHTML(**kwargs),
             uicommand.FileExportAsCSV(**kwargs),
             uicommand.FileExportAsICalendar(**kwargs),
-            uicommand.FileExportAsTodoTxt(**kwargs))
+            uicommand.FileExportAsTodoTxt(**kwargs),
+			uicommand.FileExportAsPDF(**kwargs))
         
         
 class ImportMenu(Menu):

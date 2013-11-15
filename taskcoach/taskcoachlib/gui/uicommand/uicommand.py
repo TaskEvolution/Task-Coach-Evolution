@@ -413,7 +413,23 @@ class FileExportAsTodoTxt(FileExportCommand):
     def exportableViewer(aViewer):
         ''' Return whether the viewer can be exported to Todo.txt format. '''
         return aViewer.isShowingTasks()
-    
+
+class FileExportAsPDF(FileExportCommand):
+    ''' Action for exporting the contents of a viewer to PDF. '''
+    ''' author: Erik Ivarsson  '''
+    def __init__(self, *args, **kwargs):
+        super(FileExportAsPDF, self).__init__( \
+            menuText=_('Export as &PDF'), 
+            helpText=_('Export items from a viewer in PDF format'),
+            bitmap='exportascsv', *args, **kwargs) 
+        
+    @staticmethod
+    def getExportDialogClass():
+        return dialog.export.ExportAsPDFDialog
+
+    def exportFunction(self):
+        return self.iocontroller.exportAsPDF
+  
     
 class FileImportCSV(IOCommand):
     ''' Action for importing data from a CSV file into the current task 
