@@ -1,5 +1,6 @@
 
 *.svn-base
+*.pyc
 
 taskcoach/.svn/dir-prop-base
 
