@@ -1427,6 +1427,8 @@ class DragAndDropCommand(ViewerCommand):
 
 class TaskDragAndDrop(DragAndDropCommand, TaskListCommand):
     def createCommand(self, dropItem, dragItems, part):
+        print "drag and drop task", type(dropItem), map(type, dragItems), type(part)
+        print dir(dropItem)
         return command.DragAndDropTaskCommand(self.taskList, dragItems, 
                                               drop=[dropItem], part=part)
         
