@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-11-05 10:26+CET\n"
+"POT-Creation-Date: 2013-11-17 16:40+CET\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,7 +39,7 @@ msgid ""
 msgstr ""
 
 #: taskcoachlib/application/application.py:309
-#: taskcoachlib/gui/iocontroller.py:72
+#: taskcoachlib/gui/iocontroller.py:75
 msgid "%s file error"
 msgstr ""
 
@@ -1195,7 +1195,7 @@ msgid "Modification date"
 msgstr ""
 
 #: taskcoachlib/gui/dialog/editor.py:225
-#: taskcoachlib/gui/uicommand/uicommand.py:2335
+#: taskcoachlib/gui/uicommand/uicommand.py:2351
 #: taskcoachlib/gui/viewer/task.py:946
 #: taskcoachlib/gui/wizard/csvimport.py:232
 #: taskcoachlib/persistence/csv/reader.py:89
@@ -1320,7 +1320,7 @@ msgid "Mark task completed when all children are completed?"
 msgstr ""
 
 #: taskcoachlib/gui/dialog/editor.py:509 taskcoachlib/gui/dialog/editor.py:535
-#: taskcoachlib/gui/uicommand/uicommand.py:2334
+#: taskcoachlib/gui/uicommand/uicommand.py:2350
 #: taskcoachlib/gui/viewer/task.py:937
 #: taskcoachlib/gui/wizard/csvimport.py:238
 #: taskcoachlib/persistence/csv/reader.py:104
@@ -1328,7 +1328,7 @@ msgid "Budget"
 msgstr ""
 
 #: taskcoachlib/gui/dialog/editor.py:543
-#: taskcoachlib/gui/uicommand/uicommand.py:2334
+#: taskcoachlib/gui/uicommand/uicommand.py:2350
 #: taskcoachlib/gui/viewer/effort.py:214 taskcoachlib/gui/viewer/task.py:940
 msgid "Time spent"
 msgstr ""
@@ -1344,7 +1344,7 @@ msgid "Hourly fee"
 msgstr ""
 
 #: taskcoachlib/gui/dialog/editor.py:595
-#: taskcoachlib/gui/uicommand/uicommand.py:2334
+#: taskcoachlib/gui/uicommand/uicommand.py:2350
 #: taskcoachlib/gui/viewer/task.py:951
 #: taskcoachlib/gui/wizard/csvimport.py:239
 #: taskcoachlib/persistence/csv/reader.py:118
@@ -1352,7 +1352,7 @@ msgid "Fixed fee"
 msgstr ""
 
 #: taskcoachlib/gui/dialog/editor.py:601
-#: taskcoachlib/gui/uicommand/uicommand.py:2334
+#: taskcoachlib/gui/uicommand/uicommand.py:2350
 #: taskcoachlib/gui/viewer/effort.py:219 taskcoachlib/gui/viewer/task.py:954
 msgid "Revenue"
 msgstr ""
@@ -1579,19 +1579,23 @@ msgstr ""
 msgid "If a CSS file exists for the exported file, %(name)s will not overwrite it. This allows you to change the style information without losing your changes on the next export."
 msgstr ""
 
-#: taskcoachlib/gui/dialog/export.py:238 taskcoachlib/gui/iocontroller.py:327
+#: taskcoachlib/gui/dialog/export.py:238 taskcoachlib/gui/iocontroller.py:330
 msgid "Export as CSV"
 msgstr ""
 
-#: taskcoachlib/gui/dialog/export.py:259 taskcoachlib/gui/iocontroller.py:334
+#: taskcoachlib/gui/dialog/export.py:259 taskcoachlib/gui/iocontroller.py:337
 msgid "Export as iCalendar"
 msgstr ""
 
-#: taskcoachlib/gui/dialog/export.py:275 taskcoachlib/gui/iocontroller.py:320
+#: taskcoachlib/gui/dialog/export.py:275 taskcoachlib/gui/iocontroller.py:323
 msgid "Export as HTML"
 msgstr ""
 
-#: taskcoachlib/gui/dialog/export.py:291 taskcoachlib/gui/iocontroller.py:340
+#: taskcoachlib/gui/dialog/export.py:291 taskcoachlib/gui/iocontroller.py:350
+msgid "Export as PDF"
+msgstr ""
+
+#: taskcoachlib/gui/dialog/export.py:311 taskcoachlib/gui/iocontroller.py:343
 msgid "Export as Todo.txt"
 msgstr ""
 
@@ -2351,101 +2355,105 @@ msgstr ""
 msgid "Todo.txt files (*.txt)|*.txt|All files (*.*)|*"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:113
+#: taskcoachlib/gui/iocontroller.py:74
+msgid "PDF files (*.pdf)|*.pdf|All files (*.*)|*"
+msgstr ""
+
+#: taskcoachlib/gui/iocontroller.py:116
 msgid "Open"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:150
+#: taskcoachlib/gui/iocontroller.py:153
 msgid "Loaded %(nrtasks)d tasks from %(filename)s"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:154
+#: taskcoachlib/gui/iocontroller.py:157
 msgid "Cannot open %s because it doesn't exist"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:164
+#: taskcoachlib/gui/iocontroller.py:167
 msgid "Merge"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:170
+#: taskcoachlib/gui/iocontroller.py:173
 msgid ""
 "Cannot open %(filename)s\n"
 "because it is locked."
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:180
+#: taskcoachlib/gui/iocontroller.py:183
 msgid "Merged %(filename)s"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:201
+#: taskcoachlib/gui/iocontroller.py:204
 msgid "Save as"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:215
+#: taskcoachlib/gui/iocontroller.py:218
 msgid "Save selection"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:253
+#: taskcoachlib/gui/iocontroller.py:256
 msgid ""
 "Cannot save %s\n"
 "It is locked by another instance of %s.\n"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:258
+#: taskcoachlib/gui/iocontroller.py:261
 msgid ""
 "Cannot save %s\n"
 "%s"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:269
+#: taskcoachlib/gui/iocontroller.py:272
 msgid "Import template"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:271
+#: taskcoachlib/gui/iocontroller.py:274
 msgid "%s template files (*.tsktmpl)|*.tsktmpl"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:278
+#: taskcoachlib/gui/iocontroller.py:281
 msgid ""
 "Cannot import template %s\n"
 "%s"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:309
+#: taskcoachlib/gui/iocontroller.py:312
 msgid "Exported %(count)d items to %(filename)s"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:366
+#: taskcoachlib/gui/iocontroller.py:376
 msgid "Finished synchronization"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:375
+#: taskcoachlib/gui/iocontroller.py:385
 msgid "Synchronization status"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:383
+#: taskcoachlib/gui/iocontroller.py:393
 msgid ""
 "Cannot open %s\n"
 "%s"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:421
+#: taskcoachlib/gui/iocontroller.py:431
 msgid ""
 "A file named %s already exists.\n"
 "Do you want to replace it?"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:435
+#: taskcoachlib/gui/iocontroller.py:445
 msgid ""
 "You have unsaved changes.\n"
 "Save before closing?"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:436
+#: taskcoachlib/gui/iocontroller.py:446
 msgid "%s: save changes?"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:446
+#: taskcoachlib/gui/iocontroller.py:456
 msgid ""
 "Cannot open %s because it is locked.\n"
 "\n"
@@ -2457,33 +2465,33 @@ msgid ""
 "Break the lock?"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:454 taskcoachlib/gui/iocontroller.py:462
+#: taskcoachlib/gui/iocontroller.py:464 taskcoachlib/gui/iocontroller.py:472
 msgid "%s: file locked"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:459
+#: taskcoachlib/gui/iocontroller.py:469
 msgid ""
 "Cannot acquire a lock because locking is not supported\n"
 "on the location of %s.\n"
 "Open %s unlocked?"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:467
+#: taskcoachlib/gui/iocontroller.py:477
 msgid "Closed %s"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:473
+#: taskcoachlib/gui/iocontroller.py:483
 msgid "Saved %(nrtasks)d tasks to %(filename)s"
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:478
+#: taskcoachlib/gui/iocontroller.py:488
 msgid ""
 "Cannot open %(filename)s\n"
 "because it was created by a newer version of %(name)s.\n"
 "Please upgrade %(name)s."
 msgstr ""
 
-#: taskcoachlib/gui/iocontroller.py:488
+#: taskcoachlib/gui/iocontroller.py:498
 msgid ""
 "Error while reading %s:\n"
 msgstr ""
@@ -2561,190 +2569,190 @@ msgstr ""
 msgid "&Export"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:369
+#: taskcoachlib/gui/menu.py:370
 msgid "&Select"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:398
+#: taskcoachlib/gui/menu.py:399
 msgid "&New viewer"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:402
+#: taskcoachlib/gui/menu.py:403
 msgid "&Activate next viewer\tCtrl+PgDn"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:406
+#: taskcoachlib/gui/menu.py:407
 msgid "Activate &previous viewer\tCtrl+PgUp"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:414 taskcoachlib/gui/menu.py:415
+#: taskcoachlib/gui/menu.py:415 taskcoachlib/gui/menu.py:416
 msgid "&Mode"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:416 taskcoachlib/gui/menu.py:417
+#: taskcoachlib/gui/menu.py:417 taskcoachlib/gui/menu.py:418
 msgid "&Filter"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:418 taskcoachlib/gui/menu.py:419
+#: taskcoachlib/gui/menu.py:419 taskcoachlib/gui/menu.py:420
 msgid "&Sort"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:420 taskcoachlib/gui/menu.py:421
+#: taskcoachlib/gui/menu.py:421 taskcoachlib/gui/menu.py:422
 msgid "&Columns"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:423 taskcoachlib/gui/menu.py:424
+#: taskcoachlib/gui/menu.py:424 taskcoachlib/gui/menu.py:425
 msgid "&Rounding"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:426
+#: taskcoachlib/gui/menu.py:427
 msgid "&Tree options"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:430
+#: taskcoachlib/gui/menu.py:431
 msgid "T&oolbar"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:432
+#: taskcoachlib/gui/menu.py:433
 msgid "Show/hide status bar"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:432
+#: taskcoachlib/gui/menu.py:433
 msgid "Status&bar"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:443
+#: taskcoachlib/gui/menu.py:444
 msgid "&Task"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:444
+#: taskcoachlib/gui/menu.py:445
 msgid "Open a new tab with a viewer that displays tasks"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:446
+#: taskcoachlib/gui/menu.py:447
 msgid "Task &statistics"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:447
+#: taskcoachlib/gui/menu.py:448
 msgid "Open a new tab with a viewer that displays task statistics"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:449
+#: taskcoachlib/gui/menu.py:450
 msgid "Task &square map"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:450
+#: taskcoachlib/gui/menu.py:451
 msgid "Open a new tab with a viewer that displays tasks in a square map"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:452
+#: taskcoachlib/gui/menu.py:453
 msgid "T&imeline"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:453
+#: taskcoachlib/gui/menu.py:454
 msgid "Open a new tab with a viewer that displays a timeline of tasks and effort"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:455
+#: taskcoachlib/gui/menu.py:456
 msgid "&Calendar"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:456
+#: taskcoachlib/gui/menu.py:457
 msgid "Open a new tab with a viewer that displays tasks in a calendar"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:458 taskcoachlib/gui/viewer/mixin.py:336
+#: taskcoachlib/gui/menu.py:459 taskcoachlib/gui/viewer/mixin.py:336
 msgid "&Category"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:459
+#: taskcoachlib/gui/menu.py:460
 msgid "Open a new tab with a viewer that displays categories"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:463
+#: taskcoachlib/gui/menu.py:464
 msgid "&Effort"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:464
+#: taskcoachlib/gui/menu.py:465
 msgid "Open a new tab with a viewer that displays efforts"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:467
+#: taskcoachlib/gui/menu.py:468
 msgid "Effort for &one task"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:468
+#: taskcoachlib/gui/menu.py:469
 msgid "Open a new tab with a viewer that displays efforts for the selected task"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:472
+#: taskcoachlib/gui/menu.py:473
 msgid "&Note"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:473
+#: taskcoachlib/gui/menu.py:474
 msgid "Open a new tab with a viewer that displays notes"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:533
+#: taskcoachlib/gui/menu.py:534
 msgid "&Hide"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:533
+#: taskcoachlib/gui/menu.py:534
 msgid "Hide the toolbar"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:534
+#: taskcoachlib/gui/menu.py:535
 msgid "&Small images"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:534
+#: taskcoachlib/gui/menu.py:535
 msgid "Small images (16x16) on the toolbar"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:535
+#: taskcoachlib/gui/menu.py:536
 msgid "&Medium-sized images"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:535
+#: taskcoachlib/gui/menu.py:536
 msgid "Medium-sized images (22x22) on the toolbar"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:536
+#: taskcoachlib/gui/menu.py:537
 msgid "&Large images"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:536
+#: taskcoachlib/gui/menu.py:537
 msgid "Large images (32x32) on the toolbar"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:554 taskcoachlib/gui/menu.py:657
-#: taskcoachlib/gui/uicommand/uicommand.py:1231
+#: taskcoachlib/gui/menu.py:555 taskcoachlib/gui/menu.py:658
+#: taskcoachlib/gui/uicommand/uicommand.py:1247
 msgid "New task from &template"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:595 taskcoachlib/gui/menu.py:807
-#: taskcoachlib/gui/menu.py:911
+#: taskcoachlib/gui/menu.py:596 taskcoachlib/gui/menu.py:808
+#: taskcoachlib/gui/menu.py:912
 msgid "&Toggle category"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:606
+#: taskcoachlib/gui/menu.py:607
 msgid "Change task &priority"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:673 taskcoachlib/gui/uicommand/uicommand.py:1631
-#: taskcoachlib/gui/uicommand/uicommand.py:1673
+#: taskcoachlib/gui/menu.py:674 taskcoachlib/gui/uicommand/uicommand.py:1647
+#: taskcoachlib/gui/uicommand/uicommand.py:1689
 msgid "&Start tracking effort"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:724 taskcoachlib/gui/viewer/mixin.py:130
+#: taskcoachlib/gui/menu.py:725 taskcoachlib/gui/viewer/mixin.py:130
 msgid "%s (subcategories)"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:772
+#: taskcoachlib/gui/menu.py:773
 msgid "%s (subtasks)"
 msgstr ""
 
-#: taskcoachlib/gui/menu.py:817 taskcoachlib/gui/viewer/mixin.py:418
+#: taskcoachlib/gui/menu.py:818 taskcoachlib/gui/viewer/mixin.py:418
 #: taskcoachlib/gui/viewer/task.py:1082
 msgid "&Priority"
 msgstr ""
@@ -2920,662 +2928,670 @@ msgstr ""
 msgid "Export items from a viewer in Todo.txt format (see todotxt.com)"
 msgstr ""
 
+#: taskcoachlib/gui/uicommand/uicommand.py:422
+msgid "Export as &PDF"
+msgstr ""
+
 #: taskcoachlib/gui/uicommand/uicommand.py:423
+msgid "Export items from a viewer in PDF format"
+msgstr ""
+
+#: taskcoachlib/gui/uicommand/uicommand.py:439
 msgid "&Import CSV..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:424
+#: taskcoachlib/gui/uicommand/uicommand.py:440
 msgid "Import tasks from a Comma Separated Values (CSV) file"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:429
-#: taskcoachlib/gui/uicommand/uicommand.py:434
-#: taskcoachlib/gui/uicommand/uicommand.py:437
+#: taskcoachlib/gui/uicommand/uicommand.py:445
+#: taskcoachlib/gui/uicommand/uicommand.py:450
+#: taskcoachlib/gui/uicommand/uicommand.py:453
 msgid "Import CSV"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:432
+#: taskcoachlib/gui/uicommand/uicommand.py:448
 msgid "The selected file is empty. Please select a different file."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:451
+#: taskcoachlib/gui/uicommand/uicommand.py:467
 msgid "&Import Todo.txt..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:452
+#: taskcoachlib/gui/uicommand/uicommand.py:468
 msgid "Import tasks from a Todo.txt (see todotxt.com) file"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:456
+#: taskcoachlib/gui/uicommand/uicommand.py:472
 msgid "Import Todo.txt"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:467
+#: taskcoachlib/gui/uicommand/uicommand.py:483
 msgid "S&yncML synchronization..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:468
+#: taskcoachlib/gui/uicommand/uicommand.py:484
 msgid "Synchronize with a SyncML server"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:479
+#: taskcoachlib/gui/uicommand/uicommand.py:495
 msgid "&Quit\tCtrl+Q"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:499
+#: taskcoachlib/gui/uicommand/uicommand.py:515
 msgid "&Undo"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:533
+#: taskcoachlib/gui/uicommand/uicommand.py:549
 msgid "&Redo"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:560
+#: taskcoachlib/gui/uicommand/uicommand.py:576
 msgid "Cu&t\tCtrl+X"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:584
+#: taskcoachlib/gui/uicommand/uicommand.py:600
 msgid "&Copy\tCtrl+C"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:609
+#: taskcoachlib/gui/uicommand/uicommand.py:625
 msgid "&Paste\tCtrl+V"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:636
+#: taskcoachlib/gui/uicommand/uicommand.py:652
 msgid "P&aste as subitem\tShift+Ctrl+V"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:676
+#: taskcoachlib/gui/uicommand/uicommand.py:692
 msgid "&Preferences...\tAlt+P"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:682
+#: taskcoachlib/gui/uicommand/uicommand.py:698
 msgid "Preferences"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:691
+#: taskcoachlib/gui/uicommand/uicommand.py:707
 msgid "&SyncML preferences..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:692
+#: taskcoachlib/gui/uicommand/uicommand.py:708
 msgid "Edit SyncML preferences"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:698
+#: taskcoachlib/gui/uicommand/uicommand.py:714
 msgid "SyncML preferences"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:709
-#: taskcoachlib/gui/uicommand/uicommand.py:714
+#: taskcoachlib/gui/uicommand/uicommand.py:725
+#: taskcoachlib/gui/uicommand/uicommand.py:730
 msgid "Customize toolbar"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:710
+#: taskcoachlib/gui/uicommand/uicommand.py:726
 msgid "Customize"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:721
+#: taskcoachlib/gui/uicommand/uicommand.py:737
 msgid "&All\tCtrl+A"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:743
+#: taskcoachlib/gui/uicommand/uicommand.py:759
 msgid "&Clear selection"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:744
+#: taskcoachlib/gui/uicommand/uicommand.py:760
 msgid "Unselect all items"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:756
+#: taskcoachlib/gui/uicommand/uicommand.py:772
 msgid "&Clear all filters\tShift-Ctrl-R"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:773
+#: taskcoachlib/gui/uicommand/uicommand.py:789
 msgid "&Reset all categories\tCtrl-R"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:798
+#: taskcoachlib/gui/uicommand/uicommand.py:814
 msgid "Show/hide items belonging to %s"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:847
+#: taskcoachlib/gui/uicommand/uicommand.py:863
 msgid "&Rename viewer..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:848
+#: taskcoachlib/gui/uicommand/uicommand.py:864
 msgid "Rename the selected viewer"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:853
+#: taskcoachlib/gui/uicommand/uicommand.py:869
 msgid "New title for the viewer:"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:853
+#: taskcoachlib/gui/uicommand/uicommand.py:869
 msgid "Rename viewer"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:877
+#: taskcoachlib/gui/uicommand/uicommand.py:893
 msgid "&Hide this column"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:878
+#: taskcoachlib/gui/uicommand/uicommand.py:894
 msgid "Hide the selected column"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:924
+#: taskcoachlib/gui/uicommand/uicommand.py:940
 msgid "&Expand all items\tShift+Ctrl+E"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:938
+#: taskcoachlib/gui/uicommand/uicommand.py:954
 msgid "&Collapse all items\tShift+Ctrl+C"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:959
+#: taskcoachlib/gui/uicommand/uicommand.py:975
 msgid "&Ascending"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:960
+#: taskcoachlib/gui/uicommand/uicommand.py:976
 msgid "Sort ascending (checked) or descending (unchecked)"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:973
+#: taskcoachlib/gui/uicommand/uicommand.py:989
 msgid "Sort &case sensitive"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:974
+#: taskcoachlib/gui/uicommand/uicommand.py:990
 msgid "When comparing text, sorting is case sensitive (checked) or insensitive (unchecked)"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:989
+#: taskcoachlib/gui/uicommand/uicommand.py:1005
 msgid "Sort by status &first"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:990
+#: taskcoachlib/gui/uicommand/uicommand.py:1006
 msgid "Sort tasks by status (active/inactive/completed) first"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1027
+#: taskcoachlib/gui/uicommand/uicommand.py:1043
 msgid "Hide c&omposite tasks"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1028
+#: taskcoachlib/gui/uicommand/uicommand.py:1044
 msgid "Show/hide tasks with subtasks in list mode"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1043
+#: taskcoachlib/gui/uicommand/uicommand.py:1059
 msgid "&Edit...\tRETURN"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1044
+#: taskcoachlib/gui/uicommand/uicommand.py:1060
 msgid "Edit the selected item(s)"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1084
+#: taskcoachlib/gui/uicommand/uicommand.py:1100
 msgid "Edit &tracked task...\tShift-Alt-T"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1085
+#: taskcoachlib/gui/uicommand/uicommand.py:1101
 msgid "Edit the currently tracked task(s)"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1101
+#: taskcoachlib/gui/uicommand/uicommand.py:1117
 msgid "&Delete\tDEL"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1102
+#: taskcoachlib/gui/uicommand/uicommand.py:1118
 #: taskcoachlib/help/__init__.py:820
 msgid "Delete the selected item(s)"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1234
+#: taskcoachlib/gui/uicommand/uicommand.py:1250
 msgid "Create a new task from a template"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1240
+#: taskcoachlib/gui/uicommand/uicommand.py:1256
 msgid "New task with selected &categories..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1241
+#: taskcoachlib/gui/uicommand/uicommand.py:1257
 msgid "Insert a new task with the selected categories checked"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1252
+#: taskcoachlib/gui/uicommand/uicommand.py:1268
 msgid "New task with selected tasks as &prerequisites..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1253
+#: taskcoachlib/gui/uicommand/uicommand.py:1269
 msgid "Insert a new task with the selected tasks as prerequisite tasks"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1264
+#: taskcoachlib/gui/uicommand/uicommand.py:1280
 msgid "New task with selected tasks as &dependents..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1265
+#: taskcoachlib/gui/uicommand/uicommand.py:1281
 msgid "Insert a new task with the selected tasks as dependent tasks"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1275
+#: taskcoachlib/gui/uicommand/uicommand.py:1291
 msgid "New &subitem..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1276
+#: taskcoachlib/gui/uicommand/uicommand.py:1292
 msgid "New &subtask..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1277
+#: taskcoachlib/gui/uicommand/uicommand.py:1293
 msgid "New &subnote..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1278
+#: taskcoachlib/gui/uicommand/uicommand.py:1294
 msgid "New &subcategory..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1282
+#: taskcoachlib/gui/uicommand/uicommand.py:1298
 msgid "Insert a new subitem of the selected item"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1302
+#: taskcoachlib/gui/uicommand/uicommand.py:1318
 msgid "Mark task &active\tAlt+RETURN"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1303
+#: taskcoachlib/gui/uicommand/uicommand.py:1319
 msgid "Mark the selected task(s) active"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1321
+#: taskcoachlib/gui/uicommand/uicommand.py:1337
 msgid "Mark task &inactive\tCtrl+Alt+RETURN"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1322
+#: taskcoachlib/gui/uicommand/uicommand.py:1338
 msgid "Mark the selected task(s) inactive"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1340
+#: taskcoachlib/gui/uicommand/uicommand.py:1356
 msgid "Mark task &completed\tCtrl+RETURN"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1341
+#: taskcoachlib/gui/uicommand/uicommand.py:1357
 msgid "Mark the selected task(s) completed"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1361
+#: taskcoachlib/gui/uicommand/uicommand.py:1377
 msgid "&Maximize priority\tShift+Ctrl+I"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1375
+#: taskcoachlib/gui/uicommand/uicommand.py:1391
 msgid "&Minimize priority\tShift+Ctrl+D"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1389
+#: taskcoachlib/gui/uicommand/uicommand.py:1405
 msgid "&Increase priority\tCtrl+I"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1403
+#: taskcoachlib/gui/uicommand/uicommand.py:1419
 msgid "&Decrease priority\tCtrl+D"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1450
+#: taskcoachlib/gui/uicommand/uicommand.py:1466
 msgid "Toggle %s"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1484
+#: taskcoachlib/gui/uicommand/uicommand.py:1500
 msgid "&Mail...\tCtrl-M"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1484
+#: taskcoachlib/gui/uicommand/uicommand.py:1500
 msgid "&Mail...\tShift-Ctrl-M"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1497
+#: taskcoachlib/gui/uicommand/uicommand.py:1513
 msgid "Several things"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1500
+#: taskcoachlib/gui/uicommand/uicommand.py:1516
 msgid "and"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1530
+#: taskcoachlib/gui/uicommand/uicommand.py:1546
 msgid ""
 "Cannot send email:\n"
 "%s"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1531
+#: taskcoachlib/gui/uicommand/uicommand.py:1547
 msgid "%s mail error"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1538
+#: taskcoachlib/gui/uicommand/uicommand.py:1554
 msgid "Add &note...\tCtrl+B"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1555
+#: taskcoachlib/gui/uicommand/uicommand.py:1571
 msgid "Open all notes...\tShift+Ctrl+B"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1611
+#: taskcoachlib/gui/uicommand/uicommand.py:1627
 msgid "&Start tracking effort\tCtrl-T"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1632
+#: taskcoachlib/gui/uicommand/uicommand.py:1648
 msgid "Start tracking effort for the task(s) of the selected effort(s)"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1655
+#: taskcoachlib/gui/uicommand/uicommand.py:1671
 msgid "(No subject)"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1658
+#: taskcoachlib/gui/uicommand/uicommand.py:1674
 msgid "Start tracking effort for %s"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1674
+#: taskcoachlib/gui/uicommand/uicommand.py:1690
 msgid "Select a task via the menu and start tracking effort for it"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1686
+#: taskcoachlib/gui/uicommand/uicommand.py:1702
 msgid "Stop tracking or resume tracking effort\tShift+Ctrl+T"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1688
+#: taskcoachlib/gui/uicommand/uicommand.py:1704
 msgid "St&op tracking %s\tShift+Ctrl+T"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1689
+#: taskcoachlib/gui/uicommand/uicommand.py:1705
 msgid "Stop tracking effort for the active task(s)"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1690
+#: taskcoachlib/gui/uicommand/uicommand.py:1706
 msgid "&Resume tracking %s\tShift+Ctrl+T"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1691
+#: taskcoachlib/gui/uicommand/uicommand.py:1707
 msgid "Resume tracking effort for the last tracked task"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1775
+#: taskcoachlib/gui/uicommand/uicommand.py:1791
 msgid "multiple tasks"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1812
+#: taskcoachlib/gui/uicommand/uicommand.py:1828
 msgid "New category...\tCtrl-G"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1832
+#: taskcoachlib/gui/uicommand/uicommand.py:1848
 msgid "New note...\tCtrl-J"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1857
+#: taskcoachlib/gui/uicommand/uicommand.py:1873
 msgid "New &note with selected categories..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1858
+#: taskcoachlib/gui/uicommand/uicommand.py:1874
 msgid "Insert a new note with the selected categories checked"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1889
+#: taskcoachlib/gui/uicommand/uicommand.py:1905
 msgid "&Add attachment...\tShift-Ctrl-A"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1913
+#: taskcoachlib/gui/uicommand/uicommand.py:1929
 msgid "Error opening attachment"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1934
+#: taskcoachlib/gui/uicommand/uicommand.py:1950
 msgid "&Open all attachments...\tShift+Ctrl+O"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1976
+#: taskcoachlib/gui/uicommand/uicommand.py:1992
 msgid "&Help contents\tCtrl+?"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1979
+#: taskcoachlib/gui/uicommand/uicommand.py:1995
 msgid "&Help contents\tCtrl+H"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1981
+#: taskcoachlib/gui/uicommand/uicommand.py:1997
 msgid "Help"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1987
+#: taskcoachlib/gui/uicommand/uicommand.py:2003
 msgid "&Tips"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1988
+#: taskcoachlib/gui/uicommand/uicommand.py:2004
 msgid "Tips about the program"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1997
+#: taskcoachlib/gui/uicommand/uicommand.py:2013
 msgid "Anonymize"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1998
+#: taskcoachlib/gui/uicommand/uicommand.py:2014
 msgid "Anonymize a task file to attach it to a bug report"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2003
+#: taskcoachlib/gui/uicommand/uicommand.py:2019
 msgid "Your task file has been anonymized and saved to:"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2004
+#: taskcoachlib/gui/uicommand/uicommand.py:2020
 msgid "Finished"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2012
+#: taskcoachlib/gui/uicommand/uicommand.py:2028
 msgid "&About %s"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2013
+#: taskcoachlib/gui/uicommand/uicommand.py:2029
 msgid "Version and contact information about %s"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2014
+#: taskcoachlib/gui/uicommand/uicommand.py:2030
 msgid "About %s"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2021
+#: taskcoachlib/gui/uicommand/uicommand.py:2037
 msgid "&License"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2022
-#: taskcoachlib/gui/uicommand/uicommand.py:2023
+#: taskcoachlib/gui/uicommand/uicommand.py:2038
+#: taskcoachlib/gui/uicommand/uicommand.py:2039
 msgid "%s license"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2030
+#: taskcoachlib/gui/uicommand/uicommand.py:2046
 msgid "Check for update"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2031
+#: taskcoachlib/gui/uicommand/uicommand.py:2047
 msgid "Check for the availability of a new version of %s"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2047
+#: taskcoachlib/gui/uicommand/uicommand.py:2063
 msgid ""
 "Cannot open URL:\n"
 "%s"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2048
+#: taskcoachlib/gui/uicommand/uicommand.py:2064
 msgid "%s URL error"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2054
+#: taskcoachlib/gui/uicommand/uicommand.py:2070
 msgid "&Frequently asked questions"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2055
+#: taskcoachlib/gui/uicommand/uicommand.py:2071
 msgid "Browse the frequently asked questions and answers"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2062
+#: taskcoachlib/gui/uicommand/uicommand.py:2078
 msgid "Report a &bug..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2063
+#: taskcoachlib/gui/uicommand/uicommand.py:2079
 msgid "Report a bug or browse known bugs"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2070
+#: taskcoachlib/gui/uicommand/uicommand.py:2086
 msgid "Request a &feature..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2071
+#: taskcoachlib/gui/uicommand/uicommand.py:2087
 msgid "Request a new feature or vote for existing requests"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2078
+#: taskcoachlib/gui/uicommand/uicommand.py:2094
 msgid "Request &support..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2079
+#: taskcoachlib/gui/uicommand/uicommand.py:2095
 msgid "Request user support from the developers"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2087
+#: taskcoachlib/gui/uicommand/uicommand.py:2103
 msgid "Help improve &translations..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2088
+#: taskcoachlib/gui/uicommand/uicommand.py:2104
 msgid "Help improve the translations of %s"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2095
+#: taskcoachlib/gui/uicommand/uicommand.py:2111
 msgid "&Donate..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2096
+#: taskcoachlib/gui/uicommand/uicommand.py:2112
 msgid "Donate to support the development of %s"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2102
+#: taskcoachlib/gui/uicommand/uicommand.py:2118
 msgid "&Restore"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2103
+#: taskcoachlib/gui/uicommand/uicommand.py:2119
 msgid "Restore the window to its previous state"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2114
+#: taskcoachlib/gui/uicommand/uicommand.py:2130
 msgid "Search"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2227
+#: taskcoachlib/gui/uicommand/uicommand.py:2243
 msgid "Effort details"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2227
+#: taskcoachlib/gui/uicommand/uicommand.py:2243
 msgid "Effort per day"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2228
+#: taskcoachlib/gui/uicommand/uicommand.py:2244
 msgid "Effort per month"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2228
+#: taskcoachlib/gui/uicommand/uicommand.py:2244
 msgid "Effort per week"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2232
+#: taskcoachlib/gui/uicommand/uicommand.py:2248
 msgid "Aggregation mode"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2265
+#: taskcoachlib/gui/uicommand/uicommand.py:2281
 msgid "List"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2265
+#: taskcoachlib/gui/uicommand/uicommand.py:2281
 msgid "Tree"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2271
+#: taskcoachlib/gui/uicommand/uicommand.py:2287
 msgid "When checked, show tasks as tree, otherwise show tasks as list"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2302
+#: taskcoachlib/gui/uicommand/uicommand.py:2318
 msgid "Filter on all checked categories"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2303
+#: taskcoachlib/gui/uicommand/uicommand.py:2319
 msgid "Filter on any checked category"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2309
+#: taskcoachlib/gui/uicommand/uicommand.py:2325
 msgid "When checked, filter on all checked categories, otherwise on any checked category"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2339
+#: taskcoachlib/gui/uicommand/uicommand.py:2355
 msgid "Order choice"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2366
+#: taskcoachlib/gui/uicommand/uicommand.py:2382
 msgid "&Configure"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2367
+#: taskcoachlib/gui/uicommand/uicommand.py:2383
 msgid "Configure the calendar viewer"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2394
+#: taskcoachlib/gui/uicommand/uicommand.py:2410
 msgid "&Next period"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2395
+#: taskcoachlib/gui/uicommand/uicommand.py:2411
 msgid "Show next period"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2401
+#: taskcoachlib/gui/uicommand/uicommand.py:2417
 msgid "&Previous period"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2402
+#: taskcoachlib/gui/uicommand/uicommand.py:2418
 msgid "Show previous period"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2408
+#: taskcoachlib/gui/uicommand/uicommand.py:2424
 msgid "&Today"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2409
+#: taskcoachlib/gui/uicommand/uicommand.py:2425
 msgid "Show today"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2418
+#: taskcoachlib/gui/uicommand/uicommand.py:2434
 msgid "&Automatic column resizing"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2419
+#: taskcoachlib/gui/uicommand/uicommand.py:2435
 msgid "When checked, automatically resize columns to fill available space"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2441
+#: taskcoachlib/gui/uicommand/uicommand.py:2457
 msgid "Set pie chart angle"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2479
+#: taskcoachlib/gui/uicommand/uicommand.py:2495
 msgid "No rounding"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2479
+#: taskcoachlib/gui/uicommand/uicommand.py:2495
 #: taskcoachlib/thirdparty/smartdatetimectrl.py:1741
 msgid "1 minute"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2480
+#: taskcoachlib/gui/uicommand/uicommand.py:2496
 #: taskcoachlib/thirdparty/smartdatetimectrl.py:1743
 msgid "%d minutes"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2483
+#: taskcoachlib/gui/uicommand/uicommand.py:2499
 msgid "Rounding precision"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2502
+#: taskcoachlib/gui/uicommand/uicommand.py:2518
 msgid "&Always round up"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:2503
+#: taskcoachlib/gui/uicommand/uicommand.py:2519
 msgid "Always round up to the next rounding increment"
 msgstr ""
 
@@ -6252,6 +6268,1242 @@ msgstr ""
 #: taskcoachlib/thirdparty/aui/tabmdi.py:214
 #: taskcoachlib/thirdparty/aui/tabmdi.py:216
 msgid "&Window"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:11
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:11
+#: taskcoachlib/thirdparty/html5lib/constants.py:11
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:11
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:11
+msgid "Null character in input stream, replaced with U+FFFD."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:13
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:13
+#: taskcoachlib/thirdparty/html5lib/constants.py:13
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:13
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:13
+msgid "Invalid codepoint in stream."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:15
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:15
+#: taskcoachlib/thirdparty/html5lib/constants.py:15
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:15
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:15
+msgid "Solidus (/) incorrectly placed in tag."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:17
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:17
+#: taskcoachlib/thirdparty/html5lib/constants.py:17
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:17
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:17
+msgid "Incorrect CR newline entity, replaced with LF."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:19
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:19
+#: taskcoachlib/thirdparty/html5lib/constants.py:19
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:19
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:19
+msgid "Entity used with illegal number (windows-1252 reference)."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:21
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:21
+#: taskcoachlib/thirdparty/html5lib/constants.py:21
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:21
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:21
+msgid "Numeric entity couldn't be converted to character (codepoint U+%(charAsInt)08x)."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:24
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:24
+#: taskcoachlib/thirdparty/html5lib/constants.py:24
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:24
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:24
+msgid "Numeric entity represents an illegal codepoint: U+%(charAsInt)08x."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:27
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:27
+#: taskcoachlib/thirdparty/html5lib/constants.py:27
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:27
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:27
+msgid "Numeric entity didn't end with ';'."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:29
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:29
+#: taskcoachlib/thirdparty/html5lib/constants.py:29
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:29
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:29
+msgid "Numeric entity expected. Got end of file instead."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:31
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:31
+#: taskcoachlib/thirdparty/html5lib/constants.py:31
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:31
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:31
+msgid "Numeric entity expected but none found."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:33
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:33
+#: taskcoachlib/thirdparty/html5lib/constants.py:33
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:33
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:33
+msgid "Named entity didn't end with ';'."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:35
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:35
+#: taskcoachlib/thirdparty/html5lib/constants.py:35
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:35
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:35
+msgid "Named entity expected. Got none."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:37
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:37
+#: taskcoachlib/thirdparty/html5lib/constants.py:37
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:37
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:37
+msgid "End tag contains unexpected attributes."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:39
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:39
+#: taskcoachlib/thirdparty/html5lib/constants.py:39
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:39
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:39
+msgid "End tag contains unexpected self-closing flag."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:41
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:41
+#: taskcoachlib/thirdparty/html5lib/constants.py:41
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:41
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:41
+msgid "Expected tag name. Got '>' instead."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:43
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:43
+#: taskcoachlib/thirdparty/html5lib/constants.py:43
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:43
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:43
+msgid "Expected tag name. Got '?' instead. (HTML doesn't support processing instructions.)"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:46
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:46
+#: taskcoachlib/thirdparty/html5lib/constants.py:46
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:46
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:46
+msgid "Expected tag name. Got something else instead"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:48
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:48
+#: taskcoachlib/thirdparty/html5lib/constants.py:48
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:48
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:48
+msgid "Expected closing tag. Got '>' instead. Ignoring '</>'."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:50
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:50
+#: taskcoachlib/thirdparty/html5lib/constants.py:50
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:50
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:50
+msgid "Expected closing tag. Unexpected end of file."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:52
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:52
+#: taskcoachlib/thirdparty/html5lib/constants.py:52
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:52
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:52
+msgid "Expected closing tag. Unexpected character '%(data)s' found."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:54
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:54
+#: taskcoachlib/thirdparty/html5lib/constants.py:54
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:54
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:54
+msgid "Unexpected end of file in the tag name."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:56
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:56
+#: taskcoachlib/thirdparty/html5lib/constants.py:56
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:56
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:56
+msgid "Unexpected end of file. Expected attribute name instead."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:58
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:58
+#: taskcoachlib/thirdparty/html5lib/constants.py:58
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:58
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:58
+msgid "Unexpected end of file in attribute name."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:60
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:60
+#: taskcoachlib/thirdparty/html5lib/constants.py:60
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:60
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:60
+msgid "Invalid character in attribute name"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:62
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:62
+#: taskcoachlib/thirdparty/html5lib/constants.py:62
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:62
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:62
+msgid "Dropped duplicate attribute on tag."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:64
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:64
+#: taskcoachlib/thirdparty/html5lib/constants.py:64
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:64
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:64
+msgid "Unexpected end of file. Expected = or end of tag."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:66
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:66
+#: taskcoachlib/thirdparty/html5lib/constants.py:66
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:66
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:66
+msgid "Unexpected end of file. Expected attribute value."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:68
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:68
+#: taskcoachlib/thirdparty/html5lib/constants.py:68
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:68
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:68
+msgid "Expected attribute value. Got '>' instead."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:70
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:70
+#: taskcoachlib/thirdparty/html5lib/constants.py:70
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:70
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:70
+msgid "Unexpected = in unquoted attribute"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:72
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:72
+#: taskcoachlib/thirdparty/html5lib/constants.py:72
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:72
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:72
+msgid "Unexpected character in unquoted attribute"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:74
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:74
+#: taskcoachlib/thirdparty/html5lib/constants.py:74
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:74
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:74
+msgid "Unexpected character after attribute name."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:76
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:76
+#: taskcoachlib/thirdparty/html5lib/constants.py:76
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:76
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:76
+msgid "Unexpected character after attribute value."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:78
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:78
+#: taskcoachlib/thirdparty/html5lib/constants.py:78
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:78
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:78
+msgid "Unexpected end of file in attribute value (\")."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:80
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:80
+#: taskcoachlib/thirdparty/html5lib/constants.py:80
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:80
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:80
+msgid "Unexpected end of file in attribute value (')."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:82
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:82
+#: taskcoachlib/thirdparty/html5lib/constants.py:82
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:82
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:82
+msgid "Unexpected end of file in attribute value."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:84
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:84
+#: taskcoachlib/thirdparty/html5lib/constants.py:84
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:84
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:84
+msgid "Unexpected end of file in tag. Expected >"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:86
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:86
+#: taskcoachlib/thirdparty/html5lib/constants.py:86
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:86
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:86
+msgid "Unexpected character after / in tag. Expected >"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:88
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:88
+#: taskcoachlib/thirdparty/html5lib/constants.py:88
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:88
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:88
+msgid "Expected '--' or 'DOCTYPE'. Not found."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:90
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:90
+#: taskcoachlib/thirdparty/html5lib/constants.py:90
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:90
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:90
+msgid "Unexpected ! after -- in comment"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:92
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:92
+#: taskcoachlib/thirdparty/html5lib/constants.py:92
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:92
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:92
+msgid "Unexpected space after -- in comment"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:94
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:94
+#: taskcoachlib/thirdparty/html5lib/constants.py:94
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:94
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:94
+msgid "Incorrect comment."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:96
+#: taskcoachlib/thirdparty/constants.py:104
+#: taskcoachlib/thirdparty/constants.py:106
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:96
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:104
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:106
+#: taskcoachlib/thirdparty/html5lib/constants.py:96
+#: taskcoachlib/thirdparty/html5lib/constants.py:104
+#: taskcoachlib/thirdparty/html5lib/constants.py:106
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:96
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:104
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:106
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:96
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:104
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:106
+msgid "Unexpected end of file in comment."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:98
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:98
+#: taskcoachlib/thirdparty/html5lib/constants.py:98
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:98
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:98
+msgid "Unexpected end of file in comment (-)"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:100
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:100
+#: taskcoachlib/thirdparty/html5lib/constants.py:100
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:100
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:100
+msgid "Unexpected '-' after '--' found in comment."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:102
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:102
+#: taskcoachlib/thirdparty/html5lib/constants.py:102
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:102
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:102
+msgid "Unexpected end of file in comment (--)."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:108
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:108
+#: taskcoachlib/thirdparty/html5lib/constants.py:108
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:108
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:108
+msgid "Unexpected character in comment found."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:110
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:110
+#: taskcoachlib/thirdparty/html5lib/constants.py:110
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:110
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:110
+msgid "No space after literal string 'DOCTYPE'."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:112
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:112
+#: taskcoachlib/thirdparty/html5lib/constants.py:112
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:112
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:112
+msgid "Unexpected > character. Expected DOCTYPE name."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:114
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:114
+#: taskcoachlib/thirdparty/html5lib/constants.py:114
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:114
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:114
+msgid "Unexpected end of file. Expected DOCTYPE name."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:116
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:116
+#: taskcoachlib/thirdparty/html5lib/constants.py:116
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:116
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:116
+msgid "Unexpected end of file in DOCTYPE name."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:118
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:118
+#: taskcoachlib/thirdparty/html5lib/constants.py:118
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:118
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:118
+msgid "Unexpected end of file in DOCTYPE."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:120
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:120
+#: taskcoachlib/thirdparty/html5lib/constants.py:120
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:120
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:120
+msgid "Expected space or '>'. Got '%(data)s'"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:122
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:122
+#: taskcoachlib/thirdparty/html5lib/constants.py:122
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:122
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:122
+msgid "Unexpected end of DOCTYPE."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:124
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:124
+#: taskcoachlib/thirdparty/html5lib/constants.py:124
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:124
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:124
+msgid "Unexpected character in DOCTYPE."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:126
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:126
+#: taskcoachlib/thirdparty/html5lib/constants.py:126
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:126
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:126
+msgid "XXX innerHTML EOF"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:128
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:128
+#: taskcoachlib/thirdparty/html5lib/constants.py:128
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:128
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:128
+msgid "Unexpected DOCTYPE. Ignored."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:130
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:130
+#: taskcoachlib/thirdparty/html5lib/constants.py:130
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:130
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:130
+msgid "html needs to be the first start tag."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:132
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:132
+#: taskcoachlib/thirdparty/html5lib/constants.py:132
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:132
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:132
+msgid "Unexpected End of file. Expected DOCTYPE."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:134
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:134
+#: taskcoachlib/thirdparty/html5lib/constants.py:134
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:134
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:134
+msgid "Erroneous DOCTYPE."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:136
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:136
+#: taskcoachlib/thirdparty/html5lib/constants.py:136
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:136
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:136
+msgid "Unexpected non-space characters. Expected DOCTYPE."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:138
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:138
+#: taskcoachlib/thirdparty/html5lib/constants.py:138
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:138
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:138
+msgid "Unexpected start tag (%(name)s). Expected DOCTYPE."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:140
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:140
+#: taskcoachlib/thirdparty/html5lib/constants.py:140
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:140
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:140
+msgid "Unexpected end tag (%(name)s). Expected DOCTYPE."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:142
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:142
+#: taskcoachlib/thirdparty/html5lib/constants.py:142
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:142
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:142
+msgid "Unexpected end tag (%(name)s) after the (implied) root element."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:144
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:144
+#: taskcoachlib/thirdparty/html5lib/constants.py:144
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:144
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:144
+msgid "Unexpected end of file. Expected end tag (%(name)s)."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:146
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:146
+#: taskcoachlib/thirdparty/html5lib/constants.py:146
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:146
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:146
+msgid "Unexpected start tag head in existing head. Ignored."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:148
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:148
+#: taskcoachlib/thirdparty/html5lib/constants.py:148
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:148
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:148
+msgid "Unexpected end tag (%(name)s). Ignored."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:150
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:150
+#: taskcoachlib/thirdparty/html5lib/constants.py:150
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:150
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:150
+msgid "Unexpected start tag (%(name)s) that can be in head. Moved."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:152
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:152
+#: taskcoachlib/thirdparty/html5lib/constants.py:152
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:152
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:152
+msgid "Unexpected start tag (%(name)s)."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:154
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:154
+#: taskcoachlib/thirdparty/html5lib/constants.py:154
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:154
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:154
+msgid "Missing end tag (%(name)s)."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:156
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:156
+#: taskcoachlib/thirdparty/html5lib/constants.py:156
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:156
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:156
+msgid "Missing end tags (%(name)s)."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:158
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:158
+#: taskcoachlib/thirdparty/html5lib/constants.py:158
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:158
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:158
+msgid "Unexpected start tag (%(startName)s) implies end tag (%(endName)s)."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:161
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:161
+#: taskcoachlib/thirdparty/html5lib/constants.py:161
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:161
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:161
+msgid "Unexpected start tag (%(originalName)s). Treated as %(newName)s."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:163
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:163
+#: taskcoachlib/thirdparty/html5lib/constants.py:163
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:163
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:163
+msgid "Unexpected start tag %(name)s. Don't use it!"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:165
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:165
+#: taskcoachlib/thirdparty/html5lib/constants.py:165
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:165
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:165
+msgid "Unexpected start tag %(name)s. Ignored."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:167
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:167
+#: taskcoachlib/thirdparty/html5lib/constants.py:167
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:167
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:167
+msgid "Unexpected end tag (%(gotName)s). Missing end tag (%(expectedName)s)."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:170
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:170
+#: taskcoachlib/thirdparty/html5lib/constants.py:170
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:170
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:170
+msgid "End tag (%(name)s) seen too early. Expected other end tag."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:172
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:172
+#: taskcoachlib/thirdparty/html5lib/constants.py:172
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:172
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:172
+msgid "Unexpected end tag (%(gotName)s). Expected end tag (%(expectedName)s)."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:174
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:174
+#: taskcoachlib/thirdparty/html5lib/constants.py:174
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:174
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:174
+msgid "End tag (%(name)s) seen too early. Ignored."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:176
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:176
+#: taskcoachlib/thirdparty/html5lib/constants.py:176
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:176
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:176
+msgid "End tag (%(name)s) violates step 1, paragraph 1 of the adoption agency algorithm."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:179
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:179
+#: taskcoachlib/thirdparty/html5lib/constants.py:179
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:179
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:179
+msgid "End tag (%(name)s) violates step 1, paragraph 2 of the adoption agency algorithm."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:182
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:182
+#: taskcoachlib/thirdparty/html5lib/constants.py:182
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:182
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:182
+msgid "End tag (%(name)s) violates step 1, paragraph 3 of the adoption agency algorithm."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:185
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:185
+#: taskcoachlib/thirdparty/html5lib/constants.py:185
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:185
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:185
+msgid "End tag (%(name)s) violates step 4, paragraph 4 of the adoption agency algorithm."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:188
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:188
+#: taskcoachlib/thirdparty/html5lib/constants.py:188
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:188
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:188
+msgid "Unexpected end tag (%(originalName)s). Treated as %(newName)s."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:190
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:190
+#: taskcoachlib/thirdparty/html5lib/constants.py:190
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:190
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:190
+msgid "This element (%(name)s) has no end tag."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:192
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:192
+#: taskcoachlib/thirdparty/html5lib/constants.py:192
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:192
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:192
+msgid "Unexpected implied end tag (%(name)s) in the table phase."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:194
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:194
+#: taskcoachlib/thirdparty/html5lib/constants.py:194
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:194
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:194
+msgid "Unexpected implied end tag (%(name)s) in the table body phase."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:196
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:196
+#: taskcoachlib/thirdparty/html5lib/constants.py:196
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:196
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:196
+msgid "Unexpected non-space characters in table context caused voodoo mode."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:199
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:199
+#: taskcoachlib/thirdparty/html5lib/constants.py:199
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:199
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:199
+msgid "Unexpected input with type hidden in table context."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:201
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:201
+#: taskcoachlib/thirdparty/html5lib/constants.py:201
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:201
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:201
+msgid "Unexpected form in table context."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:203
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:203
+#: taskcoachlib/thirdparty/html5lib/constants.py:203
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:203
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:203
+msgid "Unexpected start tag (%(name)s) in table context caused voodoo mode."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:206
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:206
+#: taskcoachlib/thirdparty/html5lib/constants.py:206
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:206
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:206
+msgid "Unexpected end tag (%(name)s) in table context caused voodoo mode."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:209
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:209
+#: taskcoachlib/thirdparty/html5lib/constants.py:209
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:209
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:209
+msgid "Unexpected table cell start tag (%(name)s) in the table body phase."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:212
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:212
+#: taskcoachlib/thirdparty/html5lib/constants.py:212
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:212
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:212
+msgid "Got table cell end tag (%(name)s) while required end tags are missing."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:215
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:215
+#: taskcoachlib/thirdparty/html5lib/constants.py:215
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:215
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:215
+msgid "Unexpected end tag (%(name)s) in the table body phase. Ignored."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:217
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:217
+#: taskcoachlib/thirdparty/html5lib/constants.py:217
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:217
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:217
+msgid "Unexpected implied end tag (%(name)s) in the table row phase."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:219
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:219
+#: taskcoachlib/thirdparty/html5lib/constants.py:219
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:219
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:219
+msgid "Unexpected end tag (%(name)s) in the table row phase. Ignored."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:221
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:221
+#: taskcoachlib/thirdparty/html5lib/constants.py:221
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:221
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:221
+msgid "Unexpected select start tag in the select phase treated as select end tag."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:224
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:224
+#: taskcoachlib/thirdparty/html5lib/constants.py:224
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:224
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:224
+msgid "Unexpected input start tag in the select phase."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:226
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:226
+#: taskcoachlib/thirdparty/html5lib/constants.py:226
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:226
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:226
+msgid "Unexpected start tag token (%(name)s in the select phase. Ignored."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:229
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:229
+#: taskcoachlib/thirdparty/html5lib/constants.py:229
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:229
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:229
+msgid "Unexpected end tag (%(name)s) in the select phase. Ignored."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:231
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:231
+#: taskcoachlib/thirdparty/html5lib/constants.py:231
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:231
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:231
+msgid "Unexpected table element start tag (%(name)s) in the select in table phase."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:233
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:233
+#: taskcoachlib/thirdparty/html5lib/constants.py:233
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:233
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:233
+msgid "Unexpected table element end tag (%(name)s) in the select in table phase."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:235
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:235
+#: taskcoachlib/thirdparty/html5lib/constants.py:235
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:235
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:235
+msgid "Unexpected non-space characters in the after body phase."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:237
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:237
+#: taskcoachlib/thirdparty/html5lib/constants.py:237
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:237
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:237
+msgid "Unexpected start tag token (%(name)s) in the after body phase."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:240
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:240
+#: taskcoachlib/thirdparty/html5lib/constants.py:240
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:240
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:240
+msgid "Unexpected end tag token (%(name)s) in the after body phase."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:243
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:243
+#: taskcoachlib/thirdparty/html5lib/constants.py:243
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:243
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:243
+msgid "Unexpected characters in the frameset phase. Characters ignored."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:245
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:245
+#: taskcoachlib/thirdparty/html5lib/constants.py:245
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:245
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:245
+msgid "Unexpected start tag token (%(name)s) in the frameset phase. Ignored."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:248
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:248
+#: taskcoachlib/thirdparty/html5lib/constants.py:248
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:248
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:248
+msgid "Unexpected end tag token (frameset) in the frameset phase (innerHTML)."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:251
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:251
+#: taskcoachlib/thirdparty/html5lib/constants.py:251
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:251
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:251
+msgid "Unexpected end tag token (%(name)s) in the frameset phase. Ignored."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:254
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:254
+#: taskcoachlib/thirdparty/html5lib/constants.py:254
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:254
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:254
+msgid "Unexpected non-space characters in the after frameset phase. Ignored."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:257
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:257
+#: taskcoachlib/thirdparty/html5lib/constants.py:257
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:257
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:257
+msgid "Unexpected start tag (%(name)s) in the after frameset phase. Ignored."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:260
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:260
+#: taskcoachlib/thirdparty/html5lib/constants.py:260
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:260
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:260
+msgid "Unexpected end tag (%(name)s) in the after frameset phase. Ignored."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:263
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:263
+#: taskcoachlib/thirdparty/html5lib/constants.py:263
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:263
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:263
+msgid "Unexpected end tag after body(innerHtml)"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:265
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:265
+#: taskcoachlib/thirdparty/html5lib/constants.py:265
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:265
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:265
+msgid "Unexpected non-space characters. Expected end of file."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:267
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:267
+#: taskcoachlib/thirdparty/html5lib/constants.py:267
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:267
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:267
+msgid "Unexpected start tag (%(name)s). Expected end of file."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:270
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:270
+#: taskcoachlib/thirdparty/html5lib/constants.py:270
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:270
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:270
+msgid "Unexpected end tag (%(name)s). Expected end of file."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:273
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:273
+#: taskcoachlib/thirdparty/html5lib/constants.py:273
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:273
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:273
+msgid "Unexpected end of file. Expected table content."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:275
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:275
+#: taskcoachlib/thirdparty/html5lib/constants.py:275
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:275
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:275
+msgid "Unexpected end of file. Expected select content."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:277
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:277
+#: taskcoachlib/thirdparty/html5lib/constants.py:277
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:277
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:277
+msgid "Unexpected end of file. Expected frameset content."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:279
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:279
+#: taskcoachlib/thirdparty/html5lib/constants.py:279
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:279
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:279
+msgid "Unexpected end of file. Expected script content."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:281
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:281
+#: taskcoachlib/thirdparty/html5lib/constants.py:281
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:281
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:281
+msgid "Unexpected end of file. Expected foreign content"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:283
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:283
+#: taskcoachlib/thirdparty/html5lib/constants.py:283
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:283
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:283
+msgid "Trailing solidus not allowed on element %(name)s"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:285
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:285
+#: taskcoachlib/thirdparty/html5lib/constants.py:285
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:285
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:285
+msgid "Element %(name)s not allowed in a non-html context"
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:287
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:287
+#: taskcoachlib/thirdparty/html5lib/constants.py:287
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:287
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:287
+msgid "Unexpected end tag (%(name)s) before html."
+msgstr ""
+
+#: taskcoachlib/thirdparty/constants.py:289
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/constants.py:289
+#: taskcoachlib/thirdparty/html5lib/constants.py:289
+#: taskcoachlib/thirdparty/html5lib/html5lib/constants.py:289
+#: taskcoachlib/thirdparty/lib/html5lib/constants.py:289
+msgid "Undefined error (this sucks and should be fixed)"
+msgstr ""
+
+#: taskcoachlib/thirdparty/filters/lint.py:26
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:26
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:26
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:26
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:26
+msgid "StartTag not in PCDATA content model flag: %(tag)s"
+msgstr ""
+
+#: taskcoachlib/thirdparty/filters/lint.py:28
+#: taskcoachlib/thirdparty/filters/lint.py:54
+#: taskcoachlib/thirdparty/filters/lint.py:84
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:28
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:54
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:84
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:28
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:54
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:84
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:28
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:54
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:84
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:28
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:54
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:84
+msgid "Tag name is not a string: %(tag)r"
+msgstr ""
+
+#: taskcoachlib/thirdparty/filters/lint.py:30
+#: taskcoachlib/thirdparty/filters/lint.py:56
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:30
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:56
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:30
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:56
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:30
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:56
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:30
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:56
+msgid "Empty tag name"
+msgstr ""
+
+#: taskcoachlib/thirdparty/filters/lint.py:32
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:32
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:32
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:32
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:32
+msgid "Void element reported as StartTag token: %(tag)s"
+msgstr ""
+
+#: taskcoachlib/thirdparty/filters/lint.py:34
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:34
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:34
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:34
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:34
+msgid "Non-void element reported as EmptyTag token: %(tag)s"
+msgstr ""
+
+#: taskcoachlib/thirdparty/filters/lint.py:39
+#: taskcoachlib/thirdparty/filters/lint.py:71
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:39
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:71
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:39
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:71
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:39
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:71
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:39
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:71
+msgid "Attribute name is not a string: %(name)r"
+msgstr ""
+
+#: taskcoachlib/thirdparty/filters/lint.py:41
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:41
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:41
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:41
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:41
+msgid "Empty attribute name"
+msgstr ""
+
+#: taskcoachlib/thirdparty/filters/lint.py:43
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:43
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:43
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:43
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:43
+msgid "Attribute value is not a string: %(value)r"
+msgstr ""
+
+#: taskcoachlib/thirdparty/filters/lint.py:58
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:58
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:58
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:58
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:58
+msgid "Void element reported as EndTag token: %(tag)s"
+msgstr ""
+
+#: taskcoachlib/thirdparty/filters/lint.py:61
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:61
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:61
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:61
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:61
+msgid "EndTag (%(end)s) does not match StartTag (%(start)s)"
+msgstr ""
+
+#: taskcoachlib/thirdparty/filters/lint.py:66
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:66
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:66
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:66
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:66
+msgid "Comment not in PCDATA content model flag"
+msgstr ""
+
+#: taskcoachlib/thirdparty/filters/lint.py:73
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:73
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:73
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:73
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:73
+msgid "%(type)s token with empty data"
+msgstr ""
+
+#: taskcoachlib/thirdparty/filters/lint.py:77
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:77
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:77
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:77
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:77
+msgid "Non-space character(s) found in SpaceCharacters token: %(token)r"
+msgstr ""
+
+#: taskcoachlib/thirdparty/filters/lint.py:82
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:82
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:82
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:82
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:82
+msgid "Doctype not in PCDATA content model flag: %(name)s"
+msgstr ""
+
+#: taskcoachlib/thirdparty/filters/lint.py:91
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/filters/lint.py:91
+#: taskcoachlib/thirdparty/html5lib/filters/lint.py:91
+#: taskcoachlib/thirdparty/html5lib/html5lib/filters/lint.py:91
+#: taskcoachlib/thirdparty/lib/html5lib/filters/lint.py:91
+msgid "Unknown token type: %(type)s"
+msgstr ""
+
+#:
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/serializer/htmlserializer.py:211
+#: taskcoachlib/thirdparty/html5lib/html5lib/serializer/htmlserializer.py:211
+#: taskcoachlib/thirdparty/html5lib/serializer/htmlserializer.py:211
+#: taskcoachlib/thirdparty/lib/html5lib/serializer/htmlserializer.py:211
+#: taskcoachlib/thirdparty/serializer/htmlserializer.py:211
+msgid "System identifer contains both single and double quote characters"
+msgstr ""
+
+#:
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/serializer/htmlserializer.py:223
+#: taskcoachlib/thirdparty/html5lib/html5lib/serializer/htmlserializer.py:223
+#: taskcoachlib/thirdparty/html5lib/serializer/htmlserializer.py:223
+#: taskcoachlib/thirdparty/lib/html5lib/serializer/htmlserializer.py:223
+#: taskcoachlib/thirdparty/serializer/htmlserializer.py:223
+msgid "Unexpected </ in CDATA"
+msgstr ""
+
+#:
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/serializer/htmlserializer.py:234
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/serializer/htmlserializer.py:282
+#: taskcoachlib/thirdparty/html5lib/html5lib/serializer/htmlserializer.py:234
+#: taskcoachlib/thirdparty/html5lib/html5lib/serializer/htmlserializer.py:282
+#: taskcoachlib/thirdparty/html5lib/serializer/htmlserializer.py:234
+#: taskcoachlib/thirdparty/html5lib/serializer/htmlserializer.py:282
+#: taskcoachlib/thirdparty/lib/html5lib/serializer/htmlserializer.py:234
+#: taskcoachlib/thirdparty/lib/html5lib/serializer/htmlserializer.py:282
+#: taskcoachlib/thirdparty/serializer/htmlserializer.py:234
+#: taskcoachlib/thirdparty/serializer/htmlserializer.py:282
+msgid "Unexpected child element of a CDATA element"
+msgstr ""
+
+#:
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/serializer/htmlserializer.py:288
+#: taskcoachlib/thirdparty/html5lib/html5lib/serializer/htmlserializer.py:288
+#: taskcoachlib/thirdparty/html5lib/serializer/htmlserializer.py:288
+#: taskcoachlib/thirdparty/lib/html5lib/serializer/htmlserializer.py:288
+#: taskcoachlib/thirdparty/serializer/htmlserializer.py:288
+msgid "Comment contains --"
+msgstr ""
+
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/treewalkers/_base.py:61
+#: taskcoachlib/thirdparty/html5lib/html5lib/treewalkers/_base.py:61
+#: taskcoachlib/thirdparty/html5lib/treewalkers/_base.py:61
+#: taskcoachlib/thirdparty/lib/html5lib/treewalkers/_base.py:61
+#: taskcoachlib/thirdparty/treewalkers/_base.py:61
+msgid "Void element has children"
+msgstr ""
+
+#:
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/treewalkers/_base.py:125
+#: taskcoachlib/thirdparty/html5lib/html5lib/treewalkers/_base.py:125
+#: taskcoachlib/thirdparty/html5lib/treewalkers/_base.py:125
+#: taskcoachlib/thirdparty/lib/html5lib/treewalkers/_base.py:125
+#: taskcoachlib/thirdparty/treewalkers/_base.py:125
+msgid "Unknown node type: "
+msgstr ""
+
+#:
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/treewalkers/lxmletree.py:137
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/treewalkers/lxmletree.py:187
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/treewalkers/lxmletree.py:203
+#: taskcoachlib/thirdparty/html5lib/html5lib/treewalkers/lxmletree.py:137
+#: taskcoachlib/thirdparty/html5lib/html5lib/treewalkers/lxmletree.py:187
+#: taskcoachlib/thirdparty/html5lib/html5lib/treewalkers/lxmletree.py:203
+#: taskcoachlib/thirdparty/html5lib/treewalkers/lxmletree.py:137
+#: taskcoachlib/thirdparty/html5lib/treewalkers/lxmletree.py:187
+#: taskcoachlib/thirdparty/html5lib/treewalkers/lxmletree.py:203
+#: taskcoachlib/thirdparty/lib/html5lib/treewalkers/lxmletree.py:137
+#: taskcoachlib/thirdparty/lib/html5lib/treewalkers/lxmletree.py:187
+#: taskcoachlib/thirdparty/lib/html5lib/treewalkers/lxmletree.py:203
+#: taskcoachlib/thirdparty/treewalkers/lxmletree.py:137
+#: taskcoachlib/thirdparty/treewalkers/lxmletree.py:187
+#: taskcoachlib/thirdparty/treewalkers/lxmletree.py:203
+msgid "Text nodes are text or tail, found %s"
+msgstr ""
+
+#:
+#: taskcoachlib/thirdparty/html5lib/build/lib/html5lib/treewalkers/lxmletree.py:176
+#: taskcoachlib/thirdparty/html5lib/html5lib/treewalkers/lxmletree.py:176
+#: taskcoachlib/thirdparty/html5lib/treewalkers/lxmletree.py:176
+#: taskcoachlib/thirdparty/lib/html5lib/treewalkers/lxmletree.py:176
+#: taskcoachlib/thirdparty/treewalkers/lxmletree.py:176
+msgid "Text nodes have no children"
 msgstr ""
 
 #: taskcoachlib/thirdparty/smartdatetimectrl.py:1675

@@ -26,7 +26,7 @@ DOT="dot"       # dot should be on the path
 # make it the default does not seem to work on Lion).
 
 ifeq "$(shell uname -sm)" "Darwin x86_64"
-    PYTHON?="python"
+    PYTHON?="python_32"
 else
     PYTHON?="python"
 endif
@@ -174,7 +174,7 @@ thirdpartymodules:
 	cd thirdparty; tar xzf APScheduler-2.0.3.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty APScheduler-2.0.3/apscheduler
 	cd thirdparty; tar xzf xhtml2pdf-0.0.5.tar.gz --strip-components=2 -C ../taskcoachlib/thirdparty xhtml2pdf-0.0.5/xhtml2pdf-0.0.5/xhtml2pdf
 	cd thirdparty; tar xzf reportlab.tar.gz --strip-components=3 -C ../taskcoachlib/thirdparty reportlab/reportlab/src
-	cd thirdparty; tar xzf html5lib.tar.gz --strip-components=3 -C ../taskcoachlib/thirdparty html5lib/html5lib/
+	cd thirdparty; tar xzf html5lib.tar.gz --strip-components=2 -C ../taskcoachlib/thirdparty html5lib/html5lib/html5lib
 	cd thirdparty; tar xzf six-1.4.1.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty six-1.4.1/
 	cd thirdparty; tar xzf chardet-2.1.1.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty chardet-2.1.1/chardet
 	cd thirdparty; tar xzf python-dateutil-1.5.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty python-dateutil-1.5/dateutil
