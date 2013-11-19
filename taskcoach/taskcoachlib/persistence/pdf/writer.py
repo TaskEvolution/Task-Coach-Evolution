@@ -35,12 +35,22 @@ class PDFWriter(object):
         
         
         textToPdf, count = generator.viewer2pdf(viewer, settings, selectionOnly, columns)
+        print textToPdf
         self.__fd.close()
         resultFile = open(self.__filename, "w+b")
         pisa.CreatePDF(textToPdf, resultFile)
         resultFile.close()
-        print textToPdf
+        
         return count
 
-    
+    @classmethod
+    def contextsAndProjects(cls, task):
+        subjects = []
+        for category in task.categories():
+            subject = category.subject(recursive=True).strip()
+            if subject and subject[0] in ('@', '+'):
+                subject = re.sub(r' -> ', '->', subject)
+                subject = re.sub(r'\s+', '_', subject)
+                subjects.append(subject)
+        return ' ' + ' '.join(sorted(subjects)) if subjects else ''
     
