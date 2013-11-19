@@ -69,6 +69,9 @@ class IOController(object):
         self.__todotxtFileDialogOpts = {'default_path': defaultPath,
             'default_extension': 'txt', 'wildcard':
             _('Todo.txt files (*.txt)|*.txt|All files (*.*)|*')}
+        self.__pdfFileDialogOpts = {'default_path': defaultPath,
+            'default_extension': 'pdf', 'wildcard':
+            _('PDF files (*.pdf)|*.pdf|All files (*.*)|*')}
         self.__errorMessageOptions = dict(caption=_('%s file error') % \
                                           meta.name, style=wx.ICON_ERROR)
 
@@ -340,6 +343,13 @@ class IOController(object):
         return self.export(_('Export as Todo.txt'),
             self.__todotxtFileDialogOpts, persistence.TodoTxtWriter, viewer,
             selectionOnly, fileExists=fileExists)
+
+    def exportAsPDF(self, viewer, selectionOnly=False, columns=None,
+                        fileExists=os.path.exists):
+        #Export as PDF
+        return self.export(_('Export as PDF'),
+            self.__pdfFileDialogOpts, persistence.PDFWriter, viewer,
+            selectionOnly, fileExists=fileExists, columns=columns)
 
     def importCSV(self, **kwargs):
         persistence.CSVReader(self.__taskFile.tasks(),

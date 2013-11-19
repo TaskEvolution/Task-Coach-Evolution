@@ -36,3 +36,4 @@ from autoimporterexporter import AutoImporterExporter
 from autobackup import AutoBackup
 from sessiontempfile import get_temp_file
 from templatelist import TemplateList
+from pdf.writer import PDFWriter
