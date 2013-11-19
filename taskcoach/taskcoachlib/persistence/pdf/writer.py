@@ -29,28 +29,16 @@ class PDFWriter(object):
     def __init__(self, fd, filename):
         self.__fd = fd
         self.__filename = filename
-        self.__maxDateTime = date.DateTime()
         
     def write(self, viewer, settings, selectionOnly, columns = None):
-        
-        
+
         textToPdf, count = generator.viewer2pdf(viewer, settings, selectionOnly, columns)
         print textToPdf
         self.__fd.close()
         resultFile = open(self.__filename, "w+b")
-        pisa.CreatePDF(textToPdf, resultFile)
+        pisa.CreatePDF("""<center><h1>Tasks</h1></center><ol><li>Erik</li><li>Lumbo</li></ol>""", resultFile)
         resultFile.close()
         
         return count
 
-    @classmethod
-    def contextsAndProjects(cls, task):
-        subjects = []
-        for category in task.categories():
-            subject = category.subject(recursive=True).strip()
-            if subject and subject[0] in ('@', '+'):
-                subject = re.sub(r' -> ', '->', subject)
-                subject = re.sub(r'\s+', '_', subject)
-                subjects.append(subject)
-        return ' ' + ' '.join(sorted(subjects)) if subjects else ''
     
