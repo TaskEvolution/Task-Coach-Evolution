@@ -41,7 +41,7 @@ class CategoryList(base.Collection):
             if category.subject(recursive=recursive) == name:
                 return category
         return None
-    
+
     def filteredCategories(self):
         return [category for category in self if category.isFiltered()]
     

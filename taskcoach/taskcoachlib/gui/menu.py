@@ -275,7 +275,6 @@ class FileMenu(Menu):
             self.__removeRecentFileMenuItems()
             self.__insertRecentFileMenuItems()        
         event.Skip()
-    
     def __insertRecentFileMenuItems(self):
         recentFiles = self.__settings.getlist('file', 'recentfiles')
         if not recentFiles:
@@ -319,8 +318,7 @@ class ImportMenu(Menu):
         super(ImportMenu, self).__init__(mainwindow)
         self.appendUICommands(
             uicommand.FileImportCSV(iocontroller=iocontroller),
-            uicommand.FileImportTodoTxt(iocontroller=iocontroller),
-			uicommand.FileImportGoogleCalendar(iocontroller=iocontroller))
+            uicommand.FileImportTodoTxt(iocontroller=iocontroller))
 
 
 class TaskTemplateMenu(DynamicMenu):

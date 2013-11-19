@@ -30,3 +30,4 @@ from base import CopyCommand, DeleteCommand, CutCommand, PasteCommand, \
     EditForegroundColorCommand, EditBackgroundColorCommand, \
     PasteAsSubItemCommand, EditSubjectCommand, EditDescriptionCommand
 from clipboard import Clipboard
+from quickAddParser import Parser
