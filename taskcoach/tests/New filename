@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?taskcoach release="1.4.0" tskversion="37"?>
+
+<tasks>
+<task creationDateTime="2013-11-19 09:03:01.789024" id="02f0504a-50f1-11e3-9106-c42c0329fc3e" status="1" />
+<syncmlconfig>
+<TaskCoach-000001426f62467bd6d0dc4f0081001000c1007f>
+<spds>
+<sources>
+<TaskCoach-000001426f62467bd6d0dc4f0081001000c1007f.Tasks />
+<TaskCoach-000001426f62467bd6d0dc4f0081001000c1007f.Notes />
+</sources>
+<syncml>
+<Auth />
+<Conn />
+</syncml>
+</spds>
+</TaskCoach-000001426f62467bd6d0dc4f0081001000c1007f>
+</syncmlconfig>
+<guid>
+000001426f62467bd6d0dc4f0081001000c1007f
+</guid>
+</tasks>
