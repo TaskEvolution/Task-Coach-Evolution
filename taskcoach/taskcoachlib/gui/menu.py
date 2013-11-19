@@ -275,7 +275,6 @@ class FileMenu(Menu):
             self.__removeRecentFileMenuItems()
             self.__insertRecentFileMenuItems()        
         event.Skip()
-    
     def __insertRecentFileMenuItems(self):
         recentFiles = self.__settings.getlist('file', 'recentfiles')
         if not recentFiles:
@@ -552,9 +551,9 @@ class NewMenu(Menu):
                 viewer=viewerContainer, settings=settings),
             uicommand.NewTaskWithSelectedTasksAsDependencies(taskList=tasks, 
                 viewer=viewerContainer, settings=settings))
-        self.appendMenu(_('New task from &template'),
-            TaskTemplateMenu(mainwindow, taskList=tasks, settings=settings),
-            'newtmpl')
+	self.appendMenu(_('New task from &template'),
+            	TaskTemplateMenu(mainwindow, taskList=tasks, settings=settings),
+            	'newtmpl')
         self.appendUICommands(None)
         if settings.getboolean('feature', 'effort'):
             self.appendUICommands(

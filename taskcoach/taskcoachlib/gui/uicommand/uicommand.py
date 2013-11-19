@@ -19,8 +19,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
+import wx
+
 from taskcoachlib import patterns, meta, command, help, widgets, persistence, \
     thirdparty, render, operating_system  # pylint: disable=W0622
+from taskcoachlib.command import quickAddParser
 from taskcoachlib.domain import base, task, note, category, attachment, \
     effort, date
 from taskcoachlib.gui import dialog, printer
@@ -33,11 +36,11 @@ from taskcoachlib.thirdparty.wxScheduler import wxSCHEDULER_NEXT, \
     wxSCHEDULER_PREV, wxSCHEDULER_TODAY
 from taskcoachlib.tools import anonymize
 from taskcoachlib.workarounds import ExceptionAsUnicode
-import wx
 import base_uicommand
 import mixin_uicommand
 import settings_uicommand
 
+#import taskcoachlib.domain.date.dateandtime
 
 class IOCommand(base_uicommand.UICommand):  # pylint: disable=W0223
     def __init__(self, *args, **kwargs):
@@ -134,7 +137,6 @@ class FileSave(IOCommand):
         super(FileSave, self).__init__(menuText=_('&Save\tCtrl+S'),
             helpText=help.fileSave, bitmap='save', id=wx.ID_SAVE, 
             *args, **kwargs)
-
     def doCommand(self, event):
         self.iocontroller.save()
         
@@ -472,7 +474,6 @@ class FileImportTodoTxt(IOCommand):
         filename = wx.FileSelector(_('Import Todo.txt'), wildcard='*.txt')
         if filename:
             self.iocontroller.importTodoTxt(filename)
-            
 
 class FileSynchronize(IOCommand, settings_uicommand.SettingsCommand):
     ''' Action for synchronizing the current task file with a SyncML 
@@ -1205,7 +1206,7 @@ class TaskNew(TaskListCommand, settings_uicommand.SettingsCommand):
     def __shouldPresetReminderDateTime(self):
         return 'reminder' not in self.taskKeywords and \
             self.settings.get('view', 'defaultreminderdatetime').startswith('preset')
-    
+
 
 class TaskNewFromTemplate(TaskNew):
     def __init__(self, filename, *args, **kwargs):
@@ -1234,7 +1235,6 @@ class TaskNewFromTemplate(TaskNew):
         newTaskDialog.Show(show)
         return newTaskDialog  # for testing purposes
    
-   
 class TaskNewFromTemplateButton(mixin_uicommand.PopupButtonMixin, 
                                 TaskListCommand, 
                                 settings_uicommand.SettingsCommand):
@@ -1244,11 +1244,10 @@ class TaskNewFromTemplateButton(mixin_uicommand.PopupButtonMixin,
                                      self.settings)
 
     def getMenuText(self):
-        return _('New task from &template')
+        return _('New from &template')
 
     def getHelpText(self):
         return _('Create a new task from a template')
-
 
 class NewTaskWithSelectedCategories(TaskNew, ViewerCommand):
     def __init__(self, *args, **kwargs):
@@ -2121,7 +2120,6 @@ class MainWindowRestore(base_uicommand.UICommand):
 
     def doCommand(self, event):
         self.mainWindow().restore(event)
-    
 
 class Search(ViewerCommand, settings_uicommand.SettingsCommand):
     # Search can only be attached to a real viewer, not to a viewercontainer
@@ -2140,7 +2138,7 @@ class Search(ViewerCommand, settings_uicommand.SettingsCommand):
         self.__bound = True
         searchString, matchCase, includeSubItems, searchDescription, regularExpression = \
             self.viewer.getSearchFilter()
-        # pylint: disable=W0201
+        #pylint: disable=W0201
         self.searchControl = widgets.SearchCtrl(toolbar, value=searchString,
             style=wx.TE_PROCESS_ENTER, matchCase=matchCase, 
             includeSubItems=includeSubItems, 
@@ -2191,6 +2189,73 @@ class Search(ViewerCommand, settings_uicommand.SettingsCommand):
     def doCommand(self, event):
         pass  # Not used
     
+
+class QuickAdd(TaskListCommand,ViewerCommand, settings_uicommand.SettingsCommand):
+    # Search can only be attached to a real viewer, not to a viewercontainer
+    def __init__(self, *args, **kwargs):
+        self.__bound = False
+        super(QuickAdd, self).__init__(*args, helpText=_('QuickAdd'), **kwargs)
+
+    def appendToToolBar(self, toolbar):
+        self.__bound = True
+        self.QuickAddControl = wx.TextCtrl(toolbar,-1,"",style=wx.TE_PROCESS_ENTER)
+       
+        toolbar.AddControl(self.QuickAddControl)
+        self.bindKeyDownEnter()
+        self.bindKeyDownInSearchCtrl()
+
+    def bindKeyDownInSearchCtrl(self):
+        ''' Bind wx.EVT_KEY_DOWN to self.onSearchCtrlKeyDown so we can catch 
+            the Escape key'''
+        self.QuickAddControl.Bind(wx.EVT_KEY_DOWN, self.onSearchCtrlKeyDown)
+   
+    def bindKeyDownEnter(self):
+        ''' Bind wx.EVT_KEY_DOWN to self.onViewerKeyDown so we can catch
+            Ctrl-F. '''
+        self.QuickAddControl.Bind(wx.EVT_KEY_DOWN, self.onEnterKey)
+	
+    def unbind(self, window, id_):
+        self.__bound = False
+        super(QuickAdd, self).unbind(window, id_)
+
+    def onSearchCtrlKeyDown(self, event):
+        ''' On Escape, move focus to the viewer'''
+        if event.KeyCode == wx.WXK_ESCAPE:
+            self.viewer.SetFocus()
+        else:
+            event.Skip()
+	
+    def onEnterKey(self,event):
+        if event.KeyCode == wx.WXK_RETURN:
+            taskArgs = command.Parser().getAnswers(self.QuickAddControl.GetValue())
+            categories = []
+
+            for categoryName in taskArgs['Categories']:
+                category = self.mainWindow().taskFile.categories().findCategoryByName(categoryName)
+                if category is None:
+                    newCategoryCommand = command.NewCategoryCommand(self.mainWindow().taskFile.categories(),subject=categoryName)
+                    newCategoryCommand.do()
+                    categories.append(self.mainWindow().taskFile.categories().findCategoryByName(categoryName))
+                else:
+                    categories.append(self.mainWindow().taskFile.categories().findCategoryByName(categoryName))
+
+            newTaskCommand = command.NewTaskCommand(self.mainWindow().taskFile.tasks(), 
+                subject=taskArgs['Title'],description=taskArgs['Description'],plannedStartDateTime=taskArgs['StartDate'],dueDateTime=taskArgs['EndDate'],
+					priority=taskArgs['Priority'],actualStartDateTime=taskArgs['ActualStartDate'],completionDateTime=taskArgs['CompletionDate'],
+                    categories=categories)
+
+            newTaskCommand.do()
+            self.QuickAddControl.Clear()
+        else:
+            event.Skip()
+
+            #[self.mainWindow().taskFile.categories().findCategoryByName('shit')]
+            #print self.mainWindow().taskFile.categories().findCategoryByName('shit') #Returns None if category don't exist
+            #newCategoryCommand = command.NewCategoryCommand(self.mainWindow().taskFile.categories(),subject='Shit')
+            #newCategoryCommand.do()
+
+    def doCommand(self, event):
+        pass  # Not used
 
 class ToolbarChoiceCommandMixin(object):
     def __init__(self, *args, **kwargs):

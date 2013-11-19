@@ -24,7 +24,7 @@ from taskcoachlib.i18n import _
 class SearchCtrl(tooltip.ToolTipMixin, wx.SearchCtrl):
     def __init__(self, *args, **kwargs):
         self.__callback = kwargs.pop('callback')
-        self.__matchCase = kwargs.pop('matchCase', False)
+     	self.__matchCase = kwargs.pop('matchCase', False)
         self.__includeSubItems = kwargs.pop('includeSubItems', False)
         self.__searchDescription = kwargs.pop('searchDescription', False)
         self.__regularExpression = kwargs.pop('regularExpression', False)
