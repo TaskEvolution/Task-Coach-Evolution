@@ -1555,9 +1555,19 @@ class Mail(mixin_uicommand.NeedsSelectionMixin, ViewerCommand):
 
     def doCommand(self, event, mail=sendMail, showerror=wx.MessageBox):  # pylint: disable=W0221
         items = self.viewer.curselection()
+        #Open the dialog
+        #stuff = dialog.export.ExportMailDialog
         subject = self.subject(items)
         body = self.body(items)
-        self.mail(subject, body, mail, showerror)
+        #self.mail(subject, body, mail, showerror)
+
+        '''result = wx.MessageBox(_('A file named %s already exists.\n'
+                                 'Do you want to replace it?') % filename,
+            title, 
+            style=wx.YES_NO | wx.CANCEL | wx.ICON_QUESTION | wx.NO_DEFAULT)
+        if result == wx.YES:
+            return filename
+        elif result == wx.NO: '''
 
     def subject(self, items):
         assert items
@@ -1598,6 +1608,10 @@ class Mail(mixin_uicommand.NeedsSelectionMixin, ViewerCommand):
                 showerror(_('Cannot send email:\n%s') % ExceptionAsUnicode(reason),
                           caption=_('%s mail error') % meta.name,
                           style=wx.ICON_ERROR)
+
+    @staticmethod
+    def getExportDialogClass():
+        return dialog.export.ExportMailDialog
 
 
 class AddNote(mixin_uicommand.NeedsSelectedNoteOwnersMixin, ViewerCommand,
