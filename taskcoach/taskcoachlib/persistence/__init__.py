@@ -37,3 +37,4 @@ from autobackup import AutoBackup
 from sessiontempfile import get_temp_file
 from templatelist import TemplateList
 from pdf.writer import PDFWriter
+from googletask import apiconnect

@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from taskcoachlib import meta, persistence, patterns, operating_system
 from taskcoachlib.i18n import _
 from taskcoachlib.thirdparty import lockfile
+from taskcoachlib.thirdparty.googleapi.oauth2client import client
 from taskcoachlib.widgets import GetPassword
 from taskcoachlib.workarounds import ExceptionAsUnicode
 import wx
@@ -358,6 +359,20 @@ class IOController(object):
     def importTodoTxt(self, filename):
         persistence.TodoTxtReader(self.__taskFile.tasks(),
                                   self.__taskFile.categories()).read(filename)
+    def importFromGoogleTasks(self):
+        service = persistence.apiconnect.connect("")
+        try:
+            tasklists = service.tasklists().list().execute()
+            answerDict = []
+            for tasklist in tasklists['items']:
+                tasks = service.tasks().list(tasklist=tasklist['id']).execute()
+                for item in tasks['items']:
+                    item['Category'] = tasklist['title']
+                    answerDict.append(item)
+            return answerDict
+        except client.AccessTokenRefreshError:
+            print ("The credentials have been revoked or expired, please re-run"
+                    "the application to re-authorize")
 
     def synchronize(self):
         doReset = False

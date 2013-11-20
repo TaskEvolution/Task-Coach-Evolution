@@ -1,6 +1,9 @@
 
 *.svn-base
 *.pyc
+taskcoach/taskcoachlib/thirdparty/
+
+taskcoach/taskcoachlib/persistence/googletask/credentials.dat
 
 taskcoach/.svn/dir-prop-base
 
