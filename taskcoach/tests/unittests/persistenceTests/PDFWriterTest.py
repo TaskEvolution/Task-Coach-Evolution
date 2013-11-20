@@ -42,8 +42,8 @@ class PDFWriterTestCase(test.wxTestCase):
         self.taskFile.stop()
 
     def __writeAndRead(self, selectionOnly):
-        self.writer.write(self.viewer, self.settings, selectionOnly, True)
-        pdfText = self.writer.write(self.viewer, self.settings, selectionOnly, True)
+        #self.writer.write(self.viewer, self.settings, selectionOnly, True)
+        pdfText = self.writer.writeForTests(self.viewer, self.settings, selectionOnly)
         #return self.fd.getvalue()
         return pdfText
     
@@ -67,13 +67,13 @@ class PDFWriterTestCase(test.wxTestCase):
 class CommonTestsMixin(object):
         
     def testHeader(self):
-        self.expectInPDF('<head>', '</head>')
+        self.expectInPDF('<ol>', '</ol>')
         
     '''def testStyle(self):
         self.expectInPDF('    <style type="text/css">\n', '    </style>\n')'''
         
     def testBody(self):
-        self.expectInPDF('<body>', '</body>')
+        self.expectInPDF('<li>', '</li>')
 
 
 class TaskWriterTestCase(PDFWriterTestCase):
@@ -84,28 +84,20 @@ class TaskWriterTestCase(PDFWriterTestCase):
 
 class TaskTestsMixin(CommonTestsMixin):
     def testTaskSubject(self):
-        self.expectInPDF('>Task subject<')
-        
-    def testWriteSelectionOnly(self):
-        self.expectNotInPDF('>Task subject<', selectionOnly=True)
+        self.expectInPDF('Task Name:')
         
     def testWriteSelectionOnly_SelectedChild(self):
         child = task.Task('Child')
         self.task.addChild(child)
         self.taskFile.tasks().append(child)
         self.selectItem([child])
-        self.expectInPDF('>Task subject<')
-
-    #def testColumnStyle(self):
-    #    self.expectInHTML('      .subject {text-align: left}\n')
-         
-    
+        self.expectInPDF('Task Name:')
 
 class TaskListTestsMixin(object):
     def testTaskDescription(self):
         self.task.setDescription('Task description')
         self.viewer.showColumnByName('description')
-        self.expectInPDF('>Task description<')
+        self.expectInPDF('Description')
     
     def testCreationDateTime(self):
         self.viewer.showColumnByName('creationDateTime')
@@ -144,14 +136,14 @@ class EffortWriterTestCase(CommonTestsMixin, PDFWriterTestCase):
         return gui.viewer.EffortViewer(self.frame, self.taskFile, self.settings)
 
     def testTaskSubject(self):
-        self.expectInPDF('>Task subject<')
+        self.expectInPDF('subject')
         
     def testEffortDuration(self):
-        self.expectInPDF('>0:00:01<')
+        self.expectInPDF('0:00:01')
         
 class CategoryWriterTestsMixin(CommonTestsMixin):
     def testCategorySubject(self):
-        self.expectInPDF('>Category<')
+        self.expectInPDF('Category')
         
 class CategoryWriterTestCase(PDFWriterTestCase):
     def setUp(self):

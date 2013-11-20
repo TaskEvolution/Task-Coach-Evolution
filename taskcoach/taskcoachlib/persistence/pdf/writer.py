@@ -34,11 +34,25 @@ class PDFWriter(object):
 
         textToPdf, count = generator.viewer2pdf(viewer, settings, selectionOnly, columns)
         print textToPdf
+        
         self.__fd.close()
         resultFile = open(self.__filename, "w+b")
-        pisa.CreatePDF("""<center><h1>Tasks</h1></center><ol><li>Erik</li><li>Lumbo</li></ol>""", resultFile)
+        pisa.CreatePDF(textToPdf, resultFile)
         resultFile.close()
         
         return count
+
+    def writeForTests(self, viewer, settings, selectionOnly, columns = None):
+        '''Only difference is that we do not return the count, but the text in this methid for the writeForTests
+        to function'''
+        textToPdf, count = generator.viewer2pdf(viewer, settings, selectionOnly, columns)
+        print textToPdf
+        
+        self.__fd.close()
+        resultFile = open(self.__filename, "w+b")
+        pisa.CreatePDF(textToPdf, resultFile)
+        resultFile.close()
+        
+        return textToPdf
 
     

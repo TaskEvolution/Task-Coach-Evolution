@@ -48,46 +48,40 @@ class Viewer2PDFConverter(object):
         return lines, self.count
     
     def pdf(self, columns, tasks, level=0):
-        ''' Returns all text, consisting of header and body. '''
+        ''' Returns all text, consisting of header and body. 
         pdfContent = self.pdfHeader(level+1, tasks) + \
-                      self.pdfBody(columns, level+1, tasks)
-        test = "<center><h1>Tasks</h1></center><ol><li>Erik</li><li>Lumbo</li></ol>"
-        #return pdfContent
-        return test
+                      self.pdfBody(columns, level+1, tasks) '''
+        pdfContent = self.pdfBody(columns, level+1, tasks)
+        
+        return pdfContent
 
     def pdfHeader(self, level, tasks):
         ''' Return the text header <head>. '''
         pdfHeaderContent = "<center><h1>Tasks</h1></center>"
-        #print pdfHeaderContent
         return pdfHeaderContent
 
     def pdfBody(self, columns, level, tasks):
         ''' Returns the text's body section'''
-        pdfBodyContent = None
         
-        pdfBodyContent = "<ol>\n"
+        pdfBodyContent = "<ol>"
 
         
         '''Iterate through the tasks and its selected columns and print these to plain text 
-        including html tags to make it more readable.
+        including html tags to make it more readable. '''
+
         for task in tasks:
             for column in columns:
                 if column.render(task, humanReadable=False):
                     if column.name() == 'subject':
-                        pdfBodyContent = pdfBodyContent + "<li><b>Task Name:</b> <i>" + task.subject() + "</i></li>\n"
+                        pdfBodyContent = pdfBodyContent + "<li><b>Task Name: </b>" + task.subject() + "</i></li>"
                     else:
                         colContent = column.render(task, humanReadable=False)
-                        pdfBodyContent = pdfBodyContent + "<ul>\n<li>"
-                        pdfBodyContent = pdfBodyContent + column.header()
-                        pdfBodyContent = pdfBodyContent + ": <i>"
-                        pdfBodyContent = pdfBodyContent + str(colContent)
-                        pdfBodyContent = pdfBodyContent + "</i></li></ul>\n"
+                        #pdfBodyContent = pdfBodyContent + "<ul><li>"
+                        pdfBodyContent = pdfBodyContent + "<ul><ul><li><i>" + column.header() + "</i>: " +  str(colContent) + "</li></ul></ul>"
+                        #pdfBodyContent = pdfBodyContent + ": <i>"
+                        #pdfBodyContent = pdfBodyContent + "<i>" +  str(colContent) + "</i>"
+                        #pdfBodyContent = pdfBodyContent + "</i></li></ul>"
                         
                         
         #Return the completely created text document which are to be created to a pdf document. 
-            pdfBodyContent = pdfBodyContent + "</ol>" '''
-        #print pdfBodyContent
-        pdfBodyContent = pdfBodyContent + "<ul><li>Erik</li></ul><ul><li>Lumbo</li></ul></ol>"
-        return pdfBodyContent
-
-    #def writeTask(self, columns,)
+        return pdfBodyContent + "</ol>"

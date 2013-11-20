@@ -1,6 +1,7 @@
 
 *.svn-base
 *.pyc
+taskcoach/taskcoachlib/thirdparty/
 
 taskcoach/.svn/dir-prop-base
 
