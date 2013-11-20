@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d177eb8b-eb4f-4fdd-a97e-dc84eefba66c" name="Default" comment="" />
+    <list default="true" id="d177eb8b-eb4f-4fdd-a97e-dc84eefba66c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thirdparty/googleapi.tar.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/googletask/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/googletask/apiconnect.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/googletask/client_secrets.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Makefile" afterPath="$PROJECT_DIR$/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/persistence/__init__.py" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/menu.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/menu.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/i18n.in/messages.pot" afterPath="$PROJECT_DIR$/i18n.in/messages.pot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="taskcoach.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,7 +44,7 @@
       <file leaf-file-name="uicommand.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="459" column="21" selection-start="17901" selection-end="17901" vertical-scroll-proportion="0.0" vertical-offset="6885" max-vertical-offset="39390">
+            <state line="461" column="21" selection-start="18374" selection-end="18374" vertical-scroll-proportion="0.0" vertical-offset="6915" max-vertical-offset="40305">
               <folding />
             </state>
           </provider>
@@ -39,9 +53,30 @@
       <file leaf-file-name="menu.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/menu.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="329" column="0" selection-start="14050" selection-end="14050" vertical-scroll-proportion="0.0" vertical-offset="4935" max-vertical-offset="14895">
+            <state line="331" column="0" selection-start="14126" selection-end="14126" vertical-scroll-proportion="0.0" vertical-offset="4965" max-vertical-offset="14910">
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="iocontroller.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="75" column="8" selection-start="3214" selection-end="3214" vertical-scroll-proportion="0.0" vertical-offset="825" max-vertical-offset="7755">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Makefile" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Makefile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="177" column="120" selection-start="8387" selection-end="8387" vertical-scroll-proportion="0.37987012" vertical-offset="2538" max-vertical-offset="4305">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
@@ -54,10 +89,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="quickAddParser.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="quickAddParser.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taskcoachlib/command/quickAddParser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="193" column="58" selection-start="7582" selection-end="7582" vertical-scroll-proportion="0.79831934" vertical-offset="2405" max-vertical-offset="3000">
+            <state line="193" column="58" selection-start="7582" selection-end="7582" vertical-scroll-proportion="0.0" vertical-offset="2624" max-vertical-offset="3000">
               <folding />
             </state>
           </provider>
@@ -88,11 +123,12 @@
         <option value="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" />
         <option value="$PROJECT_DIR$/taskcoachlib/gui/menu.py" />
         <option value="$PROJECT_DIR$/taskcoachlib/command/quickAddParser.py" />
+        <option value="$PROJECT_DIR$/Makefile" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2" />
+    <option name="x" value="12" />
     <option name="y" value="22" />
     <option name="width" value="1268" />
     <option name="height" value="718" />
@@ -123,6 +159,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -141,70 +178,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoach" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoach" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoachlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoach" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoach" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoachlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoach" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoach" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoachlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="PyConsoleConfigurable.Python Console" />
+    <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -348,9 +334,6 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
-      <method />
-    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -372,6 +355,9 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -452,15 +438,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="22" width="1268" height="718" extended-state="0" />
-    <editor active="false" />
+    <frame x="12" y="22" width="1268" height="718" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32744783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3277592" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.67255217" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2545008" sideWeight="0.6722408" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -487,16 +473,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="188" column="39" selection-start="8271" selection-end="8271" vertical-scroll-proportion="-6.3846154" vertical-offset="2504" max-vertical-offset="7395" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/domain/task/task.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="71" selection-start="1631" selection-end="1631" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="21750" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="12" selection-start="2115" selection-end="2115" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="6780" />
@@ -556,23 +532,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/menu.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="329" column="0" selection-start="14050" selection-end="14050" vertical-scroll-proportion="0.0" vertical-offset="4935" max-vertical-offset="14895">
+        <state line="331" column="0" selection-start="14126" selection-end="14126" vertical-scroll-proportion="0.0" vertical-offset="4965" max-vertical-offset="14910">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="459" column="21" selection-start="17901" selection-end="17901" vertical-scroll-proportion="0.0" vertical-offset="6885" max-vertical-offset="39390">
+        <state line="461" column="21" selection-start="18374" selection-end="18374" vertical-scroll-proportion="0.0" vertical-offset="6915" max-vertical-offset="40305">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/command/quickAddParser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="193" column="58" selection-start="7582" selection-end="7582" vertical-scroll-proportion="0.79831934" vertical-offset="2405" max-vertical-offset="3000">
+        <state line="193" column="58" selection-start="7582" selection-end="7582" vertical-scroll-proportion="0.0" vertical-offset="2624" max-vertical-offset="3000">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="8" selection-start="3214" selection-end="3214" vertical-scroll-proportion="0.0" vertical-offset="825" max-vertical-offset="7755">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="177" column="120" selection-start="8387" selection-end="8387" vertical-scroll-proportion="0.37987012" vertical-offset="2538" max-vertical-offset="4305">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
   </component>

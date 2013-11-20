@@ -319,7 +319,8 @@ class ImportMenu(Menu):
         super(ImportMenu, self).__init__(mainwindow)
         self.appendUICommands(
             uicommand.FileImportCSV(iocontroller=iocontroller),
-            uicommand.FileImportTodoTxt(iocontroller=iocontroller))
+            uicommand.FileImportTodoTxt(iocontroller=iocontroller),
+            uicommand.FileImportFromGoogleTask(iocontroller=iocontroller))
 
 
 class TaskTemplateMenu(DynamicMenu):
