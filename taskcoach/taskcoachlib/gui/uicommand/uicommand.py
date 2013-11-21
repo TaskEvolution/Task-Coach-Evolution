@@ -1555,24 +1555,43 @@ class Mail(mixin_uicommand.NeedsSelectionMixin, ViewerCommand):
 
     def doCommand(self, event, mail=sendMail, showerror=wx.MessageBox):  # pylint: disable=W0221
         items = self.viewer.curselection()
-        #Open the dialog
-        #stuff = dialog.export.ExportMailDialog
+        
         subject = self.subject(items)
         body = self.body(items)
-        #self.mail(subject, body, mail, showerror)
+        dirname = ''
+        filename = None
+        path = None
+        '''dlg = wx.FileDialog(None, "Choose a file", dirname, "", "*.tsk", wx.OPEN)
+        if dlg.ShowModal() == wx.ID_OK:
+            filename = dlg.GetFilename()
+            dirname = dlg.GetDirectory()
+            path = str(dirname)+ "\\" + filename
+            
+        dlg.Destroy()'''
 
-        '''result = wx.MessageBox(_('A file named %s already exists.\n'
-                                 'Do you want to replace it?') % filename,
-            title, 
-            style=wx.YES_NO | wx.CANCEL | wx.ICON_QUESTION | wx.NO_DEFAULT)
-        if result == wx.YES:
-            return filename
-        elif result == wx.NO: '''
+        dia = TestDialog(None, -1, 'Email config')
+        dia.Show(True)
+
+
+
+        #print dirname, filename, path 
+        self.mail(subject, body, mail, path, showerror)
+
+
 
     def subject(self, items):
         assert items
         if len(items) > 2:
-            return _('Several things')
+            #Allow the user to specify the subject line
+            sub = None
+            dlg = wx.TextEntryDialog(None, 'Enter subject','Subject')
+            dlg.SetValue("Subject...")
+            if dlg.ShowModal() == wx.ID_OK:
+
+                sub = dlg.GetValue()
+            dlg.Destroy()
+
+            return _(sub)
         elif len(items) == 2:
             subjects = [item.subject(recursive=True) for item in items]
             return ' '.join([subjects[0], _('and'), subjects[1]])
@@ -1597,7 +1616,7 @@ class Mail(mixin_uicommand.NeedsSelectionMixin, ViewerCommand):
             lines.extend('\r\n')
         return lines
 
-    def mail(self, subject, body, mail, showerror):
+    def mail(self, subject, body, mail, path, showerror):
         try:
             mail('', subject, body)
         except:
@@ -1613,6 +1632,33 @@ class Mail(mixin_uicommand.NeedsSelectionMixin, ViewerCommand):
     def getExportDialogClass():
         return dialog.export.ExportMailDialog
 
+class TestDialog(wx.Dialog):
+
+    def __init__(self, parent, ID, title):
+
+        wx.Dialog.__init__(self, parent, ID, title, wx.DefaultPosition, wx.Size(250, 270))
+        wx.StaticText(self, -1, 'To', (10, 20))
+        wx.StaticText(self, -1, 'Subject', (10, 60))
+        wx.StaticText(self, -1, 'Other shit', (10, 100))
+   
+        self.ftpsite = wx.TextCtrl(self, -1, '',  (110, 15), (120, -1))
+        self.login = wx.TextCtrl(self, -1, '',  (110, 55), (120, -1))
+        self.password = wx.TextCtrl(self, -1, '',  (110, 95), (120, 75), style=wx.TE_MULTILINE)
+   
+        con = wx.Button(self, 1, 'Ok', (10, 160))
+   
+        self.Bind(wx.EVT_BUTTON, self.OnOk, id=1)
+
+        self.Centre()
+    
+    def OnOk(self,e):
+        result = wx.MessageBox(_('Heeeeeeej!)'),
+            "Titeln på boxen", 
+            style=wx.YES_NO | wx.ICON_QUESTION | wx.NO_DEFAULT)
+        if result == wx.YES:
+           self.Close(True)
+        elif result == wx.NO:
+            print "NO!" 
 
 class AddNote(mixin_uicommand.NeedsSelectedNoteOwnersMixin, ViewerCommand,
               settings_uicommand.SettingsCommand):
