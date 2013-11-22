@@ -227,6 +227,10 @@ class Object(SynchronizedObject):
     def creationDateTime(self):
         return self.__creationDateTime
     
+    # Set base object's creation date/time
+    def setCreationDateTime(self, dateTime):
+        self.__creationDateTime = dateTime
+    
     def modificationDateTime(self):
         return self.__modificationDateTime
     
