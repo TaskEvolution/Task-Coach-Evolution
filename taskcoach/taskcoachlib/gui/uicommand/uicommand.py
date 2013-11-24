@@ -181,6 +181,16 @@ class FileSaveSelection(mixin_uicommand.NeedsSelectedTasksMixin, IOCommand,
         self.iocontroller.saveselection(self.viewer.curselection())
 
 
+class FileBackupToDropbox(IOCommand):
+    def __init__(self, *args, **kwargs):
+        super(FileBackupToDropbox, self).__init__( \
+            menuText=_('&Backup to Dropbox'),
+            helpText=help.fileSaveAs, bitmap='saveas', id=wx.ID_SAVEAS,
+            *args, **kwargs)
+        
+    def doCommand(self, event):
+        self.iocontroller.backupdropbox()
+
 class FileSaveSelectedTaskAsTemplate(mixin_uicommand.NeedsOneSelectedTaskMixin,
                                      IOCommand, ViewerCommand):
     def __init__(self, *args, **kwargs):

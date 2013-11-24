@@ -243,6 +243,7 @@ class FileMenu(Menu):
         if not settings.getboolean('feature', 'syncml'):
             self.appendUICommands(uicommand.FilePurgeDeletedItems(iocontroller=iocontroller))
         self.appendUICommands(
+            uicommand.FileBackupToDropbox(iocontroller=iocontroller),
             None,
             uicommand.FileSaveSelectedTaskAsTemplate(iocontroller=iocontroller,
                                                      viewer=viewerContainer),
