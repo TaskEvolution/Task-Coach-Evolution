@@ -25,6 +25,7 @@ from taskcoachlib.widgets import GetPassword
 from taskcoachlib.workarounds import ExceptionAsUnicode
 import wx
 import os
+import pwd
 import gc
 import sys
 import codecs
@@ -44,7 +45,12 @@ class IOController(object):
 
     def __init__(self, taskFile, messageCallback, settings, splash=None): 
         super(IOController, self).__init__()
-        self.__taskFile = taskFile
+        
+        '''self.__dir = pwd.getpwuid(os.getuid()).pw_dir + '/Documents/TaskCoach/Categories/'
+        if not os.path.exists(__dir):
+            os.makedirs(__dir)
+        self.__taskFile = open(__dir + categories, 'w')'''
+
         self.__messageCallback = messageCallback
         self.__settings = settings
         self.__splash = splash
