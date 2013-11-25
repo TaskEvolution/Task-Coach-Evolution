@@ -22,7 +22,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import argparse
 from taskcoachlib.thirdparty.googleapi import httplib2
 import os
-import sys
 
 from taskcoachlib.thirdparty.googleapi.apiclient import discovery
 from taskcoachlib.thirdparty.googleapi.oauth2client import file

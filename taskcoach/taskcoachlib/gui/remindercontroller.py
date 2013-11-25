@@ -69,9 +69,11 @@ class ReminderController(object):
                             ReminderDialog=reminder.ReminderDialog):
         if self.__useOwnReminderDialog():
             self.__showReminderDialog(taskWithReminder, ReminderDialog)
+            self.__playReminderSound()
             self.__removeReminder(taskWithReminder)
         else:
             self.__showReminderViaNotifier(taskWithReminder)
+            self.__playReminderSound()
             self.__removeReminder(taskWithReminder)
             self.__snooze(taskWithReminder)
             
@@ -93,7 +95,9 @@ class ReminderController(object):
         notifier.notify(_('%s Reminder') % meta.name, taskWithReminder.subject(),
                         wx.ArtProvider.GetBitmap('taskcoach', size=wx.Size(32, 32)),
                         windowId=self.__mainWindow.GetHandle())
-        
+    def __playReminderSound(self):
+        sound = wx.Sound('Sounds/drum.wav')
+        sound.Play(wx.SOUND_SYNC)
     def __snooze(self, taskWithReminder):
         minutesToSnooze = self.settings.getint('view', 'defaultsnoozetime')
         taskWithReminder.snoozeReminder(date.TimeDelta(minutes=minutesToSnooze))

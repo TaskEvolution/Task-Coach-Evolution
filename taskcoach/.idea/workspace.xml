@@ -11,6 +11,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/taskcoach$Unittests_in_test.coverage" NAME="Unittests in test Coverage Results" MODIFIED="1385357622582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/taskcoach$taskcoach.coverage" NAME="taskcoach Coverage Results" MODIFIED="1385356996608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/taskcoach$Unittests_in__Users_jmarcus_Documents_Task_Coach_Evolution_taskcoach_taskcoachlib.coverage" NAME="Unittests in /Users/jmarcus/Documents/Task-Coach-Evolution/taskcoach/taskcoachlib Coverage Results" MODIFIED="1385357881320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/taskcoachlib" />
+    <SUITE FILE_PATH="coverage/taskcoach$AppTest.coverage" NAME="AppTest Coverage Results" MODIFIED="1385357298990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/unittests" />
+    <SUITE FILE_PATH="coverage/taskcoach$Unittests_in__Users_jmarcus_Documents_Task_Coach_Evolution_taskcoach_tests_unittests.coverage" NAME="Unittests in /Users/jmarcus/Documents/Task-Coach-Evolution/taskcoach/tests/unittests Coverage Results" MODIFIED="1385357207262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests/unittests" />
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -23,89 +30,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="uicommand.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="uicommand.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="3" selection-start="877" selection-end="877" vertical-scroll-proportion="-11.538462" vertical-offset="0" max-vertical-offset="40305">
-              <folding>
-                <element signature="e#879#888#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Makefile" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Makefile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="175" column="26" selection-start="8034" selection-end="8034" vertical-scroll-proportion="-6.6666665" vertical-offset="2445" max-vertical-offset="4290">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taskcoachlib/thirdparty/httplib2/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="10" selection-start="10" selection-end="10" vertical-scroll-proportion="135.0" vertical-offset="3510" max-vertical-offset="24945">
+            <state line="1318" column="30" selection-start="54167" selection-end="54167" vertical-scroll-proportion="0.4041916" vertical-offset="19350" max-vertical-offset="40425">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taskcoachlib/thirdparty/__init__.py">
+      <file leaf-file-name="menu.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/menu.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="832" selection-end="833" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-              <folding>
-                <element signature="e#731#745#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="task.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taskcoachlib/domain/task/task.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1409" column="37" selection-start="62451" selection-end="62453" vertical-scroll-proportion="-3.9615386" vertical-offset="20927" max-vertical-offset="21750">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="iocontroller.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="358" column="38" selection-start="16376" selection-end="16376" vertical-scroll-proportion="0.0" vertical-offset="5265" max-vertical-offset="7755">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="writer.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/todotxt/writer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="28" selection-start="1549" selection-end="1577" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1290">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="task.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/viewer/task.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="866" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="20640">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="apiconnect.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/googletask/apiconnect.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="28" selection-start="1971" selection-end="1971" vertical-scroll-proportion="0.14285715" vertical-offset="655" max-vertical-offset="1005">
+            <state line="258" column="57" selection-start="10903" selection-end="10903" vertical-scroll-proportion="-4.269231" vertical-offset="3654" max-vertical-offset="14970">
               <folding />
             </state>
           </provider>
@@ -121,20 +58,26 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/taskcoachlib/persistence/googletask/__init__.py" />
-        <option value="$PROJECT_DIR$/taskcoachlib/persistence/__init__.py" />
-        <option value="$PROJECT_DIR$/taskcoachlib/gui/menu.py" />
-        <option value="$PROJECT_DIR$/taskcoachlib/domain/task/task.py" />
-        <option value="$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py" />
-        <option value="$PROJECT_DIR$/taskcoachlib/persistence/googletask/apiconnect.py" />
-        <option value="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" />
         <option value="$PROJECT_DIR$/Makefile" />
         <option value="$PROJECT_DIR$/taskcoachlib/thirdparty/__init__.py" />
+        <option value="$PROJECT_DIR$/taskcoachlib/domain/task/status.py" />
+        <option value="$PROJECT_DIR$/taskcoachlib/persistence/googledrive/__init__.py" />
+        <option value="$PROJECT_DIR$/taskcoachlib/persistence/__init__.py" />
+        <option value="$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py" />
+        <option value="$PROJECT_DIR$/taskcoachlib/persistence/googletask/apiconnect.py" />
+        <option value="$PROJECT_DIR$/taskcoachlib/gui/dialog/toolbar.py" />
+        <option value="$PROJECT_DIR$/taskcoachlib/widgets/dialog.py" />
+        <option value="$PROJECT_DIR$/taskcoachlib/persistence/googledrive/driveconnect.py" />
+        <option value="$PROJECT_DIR$/taskcoachlib/gui/dialog/editor.py" />
+        <option value="$PROJECT_DIR$/taskcoachlib/gui/remindercontroller.py" />
+        <option value="$PROJECT_DIR$/taskcoachlib/widgets/datectrl.py" />
+        <option value="$PROJECT_DIR$/tests/unittests/AppTest.py" />
+        <option value="$PROJECT_DIR$/taskcoachlib/gui/menu.py" />
+        <option value="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="12" />
     <option name="y" value="22" />
     <option name="width" value="1268" />
     <option name="height" value="718" />
@@ -165,7 +108,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -212,7 +154,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="persistence" />
+              <option name="myItemId" value="gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -230,21 +172,57 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="persistence" />
+              <option name="myItemId" value="gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="googletask" />
+              <option name="myItemId" value="uicommand" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskcoach" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskcoach" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build.in" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskcoach" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskcoach" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sounds" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/coverage" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -253,14 +231,136 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/taskcoachlib/persistence/googledrive" />
       <recent name="$PROJECT_DIR$/taskcoachlib/persistence/googletask" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Sounds" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/taskcoachlib/gui" />
       <recent name="$PROJECT_DIR$/taskcoachlib/persistence/googletask" />
       <recent name="$PROJECT_DIR$/taskcoachlib/thirdparty/googleapi" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python tests.Unittests in /Users/jmarcus/Documents/Task-Coach-Evolution/taskcoach/taskcoachlib">
+    <configuration default="false" name="taskcoach" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="taskcoach" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/taskcoach.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonCover" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonCover" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="AppTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/unittests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="taskcoach" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/unittests/AppTest.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests in test" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="taskcoach" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/test.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <RunnerSettings RunnerId="PythonCover" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonCover" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests in $PROJECT_DIR$/taskcoachlib" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/taskcoachlib" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="taskcoach" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="$PROJECT_DIR$/taskcoachlib" />
+      <option name="TEST_TYPE" value="TEST_FOLDER" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <RunnerSettings RunnerId="PythonCover" />
+      <ConfigurationWrapper RunnerId="PythonCover" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests in $PROJECT_DIR$/tests/unittests" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests/unittests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="taskcoach" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="$PROJECT_DIR$/tests/unittests" />
+      <option name="TEST_TYPE" value="TEST_FOLDER" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -329,12 +429,12 @@
       <method />
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="INTERPRETER_OPTIONS" value="-32" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -411,7 +511,22 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="0" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.taskcoach" />
+      <item index="1" class="java.lang.String" itemvalue="Python.AppTest" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in /Users/jmarcus/Documents/Task-Coach-Evolution/taskcoach/taskcoachlib" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in /Users/jmarcus/Documents/Task-Coach-Evolution/taskcoach/tests/unittests" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in /Users/jmarcus/Documents/Task-Coach-Evolution/taskcoach/taskcoachlib" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in test" />
+        <item index="2" class="java.lang.String" itemvalue="Python.AppTest" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in /Users/jmarcus/Documents/Task-Coach-Evolution/taskcoach/tests/unittests" />
+        <item index="4" class="java.lang.String" itemvalue="Python.taskcoach" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
@@ -439,25 +554,46 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="12" y="22" width="1268" height="718" extended-state="0" />
+    <frame x="0" y="22" width="1268" height="718" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3502455" sideWeight="0.6705686" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32943144" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25777414" sideWeight="0.6705686" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959083" sideWeight="0.67" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31751227" sideWeight="0.6705686" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33110368" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32833335" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -470,130 +606,137 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="false" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/menu.py">
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/widgets/datectrl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="322" column="46" selection-start="13876" selection-end="13876" vertical-scroll-proportion="0.0" vertical-offset="4830" max-vertical-offset="14910">
+        <state line="143" column="29" selection-start="6058" selection-end="6058" vertical-scroll-proportion="0.0" vertical-offset="2145" max-vertical-offset="2340" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="319" column="32" selection-start="13548" selection-end="13554" vertical-scroll-proportion="0.0" vertical-offset="4785" max-vertical-offset="6990" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/domain/category/sorter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.55172414" vertical-offset="160" max-vertical-offset="450">
+          <folding>
+            <element signature="e#829#866#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/domain/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/command/quickAddParser.py">
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/thirdparty/customtreectrl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="29" selection-start="5121" selection-end="5121" vertical-scroll-proportion="0.0" vertical-offset="1615" max-vertical-offset="3015">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/html/generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-3.0857143" vertical-offset="1080" max-vertical-offset="4845">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/html/writer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.4428571" vertical-offset="505" max-vertical-offset="1140">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/todotxt/writer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="28" selection-start="1549" selection-end="1577" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1290">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/googletask/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="30" selection-start="857" selection-end="857" vertical-scroll-proportion="0.7" vertical-offset="55" max-vertical-offset="405">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/domain/task/tasklist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="19" selection-start="1895" selection-end="1895" vertical-scroll-proportion="0.33142856" vertical-offset="604" max-vertical-offset="1035">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/domain/category/categorycontainer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="8" selection-start="1560" selection-end="1560" vertical-scroll-proportion="0.7057143" vertical-offset="293" max-vertical-offset="840">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/viewer/task.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="866" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="20640">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="358" column="38" selection-start="16376" selection-end="16376" vertical-scroll-proportion="0.0" vertical-offset="5205" max-vertical-offset="7755">
+        <state line="2619" column="6" selection-start="93202" selection-end="93202" vertical-scroll-proportion="0.0" vertical-offset="39285" max-vertical-offset="127065">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/domain/task/task.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1409" column="37" selection-start="62451" selection-end="62453" vertical-scroll-proportion="-3.9615386" vertical-offset="20927" max-vertical-offset="21750">
+        <state line="31" column="6" selection-start="1143" selection-end="1143" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="21855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/thirdparty/aui/framemanager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="481" column="19" selection-start="14595" selection-end="14595" vertical-scroll-proportion="0.0" vertical-offset="7215" max-vertical-offset="160470">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.375" vertical-offset="495" max-vertical-offset="5175">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/make.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="49" selection-start="2933" selection-end="2939" vertical-scroll-proportion="-0.28150135" vertical-offset="1335" max-vertical-offset="4560">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/unittests/AppTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="41" selection-start="294" selection-end="295" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1395">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoach.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="29" selection-start="1582" selection-end="1582" vertical-scroll-proportion="-0.32707775" vertical-offset="767" max-vertical-offset="1140">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/viewer/task.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="184" column="0" selection-start="8509" selection-end="8509" vertical-scroll-proportion="0.16666667" vertical-offset="2505" max-vertical-offset="20640">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/remindercontroller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="38" selection-start="3190" selection-end="3190" vertical-scroll-proportion="-0.20107238" vertical-offset="1125" max-vertical-offset="2445">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8385">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/menu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="258" column="57" selection-start="10903" selection-end="10903" vertical-scroll-proportion="-4.269231" vertical-offset="3654" max-vertical-offset="14970">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="3" selection-start="877" selection-end="877" vertical-scroll-proportion="-11.538462" vertical-offset="0" max-vertical-offset="40305">
-          <folding>
-            <element signature="e#879#888#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="175" column="26" selection-start="8034" selection-end="8034" vertical-scroll-proportion="-6.6666665" vertical-offset="2445" max-vertical-offset="4290">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/thirdparty/httplib2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="10" selection-start="10" selection-end="10" vertical-scroll-proportion="135.0" vertical-offset="3510" max-vertical-offset="24945">
+        <state line="1318" column="30" selection-start="54167" selection-end="54167" vertical-scroll-proportion="0.4041916" vertical-offset="19350" max-vertical-offset="40425">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/thirdparty/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="832" selection-end="833" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <folding>
-            <element signature="e#731#745#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/googletask/apiconnect.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="28" selection-start="1971" selection-end="1971" vertical-scroll-proportion="0.14285715" vertical-offset="655" max-vertical-offset="1005">
-          <folding />
-        </state>
-      </provider>
-    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
 
