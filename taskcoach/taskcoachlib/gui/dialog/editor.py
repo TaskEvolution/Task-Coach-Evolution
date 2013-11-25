@@ -368,7 +368,7 @@ class TaskAppearancePage(Page):
 
 class DatesPage(Page):
     pageName = 'dates'
-    pageTitle = _('Dates') 
+    pageTitle = _('Dates')
     pageIcon = 'calendar_icon'
     
     def __init__(self, theTask, parent, settings, items_are_new, *args, **kwargs):

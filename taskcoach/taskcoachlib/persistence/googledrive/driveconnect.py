@@ -27,6 +27,7 @@ from taskcoachlib.thirdparty.googleapi.apiclient import discovery
 from taskcoachlib.thirdparty.googleapi.oauth2client import file
 from taskcoachlib.thirdparty.googleapi.oauth2client import client
 from taskcoachlib.thirdparty.googleapi.oauth2client import tools
+import pprint
 
 # Parser for command-line arguments.
 parser = argparse.ArgumentParser(
@@ -41,28 +42,37 @@ CLIENT_SECRETS = os.path.join(os.path.dirname(__file__),'client_secrets.json')
 # Add one or more of the following scopes.
 FLOW = client.flow_from_clientsecrets(CLIENT_SECRETS,
   scope=[
-      'https://www.googleapis.com/auth/tasks',
-      'https://www.googleapis.com/auth/tasks.readonly',
+      'https://www.googleapis.com/auth/drive',
     ],
     message=tools.message_if_missing(CLIENT_SECRETS))
 
 
-def connect(argv):
-  # Parse the command-line flags.
-  flags = parser.parse_args(argv[1:])
+def uploadTaskfile(path):
+    # If the credentials don't exist or are invalid run through the native client
+    # flow. The Storage object will ensure that if successful the good
+    # credentials will get written back to the file.
+    storage = file.Storage('credentials_googledrive.dat')
+    credentials = storage.get()
+    if credentials is None or credentials.invalid:
+        credentials = tools.run_flow(FLOW, storage,parser.parse_args(""))
+    print credentials
 
-  # If the credentials don't exist or are invalid run through the native client
-  # flow. The Storage object will ensure that if successful the good
-  # credentials will get written back to the file.
-  storage = file.Storage('credentials.dat')
-  credentials = storage.get()
-  if credentials is None or credentials.invalid:
-    credentials = tools.run_flow(FLOW, storage, flags)
+    FILENAME = path
+    TITLE = os.path.basename(path)
+    DESCRIPTION = "A file saved in Taskcoach"
 
-  # Create an httplib2.Http object to handle our HTTP requests and authorize it
-  # with our good Credentials.
-  http = httplib2.Http()
-  http = credentials.authorize(http)
+    # Create an httplib2.Http object and authorize it with our credentials
+    http = httplib2.Http()
+    http = credentials.authorize(http)
 
-  # Construct the service object for the interacting with the Tasks API.
-  return discovery.build('tasks', 'v1', http=http)
+    drive_service = discovery.build('drive', 'v2', http=http)
+
+    # Insert a file
+    media_body = discovery.MediaFileUpload(FILENAME, mimetype='text/plain', resumable=True)
+    body = {
+        'title': TITLE,
+        'description': DESCRIPTION,
+        'mimeType': 'text/plain'
+    }
+    file1 = drive_service.files().insert(body=body, media_body=media_body).execute()
+    pprint.pprint(file1)

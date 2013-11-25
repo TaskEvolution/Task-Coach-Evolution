@@ -1,0 +1,153 @@
+digraph G {
+rankdir="LR"
+subgraph clusterattachment {
+label=attachment
+AttachmentViewer
+}
+
+AttachmentDropTargetMixin->AttachmentViewer
+SortableViewerWithColumns->AttachmentViewer
+SortableViewerForAttachmentsMixin->AttachmentViewer
+SearchableViewerMixin->AttachmentViewer
+NoteColumnMixin->AttachmentViewer
+ListViewer->AttachmentViewer
+
+subgraph clusterbase {
+label=base
+Viewer ListViewer TreeViewer ViewerWithColumns SortableViewerWithColumns
+}
+
+Observer->Viewer
+Panel->Viewer
+Viewer->ListViewer
+Viewer->TreeViewer
+Viewer->ViewerWithColumns
+SortableViewerMixin->SortableViewerWithColumns
+ViewerWithColumns->SortableViewerWithColumns
+
+subgraph clustercategory {
+label=category
+BaseCategoryViewer CategoryViewer
+}
+
+AttachmentDropTargetMixin->BaseCategoryViewer
+FilterableViewerMixin->BaseCategoryViewer
+SortableViewerForCategoriesMixin->BaseCategoryViewer
+SearchableViewerMixin->BaseCategoryViewer
+NoteColumnMixin->BaseCategoryViewer
+AttachmentColumnMixin->BaseCategoryViewer
+SortableViewerWithColumns->BaseCategoryViewer
+TreeViewer->BaseCategoryViewer
+BaseCategoryViewer->CategoryViewer
+
+subgraph clustercontainer {
+label=container
+ViewerContainer
+}
+
+
+subgraph clustereffort {
+label=effort
+EffortViewer
+}
+
+ListViewer->EffortViewer
+FilterableViewerForCategorizablesMixin->EffortViewer
+SortableViewerForEffortMixin->EffortViewer
+SearchableViewerMixin->EffortViewer
+SortableViewerWithColumns->EffortViewer
+
+subgraph clusterfactory {
+label=factory
+addViewers addOneViewer
+}
+
+addViewers->addOneViewer
+
+subgraph clusterinplace_editor {
+label=inplace_editor
+KillFocusAcceptsEditsMixin SubjectCtrl DescriptionCtrl EscapeKeyMixin PriorityCtrl PercentageCtrl Panel BudgetCtrl AmountCtrl DateTimeCtrl
+}
+
+KillFocusAcceptsEditsMixin->SubjectCtrl
+EditTextCtrl->SubjectCtrl
+KillFocusAcceptsEditsMixin->DescriptionCtrl
+EditTextCtrl->DescriptionCtrl
+_SpinCtrl->PriorityCtrl
+_SpinCtrl->PercentageCtrl
+Panel->Panel
+EscapeKeyMixin->BudgetCtrl
+KillFocusAcceptsEditsMixin->BudgetCtrl
+EditCtrl->BudgetCtrl
+Panel->BudgetCtrl
+EscapeKeyMixin->AmountCtrl
+KillFocusAcceptsEditsMixin->AmountCtrl
+EditCtrl->AmountCtrl
+Panel->AmountCtrl
+KillFocusAcceptsEditsMixin->DateTimeCtrl
+EditCtrl->DateTimeCtrl
+Panel->DateTimeCtrl
+
+subgraph clustermixin {
+label=mixin
+SearchableViewerMixin FilterableViewerMixin FilterableViewerForCategorizablesMixin FilterableViewerForTasksMixin SortableViewerMixin SortableViewerForEffortMixin SortableViewerForCategoriesMixin SortableViewerForCategorizablesMixin SortableViewerForAttachmentsMixin SortableViewerForNotesMixin SortableViewerForTasksMixin AttachmentDropTargetMixin NoteColumnMixin AttachmentColumnMixin
+}
+
+FilterableViewerMixin->FilterableViewerForCategorizablesMixin
+FilterableViewerForCategorizablesMixin->FilterableViewerForTasksMixin
+SortableViewerMixin->SortableViewerForEffortMixin
+SortableViewerMixin->SortableViewerForCategoriesMixin
+SortableViewerMixin->SortableViewerForCategorizablesMixin
+SortableViewerForCategorizablesMixin->SortableViewerForAttachmentsMixin
+SortableViewerForCategorizablesMixin->SortableViewerForNotesMixin
+SortableViewerForCategorizablesMixin->SortableViewerForTasksMixin
+
+subgraph clusternote {
+label=note
+BaseNoteViewer NoteViewer
+}
+
+AttachmentDropTargetMixin->BaseNoteViewer
+SearchableViewerMixin->BaseNoteViewer
+SortableViewerForNotesMixin->BaseNoteViewer
+AttachmentColumnMixin->BaseNoteViewer
+SortableViewerWithColumns->BaseNoteViewer
+TreeViewer->BaseNoteViewer
+FilterableViewerForCategorizablesMixin->NoteViewer
+BaseNoteViewer->NoteViewer
+
+subgraph clusterrefresher {
+label=refresher
+MinuteRefresher SecondRefresher
+}
+
+Observer->SecondRefresher
+EvtHandler->SecondRefresher
+
+subgraph clustertask {
+label=task
+DueDateTimeCtrl TaskViewerStatusMessages BaseTaskViewer BaseTaskTreeViewer RootNode SquareMapRootNode TimelineRootNode TimelineViewer SquareTaskViewer CalendarViewer TaskViewer CheckableTaskViewer TaskStatsViewer
+}
+
+DateTimeCtrl->DueDateTimeCtrl
+SearchableViewerMixin->BaseTaskViewer
+FilterableViewerForTasksMixin->BaseTaskViewer
+TreeViewer->BaseTaskViewer
+BaseTaskViewer->BaseTaskTreeViewer
+RootNode->SquareMapRootNode
+RootNode->TimelineRootNode
+BaseTaskTreeViewer->TimelineViewer
+BaseTaskTreeViewer->SquareTaskViewer
+AttachmentDropTargetMixin->CalendarViewer
+SortableViewerForTasksMixin->CalendarViewer
+BaseTaskTreeViewer->CalendarViewer
+AttachmentDropTargetMixin->TaskViewer
+SortableViewerForTasksMixin->TaskViewer
+NoteColumnMixin->TaskViewer
+AttachmentColumnMixin->TaskViewer
+SortableViewerWithColumns->TaskViewer
+BaseTaskTreeViewer->TaskViewer
+TaskViewer->CheckableTaskViewer
+BaseTaskViewer->TaskStatsViewer
+
+}

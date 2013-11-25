@@ -258,6 +258,9 @@ class FileMenu(Menu):
         self.appendMenu(_('&Export'),
                         ExportMenu(mainwindow, iocontroller, settings),
                         'export')
+        self.appendMenu(_('&Backup'),
+                        BackupMenu(mainwindow, iocontroller),
+                        'export')
         if settings.getboolean('feature', 'syncml'):
             try:
                 import taskcoachlib.syncml.core  # pylint: disable=W0612,W0404
@@ -288,7 +291,7 @@ class FileMenu(Menu):
             recentFileMenuPosition = self.__recentFilesStartPosition + 1 + index
             recentFileOpenUICommand = uicommand.RecentFileOpen(filename=recentFile,
                 index=recentFileNumber, iocontroller=self.__iocontroller)
-            recentFileOpenUICommand.addToMenu(self, self._window, 
+            recentFileOpenUICommand.addToMenu(self, self._window,
                 recentFileMenuPosition)
             self.__recentFileUICommands.append(recentFileOpenUICommand)
 
@@ -311,7 +314,8 @@ class ExportMenu(Menu):
             uicommand.FileExportAsCSV(**kwargs),
             uicommand.FileExportAsICalendar(**kwargs),
             uicommand.FileExportAsTodoTxt(**kwargs),
-			uicommand.FileExportAsPDF(**kwargs))
+			uicommand.FileExportAsPDF(**kwargs),
+            uicommand.FileExportToGoogleTask(iocontroller=iocontroller))
         
         
 class ImportMenu(Menu):
@@ -321,6 +325,13 @@ class ImportMenu(Menu):
             uicommand.FileImportCSV(iocontroller=iocontroller),
             uicommand.FileImportTodoTxt(iocontroller=iocontroller),
             uicommand.FileImportFromGoogleTask(iocontroller=iocontroller))
+
+
+class BackupMenu(Menu):
+    def __init__(self, mainwindow, iocontroller):
+        super(BackupMenu, self).__init__(mainwindow)
+        self.appendUICommands(
+            uicommand.FileBackupGoogleDrive(iocontroller=iocontroller))
 
 
 class TaskTemplateMenu(DynamicMenu):

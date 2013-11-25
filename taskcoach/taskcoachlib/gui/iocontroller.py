@@ -372,10 +372,52 @@ class IOController(object):
             answerDict = []
             for tasklist in tasklists['items']:
                 tasks = service.tasks().list(tasklist=tasklist['id']).execute()
-                for item in tasks['items']:
+                print "Items: "
+                print tasks
+                for item in tasks['items'] if 'items' in tasks else []:
                     item['Category'] = tasklist['title']
                     answerDict.append(item)
             return answerDict
+        except client.AccessTokenRefreshError:
+            print ("The credentials have been revoked or expired, please re-run"
+                    "the application to re-authorize")
+
+    def uploadToGoogleDrive(self,path):
+        persistence.driveconnect.uploadTaskfile(path)
+
+    def exportToGoogleTasks(self,existingTasks):
+        service = persistence.apiconnect.connect("")
+        try:
+            #tasklists = service.tasklists().list().execute()
+            #gCategories = []
+
+            """for tasklist in tasklists['items']:
+                gCategories.append(tasklist['title'])"""
+
+            """if 'Task Coach' not in gCategories:
+                tasklist = {'title': 'Task Coach'}
+                service.tasklists().insert(body=tasklist).execute()
+                gCategories.append('Task Coach')"""
+
+            tmptasks = service.tasks().list(tasklist='@default').execute()
+            gTask=[]
+            for tmptask in tmptasks['items']:
+                gTask.append([tmptask['title'],tmptask['due'] if 'due' in tmptask else '%Y-%m-%dT00:00:00.000Z'])
+            print gTask
+            print "hej"
+
+            for existingTask in existingTasks:
+                print [existingTask.subject(),existingTask.dueDateTime().strftime('%Y-%m-%dT00:00:00.000Z')]
+                if [existingTask.subject(),
+                    existingTask.dueDateTime().strftime('%Y-%m-%dT00:00:00.000Z')] not in gTask:
+
+
+
+                    task = {'title': existingTask.subject(),'notes': existingTask.description(),
+                            'due': existingTask.dueDateTime().strftime('%Y-%m-%dT00:00:00.000Z')}
+                    result = service.tasks().insert(tasklist='@default', body=task).execute()
+                    print result['id']
+
         except client.AccessTokenRefreshError:
             print ("The credentials have been revoked or expired, please re-run"
                     "the application to re-authorize")

@@ -417,7 +417,7 @@ class FileExportAsTodoTxt(FileExportCommand):
         return aViewer.isShowingTasks()
 
 
-class FileExportAsPDF(FileExportCommand):
+class FileExportAsPDF(IOCommand):
     ''' Action for exporting the contents of a viewer to PDF. '''
     ''' author: Erik Ivarsson  '''
 
@@ -433,6 +433,20 @@ class FileExportAsPDF(FileExportCommand):
 
     def exportFunction(self):
         return self.iocontroller.exportAsPDF
+
+class FileExportToGoogleTask(IOCommand):
+    ''' Action for exporting the contents of a viewer to iCalendar format. '''
+
+    def __init__(self, *args, **kwargs):
+        super(FileExportToGoogleTask, self).__init__( \
+            menuText=_('Export as &Google Task...'),
+            helpText=_('Export items from a viewer to Google Task'),
+            bitmap='exportascsv', *args, **kwargs)
+
+    def doCommand(self,event):
+        self.iocontroller.exportToGoogleTasks(self.mainWindow().viewer.visibleItems())
+
+
 
 
 class FileImportCSV(IOCommand):
@@ -489,11 +503,12 @@ class FileImportFromGoogleTask(IOCommand):
         tasklist=self.iocontroller.importFromGoogleTasks()
         for task in tasklist:
 
-            existingTasks = self.mainWindow().viewer.visibleItems()
+            existingTasks = self.mainWindow().viewer.taskFile.tasks()
             exists = False
 
             for existingTask in existingTasks:
-                if existingTask.id()==task['id']:
+                if existingTask.id()==task['id'] or (existingTask.subject() == task['title'] and
+                                                         existingTask.dueDateTime().strftime("%Y-%m-%dT00:00:00.000Z")==task['due']):
                     exists=True
                     break
 
@@ -505,21 +520,33 @@ class FileImportFromGoogleTask(IOCommand):
                     newCategoryCommand.do()
                     category = self.mainWindow().taskFile.categories().findCategoryByName(task['Category'])
 
-                if task['status']=='completed':
-                    complete=100
-                else:
-                    complete=0
-
-
-
+                print task
                 newTaskCommand = command.NewTaskCommand(self.mainWindow().taskFile.tasks(),
-                                                       subject=task['title'],
-                                                       description=task['notes'],
-                                                       dueDateTime=date.DateTime.strptime(task['due'],'%Y-%m-%dT%H:%M:%S.%fz'),
-                                                       percentageComplete=complete,
+                                                       subject=task['title'] if 'title' in task else '',
+                                                       description=task['notes'] if 'notes' in task else '',
+                                                       dueDateTime=date.DateTime.strptime
+                                                           (task['due'],'%Y-%m-%dT%H:%M:%S.%fz') if 'due' in task
+                                                            else date.DateTime.strptime
+                                                           ('2010-10-15T12:00:00.000Z','%Y-%m-%dT%H:%M:%S.%fz'),
+                                                       percentageComplete=100 if task['status']=='completed' else 0,
                                                        categories=[category],id=task['id'])
 
                 newTaskCommand.do()
+
+
+class FileBackupGoogleDrive(IOCommand):
+    def __init__(self, *args, **kwargs):
+        super(FileBackupGoogleDrive, self).__init__( \
+            menuText=_('&Backup to Google Drive'),
+            helpText=_('Backup your Taskfile to Google Drive'),
+            bitmap='', *args, **kwargs)
+
+    def doCommand(self, event):
+        if self.mainWindow().viewer.taskFile.__str__() != "":
+            self.iocontroller.uploadToGoogleDrive(self.mainWindow().viewer.taskFile.__str__())
+            wx.MessageBox("Backup completed",'Backup completed',wx.OK|wx.ICON_INFORMATION)
+        else:
+            wx.MessageBox('Please save task before doing a backup','Backup error',wx.OK|wx.ICON_ERROR)
 
 
 class FileSynchronize(IOCommand, settings_uicommand.SettingsCommand):
@@ -2335,7 +2362,6 @@ class QuickAdd(TaskListCommand, ViewerCommand, settings_uicommand.SettingsComman
     def appendToToolBar(self, toolbar):
         self.__bound = True
         self.QuickAddControl = wx.TextCtrl(toolbar, -1, "", style=wx.TE_PROCESS_ENTER)
-
         toolbar.AddControl(self.QuickAddControl)
         self.bindKeyDownEnter()
         self.bindKeyDownInSearchCtrl()
@@ -2385,6 +2411,7 @@ class QuickAdd(TaskListCommand, ViewerCommand, settings_uicommand.SettingsComman
                                                     completionDateTime=taskArgs['CompletionDate'],
                                                     categories=categories)
             newTaskCommand.do()
+            print self.settings.get('file', 'recentfiles')
             self.QuickAddControl.Clear()
         else:
             event.Skip()
