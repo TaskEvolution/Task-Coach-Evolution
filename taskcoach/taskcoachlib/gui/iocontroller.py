@@ -403,8 +403,6 @@ class IOController(object):
             gTask=[]
             for tmptask in tmptasks['items']:
                 gTask.append([tmptask['title'],tmptask['due'] if 'due' in tmptask else '%Y-%m-%dT00:00:00.000Z'])
-            print gTask
-            print "hej"
 
             for existingTask in existingTasks:
                 print [existingTask.subject(),existingTask.dueDateTime().strftime('%Y-%m-%dT00:00:00.000Z')]
