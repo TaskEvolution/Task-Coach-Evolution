@@ -591,7 +591,7 @@ class ActionMenu(Menu):
                                        settings=settings),
                 None)
         self.appendUICommands(
-            uicommand.Mail(viewer=viewerContainer),
+            uicommand.Mail(viewer=viewerContainer, settings=settings),
             None)
         self.appendMenu(_('&Toggle category'),
                         ToggleCategoryMenu(mainwindow, categories=categories,
