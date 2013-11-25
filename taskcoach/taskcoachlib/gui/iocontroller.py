@@ -352,6 +352,12 @@ class IOController(object):
             self.__pdfFileDialogOpts, persistence.PDFWriter, viewer,
             selectionOnly, fileExists=fileExists, columns=columns)
 
+    def openAttatchFileDialog(self):
+        filename = None
+        filename = self.__askUserForFile(_('Select File'), 
+                                             self.__tskFileOpenDialogOpts)
+        return filename
+
     def importCSV(self, **kwargs):
         persistence.CSVReader(self.__taskFile.tasks(),
                               self.__taskFile.categories()).read(**kwargs)

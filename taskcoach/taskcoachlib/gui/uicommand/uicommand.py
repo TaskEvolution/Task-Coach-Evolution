@@ -1547,30 +1547,51 @@ class ToggleCategory(mixin_uicommand.NeedsSelectedCategorizableMixin,
         return True  # All mutually exclusive ancestors are checked
 
 
-class Mail(mixin_uicommand.NeedsSelectionMixin, ViewerCommand):
+class Mail(mixin_uicommand.NeedsSelectionMixin, ViewerCommand, settings_uicommand.SettingsCommand):
     def __init__(self, *args, **kwargs):
         menuText = _('&Mail...\tShift-Ctrl-M') if operating_system.isMac() else _('&Mail...\tCtrl-M')
         super(Mail, self).__init__(menuText=menuText,
                                    helpText=help.mailItem, bitmap='envelope_icon', *args, **kwargs)
 
     def doCommand(self, event, mail=sendMail, showerror=wx.MessageBox):  # pylint: disable=W0221
-        items = self.viewer.curselection()
-        subject = self.subject(items)
-        body = self.body(items)
+
+        #columns = None
+        itemList = []
+        items = self.mainWindow().viewer.visibleItems()
+        for item in items:
+            itemList.extend(str(item))
+
+        #columns = columns or self.mainWindow().viewer.visibleColumns()
+        #print columns
+        subject = self.subject(itemList, items)
+        body = self.body(itemList, items)
+
+        #dia = TestDialog(None, -1, 'Email config')
+        #dia.Show(True)
+
         self.mail(subject, body, mail, showerror)
 
-    def subject(self, items):
+    def subject(self, itList, items):
         assert items
-        if len(items) > 2:
-            return _('Several things')
-        elif len(items) == 2:
+        if len(itList) > 2:
+            #Allow the user to specify the subject line
+            sub = None
+            dlg = wx.TextEntryDialog(None, 'Enter subject','Subject')
+            dlg.SetValue("Subject...")
+            if dlg.ShowModal() == wx.ID_OK:
+
+                sub = dlg.GetValue()
+            dlg.Destroy()
+
+            return _(sub)
+        elif len(itList) == 2:
             subjects = [item.subject(recursive=True) for item in items]
             return ' '.join([subjects[0], _('and'), subjects[1]])
         else:
             return items[0].subject(recursive=True)
 
-    def body(self, items):
-        if len(items) > 1:
+    def body(self, itList, items):
+        if len(itList) > 1:
             bodyLines = []
             for item in items:
                 bodyLines.extend(self.itemToLines(item))
@@ -1599,6 +1620,60 @@ class Mail(mixin_uicommand.NeedsSelectionMixin, ViewerCommand):
                           caption=_('%s mail error') % meta.name,
                           style=wx.ICON_ERROR)
 
+    @staticmethod
+    def getExportDialogClass():
+        return dialog.export.ExportMailDialog
+
+'''class TestDialog(wx.Dialog):
+
+    def __init__(self, parent, ID, title):
+
+        wx.Dialog.__init__(self, parent, ID, title, wx.DefaultPosition, wx.Size(250, 270))
+
+        self.createColumnPicker()
+        self.populateColumnPicker(viewer)
+        
+    def createColumnPicker(self):
+        label = wx.StaticText(self, label=_('Columns to export:'))
+        label.SetSizerProps(valign='top')
+        self.columnPicker = widgets.CheckListBox(self)  # pylint: disable=W0201
+        self.columnPicker.SetSizerProps(expand=True, proportion=1)
+        
+    def populateColumnPicker(self, viewer):
+        self.columnPicker.Clear()
+        self.fillColumnPicker(viewer)
+                    
+    def fillColumnPicker(self, viewer):
+        if not viewer.hasHideableColumns():
+            return
+        visibleColumns = viewer.visibleColumns()
+        for column in viewer.selectableColumns():
+            if column.header():
+                index = self.columnPicker.Append(column.header(), clientData=column)
+                self.columnPicker.Check(index, column in visibleColumns)
+            
+    def selectedColumns(self):
+        indices = [index for index in range(self.columnPicker.GetCount()) if self.columnPicker.IsChecked(index)]
+        return [self.columnPicker.GetClientData(index) for index in indices]
+
+    def options(self):
+        return dict(columns=self.selectedColumns())
+
+        con = wx.Button(self, 1, 'Ok', (10, 160))
+   
+        self.Bind(wx.EVT_BUTTON, self.OnOk, id=1)
+
+        self.Centre()
+    
+    def OnOk(self,e):
+        result = wx.MessageBox(_('Heeeeeeej!)'),
+            "Titeln på boxen", 
+            style=wx.YES_NO | wx.ICON_QUESTION | wx.NO_DEFAULT)
+        if result == wx.YES:
+           self.Close(True)
+        elif result == wx.NO:
+            print "NO!" 
+            '''
 
 class AddNote(mixin_uicommand.NeedsSelectedNoteOwnersMixin, ViewerCommand,
               settings_uicommand.SettingsCommand):
