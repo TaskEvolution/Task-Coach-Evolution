@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.xdg.Mime</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.xdg-module.html">Package&nbsp;xdg</a> ::
+        Module&nbsp;Mime
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.xdg.Mime-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module Mime</h1><p class="nomargin-top"><span class="codelink"><a href="taskcoachlib.thirdparty.xdg.Mime-pysrc.html">source&nbsp;code</a></span></p>
+<p>This module is based on a rox module (LGPL):</p>
+  
+  <p>http://cvs.sourceforge.net/viewcvs.py/rox/ROX-Lib2/python/rox/mime.py?rev=1.21&amp;view=log</p>
+  <p>This module provides access to the shared MIME database.</p>
+  <p>types is a dictionary of all known MIME types, indexed by the type 
+  name, e.g. types['application/x-python']</p>
+  <p>Applications can install information about MIME types by storing an 
+  XML file as &lt;MIME&gt;/packages/&lt;application&gt;.xml and running the
+  update-mime-database command, which is provided by the freedesktop.org 
+  shared mime database package.</p>
+  <p>See http://www.freedesktop.org/standards/shared-mime-info-spec/ for 
+  information about the format of these files.</p>
+  <p>(based on version 0.13)</p>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.xdg.Mime.MIMEtype-class.html" class="summary-name">MIMEtype</a><br />
+      Type holding data about a MIME type
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.xdg.Mime.MagicRule-class.html" class="summary-name">MagicRule</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.xdg.Mime.MagicType-class.html" class="summary-name">MagicType</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.xdg.Mime.MagicDB-class.html" class="summary-name">MagicDB</a>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_get_node_data"></a><span class="summary-sig-name">_get_node_data</span>(<span class="summary-sig-arg">node</span>)</span><br />
+      Get text of XML node</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.xdg.Mime-pysrc.html#_get_node_data">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.xdg.Mime-module.html#lookup" class="summary-sig-name">lookup</a>(<span class="summary-sig-arg">media</span>,
+        <span class="summary-sig-arg">subtype</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Get the MIMEtype object for this type, creating a new one if needed.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.xdg.Mime-pysrc.html#lookup">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_cache_database"></a><span class="summary-sig-name">_cache_database</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.xdg.Mime-pysrc.html#_cache_database">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="update_cache"></a><span class="summary-sig-name">update_cache</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.xdg.Mime-pysrc.html#update_cache">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_type_by_name"></a><span class="summary-sig-name">get_type_by_name</span>(<span class="summary-sig-arg">path</span>)</span><br />
+      Returns type of file by its name, or None if not known</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.xdg.Mime-pysrc.html#get_type_by_name">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_type_by_contents"></a><span class="summary-sig-name">get_type_by_contents</span>(<span class="summary-sig-arg">path</span>,
+        <span class="summary-sig-arg">max_pri</span>=<span class="summary-sig-default">100</span>,
+        <span class="summary-sig-arg">min_pri</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Returns type of file by its contents, or None if not known</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.xdg.Mime-pysrc.html#get_type_by_contents">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_type_by_data"></a><span class="summary-sig-name">get_type_by_data</span>(<span class="summary-sig-arg">data</span>,
+        <span class="summary-sig-arg">max_pri</span>=<span class="summary-sig-default">100</span>,
+        <span class="summary-sig-arg">min_pri</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Returns type of the data, which should be bytes.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.xdg.Mime-pysrc.html#get_type_by_data">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.xdg.Mime-module.html#get_type" class="summary-sig-name">get_type</a>(<span class="summary-sig-arg">path</span>,
+        <span class="summary-sig-arg">follow</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">name_pri</span>=<span class="summary-sig-default">100</span>)</span><br />
+      Returns type of file indicated by path.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.xdg.Mime-pysrc.html#get_type">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.xdg.Mime-module.html#install_mime_info" class="summary-sig-name">install_mime_info</a>(<span class="summary-sig-arg">application</span>,
+        <span class="summary-sig-arg">package_file</span>)</span><br />
+      Copy 'package_file' as 
+      ``~/.local/share/mime/packages/&lt;application&gt;.xml.`` If 
+      package_file is None, install 
+      ``&lt;app_dir&gt;/&lt;application&gt;.xml``.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.xdg.Mime-pysrc.html#install_mime_info">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="FREE_NS"></a><span class="summary-name">FREE_NS</span> = <code title="'http://www.freedesktop.org/standards/shared-mime-info'">'http://www.freedesktop.org/standards/shared-mime-info'</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="types"></a><span class="summary-name">types</span> = <code title="{}">{}</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="exts"></a><span class="summary-name">exts</span> = <code title="None">None</code><br />
+      hash(x)
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="globs"></a><span class="summary-name">globs</span> = <code title="None">None</code><br />
+      hash(x)
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="literals"></a><span class="summary-name">literals</span> = <code title="None">None</code><br />
+      hash(x)
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="magic"></a><span class="summary-name">magic</span> = <code title="None">None</code><br />
+      hash(x)
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="PY3"></a><span class="summary-name">PY3</span> = <code title="sys.version_info [0] &gt;= 3">sys.version_info [0] &gt;= 3</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="text"></a><span class="summary-name">text</span> = <code title="lookup('text', 'plain')">lookup('text', 'plain')</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="inode_block"></a><span class="summary-name">inode_block</span> = <code title="lookup('inode', 'blockdevice')">lookup('inode', 'blockdevice')</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="inode_char"></a><span class="summary-name">inode_char</span> = <code title="lookup('inode', 'chardevice')">lookup('inode', 'chardevice')</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="inode_dir"></a><span class="summary-name">inode_dir</span> = <code title="lookup('inode', 'directory')">lookup('inode', 'directory')</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="inode_fifo"></a><span class="summary-name">inode_fifo</span> = <code title="lookup('inode', 'fifo')">lookup('inode', 'fifo')</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="inode_socket"></a><span class="summary-name">inode_socket</span> = <code title="lookup('inode', 'socket')">lookup('inode', 'socket')</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="inode_symlink"></a><span class="summary-name">inode_symlink</span> = <code title="lookup('inode', 'symlink')">lookup('inode', 'symlink')</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="inode_door"></a><span class="summary-name">inode_door</span> = <code title="lookup('inode', 'door')">lookup('inode', 'door')</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="app_exe"></a><span class="summary-name">app_exe</span> = <code title="lookup('application', 'executable')">lookup('application', 'executable')</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_cache_uptodate"></a><span class="summary-name">_cache_uptodate</span> = <code title="False">False</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="lookup"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">lookup</span>(<span class="sig-arg">media</span>,
+        <span class="sig-arg">subtype</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.xdg.Mime-pysrc.html#lookup">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get the MIMEtype object for this type, creating a new one if 
+  needed.</p>
+  <p>The name can either be passed as one part ('text/plain'), or as two 
+  ('text', 'plain').</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_type"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_type</span>(<span class="sig-arg">path</span>,
+        <span class="sig-arg">follow</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">name_pri</span>=<span class="sig-default">100</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.xdg.Mime-pysrc.html#get_type">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Returns type of file indicated by path.
+
+path :
+  pathname to check (need not exist)
+follow :
+  when reading file, follow symbolic links
+name_pri :
+  Priority to do name matches.  100=override magic
+
+This tries to use the contents of the file, and falls back to the name. It
+can also handle special filesystem objects like directories and sockets.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="install_mime_info"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">install_mime_info</span>(<span class="sig-arg">application</span>,
+        <span class="sig-arg">package_file</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.xdg.Mime-pysrc.html#install_mime_info">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Copy 'package_file' as 
+  ``~/.local/share/mime/packages/&lt;application&gt;.xml.`` If package_file
+  is None, install ``&lt;app_dir&gt;/&lt;application&gt;.xml``. If already 
+  installed, does nothing. May overwrite an existing file with the same 
+  name (if the contents are different)</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:33 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

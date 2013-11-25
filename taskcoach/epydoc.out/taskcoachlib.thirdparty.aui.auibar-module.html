@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.aui.auibar</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.aui-module.html">Package&nbsp;aui</a> ::
+        Module&nbsp;auibar
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.aui.auibar-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module auibar</h1><p class="nomargin-top"><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibar-pysrc.html">source&nbsp;code</a></span></p>
+<p>`auibar.py` contains an implementation of :class:`AuiToolBar`, which 
+  is a completely owner-drawn toolbar perfectly integrated with the AUI 
+  layout system. This allows drag and drop of toolbars, docking/floating 
+  behaviour and the possibility to define &quot;overflow&quot; items in the
+  toolbar itself.</p>
+  <p>The default theme that is used is :class:`AuiToolBar`, which provides 
+  a modern, glossy look and feel. The theme can be changed by calling 
+  :meth:`AuiToolBar.SetArtProvider`.</p>
+
+<hr />
+<div class="fields">      <p><strong>Date:</strong>
+        31 March 2009
+      </p>
+      <p><strong>Author:</strong>
+        Andrea Gavana &lt;andrea.gavana@gmail.com&gt;
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.auibar.CommandToolBarEvent-class.html" class="summary-name">CommandToolBarEvent</a><br />
+      A specialized command event class for events sent by 
+      :class:`AuiToolBar`.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.auibar.AuiToolBarEvent-class.html" class="summary-name">AuiToolBarEvent</a><br />
+      A specialized command event class for events sent by 
+      :class:`AuiToolBar`.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.auibar.ToolbarCommandCapture-class.html" class="summary-name">ToolbarCommandCapture</a><br />
+      A class to handle the dropdown window menu.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.auibar.AuiToolBarItem-class.html" class="summary-name">AuiToolBarItem</a><br />
+      AuiToolBarItem is a toolbar element.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.auibar.AuiDefaultToolBarArt-class.html" class="summary-name">AuiDefaultToolBarArt</a><br />
+      Toolbar art provider code - a tab provider provides all drawing 
+        functionality to the :class:`AuiToolBar`.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.auibar.AuiToolBar-class.html" class="summary-name">AuiToolBar</a><br />
+      AuiToolBar is a completely owner-drawn toolbar perfectly integrated 
+      with the AUI layout system.
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_VERSION_STRING"></a><span class="summary-name">_VERSION_STRING</span> = <code title="wx.VERSION_STRING">wx.VERSION_STRING</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_COMMAND_AUITOOLBAR_TOOL_DROPDOWN"></a><span class="summary-name">wxEVT_COMMAND_AUITOOLBAR_TOOL_DROPDOWN</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_COMMAND_AUITOOLBAR_OVERFLOW_CLICK"></a><span class="summary-name">wxEVT_COMMAND_AUITOOLBAR_OVERFLOW_CLICK</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_COMMAND_AUITOOLBAR_RIGHT_CLICK"></a><span class="summary-name">wxEVT_COMMAND_AUITOOLBAR_RIGHT_CLICK</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_COMMAND_AUITOOLBAR_MIDDLE_CLICK"></a><span class="summary-name">wxEVT_COMMAND_AUITOOLBAR_MIDDLE_CLICK</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_COMMAND_AUITOOLBAR_BEGIN_DRAG"></a><span class="summary-name">wxEVT_COMMAND_AUITOOLBAR_BEGIN_DRAG</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.auibar-module.html#EVT_AUITOOLBAR_TOOL_DROPDOWN" class="summary-name">EVT_AUITOOLBAR_TOOL_DROPDOWN</a> = <code title="wx.PyEventBinder(wxEVT_COMMAND_AUITOOLBAR_TOOL_DROPDOWN, 1)">wx.PyEventBinder(wxEVT_COMMAND_<code class="variable-ellipsis">...</code></code><br />
+      A dropdown `AuiToolBarItem` is being shown.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.auibar-module.html#EVT_AUITOOLBAR_OVERFLOW_CLICK" class="summary-name">EVT_AUITOOLBAR_OVERFLOW_CLICK</a> = <code title="wx.PyEventBinder(wxEVT_COMMAND_AUITOOLBAR_OVERFLOW_CLICK, 1)">wx.PyEventBinder(wxEVT_COMMAND<code class="variable-ellipsis">...</code></code><br />
+      The user left-clicked on the overflow button in `AuiToolBar`.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.auibar-module.html#EVT_AUITOOLBAR_RIGHT_CLICK" class="summary-name">EVT_AUITOOLBAR_RIGHT_CLICK</a> = <code title="wx.PyEventBinder(wxEVT_COMMAND_AUITOOLBAR_RIGHT_CLICK, 1)">wx.PyEventBinder(wxEVT_COMMAND_AU<code class="variable-ellipsis">...</code></code><br />
+      Fires an event when the user right-clicks on a `AuiToolBarItem`.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.auibar-module.html#EVT_AUITOOLBAR_MIDDLE_CLICK" class="summary-name">EVT_AUITOOLBAR_MIDDLE_CLICK</a> = <code title="wx.PyEventBinder(wxEVT_COMMAND_AUITOOLBAR_MIDDLE_CLICK, 1)">wx.PyEventBinder(wxEVT_COMMAND_A<code class="variable-ellipsis">...</code></code><br />
+      Fires an event when the user middle-clicks on a `AuiToolBarItem`.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.auibar-module.html#EVT_AUITOOLBAR_BEGIN_DRAG" class="summary-name">EVT_AUITOOLBAR_BEGIN_DRAG</a> = <code title="wx.PyEventBinder(wxEVT_COMMAND_AUITOOLBAR_BEGIN_DRAG, 1)">wx.PyEventBinder(wxEVT_COMMAND_AUI<code class="variable-ellipsis">...</code></code><br />
+      A drag operation involving a toolbar item has started.
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="EVT_AUITOOLBAR_TOOL_DROPDOWN"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_AUITOOLBAR_TOOL_DROPDOWN</h3>
+  <p>A dropdown `AuiToolBarItem` is being shown.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_COMMAND_AUITOOLBAR_TOOL_DROPDOWN, 1)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_AUITOOLBAR_OVERFLOW_CLICK"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_AUITOOLBAR_OVERFLOW_CLICK</h3>
+  <p>The user left-clicked on the overflow button in `AuiToolBar`.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_COMMAND_AUITOOLBAR_OVERFLOW_CLICK, 1)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_AUITOOLBAR_RIGHT_CLICK"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_AUITOOLBAR_RIGHT_CLICK</h3>
+  <p>Fires an event when the user right-clicks on a `AuiToolBarItem`.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_COMMAND_AUITOOLBAR_RIGHT_CLICK, 1)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_AUITOOLBAR_MIDDLE_CLICK"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_AUITOOLBAR_MIDDLE_CLICK</h3>
+  <p>Fires an event when the user middle-clicks on a `AuiToolBarItem`.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_COMMAND_AUITOOLBAR_MIDDLE_CLICK, 1)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_AUITOOLBAR_BEGIN_DRAG"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_AUITOOLBAR_BEGIN_DRAG</h3>
+  <p>A drag operation involving a toolbar item has started.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_COMMAND_AUITOOLBAR_BEGIN_DRAG, 1)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:31 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.persistence.csv.writer</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.persistence-module.html">Package&nbsp;persistence</a> ::
+        <a href="taskcoachlib.persistence.csv-module.html">Package&nbsp;csv</a> ::
+        Module&nbsp;writer
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.persistence.csv.writer-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.persistence.csv.writer-module.html">Module taskcoachlib.persistence.csv.writer</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach - Your friendly task manager</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (C) 2004-2013 Task Coach developers &lt;developers@taskcoach.org&gt;</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is free software: you can redistribute it and/or modify</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">the Free Software Foundation, either version 3 of the License, or</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">(at your option) any later version.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">GNU General Public License for more details.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module taskcoachlib.persistence.csv.generator=taskcoachlib.persistence.csv.generator-module.html,Module taskcoachlib.persistence.html.generator=taskcoachlib.persistence.html.generator-module.html,Module taskcoachlib.persistence.pdf.generator=taskcoachlib.persistence.pdf.generator-module.html"><a title="taskcoachlib.persistence.csv.generator
+taskcoachlib.persistence.html.generator
+taskcoachlib.persistence.pdf.generator" class="py-name" href="#" onclick="return doclink('link-0', 'generator', 'link-0');">generator</a></tt><tt class="py-op">,</tt> <tt id="link-1" class="py-name" targets="Package taskcoachlib.persistence.csv=taskcoachlib.persistence.csv-module.html"><a title="taskcoachlib.persistence.csv" class="py-name" href="#" onclick="return doclink('link-1', 'csv', 'link-1');">csv</a></tt><tt class="py-op">,</tt> <tt class="py-name">cStringIO</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="UnicodeCSVWriter"></a><div id="UnicodeCSVWriter-def"><a name="L22"></a><tt class="py-lineno">22</tt> <a class="py-toggle" href="#" id="UnicodeCSVWriter-toggle" onclick="return toggle('UnicodeCSVWriter');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.persistence.csv.writer.UnicodeCSVWriter-class.html">UnicodeCSVWriter</a><tt class="py-op">:</tt> </tt>
+</div><div id="UnicodeCSVWriter-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="UnicodeCSVWriter-expanded"><a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">    <tt class="py-docstring">''' A CSV writer that writes rows to a CSV file encoded in utf-8. </tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-docstring">        Based on http://docs.python.org/lib/csv-examples.html.</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="UnicodeCSVWriter.__init__"></a><div id="UnicodeCSVWriter.__init__-def"><a name="L26"></a><tt class="py-lineno">26</tt> <a class="py-toggle" href="#" id="UnicodeCSVWriter.__init__-toggle" onclick="return toggle('UnicodeCSVWriter.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.csv.writer.UnicodeCSVWriter-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">fd</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="UnicodeCSVWriter.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="UnicodeCSVWriter.__init__-expanded"><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-comment"># Redirect output to a queue</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">queue</tt> <tt class="py-op">=</tt> <tt class="py-name">cStringIO</tt><tt class="py-op">.</tt><tt class="py-name">StringIO</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module taskcoachlib.persistence.csv.writer=taskcoachlib.persistence.csv.writer-module.html,Module taskcoachlib.persistence.html.writer=taskcoachlib.persistence.html.writer-module.html,Module taskcoachlib.persistence.icalendar.writer=taskcoachlib.persistence.icalendar.writer-module.html,Module taskcoachlib.persistence.pdf.writer=taskcoachlib.persistence.pdf.writer-module.html,Module taskcoachlib.persistence.todotxt.writer=taskcoachlib.persistence.todotxt.writer-module.html,Module taskcoachlib.persistence.xml.writer=taskcoachlib.persistence.xml.writer-module.html"><a title="taskcoachlib.persistence.csv.writer
+taskcoachlib.persistence.html.writer
+taskcoachlib.persistence.icalendar.writer
+taskcoachlib.persistence.pdf.writer
+taskcoachlib.persistence.todotxt.writer
+taskcoachlib.persistence.xml.writer" class="py-name" href="#" onclick="return doclink('link-2', 'writer', 'link-2');">writer</a></tt> <tt class="py-op">=</tt> <tt id="link-3" class="py-name"><a title="taskcoachlib.persistence.csv" class="py-name" href="#" onclick="return doclink('link-3', 'csv', 'link-1');">csv</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="taskcoachlib.persistence.csv.writer
+taskcoachlib.persistence.html.writer
+taskcoachlib.persistence.icalendar.writer
+taskcoachlib.persistence.pdf.writer
+taskcoachlib.persistence.todotxt.writer
+taskcoachlib.persistence.xml.writer" class="py-name" href="#" onclick="return doclink('link-4', 'writer', 'link-2');">writer</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">queue</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt id="link-5" class="py-name" targets="Package taskcoachlib.thirdparty.pubsub.core.kwargs=taskcoachlib.thirdparty.pubsub.core.kwargs-module.html"><a title="taskcoachlib.thirdparty.pubsub.core.kwargs" class="py-name" href="#" onclick="return doclink('link-5', 'kwargs', 'link-5');">kwargs</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">fd</tt> <tt class="py-op">=</tt> <tt class="py-name">fd</tt> </tt>
+</div><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt>
+<a name="UnicodeCSVWriter.writerow"></a><div id="UnicodeCSVWriter.writerow-def"><a name="L32"></a><tt class="py-lineno">32</tt> <a class="py-toggle" href="#" id="UnicodeCSVWriter.writerow-toggle" onclick="return toggle('UnicodeCSVWriter.writerow');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.csv.writer.UnicodeCSVWriter-class.html#writerow">writerow</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">row</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="UnicodeCSVWriter.writerow-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="UnicodeCSVWriter.writerow-expanded"><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="taskcoachlib.persistence.csv.writer
+taskcoachlib.persistence.html.writer
+taskcoachlib.persistence.icalendar.writer
+taskcoachlib.persistence.pdf.writer
+taskcoachlib.persistence.todotxt.writer
+taskcoachlib.persistence.xml.writer" class="py-name" href="#" onclick="return doclink('link-6', 'writer', 'link-2');">writer</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method taskcoachlib.persistence.csv.writer.UnicodeCSVWriter.writerow()=taskcoachlib.persistence.csv.writer.UnicodeCSVWriter-class.html#writerow"><a title="taskcoachlib.persistence.csv.writer.UnicodeCSVWriter.writerow" class="py-name" href="#" onclick="return doclink('link-7', 'writerow', 'link-7');">writerow</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">cell</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method taskcoachlib.thirdparty.gntp.GNTPRegister.encode()=taskcoachlib.thirdparty.gntp.GNTPRegister-class.html#encode,Method taskcoachlib.thirdparty.gntp._GNTPBase.encode()=taskcoachlib.thirdparty.gntp._GNTPBase-class.html#encode,Function taskcoachlib.thirdparty.googleapi.httplib2.iri2uri'.encode()=taskcoachlib.thirdparty.googleapi.httplib2.iri2uri%27-module.html#encode"><a title="taskcoachlib.thirdparty.gntp.GNTPRegister.encode
+taskcoachlib.thirdparty.gntp._GNTPBase.encode
+taskcoachlib.thirdparty.googleapi.httplib2.iri2uri'.encode" class="py-name" href="#" onclick="return doclink('link-8', 'encode', 'link-8');">encode</a></tt><tt class="py-op">(</tt><tt class="py-string">'utf-8'</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">cell</tt> <tt class="py-keyword">in</tt> <tt class="py-name">row</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-comment"># Fetch UTF-8 output from the queue </tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt id="link-9" class="py-name" targets="Method taskcoachlib.domain.attachment.attachment.Attachment.data()=taskcoachlib.domain.attachment.attachment.Attachment-class.html#data,Method taskcoachlib.domain.attachment.attachment.MailAttachment.data()=taskcoachlib.domain.attachment.attachment.MailAttachment-class.html#data,Method taskcoachlib.iphone.protocol.State.data()=taskcoachlib.iphone.protocol.State-class.html#data,Module taskcoachlib.meta.data=taskcoachlib.meta.data-module.html"><a title="taskcoachlib.domain.attachment.attachment.Attachment.data
+taskcoachlib.domain.attachment.attachment.MailAttachment.data
+taskcoachlib.iphone.protocol.State.data
+taskcoachlib.meta.data" class="py-name" href="#" onclick="return doclink('link-9', 'data', 'link-9');">data</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">queue</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method taskcoachlib.gui.dialog.preferences.SettingsPage.getvalue()=taskcoachlib.gui.dialog.preferences.SettingsPage-class.html#getvalue,Method taskcoachlib.gui.dialog.preferences.SettingsPageBase.getvalue()=taskcoachlib.gui.dialog.preferences.SettingsPageBase-class.html#getvalue"><a title="taskcoachlib.gui.dialog.preferences.SettingsPage.getvalue
+taskcoachlib.gui.dialog.preferences.SettingsPageBase.getvalue" class="py-name" href="#" onclick="return doclink('link-10', 'getvalue', 'link-10');">getvalue</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt id="link-11" class="py-name"><a title="taskcoachlib.domain.attachment.attachment.Attachment.data
+taskcoachlib.domain.attachment.attachment.MailAttachment.data
+taskcoachlib.iphone.protocol.State.data
+taskcoachlib.meta.data" class="py-name" href="#" onclick="return doclink('link-11', 'data', 'link-9');">data</a></tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name"><a title="taskcoachlib.domain.attachment.attachment.Attachment.data
+taskcoachlib.domain.attachment.attachment.MailAttachment.data
+taskcoachlib.iphone.protocol.State.data
+taskcoachlib.meta.data" class="py-name" href="#" onclick="return doclink('link-12', 'data', 'link-9');">data</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method taskcoachlib.thirdparty.gntp.GNTPNotice.decode()=taskcoachlib.thirdparty.gntp.GNTPNotice-class.html#decode,Method taskcoachlib.thirdparty.gntp.GNTPRegister.decode()=taskcoachlib.thirdparty.gntp.GNTPRegister-class.html#decode,Method taskcoachlib.thirdparty.gntp._GNTPBase.decode()=taskcoachlib.thirdparty.gntp._GNTPBase-class.html#decode,Method taskcoachlib.thirdparty.pybonjour._utf8_char_p.decode()=taskcoachlib.thirdparty.pybonjour._utf8_char_p-class.html#decode"><a title="taskcoachlib.thirdparty.gntp.GNTPNotice.decode
+taskcoachlib.thirdparty.gntp.GNTPRegister.decode
+taskcoachlib.thirdparty.gntp._GNTPBase.decode
+taskcoachlib.thirdparty.pybonjour._utf8_char_p.decode" class="py-name" href="#" onclick="return doclink('link-13', 'decode', 'link-13');">decode</a></tt><tt class="py-op">(</tt><tt class="py-string">'utf-8'</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">fd</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method taskcoachlib.application.application.RedirectedOutput.write()=taskcoachlib.application.application.RedirectedOutput-class.html#write,Method taskcoachlib.persistence.csv.writer.CSVWriter.write()=taskcoachlib.persistence.csv.writer.CSVWriter-class.html#write,Method taskcoachlib.persistence.html.writer.HTMLWriter.write()=taskcoachlib.persistence.html.writer.HTMLWriter-class.html#write,Method taskcoachlib.persistence.icalendar.writer.iCalendarWriter.write()=taskcoachlib.persistence.icalendar.writer.iCalendarWriter-class.html#write,Method taskcoachlib.persistence.pdf.writer.PDFWriter.write()=taskcoachlib.persistence.pdf.writer.PDFWriter-class.html#write,Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.write()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.ChangesXMLWriter.write()=taskcoachlib.persistence.xml.writer.ChangesXMLWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.PIElementTree.write()=taskcoachlib.persistence.xml.writer.PIElementTree-class.html#write,Method taskcoachlib.persistence.xml.writer.TemplateXMLWriter.write()=taskcoachlib.persistence.xml.writer.TemplateXMLWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.XMLWriter.write()=taskcoachlib.persistence.xml.writer.XMLWriter-class.html#write,Method taskcoachlib.thirdparty.xdg.IniFile.IniFile.write()=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#write,Method taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.write()=taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles-class.html#write"><a title="taskcoachlib.application.application.RedirectedOutput.write
+taskcoachlib.persistence.csv.writer.CSVWriter.write
+taskcoachlib.persistence.html.writer.HTMLWriter.write
+taskcoachlib.persistence.icalendar.writer.iCalendarWriter.write
+taskcoachlib.persistence.pdf.writer.PDFWriter.write
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.write
+taskcoachlib.persistence.xml.writer.ChangesXMLWriter.write
+taskcoachlib.persistence.xml.writer.PIElementTree.write
+taskcoachlib.persistence.xml.writer.TemplateXMLWriter.write
+taskcoachlib.persistence.xml.writer.XMLWriter.write
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.write
+taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.write" class="py-name" href="#" onclick="return doclink('link-14', 'write', 'link-14');">write</a></tt><tt class="py-op">(</tt><tt id="link-15" class="py-name"><a title="taskcoachlib.domain.attachment.attachment.Attachment.data
+taskcoachlib.domain.attachment.attachment.MailAttachment.data
+taskcoachlib.iphone.protocol.State.data
+taskcoachlib.meta.data" class="py-name" href="#" onclick="return doclink('link-15', 'data', 'link-9');">data</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">queue</tt><tt class="py-op">.</tt><tt class="py-name">truncate</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"> </tt>
+<a name="UnicodeCSVWriter.writerows"></a><div id="UnicodeCSVWriter.writerows-def"><a name="L40"></a><tt class="py-lineno">40</tt> <a class="py-toggle" href="#" id="UnicodeCSVWriter.writerows-toggle" onclick="return toggle('UnicodeCSVWriter.writerows');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.csv.writer.UnicodeCSVWriter-class.html#writerows">writerows</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">rows</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="UnicodeCSVWriter.writerows-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="UnicodeCSVWriter.writerows-expanded"><a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">row</tt> <tt class="py-keyword">in</tt> <tt id="link-16" class="py-name" targets="Method taskcoachlib.persistence.csv.generator.RowBuilder.rows()=taskcoachlib.persistence.csv.generator.RowBuilder-class.html#rows"><a title="taskcoachlib.persistence.csv.generator.RowBuilder.rows" class="py-name" href="#" onclick="return doclink('link-16', 'rows', 'link-16');">rows</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="taskcoachlib.persistence.csv.writer.UnicodeCSVWriter.writerow" class="py-name" href="#" onclick="return doclink('link-17', 'writerow', 'link-7');">writerow</a></tt><tt class="py-op">(</tt><tt class="py-name">row</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="CSVWriter"></a><div id="CSVWriter-def"><a name="L45"></a><tt class="py-lineno">45</tt> <a class="py-toggle" href="#" id="CSVWriter-toggle" onclick="return toggle('CSVWriter');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.persistence.csv.writer.CSVWriter-class.html">CSVWriter</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CSVWriter-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="CSVWriter-expanded"><a name="CSVWriter.__init__"></a><div id="CSVWriter.__init__-def"><a name="L46"></a><tt class="py-lineno">46</tt> <a class="py-toggle" href="#" id="CSVWriter.__init__-toggle" onclick="return toggle('CSVWriter.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.csv.writer.CSVWriter-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">fd</tt><tt class="py-op">,</tt> <tt class="py-param">filename</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CSVWriter.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="CSVWriter.__init__-expanded"><a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fd</tt> <tt class="py-op">=</tt> <tt class="py-name">fd</tt> </tt>
+</div><a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"> </tt>
+<a name="CSVWriter.write"></a><div id="CSVWriter.write-def"><a name="L49"></a><tt class="py-lineno">49</tt> <a class="py-toggle" href="#" id="CSVWriter.write-toggle" onclick="return toggle('CSVWriter.write');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.csv.writer.CSVWriter-class.html#write">write</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">viewer</tt><tt class="py-op">,</tt> <tt class="py-param">settings</tt><tt class="py-op">,</tt> <tt class="py-param">selectionOnly</tt><tt class="py-op">=</tt><tt id="link-18" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.False=taskcoachlib.thirdparty.chardet.constants-module.html#False"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-18', 'False', 'link-18');">False</a></tt><tt class="py-op">,</tt>  </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">              <tt class="py-param">separateDateAndTimeColumns</tt><tt class="py-op">=</tt><tt id="link-19" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-19', 'False', 'link-18');">False</a></tt><tt class="py-op">,</tt> <tt class="py-param">columns</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-comment"># pylint: disable=W0613</tt> </tt>
+</div><a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt class="py-name">csvRows</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="taskcoachlib.persistence.csv.generator
+taskcoachlib.persistence.html.generator
+taskcoachlib.persistence.pdf.generator" class="py-name" href="#" onclick="return doclink('link-20', 'generator', 'link-0');">generator</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Function taskcoachlib.persistence.csv.generator.viewer2csv()=taskcoachlib.persistence.csv.generator-module.html#viewer2csv"><a title="taskcoachlib.persistence.csv.generator.viewer2csv" class="py-name" href="#" onclick="return doclink('link-21', 'viewer2csv', 'link-21');">viewer2csv</a></tt><tt class="py-op">(</tt><tt id="link-22" class="py-name" targets="Package taskcoachlib.gui.viewer=taskcoachlib.gui.viewer-module.html"><a title="taskcoachlib.gui.viewer" class="py-name" href="#" onclick="return doclink('link-22', 'viewer', 'link-22');">viewer</a></tt><tt class="py-op">,</tt> <tt class="py-name">selectionOnly</tt><tt class="py-op">,</tt>  </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">                                       <tt class="py-name">separateDateAndTimeColumns</tt><tt class="py-op">,</tt> <tt id="link-23" class="py-name" targets="Variable taskcoachlib.gui.dialog.editor.EffortEditBook.columns=taskcoachlib.gui.dialog.editor.EffortEditBook-class.html#columns,Variable taskcoachlib.gui.dialog.editor.Page.columns=taskcoachlib.gui.dialog.editor.Page-class.html#columns,Variable taskcoachlib.gui.dialog.editor.PageWithViewer.columns=taskcoachlib.gui.dialog.editor.PageWithViewer-class.html#columns,Variable taskcoachlib.gui.dialog.editor.TaskAppearancePage.columns=taskcoachlib.gui.dialog.editor.TaskAppearancePage-class.html#columns,Method taskcoachlib.gui.viewer.base.ViewerWithColumns.columns()=taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#columns"><a title="taskcoachlib.gui.dialog.editor.EffortEditBook.columns
+taskcoachlib.gui.dialog.editor.Page.columns
+taskcoachlib.gui.dialog.editor.PageWithViewer.columns
+taskcoachlib.gui.dialog.editor.TaskAppearancePage.columns
+taskcoachlib.gui.viewer.base.ViewerWithColumns.columns" class="py-name" href="#" onclick="return doclink('link-23', 'columns', 'link-23');">columns</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt id="link-24" class="py-name" targets="Class taskcoachlib.persistence.csv.writer.UnicodeCSVWriter=taskcoachlib.persistence.csv.writer.UnicodeCSVWriter-class.html"><a title="taskcoachlib.persistence.csv.writer.UnicodeCSVWriter" class="py-name" href="#" onclick="return doclink('link-24', 'UnicodeCSVWriter', 'link-24');">UnicodeCSVWriter</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fd</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Method taskcoachlib.persistence.csv.writer.UnicodeCSVWriter.writerows()=taskcoachlib.persistence.csv.writer.UnicodeCSVWriter-class.html#writerows"><a title="taskcoachlib.persistence.csv.writer.UnicodeCSVWriter.writerows" class="py-name" href="#" onclick="return doclink('link-25', 'writerows', 'link-25');">writerows</a></tt><tt class="py-op">(</tt><tt class="py-name">csvRows</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">csvRows</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt> <tt class="py-number">1</tt> <tt class="py-comment"># Don't count header row</tt> </tt>
+</div></div><a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:38 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

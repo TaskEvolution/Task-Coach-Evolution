@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.keyring.tests.test_cli</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.keyring-module.html">Package&nbsp;keyring</a> ::
+        <a href="taskcoachlib.thirdparty.keyring.tests-module.html">Package&nbsp;tests</a> ::
+        Module&nbsp;test_cli
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.keyring.tests.test_cli-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.keyring.tests.test_cli-module.html">Module taskcoachlib.thirdparty.keyring.tests.test_cli</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">Test case to access the keyring from the command line</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Method taskcoachlib.config.settings.Settings.path()=taskcoachlib.config.settings.Settings-class.html#path,Method taskcoachlib.thirdparty.wmi._wmi_object.path()=taskcoachlib.thirdparty.wmi._wmi_object-class.html#path"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-0', 'path', 'link-0');">path</a></tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">unittest</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Package taskcoachlib.thirdparty.keyring=taskcoachlib.thirdparty.keyring-module.html"><a title="taskcoachlib.thirdparty.keyring" class="py-name" href="#" onclick="return doclink('link-1', 'keyring', 'link-1');">keyring</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Module taskcoachlib.thirdparty.gntp.cli=taskcoachlib.thirdparty.gntp.cli-module.html,Module taskcoachlib.thirdparty.keyring.cli=taskcoachlib.thirdparty.keyring.cli-module.html"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-2', 'cli', 'link-2');">cli</a></tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-3" class="py-name"><a title="taskcoachlib.thirdparty.keyring" class="py-name" href="#" onclick="return doclink('link-3', 'keyring', 'link-1');">keyring</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Module taskcoachlib.thirdparty.keyring.backend=taskcoachlib.thirdparty.keyring.backend-module.html"><a title="taskcoachlib.thirdparty.keyring.backend" class="py-name" href="#" onclick="return doclink('link-4', 'backend', 'link-4');">backend</a></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="FakeKeyring"></a><div id="FakeKeyring-def"><a name="L12"></a><tt class="py-lineno"> 12</tt> <a class="py-toggle" href="#" id="FakeKeyring-toggle" onclick="return toggle('FakeKeyring');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.FakeKeyring-class.html">FakeKeyring</a><tt class="py-op">(</tt><tt class="py-base-class">keyring</tt><tt class="py-op">.</tt><tt class="py-base-class">backend</tt><tt class="py-op">.</tt><tt class="py-base-class">KeyringBackend</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FakeKeyring-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="FakeKeyring-expanded"><a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Variable taskcoachlib.thirdparty.keyring.tests.test_cli.FakeKeyring.PASSWORD=taskcoachlib.thirdparty.keyring.tests.test_cli.FakeKeyring-class.html#PASSWORD"><a title="taskcoachlib.thirdparty.keyring.tests.test_cli.FakeKeyring.PASSWORD" class="py-name" href="#" onclick="return doclink('link-5', 'PASSWORD', 'link-5');">PASSWORD</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"GABUZOMEUH"</tt> </tt>
+<a name="FakeKeyring.supported"></a><div id="FakeKeyring.supported-def"><a name="L14"></a><tt class="py-lineno"> 14</tt> <a class="py-toggle" href="#" id="FakeKeyring.supported-toggle" onclick="return toggle('FakeKeyring.supported');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.FakeKeyring-class.html#supported">supported</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FakeKeyring.supported-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="FakeKeyring.supported-expanded"><a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-number">1</tt> </tt>
+</div><a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="FakeKeyring.set_password"></a><div id="FakeKeyring.set_password-def"><a name="L17"></a><tt class="py-lineno"> 17</tt> <a class="py-toggle" href="#" id="FakeKeyring.set_password-toggle" onclick="return toggle('FakeKeyring.set_password');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.FakeKeyring-class.html#set_password">set_password</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">service</tt><tt class="py-op">,</tt> <tt class="py-param">username</tt><tt class="py-op">,</tt> <tt class="py-param">password</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FakeKeyring.set_password-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="FakeKeyring.set_password-expanded"><a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="FakeKeyring.get_password"></a><div id="FakeKeyring.get_password-def"><a name="L20"></a><tt class="py-lineno"> 20</tt> <a class="py-toggle" href="#" id="FakeKeyring.get_password-toggle" onclick="return toggle('FakeKeyring.get_password');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.FakeKeyring-class.html#get_password">get_password</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">service</tt><tt class="py-op">,</tt> <tt class="py-param">username</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FakeKeyring.get_password-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="FakeKeyring.get_password-expanded"><a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="taskcoachlib.thirdparty.keyring.tests.test_cli.FakeKeyring.PASSWORD" class="py-name" href="#" onclick="return doclink('link-6', 'PASSWORD', 'link-5');">PASSWORD</a></tt> </tt>
+</div></div><a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="SimpleKeyring"></a><div id="SimpleKeyring-def"><a name="L24"></a><tt class="py-lineno"> 24</tt> <a class="py-toggle" href="#" id="SimpleKeyring-toggle" onclick="return toggle('SimpleKeyring');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.SimpleKeyring-class.html">SimpleKeyring</a><tt class="py-op">(</tt><tt class="py-base-class">keyring</tt><tt class="py-op">.</tt><tt class="py-base-class">backend</tt><tt class="py-op">.</tt><tt class="py-base-class">KeyringBackend</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SimpleKeyring-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="SimpleKeyring-expanded"><a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt class="py-docstring">"""A very simple keyring"""</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="SimpleKeyring.__init__"></a><div id="SimpleKeyring.__init__-def"><a name="L27"></a><tt class="py-lineno"> 27</tt> <a class="py-toggle" href="#" id="SimpleKeyring.__init__-toggle" onclick="return toggle('SimpleKeyring.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.SimpleKeyring-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SimpleKeyring.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SimpleKeyring.__init__-expanded"><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pwd</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+</div><a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"> </tt>
+<a name="SimpleKeyring.supported"></a><div id="SimpleKeyring.supported-def"><a name="L30"></a><tt class="py-lineno"> 30</tt> <a class="py-toggle" href="#" id="SimpleKeyring.supported-toggle" onclick="return toggle('SimpleKeyring.supported');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.SimpleKeyring-class.html#supported">supported</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SimpleKeyring.supported-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SimpleKeyring.supported-expanded"><a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-number">1</tt> </tt>
+</div><a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"> </tt>
+<a name="SimpleKeyring.set_password"></a><div id="SimpleKeyring.set_password-def"><a name="L33"></a><tt class="py-lineno"> 33</tt> <a class="py-toggle" href="#" id="SimpleKeyring.set_password-toggle" onclick="return toggle('SimpleKeyring.set_password');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.SimpleKeyring-class.html#set_password">set_password</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">service</tt><tt class="py-op">,</tt> <tt class="py-param">username</tt><tt class="py-op">,</tt> <tt class="py-param">password</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SimpleKeyring.set_password-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SimpleKeyring.set_password-expanded"><a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pwd</tt><tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-name">service</tt><tt class="py-op">,</tt> <tt class="py-name">username</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name" targets="Module taskcoachlib.widgets.password=taskcoachlib.widgets.password-module.html"><a title="taskcoachlib.widgets.password" class="py-name" href="#" onclick="return doclink('link-7', 'password', 'link-7');">password</a></tt> </tt>
+</div><a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
+<a name="SimpleKeyring.get_password"></a><div id="SimpleKeyring.get_password-def"><a name="L36"></a><tt class="py-lineno"> 36</tt> <a class="py-toggle" href="#" id="SimpleKeyring.get_password-toggle" onclick="return toggle('SimpleKeyring.get_password');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.SimpleKeyring-class.html#get_password">get_password</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">service</tt><tt class="py-op">,</tt> <tt class="py-param">username</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SimpleKeyring.get_password-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SimpleKeyring.get_password-expanded"><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pwd</tt><tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-name">service</tt><tt class="py-op">,</tt> <tt class="py-name">username</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+</div></div><a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"> </tt>
+<a name="CommandLineTestCase"></a><div id="CommandLineTestCase-def"><a name="L43"></a><tt class="py-lineno"> 43</tt> <a class="py-toggle" href="#" id="CommandLineTestCase-toggle" onclick="return toggle('CommandLineTestCase');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html">CommandLineTestCase</a><tt class="py-op">(</tt><tt class="py-base-class">unittest</tt><tt class="py-op">.</tt><tt class="py-base-class">TestCase</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandLineTestCase-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="CommandLineTestCase-expanded"><a name="CommandLineTestCase.setUp"></a><div id="CommandLineTestCase.setUp-def"><a name="L44"></a><tt class="py-lineno"> 44</tt> <a class="py-toggle" href="#" id="CommandLineTestCase.setUp-toggle" onclick="return toggle('CommandLineTestCase.setUp');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html#setUp">setUp</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandLineTestCase.setUp-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandLineTestCase.setUp-expanded"><a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">old_keyring</tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="taskcoachlib.thirdparty.keyring" class="py-name" href="#" onclick="return doclink('link-8', 'keyring', 'link-1');">keyring</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Function taskcoachlib.thirdparty.keyring.core.get_keyring()=taskcoachlib.thirdparty.keyring.core-module.html#get_keyring"><a title="taskcoachlib.thirdparty.keyring.core.get_keyring" class="py-name" href="#" onclick="return doclink('link-9', 'get_keyring', 'link-9');">get_keyring</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-10', 'cli', 'link-2');">cli</a></tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-11', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Class taskcoachlib.thirdparty.keyring.cli.CommandLineTool=taskcoachlib.thirdparty.keyring.cli.CommandLineTool-class.html"><a title="taskcoachlib.thirdparty.keyring.cli.CommandLineTool" class="py-name" href="#" onclick="return doclink('link-12', 'CommandLineTool', 'link-12');">CommandLineTool</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-13', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method taskcoachlib.thirdparty.keyring.cli.CommandLineTool.input_password()=taskcoachlib.thirdparty.keyring.cli.CommandLineTool-class.html#input_password"><a title="taskcoachlib.thirdparty.keyring.cli.CommandLineTool.input_password" class="py-name" href="#" onclick="return doclink('link-14', 'input_password', 'link-14');">input_password</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase.return_password()=taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html#return_password"><a title="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase.return_password" class="py-name" href="#" onclick="return doclink('link-15', 'return_password', 'link-15');">return_password</a></tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-16', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Method taskcoachlib.thirdparty.keyring.cli.CommandLineTool.output_password()=taskcoachlib.thirdparty.keyring.cli.CommandLineTool-class.html#output_password"><a title="taskcoachlib.thirdparty.keyring.cli.CommandLineTool.output_password" class="py-name" href="#" onclick="return doclink('link-17', 'output_password', 'link-17');">output_password</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase.save_password()=taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html#save_password"><a title="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase.save_password" class="py-name" href="#" onclick="return doclink('link-18', 'save_password', 'link-18');">save_password</a></tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-19', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Variable taskcoachlib.persistence.googledrive.driveconnect.parser=taskcoachlib.persistence.googledrive.driveconnect-module.html#parser,Variable taskcoachlib.persistence.googletask.apiconnect.parser=taskcoachlib.persistence.googletask.apiconnect-module.html#parser,Module taskcoachlib.thirdparty.dateutil.parser=taskcoachlib.thirdparty.dateutil.parser-module.html,Class taskcoachlib.thirdparty.dateutil.parser.parser=taskcoachlib.thirdparty.dateutil.parser.parser-class.html,Variable taskcoachlib.thirdparty.dateutil.rrule.parser=taskcoachlib.thirdparty.dateutil.rrule-module.html#parser,Variable taskcoachlib.thirdparty.dateutil.tz.parser=taskcoachlib.thirdparty.dateutil.tz-module.html#parser"><a title="taskcoachlib.persistence.googledrive.driveconnect.parser
+taskcoachlib.persistence.googletask.apiconnect.parser
+taskcoachlib.thirdparty.dateutil.parser
+taskcoachlib.thirdparty.dateutil.parser.parser
+taskcoachlib.thirdparty.dateutil.rrule.parser
+taskcoachlib.thirdparty.dateutil.tz.parser" class="py-name" href="#" onclick="return doclink('link-20', 'parser', 'link-20');">parser</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method taskcoachlib.syncml.sync.Synchronizer.error()=taskcoachlib.syncml.sync.Synchronizer-class.html#error,Method taskcoachlib.thirdparty.gntp.GNTPError.error()=taskcoachlib.thirdparty.gntp.GNTPError-class.html#error"><a title="taskcoachlib.syncml.sync.Synchronizer.error
+taskcoachlib.thirdparty.gntp.GNTPError.error" class="py-name" href="#" onclick="return doclink('link-21', 'error', 'link-21');">error</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase.mock_error()=taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html#mock_error"><a title="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase.mock_error" class="py-name" href="#" onclick="return doclink('link-22', 'mock_error', 'link-22');">mock_error</a></tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-23', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="taskcoachlib.persistence.googledrive.driveconnect.parser
+taskcoachlib.persistence.googletask.apiconnect.parser
+taskcoachlib.thirdparty.dateutil.parser
+taskcoachlib.thirdparty.dateutil.parser.parser
+taskcoachlib.thirdparty.dateutil.rrule.parser
+taskcoachlib.thirdparty.dateutil.tz.parser" class="py-name" href="#" onclick="return doclink('link-24', 'parser', 'link-20');">parser</a></tt><tt class="py-op">.</tt><tt class="py-name">print_help</tt> <tt class="py-op">=</tt> <tt class="py-keyword">lambda</tt><tt class="py-op">:</tt> <tt class="py-name">None</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt id="link-25" class="py-name"><a title="taskcoachlib.thirdparty.keyring" class="py-name" href="#" onclick="return doclink('link-25', 'keyring', 'link-1');">keyring</a></tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Function taskcoachlib.thirdparty.keyring.core.set_keyring()=taskcoachlib.thirdparty.keyring.core-module.html#set_keyring"><a title="taskcoachlib.thirdparty.keyring.core.set_keyring" class="py-name" href="#" onclick="return doclink('link-26', 'set_keyring', 'link-26');">set_keyring</a></tt><tt class="py-op">(</tt><tt id="link-27" class="py-name" targets="Class taskcoachlib.thirdparty.keyring.tests.test_cli.SimpleKeyring=taskcoachlib.thirdparty.keyring.tests.test_cli.SimpleKeyring-class.html"><a title="taskcoachlib.thirdparty.keyring.tests.test_cli.SimpleKeyring" class="py-name" href="#" onclick="return doclink('link-27', 'SimpleKeyring', 'link-27');">SimpleKeyring</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="taskcoachlib.widgets.password" class="py-name" href="#" onclick="return doclink('link-28', 'password', 'link-7');">password</a></tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">password_returned</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">last_error</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="CommandLineTestCase.tearDown"></a><div id="CommandLineTestCase.tearDown-def"><a name="L59"></a><tt class="py-lineno"> 59</tt> <a class="py-toggle" href="#" id="CommandLineTestCase.tearDown-toggle" onclick="return toggle('CommandLineTestCase.tearDown');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html#tearDown">tearDown</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandLineTestCase.tearDown-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandLineTestCase.tearDown-expanded"><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt id="link-29" class="py-name"><a title="taskcoachlib.thirdparty.keyring" class="py-name" href="#" onclick="return doclink('link-29', 'keyring', 'link-1');">keyring</a></tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="taskcoachlib.thirdparty.keyring.core.set_keyring" class="py-name" href="#" onclick="return doclink('link-30', 'set_keyring', 'link-26');">set_keyring</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">old_keyring</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"> </tt>
+<a name="CommandLineTestCase.return_password"></a><div id="CommandLineTestCase.return_password-def"><a name="L62"></a><tt class="py-lineno"> 62</tt> <a class="py-toggle" href="#" id="CommandLineTestCase.return_password-toggle" onclick="return toggle('CommandLineTestCase.return_password');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html#return_password">return_password</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandLineTestCase.return_password-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandLineTestCase.return_password-expanded"><a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="taskcoachlib.widgets.password" class="py-name" href="#" onclick="return doclink('link-31', 'password', 'link-7');">password</a></tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"> </tt>
+<a name="CommandLineTestCase.save_password"></a><div id="CommandLineTestCase.save_password-def"><a name="L65"></a><tt class="py-lineno"> 65</tt> <a class="py-toggle" href="#" id="CommandLineTestCase.save_password-toggle" onclick="return toggle('CommandLineTestCase.save_password');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html#save_password">save_password</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">password</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandLineTestCase.save_password-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandLineTestCase.save_password-expanded"><a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">password_returned</tt> <tt class="py-op">=</tt> <tt id="link-32" class="py-name"><a title="taskcoachlib.widgets.password" class="py-name" href="#" onclick="return doclink('link-32', 'password', 'link-7');">password</a></tt> </tt>
+</div><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="CommandLineTestCase.mock_error"></a><div id="CommandLineTestCase.mock_error-def"><a name="L68"></a><tt class="py-lineno"> 68</tt> <a class="py-toggle" href="#" id="CommandLineTestCase.mock_error-toggle" onclick="return toggle('CommandLineTestCase.mock_error');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html#mock_error">mock_error</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">error</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandLineTestCase.mock_error-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandLineTestCase.mock_error-expanded"><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">last_error</tt> <tt class="py-op">=</tt> <tt id="link-33" class="py-name"><a title="taskcoachlib.syncml.sync.Synchronizer.error
+taskcoachlib.thirdparty.gntp.GNTPError.error" class="py-name" href="#" onclick="return doclink('link-33', 'error', 'link-21');">error</a></tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">SystemExit</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"> </tt>
+<a name="CommandLineTestCase.test_wrong_arguments"></a><div id="CommandLineTestCase.test_wrong_arguments-def"><a name="L72"></a><tt class="py-lineno"> 72</tt> <a class="py-toggle" href="#" id="CommandLineTestCase.test_wrong_arguments-toggle" onclick="return toggle('CommandLineTestCase.test_wrong_arguments');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html#test_wrong_arguments">test_wrong_arguments</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandLineTestCase.test_wrong_arguments-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandLineTestCase.test_wrong_arguments-expanded"><a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-34', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Method taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run()=taskcoachlib.filesystem.fs_inotify.FilesystemNotifier-class.html#run,Method taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run()=taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier-class.html#run,Method taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run()=taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker-class.html#run,Method taskcoachlib.meta.versionchecker.VersionChecker.run()=taskcoachlib.meta.versionchecker.VersionChecker-class.html#run,Method taskcoachlib.powermgt.xsm.ICELoop.run()=taskcoachlib.powermgt.xsm.ICELoop-class.html#run,Function taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run()=taskcoachlib.thirdparty.googleapi.oauth2client.old_run-module.html#run,Function taskcoachlib.thirdparty.googleapi.oauth2client.tools.run()=taskcoachlib.thirdparty.googleapi.oauth2client.tools-module.html#run,Method taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run()=taskcoachlib.thirdparty.keyring.cli.CommandLineTool-class.html#run"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-35', 'run', 'link-35');">run</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertRaises</tt><tt class="py-op">(</tt><tt class="py-name">SystemExit</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-36', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-37', 'run', 'link-35');">run</a></tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-string">"get"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertRaises</tt><tt class="py-op">(</tt><tt class="py-name">SystemExit</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-38', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-39', 'run', 'link-35');">run</a></tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-string">"get"</tt><tt class="py-op">,</tt> <tt class="py-string">"foo"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertRaises</tt><tt class="py-op">(</tt><tt class="py-name">SystemExit</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-40', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-41', 'run', 'link-35');">run</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">                          <tt class="py-op">[</tt><tt class="py-string">"get"</tt><tt class="py-op">,</tt> <tt class="py-string">"foo"</tt><tt class="py-op">,</tt> <tt class="py-string">"bar"</tt><tt class="py-op">,</tt> <tt class="py-string">"baz"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertRaises</tt><tt class="py-op">(</tt><tt class="py-name">SystemExit</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-42', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-43', 'run', 'link-35');">run</a></tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-string">"set"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertRaises</tt><tt class="py-op">(</tt><tt class="py-name">SystemExit</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-44', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-45', 'run', 'link-35');">run</a></tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-string">"set"</tt><tt class="py-op">,</tt> <tt class="py-string">"foo"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertRaises</tt><tt class="py-op">(</tt><tt class="py-name">SystemExit</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-46', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-47', 'run', 'link-35');">run</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">                          <tt class="py-op">[</tt><tt class="py-string">"set"</tt><tt class="py-op">,</tt> <tt class="py-string">"foo"</tt><tt class="py-op">,</tt> <tt class="py-string">"bar"</tt><tt class="py-op">,</tt> <tt class="py-string">"baz"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertRaises</tt><tt class="py-op">(</tt><tt class="py-name">SystemExit</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-48', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-49', 'run', 'link-35');">run</a></tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-string">"foo"</tt><tt class="py-op">,</tt> <tt class="py-string">"bar"</tt><tt class="py-op">,</tt> <tt class="py-string">"baz"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"> </tt>
+<a name="CommandLineTestCase.test_get_unexistent_password"></a><div id="CommandLineTestCase.test_get_unexistent_password-def"><a name="L87"></a><tt class="py-lineno"> 87</tt> <a class="py-toggle" href="#" id="CommandLineTestCase.test_get_unexistent_password-toggle" onclick="return toggle('CommandLineTestCase.test_get_unexistent_password');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html#test_get_unexistent_password">test_get_unexistent_password</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandLineTestCase.test_get_unexistent_password-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandLineTestCase.test_get_unexistent_password-expanded"><a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-50', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-51', 'run', 'link-35');">run</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">"get"</tt><tt class="py-op">,</tt> <tt class="py-string">"foo"</tt><tt class="py-op">,</tt> <tt class="py-string">"bar"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">password_returned</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
+<a name="CommandLineTestCase.test_set_and_get_password"></a><div id="CommandLineTestCase.test_set_and_get_password-def"><a name="L91"></a><tt class="py-lineno"> 91</tt> <a class="py-toggle" href="#" id="CommandLineTestCase.test_set_and_get_password-toggle" onclick="return toggle('CommandLineTestCase.test_set_and_get_password');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html#test_set_and_get_password">test_set_and_get_password</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandLineTestCase.test_set_and_get_password-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandLineTestCase.test_set_and_get_password-expanded"><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="taskcoachlib.widgets.password" class="py-name" href="#" onclick="return doclink('link-52', 'password', 'link-7');">password</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"plop"</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-53', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-54', 'run', 'link-35');">run</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">"set"</tt><tt class="py-op">,</tt> <tt class="py-string">"foo"</tt><tt class="py-op">,</tt> <tt class="py-string">"bar"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-55', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-56', 'run', 'link-35');">run</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">"get"</tt><tt class="py-op">,</tt> <tt class="py-string">"foo"</tt><tt class="py-op">,</tt> <tt class="py-string">"bar"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-string">"plop"</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">password_returned</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"> </tt>
+<a name="CommandLineTestCase.test_load_builtin_backend"></a><div id="CommandLineTestCase.test_load_builtin_backend-def"><a name="L97"></a><tt class="py-lineno"> 97</tt> <a class="py-toggle" href="#" id="CommandLineTestCase.test_load_builtin_backend-toggle" onclick="return toggle('CommandLineTestCase.test_load_builtin_backend');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html#test_load_builtin_backend">test_load_builtin_backend</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandLineTestCase.test_load_builtin_backend-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandLineTestCase.test_load_builtin_backend-expanded"><a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-57', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-58', 'run', 'link-35');">run</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">            <tt class="py-string">"get"</tt><tt class="py-op">,</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">            <tt class="py-string">"-b"</tt><tt class="py-op">,</tt> <tt class="py-string">"keyring.backend.UncryptedFileKeyring"</tt><tt class="py-op">,</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">            <tt class="py-string">"foo"</tt><tt class="py-op">,</tt> <tt class="py-string">"bar"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt id="link-59" class="py-name"><a title="taskcoachlib.thirdparty.keyring.backend" class="py-name" href="#" onclick="return doclink('link-59', 'backend', 'link-4');">backend</a></tt> <tt class="py-op">=</tt> <tt id="link-60" class="py-name"><a title="taskcoachlib.thirdparty.keyring" class="py-name" href="#" onclick="return doclink('link-60', 'keyring', 'link-1');">keyring</a></tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="taskcoachlib.thirdparty.keyring.core.get_keyring" class="py-name" href="#" onclick="return doclink('link-61', 'get_keyring', 'link-9');">get_keyring</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertTrue</tt><tt class="py-op">(</tt><tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-62" class="py-name"><a title="taskcoachlib.thirdparty.keyring.backend" class="py-name" href="#" onclick="return doclink('link-62', 'backend', 'link-4');">backend</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                                   <tt id="link-63" class="py-name"><a title="taskcoachlib.thirdparty.keyring" class="py-name" href="#" onclick="return doclink('link-63', 'keyring', 'link-1');">keyring</a></tt><tt class="py-op">.</tt><tt id="link-64" class="py-name"><a title="taskcoachlib.thirdparty.keyring.backend" class="py-name" href="#" onclick="return doclink('link-64', 'backend', 'link-4');">backend</a></tt><tt class="py-op">.</tt><tt id="link-65" class="py-name" targets="Class taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring=taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring-class.html"><a title="taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring" class="py-name" href="#" onclick="return doclink('link-65', 'UncryptedFileKeyring', 'link-65');">UncryptedFileKeyring</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"> </tt>
+<a name="CommandLineTestCase.test_load_specific_backend_with_path"></a><div id="CommandLineTestCase.test_load_specific_backend_with_path-def"><a name="L106"></a><tt class="py-lineno">106</tt> <a class="py-toggle" href="#" id="CommandLineTestCase.test_load_specific_backend_with_path-toggle" onclick="return toggle('CommandLineTestCase.test_load_specific_backend_with_path');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html#test_load_specific_backend_with_path">test_load_specific_backend_with_path</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandLineTestCase.test_load_specific_backend_with_path-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandLineTestCase.test_load_specific_backend_with_path-expanded"><a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-name">keyring_path</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-66" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-66', 'path', 'link-0');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-67" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-67', 'path', 'link-0');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt id="link-68" class="py-name"><a title="taskcoachlib.thirdparty.keyring" class="py-name" href="#" onclick="return doclink('link-68', 'keyring', 'link-1');">keyring</a></tt><tt class="py-op">.</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">'tests'</tt><tt class="py-op">)</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-69" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-69', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-70" class="py-name"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-70', 'run', 'link-35');">run</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">"get"</tt><tt class="py-op">,</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">                                          <tt class="py-string">"-b"</tt><tt class="py-op">,</tt> <tt class="py-string">"test_cli.FakeKeyring"</tt><tt class="py-op">,</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">                                          <tt class="py-string">"-p"</tt><tt class="py-op">,</tt> <tt class="py-name">keyring_path</tt><tt class="py-op">,</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                                          <tt class="py-string">"foo"</tt><tt class="py-op">,</tt> <tt class="py-string">"bar"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt id="link-71" class="py-name"><a title="taskcoachlib.thirdparty.keyring.backend" class="py-name" href="#" onclick="return doclink('link-71', 'backend', 'link-4');">backend</a></tt> <tt class="py-op">=</tt> <tt id="link-72" class="py-name"><a title="taskcoachlib.thirdparty.keyring" class="py-name" href="#" onclick="return doclink('link-72', 'keyring', 'link-1');">keyring</a></tt><tt class="py-op">.</tt><tt id="link-73" class="py-name"><a title="taskcoachlib.thirdparty.keyring.core.get_keyring" class="py-name" href="#" onclick="return doclink('link-73', 'get_keyring', 'link-9');">get_keyring</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-comment"># Somehow, this doesn't work, because the full dotted name of the class</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-comment"># is not the same as the one expected :(</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-comment">#self.assertTrue(isinstance(backend, FakeKeyring))</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt id="link-74" class="py-name" targets="Class taskcoachlib.thirdparty.keyring.tests.test_cli.FakeKeyring=taskcoachlib.thirdparty.keyring.tests.test_cli.FakeKeyring-class.html"><a title="taskcoachlib.thirdparty.keyring.tests.test_cli.FakeKeyring" class="py-name" href="#" onclick="return doclink('link-74', 'FakeKeyring', 'link-74');">FakeKeyring</a></tt><tt class="py-op">.</tt><tt id="link-75" class="py-name"><a title="taskcoachlib.thirdparty.keyring.tests.test_cli.FakeKeyring.PASSWORD" class="py-name" href="#" onclick="return doclink('link-75', 'PASSWORD', 'link-5');">PASSWORD</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">password_returned</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"> </tt>
+<a name="CommandLineTestCase.test_load_wrong_keyrings"></a><div id="CommandLineTestCase.test_load_wrong_keyrings-def"><a name="L119"></a><tt class="py-lineno">119</tt> <a class="py-toggle" href="#" id="CommandLineTestCase.test_load_wrong_keyrings-toggle" onclick="return toggle('CommandLineTestCase.test_load_wrong_keyrings');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html#test_load_wrong_keyrings">test_load_wrong_keyrings</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CommandLineTestCase.test_load_wrong_keyrings-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CommandLineTestCase.test_load_wrong_keyrings-expanded"><a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertRaises</tt><tt class="py-op">(</tt><tt class="py-name">SystemExit</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-76" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-76', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-77" class="py-name"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-77', 'run', 'link-35');">run</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">                          <tt class="py-op">[</tt><tt class="py-string">"get"</tt><tt class="py-op">,</tt> <tt class="py-string">"foo"</tt><tt class="py-op">,</tt> <tt class="py-string">"bar"</tt><tt class="py-op">,</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">                           <tt class="py-string">"-b"</tt><tt class="py-op">,</tt> <tt class="py-string">"blablabla"</tt> <tt class="py-comment"># ImportError</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">                          <tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertRaises</tt><tt class="py-op">(</tt><tt class="py-name">SystemExit</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-78" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-78', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-79', 'run', 'link-35');">run</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">                          <tt class="py-op">[</tt><tt class="py-string">"get"</tt><tt class="py-op">,</tt> <tt class="py-string">"foo"</tt><tt class="py-op">,</tt> <tt class="py-string">"bar"</tt><tt class="py-op">,</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">                           <tt class="py-string">"-b"</tt><tt class="py-op">,</tt> <tt class="py-string">"os.path.blabla"</tt> <tt class="py-comment"># AttributeError</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">                          <tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertRaises</tt><tt class="py-op">(</tt><tt class="py-name">SystemExit</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-80" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli
+taskcoachlib.thirdparty.keyring.cli" class="py-name" href="#" onclick="return doclink('link-80', 'cli', 'link-2');">cli</a></tt><tt class="py-op">.</tt><tt id="link-81" class="py-name"><a title="taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.run
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.run
+taskcoachlib.meta.developermessagechecker.DeveloperMessageChecker.run
+taskcoachlib.meta.versionchecker.VersionChecker.run
+taskcoachlib.powermgt.xsm.ICELoop.run
+taskcoachlib.thirdparty.googleapi.oauth2client.old_run.run
+taskcoachlib.thirdparty.googleapi.oauth2client.tools.run
+taskcoachlib.thirdparty.keyring.cli.CommandLineTool.run" class="py-name" href="#" onclick="return doclink('link-81', 'run', 'link-35');">run</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">                          <tt class="py-op">[</tt><tt class="py-string">"get"</tt><tt class="py-op">,</tt> <tt class="py-string">"foo"</tt><tt class="py-op">,</tt> <tt class="py-string">"bar"</tt><tt class="py-op">,</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">                           <tt class="py-string">"-b"</tt><tt class="py-op">,</tt> <tt class="py-string">"__builtin__.str"</tt> <tt class="py-comment"># TypeError</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">                          <tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"> </tt>
+<a name="test_suite"></a><div id="test_suite-def"><a name="L135"></a><tt class="py-lineno">135</tt> <a class="py-toggle" href="#" id="test_suite-toggle" onclick="return toggle('test_suite');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.tests.test_cli-module.html#test_suite">test_suite</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="test_suite-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="test_suite-expanded"><a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">    <tt class="py-name">suite</tt> <tt class="py-op">=</tt> <tt class="py-name">unittest</tt><tt class="py-op">.</tt><tt class="py-name">TestSuite</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">    <tt class="py-name">suite</tt><tt class="py-op">.</tt><tt class="py-name">addTest</tt><tt class="py-op">(</tt><tt class="py-name">unittest</tt><tt class="py-op">.</tt><tt class="py-name">makeSuite</tt><tt class="py-op">(</tt><tt id="link-82" class="py-name" targets="Class taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase=taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase-class.html"><a title="taskcoachlib.thirdparty.keyring.tests.test_cli.CommandLineTestCase" class="py-name" href="#" onclick="return doclink('link-82', 'CommandLineTestCase', 'link-82');">CommandLineTestCase</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">suite</tt> </tt>
+</div><a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">'__main__'</tt><tt class="py-op">:</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">    <tt class="py-name">unittest</tt><tt class="py-op">.</tt><tt id="link-83" class="py-name" targets="Function taskcoachlib.thirdparty.gntp.cli.main()=taskcoachlib.thirdparty.gntp.cli-module.html#main,Function taskcoachlib.thirdparty.keyring.cli.main()=taskcoachlib.thirdparty.keyring.cli-module.html#main,Function taskcoachlib.thirdparty.squaremap.squaremap.main()=taskcoachlib.thirdparty.squaremap.squaremap-module.html#main,Function taskcoachlib.thirdparty.timeline.timeline.main()=taskcoachlib.thirdparty.timeline.timeline-module.html#main"><a title="taskcoachlib.thirdparty.gntp.cli.main
+taskcoachlib.thirdparty.keyring.cli.main
+taskcoachlib.thirdparty.squaremap.squaremap.main
+taskcoachlib.thirdparty.timeline.timeline.main" class="py-name" href="#" onclick="return doclink('link-83', 'main', 'link-83');">main</a></tt><tt class="py-op">(</tt><tt class="py-name">defaultTest</tt><tt class="py-op">=</tt><tt class="py-string">"test_suite"</tt><tt class="py-op">)</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:57 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

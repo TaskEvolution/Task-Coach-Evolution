@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.gui</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        Package&nbsp;gui
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.gui-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.gui-module.html">Package taskcoachlib.gui</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach - Your friendly task manager</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (C) 2004-2013 Task Coach developers &lt;developers@taskcoach.org&gt;</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is free software: you can redistribute it and/or modify</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">the Free Software Foundation, either version 3 of the License, or</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">(at your option) any later version.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">GNU General Public License for more details.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Variable taskcoachlib.gui.icons.splash=taskcoachlib.gui.icons-module.html#splash,Module taskcoachlib.gui.splash=taskcoachlib.gui.splash-module.html"><a title="taskcoachlib.gui.icons.splash
+taskcoachlib.gui.splash" class="py-name" href="#" onclick="return doclink('link-0', 'splash', 'link-0');">splash</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Class taskcoachlib.gui.splash.SplashScreen=taskcoachlib.gui.splash.SplashScreen-class.html"><a title="taskcoachlib.gui.splash.SplashScreen" class="py-name" href="#" onclick="return doclink('link-1', 'SplashScreen', 'link-1');">SplashScreen</a></tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Module taskcoachlib.gui.mainwindow=taskcoachlib.gui.mainwindow-module.html"><a title="taskcoachlib.gui.mainwindow" class="py-name" href="#" onclick="return doclink('link-2', 'mainwindow', 'link-2');">mainwindow</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Method taskcoachlib.gui.dialog.toolbar._AutoWidthTree.MainWindow()=taskcoachlib.gui.dialog.toolbar._AutoWidthTree-class.html#MainWindow,Class taskcoachlib.gui.mainwindow.MainWindow=taskcoachlib.gui.mainwindow.MainWindow-class.html,Method taskcoachlib.widgets.calendarwidget._CalendarContent.MainWindow()=taskcoachlib.widgets.calendarwidget._CalendarContent-class.html#MainWindow,Method taskcoachlib.widgets.squaremap.SquareMap.MainWindow()=taskcoachlib.widgets.squaremap.SquareMap-class.html#MainWindow,Method taskcoachlib.widgets.timeline.Timeline.MainWindow()=taskcoachlib.widgets.timeline.Timeline-class.html#MainWindow,Variable taskcoachlib.widgets.treectrl.HyperTreeList.MainWindow=taskcoachlib.widgets.treectrl.HyperTreeList-class.html#MainWindow"><a title="taskcoachlib.gui.dialog.toolbar._AutoWidthTree.MainWindow
+taskcoachlib.gui.mainwindow.MainWindow
+taskcoachlib.widgets.calendarwidget._CalendarContent.MainWindow
+taskcoachlib.widgets.squaremap.SquareMap.MainWindow
+taskcoachlib.widgets.timeline.Timeline.MainWindow
+taskcoachlib.widgets.treectrl.HyperTreeList.MainWindow" class="py-name" href="#" onclick="return doclink('link-3', 'MainWindow', 'link-3');">MainWindow</a></tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Package taskcoachlib.gui.dialog=taskcoachlib.gui.dialog-module.html,Module taskcoachlib.thirdparty.desktop.dialog=taskcoachlib.thirdparty.desktop.dialog-module.html,Module taskcoachlib.widgets.dialog=taskcoachlib.widgets.dialog-module.html"><a title="taskcoachlib.gui.dialog
+taskcoachlib.thirdparty.desktop.dialog
+taskcoachlib.widgets.dialog" class="py-name" href="#" onclick="return doclink('link-4', 'dialog', 'link-4');">dialog</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Module taskcoachlib.gui.dialog.editor=taskcoachlib.gui.dialog.editor-module.html"><a title="taskcoachlib.gui.dialog.editor" class="py-name" href="#" onclick="return doclink('link-5', 'editor', 'link-5');">editor</a></tt> <tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Class taskcoachlib.gui.dialog.editor.TaskEditor=taskcoachlib.gui.dialog.editor.TaskEditor-class.html"><a title="taskcoachlib.gui.dialog.editor.TaskEditor" class="py-name" href="#" onclick="return doclink('link-6', 'TaskEditor', 'link-6');">TaskEditor</a></tt><tt class="py-op">,</tt> <tt id="link-7" class="py-name" targets="Class taskcoachlib.gui.dialog.editor.EffortEditor=taskcoachlib.gui.dialog.editor.EffortEditor-class.html"><a title="taskcoachlib.gui.dialog.editor.EffortEditor" class="py-name" href="#" onclick="return doclink('link-7', 'EffortEditor', 'link-7');">EffortEditor</a></tt><tt class="py-op">,</tt> <tt id="link-8" class="py-name" targets="Class taskcoachlib.gui.dialog.editor.CategoryEditor=taskcoachlib.gui.dialog.editor.CategoryEditor-class.html"><a title="taskcoachlib.gui.dialog.editor.CategoryEditor" class="py-name" href="#" onclick="return doclink('link-8', 'CategoryEditor', 'link-8');">CategoryEditor</a></tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-9" class="py-name"><a title="taskcoachlib.gui.dialog
+taskcoachlib.thirdparty.desktop.dialog
+taskcoachlib.widgets.dialog" class="py-name" href="#" onclick="return doclink('link-9', 'dialog', 'link-4');">dialog</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Module taskcoachlib.gui.dialog.preferences=taskcoachlib.gui.dialog.preferences-module.html"><a title="taskcoachlib.gui.dialog.preferences" class="py-name" href="#" onclick="return doclink('link-10', 'preferences', 'link-10');">preferences</a></tt> <tt class="py-keyword">import</tt> <tt id="link-11" class="py-name" targets="Class taskcoachlib.gui.dialog.preferences.Preferences=taskcoachlib.gui.dialog.preferences.Preferences-class.html"><a title="taskcoachlib.gui.dialog.preferences.Preferences" class="py-name" href="#" onclick="return doclink('link-11', 'Preferences', 'link-11');">Preferences</a></tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-12" class="py-name" targets="Module taskcoachlib.gui.iocontroller=taskcoachlib.gui.iocontroller-module.html"><a title="taskcoachlib.gui.iocontroller" class="py-name" href="#" onclick="return doclink('link-12', 'iocontroller', 'link-12');">iocontroller</a></tt> <tt class="py-keyword">import</tt> <tt id="link-13" class="py-name" targets="Class taskcoachlib.gui.iocontroller.IOController=taskcoachlib.gui.iocontroller.IOController-class.html"><a title="taskcoachlib.gui.iocontroller.IOController" class="py-name" href="#" onclick="return doclink('link-13', 'IOController', 'link-13');">IOController</a></tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-14" class="py-name" targets="Module taskcoachlib.gui.remindercontroller=taskcoachlib.gui.remindercontroller-module.html"><a title="taskcoachlib.gui.remindercontroller" class="py-name" href="#" onclick="return doclink('link-14', 'remindercontroller', 'link-14');">remindercontroller</a></tt> <tt class="py-keyword">import</tt> <tt id="link-15" class="py-name" targets="Class taskcoachlib.gui.remindercontroller.ReminderController=taskcoachlib.gui.remindercontroller.ReminderController-class.html"><a title="taskcoachlib.gui.remindercontroller.ReminderController" class="py-name" href="#" onclick="return doclink('link-15', 'ReminderController', 'link-15');">ReminderController</a></tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-16" class="py-name" targets="Module taskcoachlib.gui.artprovider=taskcoachlib.gui.artprovider-module.html"><a title="taskcoachlib.gui.artprovider" class="py-name" href="#" onclick="return doclink('link-16', 'artprovider', 'link-16');">artprovider</a></tt> <tt class="py-keyword">import</tt> <tt id="link-17" class="py-name" targets="Method taskcoachlib.application.application.Application.init()=taskcoachlib.application.application.Application-class.html#init,Method taskcoachlib.config.settings.Settings.init()=taskcoachlib.config.settings.Settings-class.html#init,Function taskcoachlib.gui.artprovider.init()=taskcoachlib.gui.artprovider-module.html#init,Method taskcoachlib.iphone.protocol.DayHoursState.init()=taskcoachlib.iphone.protocol.DayHoursState-class.html#init,Method taskcoachlib.iphone.protocol.DeviceNameState.init()=taskcoachlib.iphone.protocol.DeviceNameState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDesktopCategoryState.init()=taskcoachlib.iphone.protocol.FullFromDesktopCategoryState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDesktopEffortState.init()=taskcoachlib.iphone.protocol.FullFromDesktopEffortState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDesktopState.init()=taskcoachlib.iphone.protocol.FullFromDesktopState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDesktopTaskState.init()=taskcoachlib.iphone.protocol.FullFromDesktopTaskState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDeviceCategoryState.init()=taskcoachlib.iphone.protocol.FullFromDeviceCategoryState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDeviceState.init()=taskcoachlib.iphone.protocol.FullFromDeviceState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDeviceTaskState.init()=taskcoachlib.iphone.protocol.FullFromDeviceTaskState-class.html#init,Method taskcoachlib.iphone.protocol.GUIDState.init()=taskcoachlib.iphone.protocol.GUIDState-class.html#init,Method taskcoachlib.iphone.protocol.InitialState.init()=taskcoachlib.iphone.protocol.InitialState-class.html#init,Method taskcoachlib.iphone.protocol.PasswordState.init()=taskcoachlib.iphone.protocol.PasswordState-class.html#init,Method taskcoachlib.iphone.protocol.SendGUIDState.init()=taskcoachlib.iphone.protocol.SendGUIDState-class.html#init,Method taskcoachlib.iphone.protocol.State.init()=taskcoachlib.iphone.protocol.State-class.html#init,Method taskcoachlib.iphone.protocol.TaskFileNameState.init()=taskcoachlib.iphone.protocol.TaskFileNameState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayDeletedCategoriesState.init()=taskcoachlib.iphone.protocol.TwoWayDeletedCategoriesState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayDeletedTasksState.init()=taskcoachlib.iphone.protocol.TwoWayDeletedTasksState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayModifiedCategoriesState.init()=taskcoachlib.iphone.protocol.TwoWayModifiedCategoriesState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayModifiedEffortsState.init()=taskcoachlib.iphone.protocol.TwoWayModifiedEffortsState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayModifiedTasks.init()=taskcoachlib.iphone.protocol.TwoWayModifiedTasks-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayNewCategoriesState.init()=taskcoachlib.iphone.protocol.TwoWayNewCategoriesState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayNewEffortsState.init()=taskcoachlib.iphone.protocol.TwoWayNewEffortsState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayNewTasksState.init()=taskcoachlib.iphone.protocol.TwoWayNewTasksState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayNewTasksState4.init()=taskcoachlib.iphone.protocol.TwoWayNewTasksState4-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayNewTasksState5.init()=taskcoachlib.iphone.protocol.TwoWayNewTasksState5-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayState.init()=taskcoachlib.iphone.protocol.TwoWayState-class.html#init,Method taskcoachlib.persistence.icalendar.ical.VCalendarParser.init()=taskcoachlib.persistence.icalendar.ical.VCalendarParser-class.html#init,Method taskcoachlib.syncml.sync.Synchronizer.init()=taskcoachlib.syncml.sync.Synchronizer-class.html#init,Function taskcoachlib.thirdparty.googleapi.apiclient.sample_tools.init()=taskcoachlib.thirdparty.googleapi.apiclient.sample_tools-module.html#init,Method taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher.init()=taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher-class.html#init"><a title="taskcoachlib.application.application.Application.init
+taskcoachlib.config.settings.Settings.init
+taskcoachlib.gui.artprovider.init
+taskcoachlib.iphone.protocol.DayHoursState.init
+taskcoachlib.iphone.protocol.DeviceNameState.init
+taskcoachlib.iphone.protocol.FullFromDesktopCategoryState.init
+taskcoachlib.iphone.protocol.FullFromDesktopEffortState.init
+taskcoachlib.iphone.protocol.FullFromDesktopState.init
+taskcoachlib.iphone.protocol.FullFromDesktopTaskState.init
+taskcoachlib.iphone.protocol.FullFromDeviceCategoryState.init
+taskcoachlib.iphone.protocol.FullFromDeviceState.init
+taskcoachlib.iphone.protocol.FullFromDeviceTaskState.init
+taskcoachlib.iphone.protocol.GUIDState.init
+taskcoachlib.iphone.protocol.InitialState.init
+taskcoachlib.iphone.protocol.PasswordState.init
+taskcoachlib.iphone.protocol.SendGUIDState.init
+taskcoachlib.iphone.protocol.State.init
+taskcoachlib.iphone.protocol.TaskFileNameState.init
+taskcoachlib.iphone.protocol.TwoWayDeletedCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayDeletedTasksState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedEffortsState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedTasks.init
+taskcoachlib.iphone.protocol.TwoWayNewCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayNewEffortsState.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState4.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState5.init
+taskcoachlib.iphone.protocol.TwoWayState.init
+taskcoachlib.persistence.icalendar.ical.VCalendarParser.init
+taskcoachlib.syncml.sync.Synchronizer.init
+taskcoachlib.thirdparty.googleapi.apiclient.sample_tools.init
+taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher.init" class="py-name" href="#" onclick="return doclink('link-17', 'init', 'link-17');">init</a></tt><tt class="py-op">,</tt> <tt id="link-18" class="py-name" targets="Variable taskcoachlib.gui.artprovider.itemImages=taskcoachlib.gui.artprovider-module.html#itemImages"><a title="taskcoachlib.gui.artprovider.itemImages" class="py-name" href="#" onclick="return doclink('link-18', 'itemImages', 'link-18');">itemImages</a></tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-19" class="py-name" targets="Module taskcoachlib.gui.taskbaricon=taskcoachlib.gui.taskbaricon-module.html"><a title="taskcoachlib.gui.taskbaricon" class="py-name" href="#" onclick="return doclink('link-19', 'taskbaricon', 'link-19');">taskbaricon</a></tt> <tt class="py-keyword">import</tt> <tt id="link-20" class="py-name" targets="Class taskcoachlib.gui.taskbaricon.TaskBarIcon=taskcoachlib.gui.taskbaricon.TaskBarIcon-class.html"><a title="taskcoachlib.gui.taskbaricon.TaskBarIcon" class="py-name" href="#" onclick="return doclink('link-20', 'TaskBarIcon', 'link-20');">TaskBarIcon</a></tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:03 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

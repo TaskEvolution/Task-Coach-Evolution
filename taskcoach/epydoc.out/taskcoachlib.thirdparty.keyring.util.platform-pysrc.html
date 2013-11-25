@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.keyring.util.platform</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.keyring-module.html">Package&nbsp;keyring</a> ::
+        <a href="taskcoachlib.thirdparty.keyring.util-module.html">Package&nbsp;util</a> ::
+        Module&nbsp;platform
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.keyring.util.platform-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.keyring.util.platform-module.html">Module taskcoachlib.thirdparty.keyring.util.platform</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># While we support Python 2.4, use a convoluted technique to import</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">#  platform from the stdlib.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># With Python 2.5 or later, just do "from __future__ import absolute_import"</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment">#  and "import platform"</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-keyword">exec</tt><tt class="py-op">(</tt><tt class="py-string">'__import__("platform", globals=dict())'</tt><tt class="py-op">)</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable taskcoachlib.meta.data.platform=taskcoachlib.meta.data-module.html#platform,Module taskcoachlib.thirdparty.keyring.util.platform=taskcoachlib.thirdparty.keyring.util.platform-module.html,Variable taskcoachlib.thirdparty.keyring.util.platform.platform=taskcoachlib.thirdparty.keyring.util.platform-module.html#platform"><a title="taskcoachlib.meta.data.platform
+taskcoachlib.thirdparty.keyring.util.platform
+taskcoachlib.thirdparty.keyring.util.platform.platform" class="py-name" href="#" onclick="return doclink('link-0', 'platform', 'link-0');">platform</a></tt> <tt class="py-op">=</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">modules</tt><tt class="py-op">[</tt><tt class="py-string">'platform'</tt><tt class="py-op">]</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="_data_root_Windows"></a><div id="_data_root_Windows-def"><a name="L11"></a><tt class="py-lineno">11</tt> <a class="py-toggle" href="#" id="_data_root_Windows-toggle" onclick="return toggle('_data_root_Windows');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.util.platform-module.html#_data_root_Windows">_data_root_Windows</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_data_root_Windows-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="_data_root_Windows-expanded"><a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">                <tt id="link-1" class="py-name" targets="Function taskcoachlib.thirdparty.desktop.windows.root()=taskcoachlib.thirdparty.desktop.windows-module.html#root"><a title="taskcoachlib.thirdparty.desktop.windows.root" class="py-name" href="#" onclick="return doclink('link-1', 'root', 'link-1');">root</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Method taskcoachlib.thirdparty.keyring.tests.test_backend.GnomeKeyringTestCase.environ()=taskcoachlib.thirdparty.keyring.tests.test_backend.GnomeKeyringTestCase-class.html#environ,Method taskcoachlib.thirdparty.keyring.tests.test_backend.SecretServiceKeyringTestCase.environ()=taskcoachlib.thirdparty.keyring.tests.test_backend.SecretServiceKeyringTestCase-class.html#environ"><a title="taskcoachlib.thirdparty.keyring.tests.test_backend.GnomeKeyringTestCase.environ
+taskcoachlib.thirdparty.keyring.tests.test_backend.SecretServiceKeyringTestCase.environ" class="py-name" href="#" onclick="return doclink('link-2', 'environ', 'link-2');">environ</a></tt><tt class="py-op">[</tt><tt class="py-string">'LOCALAPPDATA'</tt><tt class="py-op">]</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt><tt class="py-op">:</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">                <tt class="py-comment"># Windows XP</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">                <tt id="link-3" class="py-name"><a title="taskcoachlib.thirdparty.desktop.windows.root" class="py-name" href="#" onclick="return doclink('link-3', 'root', 'link-1');">root</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Method taskcoachlib.config.settings.Settings.path()=taskcoachlib.config.settings.Settings-class.html#path,Method taskcoachlib.thirdparty.wmi._wmi_object.path()=taskcoachlib.thirdparty.wmi._wmi_object-class.html#path"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-4', 'path', 'link-4');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="taskcoachlib.thirdparty.keyring.tests.test_backend.GnomeKeyringTestCase.environ
+taskcoachlib.thirdparty.keyring.tests.test_backend.SecretServiceKeyringTestCase.environ" class="py-name" href="#" onclick="return doclink('link-5', 'environ', 'link-2');">environ</a></tt><tt class="py-op">[</tt><tt class="py-string">'USERPROFILE'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-string">'Local Settings'</tt><tt class="py-op">)</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-6', 'path', 'link-4');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-7" class="py-name"><a title="taskcoachlib.thirdparty.desktop.windows.root" class="py-name" href="#" onclick="return doclink('link-7', 'root', 'link-1');">root</a></tt><tt class="py-op">,</tt> <tt class="py-string">'Python Keyring'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="_data_root_Linux"></a><div id="_data_root_Linux-def"><a name="L19"></a><tt class="py-lineno">19</tt> <a class="py-toggle" href="#" id="_data_root_Linux-toggle" onclick="return toggle('_data_root_Linux');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.util.platform-module.html#_data_root_Linux">_data_root_Linux</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_data_root_Linux-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="_data_root_Linux-expanded"><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">        Use freedesktop.org Base Dir Specfication to determine storage</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">        location.</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-name">fallback</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-8', 'path', 'link-4');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">expanduser</tt><tt class="py-op">(</tt><tt class="py-string">'~/.local/share'</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt id="link-9" class="py-name"><a title="taskcoachlib.thirdparty.desktop.windows.root" class="py-name" href="#" onclick="return doclink('link-9', 'root', 'link-1');">root</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="taskcoachlib.thirdparty.keyring.tests.test_backend.GnomeKeyringTestCase.environ
+taskcoachlib.thirdparty.keyring.tests.test_backend.SecretServiceKeyringTestCase.environ" class="py-name" href="#" onclick="return doclink('link-10', 'environ', 'link-2');">environ</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method taskcoachlib.command.clipboard.Clipboard.get()=taskcoachlib.command.clipboard.Clipboard-class.html#get,Method taskcoachlib.config.settings.CachingConfigParser.get()=taskcoachlib.config.settings.CachingConfigParser-class.html#get,Method taskcoachlib.config.settings.Settings.get()=taskcoachlib.config.settings.Settings-class.html#get,Method taskcoachlib.config.settings.UnicodeAwareConfigParser.get()=taskcoachlib.config.settings.UnicodeAwareConfigParser-class.html#get,Method taskcoachlib.domain.base.attribute.Attribute.get()=taskcoachlib.domain.base.attribute.Attribute-class.html#get,Method taskcoachlib.domain.base.attribute.SetAttribute.get()=taskcoachlib.domain.base.attribute.SetAttribute-class.html#get,Method taskcoachlib.gui.dialog.preferences.SettingsPage.get()=taskcoachlib.gui.dialog.preferences.SettingsPage-class.html#get,Method taskcoachlib.gui.dialog.preferences.SettingsPageBase.get()=taskcoachlib.gui.dialog.preferences.SettingsPageBase-class.html#get,Method taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.get()=taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage-class.html#get,Class Method taskcoachlib.notify.notifier.AbstractNotifier.get()=taskcoachlib.notify.notifier.AbstractNotifier-class.html#get,Method taskcoachlib.syncml.config.SyncMLConfigNode.get()=taskcoachlib.syncml.config.SyncMLConfigNode-class.html#get,Method taskcoachlib.thirdparty.dateutil.tz.tzical.get()=taskcoachlib.thirdparty.dateutil.tz.tzical-class.html#get,Method taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas.get()=taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas-class.html#get,Method taskcoachlib.thirdparty.googleapi.httplib2.FileCache.get()=taskcoachlib.thirdparty.googleapi.httplib2.FileCache-class.html#get,Method taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.get()=taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache-class.html#get,Method taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage.get()=taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage-class.html#get,Method taskcoachlib.thirdparty.pyparsing.ParseResults.get()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#get,Method taskcoachlib.thirdparty.wmi._wmi_namespace.get()=taskcoachlib.thirdparty.wmi._wmi_namespace-class.html#get,Method taskcoachlib.thirdparty.xdg.IniFile.IniFile.get()=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#get"><a title="taskcoachlib.command.clipboard.Clipboard.get
+taskcoachlib.config.settings.CachingConfigParser.get
+taskcoachlib.config.settings.Settings.get
+taskcoachlib.config.settings.UnicodeAwareConfigParser.get
+taskcoachlib.domain.base.attribute.Attribute.get
+taskcoachlib.domain.base.attribute.SetAttribute.get
+taskcoachlib.gui.dialog.preferences.SettingsPage.get
+taskcoachlib.gui.dialog.preferences.SettingsPageBase.get
+taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.get
+taskcoachlib.notify.notifier.AbstractNotifier.get
+taskcoachlib.syncml.config.SyncMLConfigNode.get
+taskcoachlib.thirdparty.dateutil.tz.tzical.get
+taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas.get
+taskcoachlib.thirdparty.googleapi.httplib2.FileCache.get
+taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.get
+taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage.get
+taskcoachlib.thirdparty.pyparsing.ParseResults.get
+taskcoachlib.thirdparty.wmi._wmi_namespace.get
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.get" class="py-name" href="#" onclick="return doclink('link-11', 'get', 'link-11');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'XDG_DATA_HOME'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-name">fallback</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-12', 'path', 'link-4');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-13" class="py-name"><a title="taskcoachlib.thirdparty.desktop.windows.root" class="py-name" href="#" onclick="return doclink('link-13', 'root', 'link-1');">root</a></tt><tt class="py-op">,</tt> <tt class="py-string">'python_keyring'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-comment"># by default, use Unix convention</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt id="link-14" class="py-name" targets="Variable taskcoachlib.thirdparty.keyring.util.platform.data_root=taskcoachlib.thirdparty.keyring.util.platform-module.html#data_root"><a title="taskcoachlib.thirdparty.keyring.util.platform.data_root" class="py-name" href="#" onclick="return doclink('link-14', 'data_root', 'link-14');">data_root</a></tt> <tt class="py-op">=</tt> <tt class="py-name">globals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="taskcoachlib.command.clipboard.Clipboard.get
+taskcoachlib.config.settings.CachingConfigParser.get
+taskcoachlib.config.settings.Settings.get
+taskcoachlib.config.settings.UnicodeAwareConfigParser.get
+taskcoachlib.domain.base.attribute.Attribute.get
+taskcoachlib.domain.base.attribute.SetAttribute.get
+taskcoachlib.gui.dialog.preferences.SettingsPage.get
+taskcoachlib.gui.dialog.preferences.SettingsPageBase.get
+taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.get
+taskcoachlib.notify.notifier.AbstractNotifier.get
+taskcoachlib.syncml.config.SyncMLConfigNode.get
+taskcoachlib.thirdparty.dateutil.tz.tzical.get
+taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas.get
+taskcoachlib.thirdparty.googleapi.httplib2.FileCache.get
+taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.get
+taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage.get
+taskcoachlib.thirdparty.pyparsing.ParseResults.get
+taskcoachlib.thirdparty.wmi._wmi_namespace.get
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.get" class="py-name" href="#" onclick="return doclink('link-15', 'get', 'link-11');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'_data_root_'</tt> <tt class="py-op">+</tt> <tt id="link-16" class="py-name"><a title="taskcoachlib.meta.data.platform
+taskcoachlib.thirdparty.keyring.util.platform
+taskcoachlib.thirdparty.keyring.util.platform.platform" class="py-name" href="#" onclick="return doclink('link-16', 'platform', 'link-0');">platform</a></tt><tt class="py-op">.</tt><tt class="py-name">system</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-17" class="py-name" targets="Function taskcoachlib.thirdparty.keyring.util.platform._data_root_Linux()=taskcoachlib.thirdparty.keyring.util.platform-module.html#_data_root_Linux"><a title="taskcoachlib.thirdparty.keyring.util.platform._data_root_Linux" class="py-name" href="#" onclick="return doclink('link-17', '_data_root_Linux', 'link-17');">_data_root_Linux</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:55 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

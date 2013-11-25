@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.pubsub.core.kwargs.listenerimpl</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.pubsub-module.html">Package&nbsp;pubsub</a> ::
+        <a href="taskcoachlib.thirdparty.pubsub.core-module.html">Package&nbsp;core</a> ::
+        <a href="taskcoachlib.thirdparty.pubsub.core.kwargs-module.html">Package&nbsp;kwargs</a> ::
+        Module&nbsp;listenerimpl
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.pubsub.core.kwargs.listenerimpl-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.pubsub.core.kwargs.listenerimpl-module.html">Module taskcoachlib.thirdparty.pubsub.core.kwargs.listenerimpl</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">:copyright: Copyright since 2006 by Oliver Schoenborn, all rights reserved.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">:license: BSD, see LICENSE.txt for details.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module taskcoachlib.thirdparty.pubsub.core.listenerbase=taskcoachlib.thirdparty.pubsub.core.listenerbase-module.html"><a title="taskcoachlib.thirdparty.pubsub.core.listenerbase" class="py-name" href="#" onclick="return doclink('link-0', 'listenerbase', 'link-0');">listenerbase</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Class taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase=taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase-class.html"><a title="taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase" class="py-name" href="#" onclick="return doclink('link-1', 'ListenerBase', 'link-1');">ListenerBase</a></tt><tt class="py-op">,</tt> <tt id="link-2" class="py-name" targets="Class taskcoachlib.thirdparty.pubsub.core.listenerbase.ValidatorBase=taskcoachlib.thirdparty.pubsub.core.listenerbase.ValidatorBase-class.html"><a title="taskcoachlib.thirdparty.pubsub.core.listenerbase.ValidatorBase" class="py-name" href="#" onclick="return doclink('link-2', 'ValidatorBase', 'link-2');">ValidatorBase</a></tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name" targets="Module taskcoachlib.thirdparty.pubsub.core.callables=taskcoachlib.thirdparty.pubsub.core.callables-module.html"><a title="taskcoachlib.thirdparty.pubsub.core.callables" class="py-name" href="#" onclick="return doclink('link-3', 'callables', 'link-3');">callables</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Class taskcoachlib.thirdparty.pubsub.core.callables.ListenerInadequate=taskcoachlib.thirdparty.pubsub.core.callables.ListenerInadequate-class.html"><a title="taskcoachlib.thirdparty.pubsub.core.callables.ListenerInadequate" class="py-name" href="#" onclick="return doclink('link-4', 'ListenerInadequate', 'link-4');">ListenerInadequate</a></tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"> </tt>
+<a name="Listener"></a><div id="Listener-def"><a name="L12"></a><tt class="py-lineno">12</tt> <a class="py-toggle" href="#" id="Listener-toggle" onclick="return toggle('Listener');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.core.kwargs.listenerimpl.Listener-class.html">Listener</a><tt class="py-op">(</tt><tt class="py-base-class">ListenerBase</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Listener-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Listener-expanded"><a name="Listener.__call__"></a><div id="Listener.__call__-def"><a name="L13"></a><tt class="py-lineno">13</tt> <a class="py-toggle" href="#" id="Listener.__call__-toggle" onclick="return toggle('Listener.__call__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.core.kwargs.listenerimpl.Listener-class.html#__call__">__call__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">kwargs</tt><tt class="py-op">,</tt> <tt class="py-param">actualTopic</tt><tt class="py-op">,</tt> <tt class="py-param">allKwargs</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Listener.__call__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Listener.__call__-expanded"><a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">        <tt class="py-docstring">'''Call the listener with **kwargs. Note that it raises RuntimeError </tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">        if listener is dead. Should always return True (False would require</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">        the callable_ be dead but self hasn't yet been notified of it...).'''</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">acceptsAllKwargs</tt><tt class="py-op">:</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">            <tt id="link-5" class="py-name" targets="Package taskcoachlib.thirdparty.pubsub.core.kwargs=taskcoachlib.thirdparty.pubsub.core.kwargs-module.html"><a title="taskcoachlib.thirdparty.pubsub.core.kwargs" class="py-name" href="#" onclick="return doclink('link-5', 'kwargs', 'link-5');">kwargs</a></tt> <tt class="py-op">=</tt> <tt class="py-name">allKwargs</tt> <tt class="py-keyword">or</tt> <tt id="link-6" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.kwargs" class="py-name" href="#" onclick="return doclink('link-6', 'kwargs', 'link-5');">kwargs</a></tt> <tt class="py-comment"># if allKwargs is None then use kwargs</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_autoTopicArgName</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">            <tt id="link-7" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.kwargs" class="py-name" href="#" onclick="return doclink('link-7', 'kwargs', 'link-5');">kwargs</a></tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.kwargs" class="py-name" href="#" onclick="return doclink('link-8', 'kwargs', 'link-5');">kwargs</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method taskcoachlib.domain.base.object.Object.copy()=taskcoachlib.domain.base.object.Object-class.html#copy,Method taskcoachlib.domain.date.recurrence.Recurrence.copy()=taskcoachlib.domain.date.recurrence.Recurrence-class.html#copy,Method taskcoachlib.patterns.composite.Composite.copy()=taskcoachlib.patterns.composite.Composite-class.html#copy,Method taskcoachlib.thirdparty._weakrefset.WeakSet.copy()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.Forward.copy()=taskcoachlib.thirdparty.pyparsing.Forward-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.Keyword.copy()=taskcoachlib.thirdparty.pyparsing.Keyword-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.ParseResults.copy()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.ParserElement.copy()=taskcoachlib.thirdparty.pyparsing.ParserElement-class.html#copy"><a title="taskcoachlib.domain.base.object.Object.copy
+taskcoachlib.domain.date.recurrence.Recurrence.copy
+taskcoachlib.patterns.composite.Composite.copy
+taskcoachlib.thirdparty._weakrefset.WeakSet.copy
+taskcoachlib.thirdparty.pyparsing.Forward.copy
+taskcoachlib.thirdparty.pyparsing.Keyword.copy
+taskcoachlib.thirdparty.pyparsing.ParseResults.copy
+taskcoachlib.thirdparty.pyparsing.ParserElement.copy" class="py-name" href="#" onclick="return doclink('link-9', 'copy', 'link-9');">copy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">            <tt id="link-10" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.kwargs" class="py-name" href="#" onclick="return doclink('link-10', 'kwargs', 'link-5');">kwargs</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_autoTopicArgName</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">actualTopic</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-name">cb</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_callable</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">cb</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase._calledWhenDead()=taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase-class.html#_calledWhenDead"><a title="taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase._calledWhenDead" class="py-name" href="#" onclick="return doclink('link-11', '_calledWhenDead', 'link-11');">_calledWhenDead</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-name">cb</tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt id="link-12" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.kwargs" class="py-name" href="#" onclick="return doclink('link-12', 'kwargs', 'link-5');">kwargs</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-13" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.True=taskcoachlib.thirdparty.chardet.constants-module.html#True"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-13', 'True', 'link-13');">True</a></tt> </tt>
+</div></div><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt>
+<a name="ListenerValidator"></a><div id="ListenerValidator-def"><a name="L32"></a><tt class="py-lineno">32</tt> <a class="py-toggle" href="#" id="ListenerValidator-toggle" onclick="return toggle('ListenerValidator');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.core.kwargs.listenerimpl.ListenerValidator-class.html">ListenerValidator</a><tt class="py-op">(</tt><tt class="py-base-class">ValidatorBase</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ListenerValidator-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="ListenerValidator-expanded"><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring">    Do not accept any required args or *args; accept any **kwarg, </tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-docstring">    and require that the Listener have at least all the kwargs (can </tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-docstring">    have extra) of Topic.</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">     </tt>
+<a name="ListenerValidator._validateArgs"></a><div id="ListenerValidator._validateArgs-def"><a name="L39"></a><tt class="py-lineno">39</tt> <a class="py-toggle" href="#" id="ListenerValidator._validateArgs-toggle" onclick="return toggle('ListenerValidator._validateArgs');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.core.kwargs.listenerimpl.ListenerValidator-class.html#_validateArgs">_validateArgs</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">listener</tt><tt class="py-op">,</tt> <tt class="py-param">paramsInfo</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ListenerValidator._validateArgs-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ListenerValidator._validateArgs-expanded"><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-comment"># accept **kwargs</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">        <tt class="py-comment"># accept *args</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">         </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt class="py-comment"># check if listener missing params (only possible if</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt class="py-comment"># paramsInfo.acceptsAllKwargs is False)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">        <tt class="py-name">allTopicMsgArgs</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_topicArgs</tt> <tt class="py-op">|</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_topicKwargs</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-name">allParams</tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name" targets="Method taskcoachlib.config.settings.CachingConfigParser.set()=taskcoachlib.config.settings.CachingConfigParser-class.html#set,Method taskcoachlib.config.settings.Settings.set()=taskcoachlib.config.settings.Settings-class.html#set,Method taskcoachlib.config.settings.UnicodeAwareConfigParser.set()=taskcoachlib.config.settings.UnicodeAwareConfigParser-class.html#set,Method taskcoachlib.domain.base.attribute.Attribute.set()=taskcoachlib.domain.base.attribute.Attribute-class.html#set,Method taskcoachlib.domain.base.attribute.SetAttribute.set()=taskcoachlib.domain.base.attribute.SetAttribute-class.html#set,Method taskcoachlib.gui.dialog.preferences.SettingsPage.set()=taskcoachlib.gui.dialog.preferences.SettingsPage-class.html#set,Method taskcoachlib.gui.dialog.preferences.SettingsPageBase.set()=taskcoachlib.gui.dialog.preferences.SettingsPageBase-class.html#set,Method taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.set()=taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage-class.html#set,Method taskcoachlib.syncml.config.SyncMLConfigNode.set()=taskcoachlib.syncml.config.SyncMLConfigNode-class.html#set,Method taskcoachlib.thirdparty.googleapi.httplib2.FileCache.set()=taskcoachlib.thirdparty.googleapi.httplib2.FileCache-class.html#set,Method taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.set()=taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache-class.html#set,Method taskcoachlib.thirdparty.ntlm.U32.U32.set()=taskcoachlib.thirdparty.ntlm.U32.U32-class.html#set,Method taskcoachlib.thirdparty.wmi._wmi_object.set()=taskcoachlib.thirdparty.wmi._wmi_object-class.html#set,Method taskcoachlib.thirdparty.wmi._wmi_property.set()=taskcoachlib.thirdparty.wmi._wmi_property-class.html#set,Method taskcoachlib.thirdparty.xdg.IniFile.IniFile.set()=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#set"><a title="taskcoachlib.config.settings.CachingConfigParser.set
+taskcoachlib.config.settings.Settings.set
+taskcoachlib.config.settings.UnicodeAwareConfigParser.set
+taskcoachlib.domain.base.attribute.Attribute.set
+taskcoachlib.domain.base.attribute.SetAttribute.set
+taskcoachlib.gui.dialog.preferences.SettingsPage.set
+taskcoachlib.gui.dialog.preferences.SettingsPageBase.set
+taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.set
+taskcoachlib.syncml.config.SyncMLConfigNode.set
+taskcoachlib.thirdparty.googleapi.httplib2.FileCache.set
+taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.set
+taskcoachlib.thirdparty.ntlm.U32.U32.set
+taskcoachlib.thirdparty.wmi._wmi_object.set
+taskcoachlib.thirdparty.wmi._wmi_property.set
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.set" class="py-name" href="#" onclick="return doclink('link-14', 'set', 'link-14');">set</a></tt><tt class="py-op">(</tt><tt class="py-name">paramsInfo</tt><tt class="py-op">.</tt><tt class="py-name">allParams</tt><tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">paramsInfo</tt><tt class="py-op">.</tt><tt class="py-name">acceptsAllKwargs</tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">            <tt class="py-name">missingParams</tt> <tt class="py-op">=</tt> <tt class="py-name">allTopicMsgArgs</tt> <tt class="py-op">-</tt> <tt class="py-name">allParams</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">missingParams</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">                <tt id="link-15" class="py-name" targets="Variable taskcoachlib.thirdparty.pubsub.core.arg1.msg=taskcoachlib.thirdparty.pubsub.core.arg1-module.html#msg,Variable taskcoachlib.thirdparty.pubsub.core.kwargs.msg=taskcoachlib.thirdparty.pubsub.core.kwargs-module.html#msg"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.msg
+taskcoachlib.thirdparty.pubsub.core.kwargs.msg" class="py-name" href="#" onclick="return doclink('link-15', 'msg', 'link-15');">msg</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'needs to accept %s more args (%s)'</tt> \ </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">                    <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">missingParams</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">''</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">missingParams</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt id="link-16" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.callables.ListenerInadequate" class="py-name" href="#" onclick="return doclink('link-16', 'ListenerInadequate', 'link-4');">ListenerInadequate</a></tt><tt class="py-op">(</tt><tt id="link-17" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.msg
+taskcoachlib.thirdparty.pubsub.core.kwargs.msg" class="py-name" href="#" onclick="return doclink('link-17', 'msg', 'link-15');">msg</a></tt><tt class="py-op">,</tt> <tt id="link-18" class="py-name" targets="Module taskcoachlib.thirdparty.pubsub.core.listener=taskcoachlib.thirdparty.pubsub.core.listener-module.html"><a title="taskcoachlib.thirdparty.pubsub.core.listener" class="py-name" href="#" onclick="return doclink('link-18', 'listener', 'link-18');">listener</a></tt><tt class="py-op">,</tt> <tt class="py-name">missingParams</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">            <tt class="py-comment"># then can accept that some parameters missing from listener </tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">            <tt class="py-comment"># signature</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">             </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">        <tt class="py-comment"># check if there are unknown parameters in listener signature:</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">        <tt class="py-name">extraArgs</tt> <tt class="py-op">=</tt> <tt class="py-name">allParams</tt> <tt class="py-op">-</tt> <tt class="py-name">allTopicMsgArgs</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">extraArgs</tt><tt class="py-op">:</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">allTopicMsgArgs</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">                <tt id="link-19" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.msg
+taskcoachlib.thirdparty.pubsub.core.kwargs.msg" class="py-name" href="#" onclick="return doclink('link-19', 'msg', 'link-15');">msg</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'args (%s) not allowed, should be (%s)'</tt> \ </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">                    <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-string">','</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">extraArgs</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">','</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">allTopicMsgArgs</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">                <tt id="link-20" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.msg
+taskcoachlib.thirdparty.pubsub.core.kwargs.msg" class="py-name" href="#" onclick="return doclink('link-20', 'msg', 'link-15');">msg</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'no args allowed, has (%s)'</tt> <tt class="py-op">%</tt> <tt class="py-string">','</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">extraArgs</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-21" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.callables.ListenerInadequate" class="py-name" href="#" onclick="return doclink('link-21', 'ListenerInadequate', 'link-4');">ListenerInadequate</a></tt><tt class="py-op">(</tt><tt id="link-22" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.msg
+taskcoachlib.thirdparty.pubsub.core.kwargs.msg" class="py-name" href="#" onclick="return doclink('link-22', 'msg', 'link-15');">msg</a></tt><tt class="py-op">,</tt> <tt id="link-23" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.listener" class="py-name" href="#" onclick="return doclink('link-23', 'listener', 'link-18');">listener</a></tt><tt class="py-op">,</tt> <tt class="py-name">extraArgs</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">        <tt class="py-comment"># we accept listener that has fewer required paams than TMS</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">        <tt class="py-comment"># since all args passed by name (previous showed that spec met</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">        <tt class="py-comment"># for all parameters).</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line"> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">        <tt class="py-comment"># now make sure listener doesn't require params that are optional in TMS:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">        <tt class="py-name">extraArgs</tt> <tt class="py-op">=</tt> <tt id="link-24" class="py-name"><a title="taskcoachlib.config.settings.CachingConfigParser.set
+taskcoachlib.config.settings.Settings.set
+taskcoachlib.config.settings.UnicodeAwareConfigParser.set
+taskcoachlib.domain.base.attribute.Attribute.set
+taskcoachlib.domain.base.attribute.SetAttribute.set
+taskcoachlib.gui.dialog.preferences.SettingsPage.set
+taskcoachlib.gui.dialog.preferences.SettingsPageBase.set
+taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.set
+taskcoachlib.syncml.config.SyncMLConfigNode.set
+taskcoachlib.thirdparty.googleapi.httplib2.FileCache.set
+taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.set
+taskcoachlib.thirdparty.ntlm.U32.U32.set
+taskcoachlib.thirdparty.wmi._wmi_object.set
+taskcoachlib.thirdparty.wmi._wmi_property.set
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.set" class="py-name" href="#" onclick="return doclink('link-24', 'set', 'link-14');">set</a></tt><tt class="py-op">(</tt> <tt class="py-name">paramsInfo</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.callables.CallArgsInfo.getRequiredArgs()=taskcoachlib.thirdparty.pubsub.core.callables.CallArgsInfo-class.html#getRequiredArgs"><a title="taskcoachlib.thirdparty.pubsub.core.callables.CallArgsInfo.getRequiredArgs" class="py-name" href="#" onclick="return doclink('link-25', 'getRequiredArgs', 'link-25');">getRequiredArgs</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">)</tt> <tt class="py-op">-</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_topicArgs</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">extraArgs</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">            <tt id="link-26" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.msg
+taskcoachlib.thirdparty.pubsub.core.kwargs.msg" class="py-name" href="#" onclick="return doclink('link-26', 'msg', 'link-15');">msg</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'params (%s) missing default values'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-string">','</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">extraArgs</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-27" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.callables.ListenerInadequate" class="py-name" href="#" onclick="return doclink('link-27', 'ListenerInadequate', 'link-4');">ListenerInadequate</a></tt><tt class="py-op">(</tt><tt id="link-28" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.msg
+taskcoachlib.thirdparty.pubsub.core.kwargs.msg" class="py-name" href="#" onclick="return doclink('link-28', 'msg', 'link-15');">msg</a></tt><tt class="py-op">,</tt> <tt id="link-29" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.listener" class="py-name" href="#" onclick="return doclink('link-29', 'listener', 'link-18');">listener</a></tt><tt class="py-op">,</tt> <tt class="py-name">extraArgs</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:57 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

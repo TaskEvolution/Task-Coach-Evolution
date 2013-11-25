@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.dateutil.relativedelta.relativedelta</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.dateutil-module.html">Package&nbsp;dateutil</a> ::
+        <a href="taskcoachlib.thirdparty.dateutil.relativedelta-module.html">Module&nbsp;relativedelta</a> ::
+        Class&nbsp;relativedelta
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.dateutil.relativedelta.relativedelta-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class relativedelta</h1><p class="nomargin-top"><span class="codelink"><a href="taskcoachlib.thirdparty.dateutil.relativedelta-pysrc.html#relativedelta">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+The relativedelta type is based on the specification of the excelent
+work done by M.-A. Lemburg in his mx.DateTime extension. However,
+notice that this type does *NOT* implement the same algorithm as
+his work. Do *NOT* expect it to behave like mx.DateTime's counterpart.
+
+There's two different ways to build a relativedelta instance. The
+first one is passing it two date/datetime classes:
+
+    relativedelta(datetime1, datetime2)
+
+And the other way is to use the following keyword arguments:
+
+    year, month, day, hour, minute, second, microsecond:
+        Absolute information.
+
+    years, months, weeks, days, hours, minutes, seconds, microseconds:
+        Relative information, may be negative.
+
+    weekday:
+        One of the weekday instances (MO, TU, etc). These instances may
+        receive a parameter N, specifying the Nth weekday, which could
+        be positive or negative (like MO(+1) or MO(-2). Not specifying
+        it is the same as specifying +1. You can also use an integer,
+        where 0=MO.
+
+    leapdays:
+        Will add given days to the date found, if year is a leap
+        year, and the date found is post 28 of february.
+
+    yearday, nlyearday:
+        Set the yearday or the non-leap year day (jump leap days).
+        These are converted to day/month/leapdays information.
+
+Here is the behavior of operations with relativedelta:
+
+1) Calculate the absolute year, using the 'year' argument, or the
+   original datetime year, if the argument is not present.
+
+2) Add the relative 'years' argument to the absolute year.
+
+3) Do steps 1 and 2 for month/months.
+
+4) Calculate the absolute day, using the 'day' argument, or the
+   original datetime day, if the argument is not present. Then,
+   subtract from the day until it fits in the year and month
+   found after their operations.
+
+5) Add the relative 'days' argument to the absolute day. Notice
+   that the 'weeks' argument is multiplied by 7 and added to
+   'days'.
+
+6) Do steps 1 and 2 for hour/hours, minute/minutes, second/seconds,
+   microsecond/microseconds.
+
+7) If the 'weekday' argument is present, calculate the weekday,
+   with the given (wday, nth) tuple. wday is the index of the
+   weekday (0-6, 0=Mon), and nth is the number of weeks to add
+   forward or backward, depending on its signal. Notice that if
+   the calculated date is already Monday, for example, using
+   (0, 1) or (0, -1) won't change the day.
+    
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dt1</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">dt2</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">years</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">months</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">days</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">leapdays</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">weeks</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">hours</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">minutes</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">seconds</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">microseconds</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">year</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">month</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">day</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">weekday</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">yearday</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">nlyearday</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">hour</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">minute</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">second</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">microsecond</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.dateutil.relativedelta-pysrc.html#relativedelta.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_fix"></a><span class="summary-sig-name">_fix</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.dateutil.relativedelta-pysrc.html#relativedelta._fix">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_set_months"></a><span class="summary-sig-name">_set_months</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">months</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.dateutil.relativedelta-pysrc.html#relativedelta._set_months">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__radd__"></a><span class="summary-sig-name">__radd__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.dateutil.relativedelta-pysrc.html#relativedelta.__radd__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__rsub__"></a><span class="summary-sig-name">__rsub__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.dateutil.relativedelta-pysrc.html#relativedelta.__rsub__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__add__"></a><span class="summary-sig-name">__add__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.dateutil.relativedelta-pysrc.html#relativedelta.__add__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__sub__"></a><span class="summary-sig-name">__sub__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.dateutil.relativedelta-pysrc.html#relativedelta.__sub__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__neg__"></a><span class="summary-sig-name">__neg__</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.dateutil.relativedelta-pysrc.html#relativedelta.__neg__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__nonzero__"></a><span class="summary-sig-name">__nonzero__</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.dateutil.relativedelta-pysrc.html#relativedelta.__nonzero__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__mul__"></a><span class="summary-sig-name">__mul__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.dateutil.relativedelta-pysrc.html#relativedelta.__mul__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__eq__"></a><span class="summary-sig-name">__eq__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.dateutil.relativedelta-pysrc.html#relativedelta.__eq__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__ne__"></a><span class="summary-sig-name">__ne__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.dateutil.relativedelta-pysrc.html#relativedelta.__ne__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__div__"></a><span class="summary-sig-name">__div__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.dateutil.relativedelta-pysrc.html#relativedelta.__div__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__repr__"></a><span class="summary-sig-name">__repr__</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.dateutil.relativedelta-pysrc.html#relativedelta.__repr__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:44 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

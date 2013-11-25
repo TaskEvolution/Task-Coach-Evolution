@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.dateutil.zoneinfo</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.dateutil-module.html">Package&nbsp;dateutil</a> ::
+        Package&nbsp;zoneinfo
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.dateutil.zoneinfo-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.dateutil.zoneinfo-module.html">Package taskcoachlib.thirdparty.dateutil.zoneinfo</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (c) 2003-2005  Gustavo Niemeyer &lt;gustavo@niemeyer.net&gt;</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">This module offers extensions to the standard python 2.3+</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">datetime module.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package taskcoachlib.thirdparty.dateutil=taskcoachlib.thirdparty.dateutil-module.html"><a title="taskcoachlib.thirdparty.dateutil" class="py-name" href="#" onclick="return doclink('link-0', 'dateutil', 'link-0');">dateutil</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module taskcoachlib.thirdparty.dateutil.tz=taskcoachlib.thirdparty.dateutil.tz-module.html"><a title="taskcoachlib.thirdparty.dateutil.tz" class="py-name" href="#" onclick="return doclink('link-1', 'tz', 'link-1');">tz</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class taskcoachlib.thirdparty.dateutil.tz.tzfile=taskcoachlib.thirdparty.dateutil.tz.tzfile-class.html,Class taskcoachlib.thirdparty.dateutil.zoneinfo.tzfile=taskcoachlib.thirdparty.dateutil.zoneinfo.tzfile-class.html"><a title="taskcoachlib.thirdparty.dateutil.tz.tzfile
+taskcoachlib.thirdparty.dateutil.zoneinfo.tzfile" class="py-name" href="#" onclick="return doclink('link-2', 'tzfile', 'link-2');">tzfile</a></tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">tarfile</tt> <tt class="py-keyword">import</tt> <tt class="py-name">TarFile</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">"Gustavo Niemeyer &lt;gustavo@niemeyer.net&gt;"</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-name">__license__</tt> <tt class="py-op">=</tt> <tt class="py-string">"PSF License"</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-name">__all__</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">"setcachesize"</tt><tt class="py-op">,</tt> <tt class="py-string">"gettz"</tt><tt class="py-op">,</tt> <tt class="py-string">"rebuild"</tt><tt class="py-op">]</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable taskcoachlib.thirdparty.dateutil.zoneinfo.CACHE=taskcoachlib.thirdparty.dateutil.zoneinfo-module.html#CACHE"><a title="taskcoachlib.thirdparty.dateutil.zoneinfo.CACHE" class="py-name" href="#" onclick="return doclink('link-3', 'CACHE', 'link-3');">CACHE</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable taskcoachlib.thirdparty.dateutil.zoneinfo.CACHESIZE=taskcoachlib.thirdparty.dateutil.zoneinfo-module.html#CACHESIZE"><a title="taskcoachlib.thirdparty.dateutil.zoneinfo.CACHESIZE" class="py-name" href="#" onclick="return doclink('link-4', 'CACHESIZE', 'link-4');">CACHESIZE</a></tt> <tt class="py-op">=</tt> <tt class="py-number">10</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="tzfile"></a><div id="tzfile-def"><a name="L19"></a><tt class="py-lineno">19</tt> <a class="py-toggle" href="#" id="tzfile-toggle" onclick="return toggle('tzfile');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.dateutil.zoneinfo.tzfile-class.html">tzfile</a><tt class="py-op">(</tt><tt class="py-base-class">tzfile</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="tzfile-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="tzfile-expanded"><a name="tzfile.__reduce__"></a><div id="tzfile.__reduce__-def"><a name="L20"></a><tt class="py-lineno">20</tt> <a class="py-toggle" href="#" id="tzfile.__reduce__-toggle" onclick="return toggle('tzfile.__reduce__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.dateutil.zoneinfo.tzfile-class.html#__reduce__">__reduce__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="tzfile.__reduce__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="tzfile.__reduce__-expanded"><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt id="link-5" class="py-name" targets="Function taskcoachlib.thirdparty.dateutil.tz.gettz()=taskcoachlib.thirdparty.dateutil.tz-module.html#gettz,Function taskcoachlib.thirdparty.dateutil.zoneinfo.gettz()=taskcoachlib.thirdparty.dateutil.zoneinfo-module.html#gettz"><a title="taskcoachlib.thirdparty.dateutil.tz.gettz
+taskcoachlib.thirdparty.dateutil.zoneinfo.gettz" class="py-name" href="#" onclick="return doclink('link-5', 'gettz', 'link-5');">gettz</a></tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_filename</tt><tt class="py-op">,</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="getzoneinfofile"></a><div id="getzoneinfofile-def"><a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="getzoneinfofile-toggle" onclick="return toggle('getzoneinfofile');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.dateutil.zoneinfo-module.html#getzoneinfofile">getzoneinfofile</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getzoneinfofile-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="getzoneinfofile-expanded"><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt class="py-name">filenames</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">listdir</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method taskcoachlib.config.settings.Settings.path()=taskcoachlib.config.settings.Settings-class.html#path,Method taskcoachlib.thirdparty.wmi._wmi_object.path()=taskcoachlib.thirdparty.wmi._wmi_object-class.html#path"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-6', 'path', 'link-6');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-7', 'path', 'link-6');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">    <tt class="py-name">filenames</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Function taskcoachlib.thirdparty.xdg.Menu.sort()=taskcoachlib.thirdparty.xdg.Menu-module.html#sort,Method taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.sort()=taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles-class.html#sort,Method taskcoachlib.widgets.itemctrl.Column.sort()=taskcoachlib.widgets.itemctrl.Column-class.html#sort"><a title="taskcoachlib.thirdparty.xdg.Menu.sort
+taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.sort
+taskcoachlib.widgets.itemctrl.Column.sort" class="py-name" href="#" onclick="return doclink('link-8', 'sort', 'link-8');">sort</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">    <tt class="py-name">filenames</tt><tt class="py-op">.</tt><tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt id="link-9" class="py-name" targets="Module taskcoachlib.gui.dialog.entry=taskcoachlib.gui.dialog.entry-module.html"><a title="taskcoachlib.gui.dialog.entry" class="py-name" href="#" onclick="return doclink('link-9', 'entry', 'link-9');">entry</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">filenames</tt><tt class="py-op">:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-10" class="py-name"><a title="taskcoachlib.gui.dialog.entry" class="py-name" href="#" onclick="return doclink('link-10', 'entry', 'link-9');">entry</a></tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt class="py-string">"zoneinfo"</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-string">".tar."</tt> <tt class="py-keyword">in</tt> <tt id="link-11" class="py-name"><a title="taskcoachlib.gui.dialog.entry" class="py-name" href="#" onclick="return doclink('link-11', 'entry', 'link-9');">entry</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-12', 'path', 'link-6');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-13', 'path', 'link-6');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-14" class="py-name"><a title="taskcoachlib.gui.dialog.entry" class="py-name" href="#" onclick="return doclink('link-14', 'entry', 'link-9');">entry</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt id="link-15" class="py-name" targets="Variable taskcoachlib.thirdparty.dateutil.zoneinfo.ZONEINFOFILE=taskcoachlib.thirdparty.dateutil.zoneinfo-module.html#ZONEINFOFILE"><a title="taskcoachlib.thirdparty.dateutil.zoneinfo.ZONEINFOFILE" class="py-name" href="#" onclick="return doclink('link-15', 'ZONEINFOFILE', 'link-15');">ZONEINFOFILE</a></tt> <tt class="py-op">=</tt> <tt class="py-name">getzoneinfofile</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-keyword">del</tt> <tt class="py-name">getzoneinfofile</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"> </tt>
+<a name="setcachesize"></a><div id="setcachesize-def"><a name="L36"></a><tt class="py-lineno">36</tt> <a class="py-toggle" href="#" id="setcachesize-toggle" onclick="return toggle('setcachesize');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.dateutil.zoneinfo-module.html#setcachesize">setcachesize</a><tt class="py-op">(</tt><tt class="py-param">size</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="setcachesize-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="setcachesize-expanded"><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">    <tt class="py-keyword">global</tt> <tt id="link-16" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.zoneinfo.CACHESIZE" class="py-name" href="#" onclick="return doclink('link-16', 'CACHESIZE', 'link-4');">CACHESIZE</a></tt><tt class="py-op">,</tt> <tt id="link-17" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.zoneinfo.CACHE" class="py-name" href="#" onclick="return doclink('link-17', 'CACHE', 'link-3');">CACHE</a></tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">    <tt id="link-18" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.zoneinfo.CACHESIZE" class="py-name" href="#" onclick="return doclink('link-18', 'CACHESIZE', 'link-4');">CACHESIZE</a></tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name" targets="Method taskcoachlib.gui.viewer.base.Viewer.size()=taskcoachlib.gui.viewer.base.Viewer-class.html#size,Method taskcoachlib.thirdparty.desktop.windows.Window.size()=taskcoachlib.thirdparty.desktop.windows.Window-class.html#size,Method taskcoachlib.thirdparty.googleapi.apiclient.http.MediaIoBaseUpload.size()=taskcoachlib.thirdparty.googleapi.apiclient.http.MediaIoBaseUpload-class.html#size,Method taskcoachlib.thirdparty.googleapi.apiclient.http.MediaUpload.size()=taskcoachlib.thirdparty.googleapi.apiclient.http.MediaUpload-class.html#size"><a title="taskcoachlib.gui.viewer.base.Viewer.size
+taskcoachlib.thirdparty.desktop.windows.Window.size
+taskcoachlib.thirdparty.googleapi.apiclient.http.MediaIoBaseUpload.size
+taskcoachlib.thirdparty.googleapi.apiclient.http.MediaUpload.size" class="py-name" href="#" onclick="return doclink('link-19', 'size', 'link-19');">size</a></tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">    <tt class="py-keyword">del</tt> <tt id="link-20" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.zoneinfo.CACHE" class="py-name" href="#" onclick="return doclink('link-20', 'CACHE', 'link-3');">CACHE</a></tt><tt class="py-op">[</tt><tt id="link-21" class="py-name"><a title="taskcoachlib.gui.viewer.base.Viewer.size
+taskcoachlib.thirdparty.desktop.windows.Window.size
+taskcoachlib.thirdparty.googleapi.apiclient.http.MediaIoBaseUpload.size
+taskcoachlib.thirdparty.googleapi.apiclient.http.MediaUpload.size" class="py-name" href="#" onclick="return doclink('link-21', 'size', 'link-19');">size</a></tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"> </tt>
+<a name="gettz"></a><div id="gettz-def"><a name="L41"></a><tt class="py-lineno">41</tt> <a class="py-toggle" href="#" id="gettz-toggle" onclick="return toggle('gettz');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.dateutil.zoneinfo-module.html#gettz">gettz</a><tt class="py-op">(</tt><tt class="py-param">name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="gettz-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="gettz-expanded"><a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">    <tt class="py-name">tzinfo</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-22" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.zoneinfo.ZONEINFOFILE" class="py-name" href="#" onclick="return doclink('link-22', 'ZONEINFOFILE', 'link-15');">ZONEINFOFILE</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">cachedname</tt><tt class="py-op">,</tt> <tt class="py-name">tzinfo</tt> <tt class="py-keyword">in</tt> <tt id="link-23" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.zoneinfo.CACHE" class="py-name" href="#" onclick="return doclink('link-23', 'CACHE', 'link-3');">CACHE</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">cachedname</tt> <tt class="py-op">==</tt> <tt id="link-24" class="py-name" targets="Method taskcoachlib.command.base.BaseCommand.name()=taskcoachlib.command.base.BaseCommand-class.html#name,Method taskcoachlib.command.base.NewItemCommand.name()=taskcoachlib.command.base.NewItemCommand-class.html#name,Variable taskcoachlib.meta.data.name=taskcoachlib.meta.data-module.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.CheckList.name=taskcoachlib.thirdparty.desktop.dialog.CheckList-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Error.name=taskcoachlib.thirdparty.desktop.dialog.Error-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Input.name=taskcoachlib.thirdparty.desktop.dialog.Input-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Menu.name=taskcoachlib.thirdparty.desktop.dialog.Menu-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Message.name=taskcoachlib.thirdparty.desktop.dialog.Message-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Password.name=taskcoachlib.thirdparty.desktop.dialog.Password-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Pulldown.name=taskcoachlib.thirdparty.desktop.dialog.Pulldown-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Question.name=taskcoachlib.thirdparty.desktop.dialog.Question-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.RadioList.name=taskcoachlib.thirdparty.desktop.dialog.RadioList-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.TextFile.name=taskcoachlib.thirdparty.desktop.dialog.TextFile-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Warning.name=taskcoachlib.thirdparty.desktop.dialog.Warning-class.html#name,Method taskcoachlib.thirdparty.desktop.windows.Window.name()=taskcoachlib.thirdparty.desktop.windows.Window-class.html#name,Method taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name()=taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase-class.html#name,Method taskcoachlib.widgets.itemctrl.Column.name()=taskcoachlib.widgets.itemctrl.Column-class.html#name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-24', 'name', 'link-24');">name</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">                <tt class="py-keyword">break</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">            <tt class="py-name">tf</tt> <tt class="py-op">=</tt> <tt class="py-name">TarFile</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Method taskcoachlib.domain.attachment.attachment.Attachment.open()=taskcoachlib.domain.attachment.attachment.Attachment-class.html#open,Method taskcoachlib.domain.attachment.attachment.FileAttachment.open()=taskcoachlib.domain.attachment.attachment.FileAttachment-class.html#open,Method taskcoachlib.domain.attachment.attachment.MailAttachment.open()=taskcoachlib.domain.attachment.attachment.MailAttachment-class.html#open,Method taskcoachlib.domain.attachment.attachment.URIAttachment.open()=taskcoachlib.domain.attachment.attachment.URIAttachment-class.html#open,Method taskcoachlib.gui.iocontroller.IOController.open()=taskcoachlib.gui.iocontroller.IOController-class.html#open,Method taskcoachlib.thirdparty.desktop.dialog.Dialogue.open()=taskcoachlib.thirdparty.desktop.dialog.Dialogue-class.html#open"><a title="taskcoachlib.domain.attachment.attachment.Attachment.open
+taskcoachlib.domain.attachment.attachment.FileAttachment.open
+taskcoachlib.domain.attachment.attachment.MailAttachment.open
+taskcoachlib.domain.attachment.attachment.URIAttachment.open
+taskcoachlib.gui.iocontroller.IOController.open
+taskcoachlib.thirdparty.desktop.dialog.Dialogue.open" class="py-name" href="#" onclick="return doclink('link-25', 'open', 'link-25');">open</a></tt><tt class="py-op">(</tt><tt id="link-26" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.zoneinfo.ZONEINFOFILE" class="py-name" href="#" onclick="return doclink('link-26', 'ZONEINFOFILE', 'link-15');">ZONEINFOFILE</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">                <tt class="py-name">zonefile</tt> <tt class="py-op">=</tt> <tt class="py-name">tf</tt><tt class="py-op">.</tt><tt class="py-name">extractfile</tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-27', 'name', 'link-24');">name</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt><tt class="py-op">:</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">                <tt class="py-name">tzinfo</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">                <tt class="py-name">tzinfo</tt> <tt class="py-op">=</tt> <tt id="link-28" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.tz.tzfile
+taskcoachlib.thirdparty.dateutil.zoneinfo.tzfile" class="py-name" href="#" onclick="return doclink('link-28', 'tzfile', 'link-2');">tzfile</a></tt><tt class="py-op">(</tt><tt class="py-name">zonefile</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">            <tt class="py-name">tf</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Method taskcoachlib.application.application.RedirectedOutput.close()=taskcoachlib.application.application.RedirectedOutput-class.html#close,Method taskcoachlib.filesystem.fs_darwin.FileMonitor.close()=taskcoachlib.filesystem.fs_darwin.FileMonitor-class.html#close,Variable taskcoachlib.filesystem.fs_darwin.close=taskcoachlib.filesystem.fs_darwin-module.html#close,Method taskcoachlib.filesystem.fs_inotify.Inotify.close()=taskcoachlib.filesystem.fs_inotify.Inotify-class.html#close,Method taskcoachlib.gui.dialog.editor.BudgetPage.close()=taskcoachlib.gui.dialog.editor.BudgetPage-class.html#close,Method taskcoachlib.gui.dialog.editor.Page.close()=taskcoachlib.gui.dialog.editor.Page-class.html#close,Method taskcoachlib.gui.dialog.editor.PageWithViewer.close()=taskcoachlib.gui.dialog.editor.PageWithViewer-class.html#close,Method taskcoachlib.gui.dialog.editor.SubjectPage.close()=taskcoachlib.gui.dialog.editor.SubjectPage-class.html#close,Method taskcoachlib.gui.iocontroller.IOController.close()=taskcoachlib.gui.iocontroller.IOController-class.html#close,Method taskcoachlib.persistence.taskfile.LockedTaskFile.close()=taskcoachlib.persistence.taskfile.LockedTaskFile-class.html#close,Method taskcoachlib.persistence.taskfile.TaskFile.close()=taskcoachlib.persistence.taskfile.TaskFile-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.base.JobStore-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.mongodb_store.MongoDBJobStore-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.shelve_store.ShelveJobStore-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.sqlalchemy_store.SQLAlchemyJobStore-class.html#close,Method taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close()=taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector-class.html#close,Method taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close()=taskcoachlib.thirdparty.pybonjour.DNSServiceRef-class.html#close"><a title="taskcoachlib.application.application.RedirectedOutput.close
+taskcoachlib.filesystem.fs_darwin.FileMonitor.close
+taskcoachlib.filesystem.fs_darwin.close
+taskcoachlib.filesystem.fs_inotify.Inotify.close
+taskcoachlib.gui.dialog.editor.BudgetPage.close
+taskcoachlib.gui.dialog.editor.Page.close
+taskcoachlib.gui.dialog.editor.PageWithViewer.close
+taskcoachlib.gui.dialog.editor.SubjectPage.close
+taskcoachlib.gui.iocontroller.IOController.close
+taskcoachlib.persistence.taskfile.LockedTaskFile.close
+taskcoachlib.persistence.taskfile.TaskFile.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close
+taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close
+taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close" class="py-name" href="#" onclick="return doclink('link-29', 'close', 'link-29');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">            <tt id="link-30" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.zoneinfo.CACHE" class="py-name" href="#" onclick="return doclink('link-30', 'CACHE', 'link-3');">CACHE</a></tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Method taskcoachlib.thirdparty.pyparsing.ParseResults.insert()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#insert"><a title="taskcoachlib.thirdparty.pyparsing.ParseResults.insert" class="py-name" href="#" onclick="return doclink('link-31', 'insert', 'link-31');">insert</a></tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt id="link-32" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-32', 'name', 'link-24');">name</a></tt><tt class="py-op">,</tt> <tt class="py-name">tzinfo</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">            <tt class="py-keyword">del</tt> <tt id="link-33" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.zoneinfo.CACHE" class="py-name" href="#" onclick="return doclink('link-33', 'CACHE', 'link-3');">CACHE</a></tt><tt class="py-op">[</tt><tt id="link-34" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.zoneinfo.CACHESIZE" class="py-name" href="#" onclick="return doclink('link-34', 'CACHESIZE', 'link-4');">CACHESIZE</a></tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">tzinfo</tt> </tt>
+</div><a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line"> </tt>
+<a name="rebuild"></a><div id="rebuild-def"><a name="L60"></a><tt class="py-lineno">60</tt> <a class="py-toggle" href="#" id="rebuild-toggle" onclick="return toggle('rebuild');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.dateutil.zoneinfo-module.html#rebuild">rebuild</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">,</tt> <tt class="py-param">tag</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">format</tt><tt class="py-op">=</tt><tt class="py-string">"gz"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="rebuild-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="rebuild-expanded"><a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">tempfile</tt><tt class="py-op">,</tt> <tt class="py-name">shutil</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">    <tt class="py-name">tmpdir</tt> <tt class="py-op">=</tt> <tt class="py-name">tempfile</tt><tt class="py-op">.</tt><tt class="py-name">mkdtemp</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">    <tt class="py-name">zonedir</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-35', 'path', 'link-6');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">tmpdir</tt><tt class="py-op">,</tt> <tt class="py-string">"zoneinfo"</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">    <tt class="py-name">moduledir</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-36', 'path', 'link-6');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">tag</tt><tt class="py-op">:</tt> <tt class="py-name">tag</tt> <tt class="py-op">=</tt> <tt class="py-string">"-"</tt><tt class="py-op">+</tt><tt class="py-name">tag</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">    <tt class="py-name">targetname</tt> <tt class="py-op">=</tt> <tt class="py-string">"zoneinfo%s.tar.%s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">tag</tt><tt class="py-op">,</tt> <tt class="py-name">format</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">        <tt class="py-name">tf</tt> <tt class="py-op">=</tt> <tt class="py-name">TarFile</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="taskcoachlib.domain.attachment.attachment.Attachment.open
+taskcoachlib.domain.attachment.attachment.FileAttachment.open
+taskcoachlib.domain.attachment.attachment.MailAttachment.open
+taskcoachlib.domain.attachment.attachment.URIAttachment.open
+taskcoachlib.gui.iocontroller.IOController.open
+taskcoachlib.thirdparty.desktop.dialog.Dialogue.open" class="py-name" href="#" onclick="return doclink('link-37', 'open', 'link-25');">open</a></tt><tt class="py-op">(</tt><tt id="link-38" class="py-name" targets="Method taskcoachlib.config.settings.Settings.filename()=taskcoachlib.config.settings.Settings-class.html#filename,Method taskcoachlib.gui.iocontroller.IOController.filename()=taskcoachlib.gui.iocontroller.IOController-class.html#filename,Variable taskcoachlib.meta.data.filename=taskcoachlib.meta.data-module.html#filename,Method taskcoachlib.persistence.taskfile.TaskFile.filename()=taskcoachlib.persistence.taskfile.TaskFile-class.html#filename,Method taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename()=taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile-class.html#filename,Method taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename()=taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener-class.html#filename,Method taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename()=taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename=taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename=taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename=taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring-class.html#filename,Variable taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#filename"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-38', 'filename', 'link-38');">filename</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-39" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-39', 'name', 'link-24');">name</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">tf</tt><tt class="py-op">.</tt><tt class="py-name">getnames</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-op">(</tt><tt id="link-40" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-40', 'name', 'link-24');">name</a></tt><tt class="py-op">.</tt><tt class="py-name">endswith</tt><tt class="py-op">(</tt><tt class="py-string">".sh"</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">                    <tt id="link-41" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-41', 'name', 'link-24');">name</a></tt><tt class="py-op">.</tt><tt class="py-name">endswith</tt><tt class="py-op">(</tt><tt class="py-string">".tab"</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">                    <tt id="link-42" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-42', 'name', 'link-24');">name</a></tt> <tt class="py-op">==</tt> <tt class="py-string">"leapseconds"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">                <tt class="py-name">tf</tt><tt class="py-op">.</tt><tt class="py-name">extract</tt><tt class="py-op">(</tt><tt id="link-43" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-43', 'name', 'link-24');">name</a></tt><tt class="py-op">,</tt> <tt class="py-name">tmpdir</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">                <tt class="py-name">filepath</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-44', 'path', 'link-6');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">tmpdir</tt><tt class="py-op">,</tt> <tt id="link-45" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-45', 'name', 'link-24');">name</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">system</tt><tt class="py-op">(</tt><tt class="py-string">"zic -d %s %s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">zonedir</tt><tt class="py-op">,</tt> <tt class="py-name">filepath</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">        <tt class="py-name">tf</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="taskcoachlib.application.application.RedirectedOutput.close
+taskcoachlib.filesystem.fs_darwin.FileMonitor.close
+taskcoachlib.filesystem.fs_darwin.close
+taskcoachlib.filesystem.fs_inotify.Inotify.close
+taskcoachlib.gui.dialog.editor.BudgetPage.close
+taskcoachlib.gui.dialog.editor.Page.close
+taskcoachlib.gui.dialog.editor.PageWithViewer.close
+taskcoachlib.gui.dialog.editor.SubjectPage.close
+taskcoachlib.gui.iocontroller.IOController.close
+taskcoachlib.persistence.taskfile.LockedTaskFile.close
+taskcoachlib.persistence.taskfile.TaskFile.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close
+taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close
+taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close" class="py-name" href="#" onclick="return doclink('link-46', 'close', 'link-29');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">        <tt class="py-name">target</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-47', 'path', 'link-6');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">moduledir</tt><tt class="py-op">,</tt> <tt class="py-name">targetname</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-48" class="py-name"><a title="taskcoachlib.gui.dialog.entry" class="py-name" href="#" onclick="return doclink('link-48', 'entry', 'link-9');">entry</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">listdir</tt><tt class="py-op">(</tt><tt class="py-name">moduledir</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-49" class="py-name"><a title="taskcoachlib.gui.dialog.entry" class="py-name" href="#" onclick="return doclink('link-49', 'entry', 'link-9');">entry</a></tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt class="py-string">"zoneinfo"</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-string">".tar."</tt> <tt class="py-keyword">in</tt> <tt id="link-50" class="py-name"><a title="taskcoachlib.gui.dialog.entry" class="py-name" href="#" onclick="return doclink('link-50', 'entry', 'link-9');">entry</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line">                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">unlink</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-51', 'path', 'link-6');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">moduledir</tt><tt class="py-op">,</tt> <tt id="link-52" class="py-name"><a title="taskcoachlib.gui.dialog.entry" class="py-name" href="#" onclick="return doclink('link-52', 'entry', 'link-9');">entry</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">        <tt class="py-name">tf</tt> <tt class="py-op">=</tt> <tt class="py-name">TarFile</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="taskcoachlib.domain.attachment.attachment.Attachment.open
+taskcoachlib.domain.attachment.attachment.FileAttachment.open
+taskcoachlib.domain.attachment.attachment.MailAttachment.open
+taskcoachlib.domain.attachment.attachment.URIAttachment.open
+taskcoachlib.gui.iocontroller.IOController.open
+taskcoachlib.thirdparty.desktop.dialog.Dialogue.open" class="py-name" href="#" onclick="return doclink('link-53', 'open', 'link-25');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">target</tt><tt class="py-op">,</tt> <tt class="py-string">"w:%s"</tt> <tt class="py-op">%</tt> <tt class="py-name">format</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-54" class="py-name"><a title="taskcoachlib.gui.dialog.entry" class="py-name" href="#" onclick="return doclink('link-54', 'entry', 'link-9');">entry</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">listdir</tt><tt class="py-op">(</tt><tt class="py-name">zonedir</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line">            <tt class="py-name">entrypath</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-55', 'path', 'link-6');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">zonedir</tt><tt class="py-op">,</tt> <tt id="link-56" class="py-name"><a title="taskcoachlib.gui.dialog.entry" class="py-name" href="#" onclick="return doclink('link-56', 'entry', 'link-9');">entry</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line">            <tt class="py-name">tf</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name" targets="Method taskcoachlib.domain.base.attribute.SetAttribute.add()=taskcoachlib.domain.base.attribute.SetAttribute-class.html#add,Method taskcoachlib.thirdparty._weakrefset.WeakSet.add()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#add,Method taskcoachlib.thirdparty.desktop.dialog.Menu.add()=taskcoachlib.thirdparty.desktop.dialog.Menu-class.html#add,Method taskcoachlib.thirdparty.googleapi.apiclient.http.BatchHttpRequest.add()=taskcoachlib.thirdparty.googleapi.apiclient.http.BatchHttpRequest-class.html#add,Method taskcoachlib.thirdparty.googleapi.httplib2.Credentials.add()=taskcoachlib.thirdparty.googleapi.httplib2.Credentials-class.html#add,Method taskcoachlib.widgets.panel.BoxWithBoxSizer.add()=taskcoachlib.widgets.panel.BoxWithBoxSizer-class.html#add,Method taskcoachlib.widgets.panel.BoxWithFlexGridSizer.add()=taskcoachlib.widgets.panel.BoxWithFlexGridSizer-class.html#add,Method taskcoachlib.widgets.panel.PanelWithBoxSizer.add()=taskcoachlib.widgets.panel.PanelWithBoxSizer-class.html#add"><a title="taskcoachlib.domain.base.attribute.SetAttribute.add
+taskcoachlib.thirdparty._weakrefset.WeakSet.add
+taskcoachlib.thirdparty.desktop.dialog.Menu.add
+taskcoachlib.thirdparty.googleapi.apiclient.http.BatchHttpRequest.add
+taskcoachlib.thirdparty.googleapi.httplib2.Credentials.add
+taskcoachlib.widgets.panel.BoxWithBoxSizer.add
+taskcoachlib.widgets.panel.BoxWithFlexGridSizer.add
+taskcoachlib.widgets.panel.PanelWithBoxSizer.add" class="py-name" href="#" onclick="return doclink('link-57', 'add', 'link-57');">add</a></tt><tt class="py-op">(</tt><tt class="py-name">entrypath</tt><tt class="py-op">,</tt> <tt id="link-58" class="py-name"><a title="taskcoachlib.gui.dialog.entry" class="py-name" href="#" onclick="return doclink('link-58', 'entry', 'link-9');">entry</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line">        <tt class="py-name">tf</tt><tt class="py-op">.</tt><tt id="link-59" class="py-name"><a title="taskcoachlib.application.application.RedirectedOutput.close
+taskcoachlib.filesystem.fs_darwin.FileMonitor.close
+taskcoachlib.filesystem.fs_darwin.close
+taskcoachlib.filesystem.fs_inotify.Inotify.close
+taskcoachlib.gui.dialog.editor.BudgetPage.close
+taskcoachlib.gui.dialog.editor.Page.close
+taskcoachlib.gui.dialog.editor.PageWithViewer.close
+taskcoachlib.gui.dialog.editor.SubjectPage.close
+taskcoachlib.gui.iocontroller.IOController.close
+taskcoachlib.persistence.taskfile.LockedTaskFile.close
+taskcoachlib.persistence.taskfile.TaskFile.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close
+taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close
+taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close" class="py-name" href="#" onclick="return doclink('link-59', 'close', 'link-29');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno">86</tt>  <tt class="py-line">    <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L87"></a><tt class="py-lineno">87</tt>  <tt class="py-line">        <tt class="py-name">shutil</tt><tt class="py-op">.</tt><tt class="py-name">rmtree</tt><tt class="py-op">(</tt><tt class="py-name">tmpdir</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L88"></a><tt class="py-lineno">88</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:56 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

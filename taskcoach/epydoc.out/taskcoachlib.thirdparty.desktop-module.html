@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.desktop</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        Package&nbsp;desktop
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.desktop-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PACKAGE DESCRIPTION ==================== -->
+<h1 class="epydoc">Package desktop</h1><p class="nomargin-top"><span class="codelink"><a href="taskcoachlib.thirdparty.desktop-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+Simple desktop integration for Python. This module provides desktop environment
+detection and resource opening support for a selection of common and
+standardised desktop environments.
+
+Copyright (C) 2005, 2006, 2007, 2008, 2009, 2012 Paul Boddie &lt;paul@boddie.org.uk&gt;
+Copyright (C) 2012 J&#233;r&#244;me Laheurte &lt;fraca7@free.fr&gt;
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free
+Software Foundation; either version 3 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more
+details.
+
+You should have received a copy of the GNU Lesser General Public License along
+with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+
+--------
+
+Desktop Detection
+-----------------
+
+To detect a specific desktop environment, use the get_desktop function.
+To detect whether the desktop environment is standardised (according to the
+proposed DESKTOP_LAUNCH standard), use the is_standard function.
+
+Opening URLs
+------------
+
+To open a URL in the current desktop environment, relying on the automatic
+detection of that environment, use the desktop.open function as follows:
+
+desktop.open(&quot;http://www.python.org&quot;)
+
+To override the detected desktop, specify the desktop parameter to the open
+function as follows:
+
+desktop.open(&quot;http://www.python.org&quot;, &quot;KDE&quot;) # Insists on KDE
+desktop.open(&quot;http://www.python.org&quot;, &quot;GNOME&quot;) # Insists on GNOME
+
+Without overriding using the desktop parameter, the open function will attempt
+to use the &quot;standard&quot; desktop opening mechanism which is controlled by the
+DESKTOP_LAUNCH environment variable as described below.
+
+The DESKTOP_LAUNCH Environment Variable
+---------------------------------------
+
+The DESKTOP_LAUNCH environment variable must be shell-quoted where appropriate,
+as shown in some of the following examples:
+
+DESKTOP_LAUNCH=&quot;kdialog --msgbox&quot;       Should present any opened URLs in
+                                        their entirety in a KDE message box.
+                                        (Command &quot;kdialog&quot; plus parameter.)
+DESKTOP_LAUNCH=&quot;my\ opener&quot;             Should run the &quot;my opener&quot; program to
+                                        open URLs.
+                                        (Command &quot;my opener&quot;, no parameters.)
+DESKTOP_LAUNCH=&quot;my\ opener --url&quot;       Should run the &quot;my opener&quot; program to
+                                        open URLs.
+                                        (Command &quot;my opener&quot; plus parameter.)
+
+Details of the DESKTOP_LAUNCH environment variable convention can be found here:
+http://lists.freedesktop.org/archives/xdg/2004-August/004489.html
+
+Other Modules
+-------------
+
+The desktop.dialog module provides support for opening dialogue boxes.
+The desktop.windows module permits the inspection of desktop windows.
+
+</pre>
+
+<hr />
+<div class="fields">      <p><strong>Version:</strong>
+        0.4.1
+      </p>
+</div><!-- ==================== SUBMODULES ==================== -->
+<a name="section-Submodules"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Submodules</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Submodules"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr><td class="summary">
+  <ul class="nomargin">
+    <li> <strong class="uidlink"><a href="taskcoachlib.thirdparty.desktop.dialog-module.html">taskcoachlib.thirdparty.desktop.dialog</a></strong>: <em class="summary">Simple desktop dialogue box support for Python.</em>    </li>
+    <li> <strong class="uidlink"><a href="taskcoachlib.thirdparty.desktop.windows-module.html">taskcoachlib.thirdparty.desktop.windows</a></strong>: <em class="summary">Simple desktop window enumeration for Python.</em>    </li>
+  </ul></td></tr>
+</table>
+
+<br />
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_run"></a><span class="summary-sig-name">_run</span>(<span class="summary-sig-arg">cmd</span>,
+        <span class="summary-sig-arg">shell</span>,
+        <span class="summary-sig-arg">wait</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.desktop-pysrc.html#_run">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_readfrom"></a><span class="summary-sig-name">_readfrom</span>(<span class="summary-sig-arg">cmd</span>,
+        <span class="summary-sig-arg">shell</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.desktop-pysrc.html#_readfrom">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_status"></a><span class="summary-sig-name">_status</span>(<span class="summary-sig-arg">cmd</span>,
+        <span class="summary-sig-arg">shell</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.desktop-pysrc.html#_status">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_get_x11_vars"></a><span class="summary-sig-name">_get_x11_vars</span>()</span><br />
+      Return suitable environment definitions for X11.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.desktop-pysrc.html#_get_x11_vars">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_is_xfce"></a><span class="summary-sig-name">_is_xfce</span>()</span><br />
+      Return whether XFCE is in use.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.desktop-pysrc.html#_is_xfce">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_is_x11"></a><span class="summary-sig-name">_is_x11</span>()</span><br />
+      Return whether the X Window System is in use.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.desktop-pysrc.html#_is_x11">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.desktop-module.html#get_desktop" class="summary-sig-name">get_desktop</a>()</span><br />
+      Detect the current desktop environment, returning the name of the 
+      environment.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.desktop-pysrc.html#get_desktop">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.desktop-module.html#use_desktop" class="summary-sig-name">use_desktop</a>(<span class="summary-sig-arg">desktop</span>)</span><br />
+      Decide which desktop should be used, based on the detected desktop 
+      and a supplied 'desktop' argument (which may be None).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.desktop-pysrc.html#use_desktop">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="is_standard"></a><span class="summary-sig-name">is_standard</span>()</span><br />
+      Return whether the current desktop supports standardised application 
+      launching.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.desktop-pysrc.html#is_standard">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.desktop-module.html#open" class="summary-sig-name">open</a>(<span class="summary-sig-arg">url</span>,
+        <span class="summary-sig-arg">desktop</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">wait</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Open the 'url' in the current desktop's preferred file browser.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.desktop-pysrc.html#open">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="get_desktop"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_desktop</span>()</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.desktop-pysrc.html#get_desktop">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Detect the current desktop environment, returning the name of the 
+  environment. If no environment could be detected, None is returned.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="use_desktop"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">use_desktop</span>(<span class="sig-arg">desktop</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.desktop-pysrc.html#use_desktop">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Decide which desktop should be used, based on the detected desktop and
+  a supplied 'desktop' argument (which may be None). Return an identifier 
+  indicating the desktop type as being either &quot;standard&quot; or one 
+  of the results from the 'get_desktop' function.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="open"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">open</span>(<span class="sig-arg">url</span>,
+        <span class="sig-arg">desktop</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">wait</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.desktop-pysrc.html#open">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Open the 'url' in the current desktop's preferred file browser. If the
+  optional 'desktop' parameter is specified then attempt to use that 
+  particular desktop environment's mechanisms to open the 'url' instead of 
+  guessing or detecting which environment is being used.</p>
+  <p>Suggested values for 'desktop' are &quot;standard&quot;, 
+  &quot;KDE&quot;, &quot;GNOME&quot;, &quot;XFCE&quot;, &quot;Mac OS 
+  X&quot;, &quot;Windows&quot; where &quot;standard&quot; employs a 
+  DESKTOP_LAUNCH environment variable to open the specified 'url'. 
+  DESKTOP_LAUNCH should be a command, possibly followed by arguments, and 
+  must have any special characters shell-escaped.</p>
+  <p>The process identifier of the &quot;opener&quot; (ie. viewer, editor, 
+  browser or program) associated with the 'url' is returned by this 
+  function. If the process identifier cannot be determined, None is 
+  returned.</p>
+  <p>An optional 'wait' parameter is also available for advanced usage and,
+  if 'wait' is set to a true value, this function will wait for the 
+  launching mechanism to complete before returning (as opposed to 
+  immediately returning as is the default behaviour).</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:32 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

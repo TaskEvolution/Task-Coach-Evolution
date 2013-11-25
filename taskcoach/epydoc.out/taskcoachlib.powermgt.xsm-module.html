@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.powermgt.xsm</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.powermgt-module.html">Package&nbsp;powermgt</a> ::
+        Module&nbsp;xsm
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.powermgt.xsm-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module xsm</h1><p class="nomargin-top"><span class="codelink"><a href="taskcoachlib.powermgt.xsm-pysrc.html">source&nbsp;code</a></span></p>
+<p>Task Coach - Your friendly task manager Copyright (C) 2011 Task Coach 
+  developers &lt;developers@taskcoach.org&gt;</p>
+  <p>Task Coach is free software: you can redistribute it and/or modify it 
+  under the terms of the GNU General Public License as published by the 
+  Free Software Foundation, either version 3 of the License, or (at your 
+  option) any later version.</p>
+  <p>Task Coach is distributed in the hope that it will be useful, but 
+  WITHOUT ANY WARRANTY; without even the implied warranty of 
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General
+  Public License for more details.</p>
+  <p>You should have received a copy of the GNU General Public License 
+  along with this program.  If not, see 
+  &lt;http://www.gnu.org/licenses/&gt;.</p>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm._IceConn-class.html" class="summary-name" onclick="show_private();">_IceConn</a>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm._SmcConn-class.html" class="summary-name" onclick="show_private();">_SmcConn</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm.SmcSaveYourselfCallback-class.html" class="summary-name">SmcSaveYourselfCallback</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm.SmcDieCallback-class.html" class="summary-name">SmcDieCallback</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm.SmcSaveCompleteCallback-class.html" class="summary-name">SmcSaveCompleteCallback</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm.SmcShutdownCancelledCallback-class.html" class="summary-name">SmcShutdownCancelledCallback</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm.SmcCallbacks-class.html" class="summary-name">SmcCallbacks</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm.SmPropValue-class.html" class="summary-name">SmPropValue</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm.SmProp-class.html" class="summary-name">SmProp</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm.ICELoop-class.html" class="summary-name">ICELoop</a><br />
+      This class manages ICE connections tracking and select()ing them 
+      before calling IceProcessMessages.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm.SessionMonitor-class.html" class="summary-name">SessionMonitor</a><br />
+      Higher-level class to monitor session management event.
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_libSM"></a><span class="summary-name">_libSM</span> = <code title="CDLL('libSM.so.6')">CDLL('libSM.so.6')</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_libICE"></a><span class="summary-name">_libICE</span> = <code title="CDLL('libICE.so.6')">CDLL('libICE.so.6')</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="Bool"></a><span class="summary-name">Bool</span> = <code title="c_int">c_int</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="Status"></a><span class="summary-name">Status</span> = <code title="c_int">c_int</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="IceConn"></a><span class="summary-name">IceConn</span> = <code title="POINTER(_IceConn)">POINTER(_IceConn)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm-module.html#IceWatchProc" class="summary-name">IceWatchProc</a> = <code title="CFUNCTYPE(None, IceConn, c_void_p, Bool, POINTER(c_void_p))">CFUNCTYPE(None, IceConn, c_void_p, Bool, POINTE<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="IceInitThreads"></a><span class="summary-name">IceInitThreads</span> = <code title="CFUNCTYPE(Status)(('IceInitThreads', _libICE))">CFUNCTYPE(Status)(('IceInitThreads', _libICE))</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm-module.html#IceAddConnectionWatch" class="summary-name">IceAddConnectionWatch</a> = <code title="CFUNCTYPE(Status, IceWatchProc, c_void_p)(('IceAddConnectionWatch', _l\
+ibICE))">CFUNCTYPE(Status, IceWatchProc, c_void<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm-module.html#IceRemoveConnectionWatch" class="summary-name">IceRemoveConnectionWatch</a> = <code title="CFUNCTYPE(None, IceWatchProc, c_void_p)(('IceRemoveConnectionWatch', _\
+libICE))">CFUNCTYPE(None, IceWatchProc, c_voi<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm-module.html#IceConnectionNumber" class="summary-name">IceConnectionNumber</a> = <code title="CFUNCTYPE(c_int, IceConn)(('IceConnectionNumber', _libICE))">CFUNCTYPE(c_int, IceConn)(('IceConnectio<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm-module.html#IceProcessMessages" class="summary-name">IceProcessMessages</a> = <code title="CFUNCTYPE(c_int, IceConn, c_void_p, c_void_p)(('IceProcessMessages', _\
+libICE))">CFUNCTYPE(c_int, IceConn, c_void_p, c_voi<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm-module.html#IceCloseConnection" class="summary-name">IceCloseConnection</a> = <code title="CFUNCTYPE(c_int, IceConn)(('IceCloseConnection', _libICE))">CFUNCTYPE(c_int, IceConn)(('IceCloseConne<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="IceIOErrorHandler"></a><span class="summary-name">IceIOErrorHandler</span> = <code title="CFUNCTYPE(None, IceConn)">CFUNCTYPE(None, IceConn)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm-module.html#IceSetIOErrorHandler" class="summary-name">IceSetIOErrorHandler</a> = <code title="CFUNCTYPE(IceIOErrorHandler, IceIOErrorHandler)(('IceSetIOErrorHandler\
+', _libICE))">CFUNCTYPE(IceIOErrorHandler, IceIOError<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmcSaveYourselfProcMask"></a><span class="summary-name">SmcSaveYourselfProcMask</span> = <code title="1 &lt;&lt; 0">1 &lt;&lt; 0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmcDieProcMask"></a><span class="summary-name">SmcDieProcMask</span> = <code title="1 &lt;&lt; 1">1 &lt;&lt; 1</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmcSaveCompleteProcMask"></a><span class="summary-name">SmcSaveCompleteProcMask</span> = <code title="1 &lt;&lt; 2">1 &lt;&lt; 2</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmcShutdownCancelledProcMask"></a><span class="summary-name">SmcShutdownCancelledProcMask</span> = <code title="1 &lt;&lt; 3">1 &lt;&lt; 3</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmcClosedNow"></a><span class="summary-name">SmcClosedNow</span> = <code title="0">0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmcClosedASAP"></a><span class="summary-name">SmcClosedASAP</span> = <code title="1">1</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmcConnectionInUse"></a><span class="summary-name">SmcConnectionInUse</span> = <code title="2">2</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmInteractStyleNone"></a><span class="summary-name">SmInteractStyleNone</span> = <code title="0">0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmInteractStyleErrors"></a><span class="summary-name">SmInteractStyleErrors</span> = <code title="1">1</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmInteractStyleAny"></a><span class="summary-name">SmInteractStyleAny</span> = <code title="2">2</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmSaveGlobal"></a><span class="summary-name">SmSaveGlobal</span> = <code title="0">0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmSaveLocal"></a><span class="summary-name">SmSaveLocal</span> = <code title="1">1</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmSaveBoth"></a><span class="summary-name">SmSaveBoth</span> = <code title="2">2</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmRestartIfRunning"></a><span class="summary-name">SmRestartIfRunning</span> = <code title="0">0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmRestartAnyway"></a><span class="summary-name">SmRestartAnyway</span> = <code title="1">1</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmRestartImmediately"></a><span class="summary-name">SmRestartImmediately</span> = <code title="2">2</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmRestartNever"></a><span class="summary-name">SmRestartNever</span> = <code title="3">3</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmCARD8"></a><span class="summary-name">SmCARD8</span> = <code title="&quot;CARD8&quot;">&quot;CARD8&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmARRAY8"></a><span class="summary-name">SmARRAY8</span> = <code title="&quot;ARRAY8&quot;">&quot;ARRAY8&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmLISTofARRAY8"></a><span class="summary-name">SmLISTofARRAY8</span> = <code title="&quot;LISTofARRAY8&quot;">&quot;LISTofARRAY8&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmCloneCommand"></a><span class="summary-name">SmCloneCommand</span> = <code title="&quot;CloneCommand&quot;">&quot;CloneCommand&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmCurrentDirectory"></a><span class="summary-name">SmCurrentDirectory</span> = <code title="&quot;CurrentDirectory&quot;">&quot;CurrentDirectory&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmDiscardCommand"></a><span class="summary-name">SmDiscardCommand</span> = <code title="&quot;DiscardCommand&quot;">&quot;DiscardCommand&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmEnvironment"></a><span class="summary-name">SmEnvironment</span> = <code title="&quot;Environment&quot;">&quot;Environment&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmProcessID"></a><span class="summary-name">SmProcessID</span> = <code title="&quot;ProcessID&quot;">&quot;ProcessID&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmProgram"></a><span class="summary-name">SmProgram</span> = <code title="&quot;Program&quot;">&quot;Program&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmRestartCommand"></a><span class="summary-name">SmRestartCommand</span> = <code title="&quot;RestartCommand&quot;">&quot;RestartCommand&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmResignCommand"></a><span class="summary-name">SmResignCommand</span> = <code title="&quot;ResignCommand&quot;">&quot;ResignCommand&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmRestartStyleHint"></a><span class="summary-name">SmRestartStyleHint</span> = <code title="&quot;RestartStyleHint&quot;">&quot;RestartStyleHint&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmShutdownCommand"></a><span class="summary-name">SmShutdownCommand</span> = <code title="&quot;ShutdownCommand&quot;">&quot;ShutdownCommand&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmUserID"></a><span class="summary-name">SmUserID</span> = <code title="&quot;UserID&quot;">&quot;UserID&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmcConn"></a><span class="summary-name">SmcConn</span> = <code title="POINTER(_SmcConn)">POINTER(_SmcConn)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm-module.html#SmcSaveYourselfProc" class="summary-name">SmcSaveYourselfProc</a> = <code title="CFUNCTYPE(None, SmcConn, c_void_p, c_int, Bool, c_int, Bool)">CFUNCTYPE(None, SmcConn, c_void_p, c_int<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmcDieProc"></a><span class="summary-name">SmcDieProc</span> = <code title="CFUNCTYPE(None, SmcConn, c_void_p)">CFUNCTYPE(None, SmcConn, c_void_p)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmcSaveCompleteProc"></a><span class="summary-name">SmcSaveCompleteProc</span> = <code title="CFUNCTYPE(None, SmcConn, c_void_p)">CFUNCTYPE(None, SmcConn, c_void_p)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmcShutdownCancelledProc"></a><span class="summary-name">SmcShutdownCancelledProc</span> = <code title="CFUNCTYPE(None, SmcConn, c_void_p)">CFUNCTYPE(None, SmcConn, c_void_p)</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm-module.html#SmcOpenConnection" class="summary-name">SmcOpenConnection</a> = <code title="CFUNCTYPE(SmcConn, c_char_p, c_void_p, c_int, c_int, c_ulong, POINTER(\
+SmcCallbacks), c_char_p, POINTER(c_char_p), c_int, c_char_p)(('SmcOpen\
+Connection', _libSM))">CFUNCTYPE(SmcConn, c_char_p, c_void_p, c_i<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm-module.html#SmcCloseConnection" class="summary-name">SmcCloseConnection</a> = <code title="CFUNCTYPE(c_int, SmcConn, c_int, POINTER(c_char_p))(('SmcCloseConnecti\
+on', _libSM))">CFUNCTYPE(c_int, SmcConn, c_int, POINTER(<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm-module.html#SmcModifyCallbacks" class="summary-name">SmcModifyCallbacks</a> = <code title="CFUNCTYPE(None, SmcConn, c_ulong, POINTER(SmcCallbacks))(('SmcModifyCa\
+llbacks', _libSM))">CFUNCTYPE(None, SmcConn, c_ulong, POINTER<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm-module.html#SmcSaveYourselfDone" class="summary-name">SmcSaveYourselfDone</a> = <code title="CFUNCTYPE(None, SmcConn, Bool)(('SmcSaveYourselfDone', _libSM))">CFUNCTYPE(None, SmcConn, Bool)(('SmcSave<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm-module.html#SmcProtocolVersion" class="summary-name">SmcProtocolVersion</a> = <code title="CFUNCTYPE(c_int, SmcConn)(('SmcProtocolVersion', _libSM))">CFUNCTYPE(c_int, SmcConn)(('SmcProtocolVe<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm-module.html#SmcProtocolRevision" class="summary-name">SmcProtocolRevision</a> = <code title="CFUNCTYPE(c_int, SmcConn)(('SmcProtocolRevision', _libSM))">CFUNCTYPE(c_int, SmcConn)(('SmcProtocolR<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmcVendor"></a><span class="summary-name">SmcVendor</span> = <code title="CFUNCTYPE(c_char_p, SmcConn)(('SmcVendor', _libSM))">CFUNCTYPE(c_char_p, SmcConn)(('SmcVendor', _libSM))</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SmcRelease"></a><span class="summary-name">SmcRelease</span> = <code title="CFUNCTYPE(c_char_p, SmcConn)(('SmcRelease', _libSM))">CFUNCTYPE(c_char_p, SmcConn)(('SmcRelease', _libSM))</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.powermgt.xsm-module.html#SmcSetProperties" class="summary-name">SmcSetProperties</a> = <code title="CFUNCTYPE(None, SmcConn, c_int, POINTER(POINTER(SmProp)))(('SmcSetProp\
+erties', _libSM))">CFUNCTYPE(None, SmcConn, c_int, POINTER(POI<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="IceWatchProc"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">IceWatchProc</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+CFUNCTYPE(None, IceConn, c_void_p, Bool, POINTER(c_void_p))
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="IceAddConnectionWatch"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">IceAddConnectionWatch</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+CFUNCTYPE(Status, IceWatchProc, c_void_p)(('IceAddConnectionWatch', _l<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ibICE))
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="IceRemoveConnectionWatch"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">IceRemoveConnectionWatch</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+CFUNCTYPE(None, IceWatchProc, c_void_p)(('IceRemoveConnectionWatch', _<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+libICE))
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="IceConnectionNumber"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">IceConnectionNumber</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+CFUNCTYPE(c_int, IceConn)(('IceConnectionNumber', _libICE))
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="IceProcessMessages"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">IceProcessMessages</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+CFUNCTYPE(c_int, IceConn, c_void_p, c_void_p)(('IceProcessMessages', _<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+libICE))
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="IceCloseConnection"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">IceCloseConnection</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+CFUNCTYPE(c_int, IceConn)(('IceCloseConnection', _libICE))
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="IceSetIOErrorHandler"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">IceSetIOErrorHandler</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+CFUNCTYPE(IceIOErrorHandler, IceIOErrorHandler)(('IceSetIOErrorHandler<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+', _libICE))
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SmcSaveYourselfProc"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">SmcSaveYourselfProc</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+CFUNCTYPE(None, SmcConn, c_void_p, c_int, Bool, c_int, Bool)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SmcOpenConnection"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">SmcOpenConnection</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+CFUNCTYPE(SmcConn, c_char_p, c_void_p, c_int, c_int, c_ulong, POINTER(<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+SmcCallbacks), c_char_p, POINTER(c_char_p), c_int, c_char_p)(('SmcOpen<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+Connection', _libSM))
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SmcCloseConnection"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">SmcCloseConnection</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+CFUNCTYPE(c_int, SmcConn, c_int, POINTER(c_char_p))(('SmcCloseConnecti<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+on', _libSM))
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SmcModifyCallbacks"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">SmcModifyCallbacks</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+CFUNCTYPE(None, SmcConn, c_ulong, POINTER(SmcCallbacks))(('SmcModifyCa<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+llbacks', _libSM))
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SmcSaveYourselfDone"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">SmcSaveYourselfDone</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+CFUNCTYPE(None, SmcConn, Bool)(('SmcSaveYourselfDone', _libSM))
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SmcProtocolVersion"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">SmcProtocolVersion</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+CFUNCTYPE(c_int, SmcConn)(('SmcProtocolVersion', _libSM))
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SmcProtocolRevision"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">SmcProtocolRevision</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+CFUNCTYPE(c_int, SmcConn)(('SmcProtocolRevision', _libSM))
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SmcSetProperties"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">SmcSetProperties</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+CFUNCTYPE(None, SmcConn, c_int, POINTER(POINTER(SmProp)))(('SmcSetProp<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+erties', _libSM))
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:31 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

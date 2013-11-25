@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.persistence</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        Package&nbsp;persistence
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.persistence-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.persistence-module.html">Package taskcoachlib.persistence</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach - Your friendly task manager</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (C) 2004-2013 Task Coach developers &lt;developers@taskcoach.org&gt;</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is free software: you can redistribute it and/or modify</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">the Free Software Foundation, either version 3 of the License, or</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">(at your option) any later version.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">GNU General Public License for more details.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-comment"># This is the persistence package. It contains classes for reading and</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-comment"># writing domain objects in different formats such as XML, HTML, iCalendar, ...</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package taskcoachlib.persistence.xml=taskcoachlib.persistence.xml-module.html"><a title="taskcoachlib.persistence.xml" class="py-name" href="#" onclick="return doclink('link-0', 'xml', 'link-0');">xml</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module taskcoachlib.persistence.csv.writer=taskcoachlib.persistence.csv.writer-module.html,Module taskcoachlib.persistence.html.writer=taskcoachlib.persistence.html.writer-module.html,Module taskcoachlib.persistence.icalendar.writer=taskcoachlib.persistence.icalendar.writer-module.html,Module taskcoachlib.persistence.pdf.writer=taskcoachlib.persistence.pdf.writer-module.html,Module taskcoachlib.persistence.todotxt.writer=taskcoachlib.persistence.todotxt.writer-module.html,Module taskcoachlib.persistence.xml.writer=taskcoachlib.persistence.xml.writer-module.html"><a title="taskcoachlib.persistence.csv.writer
+taskcoachlib.persistence.html.writer
+taskcoachlib.persistence.icalendar.writer
+taskcoachlib.persistence.pdf.writer
+taskcoachlib.persistence.todotxt.writer
+taskcoachlib.persistence.xml.writer" class="py-name" href="#" onclick="return doclink('link-1', 'writer', 'link-1');">writer</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class taskcoachlib.persistence.xml.writer.XMLWriter=taskcoachlib.persistence.xml.writer.XMLWriter-class.html"><a title="taskcoachlib.persistence.xml.writer.XMLWriter" class="py-name" href="#" onclick="return doclink('link-2', 'XMLWriter', 'link-2');">XMLWriter</a></tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name" targets="Class taskcoachlib.persistence.xml.writer.TemplateXMLWriter=taskcoachlib.persistence.xml.writer.TemplateXMLWriter-class.html"><a title="taskcoachlib.persistence.xml.writer.TemplateXMLWriter" class="py-name" href="#" onclick="return doclink('link-3', 'TemplateXMLWriter', 'link-3');">TemplateXMLWriter</a></tt><tt class="py-op">,</tt> <tt id="link-4" class="py-name" targets="Class taskcoachlib.persistence.xml.writer.ChangesXMLWriter=taskcoachlib.persistence.xml.writer.ChangesXMLWriter-class.html"><a title="taskcoachlib.persistence.xml.writer.ChangesXMLWriter" class="py-name" href="#" onclick="return doclink('link-4', 'ChangesXMLWriter', 'link-4');">ChangesXMLWriter</a></tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name"><a title="taskcoachlib.persistence.xml" class="py-name" href="#" onclick="return doclink('link-5', 'xml', 'link-0');">xml</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Module taskcoachlib.persistence.csv.reader=taskcoachlib.persistence.csv.reader-module.html,Module taskcoachlib.persistence.todotxt.reader=taskcoachlib.persistence.todotxt.reader-module.html,Module taskcoachlib.persistence.xml.reader=taskcoachlib.persistence.xml.reader-module.html"><a title="taskcoachlib.persistence.csv.reader
+taskcoachlib.persistence.todotxt.reader
+taskcoachlib.persistence.xml.reader" class="py-name" href="#" onclick="return doclink('link-6', 'reader', 'link-6');">reader</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name" targets="Class taskcoachlib.persistence.xml.reader.XMLReader=taskcoachlib.persistence.xml.reader.XMLReader-class.html"><a title="taskcoachlib.persistence.xml.reader.XMLReader" class="py-name" href="#" onclick="return doclink('link-7', 'XMLReader', 'link-7');">XMLReader</a></tt><tt class="py-op">,</tt> <tt id="link-8" class="py-name" targets="Class taskcoachlib.persistence.xml.reader.TemplateXMLReader=taskcoachlib.persistence.xml.reader.TemplateXMLReader-class.html"><a title="taskcoachlib.persistence.xml.reader.TemplateXMLReader" class="py-name" href="#" onclick="return doclink('link-8', 'TemplateXMLReader', 'link-8');">TemplateXMLReader</a></tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name" targets="Class taskcoachlib.persistence.xml.reader.ChangesXMLReader=taskcoachlib.persistence.xml.reader.ChangesXMLReader-class.html"><a title="taskcoachlib.persistence.xml.reader.ChangesXMLReader" class="py-name" href="#" onclick="return doclink('link-9', 'ChangesXMLReader', 'link-9');">ChangesXMLReader</a></tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-10" class="py-name"><a title="taskcoachlib.persistence.xml" class="py-name" href="#" onclick="return doclink('link-10', 'xml', 'link-0');">xml</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Module taskcoachlib.gui.dialog.templates=taskcoachlib.gui.dialog.templates-module.html,Module taskcoachlib.persistence.xml.templates=taskcoachlib.persistence.xml.templates-module.html"><a title="taskcoachlib.gui.dialog.templates
+taskcoachlib.persistence.xml.templates" class="py-name" href="#" onclick="return doclink('link-11', 'templates', 'link-11');">templates</a></tt> <tt class="py-keyword">import</tt> <tt id="link-12" class="py-name" targets="Function taskcoachlib.persistence.xml.templates.getDefaultTemplates()=taskcoachlib.persistence.xml.templates-module.html#getDefaultTemplates"><a title="taskcoachlib.persistence.xml.templates.getDefaultTemplates" class="py-name" href="#" onclick="return doclink('link-12', 'getDefaultTemplates', 'link-12');">getDefaultTemplates</a></tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-13" class="py-name" targets="Package taskcoachlib.persistence.html=taskcoachlib.persistence.html-module.html,Method taskcoachlib.persistence.html.generator.Viewer2HTMLConverter.html()=taskcoachlib.persistence.html.generator.Viewer2HTMLConverter-class.html#html"><a title="taskcoachlib.persistence.html
+taskcoachlib.persistence.html.generator.Viewer2HTMLConverter.html" class="py-name" href="#" onclick="return doclink('link-13', 'html', 'link-13');">html</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="taskcoachlib.persistence.csv.writer
+taskcoachlib.persistence.html.writer
+taskcoachlib.persistence.icalendar.writer
+taskcoachlib.persistence.pdf.writer
+taskcoachlib.persistence.todotxt.writer
+taskcoachlib.persistence.xml.writer" class="py-name" href="#" onclick="return doclink('link-14', 'writer', 'link-1');">writer</a></tt> <tt class="py-keyword">import</tt> <tt id="link-15" class="py-name" targets="Class taskcoachlib.persistence.html.writer.HTMLWriter=taskcoachlib.persistence.html.writer.HTMLWriter-class.html"><a title="taskcoachlib.persistence.html.writer.HTMLWriter" class="py-name" href="#" onclick="return doclink('link-15', 'HTMLWriter', 'link-15');">HTMLWriter</a></tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-16" class="py-name"><a title="taskcoachlib.persistence.html
+taskcoachlib.persistence.html.generator.Viewer2HTMLConverter.html" class="py-name" href="#" onclick="return doclink('link-16', 'html', 'link-13');">html</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Module taskcoachlib.persistence.csv.generator=taskcoachlib.persistence.csv.generator-module.html,Module taskcoachlib.persistence.html.generator=taskcoachlib.persistence.html.generator-module.html,Module taskcoachlib.persistence.pdf.generator=taskcoachlib.persistence.pdf.generator-module.html"><a title="taskcoachlib.persistence.csv.generator
+taskcoachlib.persistence.html.generator
+taskcoachlib.persistence.pdf.generator" class="py-name" href="#" onclick="return doclink('link-17', 'generator', 'link-17');">generator</a></tt> <tt class="py-keyword">import</tt> <tt id="link-18" class="py-name" targets="Function taskcoachlib.persistence.html.generator.viewer2html()=taskcoachlib.persistence.html.generator-module.html#viewer2html"><a title="taskcoachlib.persistence.html.generator.viewer2html" class="py-name" href="#" onclick="return doclink('link-18', 'viewer2html', 'link-18');">viewer2html</a></tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-19" class="py-name" targets="Package taskcoachlib.persistence.csv=taskcoachlib.persistence.csv-module.html"><a title="taskcoachlib.persistence.csv" class="py-name" href="#" onclick="return doclink('link-19', 'csv', 'link-19');">csv</a></tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="taskcoachlib.persistence.csv.generator
+taskcoachlib.persistence.html.generator
+taskcoachlib.persistence.pdf.generator" class="py-name" href="#" onclick="return doclink('link-20', 'generator', 'link-17');">generator</a></tt> <tt class="py-keyword">import</tt> <tt id="link-21" class="py-name" targets="Function taskcoachlib.persistence.csv.generator.viewer2csv()=taskcoachlib.persistence.csv.generator-module.html#viewer2csv"><a title="taskcoachlib.persistence.csv.generator.viewer2csv" class="py-name" href="#" onclick="return doclink('link-21', 'viewer2csv', 'link-21');">viewer2csv</a></tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-22" class="py-name"><a title="taskcoachlib.persistence.csv" class="py-name" href="#" onclick="return doclink('link-22', 'csv', 'link-19');">csv</a></tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="taskcoachlib.persistence.csv.writer
+taskcoachlib.persistence.html.writer
+taskcoachlib.persistence.icalendar.writer
+taskcoachlib.persistence.pdf.writer
+taskcoachlib.persistence.todotxt.writer
+taskcoachlib.persistence.xml.writer" class="py-name" href="#" onclick="return doclink('link-23', 'writer', 'link-1');">writer</a></tt> <tt class="py-keyword">import</tt> <tt id="link-24" class="py-name" targets="Class taskcoachlib.persistence.csv.writer.CSVWriter=taskcoachlib.persistence.csv.writer.CSVWriter-class.html"><a title="taskcoachlib.persistence.csv.writer.CSVWriter" class="py-name" href="#" onclick="return doclink('link-24', 'CSVWriter', 'link-24');">CSVWriter</a></tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-25" class="py-name"><a title="taskcoachlib.persistence.csv" class="py-name" href="#" onclick="return doclink('link-25', 'csv', 'link-19');">csv</a></tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="taskcoachlib.persistence.csv.reader
+taskcoachlib.persistence.todotxt.reader
+taskcoachlib.persistence.xml.reader" class="py-name" href="#" onclick="return doclink('link-26', 'reader', 'link-6');">reader</a></tt> <tt class="py-keyword">import</tt> <tt id="link-27" class="py-name" targets="Class taskcoachlib.persistence.csv.reader.CSVReader=taskcoachlib.persistence.csv.reader.CSVReader-class.html"><a title="taskcoachlib.persistence.csv.reader.CSVReader" class="py-name" href="#" onclick="return doclink('link-27', 'CSVReader', 'link-27');">CSVReader</a></tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-28" class="py-name" targets="Package taskcoachlib.persistence.todotxt=taskcoachlib.persistence.todotxt-module.html"><a title="taskcoachlib.persistence.todotxt" class="py-name" href="#" onclick="return doclink('link-28', 'todotxt', 'link-28');">todotxt</a></tt> <tt class="py-keyword">import</tt> <tt id="link-29" class="py-name" targets="Class taskcoachlib.persistence.todotxt.reader.TodoTxtReader=taskcoachlib.persistence.todotxt.reader.TodoTxtReader-class.html"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader" class="py-name" href="#" onclick="return doclink('link-29', 'TodoTxtReader', 'link-29');">TodoTxtReader</a></tt><tt class="py-op">,</tt> <tt id="link-30" class="py-name" targets="Class taskcoachlib.persistence.todotxt.writer.TodoTxtWriter=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html"><a title="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter" class="py-name" href="#" onclick="return doclink('link-30', 'TodoTxtWriter', 'link-30');">TodoTxtWriter</a></tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-31" class="py-name" targets="Package taskcoachlib.persistence.icalendar=taskcoachlib.persistence.icalendar-module.html"><a title="taskcoachlib.persistence.icalendar" class="py-name" href="#" onclick="return doclink('link-31', 'icalendar', 'link-31');">icalendar</a></tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="taskcoachlib.persistence.csv.writer
+taskcoachlib.persistence.html.writer
+taskcoachlib.persistence.icalendar.writer
+taskcoachlib.persistence.pdf.writer
+taskcoachlib.persistence.todotxt.writer
+taskcoachlib.persistence.xml.writer" class="py-name" href="#" onclick="return doclink('link-32', 'writer', 'link-1');">writer</a></tt> <tt class="py-keyword">import</tt> <tt id="link-33" class="py-name" targets="Class taskcoachlib.persistence.icalendar.writer.iCalendarWriter=taskcoachlib.persistence.icalendar.writer.iCalendarWriter-class.html"><a title="taskcoachlib.persistence.icalendar.writer.iCalendarWriter" class="py-name" href="#" onclick="return doclink('link-33', 'iCalendarWriter', 'link-33');">iCalendarWriter</a></tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-34" class="py-name"><a title="taskcoachlib.persistence.icalendar" class="py-name" href="#" onclick="return doclink('link-34', 'icalendar', 'link-31');">icalendar</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Module taskcoachlib.persistence.icalendar.ical=taskcoachlib.persistence.icalendar.ical-module.html"><a title="taskcoachlib.persistence.icalendar.ical" class="py-name" href="#" onclick="return doclink('link-35', 'ical', 'link-35');">ical</a></tt> <tt class="py-keyword">import</tt> <tt id="link-36" class="py-name" targets="Class taskcoachlib.persistence.icalendar.ical.VCalendarParser=taskcoachlib.persistence.icalendar.ical.VCalendarParser-class.html"><a title="taskcoachlib.persistence.icalendar.ical.VCalendarParser" class="py-name" href="#" onclick="return doclink('link-36', 'VCalendarParser', 'link-36');">VCalendarParser</a></tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-37" class="py-name" targets="Module taskcoachlib.persistence.taskfile=taskcoachlib.persistence.taskfile-module.html"><a title="taskcoachlib.persistence.taskfile" class="py-name" href="#" onclick="return doclink('link-37', 'taskfile', 'link-37');">taskfile</a></tt> <tt class="py-keyword">import</tt> <tt id="link-38" class="py-name" targets="Class taskcoachlib.persistence.taskfile.TaskFile=taskcoachlib.persistence.taskfile.TaskFile-class.html"><a title="taskcoachlib.persistence.taskfile.TaskFile" class="py-name" href="#" onclick="return doclink('link-38', 'TaskFile', 'link-38');">TaskFile</a></tt><tt class="py-op">,</tt> <tt id="link-39" class="py-name" targets="Class taskcoachlib.persistence.taskfile.LockedTaskFile=taskcoachlib.persistence.taskfile.LockedTaskFile-class.html"><a title="taskcoachlib.persistence.taskfile.LockedTaskFile" class="py-name" href="#" onclick="return doclink('link-39', 'LockedTaskFile', 'link-39');">LockedTaskFile</a></tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-40" class="py-name" targets="Module taskcoachlib.persistence.autosaver=taskcoachlib.persistence.autosaver-module.html"><a title="taskcoachlib.persistence.autosaver" class="py-name" href="#" onclick="return doclink('link-40', 'autosaver', 'link-40');">autosaver</a></tt> <tt class="py-keyword">import</tt> <tt id="link-41" class="py-name" targets="Class taskcoachlib.persistence.autosaver.AutoSaver=taskcoachlib.persistence.autosaver.AutoSaver-class.html"><a title="taskcoachlib.persistence.autosaver.AutoSaver" class="py-name" href="#" onclick="return doclink('link-41', 'AutoSaver', 'link-41');">AutoSaver</a></tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-42" class="py-name" targets="Module taskcoachlib.persistence.autoimporterexporter=taskcoachlib.persistence.autoimporterexporter-module.html"><a title="taskcoachlib.persistence.autoimporterexporter" class="py-name" href="#" onclick="return doclink('link-42', 'autoimporterexporter', 'link-42');">autoimporterexporter</a></tt> <tt class="py-keyword">import</tt> <tt id="link-43" class="py-name" targets="Class taskcoachlib.persistence.autoimporterexporter.AutoImporterExporter=taskcoachlib.persistence.autoimporterexporter.AutoImporterExporter-class.html"><a title="taskcoachlib.persistence.autoimporterexporter.AutoImporterExporter" class="py-name" href="#" onclick="return doclink('link-43', 'AutoImporterExporter', 'link-43');">AutoImporterExporter</a></tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-44" class="py-name" targets="Module taskcoachlib.persistence.autobackup=taskcoachlib.persistence.autobackup-module.html"><a title="taskcoachlib.persistence.autobackup" class="py-name" href="#" onclick="return doclink('link-44', 'autobackup', 'link-44');">autobackup</a></tt> <tt class="py-keyword">import</tt> <tt id="link-45" class="py-name" targets="Class taskcoachlib.persistence.autobackup.AutoBackup=taskcoachlib.persistence.autobackup.AutoBackup-class.html"><a title="taskcoachlib.persistence.autobackup.AutoBackup" class="py-name" href="#" onclick="return doclink('link-45', 'AutoBackup', 'link-45');">AutoBackup</a></tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-46" class="py-name" targets="Module taskcoachlib.persistence.sessiontempfile=taskcoachlib.persistence.sessiontempfile-module.html"><a title="taskcoachlib.persistence.sessiontempfile" class="py-name" href="#" onclick="return doclink('link-46', 'sessiontempfile', 'link-46');">sessiontempfile</a></tt> <tt class="py-keyword">import</tt> <tt id="link-47" class="py-name" targets="Function taskcoachlib.persistence.sessiontempfile.get_temp_file()=taskcoachlib.persistence.sessiontempfile-module.html#get_temp_file"><a title="taskcoachlib.persistence.sessiontempfile.get_temp_file" class="py-name" href="#" onclick="return doclink('link-47', 'get_temp_file', 'link-47');">get_temp_file</a></tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-48" class="py-name" targets="Module taskcoachlib.persistence.templatelist=taskcoachlib.persistence.templatelist-module.html"><a title="taskcoachlib.persistence.templatelist" class="py-name" href="#" onclick="return doclink('link-48', 'templatelist', 'link-48');">templatelist</a></tt> <tt class="py-keyword">import</tt> <tt id="link-49" class="py-name" targets="Class taskcoachlib.persistence.templatelist.TemplateList=taskcoachlib.persistence.templatelist.TemplateList-class.html"><a title="taskcoachlib.persistence.templatelist.TemplateList" class="py-name" href="#" onclick="return doclink('link-49', 'TemplateList', 'link-49');">TemplateList</a></tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-50" class="py-name" targets="Package taskcoachlib.persistence.pdf=taskcoachlib.persistence.pdf-module.html,Method taskcoachlib.persistence.pdf.generator.Viewer2PDFConverter.pdf()=taskcoachlib.persistence.pdf.generator.Viewer2PDFConverter-class.html#pdf"><a title="taskcoachlib.persistence.pdf
+taskcoachlib.persistence.pdf.generator.Viewer2PDFConverter.pdf" class="py-name" href="#" onclick="return doclink('link-50', 'pdf', 'link-50');">pdf</a></tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="taskcoachlib.persistence.csv.writer
+taskcoachlib.persistence.html.writer
+taskcoachlib.persistence.icalendar.writer
+taskcoachlib.persistence.pdf.writer
+taskcoachlib.persistence.todotxt.writer
+taskcoachlib.persistence.xml.writer" class="py-name" href="#" onclick="return doclink('link-51', 'writer', 'link-1');">writer</a></tt> <tt class="py-keyword">import</tt> <tt id="link-52" class="py-name" targets="Class taskcoachlib.persistence.pdf.writer.PDFWriter=taskcoachlib.persistence.pdf.writer.PDFWriter-class.html"><a title="taskcoachlib.persistence.pdf.writer.PDFWriter" class="py-name" href="#" onclick="return doclink('link-52', 'PDFWriter', 'link-52');">PDFWriter</a></tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-53" class="py-name" targets="Package taskcoachlib.persistence.googletask=taskcoachlib.persistence.googletask-module.html"><a title="taskcoachlib.persistence.googletask" class="py-name" href="#" onclick="return doclink('link-53', 'googletask', 'link-53');">googletask</a></tt> <tt class="py-keyword">import</tt> <tt id="link-54" class="py-name" targets="Module taskcoachlib.persistence.googletask.apiconnect=taskcoachlib.persistence.googletask.apiconnect-module.html"><a title="taskcoachlib.persistence.googletask.apiconnect" class="py-name" href="#" onclick="return doclink('link-54', 'apiconnect', 'link-54');">apiconnect</a></tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-55" class="py-name" targets="Package taskcoachlib.persistence.googledrive=taskcoachlib.persistence.googledrive-module.html"><a title="taskcoachlib.persistence.googledrive" class="py-name" href="#" onclick="return doclink('link-55', 'googledrive', 'link-55');">googledrive</a></tt> <tt class="py-keyword">import</tt> <tt id="link-56" class="py-name" targets="Module taskcoachlib.persistence.googledrive.driveconnect=taskcoachlib.persistence.googledrive.driveconnect-module.html"><a title="taskcoachlib.persistence.googledrive.driveconnect" class="py-name" href="#" onclick="return doclink('link-56', 'driveconnect', 'link-56');">driveconnect</a></tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:26 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

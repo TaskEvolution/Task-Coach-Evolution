@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.apscheduler%27-module.html">Package&nbsp;apscheduler'</a> ::
+        <a href="taskcoachlib.thirdparty.apscheduler%27.jobstores-module.html">Package&nbsp;jobstores</a> ::
+        Module&nbsp;mongodb_store
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.apscheduler%27.jobstores.mongodb_store-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.apscheduler%27.jobstores.mongodb_store-module.html">Module taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Stores jobs in a MongoDB database.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">logging</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">apscheduler</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Package taskcoachlib.thirdparty.apscheduler'.jobstores=taskcoachlib.thirdparty.apscheduler%27.jobstores-module.html"><a title="taskcoachlib.thirdparty.apscheduler'.jobstores" class="py-name" href="#" onclick="return doclink('link-0', 'jobstores', 'link-0');">jobstores</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module taskcoachlib.command.base=taskcoachlib.command.base-module.html,Package taskcoachlib.domain.base=taskcoachlib.domain.base-module.html,Module taskcoachlib.domain.effort.base=taskcoachlib.domain.effort.base-module.html,Module taskcoachlib.filesystem.base=taskcoachlib.filesystem.base-module.html,Module taskcoachlib.gui.viewer.base=taskcoachlib.gui.viewer.base-module.html,Module taskcoachlib.powermgt.base=taskcoachlib.powermgt.base-module.html,Module taskcoachlib.thirdparty.apscheduler'.jobstores.base=taskcoachlib.thirdparty.apscheduler%27.jobstores.base-module.html"><a title="taskcoachlib.command.base
+taskcoachlib.domain.base
+taskcoachlib.domain.effort.base
+taskcoachlib.filesystem.base
+taskcoachlib.gui.viewer.base
+taskcoachlib.powermgt.base
+taskcoachlib.thirdparty.apscheduler'.jobstores.base" class="py-name" href="#" onclick="return doclink('link-1', 'base', 'link-1');">base</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore=taskcoachlib.thirdparty.apscheduler%27.jobstores.base.JobStore-class.html"><a title="taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore" class="py-name" href="#" onclick="return doclink('link-2', 'JobStore', 'link-2');">JobStore</a></tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">apscheduler</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module taskcoachlib.thirdparty.apscheduler'.job=taskcoachlib.thirdparty.apscheduler%27.job-module.html"><a title="taskcoachlib.thirdparty.apscheduler'.job" class="py-name" href="#" onclick="return doclink('link-3', 'job', 'link-3');">job</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Class taskcoachlib.thirdparty.apscheduler'.job.Job=taskcoachlib.thirdparty.apscheduler%27.job.Job-class.html"><a title="taskcoachlib.thirdparty.apscheduler'.job.Job" class="py-name" href="#" onclick="return doclink('link-4', 'Job', 'link-4');">Job</a></tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">cPickle</tt> <tt class="py-keyword">as</tt> <tt class="py-name">pickle</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt>  <tt class="py-comment"># pragma: nocover</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">pickle</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">bson</tt><tt class="py-op">.</tt><tt class="py-name">binary</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Binary</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">pymongo</tt><tt class="py-op">.</tt><tt class="py-name">connection</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Connection</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt>  <tt class="py-comment"># pragma: nocover</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">    <tt class="py-keyword">raise</tt> <tt class="py-name">ImportError</tt><tt class="py-op">(</tt><tt class="py-string">'MongoDBJobStore requires PyMongo installed'</tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.logger=taskcoachlib.thirdparty.apscheduler%27.jobstores.mongodb_store-module.html#logger,Variable taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.logger=taskcoachlib.thirdparty.apscheduler%27.jobstores.shelve_store-module.html#logger,Variable taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.logger=taskcoachlib.thirdparty.apscheduler%27.jobstores.sqlalchemy_store-module.html#logger,Variable taskcoachlib.thirdparty.apscheduler'.scheduler.logger=taskcoachlib.thirdparty.apscheduler%27.scheduler-module.html#logger,Variable taskcoachlib.thirdparty.apscheduler'.threadpool.logger=taskcoachlib.thirdparty.apscheduler%27.threadpool-module.html#logger,Variable taskcoachlib.thirdparty.chardet.universaldetector.logger=taskcoachlib.thirdparty.chardet.universaldetector-module.html#logger,Variable taskcoachlib.thirdparty.gntp.config.logger=taskcoachlib.thirdparty.gntp.config-module.html#logger,Variable taskcoachlib.thirdparty.gntp.notifier.logger=taskcoachlib.thirdparty.gntp.notifier-module.html#logger,Variable taskcoachlib.thirdparty.googleapi.apiclient.discovery.logger=taskcoachlib.thirdparty.googleapi.apiclient.discovery-module.html#logger,Variable taskcoachlib.thirdparty.googleapi.oauth2client.appengine.logger=taskcoachlib.thirdparty.googleapi.oauth2client.appengine-module.html#logger,Variable taskcoachlib.thirdparty.googleapi.oauth2client.client.logger=taskcoachlib.thirdparty.googleapi.oauth2client.client-module.html#logger,Variable taskcoachlib.thirdparty.googleapi.oauth2client.crypt.logger=taskcoachlib.thirdparty.googleapi.oauth2client.crypt-module.html#logger,Variable taskcoachlib.thirdparty.googleapi.oauth2client.gce.logger=taskcoachlib.thirdparty.googleapi.oauth2client.gce-module.html#logger,Variable taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.logger=taskcoachlib.thirdparty.googleapi.oauth2client.locked_file-module.html#logger,Variable taskcoachlib.thirdparty.googleapi.oauth2client.multistore_file.logger=taskcoachlib.thirdparty.googleapi.oauth2client.multistore_file-module.html#logger,Variable taskcoachlib.thirdparty.googleapi.oauth2client.util.logger=taskcoachlib.thirdparty.googleapi.oauth2client.util-module.html#logger,Variable taskcoachlib.thirdparty.keyring.logger=taskcoachlib.thirdparty.keyring-module.html#logger"><a title="taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.logger
+taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.logger
+taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.logger
+taskcoachlib.thirdparty.apscheduler'.scheduler.logger
+taskcoachlib.thirdparty.apscheduler'.threadpool.logger
+taskcoachlib.thirdparty.chardet.universaldetector.logger
+taskcoachlib.thirdparty.gntp.config.logger
+taskcoachlib.thirdparty.gntp.notifier.logger
+taskcoachlib.thirdparty.googleapi.apiclient.discovery.logger
+taskcoachlib.thirdparty.googleapi.oauth2client.appengine.logger
+taskcoachlib.thirdparty.googleapi.oauth2client.client.logger
+taskcoachlib.thirdparty.googleapi.oauth2client.crypt.logger
+taskcoachlib.thirdparty.googleapi.oauth2client.gce.logger
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.logger
+taskcoachlib.thirdparty.googleapi.oauth2client.multistore_file.logger
+taskcoachlib.thirdparty.googleapi.oauth2client.util.logger
+taskcoachlib.thirdparty.keyring.logger" class="py-name" href="#" onclick="return doclink('link-5', 'logger', 'link-5');">logger</a></tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">getLogger</tt><tt class="py-op">(</tt><tt class="py-name">__name__</tt><tt class="py-op">)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="MongoDBJobStore"></a><div id="MongoDBJobStore-def"><a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="MongoDBJobStore-toggle" onclick="return toggle('MongoDBJobStore');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore-class.html">MongoDBJobStore</a><tt class="py-op">(</tt><tt class="py-base-class">JobStore</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MongoDBJobStore-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="MongoDBJobStore-expanded"><a name="MongoDBJobStore.__init__"></a><div id="MongoDBJobStore.__init__-def"><a name="L24"></a><tt class="py-lineno">24</tt> <a class="py-toggle" href="#" id="MongoDBJobStore.__init__-toggle" onclick="return toggle('MongoDBJobStore.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">database</tt><tt class="py-op">=</tt><tt class="py-string">'apscheduler'</tt><tt class="py-op">,</tt> <tt class="py-param">collection</tt><tt class="py-op">=</tt><tt class="py-string">'jobs'</tt><tt class="py-op">,</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">                 <tt class="py-param">connection</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">pickle_protocol</tt><tt class="py-op">=</tt><tt class="py-name">pickle</tt><tt class="py-op">.</tt><tt class="py-name">HIGHEST_PROTOCOL</tt><tt class="py-op">,</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">                 <tt class="py-op">**</tt><tt class="py-param">connect_args</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MongoDBJobStore.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="MongoDBJobStore.__init__-expanded"><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">jobs</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pickle_protocol</tt> <tt class="py-op">=</tt> <tt class="py-name">pickle_protocol</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">database</tt><tt class="py-op">:</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'The "database" parameter must not be empty'</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-6" class="py-name" targets="Module taskcoachlib.domain.base.collection=taskcoachlib.domain.base.collection-module.html"><a title="taskcoachlib.domain.base.collection" class="py-name" href="#" onclick="return doclink('link-6', 'collection', 'link-6');">collection</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'The "collection" parameter must not be empty'</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">connection</tt><tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">connection</tt> <tt class="py-op">=</tt> <tt class="py-name">connection</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">connection</tt> <tt class="py-op">=</tt> <tt class="py-name">Connection</tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">connect_args</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="taskcoachlib.domain.base.collection" class="py-name" href="#" onclick="return doclink('link-7', 'collection', 'link-6');">collection</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">connection</tt><tt class="py-op">[</tt><tt class="py-name">database</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt id="link-8" class="py-name"><a title="taskcoachlib.domain.base.collection" class="py-name" href="#" onclick="return doclink('link-8', 'collection', 'link-6');">collection</a></tt><tt class="py-op">]</tt> </tt>
+</div><a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="MongoDBJobStore.add_job"></a><div id="MongoDBJobStore.add_job-def"><a name="L42"></a><tt class="py-lineno">42</tt> <a class="py-toggle" href="#" id="MongoDBJobStore.add_job-toggle" onclick="return toggle('MongoDBJobStore.add_job');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore-class.html#add_job">add_job</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">job</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MongoDBJobStore.add_job-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="MongoDBJobStore.add_job-expanded"><a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt class="py-name">job_dict</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job" class="py-name" href="#" onclick="return doclink('link-9', 'job', 'link-3');">job</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method taskcoachlib.domain.attachment.attachment.Attachment.__getstate__()=taskcoachlib.domain.attachment.attachment.Attachment-class.html#__getstate__,Method taskcoachlib.domain.base.object.Object.__getstate__()=taskcoachlib.domain.base.object.Object-class.html#__getstate__,Method taskcoachlib.domain.base.object.SynchronizedObject.__getstate__()=taskcoachlib.domain.base.object.SynchronizedObject-class.html#__getstate__,Method taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject.__getstate__()=taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject-class.html#__getstate__,Method taskcoachlib.domain.category.category.Category.__getstate__()=taskcoachlib.domain.category.category.Category-class.html#__getstate__,Method taskcoachlib.domain.effort.effort.Effort.__getstate__()=taskcoachlib.domain.effort.effort.Effort-class.html#__getstate__,Method taskcoachlib.domain.task.task.Task.__getstate__()=taskcoachlib.domain.task.task.Task-class.html#__getstate__,Method taskcoachlib.patterns.composite.Composite.__getstate__()=taskcoachlib.patterns.composite.Composite-class.html#__getstate__,Method taskcoachlib.thirdparty.apscheduler'.job.Job.__getstate__()=taskcoachlib.thirdparty.apscheduler%27.job.Job-class.html#__getstate__,Method taskcoachlib.thirdparty.dateutil.tz._ttinfo.__getstate__()=taskcoachlib.thirdparty.dateutil.tz._ttinfo-class.html#__getstate__,Method taskcoachlib.thirdparty.googleapi.apiclient.discovery.Resource.__getstate__()=taskcoachlib.thirdparty.googleapi.apiclient.discovery.Resource-class.html#__getstate__,Method taskcoachlib.thirdparty.googleapi.httplib2.Http.__getstate__()=taskcoachlib.thirdparty.googleapi.httplib2.Http-class.html#__getstate__,Method taskcoachlib.thirdparty.googleapi.oauth2client.client.OAuth2Credentials.__getstate__()=taskcoachlib.thirdparty.googleapi.oauth2client.client.OAuth2Credentials-class.html#__getstate__,Method taskcoachlib.thirdparty.pyparsing.ParseResults.__getstate__()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#__getstate__"><a title="taskcoachlib.domain.attachment.attachment.Attachment.__getstate__
+taskcoachlib.domain.base.object.Object.__getstate__
+taskcoachlib.domain.base.object.SynchronizedObject.__getstate__
+taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject.__getstate__
+taskcoachlib.domain.category.category.Category.__getstate__
+taskcoachlib.domain.effort.effort.Effort.__getstate__
+taskcoachlib.domain.task.task.Task.__getstate__
+taskcoachlib.patterns.composite.Composite.__getstate__
+taskcoachlib.thirdparty.apscheduler'.job.Job.__getstate__
+taskcoachlib.thirdparty.dateutil.tz._ttinfo.__getstate__
+taskcoachlib.thirdparty.googleapi.apiclient.discovery.Resource.__getstate__
+taskcoachlib.thirdparty.googleapi.httplib2.Http.__getstate__
+taskcoachlib.thirdparty.googleapi.oauth2client.client.OAuth2Credentials.__getstate__
+taskcoachlib.thirdparty.pyparsing.ParseResults.__getstate__" class="py-name" href="#" onclick="return doclink('link-10', '__getstate__', 'link-10');">__getstate__</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt class="py-name">job_dict</tt><tt class="py-op">[</tt><tt class="py-string">'trigger'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">Binary</tt><tt class="py-op">(</tt><tt class="py-name">pickle</tt><tt class="py-op">.</tt><tt class="py-name">dumps</tt><tt class="py-op">(</tt><tt id="link-11" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job" class="py-name" href="#" onclick="return doclink('link-11', 'job', 'link-3');">job</a></tt><tt class="py-op">.</tt><tt class="py-name">trigger</tt><tt class="py-op">,</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">                                                  <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pickle_protocol</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-name">job_dict</tt><tt class="py-op">[</tt><tt class="py-string">'args'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">Binary</tt><tt class="py-op">(</tt><tt class="py-name">pickle</tt><tt class="py-op">.</tt><tt class="py-name">dumps</tt><tt class="py-op">(</tt><tt id="link-12" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job" class="py-name" href="#" onclick="return doclink('link-12', 'job', 'link-3');">job</a></tt><tt class="py-op">.</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">                                               <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pickle_protocol</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">        <tt class="py-name">job_dict</tt><tt class="py-op">[</tt><tt class="py-string">'kwargs'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">Binary</tt><tt class="py-op">(</tt><tt class="py-name">pickle</tt><tt class="py-op">.</tt><tt class="py-name">dumps</tt><tt class="py-op">(</tt><tt id="link-13" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job" class="py-name" href="#" onclick="return doclink('link-13', 'job', 'link-3');">job</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Package taskcoachlib.thirdparty.pubsub.core.kwargs=taskcoachlib.thirdparty.pubsub.core.kwargs-module.html"><a title="taskcoachlib.thirdparty.pubsub.core.kwargs" class="py-name" href="#" onclick="return doclink('link-14', 'kwargs', 'link-14');">kwargs</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">                                                 <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">pickle_protocol</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">        <tt id="link-15" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job" class="py-name" href="#" onclick="return doclink('link-15', 'job', 'link-3');">job</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method taskcoachlib.domain.base.object.Object.id()=taskcoachlib.domain.base.object.Object-class.html#id,Module taskcoachlib.i18n.id=taskcoachlib.i18n.id-module.html,Variable taskcoachlib.thirdparty.apscheduler'.job.Job.id=taskcoachlib.thirdparty.apscheduler%27.job.Job-class.html#id,Variable taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id=taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule-class.html#id"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-16', 'id', 'link-16');">id</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="taskcoachlib.domain.base.collection" class="py-name" href="#" onclick="return doclink('link-17', 'collection', 'link-6');">collection</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method taskcoachlib.thirdparty.pyparsing.ParseResults.insert()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#insert"><a title="taskcoachlib.thirdparty.pyparsing.ParseResults.insert" class="py-name" href="#" onclick="return doclink('link-18', 'insert', 'link-18');">insert</a></tt><tt class="py-op">(</tt><tt class="py-name">job_dict</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">jobs</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Method taskcoachlib.iphone.protocol.CompositeItem.append()=taskcoachlib.iphone.protocol.CompositeItem-class.html#append,Method taskcoachlib.iphone.protocol.ListItem.append()=taskcoachlib.iphone.protocol.ListItem-class.html#append,Method taskcoachlib.patterns.command.CommandHistory.append()=taskcoachlib.patterns.command.CommandHistory-class.html#append,Method taskcoachlib.patterns.composite.CompositeCollection.append()=taskcoachlib.patterns.composite.CompositeCollection-class.html#append,Method taskcoachlib.patterns.observer.CollectionDecorator.append()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#append,Method taskcoachlib.patterns.observer.ObservableList.append()=taskcoachlib.patterns.observer.ObservableList-class.html#append,Method taskcoachlib.patterns.observer.ObservableSet.append()=taskcoachlib.patterns.observer.ObservableSet-class.html#append,Method taskcoachlib.thirdparty.pyparsing.ParseExpression.append()=taskcoachlib.thirdparty.pyparsing.ParseExpression-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.timeline.timeline.HotMap.append()=taskcoachlib.thirdparty.timeline.timeline.HotMap-class.html#append"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-19', 'append', 'link-19');">append</a></tt><tt class="py-op">(</tt><tt id="link-20" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job" class="py-name" href="#" onclick="return doclink('link-20', 'job', 'link-3');">job</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"> </tt>
+<a name="MongoDBJobStore.remove_job"></a><div id="MongoDBJobStore.remove_job-def"><a name="L53"></a><tt class="py-lineno">53</tt> <a class="py-toggle" href="#" id="MongoDBJobStore.remove_job-toggle" onclick="return toggle('MongoDBJobStore.remove_job');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore-class.html#remove_job">remove_job</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">job</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MongoDBJobStore.remove_job-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="MongoDBJobStore.remove_job-expanded"><a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="taskcoachlib.domain.base.collection" class="py-name" href="#" onclick="return doclink('link-21', 'collection', 'link-6');">collection</a></tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method taskcoachlib.domain.base.attribute.SetAttribute.remove()=taskcoachlib.domain.base.attribute.SetAttribute-class.html#remove,Method taskcoachlib.patterns.composite.CompositeCollection.remove()=taskcoachlib.patterns.composite.CompositeCollection-class.html#remove,Method taskcoachlib.patterns.observer.CollectionDecorator.remove()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#remove,Method taskcoachlib.patterns.observer.ObservableList.remove()=taskcoachlib.patterns.observer.ObservableList-class.html#remove,Method taskcoachlib.patterns.observer.ObservableSet.remove()=taskcoachlib.patterns.observer.ObservableSet-class.html#remove,Method taskcoachlib.thirdparty._weakrefset.WeakSet.remove()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#remove"><a title="taskcoachlib.domain.base.attribute.SetAttribute.remove
+taskcoachlib.patterns.composite.CompositeCollection.remove
+taskcoachlib.patterns.observer.CollectionDecorator.remove
+taskcoachlib.patterns.observer.ObservableList.remove
+taskcoachlib.patterns.observer.ObservableSet.remove
+taskcoachlib.thirdparty._weakrefset.WeakSet.remove" class="py-name" href="#" onclick="return doclink('link-22', 'remove', 'link-22');">remove</a></tt><tt class="py-op">(</tt><tt id="link-23" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job" class="py-name" href="#" onclick="return doclink('link-23', 'job', 'link-3');">job</a></tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-24', 'id', 'link-16');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">jobs</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="taskcoachlib.domain.base.attribute.SetAttribute.remove
+taskcoachlib.patterns.composite.CompositeCollection.remove
+taskcoachlib.patterns.observer.CollectionDecorator.remove
+taskcoachlib.patterns.observer.ObservableList.remove
+taskcoachlib.patterns.observer.ObservableSet.remove
+taskcoachlib.thirdparty._weakrefset.WeakSet.remove" class="py-name" href="#" onclick="return doclink('link-25', 'remove', 'link-22');">remove</a></tt><tt class="py-op">(</tt><tt id="link-26" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job" class="py-name" href="#" onclick="return doclink('link-26', 'job', 'link-3');">job</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line"> </tt>
+<a name="MongoDBJobStore.load_jobs"></a><div id="MongoDBJobStore.load_jobs-def"><a name="L57"></a><tt class="py-lineno">57</tt> <a class="py-toggle" href="#" id="MongoDBJobStore.load_jobs-toggle" onclick="return toggle('MongoDBJobStore.load_jobs');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore-class.html#load_jobs">load_jobs</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MongoDBJobStore.load_jobs-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="MongoDBJobStore.load_jobs-expanded"><a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">        <tt class="py-name">jobs</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">job_dict</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="taskcoachlib.domain.base.collection" class="py-name" href="#" onclick="return doclink('link-27', 'collection', 'link-6');">collection</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Method taskcoachlib.thirdparty.desktop.windows.Window.find()=taskcoachlib.thirdparty.desktop.windows.Window-class.html#find,Function taskcoachlib.thirdparty.desktop.windows.find()=taskcoachlib.thirdparty.desktop.windows-module.html#find"><a title="taskcoachlib.thirdparty.desktop.windows.Window.find
+taskcoachlib.thirdparty.desktop.windows.find" class="py-name" href="#" onclick="return doclink('link-28', 'find', 'link-28');">find</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">                <tt id="link-29" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job" class="py-name" href="#" onclick="return doclink('link-29', 'job', 'link-3');">job</a></tt> <tt class="py-op">=</tt> <tt id="link-30" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job.Job" class="py-name" href="#" onclick="return doclink('link-30', 'Job', 'link-4');">Job</a></tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Method taskcoachlib.domain.date.date.InfiniteDate.__new__()=taskcoachlib.domain.date.date.InfiniteDate-class.html#__new__,Method taskcoachlib.domain.date.dateandtime.DateTime.__new__()=taskcoachlib.domain.date.dateandtime.DateTime-class.html#__new__,Method taskcoachlib.patterns.observer.Set.__new__()=taskcoachlib.patterns.observer.Set-class.html#__new__,Method taskcoachlib.thirdparty.pyparsing.ParseResults.__new__()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#__new__"><a title="taskcoachlib.domain.date.date.InfiniteDate.__new__
+taskcoachlib.domain.date.dateandtime.DateTime.__new__
+taskcoachlib.patterns.observer.Set.__new__
+taskcoachlib.thirdparty.pyparsing.ParseResults.__new__" class="py-name" href="#" onclick="return doclink('link-31', '__new__', 'link-31');">__new__</a></tt><tt class="py-op">(</tt><tt id="link-32" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job.Job" class="py-name" href="#" onclick="return doclink('link-32', 'Job', 'link-4');">Job</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">                <tt class="py-name">job_dict</tt><tt class="py-op">[</tt><tt class="py-string">'id'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">job_dict</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Method taskcoachlib.thirdparty._weakrefset.WeakSet.pop()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#pop,Method taskcoachlib.thirdparty.pyparsing.ParseResults.pop()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#pop"><a title="taskcoachlib.thirdparty._weakrefset.WeakSet.pop
+taskcoachlib.thirdparty.pyparsing.ParseResults.pop" class="py-name" href="#" onclick="return doclink('link-33', 'pop', 'link-33');">pop</a></tt><tt class="py-op">(</tt><tt class="py-string">'_id'</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">                <tt class="py-name">job_dict</tt><tt class="py-op">[</tt><tt class="py-string">'trigger'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">pickle</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Function taskcoachlib.thirdparty.googleapi.oauth2client.clientsecrets.loads()=taskcoachlib.thirdparty.googleapi.oauth2client.clientsecrets-module.html#loads"><a title="taskcoachlib.thirdparty.googleapi.oauth2client.clientsecrets.loads" class="py-name" href="#" onclick="return doclink('link-34', 'loads', 'link-34');">loads</a></tt><tt class="py-op">(</tt><tt class="py-name">job_dict</tt><tt class="py-op">[</tt><tt class="py-string">'trigger'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">                <tt class="py-name">job_dict</tt><tt class="py-op">[</tt><tt class="py-string">'args'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">pickle</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="taskcoachlib.thirdparty.googleapi.oauth2client.clientsecrets.loads" class="py-name" href="#" onclick="return doclink('link-35', 'loads', 'link-34');">loads</a></tt><tt class="py-op">(</tt><tt class="py-name">job_dict</tt><tt class="py-op">[</tt><tt class="py-string">'args'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">                <tt class="py-name">job_dict</tt><tt class="py-op">[</tt><tt class="py-string">'kwargs'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">pickle</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="taskcoachlib.thirdparty.googleapi.oauth2client.clientsecrets.loads" class="py-name" href="#" onclick="return doclink('link-36', 'loads', 'link-34');">loads</a></tt><tt class="py-op">(</tt><tt class="py-name">job_dict</tt><tt class="py-op">[</tt><tt class="py-string">'kwargs'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">                <tt id="link-37" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job" class="py-name" href="#" onclick="return doclink('link-37', 'job', 'link-3');">job</a></tt><tt class="py-op">.</tt><tt id="link-38" class="py-name" targets="Method taskcoachlib.domain.attachment.attachment.Attachment.__setstate__()=taskcoachlib.domain.attachment.attachment.Attachment-class.html#__setstate__,Method taskcoachlib.domain.base.object.Object.__setstate__()=taskcoachlib.domain.base.object.Object-class.html#__setstate__,Method taskcoachlib.domain.base.object.SynchronizedObject.__setstate__()=taskcoachlib.domain.base.object.SynchronizedObject-class.html#__setstate__,Method taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject.__setstate__()=taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject-class.html#__setstate__,Method taskcoachlib.domain.category.category.Category.__setstate__()=taskcoachlib.domain.category.category.Category-class.html#__setstate__,Method taskcoachlib.domain.effort.effort.Effort.__setstate__()=taskcoachlib.domain.effort.effort.Effort-class.html#__setstate__,Method taskcoachlib.domain.task.task.Task.__setstate__()=taskcoachlib.domain.task.task.Task-class.html#__setstate__,Method taskcoachlib.patterns.composite.Composite.__setstate__()=taskcoachlib.patterns.composite.Composite-class.html#__setstate__,Method taskcoachlib.patterns.composite.ObservableComposite.__setstate__()=taskcoachlib.patterns.composite.ObservableComposite-class.html#__setstate__,Method taskcoachlib.thirdparty.apscheduler'.job.Job.__setstate__()=taskcoachlib.thirdparty.apscheduler%27.job.Job-class.html#__setstate__,Method taskcoachlib.thirdparty.dateutil.tz._ttinfo.__setstate__()=taskcoachlib.thirdparty.dateutil.tz._ttinfo-class.html#__setstate__,Method taskcoachlib.thirdparty.googleapi.apiclient.discovery.Resource.__setstate__()=taskcoachlib.thirdparty.googleapi.apiclient.discovery.Resource-class.html#__setstate__,Method taskcoachlib.thirdparty.googleapi.httplib2.Http.__setstate__()=taskcoachlib.thirdparty.googleapi.httplib2.Http-class.html#__setstate__,Method taskcoachlib.thirdparty.googleapi.oauth2client.client.OAuth2Credentials.__setstate__()=taskcoachlib.thirdparty.googleapi.oauth2client.client.OAuth2Credentials-class.html#__setstate__,Method taskcoachlib.thirdparty.pyparsing.ParseResults.__setstate__()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#__setstate__"><a title="taskcoachlib.domain.attachment.attachment.Attachment.__setstate__
+taskcoachlib.domain.base.object.Object.__setstate__
+taskcoachlib.domain.base.object.SynchronizedObject.__setstate__
+taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject.__setstate__
+taskcoachlib.domain.category.category.Category.__setstate__
+taskcoachlib.domain.effort.effort.Effort.__setstate__
+taskcoachlib.domain.task.task.Task.__setstate__
+taskcoachlib.patterns.composite.Composite.__setstate__
+taskcoachlib.patterns.composite.ObservableComposite.__setstate__
+taskcoachlib.thirdparty.apscheduler'.job.Job.__setstate__
+taskcoachlib.thirdparty.dateutil.tz._ttinfo.__setstate__
+taskcoachlib.thirdparty.googleapi.apiclient.discovery.Resource.__setstate__
+taskcoachlib.thirdparty.googleapi.httplib2.Http.__setstate__
+taskcoachlib.thirdparty.googleapi.oauth2client.client.OAuth2Credentials.__setstate__
+taskcoachlib.thirdparty.pyparsing.ParseResults.__setstate__" class="py-name" href="#" onclick="return doclink('link-38', '__setstate__', 'link-38');">__setstate__</a></tt><tt class="py-op">(</tt><tt class="py-name">job_dict</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">                <tt class="py-name">jobs</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-39', 'append', 'link-19');">append</a></tt><tt class="py-op">(</tt><tt id="link-40" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job" class="py-name" href="#" onclick="return doclink('link-40', 'job', 'link-3');">job</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt class="py-name">Exception</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">                <tt class="py-name">job_name</tt> <tt class="py-op">=</tt> <tt class="py-name">job_dict</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name" targets="Method taskcoachlib.command.clipboard.Clipboard.get()=taskcoachlib.command.clipboard.Clipboard-class.html#get,Method taskcoachlib.config.settings.CachingConfigParser.get()=taskcoachlib.config.settings.CachingConfigParser-class.html#get,Method taskcoachlib.config.settings.Settings.get()=taskcoachlib.config.settings.Settings-class.html#get,Method taskcoachlib.config.settings.UnicodeAwareConfigParser.get()=taskcoachlib.config.settings.UnicodeAwareConfigParser-class.html#get,Method taskcoachlib.domain.base.attribute.Attribute.get()=taskcoachlib.domain.base.attribute.Attribute-class.html#get,Method taskcoachlib.domain.base.attribute.SetAttribute.get()=taskcoachlib.domain.base.attribute.SetAttribute-class.html#get,Method taskcoachlib.gui.dialog.preferences.SettingsPage.get()=taskcoachlib.gui.dialog.preferences.SettingsPage-class.html#get,Method taskcoachlib.gui.dialog.preferences.SettingsPageBase.get()=taskcoachlib.gui.dialog.preferences.SettingsPageBase-class.html#get,Method taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.get()=taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage-class.html#get,Class Method taskcoachlib.notify.notifier.AbstractNotifier.get()=taskcoachlib.notify.notifier.AbstractNotifier-class.html#get,Method taskcoachlib.syncml.config.SyncMLConfigNode.get()=taskcoachlib.syncml.config.SyncMLConfigNode-class.html#get,Method taskcoachlib.thirdparty.dateutil.tz.tzical.get()=taskcoachlib.thirdparty.dateutil.tz.tzical-class.html#get,Method taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas.get()=taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas-class.html#get,Method taskcoachlib.thirdparty.googleapi.httplib2.FileCache.get()=taskcoachlib.thirdparty.googleapi.httplib2.FileCache-class.html#get,Method taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.get()=taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache-class.html#get,Method taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage.get()=taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage-class.html#get,Method taskcoachlib.thirdparty.pyparsing.ParseResults.get()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#get,Method taskcoachlib.thirdparty.wmi._wmi_namespace.get()=taskcoachlib.thirdparty.wmi._wmi_namespace-class.html#get,Method taskcoachlib.thirdparty.xdg.IniFile.IniFile.get()=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#get"><a title="taskcoachlib.command.clipboard.Clipboard.get
+taskcoachlib.config.settings.CachingConfigParser.get
+taskcoachlib.config.settings.Settings.get
+taskcoachlib.config.settings.UnicodeAwareConfigParser.get
+taskcoachlib.domain.base.attribute.Attribute.get
+taskcoachlib.domain.base.attribute.SetAttribute.get
+taskcoachlib.gui.dialog.preferences.SettingsPage.get
+taskcoachlib.gui.dialog.preferences.SettingsPageBase.get
+taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.get
+taskcoachlib.notify.notifier.AbstractNotifier.get
+taskcoachlib.syncml.config.SyncMLConfigNode.get
+taskcoachlib.thirdparty.dateutil.tz.tzical.get
+taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas.get
+taskcoachlib.thirdparty.googleapi.httplib2.FileCache.get
+taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.get
+taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage.get
+taskcoachlib.thirdparty.pyparsing.ParseResults.get
+taskcoachlib.thirdparty.wmi._wmi_namespace.get
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.get" class="py-name" href="#" onclick="return doclink('link-41', 'get', 'link-41');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'name'</tt><tt class="py-op">,</tt> <tt class="py-string">'(unknown)'</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">                <tt id="link-42" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.logger
+taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.logger
+taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.logger
+taskcoachlib.thirdparty.apscheduler'.scheduler.logger
+taskcoachlib.thirdparty.apscheduler'.threadpool.logger
+taskcoachlib.thirdparty.chardet.universaldetector.logger
+taskcoachlib.thirdparty.gntp.config.logger
+taskcoachlib.thirdparty.gntp.notifier.logger
+taskcoachlib.thirdparty.googleapi.apiclient.discovery.logger
+taskcoachlib.thirdparty.googleapi.oauth2client.appengine.logger
+taskcoachlib.thirdparty.googleapi.oauth2client.client.logger
+taskcoachlib.thirdparty.googleapi.oauth2client.crypt.logger
+taskcoachlib.thirdparty.googleapi.oauth2client.gce.logger
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.logger
+taskcoachlib.thirdparty.googleapi.oauth2client.multistore_file.logger
+taskcoachlib.thirdparty.googleapi.oauth2client.util.logger
+taskcoachlib.thirdparty.keyring.logger" class="py-name" href="#" onclick="return doclink('link-42', 'logger', 'link-5');">logger</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Function taskcoachlib.render.exception()=taskcoachlib.render-module.html#exception,Module taskcoachlib.workarounds.exception=taskcoachlib.workarounds.exception-module.html"><a title="taskcoachlib.render.exception
+taskcoachlib.workarounds.exception" class="py-name" href="#" onclick="return doclink('link-43', 'exception', 'link-43');">exception</a></tt><tt class="py-op">(</tt><tt class="py-string">'Unable to restore job "%s"'</tt><tt class="py-op">,</tt> <tt class="py-name">job_name</tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">jobs</tt> <tt class="py-op">=</tt> <tt class="py-name">jobs</tt> </tt>
+</div><a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line"> </tt>
+<a name="MongoDBJobStore.update_job"></a><div id="MongoDBJobStore.update_job-def"><a name="L73"></a><tt class="py-lineno">73</tt> <a class="py-toggle" href="#" id="MongoDBJobStore.update_job-toggle" onclick="return toggle('MongoDBJobStore.update_job');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore-class.html#update_job">update_job</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">job</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MongoDBJobStore.update_job-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="MongoDBJobStore.update_job-expanded"><a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">        <tt class="py-name">spec</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'_id'</tt><tt class="py-op">:</tt> <tt id="link-44" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job" class="py-name" href="#" onclick="return doclink('link-44', 'job', 'link-3');">job</a></tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-45', 'id', 'link-16');">id</a></tt><tt class="py-op">}</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">        <tt class="py-name">document</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'$set'</tt><tt class="py-op">:</tt> <tt class="py-op">{</tt><tt class="py-string">'next_run_time'</tt><tt class="py-op">:</tt> <tt id="link-46" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job" class="py-name" href="#" onclick="return doclink('link-46', 'job', 'link-3');">job</a></tt><tt class="py-op">.</tt><tt id="link-47" class="py-name" targets="Variable taskcoachlib.thirdparty.apscheduler'.job.Job.next_run_time=taskcoachlib.thirdparty.apscheduler%27.job.Job-class.html#next_run_time"><a title="taskcoachlib.thirdparty.apscheduler'.job.Job.next_run_time" class="py-name" href="#" onclick="return doclink('link-47', 'next_run_time', 'link-47');">next_run_time</a></tt><tt class="py-op">}</tt><tt class="py-op">,</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">                    <tt class="py-string">'$inc'</tt><tt class="py-op">:</tt> <tt class="py-op">{</tt><tt class="py-string">'runs'</tt><tt class="py-op">:</tt> <tt class="py-number">1</tt><tt class="py-op">}</tt><tt class="py-op">}</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="taskcoachlib.domain.base.collection" class="py-name" href="#" onclick="return doclink('link-48', 'collection', 'link-6');">collection</a></tt><tt class="py-op">.</tt><tt id="link-49" class="py-name" targets="Method taskcoachlib.thirdparty._weakrefset.WeakSet.update()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#update,Method taskcoachlib.thirdparty.googleapi.apiclient.channel.Channel.update()=taskcoachlib.thirdparty.googleapi.apiclient.channel.Channel-class.html#update,Function taskcoachlib.thirdparty.xdg.Locale.update()=taskcoachlib.thirdparty.xdg.Locale-module.html#update,Method taskcoachlib.widgets.calendarwidget.TaskSchedule.update()=taskcoachlib.widgets.calendarwidget.TaskSchedule-class.html#update"><a title="taskcoachlib.thirdparty._weakrefset.WeakSet.update
+taskcoachlib.thirdparty.googleapi.apiclient.channel.Channel.update
+taskcoachlib.thirdparty.xdg.Locale.update
+taskcoachlib.widgets.calendarwidget.TaskSchedule.update" class="py-name" href="#" onclick="return doclink('link-49', 'update', 'link-49');">update</a></tt><tt class="py-op">(</tt><tt class="py-name">spec</tt><tt class="py-op">,</tt> <tt class="py-name">document</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line"> </tt>
+<a name="MongoDBJobStore.close"></a><div id="MongoDBJobStore.close-def"><a name="L79"></a><tt class="py-lineno">79</tt> <a class="py-toggle" href="#" id="MongoDBJobStore.close-toggle" onclick="return toggle('MongoDBJobStore.close');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore-class.html#close">close</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MongoDBJobStore.close-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="MongoDBJobStore.close-expanded"><a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">connection</tt><tt class="py-op">.</tt><tt class="py-name">disconnect</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line"> </tt>
+<a name="MongoDBJobStore.__repr__"></a><div id="MongoDBJobStore.__repr__-def"><a name="L82"></a><tt class="py-lineno">82</tt> <a class="py-toggle" href="#" id="MongoDBJobStore.__repr__-toggle" onclick="return toggle('MongoDBJobStore.__repr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore-class.html#__repr__">__repr__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MongoDBJobStore.__repr__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="MongoDBJobStore.__repr__-expanded"><a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line">        <tt class="py-name">connection</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="taskcoachlib.domain.base.collection" class="py-name" href="#" onclick="return doclink('link-50', 'collection', 'link-6');">collection</a></tt><tt class="py-op">.</tt><tt class="py-name">database</tt><tt class="py-op">.</tt><tt class="py-name">connection</tt> </tt>
+<a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'&lt;%s (connection=%s)&gt;'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">,</tt> <tt class="py-name">connection</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:10 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

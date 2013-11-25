@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.chardet.constants</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.chardet-module.html">Package&nbsp;chardet</a> ::
+        Module&nbsp;constants
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.chardet.constants-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.chardet.constants-module.html">Module taskcoachlib.thirdparty.chardet.constants</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">######################## BEGIN LICENSE BLOCK ########################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"># The Original Code is Mozilla Universal charset detector code.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># The Initial Developer of the Original Code is</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"># Netscape Communications Corporation.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># Portions created by the Initial Developer are Copyright (C) 2001</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># the Initial Developer. All Rights Reserved.</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment"># Contributor(s):</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment">#   Mark Pilgrim - port to Python</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment">#   Shy Shalom - original C code</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-comment"># This library is free software; you can redistribute it and/or</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-comment"># modify it under the terms of the GNU Lesser General Public</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-comment"># License as published by the Free Software Foundation; either</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-comment"># version 2.1 of the License, or (at your option) any later version.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-comment"># </tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-comment"># This library is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-comment"># but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-comment"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-comment"># Lesser General Public License for more details.</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-comment"># </tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-comment"># You should have received a copy of the GNU Lesser General Public</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-comment"># License along with this library; if not, write to the Free Software</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-comment"># Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-comment"># 02110-1301  USA</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-comment">######################### END LICENSE BLOCK #########################</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants._debug=taskcoachlib.thirdparty.chardet.constants-module.html#_debug"><a title="taskcoachlib.thirdparty.chardet.constants._debug" class="py-name" href="#" onclick="return doclink('link-0', '_debug', 'link-0');">_debug</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.eDetecting=taskcoachlib.thirdparty.chardet.constants-module.html#eDetecting"><a title="taskcoachlib.thirdparty.chardet.constants.eDetecting" class="py-name" href="#" onclick="return doclink('link-1', 'eDetecting', 'link-1');">eDetecting</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.eFoundIt=taskcoachlib.thirdparty.chardet.constants-module.html#eFoundIt"><a title="taskcoachlib.thirdparty.chardet.constants.eFoundIt" class="py-name" href="#" onclick="return doclink('link-2', 'eFoundIt', 'link-2');">eFoundIt</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.eNotMe=taskcoachlib.thirdparty.chardet.constants-module.html#eNotMe"><a title="taskcoachlib.thirdparty.chardet.constants.eNotMe" class="py-name" href="#" onclick="return doclink('link-3', 'eNotMe', 'link-3');">eNotMe</a></tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.eStart=taskcoachlib.thirdparty.chardet.constants-module.html#eStart"><a title="taskcoachlib.thirdparty.chardet.constants.eStart" class="py-name" href="#" onclick="return doclink('link-4', 'eStart', 'link-4');">eStart</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.eError=taskcoachlib.thirdparty.chardet.constants-module.html#eError"><a title="taskcoachlib.thirdparty.chardet.constants.eError" class="py-name" href="#" onclick="return doclink('link-5', 'eError', 'link-5');">eError</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt id="link-6" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.eItsMe=taskcoachlib.thirdparty.chardet.constants-module.html#eItsMe"><a title="taskcoachlib.thirdparty.chardet.constants.eItsMe" class="py-name" href="#" onclick="return doclink('link-6', 'eItsMe', 'link-6');">eItsMe</a></tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt id="link-7" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.SHORTCUT_THRESHOLD=taskcoachlib.thirdparty.chardet.constants-module.html#SHORTCUT_THRESHOLD"><a title="taskcoachlib.thirdparty.chardet.constants.SHORTCUT_THRESHOLD" class="py-name" href="#" onclick="return doclink('link-7', 'SHORTCUT_THRESHOLD', 'link-7');">SHORTCUT_THRESHOLD</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0.95</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">__builtin__</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">__builtin__</tt><tt class="py-op">,</tt> <tt class="py-string">'False'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.False=taskcoachlib.thirdparty.chardet.constants-module.html#False"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-8', 'False', 'link-8');">False</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">    <tt id="link-9" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.True=taskcoachlib.thirdparty.chardet.constants-module.html#True"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-9', 'True', 'link-9');">True</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">    <tt id="link-10" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-10', 'False', 'link-8');">False</a></tt> <tt class="py-op">=</tt> <tt class="py-name">__builtin__</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-11', 'False', 'link-8');">False</a></tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">    <tt id="link-12" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-12', 'True', 'link-9');">True</a></tt> <tt class="py-op">=</tt> <tt class="py-name">__builtin__</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-13', 'True', 'link-9');">True</a></tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:15:13 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

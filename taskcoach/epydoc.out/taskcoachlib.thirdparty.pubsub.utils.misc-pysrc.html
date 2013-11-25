@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.pubsub.utils.misc</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.pubsub-module.html">Package&nbsp;pubsub</a> ::
+        <a href="taskcoachlib.thirdparty.pubsub.utils-module.html">Package&nbsp;utils</a> ::
+        Module&nbsp;misc
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.pubsub.utils.misc-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.pubsub.utils.misc-module.html">Module taskcoachlib.thirdparty.pubsub.utils.misc</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">Provides useful functions and classes. Most useful are probably</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">printTreeDocs and printTreeSpec.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">:copyright: Copyright since 2006 by Oliver Schoenborn, all rights reserved.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">:license: BSD, see LICENSE.txt for details.</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-name">__all__</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'printImported'</tt><tt class="py-op">,</tt> <tt class="py-string">'StructMsg'</tt><tt class="py-op">,</tt> <tt class="py-string">'Callback'</tt><tt class="py-op">,</tt> <tt class="py-string">'Enum'</tt> <tt class="py-op">)</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="printImported"></a><div id="printImported-def"><a name="L14"></a><tt class="py-lineno"> 14</tt> <a class="py-toggle" href="#" id="printImported-toggle" onclick="return toggle('printImported');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.misc-module.html#printImported">printImported</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="printImported-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="printImported-expanded"><a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">    <tt class="py-docstring">'''Output a list of pubsub modules imported so far'''</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">    <tt class="py-name">ll</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">mod</tt> <tt class="py-keyword">for</tt> <tt class="py-name">mod</tt> <tt class="py-keyword">in</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">modules</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Method taskcoachlib.thirdparty.dateutil.tz.tzical.keys()=taskcoachlib.thirdparty.dateutil.tz.tzical-class.html#keys,Method taskcoachlib.thirdparty.pyparsing.ParseResults.keys()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#keys,Method taskcoachlib.thirdparty.wmi._wmi_object.keys()=taskcoachlib.thirdparty.wmi._wmi_object-class.html#keys"><a title="taskcoachlib.thirdparty.dateutil.tz.tzical.keys
+taskcoachlib.thirdparty.pyparsing.ParseResults.keys
+taskcoachlib.thirdparty.wmi._wmi_object.keys" class="py-name" href="#" onclick="return doclink('link-0', 'keys', 'link-0');">keys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">if</tt> <tt class="py-name">mod</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Method taskcoachlib.thirdparty.desktop.windows.Window.find()=taskcoachlib.thirdparty.desktop.windows.Window-class.html#find,Function taskcoachlib.thirdparty.desktop.windows.find()=taskcoachlib.thirdparty.desktop.windows-module.html#find"><a title="taskcoachlib.thirdparty.desktop.windows.Window.find
+taskcoachlib.thirdparty.desktop.windows.find" class="py-name" href="#" onclick="return doclink('link-1', 'find', 'link-1');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">'pubsub'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;=</tt> <tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">    <tt class="py-name">ll</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Function taskcoachlib.thirdparty.xdg.Menu.sort()=taskcoachlib.thirdparty.xdg.Menu-module.html#sort,Method taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.sort()=taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles-class.html#sort,Method taskcoachlib.widgets.itemctrl.Column.sort()=taskcoachlib.widgets.itemctrl.Column-class.html#sort"><a title="taskcoachlib.thirdparty.xdg.Menu.sort
+taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.sort
+taskcoachlib.widgets.itemctrl.Column.sort" class="py-name" href="#" onclick="return doclink('link-2', 'sort', 'link-2');">sort</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-string">'\n'</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">ll</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="StructMsg"></a><div id="StructMsg-def"><a name="L22"></a><tt class="py-lineno"> 22</tt> <a class="py-toggle" href="#" id="StructMsg-toggle" onclick="return toggle('StructMsg');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.misc.StructMsg-class.html">StructMsg</a><tt class="py-op">:</tt> </tt>
+</div><div id="StructMsg-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="StructMsg-expanded"><a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">    This *can* be used to package message data. Each of the keyword</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">    args given at construction will be stored as a member of the 'data'</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">    member of instance. E.g. "m=Message2(a=1, b='b')" would succeed</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">    "assert m.data.a==1" and "assert m.data.b=='b'". However, use of</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">    Message2 makes your messaging code less documented and harder to</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">    debug.</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"> </tt>
+<a name="StructMsg.__init__"></a><div id="StructMsg.__init__-def"><a name="L32"></a><tt class="py-lineno"> 32</tt> <a class="py-toggle" href="#" id="StructMsg.__init__-toggle" onclick="return toggle('StructMsg.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.misc.StructMsg-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="StructMsg.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="StructMsg.__init__-expanded"><a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">        <tt class="py-keyword">class</tt> <tt class="py-def-name">Data</tt><tt class="py-op">:</tt> <tt class="py-keyword">pass</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Method taskcoachlib.domain.attachment.attachment.Attachment.data()=taskcoachlib.domain.attachment.attachment.Attachment-class.html#data,Method taskcoachlib.domain.attachment.attachment.MailAttachment.data()=taskcoachlib.domain.attachment.attachment.MailAttachment-class.html#data,Method taskcoachlib.iphone.protocol.State.data()=taskcoachlib.iphone.protocol.State-class.html#data,Module taskcoachlib.meta.data=taskcoachlib.meta.data-module.html"><a title="taskcoachlib.domain.attachment.attachment.Attachment.data
+taskcoachlib.domain.attachment.attachment.MailAttachment.data
+taskcoachlib.iphone.protocol.State.data
+taskcoachlib.meta.data" class="py-name" href="#" onclick="return doclink('link-3', 'data', 'link-3');">data</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Data</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="taskcoachlib.domain.attachment.attachment.Attachment.data
+taskcoachlib.domain.attachment.attachment.MailAttachment.data
+taskcoachlib.iphone.protocol.State.data
+taskcoachlib.meta.data" class="py-name" href="#" onclick="return doclink('link-4', 'data', 'link-3');">data</a></tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method taskcoachlib.thirdparty._weakrefset.WeakSet.update()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#update,Method taskcoachlib.thirdparty.googleapi.apiclient.channel.Channel.update()=taskcoachlib.thirdparty.googleapi.apiclient.channel.Channel-class.html#update,Function taskcoachlib.thirdparty.xdg.Locale.update()=taskcoachlib.thirdparty.xdg.Locale-module.html#update,Method taskcoachlib.widgets.calendarwidget.TaskSchedule.update()=taskcoachlib.widgets.calendarwidget.TaskSchedule-class.html#update"><a title="taskcoachlib.thirdparty._weakrefset.WeakSet.update
+taskcoachlib.thirdparty.googleapi.apiclient.channel.Channel.update
+taskcoachlib.thirdparty.xdg.Locale.update
+taskcoachlib.widgets.calendarwidget.TaskSchedule.update" class="py-name" href="#" onclick="return doclink('link-5', 'update', 'link-5');">update</a></tt><tt class="py-op">(</tt><tt id="link-6" class="py-name" targets="Package taskcoachlib.thirdparty.pubsub.core.kwargs=taskcoachlib.thirdparty.pubsub.core.kwargs-module.html"><a title="taskcoachlib.thirdparty.pubsub.core.kwargs" class="py-name" href="#" onclick="return doclink('link-6', 'kwargs', 'link-6');">kwargs</a></tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="Callback"></a><div id="Callback-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="Callback-toggle" onclick="return toggle('Callback');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.misc.Callback-class.html">Callback</a><tt class="py-op">:</tt> </tt>
+</div><div id="Callback-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Callback-expanded"><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">    <tt class="py-docstring">'''This can be used to wrap functions that are referenced by class</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">    data if the data should be called as a function. E.g. given</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; def func(): pass</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; class A:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">    ....def __init__(self): self.a = func</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">    then doing</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; boo=A(); boo.a()</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">    will fail since Python will try to call a() as a method of boo,</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">    whereas a() is a free function. But if you have instead</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">    "self.a = Callback(func)", then "boo.a()" works as expected.</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="Callback.__init__"></a><div id="Callback.__init__-def"><a name="L50"></a><tt class="py-lineno"> 50</tt> <a class="py-toggle" href="#" id="Callback.__init__-toggle" onclick="return toggle('Callback.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.misc.Callback-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">callable_</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Callback.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Callback.__init__-expanded"><a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__callable</tt> <tt class="py-op">=</tt> <tt class="py-name">callable_</tt> </tt>
+</div><a name="Callback.__call__"></a><div id="Callback.__call__-def"><a name="L52"></a><tt class="py-lineno"> 52</tt> <a class="py-toggle" href="#" id="Callback.__call__-toggle" onclick="return toggle('Callback.__call__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.misc.Callback-class.html#__call__">__call__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Callback.__call__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Callback.__call__-expanded"><a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__callable</tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt id="link-7" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.kwargs" class="py-name" href="#" onclick="return doclink('link-7', 'kwargs', 'link-6');">kwargs</a></tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"> </tt>
+<a name="Enum"></a><div id="Enum-def"><a name="L56"></a><tt class="py-lineno"> 56</tt> <a class="py-toggle" href="#" id="Enum-toggle" onclick="return toggle('Enum');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.misc.Enum-class.html">Enum</a><tt class="py-op">:</tt> </tt>
+</div><div id="Enum-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Enum-expanded"><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">    <tt class="py-docstring">'''Used only internally. Represent one value out of an enumeration</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">    set.  It is meant to be used as::</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">        class YourAllowedValues:</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">            enum1 = Enum()</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">            # or:</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">            enum2 = Enum(value)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring">            # or:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring">            enum3 = Enum(value, 'descriptionLine1')</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">            # or:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">            enum3 = Enum(None, 'descriptionLine1', 'descriptionLine2', ...)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring">        val = YourAllowedValues.enum1</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">        ...</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">        if val is YourAllowedValues.enum1:</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">            ...</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Variable taskcoachlib.thirdparty.pubsub.utils.misc.Enum.nextValue=taskcoachlib.thirdparty.pubsub.utils.misc.Enum-class.html#nextValue"><a title="taskcoachlib.thirdparty.pubsub.utils.misc.Enum.nextValue" class="py-name" href="#" onclick="return doclink('link-8', 'nextValue', 'link-8');">nextValue</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">    <tt id="link-9" class="py-name" targets="Method taskcoachlib.patterns.observer.Event.values()=taskcoachlib.patterns.observer.Event-class.html#values,Variable taskcoachlib.thirdparty.desktop.dialog.Boolean.values=taskcoachlib.thirdparty.desktop.dialog.Boolean-class.html#values,Variable taskcoachlib.thirdparty.pubsub.utils.misc.Enum.values=taskcoachlib.thirdparty.pubsub.utils.misc.Enum-class.html#values,Method taskcoachlib.thirdparty.pyparsing.ParseResults.values()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#values"><a title="taskcoachlib.patterns.observer.Event.values
+taskcoachlib.thirdparty.desktop.dialog.Boolean.values
+taskcoachlib.thirdparty.pubsub.utils.misc.Enum.values
+taskcoachlib.thirdparty.pyparsing.ParseResults.values" class="py-name" href="#" onclick="return doclink('link-9', 'values', 'link-9');">values</a></tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name" targets="Method taskcoachlib.config.settings.CachingConfigParser.set()=taskcoachlib.config.settings.CachingConfigParser-class.html#set,Method taskcoachlib.config.settings.Settings.set()=taskcoachlib.config.settings.Settings-class.html#set,Method taskcoachlib.config.settings.UnicodeAwareConfigParser.set()=taskcoachlib.config.settings.UnicodeAwareConfigParser-class.html#set,Method taskcoachlib.domain.base.attribute.Attribute.set()=taskcoachlib.domain.base.attribute.Attribute-class.html#set,Method taskcoachlib.domain.base.attribute.SetAttribute.set()=taskcoachlib.domain.base.attribute.SetAttribute-class.html#set,Method taskcoachlib.gui.dialog.preferences.SettingsPage.set()=taskcoachlib.gui.dialog.preferences.SettingsPage-class.html#set,Method taskcoachlib.gui.dialog.preferences.SettingsPageBase.set()=taskcoachlib.gui.dialog.preferences.SettingsPageBase-class.html#set,Method taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.set()=taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage-class.html#set,Method taskcoachlib.syncml.config.SyncMLConfigNode.set()=taskcoachlib.syncml.config.SyncMLConfigNode-class.html#set,Method taskcoachlib.thirdparty.googleapi.httplib2.FileCache.set()=taskcoachlib.thirdparty.googleapi.httplib2.FileCache-class.html#set,Method taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.set()=taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache-class.html#set,Method taskcoachlib.thirdparty.ntlm.U32.U32.set()=taskcoachlib.thirdparty.ntlm.U32.U32-class.html#set,Method taskcoachlib.thirdparty.wmi._wmi_object.set()=taskcoachlib.thirdparty.wmi._wmi_object-class.html#set,Method taskcoachlib.thirdparty.wmi._wmi_property.set()=taskcoachlib.thirdparty.wmi._wmi_property-class.html#set,Method taskcoachlib.thirdparty.xdg.IniFile.IniFile.set()=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#set"><a title="taskcoachlib.config.settings.CachingConfigParser.set
+taskcoachlib.config.settings.Settings.set
+taskcoachlib.config.settings.UnicodeAwareConfigParser.set
+taskcoachlib.domain.base.attribute.Attribute.set
+taskcoachlib.domain.base.attribute.SetAttribute.set
+taskcoachlib.gui.dialog.preferences.SettingsPage.set
+taskcoachlib.gui.dialog.preferences.SettingsPageBase.set
+taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.set
+taskcoachlib.syncml.config.SyncMLConfigNode.set
+taskcoachlib.thirdparty.googleapi.httplib2.FileCache.set
+taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.set
+taskcoachlib.thirdparty.ntlm.U32.U32.set
+taskcoachlib.thirdparty.wmi._wmi_object.set
+taskcoachlib.thirdparty.wmi._wmi_property.set
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.set" class="py-name" href="#" onclick="return doclink('link-10', 'set', 'link-10');">set</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="Enum.__init__"></a><div id="Enum.__init__-def"><a name="L77"></a><tt class="py-lineno"> 77</tt> <a class="py-toggle" href="#" id="Enum.__init__-toggle" onclick="return toggle('Enum.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.misc.Enum-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">value</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">desc</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Enum.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Enum.__init__-expanded"><a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-docstring">'''Use value if given, otherwise use next integer.'''</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">desc</tt> <tt class="py-op">=</tt> <tt class="py-string">'\n'</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">desc</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-11" class="py-name" targets="Method taskcoachlib.gui.viewer.task.SquareTaskViewer.value()=taskcoachlib.gui.viewer.task.SquareTaskViewer-class.html#value,Method taskcoachlib.patterns.observer.Event.value()=taskcoachlib.patterns.observer.Event-class.html#value,Method taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value()=taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter-class.html#value,Method taskcoachlib.widgets.itemctrl.Column.value()=taskcoachlib.widgets.itemctrl.Column-class.html#value"><a title="taskcoachlib.gui.viewer.task.SquareTaskViewer.value
+taskcoachlib.patterns.observer.Event.value
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value
+taskcoachlib.widgets.itemctrl.Column.value" class="py-name" href="#" onclick="return doclink('link-11', 'value', 'link-11');">value</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">            <tt class="py-keyword">assert</tt> <tt id="link-12" class="py-name" targets="Class taskcoachlib.thirdparty.pubsub.utils.misc.Enum=taskcoachlib.thirdparty.pubsub.utils.misc.Enum-class.html"><a title="taskcoachlib.thirdparty.pubsub.utils.misc.Enum" class="py-name" href="#" onclick="return doclink('link-12', 'Enum', 'link-12');">Enum</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.misc.Enum.nextValue" class="py-name" href="#" onclick="return doclink('link-13', 'nextValue', 'link-8');">nextValue</a></tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt id="link-14" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.misc.Enum" class="py-name" href="#" onclick="return doclink('link-14', 'Enum', 'link-12');">Enum</a></tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="taskcoachlib.patterns.observer.Event.values
+taskcoachlib.thirdparty.desktop.dialog.Boolean.values
+taskcoachlib.thirdparty.pubsub.utils.misc.Enum.values
+taskcoachlib.thirdparty.pyparsing.ParseResults.values" class="py-name" href="#" onclick="return doclink('link-15', 'values', 'link-9');">values</a></tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="taskcoachlib.gui.viewer.task.SquareTaskViewer.value
+taskcoachlib.patterns.observer.Event.value
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value
+taskcoachlib.widgets.itemctrl.Column.value" class="py-name" href="#" onclick="return doclink('link-16', 'value', 'link-11');">value</a></tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.misc.Enum" class="py-name" href="#" onclick="return doclink('link-17', 'Enum', 'link-12');">Enum</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.misc.Enum.nextValue" class="py-name" href="#" onclick="return doclink('link-18', 'nextValue', 'link-8');">nextValue</a></tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">            <tt id="link-19" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.misc.Enum" class="py-name" href="#" onclick="return doclink('link-19', 'Enum', 'link-12');">Enum</a></tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="taskcoachlib.patterns.observer.Event.values
+taskcoachlib.thirdparty.desktop.dialog.Boolean.values
+taskcoachlib.thirdparty.pubsub.utils.misc.Enum.values
+taskcoachlib.thirdparty.pyparsing.ParseResults.values" class="py-name" href="#" onclick="return doclink('link-20', 'values', 'link-9');">values</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method taskcoachlib.domain.base.attribute.SetAttribute.add()=taskcoachlib.domain.base.attribute.SetAttribute-class.html#add,Method taskcoachlib.thirdparty._weakrefset.WeakSet.add()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#add,Method taskcoachlib.thirdparty.desktop.dialog.Menu.add()=taskcoachlib.thirdparty.desktop.dialog.Menu-class.html#add,Method taskcoachlib.thirdparty.googleapi.apiclient.http.BatchHttpRequest.add()=taskcoachlib.thirdparty.googleapi.apiclient.http.BatchHttpRequest-class.html#add,Method taskcoachlib.thirdparty.googleapi.httplib2.Credentials.add()=taskcoachlib.thirdparty.googleapi.httplib2.Credentials-class.html#add,Method taskcoachlib.widgets.panel.BoxWithBoxSizer.add()=taskcoachlib.widgets.panel.BoxWithBoxSizer-class.html#add,Method taskcoachlib.widgets.panel.BoxWithFlexGridSizer.add()=taskcoachlib.widgets.panel.BoxWithFlexGridSizer-class.html#add,Method taskcoachlib.widgets.panel.PanelWithBoxSizer.add()=taskcoachlib.widgets.panel.PanelWithBoxSizer-class.html#add"><a title="taskcoachlib.domain.base.attribute.SetAttribute.add
+taskcoachlib.thirdparty._weakrefset.WeakSet.add
+taskcoachlib.thirdparty.desktop.dialog.Menu.add
+taskcoachlib.thirdparty.googleapi.apiclient.http.BatchHttpRequest.add
+taskcoachlib.thirdparty.googleapi.httplib2.Credentials.add
+taskcoachlib.widgets.panel.BoxWithBoxSizer.add
+taskcoachlib.widgets.panel.BoxWithFlexGridSizer.add
+taskcoachlib.widgets.panel.PanelWithBoxSizer.add" class="py-name" href="#" onclick="return doclink('link-21', 'add', 'link-21');">add</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="taskcoachlib.gui.viewer.task.SquareTaskViewer.value
+taskcoachlib.patterns.observer.Event.value
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value
+taskcoachlib.widgets.itemctrl.Column.value" class="py-name" href="#" onclick="return doclink('link-22', 'value', 'link-11');">value</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">            <tt id="link-23" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.misc.Enum" class="py-name" href="#" onclick="return doclink('link-23', 'Enum', 'link-12');">Enum</a></tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.misc.Enum.nextValue" class="py-name" href="#" onclick="return doclink('link-24', 'nextValue', 'link-8');">nextValue</a></tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">            <tt class="py-comment"># check that we haven't run out of integers!</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-25" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.misc.Enum" class="py-name" href="#" onclick="return doclink('link-25', 'Enum', 'link-12');">Enum</a></tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.misc.Enum.nextValue" class="py-name" href="#" onclick="return doclink('link-26', 'nextValue', 'link-8');">nextValue</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">RuntimeError</tt><tt class="py-op">(</tt><tt class="py-string">'Ran out of enumeration values?'</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">                <tt id="link-27" class="py-name"><a title="taskcoachlib.gui.viewer.task.SquareTaskViewer.value
+taskcoachlib.patterns.observer.Event.value
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value
+taskcoachlib.widgets.itemctrl.Column.value" class="py-name" href="#" onclick="return doclink('link-27', 'value', 'link-11');">value</a></tt> <tt class="py-op">+</tt> <tt id="link-28" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.misc.Enum" class="py-name" href="#" onclick="return doclink('link-28', 'Enum', 'link-12');">Enum</a></tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.misc.Enum.nextValue" class="py-name" href="#" onclick="return doclink('link-29', 'nextValue', 'link-8');">nextValue</a></tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'Not allowed to assign integer to enumerations'</tt><tt class="py-op">)</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt class="py-name">TypeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="taskcoachlib.gui.viewer.task.SquareTaskViewer.value
+taskcoachlib.patterns.observer.Event.value
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value
+taskcoachlib.widgets.itemctrl.Column.value" class="py-name" href="#" onclick="return doclink('link-30', 'value', 'link-11');">value</a></tt> <tt class="py-op">=</tt> <tt id="link-31" class="py-name"><a title="taskcoachlib.gui.viewer.task.SquareTaskViewer.value
+taskcoachlib.patterns.observer.Event.value
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value
+taskcoachlib.widgets.itemctrl.Column.value" class="py-name" href="#" onclick="return doclink('link-31', 'value', 'link-11');">value</a></tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="taskcoachlib.gui.viewer.task.SquareTaskViewer.value
+taskcoachlib.patterns.observer.Event.value
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value
+taskcoachlib.widgets.itemctrl.Column.value" class="py-name" href="#" onclick="return doclink('link-32', 'value', 'link-11');">value</a></tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt id="link-33" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.misc.Enum" class="py-name" href="#" onclick="return doclink('link-33', 'Enum', 'link-12');">Enum</a></tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="taskcoachlib.patterns.observer.Event.values
+taskcoachlib.thirdparty.desktop.dialog.Boolean.values
+taskcoachlib.thirdparty.pubsub.utils.misc.Enum.values
+taskcoachlib.thirdparty.pyparsing.ParseResults.values" class="py-name" href="#" onclick="return doclink('link-34', 'values', 'link-9');">values</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                <tt id="link-35" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.misc.Enum" class="py-name" href="#" onclick="return doclink('link-35', 'Enum', 'link-12');">Enum</a></tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="taskcoachlib.patterns.observer.Event.values
+taskcoachlib.thirdparty.desktop.dialog.Boolean.values
+taskcoachlib.thirdparty.pubsub.utils.misc.Enum.values
+taskcoachlib.thirdparty.pyparsing.ParseResults.values" class="py-name" href="#" onclick="return doclink('link-36', 'values', 'link-9');">values</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="taskcoachlib.domain.base.attribute.SetAttribute.add
+taskcoachlib.thirdparty._weakrefset.WeakSet.add
+taskcoachlib.thirdparty.desktop.dialog.Menu.add
+taskcoachlib.thirdparty.googleapi.apiclient.http.BatchHttpRequest.add
+taskcoachlib.thirdparty.googleapi.httplib2.Credentials.add
+taskcoachlib.widgets.panel.BoxWithBoxSizer.add
+taskcoachlib.widgets.panel.BoxWithFlexGridSizer.add
+taskcoachlib.widgets.panel.PanelWithBoxSizer.add" class="py-name" href="#" onclick="return doclink('link-37', 'add', 'link-21');">add</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="taskcoachlib.gui.viewer.task.SquareTaskViewer.value
+taskcoachlib.patterns.observer.Event.value
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value
+taskcoachlib.widgets.itemctrl.Column.value" class="py-name" href="#" onclick="return doclink('link-38', 'value', 'link-11');">value</a></tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:40 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

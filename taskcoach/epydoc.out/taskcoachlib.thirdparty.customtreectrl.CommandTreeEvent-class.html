@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html">Module&nbsp;customtreectrl</a> ::
+        Class&nbsp;CommandTreeEvent
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class CommandTreeEvent</h1><p class="nomargin-top"><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+wx.PyCommandEvent --+
+                    |
+                   <strong class="uidshort">CommandTreeEvent</strong>
+</pre>
+
+<hr />
+<p><a 
+  href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html"
+  class="link">CommandTreeEvent</a> is a special subclassing of 
+  `wx.PyCommandEvent`.</p>
+  <p>:note: Not all the accessors make sense for all the events, see the 
+  event description for every method in this class.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">evtType</span>,
+        <span class="summary-sig-arg">evtId</span>,
+        <span class="summary-sig-arg">item</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">evtKey</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">point</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">label</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Default class constructor.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#GetItem" class="summary-sig-name">GetItem</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Gets the item on which the operation was performed or the newly 
+      selected item for ``EVT_TREE_SEL_CHANGED`` and 
+      ``EVT_TREE_SEL_CHANGING`` events.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.GetItem">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#SetItem" class="summary-sig-name">SetItem</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>)</span><br />
+      Sets the item on which the operation was performed or the newly 
+      selected item for ``EVT_TREE_SEL_CHANGED`` and 
+      ``EVT_TREE_SEL_CHANGING`` events.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.SetItem">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#GetOldItem" class="summary-sig-name">GetOldItem</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the previously selected item for ``EVT_TREE_SEL_CHANGED`` and
+      ``EVT_TREE_SEL_CHANGING`` events.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.GetOldItem">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#SetOldItem" class="summary-sig-name">SetOldItem</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>)</span><br />
+      Returns the previously selected item for ``EVT_TREE_SEL_CHANGED`` and
+      ``EVT_TREE_SEL_CHANGING`` events.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.SetOldItem">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#GetPoint" class="summary-sig-name">GetPoint</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the point where the mouse was when the drag operation started
+      (for ``EVT_TREE_BEGIN_DRAG`` and ``EVT_TREE_BEGIN_RDRAG`` events 
+      only) or the click position.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.GetPoint">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#SetPoint" class="summary-sig-name">SetPoint</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pt</span>)</span><br />
+      Sets the point where the mouse was when the drag operation started 
+      (for ``EVT_TREE_BEGIN_DRAG`` and ``EVT_TREE_BEGIN_RDRAG`` events 
+      only) or the click position.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.SetPoint">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#GetKeyEvent" class="summary-sig-name">GetKeyEvent</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the keyboard data (for ``EVT_TREE_KEY_DOWN`` event only).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.GetKeyEvent">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#GetKeyCode" class="summary-sig-name">GetKeyCode</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the virtual key code.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.GetKeyCode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#SetKeyEvent" class="summary-sig-name">SetKeyEvent</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Sets the keyboard data (for ``EVT_TREE_KEY_DOWN`` event only).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.SetKeyEvent">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#GetLabel" class="summary-sig-name">GetLabel</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the item text (for ``EVT_TREE_BEGIN_LABEL_EDIT`` and 
+      ``EVT_TREE_END_LABEL_EDIT`` events only).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.GetLabel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#SetLabel" class="summary-sig-name">SetLabel</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">label</span>)</span><br />
+      Sets the item text (for ``EVT_TREE_BEGIN_LABEL_EDIT`` and 
+      ``EVT_TREE_END_LABEL_EDIT`` events only).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.SetLabel">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#IsEditCancelled" class="summary-sig-name">IsEditCancelled</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the edit cancel flag (for ``EVT_TREE_BEGIN_LABEL_EDIT`` and 
+      ``EVT_TREE_END_LABEL_EDIT`` events only).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.IsEditCancelled">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#SetEditCanceled" class="summary-sig-name">SetEditCanceled</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">editCancelled</span>)</span><br />
+      Sets the edit cancel flag (for ``EVT_TREE_BEGIN_LABEL_EDIT`` and 
+      ``EVT_TREE_END_LABEL_EDIT`` events only).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.SetEditCanceled">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#SetToolTip" class="summary-sig-name">SetToolTip</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">toolTip</span>)</span><br />
+      Sets the tooltip for the item (for ``EVT_TREE_ITEM_GETTOOLTIP`` 
+      events).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.SetToolTip">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html#GetToolTip" class="summary-sig-name">GetToolTip</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the tooltip for the item (for ``EVT_TREE_ITEM_GETTOOLTIP`` 
+      events).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.GetToolTip">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">evtType</span>,
+        <span class="sig-arg">evtId</span>,
+        <span class="sig-arg">item</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">evtKey</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">point</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">label</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Default class constructor. For internal use: do not call it in your 
+  code!</p>
+  <p>:param integer `evtType`: the event type; :param integer `evtId`: the 
+  event identifier; :param `item`: an instance of <a 
+  href="taskcoachlib.thirdparty.customtreectrl.GenericTreeItem-class.html" 
+  class="link">GenericTreeItem</a>; :param integer `evtKey`: a character 
+  ordinal; :param `point`: an instance of `wx.Point`; :param string 
+  `label`: a <a 
+  href="taskcoachlib.thirdparty.customtreectrl.GenericTreeItem-class.html" 
+  class="link">GenericTreeItem</a> text label.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetItem"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetItem</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.GetItem">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Gets the item on which the operation was performed or the newly 
+  selected item for ``EVT_TREE_SEL_CHANGED`` and ``EVT_TREE_SEL_CHANGING`` 
+  events.</p>
+  <p>:return: An instance of <a 
+  href="taskcoachlib.thirdparty.customtreectrl.GenericTreeItem-class.html" 
+  class="link">GenericTreeItem</a>.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetItem"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetItem</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">item</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.SetItem">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the item on which the operation was performed or the newly 
+  selected item for ``EVT_TREE_SEL_CHANGED`` and ``EVT_TREE_SEL_CHANGING`` 
+  events.</p>
+  <p>:param `item`: an instance of <a 
+  href="taskcoachlib.thirdparty.customtreectrl.GenericTreeItem-class.html" 
+  class="link">GenericTreeItem</a>.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetOldItem"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetOldItem</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.GetOldItem">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the previously selected item for ``EVT_TREE_SEL_CHANGED`` and 
+  ``EVT_TREE_SEL_CHANGING`` events.</p>
+  <p>:return: An instance of <a 
+  href="taskcoachlib.thirdparty.customtreectrl.GenericTreeItem-class.html" 
+  class="link">GenericTreeItem</a>.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetOldItem"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetOldItem</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">item</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.SetOldItem">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the previously selected item for ``EVT_TREE_SEL_CHANGED`` and 
+  ``EVT_TREE_SEL_CHANGING`` events.</p>
+  <p>:param `item`: an instance of <a 
+  href="taskcoachlib.thirdparty.customtreectrl.GenericTreeItem-class.html" 
+  class="link">GenericTreeItem</a>.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetPoint"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetPoint</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.GetPoint">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the point where the mouse was when the drag operation started 
+  (for ``EVT_TREE_BEGIN_DRAG`` and ``EVT_TREE_BEGIN_RDRAG`` events only) or
+  the click position.</p>
+  <p>:return: An instance of `wx.Point`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetPoint"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetPoint</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">pt</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.SetPoint">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the point where the mouse was when the drag operation started 
+  (for ``EVT_TREE_BEGIN_DRAG`` and ``EVT_TREE_BEGIN_RDRAG`` events only) or
+  the click position.</p>
+  <p>:param `pt`: an instance of `wx.Point`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetKeyEvent"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetKeyEvent</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.GetKeyEvent">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the keyboard data (for ``EVT_TREE_KEY_DOWN`` event only).</p>
+  <p>:return: An instance of `wx.KeyEvent`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetKeyCode"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetKeyCode</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.GetKeyCode">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Returns the virtual key code. ASCII events return normal ASCII values, while
+non-ASCII events return values such as ``wx.WXK_LEFT`` for the left cursor key.
+
+This method is for ``EVT_TREE_KEY_DOWN`` events only.
+
+:return: An integer representing the virtual key code.
+
+:note: In Unicode build, the returned value is meaningful only if the user entered
+ a character that can be represented in current locale's default charset. You can
+ obtain the corresponding Unicode character using `GetUnicodeKey`.        
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetKeyEvent"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetKeyEvent</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.SetKeyEvent">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the keyboard data (for ``EVT_TREE_KEY_DOWN`` event only).</p>
+  <p>:param `event`: a <a 
+  href="taskcoachlib.thirdparty.customtreectrl.TreeEvent-class.html" 
+  class="link">TreeEvent</a> event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetLabel"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetLabel</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.GetLabel">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the item text (for ``EVT_TREE_BEGIN_LABEL_EDIT`` and 
+  ``EVT_TREE_END_LABEL_EDIT`` events only).</p>
+  <p>:return: A string containing the item text.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetLabel"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetLabel</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">label</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.SetLabel">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the item text (for ``EVT_TREE_BEGIN_LABEL_EDIT`` and 
+  ``EVT_TREE_END_LABEL_EDIT`` events only).</p>
+  <p>:param string `label`: a string containing the new item text.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="IsEditCancelled"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">IsEditCancelled</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.IsEditCancelled">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the edit cancel flag (for ``EVT_TREE_BEGIN_LABEL_EDIT`` and 
+  ``EVT_TREE_END_LABEL_EDIT`` events only).</p>
+  <p>:return: ``True`` is the item editing has been cancelled, ``False`` 
+  otherwise.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetEditCanceled"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetEditCanceled</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">editCancelled</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.SetEditCanceled">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the edit cancel flag (for ``EVT_TREE_BEGIN_LABEL_EDIT`` and 
+  ``EVT_TREE_END_LABEL_EDIT`` events only).</p>
+  <p>:param bool `editCancelled`: ``True`` to cancel the editing, ``False``
+  otherwise.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetToolTip"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetToolTip</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">toolTip</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.SetToolTip">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the tooltip for the item (for ``EVT_TREE_ITEM_GETTOOLTIP`` 
+  events).</p>
+  <p>:param string `tooltip`: a string representing the item tooltip.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetToolTip"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetToolTip</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#CommandTreeEvent.GetToolTip">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the tooltip for the item (for ``EVT_TREE_ITEM_GETTOOLTIP`` 
+  events).</p>
+  <p>:return: A string containing the item tooltip.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:43 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.combotreebox.MSWComboTreeBox</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.combotreebox-module.html">Module&nbsp;combotreebox</a> ::
+        Class&nbsp;MSWComboTreeBox
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.combotreebox.MSWComboTreeBox-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class MSWComboTreeBox</h1><p class="nomargin-top"><span class="codelink"><a href="taskcoachlib.thirdparty.combotreebox-pysrc.html#MSWComboTreeBox">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+           object --+        
+                    |        
+<a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html" onclick="show_private();">BaseComboTreeBoxMixin</a> --+    
+                        |    
+          wx.ComboBox --+    
+                        |    
+       <a href="taskcoachlib.thirdparty.combotreebox.NativeComboTreeBox-class.html" onclick="show_private();">NativeComboTreeBox</a> --+
+                            |
+                           <strong class="uidshort">MSWComboTreeBox</strong>
+</pre>
+
+<hr />
+<p>MSWComboTreeBox adds one piece of functionality as compared to 
+  NativeComboTreeBox: when the user browses through the tree, the 
+  ComboTreeBox's text field is continuously updated to show the currently 
+  selected item in the tree. If the user cancels selecting a new item from 
+  the tree, e.g. by hitting escape, the previous value (the one that was 
+  selected before the PopupFrame was popped up) is restored.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.combotreebox.MSWComboTreeBox-class.html#_createPopupFrame" class="summary-sig-name" onclick="show_private();">_createPopupFrame</a>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.combotreebox-pysrc.html#MSWComboTreeBox._createPopupFrame">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">[(eventSource, eventType, eventHandler), ...]</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.combotreebox.MSWComboTreeBox-class.html#_eventsToBind" class="summary-sig-name" onclick="show_private();">_eventsToBind</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      _eventsToBind returns a list of eventSource, eventType, eventHandlers
+      tuples that will be bound.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.combotreebox-pysrc.html#MSWComboTreeBox._eventsToBind">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="OnSelectionChangedInTree"></a><span class="summary-sig-name">OnSelectionChangedInTree</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      When the user changes the selection in the tree, update the text in 
+      the combobox.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.combotreebox-pysrc.html#MSWComboTreeBox.OnSelectionChangedInTree">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.combotreebox.MSWComboTreeBox-class.html#_keyShouldPopUpTree" class="summary-sig-name" onclick="show_private();">_keyShouldPopUpTree</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">keyEvent</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.combotreebox-pysrc.html#MSWComboTreeBox._keyShouldPopUpTree">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.combotreebox.MSWComboTreeBox-class.html#SetValue" class="summary-sig-name">SetValue</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Extend SetValue to also select the text in the ComboTreeBox's text 
+      field.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.combotreebox-pysrc.html#MSWComboTreeBox.SetValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.combotreebox.MSWComboTreeBox-class.html#Popup" class="summary-sig-name">Popup</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Extend Popup to store a copy of the current value, so we can restore 
+      it later (in NotifyNoItemSelected).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.combotreebox-pysrc.html#MSWComboTreeBox.Popup">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.combotreebox.MSWComboTreeBox-class.html#NotifyNoItemSelected" class="summary-sig-name">NotifyNoItemSelected</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Restore the value copied previously, because the user has not 
+      selected a new value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.combotreebox-pysrc.html#MSWComboTreeBox.NotifyNoItemSelected">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.thirdparty.combotreebox.NativeComboTreeBox-class.html" onclick="show_private();">NativeComboTreeBox</a></code></b>:
+      <code><a href="taskcoachlib.thirdparty.combotreebox.NativeComboTreeBox-class.html#OnChar">OnChar</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html" onclick="show_private();">BaseComboTreeBoxMixin</a></code></b>:
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#Append">Append</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#Clear">Clear</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#Delete">Delete</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#FindClientData">FindClientData</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#FindString">FindString</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#GetClientData">GetClientData</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#GetCount">GetCount</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#GetSelection">GetSelection</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#GetString">GetString</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#GetStringSelection">GetStringSelection</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#GetTree">GetTree</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#GetValue">GetValue</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#Hide">Hide</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#Insert">Insert</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#IsEmpty">IsEmpty</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#NotifyItemSelected">NotifyItemSelected</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#OnKeyDown">OnKeyDown</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#OnMouseClick">OnMouseClick</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#OnText">OnText</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#Select">Select</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#SetClientData">SetClientData</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#SetClientDataSelection">SetClientDataSelection</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#SetSelection">SetSelection</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#SetString">SetString</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#SetStringSelection">SetStringSelection</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#__init__">__init__</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html" onclick="show_private();">BaseComboTreeBoxMixin</a></code></b> (private):
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#_bindEventHandlers" onclick="show_private();">_bindEventHandlers</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#_createButton" onclick="show_private();">_createButton</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#_createInterior" onclick="show_private();">_createInterior</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#_createTextCtrl" onclick="show_private();">_createTextCtrl</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#_keyShouldNavigate" onclick="show_private();">_keyShouldNavigate</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#_layoutInterior" onclick="show_private();">_layoutInterior</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#_navigateUpOrDown" onclick="show_private();">_navigateUpOrDown</a></code>,
+      <code><a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#_postComboBoxSelectedEvent" onclick="show_private();">_postComboBoxSelectedEvent</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_createPopupFrame"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_createPopupFrame</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.combotreebox-pysrc.html#MSWComboTreeBox._createPopupFrame">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#_createPopupFrame" onclick="show_private();">BaseComboTreeBoxMixin._createPopupFrame</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_eventsToBind"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_eventsToBind</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.combotreebox-pysrc.html#MSWComboTreeBox._eventsToBind">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>_eventsToBind returns a list of eventSource, eventType, eventHandlers 
+  tuples that will be bound. This method can be extended to bind additional
+  events. In that case, don't forget to call _eventsToBind on the super 
+  class.</p>
+  <dl class="fields">
+    <dt>Returns: [(eventSource, eventType, eventHandler), ...]</dt>
+    <dt>Overrides:
+        <a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#_eventsToBind" onclick="show_private();">BaseComboTreeBoxMixin._eventsToBind</a>
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_keyShouldPopUpTree"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_keyShouldPopUpTree</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">keyEvent</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.combotreebox-pysrc.html#MSWComboTreeBox._keyShouldPopUpTree">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#_keyShouldPopUpTree" onclick="show_private();">BaseComboTreeBoxMixin._keyShouldPopUpTree</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetValue"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetValue</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">value</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.combotreebox-pysrc.html#MSWComboTreeBox.SetValue">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Extend SetValue to also select the text in the ComboTreeBox's text 
+  field.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#SetValue">BaseComboTreeBoxMixin.SetValue</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="Popup"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">Popup</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.combotreebox-pysrc.html#MSWComboTreeBox.Popup">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Extend Popup to store a copy of the current value, so we can restore 
+  it later (in NotifyNoItemSelected). This is necessary because 
+  MSWComboTreeBox will change the value as the user browses through the 
+  items in the popped up tree.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#Popup">BaseComboTreeBoxMixin.Popup</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="NotifyNoItemSelected"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">NotifyNoItemSelected</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*args</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.combotreebox-pysrc.html#MSWComboTreeBox.NotifyNoItemSelected">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Restore the value copied previously, because the user has not selected
+  a new value.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="taskcoachlib.thirdparty.combotreebox.BaseComboTreeBoxMixin-class.html#NotifyNoItemSelected">BaseComboTreeBoxMixin.NotifyNoItemSelected</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:43 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

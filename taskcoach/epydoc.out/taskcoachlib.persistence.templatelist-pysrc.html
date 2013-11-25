@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.persistence.templatelist</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.persistence-module.html">Package&nbsp;persistence</a> ::
+        Module&nbsp;templatelist
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.persistence.templatelist-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.persistence.templatelist-module.html">Module taskcoachlib.persistence.templatelist</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach - Your friendly task manager</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (C) 2004-2013 Task Coach developers &lt;developers@taskcoach.org&gt;</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is free software: you can redistribute it and/or modify</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">the Free Software Foundation, either version 3 of the License, or</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">(at your option) any later version.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">GNU General Public License for more details.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">,</tt> <tt class="py-name">pickle</tt><tt class="py-op">,</tt> <tt class="py-name">tempfile</tt><tt class="py-op">,</tt> <tt class="py-name">shutil</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package taskcoachlib=taskcoachlib-module.html"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-0', 'taskcoachlib', 'link-0');">taskcoachlib</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package taskcoachlib.thirdparty=taskcoachlib.thirdparty-module.html"><a title="taskcoachlib.thirdparty" class="py-name" href="#" onclick="return doclink('link-1', 'thirdparty', 'link-1');">thirdparty</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package taskcoachlib.thirdparty.pubsub=taskcoachlib.thirdparty.pubsub-module.html"><a title="taskcoachlib.thirdparty.pubsub" class="py-name" href="#" onclick="return doclink('link-2', 'pubsub', 'link-2');">pubsub</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Module taskcoachlib.thirdparty.pubsub.pub=taskcoachlib.thirdparty.pubsub.pub-module.html"><a title="taskcoachlib.thirdparty.pubsub.pub" class="py-name" href="#" onclick="return doclink('link-3', 'pub', 'link-3');">pub</a></tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Package taskcoachlib.persistence.xml=taskcoachlib.persistence.xml-module.html"><a title="taskcoachlib.persistence.xml" class="py-name" href="#" onclick="return doclink('link-4', 'xml', 'link-4');">xml</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Class taskcoachlib.persistence.xml.writer.TemplateXMLWriter=taskcoachlib.persistence.xml.writer.TemplateXMLWriter-class.html"><a title="taskcoachlib.persistence.xml.writer.TemplateXMLWriter" class="py-name" href="#" onclick="return doclink('link-5', 'TemplateXMLWriter', 'link-5');">TemplateXMLWriter</a></tt><tt class="py-op">,</tt> <tt id="link-6" class="py-name" targets="Class taskcoachlib.persistence.xml.reader.TemplateXMLReader=taskcoachlib.persistence.xml.reader.TemplateXMLReader-class.html"><a title="taskcoachlib.persistence.xml.reader.TemplateXMLReader" class="py-name" href="#" onclick="return doclink('link-6', 'TemplateXMLReader', 'link-6');">TemplateXMLReader</a></tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="TemplateList"></a><div id="TemplateList-def"><a name="L24"></a><tt class="py-lineno"> 24</tt> <a class="py-toggle" href="#" id="TemplateList-toggle" onclick="return toggle('TemplateList');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.persistence.templatelist.TemplateList-class.html">TemplateList</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TemplateList-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="TemplateList-expanded"><a name="TemplateList.__init__"></a><div id="TemplateList.__init__-def"><a name="L25"></a><tt class="py-lineno"> 25</tt> <a class="py-toggle" href="#" id="TemplateList.__init__-toggle" onclick="return toggle('TemplateList.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.templatelist.TemplateList-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">path</tt><tt class="py-op">,</tt> <tt class="py-param">TemplateReader</tt><tt class="py-op">=</tt><tt id="link-7" class="py-name"><a title="taskcoachlib.persistence.xml.reader.TemplateXMLReader" class="py-name" href="#" onclick="return doclink('link-7', 'TemplateXMLReader', 'link-6');">TemplateXMLReader</a></tt><tt class="py-op">,</tt> <tt class="py-param">openFile</tt><tt class="py-op">=</tt><tt id="link-8" class="py-name" targets="Module taskcoachlib.thirdparty.googleapi.oauth2client.file=taskcoachlib.thirdparty.googleapi.oauth2client.file-module.html"><a title="taskcoachlib.thirdparty.googleapi.oauth2client.file" class="py-name" href="#" onclick="return doclink('link-8', 'file', 'link-8');">file</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TemplateList.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TemplateList.__init__-expanded"><a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_path</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name" targets="Method taskcoachlib.config.settings.Settings.path()=taskcoachlib.config.settings.Settings-class.html#path,Method taskcoachlib.thirdparty.wmi._wmi_object.path()=taskcoachlib.thirdparty.wmi._wmi_object-class.html#path"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-9', 'path', 'link-9');">path</a></tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_templates</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method taskcoachlib.persistence.templatelist.TemplateList._readTemplates()=taskcoachlib.persistence.templatelist.TemplateList-class.html#_readTemplates"><a title="taskcoachlib.persistence.templatelist.TemplateList._readTemplates" class="py-name" href="#" onclick="return doclink('link-10', '_readTemplates', 'link-10');">_readTemplates</a></tt><tt class="py-op">(</tt><tt class="py-name">TemplateReader</tt><tt class="py-op">,</tt> <tt class="py-name">openFile</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_toDelete</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"> </tt>
+<a name="TemplateList._readTemplates"></a><div id="TemplateList._readTemplates-def"><a name="L30"></a><tt class="py-lineno"> 30</tt> <a class="py-toggle" href="#" id="TemplateList._readTemplates-toggle" onclick="return toggle('TemplateList._readTemplates');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.templatelist.TemplateList-class.html#_readTemplates">_readTemplates</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">TemplateReader</tt><tt class="py-op">,</tt> <tt class="py-param">openFile</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TemplateList._readTemplates-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TemplateList._readTemplates-expanded"><a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt id="link-11" class="py-name" targets="Module taskcoachlib.gui.dialog.templates=taskcoachlib.gui.dialog.templates-module.html,Module taskcoachlib.persistence.xml.templates=taskcoachlib.persistence.xml.templates-module.html"><a title="taskcoachlib.gui.dialog.templates
+taskcoachlib.persistence.xml.templates" class="py-name" href="#" onclick="return doclink('link-11', 'templates', 'link-11');">templates</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-12" class="py-name" targets="Method taskcoachlib.config.settings.Settings.filename()=taskcoachlib.config.settings.Settings-class.html#filename,Method taskcoachlib.gui.iocontroller.IOController.filename()=taskcoachlib.gui.iocontroller.IOController-class.html#filename,Variable taskcoachlib.meta.data.filename=taskcoachlib.meta.data-module.html#filename,Method taskcoachlib.persistence.taskfile.TaskFile.filename()=taskcoachlib.persistence.taskfile.TaskFile-class.html#filename,Method taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename()=taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile-class.html#filename,Method taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename()=taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener-class.html#filename,Method taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename()=taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename=taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename=taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename=taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring-class.html#filename,Variable taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#filename"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-12', 'filename', 'link-12');">filename</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method taskcoachlib.persistence.templatelist.TemplateList._templateFilenames()=taskcoachlib.persistence.templatelist.TemplateList-class.html#_templateFilenames"><a title="taskcoachlib.persistence.templatelist.TemplateList._templateFilenames" class="py-name" href="#" onclick="return doclink('link-13', '_templateFilenames', 'link-13');">_templateFilenames</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">            <tt class="py-name">template</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method taskcoachlib.persistence.templatelist.TemplateList._readTemplate()=taskcoachlib.persistence.templatelist.TemplateList-class.html#_readTemplate"><a title="taskcoachlib.persistence.templatelist.TemplateList._readTemplate" class="py-name" href="#" onclick="return doclink('link-14', '_readTemplate', 'link-14');">_readTemplate</a></tt><tt class="py-op">(</tt><tt id="link-15" class="py-name"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-15', 'filename', 'link-12');">filename</a></tt><tt class="py-op">,</tt> <tt class="py-name">TemplateReader</tt><tt class="py-op">,</tt> <tt class="py-name">openFile</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">template</tt><tt class="py-op">:</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">                <tt id="link-16" class="py-name"><a title="taskcoachlib.gui.dialog.templates
+taskcoachlib.persistence.xml.templates" class="py-name" href="#" onclick="return doclink('link-16', 'templates', 'link-11');">templates</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Method taskcoachlib.iphone.protocol.CompositeItem.append()=taskcoachlib.iphone.protocol.CompositeItem-class.html#append,Method taskcoachlib.iphone.protocol.ListItem.append()=taskcoachlib.iphone.protocol.ListItem-class.html#append,Method taskcoachlib.patterns.command.CommandHistory.append()=taskcoachlib.patterns.command.CommandHistory-class.html#append,Method taskcoachlib.patterns.composite.CompositeCollection.append()=taskcoachlib.patterns.composite.CompositeCollection-class.html#append,Method taskcoachlib.patterns.observer.CollectionDecorator.append()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#append,Method taskcoachlib.patterns.observer.ObservableList.append()=taskcoachlib.patterns.observer.ObservableList-class.html#append,Method taskcoachlib.patterns.observer.ObservableSet.append()=taskcoachlib.patterns.observer.ObservableSet-class.html#append,Method taskcoachlib.thirdparty.pyparsing.ParseExpression.append()=taskcoachlib.thirdparty.pyparsing.ParseExpression-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.timeline.timeline.HotMap.append()=taskcoachlib.thirdparty.timeline.timeline.HotMap-class.html#append"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-17', 'append', 'link-17');">append</a></tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">template</tt><tt class="py-op">,</tt> <tt id="link-18" class="py-name"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-18', 'filename', 'link-12');">filename</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-19" class="py-name"><a title="taskcoachlib.gui.dialog.templates
+taskcoachlib.persistence.xml.templates" class="py-name" href="#" onclick="return doclink('link-19', 'templates', 'link-11');">templates</a></tt> </tt>
+</div><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">     </tt>
+<a name="TemplateList._readTemplate"></a><div id="TemplateList._readTemplate-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="TemplateList._readTemplate-toggle" onclick="return toggle('TemplateList._readTemplate');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.templatelist.TemplateList-class.html#_readTemplate">_readTemplate</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">filename</tt><tt class="py-op">,</tt> <tt class="py-param">TemplateReader</tt><tt class="py-op">,</tt> <tt class="py-param">openFile</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TemplateList._readTemplate-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TemplateList._readTemplate-expanded"><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">            <tt class="py-name">fd</tt> <tt class="py-op">=</tt> <tt class="py-name">openFile</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-20', 'path', 'link-9');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_path</tt><tt class="py-op">,</tt> <tt id="link-21" class="py-name"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-21', 'filename', 'link-12');">filename</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">'rU'</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">IOError</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">TemplateReader</tt><tt class="py-op">(</tt><tt class="py-name">fd</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method taskcoachlib.config.settings.CachingConfigParser.read()=taskcoachlib.config.settings.CachingConfigParser-class.html#read,Method taskcoachlib.domain.attachment.attachment.MailAttachment.read()=taskcoachlib.domain.attachment.attachment.MailAttachment-class.html#read,Method taskcoachlib.filesystem.fs_inotify.Inotify.read()=taskcoachlib.filesystem.fs_inotify.Inotify-class.html#read,Method taskcoachlib.mailer.thunderbird.ThunderbirdMailboxReader.read()=taskcoachlib.mailer.thunderbird.ThunderbirdMailboxReader-class.html#read,Method taskcoachlib.persistence.csv.reader.CSVReader.read()=taskcoachlib.persistence.csv.reader.CSVReader-class.html#read,Method taskcoachlib.persistence.todotxt.reader.TodoTxtReader.read()=taskcoachlib.persistence.todotxt.reader.TodoTxtReader-class.html#read,Method taskcoachlib.persistence.xml.reader.ChangesXMLReader.read()=taskcoachlib.persistence.xml.reader.ChangesXMLReader-class.html#read,Method taskcoachlib.persistence.xml.reader.TemplateXMLReader.read()=taskcoachlib.persistence.xml.reader.TemplateXMLReader-class.html#read,Method taskcoachlib.persistence.xml.reader.XMLReader.read()=taskcoachlib.persistence.xml.reader.XMLReader-class.html#read,Method taskcoachlib.thirdparty.googleapi.apiclient.http._StreamSlice.read()=taskcoachlib.thirdparty.googleapi.apiclient.http._StreamSlice-class.html#read"><a title="taskcoachlib.config.settings.CachingConfigParser.read
+taskcoachlib.domain.attachment.attachment.MailAttachment.read
+taskcoachlib.filesystem.fs_inotify.Inotify.read
+taskcoachlib.mailer.thunderbird.ThunderbirdMailboxReader.read
+taskcoachlib.persistence.csv.reader.CSVReader.read
+taskcoachlib.persistence.todotxt.reader.TodoTxtReader.read
+taskcoachlib.persistence.xml.reader.ChangesXMLReader.read
+taskcoachlib.persistence.xml.reader.TemplateXMLReader.read
+taskcoachlib.persistence.xml.reader.XMLReader.read
+taskcoachlib.thirdparty.googleapi.apiclient.http._StreamSlice.read" class="py-name" href="#" onclick="return doclink('link-22', 'read', 'link-22');">read</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">            <tt class="py-name">fd</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Method taskcoachlib.application.application.RedirectedOutput.close()=taskcoachlib.application.application.RedirectedOutput-class.html#close,Method taskcoachlib.filesystem.fs_darwin.FileMonitor.close()=taskcoachlib.filesystem.fs_darwin.FileMonitor-class.html#close,Variable taskcoachlib.filesystem.fs_darwin.close=taskcoachlib.filesystem.fs_darwin-module.html#close,Method taskcoachlib.filesystem.fs_inotify.Inotify.close()=taskcoachlib.filesystem.fs_inotify.Inotify-class.html#close,Method taskcoachlib.gui.dialog.editor.BudgetPage.close()=taskcoachlib.gui.dialog.editor.BudgetPage-class.html#close,Method taskcoachlib.gui.dialog.editor.Page.close()=taskcoachlib.gui.dialog.editor.Page-class.html#close,Method taskcoachlib.gui.dialog.editor.PageWithViewer.close()=taskcoachlib.gui.dialog.editor.PageWithViewer-class.html#close,Method taskcoachlib.gui.dialog.editor.SubjectPage.close()=taskcoachlib.gui.dialog.editor.SubjectPage-class.html#close,Method taskcoachlib.gui.iocontroller.IOController.close()=taskcoachlib.gui.iocontroller.IOController-class.html#close,Method taskcoachlib.persistence.taskfile.LockedTaskFile.close()=taskcoachlib.persistence.taskfile.LockedTaskFile-class.html#close,Method taskcoachlib.persistence.taskfile.TaskFile.close()=taskcoachlib.persistence.taskfile.TaskFile-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.base.JobStore-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.mongodb_store.MongoDBJobStore-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.shelve_store.ShelveJobStore-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.sqlalchemy_store.SQLAlchemyJobStore-class.html#close,Method taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close()=taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector-class.html#close,Method taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close()=taskcoachlib.thirdparty.pybonjour.DNSServiceRef-class.html#close"><a title="taskcoachlib.application.application.RedirectedOutput.close
+taskcoachlib.filesystem.fs_darwin.FileMonitor.close
+taskcoachlib.filesystem.fs_darwin.close
+taskcoachlib.filesystem.fs_inotify.Inotify.close
+taskcoachlib.gui.dialog.editor.BudgetPage.close
+taskcoachlib.gui.dialog.editor.Page.close
+taskcoachlib.gui.dialog.editor.PageWithViewer.close
+taskcoachlib.gui.dialog.editor.SubjectPage.close
+taskcoachlib.gui.iocontroller.IOController.close
+taskcoachlib.persistence.taskfile.LockedTaskFile.close
+taskcoachlib.persistence.taskfile.TaskFile.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close
+taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close
+taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close" class="py-name" href="#" onclick="return doclink('link-23', 'close', 'link-23');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"> </tt>
+<a name="TemplateList._templateFilenames"></a><div id="TemplateList._templateFilenames-def"><a name="L50"></a><tt class="py-lineno"> 50</tt> <a class="py-toggle" href="#" id="TemplateList._templateFilenames-toggle" onclick="return toggle('TemplateList._templateFilenames');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.templatelist.TemplateList-class.html#_templateFilenames">_templateFilenames</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TemplateList._templateFilenames-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TemplateList._templateFilenames-expanded"><a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-name">filenames</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt id="link-24" class="py-name" targets="Method taskcoachlib.command.base.BaseCommand.name()=taskcoachlib.command.base.BaseCommand-class.html#name,Method taskcoachlib.command.base.NewItemCommand.name()=taskcoachlib.command.base.NewItemCommand-class.html#name,Variable taskcoachlib.meta.data.name=taskcoachlib.meta.data-module.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.CheckList.name=taskcoachlib.thirdparty.desktop.dialog.CheckList-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Error.name=taskcoachlib.thirdparty.desktop.dialog.Error-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Input.name=taskcoachlib.thirdparty.desktop.dialog.Input-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Menu.name=taskcoachlib.thirdparty.desktop.dialog.Menu-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Message.name=taskcoachlib.thirdparty.desktop.dialog.Message-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Password.name=taskcoachlib.thirdparty.desktop.dialog.Password-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Pulldown.name=taskcoachlib.thirdparty.desktop.dialog.Pulldown-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Question.name=taskcoachlib.thirdparty.desktop.dialog.Question-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.RadioList.name=taskcoachlib.thirdparty.desktop.dialog.RadioList-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.TextFile.name=taskcoachlib.thirdparty.desktop.dialog.TextFile-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Warning.name=taskcoachlib.thirdparty.desktop.dialog.Warning-class.html#name,Method taskcoachlib.thirdparty.desktop.windows.Window.name()=taskcoachlib.thirdparty.desktop.windows.Window-class.html#name,Method taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name()=taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase-class.html#name,Method taskcoachlib.widgets.itemctrl.Column.name()=taskcoachlib.widgets.itemctrl.Column-class.html#name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-24', 'name', 'link-24');">name</a></tt> <tt class="py-keyword">for</tt> <tt id="link-25" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-25', 'name', 'link-24');">name</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">listdir</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_path</tt><tt class="py-op">)</tt> <tt class="py-keyword">if</tt> \ </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">                    <tt id="link-26" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-26', 'name', 'link-24');">name</a></tt><tt class="py-op">.</tt><tt class="py-name">endswith</tt><tt class="py-op">(</tt><tt class="py-string">'.tsktmpl'</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-27', 'path', 'link-9');">path</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Method taskcoachlib.persistence.taskfile.TaskFile.exists()=taskcoachlib.persistence.taskfile.TaskFile-class.html#exists"><a title="taskcoachlib.persistence.taskfile.TaskFile.exists" class="py-name" href="#" onclick="return doclink('link-28', 'exists', 'link-28');">exists</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-29', 'path', 'link-9');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_path</tt><tt class="py-op">,</tt> <tt id="link-30" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-30', 'name', 'link-24');">name</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-name">listName</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-31', 'path', 'link-9');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_path</tt><tt class="py-op">,</tt> <tt class="py-string">'list.pickle'</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-32', 'path', 'link-9');">path</a></tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="taskcoachlib.persistence.taskfile.TaskFile.exists" class="py-name" href="#" onclick="return doclink('link-33', 'exists', 'link-28');">exists</a></tt><tt class="py-op">(</tt><tt class="py-name">listName</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">                <tt class="py-name">filenames</tt> <tt class="py-op">=</tt> <tt class="py-name">pickle</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Method taskcoachlib.persistence.taskfile.LockedTaskFile.load()=taskcoachlib.persistence.taskfile.LockedTaskFile-class.html#load,Method taskcoachlib.persistence.taskfile.TaskFile.load()=taskcoachlib.persistence.taskfile.TaskFile-class.html#load,Function taskcoachlib.thirdparty.googleapi.oauth2client.clientsecrets.load()=taskcoachlib.thirdparty.googleapi.oauth2client.clientsecrets-module.html#load"><a title="taskcoachlib.persistence.taskfile.LockedTaskFile.load
+taskcoachlib.persistence.taskfile.TaskFile.load
+taskcoachlib.thirdparty.googleapi.oauth2client.clientsecrets.load" class="py-name" href="#" onclick="return doclink('link-34', 'load', 'link-34');">load</a></tt><tt class="py-op">(</tt><tt id="link-35" class="py-name"><a title="taskcoachlib.thirdparty.googleapi.oauth2client.file" class="py-name" href="#" onclick="return doclink('link-35', 'file', 'link-8');">file</a></tt><tt class="py-op">(</tt><tt class="py-name">listName</tt><tt class="py-op">,</tt> <tt class="py-string">'rb'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">filenames</tt> </tt>
+</div><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">     </tt>
+<a name="TemplateList.save"></a><div id="TemplateList.save-def"><a name="L61"></a><tt class="py-lineno"> 61</tt> <a class="py-toggle" href="#" id="TemplateList.save-toggle" onclick="return toggle('TemplateList.save');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.templatelist.TemplateList-class.html#save">save</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TemplateList.save-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TemplateList.save-expanded"><a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-name">pickle</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name" targets="Method taskcoachlib.thirdparty.aui.dockart.RECT.dump()=taskcoachlib.thirdparty.aui.dockart.RECT-class.html#dump,Method taskcoachlib.thirdparty.pyparsing.ParseResults.dump()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#dump"><a title="taskcoachlib.thirdparty.aui.dockart.RECT.dump
+taskcoachlib.thirdparty.pyparsing.ParseResults.dump" class="py-name" href="#" onclick="return doclink('link-36', 'dump', 'link-36');">dump</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt id="link-37" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-37', 'name', 'link-24');">name</a></tt> <tt class="py-keyword">for</tt> <tt id="link-38" class="py-name" targets="Method taskcoachlib.domain.effort.base.BaseEffort.task()=taskcoachlib.domain.effort.base.BaseEffort-class.html#task,Class Method taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task()=taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod-class.html#task,Method taskcoachlib.domain.effort.effort.Effort.task()=taskcoachlib.domain.effort.effort.Effort-class.html#task,Package taskcoachlib.domain.task=taskcoachlib.domain.task-module.html,Module taskcoachlib.domain.task.task=taskcoachlib.domain.task.task-module.html,Module taskcoachlib.gui.viewer.task=taskcoachlib.gui.viewer.task-module.html,Method taskcoachlib.widgets.calendarwidget.TaskSchedule.task()=taskcoachlib.widgets.calendarwidget.TaskSchedule-class.html#task"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-38', 'task', 'link-38');">task</a></tt><tt class="py-op">,</tt> <tt id="link-39" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-39', 'name', 'link-24');">name</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_templates</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-40" class="py-name"><a title="taskcoachlib.thirdparty.googleapi.oauth2client.file" class="py-name" href="#" onclick="return doclink('link-40', 'file', 'link-8');">file</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-41', 'path', 'link-9');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_path</tt><tt class="py-op">,</tt> <tt class="py-string">'list.pickle'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">'wb'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-42" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-42', 'task', 'link-38');">task</a></tt><tt class="py-op">,</tt> <tt id="link-43" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-43', 'name', 'link-24');">name</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_templates</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">            <tt class="py-name">templateFile</tt> <tt class="py-op">=</tt> <tt id="link-44" class="py-name"><a title="taskcoachlib.thirdparty.googleapi.oauth2client.file" class="py-name" href="#" onclick="return doclink('link-44', 'file', 'link-8');">file</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-45', 'path', 'link-9');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_path</tt><tt class="py-op">,</tt> <tt id="link-46" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-46', 'name', 'link-24');">name</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">'w'</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">            <tt id="link-47" class="py-name" targets="Module taskcoachlib.persistence.csv.writer=taskcoachlib.persistence.csv.writer-module.html,Module taskcoachlib.persistence.html.writer=taskcoachlib.persistence.html.writer-module.html,Module taskcoachlib.persistence.icalendar.writer=taskcoachlib.persistence.icalendar.writer-module.html,Module taskcoachlib.persistence.pdf.writer=taskcoachlib.persistence.pdf.writer-module.html,Module taskcoachlib.persistence.todotxt.writer=taskcoachlib.persistence.todotxt.writer-module.html,Module taskcoachlib.persistence.xml.writer=taskcoachlib.persistence.xml.writer-module.html"><a title="taskcoachlib.persistence.csv.writer
+taskcoachlib.persistence.html.writer
+taskcoachlib.persistence.icalendar.writer
+taskcoachlib.persistence.pdf.writer
+taskcoachlib.persistence.todotxt.writer
+taskcoachlib.persistence.xml.writer" class="py-name" href="#" onclick="return doclink('link-47', 'writer', 'link-47');">writer</a></tt> <tt class="py-op">=</tt> <tt id="link-48" class="py-name"><a title="taskcoachlib.persistence.xml.writer.TemplateXMLWriter" class="py-name" href="#" onclick="return doclink('link-48', 'TemplateXMLWriter', 'link-5');">TemplateXMLWriter</a></tt><tt class="py-op">(</tt><tt class="py-name">templateFile</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">            <tt id="link-49" class="py-name"><a title="taskcoachlib.persistence.csv.writer
+taskcoachlib.persistence.html.writer
+taskcoachlib.persistence.icalendar.writer
+taskcoachlib.persistence.pdf.writer
+taskcoachlib.persistence.todotxt.writer
+taskcoachlib.persistence.xml.writer" class="py-name" href="#" onclick="return doclink('link-49', 'writer', 'link-47');">writer</a></tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Method taskcoachlib.application.application.RedirectedOutput.write()=taskcoachlib.application.application.RedirectedOutput-class.html#write,Method taskcoachlib.persistence.csv.writer.CSVWriter.write()=taskcoachlib.persistence.csv.writer.CSVWriter-class.html#write,Method taskcoachlib.persistence.html.writer.HTMLWriter.write()=taskcoachlib.persistence.html.writer.HTMLWriter-class.html#write,Method taskcoachlib.persistence.icalendar.writer.iCalendarWriter.write()=taskcoachlib.persistence.icalendar.writer.iCalendarWriter-class.html#write,Method taskcoachlib.persistence.pdf.writer.PDFWriter.write()=taskcoachlib.persistence.pdf.writer.PDFWriter-class.html#write,Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.write()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.ChangesXMLWriter.write()=taskcoachlib.persistence.xml.writer.ChangesXMLWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.PIElementTree.write()=taskcoachlib.persistence.xml.writer.PIElementTree-class.html#write,Method taskcoachlib.persistence.xml.writer.TemplateXMLWriter.write()=taskcoachlib.persistence.xml.writer.TemplateXMLWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.XMLWriter.write()=taskcoachlib.persistence.xml.writer.XMLWriter-class.html#write,Method taskcoachlib.thirdparty.xdg.IniFile.IniFile.write()=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#write,Method taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.write()=taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles-class.html#write"><a title="taskcoachlib.application.application.RedirectedOutput.write
+taskcoachlib.persistence.csv.writer.CSVWriter.write
+taskcoachlib.persistence.html.writer.HTMLWriter.write
+taskcoachlib.persistence.icalendar.writer.iCalendarWriter.write
+taskcoachlib.persistence.pdf.writer.PDFWriter.write
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.write
+taskcoachlib.persistence.xml.writer.ChangesXMLWriter.write
+taskcoachlib.persistence.xml.writer.PIElementTree.write
+taskcoachlib.persistence.xml.writer.TemplateXMLWriter.write
+taskcoachlib.persistence.xml.writer.XMLWriter.write
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.write
+taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.write" class="py-name" href="#" onclick="return doclink('link-50', 'write', 'link-50');">write</a></tt><tt class="py-op">(</tt><tt id="link-51" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-51', 'task', 'link-38');">task</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">            <tt class="py-name">templateFile</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="taskcoachlib.application.application.RedirectedOutput.close
+taskcoachlib.filesystem.fs_darwin.FileMonitor.close
+taskcoachlib.filesystem.fs_darwin.close
+taskcoachlib.filesystem.fs_inotify.Inotify.close
+taskcoachlib.gui.dialog.editor.BudgetPage.close
+taskcoachlib.gui.dialog.editor.Page.close
+taskcoachlib.gui.dialog.editor.PageWithViewer.close
+taskcoachlib.gui.dialog.editor.SubjectPage.close
+taskcoachlib.gui.iocontroller.IOController.close
+taskcoachlib.persistence.taskfile.LockedTaskFile.close
+taskcoachlib.persistence.taskfile.TaskFile.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close
+taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close
+taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close" class="py-name" href="#" onclick="return doclink('link-52', 'close', 'link-23');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-53" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-53', 'task', 'link-38');">task</a></tt><tt class="py-op">,</tt> <tt id="link-54" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-54', 'name', 'link-24');">name</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_toDelete</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">            <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name" targets="Method taskcoachlib.domain.base.attribute.SetAttribute.remove()=taskcoachlib.domain.base.attribute.SetAttribute-class.html#remove,Method taskcoachlib.patterns.composite.CompositeCollection.remove()=taskcoachlib.patterns.composite.CompositeCollection-class.html#remove,Method taskcoachlib.patterns.observer.CollectionDecorator.remove()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#remove,Method taskcoachlib.patterns.observer.ObservableList.remove()=taskcoachlib.patterns.observer.ObservableList-class.html#remove,Method taskcoachlib.patterns.observer.ObservableSet.remove()=taskcoachlib.patterns.observer.ObservableSet-class.html#remove,Method taskcoachlib.thirdparty._weakrefset.WeakSet.remove()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#remove"><a title="taskcoachlib.domain.base.attribute.SetAttribute.remove
+taskcoachlib.patterns.composite.CompositeCollection.remove
+taskcoachlib.patterns.observer.CollectionDecorator.remove
+taskcoachlib.patterns.observer.ObservableList.remove
+taskcoachlib.patterns.observer.ObservableSet.remove
+taskcoachlib.thirdparty._weakrefset.WeakSet.remove" class="py-name" href="#" onclick="return doclink('link-55', 'remove', 'link-55');">remove</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-56', 'path', 'link-9');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_path</tt><tt class="py-op">,</tt> <tt id="link-57" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-57', 'name', 'link-24');">name</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_toDelete</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt id="link-58" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.pub" class="py-name" href="#" onclick="return doclink('link-58', 'pub', 'link-3');">pub</a></tt><tt class="py-op">.</tt><tt id="link-59" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.arg1.publisher.Publisher.sendMessage()=taskcoachlib.thirdparty.pubsub.core.arg1.publisher.Publisher-class.html#sendMessage,Method taskcoachlib.thirdparty.pubsub.core.kwargs.publisher.PublisherArg1Stage2.sendMessage()=taskcoachlib.thirdparty.pubsub.core.kwargs.publisher.PublisherArg1Stage2-class.html#sendMessage,Method taskcoachlib.thirdparty.pubsub.core.kwargs.publisher.PublisherKwargs.sendMessage()=taskcoachlib.thirdparty.pubsub.core.kwargs.publisher.PublisherKwargs-class.html#sendMessage,Method taskcoachlib.thirdparty.pubsub.core.publisherbase.PublisherBase.sendMessage()=taskcoachlib.thirdparty.pubsub.core.publisherbase.PublisherBase-class.html#sendMessage,Variable taskcoachlib.thirdparty.pubsub.pub.sendMessage=taskcoachlib.thirdparty.pubsub.pub-module.html#sendMessage"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.publisher.Publisher.sendMessage
+taskcoachlib.thirdparty.pubsub.core.kwargs.publisher.PublisherArg1Stage2.sendMessage
+taskcoachlib.thirdparty.pubsub.core.kwargs.publisher.PublisherKwargs.sendMessage
+taskcoachlib.thirdparty.pubsub.core.publisherbase.PublisherBase.sendMessage
+taskcoachlib.thirdparty.pubsub.pub.sendMessage" class="py-name" href="#" onclick="return doclink('link-59', 'sendMessage', 'link-59');">sendMessage</a></tt><tt class="py-op">(</tt><tt class="py-string">'templates.saved'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
+<a name="TemplateList.addTemplate"></a><div id="TemplateList.addTemplate-def"><a name="L75"></a><tt class="py-lineno"> 75</tt> <a class="py-toggle" href="#" id="TemplateList.addTemplate-toggle" onclick="return toggle('TemplateList.addTemplate');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.templatelist.TemplateList-class.html#addTemplate">addTemplate</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">task</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TemplateList.addTemplate-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TemplateList.addTemplate-expanded"><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt id="link-60" class="py-name" targets="Method taskcoachlib.thirdparty.wmi._wmi_namespace.handle()=taskcoachlib.thirdparty.wmi._wmi_namespace-class.html#handle"><a title="taskcoachlib.thirdparty.wmi._wmi_namespace.handle" class="py-name" href="#" onclick="return doclink('link-60', 'handle', 'link-60');">handle</a></tt><tt class="py-op">,</tt> <tt id="link-61" class="py-name"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-61', 'filename', 'link-12');">filename</a></tt> <tt class="py-op">=</tt> <tt class="py-name">tempfile</tt><tt class="py-op">.</tt><tt class="py-name">mkstemp</tt><tt class="py-op">(</tt><tt class="py-string">'.tsktmpl'</tt><tt class="py-op">,</tt> <tt class="py-name">dir</tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_path</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="taskcoachlib.application.application.RedirectedOutput.close
+taskcoachlib.filesystem.fs_darwin.FileMonitor.close
+taskcoachlib.filesystem.fs_darwin.close
+taskcoachlib.filesystem.fs_inotify.Inotify.close
+taskcoachlib.gui.dialog.editor.BudgetPage.close
+taskcoachlib.gui.dialog.editor.Page.close
+taskcoachlib.gui.dialog.editor.PageWithViewer.close
+taskcoachlib.gui.dialog.editor.SubjectPage.close
+taskcoachlib.gui.iocontroller.IOController.close
+taskcoachlib.persistence.taskfile.LockedTaskFile.close
+taskcoachlib.persistence.taskfile.TaskFile.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close
+taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close
+taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close" class="py-name" href="#" onclick="return doclink('link-62', 'close', 'link-23');">close</a></tt><tt class="py-op">(</tt><tt id="link-63" class="py-name"><a title="taskcoachlib.thirdparty.wmi._wmi_namespace.handle" class="py-name" href="#" onclick="return doclink('link-63', 'handle', 'link-60');">handle</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-name">templateFile</tt> <tt class="py-op">=</tt> <tt id="link-64" class="py-name"><a title="taskcoachlib.thirdparty.googleapi.oauth2client.file" class="py-name" href="#" onclick="return doclink('link-64', 'file', 'link-8');">file</a></tt><tt class="py-op">(</tt><tt id="link-65" class="py-name"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-65', 'filename', 'link-12');">filename</a></tt><tt class="py-op">,</tt> <tt class="py-string">'w'</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt id="link-66" class="py-name"><a title="taskcoachlib.persistence.csv.writer
+taskcoachlib.persistence.html.writer
+taskcoachlib.persistence.icalendar.writer
+taskcoachlib.persistence.pdf.writer
+taskcoachlib.persistence.todotxt.writer
+taskcoachlib.persistence.xml.writer" class="py-name" href="#" onclick="return doclink('link-66', 'writer', 'link-47');">writer</a></tt> <tt class="py-op">=</tt> <tt id="link-67" class="py-name"><a title="taskcoachlib.persistence.xml.writer.TemplateXMLWriter" class="py-name" href="#" onclick="return doclink('link-67', 'TemplateXMLWriter', 'link-5');">TemplateXMLWriter</a></tt><tt class="py-op">(</tt><tt class="py-name">templateFile</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt id="link-68" class="py-name"><a title="taskcoachlib.persistence.csv.writer
+taskcoachlib.persistence.html.writer
+taskcoachlib.persistence.icalendar.writer
+taskcoachlib.persistence.pdf.writer
+taskcoachlib.persistence.todotxt.writer
+taskcoachlib.persistence.xml.writer" class="py-name" href="#" onclick="return doclink('link-68', 'writer', 'link-47');">writer</a></tt><tt class="py-op">.</tt><tt id="link-69" class="py-name"><a title="taskcoachlib.application.application.RedirectedOutput.write
+taskcoachlib.persistence.csv.writer.CSVWriter.write
+taskcoachlib.persistence.html.writer.HTMLWriter.write
+taskcoachlib.persistence.icalendar.writer.iCalendarWriter.write
+taskcoachlib.persistence.pdf.writer.PDFWriter.write
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.write
+taskcoachlib.persistence.xml.writer.ChangesXMLWriter.write
+taskcoachlib.persistence.xml.writer.PIElementTree.write
+taskcoachlib.persistence.xml.writer.TemplateXMLWriter.write
+taskcoachlib.persistence.xml.writer.XMLWriter.write
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.write
+taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.write" class="py-name" href="#" onclick="return doclink('link-69', 'write', 'link-50');">write</a></tt><tt class="py-op">(</tt><tt id="link-70" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-70', 'task', 'link-38');">task</a></tt><tt class="py-op">.</tt><tt id="link-71" class="py-name" targets="Method taskcoachlib.domain.base.object.Object.copy()=taskcoachlib.domain.base.object.Object-class.html#copy,Method taskcoachlib.domain.date.recurrence.Recurrence.copy()=taskcoachlib.domain.date.recurrence.Recurrence-class.html#copy,Method taskcoachlib.patterns.composite.Composite.copy()=taskcoachlib.patterns.composite.Composite-class.html#copy,Method taskcoachlib.thirdparty._weakrefset.WeakSet.copy()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.Forward.copy()=taskcoachlib.thirdparty.pyparsing.Forward-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.Keyword.copy()=taskcoachlib.thirdparty.pyparsing.Keyword-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.ParseResults.copy()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.ParserElement.copy()=taskcoachlib.thirdparty.pyparsing.ParserElement-class.html#copy"><a title="taskcoachlib.domain.base.object.Object.copy
+taskcoachlib.domain.date.recurrence.Recurrence.copy
+taskcoachlib.patterns.composite.Composite.copy
+taskcoachlib.thirdparty._weakrefset.WeakSet.copy
+taskcoachlib.thirdparty.pyparsing.Forward.copy
+taskcoachlib.thirdparty.pyparsing.Keyword.copy
+taskcoachlib.thirdparty.pyparsing.ParseResults.copy
+taskcoachlib.thirdparty.pyparsing.ParserElement.copy" class="py-name" href="#" onclick="return doclink('link-71', 'copy', 'link-71');">copy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-name">templateFile</tt><tt class="py-op">.</tt><tt id="link-72" class="py-name"><a title="taskcoachlib.application.application.RedirectedOutput.close
+taskcoachlib.filesystem.fs_darwin.FileMonitor.close
+taskcoachlib.filesystem.fs_darwin.close
+taskcoachlib.filesystem.fs_inotify.Inotify.close
+taskcoachlib.gui.dialog.editor.BudgetPage.close
+taskcoachlib.gui.dialog.editor.Page.close
+taskcoachlib.gui.dialog.editor.PageWithViewer.close
+taskcoachlib.gui.dialog.editor.SubjectPage.close
+taskcoachlib.gui.iocontroller.IOController.close
+taskcoachlib.persistence.taskfile.LockedTaskFile.close
+taskcoachlib.persistence.taskfile.TaskFile.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close
+taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close
+taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close" class="py-name" href="#" onclick="return doclink('link-72', 'close', 'link-23');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-name">theTask</tt> <tt class="py-op">=</tt> <tt id="link-73" class="py-name"><a title="taskcoachlib.persistence.xml.reader.TemplateXMLReader" class="py-name" href="#" onclick="return doclink('link-73', 'TemplateXMLReader', 'link-6');">TemplateXMLReader</a></tt><tt class="py-op">(</tt><tt id="link-74" class="py-name"><a title="taskcoachlib.thirdparty.googleapi.oauth2client.file" class="py-name" href="#" onclick="return doclink('link-74', 'file', 'link-8');">file</a></tt><tt class="py-op">(</tt><tt id="link-75" class="py-name"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-75', 'filename', 'link-12');">filename</a></tt><tt class="py-op">,</tt> <tt class="py-string">'rU'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-76" class="py-name"><a title="taskcoachlib.config.settings.CachingConfigParser.read
+taskcoachlib.domain.attachment.attachment.MailAttachment.read
+taskcoachlib.filesystem.fs_inotify.Inotify.read
+taskcoachlib.mailer.thunderbird.ThunderbirdMailboxReader.read
+taskcoachlib.persistence.csv.reader.CSVReader.read
+taskcoachlib.persistence.todotxt.reader.TodoTxtReader.read
+taskcoachlib.persistence.xml.reader.ChangesXMLReader.read
+taskcoachlib.persistence.xml.reader.TemplateXMLReader.read
+taskcoachlib.persistence.xml.reader.XMLReader.read
+taskcoachlib.thirdparty.googleapi.apiclient.http._StreamSlice.read" class="py-name" href="#" onclick="return doclink('link-76', 'read', 'link-22');">read</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_templates</tt><tt class="py-op">.</tt><tt id="link-77" class="py-name"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-77', 'append', 'link-17');">append</a></tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">theTask</tt><tt class="py-op">,</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-78" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-78', 'path', 'link-9');">path</a></tt><tt class="py-op">.</tt><tt id="link-79" class="py-name" targets="Class Method taskcoachlib.thirdparty.dateutil.parser._timelex.split()=taskcoachlib.thirdparty.dateutil.parser._timelex-class.html#split"><a title="taskcoachlib.thirdparty.dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-79', 'split', 'link-79');">split</a></tt><tt class="py-op">(</tt><tt id="link-80" class="py-name"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-80', 'filename', 'link-12');">filename</a></tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">theTask</tt> </tt>
+</div><a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"> </tt>
+<a name="TemplateList.deleteTemplate"></a><div id="TemplateList.deleteTemplate-def"><a name="L86"></a><tt class="py-lineno"> 86</tt> <a class="py-toggle" href="#" id="TemplateList.deleteTemplate-toggle" onclick="return toggle('TemplateList.deleteTemplate');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.templatelist.TemplateList-class.html#deleteTemplate">deleteTemplate</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">idx</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TemplateList.deleteTemplate-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TemplateList.deleteTemplate-expanded"><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_toDelete</tt><tt class="py-op">.</tt><tt id="link-81" class="py-name"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-81', 'append', 'link-17');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_templates</tt><tt class="py-op">[</tt><tt class="py-name">idx</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-keyword">del</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_templates</tt><tt class="py-op">[</tt><tt class="py-name">idx</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="TemplateList.copyTemplate"></a><div id="TemplateList.copyTemplate-def"><a name="L90"></a><tt class="py-lineno"> 90</tt> <a class="py-toggle" href="#" id="TemplateList.copyTemplate-toggle" onclick="return toggle('TemplateList.copyTemplate');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.templatelist.TemplateList-class.html#copyTemplate">copyTemplate</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TemplateList.copyTemplate-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TemplateList.copyTemplate-expanded"><a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-name">shutil</tt><tt class="py-op">.</tt><tt class="py-name">copyfile</tt><tt class="py-op">(</tt><tt id="link-82" class="py-name"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-82', 'filename', 'link-12');">filename</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">                        <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-83" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-83', 'path', 'link-9');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_path</tt><tt class="py-op">,</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-84" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-84', 'path', 'link-9');">path</a></tt><tt class="py-op">.</tt><tt id="link-85" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-85', 'split', 'link-79');">split</a></tt><tt class="py-op">(</tt><tt id="link-86" class="py-name"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-86', 'filename', 'link-12');">filename</a></tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt id="link-87" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.pub" class="py-name" href="#" onclick="return doclink('link-87', 'pub', 'link-3');">pub</a></tt><tt class="py-op">.</tt><tt id="link-88" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.publisher.Publisher.sendMessage
+taskcoachlib.thirdparty.pubsub.core.kwargs.publisher.PublisherArg1Stage2.sendMessage
+taskcoachlib.thirdparty.pubsub.core.kwargs.publisher.PublisherKwargs.sendMessage
+taskcoachlib.thirdparty.pubsub.core.publisherbase.PublisherBase.sendMessage
+taskcoachlib.thirdparty.pubsub.pub.sendMessage" class="py-name" href="#" onclick="return doclink('link-88', 'sendMessage', 'link-59');">sendMessage</a></tt><tt class="py-op">(</tt><tt class="py-string">'templates.saved'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">         </tt>
+<a name="TemplateList.swapTemplates"></a><div id="TemplateList.swapTemplates-def"><a name="L95"></a><tt class="py-lineno"> 95</tt> <a class="py-toggle" href="#" id="TemplateList.swapTemplates-toggle" onclick="return toggle('TemplateList.swapTemplates');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.templatelist.TemplateList-class.html#swapTemplates">swapTemplates</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">i</tt><tt class="py-op">,</tt> <tt class="py-param">j</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TemplateList.swapTemplates-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TemplateList.swapTemplates-expanded"><a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_templates</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_templates</tt><tt class="py-op">[</tt><tt class="py-name">j</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_templates</tt><tt class="py-op">[</tt><tt class="py-name">j</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_templates</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"> </tt>
+<a name="TemplateList.__len__"></a><div id="TemplateList.__len__-def"><a name="L98"></a><tt class="py-lineno"> 98</tt> <a class="py-toggle" href="#" id="TemplateList.__len__-toggle" onclick="return toggle('TemplateList.__len__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.templatelist.TemplateList-class.html#__len__">__len__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TemplateList.__len__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TemplateList.__len__-expanded"><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_templates</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"> </tt>
+<a name="TemplateList.tasks"></a><div id="TemplateList.tasks-def"><a name="L101"></a><tt class="py-lineno">101</tt> <a class="py-toggle" href="#" id="TemplateList.tasks-toggle" onclick="return toggle('TemplateList.tasks');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.templatelist.TemplateList-class.html#tasks">tasks</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TemplateList.tasks-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TemplateList.tasks-expanded"><a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt id="link-89" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-89', 'task', 'link-38');">task</a></tt> <tt class="py-keyword">for</tt> <tt id="link-90" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-90', 'task', 'link-38');">task</a></tt><tt class="py-op">,</tt> <tt id="link-91" class="py-name" targets="Variable taskcoachlib.thirdparty.aui.aui_switcherdialog._=taskcoachlib.thirdparty.aui.aui_switcherdialog-module.html#_,Variable taskcoachlib.thirdparty.aui.framemanager._=taskcoachlib.thirdparty.aui.framemanager-module.html#_,Variable taskcoachlib.thirdparty.aui.tabmdi._=taskcoachlib.thirdparty.aui.tabmdi-module.html#_,Variable taskcoachlib.thirdparty.smartdatetimectrl._=taskcoachlib.thirdparty.smartdatetimectrl-module.html#_"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-91', '_', 'link-91');">_</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_templates</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"> </tt>
+<a name="TemplateList.names"></a><div id="TemplateList.names-def"><a name="L104"></a><tt class="py-lineno">104</tt> <a class="py-toggle" href="#" id="TemplateList.names-toggle" onclick="return toggle('TemplateList.names');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.templatelist.TemplateList-class.html#names">names</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TemplateList.names-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TemplateList.names-expanded"><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt id="link-92" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-92', 'name', 'link-24');">name</a></tt> <tt class="py-keyword">for</tt> <tt id="link-93" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-93', '_', 'link-91');">_</a></tt><tt class="py-op">,</tt> <tt id="link-94" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-94', 'name', 'link-24');">name</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_templates</tt><tt class="py-op">]</tt> </tt>
+</div></div><a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:12 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

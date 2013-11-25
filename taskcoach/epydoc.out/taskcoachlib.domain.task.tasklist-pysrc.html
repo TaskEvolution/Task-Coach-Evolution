@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.domain.task.tasklist</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.domain-module.html">Package&nbsp;domain</a> ::
+        <a href="taskcoachlib.domain.task-module.html">Package&nbsp;task</a> ::
+        Module&nbsp;tasklist
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.domain.task.tasklist-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.domain.task.tasklist-module.html">Module taskcoachlib.domain.task.tasklist</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach - Your friendly task manager</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (C) 2004-2013 Task Coach developers &lt;developers@taskcoach.org&gt;</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (C) 2008 Jo&#227;o Alexandre de Toledo &lt;jtoledo@griffo.com.br&gt;</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is free software: you can redistribute it and/or modify</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">the Free Software Foundation, either version 3 of the License, or</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">(at your option) any later version.</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">GNU General Public License for more details.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package taskcoachlib=taskcoachlib-module.html"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-0', 'taskcoachlib', 'link-0');">taskcoachlib</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package taskcoachlib.i18n=taskcoachlib.i18n-module.html"><a title="taskcoachlib.i18n" class="py-name" href="#" onclick="return doclink('link-1', 'i18n', 'link-1');">i18n</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Variable taskcoachlib.thirdparty.aui.aui_switcherdialog._=taskcoachlib.thirdparty.aui.aui_switcherdialog-module.html#_,Variable taskcoachlib.thirdparty.aui.framemanager._=taskcoachlib.thirdparty.aui.framemanager-module.html#_,Variable taskcoachlib.thirdparty.aui.tabmdi._=taskcoachlib.thirdparty.aui.tabmdi-module.html#_,Variable taskcoachlib.thirdparty.smartdatetimectrl._=taskcoachlib.thirdparty.smartdatetimectrl-module.html#_"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-2', '_', 'link-2');">_</a></tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-3', 'taskcoachlib', 'link-0');">taskcoachlib</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Package taskcoachlib.domain=taskcoachlib.domain-module.html"><a title="taskcoachlib.domain" class="py-name" href="#" onclick="return doclink('link-4', 'domain', 'link-4');">domain</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Package taskcoachlib.domain.categorizable=taskcoachlib.domain.categorizable-module.html,Module taskcoachlib.domain.categorizable.categorizable=taskcoachlib.domain.categorizable.categorizable-module.html"><a title="taskcoachlib.domain.categorizable
+taskcoachlib.domain.categorizable.categorizable" class="py-name" href="#" onclick="return doclink('link-5', 'categorizable', 'link-5');">categorizable</a></tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-6" class="py-name"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-6', 'taskcoachlib', 'link-0');">taskcoachlib</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name" targets="Package taskcoachlib.help=taskcoachlib.help-module.html,Variable taskcoachlib.help.uicommand.help=taskcoachlib.help.uicommand-module.html#help"><a title="taskcoachlib.help
+taskcoachlib.help.uicommand.help" class="py-name" href="#" onclick="return doclink('link-7', 'help', 'link-7');">help</a></tt><tt class="py-op">,</tt> <tt id="link-8" class="py-name" targets="Module taskcoachlib.operating_system=taskcoachlib.operating_system-module.html"><a title="taskcoachlib.operating_system" class="py-name" href="#" onclick="return doclink('link-8', 'operating_system', 'link-8');">operating_system</a></tt>  <tt class="py-comment"># pylint: disable=W0622</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-9" class="py-name" targets="Method taskcoachlib.domain.effort.base.BaseEffort.task()=taskcoachlib.domain.effort.base.BaseEffort-class.html#task,Class Method taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task()=taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod-class.html#task,Method taskcoachlib.domain.effort.effort.Effort.task()=taskcoachlib.domain.effort.effort.Effort-class.html#task,Package taskcoachlib.domain.task=taskcoachlib.domain.task-module.html,Module taskcoachlib.domain.task.task=taskcoachlib.domain.task.task-module.html,Module taskcoachlib.gui.viewer.task=taskcoachlib.gui.viewer.task-module.html,Method taskcoachlib.widgets.calendarwidget.TaskSchedule.task()=taskcoachlib.widgets.calendarwidget.TaskSchedule-class.html#task"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-9', 'task', 'link-9');">task</a></tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt>
+<a name="TaskListQueryMixin"></a><div id="TaskListQueryMixin-def"><a name="L28"></a><tt class="py-lineno">28</tt> <a class="py-toggle" href="#" id="TaskListQueryMixin-toggle" onclick="return toggle('TaskListQueryMixin');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.domain.task.tasklist.TaskListQueryMixin-class.html">TaskListQueryMixin</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TaskListQueryMixin-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="TaskListQueryMixin-expanded"><a name="TaskListQueryMixin.nrOfTasksPerStatus"></a><div id="TaskListQueryMixin.nrOfTasksPerStatus-def"><a name="L29"></a><tt class="py-lineno">29</tt> <a class="py-toggle" href="#" id="TaskListQueryMixin.nrOfTasksPerStatus-toggle" onclick="return toggle('TaskListQueryMixin.nrOfTasksPerStatus');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.domain.task.tasklist.TaskListQueryMixin-class.html#nrOfTasksPerStatus">nrOfTasksPerStatus</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TaskListQueryMixin.nrOfTasksPerStatus-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TaskListQueryMixin.nrOfTasksPerStatus-expanded"><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-name">statuses</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">eachTask</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Module taskcoachlib.domain.task.status=taskcoachlib.domain.task.status-module.html,Method taskcoachlib.domain.task.task.Task.status()=taskcoachlib.domain.task.task.Task-class.html#status,Module taskcoachlib.gui.status=taskcoachlib.gui.status-module.html,Variable taskcoachlib.thirdparty.googleapi.httplib2.Response.status=taskcoachlib.thirdparty.googleapi.httplib2.Response-class.html#status"><a title="taskcoachlib.domain.task.status
+taskcoachlib.domain.task.task.Task.status
+taskcoachlib.gui.status
+taskcoachlib.thirdparty.googleapi.httplib2.Response.status" class="py-name" href="#" onclick="return doclink('link-10', 'status', 'link-10');">status</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">eachTask</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt> <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">eachTask</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method taskcoachlib.domain.base.object.SynchronizedObject.isDeleted()=taskcoachlib.domain.base.object.SynchronizedObject-class.html#isDeleted"><a title="taskcoachlib.domain.base.object.SynchronizedObject.isDeleted" class="py-name" href="#" onclick="return doclink('link-11', 'isDeleted', 'link-11');">isDeleted</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt id="link-12" class="py-name" targets="Variable taskcoachlib.patterns.metaclass.NumberedInstances.count=taskcoachlib.patterns.metaclass.NumberedInstances-class.html#count,Method taskcoachlib.thirdparty.dateutil.rrule.rrulebase.count()=taskcoachlib.thirdparty.dateutil.rrule.rrulebase-class.html#count"><a title="taskcoachlib.patterns.metaclass.NumberedInstances.count
+taskcoachlib.thirdparty.dateutil.rrule.rrulebase.count" class="py-name" href="#" onclick="return doclink('link-12', 'count', 'link-12');">count</a></tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name" targets="Variable taskcoachlib.i18n.ar.dict=taskcoachlib.i18n.ar-module.html#dict,Variable taskcoachlib.i18n.be.dict=taskcoachlib.i18n.be-module.html#dict,Variable taskcoachlib.i18n.bg.dict=taskcoachlib.i18n.bg-module.html#dict,Variable taskcoachlib.i18n.br.dict=taskcoachlib.i18n.br-module.html#dict,Variable taskcoachlib.i18n.bs.dict=taskcoachlib.i18n.bs-module.html#dict,Variable taskcoachlib.i18n.ca.dict=taskcoachlib.i18n.ca-module.html#dict,Variable taskcoachlib.i18n.cs.dict=taskcoachlib.i18n.cs-module.html#dict,Variable taskcoachlib.i18n.da.dict=taskcoachlib.i18n.da-module.html#dict,Variable taskcoachlib.i18n.de.dict=taskcoachlib.i18n.de-module.html#dict,Variable taskcoachlib.i18n.el.dict=taskcoachlib.i18n.el-module.html#dict,Variable taskcoachlib.i18n.en_AU.dict=taskcoachlib.i18n.en_AU-module.html#dict,Variable taskcoachlib.i18n.en_CA.dict=taskcoachlib.i18n.en_CA-module.html#dict,Variable taskcoachlib.i18n.en_GB.dict=taskcoachlib.i18n.en_GB-module.html#dict,Variable taskcoachlib.i18n.eo.dict=taskcoachlib.i18n.eo-module.html#dict,Variable taskcoachlib.i18n.es.dict=taskcoachlib.i18n.es-module.html#dict,Variable taskcoachlib.i18n.et.dict=taskcoachlib.i18n.et-module.html#dict,Variable taskcoachlib.i18n.eu.dict=taskcoachlib.i18n.eu-module.html#dict,Variable taskcoachlib.i18n.fa.dict=taskcoachlib.i18n.fa-module.html#dict,Variable taskcoachlib.i18n.fi.dict=taskcoachlib.i18n.fi-module.html#dict,Variable taskcoachlib.i18n.fr.dict=taskcoachlib.i18n.fr-module.html#dict,Variable taskcoachlib.i18n.gl.dict=taskcoachlib.i18n.gl-module.html#dict,Variable taskcoachlib.i18n.he.dict=taskcoachlib.i18n.he-module.html#dict,Variable taskcoachlib.i18n.hi.dict=taskcoachlib.i18n.hi-module.html#dict,Variable taskcoachlib.i18n.hu.dict=taskcoachlib.i18n.hu-module.html#dict,Variable taskcoachlib.i18n.id.dict=taskcoachlib.i18n.id-module.html#dict,Variable taskcoachlib.i18n.it.dict=taskcoachlib.i18n.it-module.html#dict,Variable taskcoachlib.i18n.ja.dict=taskcoachlib.i18n.ja-module.html#dict,Variable taskcoachlib.i18n.ko.dict=taskcoachlib.i18n.ko-module.html#dict,Variable taskcoachlib.i18n.lt.dict=taskcoachlib.i18n.lt-module.html#dict,Variable taskcoachlib.i18n.lv.dict=taskcoachlib.i18n.lv-module.html#dict,Variable taskcoachlib.i18n.mn.dict=taskcoachlib.i18n.mn-module.html#dict,Variable taskcoachlib.i18n.mr.dict=taskcoachlib.i18n.mr-module.html#dict,Variable taskcoachlib.i18n.nb.dict=taskcoachlib.i18n.nb-module.html#dict,Variable taskcoachlib.i18n.nds.dict=taskcoachlib.i18n.nds-module.html#dict,Variable taskcoachlib.i18n.nl.dict=taskcoachlib.i18n.nl-module.html#dict,Variable taskcoachlib.i18n.nn.dict=taskcoachlib.i18n.nn-module.html#dict,Variable taskcoachlib.i18n.oc.dict=taskcoachlib.i18n.oc-module.html#dict,Variable taskcoachlib.i18n.pap.dict=taskcoachlib.i18n.pap-module.html#dict,Variable taskcoachlib.i18n.pl.dict=taskcoachlib.i18n.pl-module.html#dict,Variable taskcoachlib.i18n.pt.dict=taskcoachlib.i18n.pt-module.html#dict,Variable taskcoachlib.i18n.pt_BR.dict=taskcoachlib.i18n.pt_BR-module.html#dict,Variable taskcoachlib.i18n.ro.dict=taskcoachlib.i18n.ro-module.html#dict,Variable taskcoachlib.i18n.ru.dict=taskcoachlib.i18n.ru-module.html#dict,Variable taskcoachlib.i18n.sk.dict=taskcoachlib.i18n.sk-module.html#dict,Variable taskcoachlib.i18n.sl.dict=taskcoachlib.i18n.sl-module.html#dict,Variable taskcoachlib.i18n.sv.dict=taskcoachlib.i18n.sv-module.html#dict,Variable taskcoachlib.i18n.te.dict=taskcoachlib.i18n.te-module.html#dict,Variable taskcoachlib.i18n.th.dict=taskcoachlib.i18n.th-module.html#dict,Variable taskcoachlib.i18n.tr.dict=taskcoachlib.i18n.tr-module.html#dict,Variable taskcoachlib.i18n.uk.dict=taskcoachlib.i18n.uk-module.html#dict,Variable taskcoachlib.i18n.vi.dict=taskcoachlib.i18n.vi-module.html#dict,Variable taskcoachlib.i18n.zh_CN.dict=taskcoachlib.i18n.zh_CN-module.html#dict,Variable taskcoachlib.i18n.zh_TW.dict=taskcoachlib.i18n.zh_TW-module.html#dict"><a title="taskcoachlib.i18n.ar.dict
+taskcoachlib.i18n.be.dict
+taskcoachlib.i18n.bg.dict
+taskcoachlib.i18n.br.dict
+taskcoachlib.i18n.bs.dict
+taskcoachlib.i18n.ca.dict
+taskcoachlib.i18n.cs.dict
+taskcoachlib.i18n.da.dict
+taskcoachlib.i18n.de.dict
+taskcoachlib.i18n.el.dict
+taskcoachlib.i18n.en_AU.dict
+taskcoachlib.i18n.en_CA.dict
+taskcoachlib.i18n.en_GB.dict
+taskcoachlib.i18n.eo.dict
+taskcoachlib.i18n.es.dict
+taskcoachlib.i18n.et.dict
+taskcoachlib.i18n.eu.dict
+taskcoachlib.i18n.fa.dict
+taskcoachlib.i18n.fi.dict
+taskcoachlib.i18n.fr.dict
+taskcoachlib.i18n.gl.dict
+taskcoachlib.i18n.he.dict
+taskcoachlib.i18n.hi.dict
+taskcoachlib.i18n.hu.dict
+taskcoachlib.i18n.id.dict
+taskcoachlib.i18n.it.dict
+taskcoachlib.i18n.ja.dict
+taskcoachlib.i18n.ko.dict
+taskcoachlib.i18n.lt.dict
+taskcoachlib.i18n.lv.dict
+taskcoachlib.i18n.mn.dict
+taskcoachlib.i18n.mr.dict
+taskcoachlib.i18n.nb.dict
+taskcoachlib.i18n.nds.dict
+taskcoachlib.i18n.nl.dict
+taskcoachlib.i18n.nn.dict
+taskcoachlib.i18n.oc.dict
+taskcoachlib.i18n.pap.dict
+taskcoachlib.i18n.pl.dict
+taskcoachlib.i18n.pt.dict
+taskcoachlib.i18n.pt_BR.dict
+taskcoachlib.i18n.ro.dict
+taskcoachlib.i18n.ru.dict
+taskcoachlib.i18n.sk.dict
+taskcoachlib.i18n.sl.dict
+taskcoachlib.i18n.sv.dict
+taskcoachlib.i18n.te.dict
+taskcoachlib.i18n.th.dict
+taskcoachlib.i18n.tr.dict
+taskcoachlib.i18n.uk.dict
+taskcoachlib.i18n.vi.dict
+taskcoachlib.i18n.zh_CN.dict
+taskcoachlib.i18n.zh_TW.dict" class="py-name" href="#" onclick="return doclink('link-13', 'dict', 'link-13');">dict</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-14" class="py-name"><a title="taskcoachlib.domain.task.status
+taskcoachlib.domain.task.task.Task.status
+taskcoachlib.gui.status
+taskcoachlib.thirdparty.googleapi.httplib2.Response.status" class="py-name" href="#" onclick="return doclink('link-14', 'status', 'link-10');">status</a></tt> <tt class="py-keyword">in</tt> <tt id="link-15" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-15', 'task', 'link-9');">task</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Class taskcoachlib.domain.task.task.Task=taskcoachlib.domain.task.task.Task-class.html"><a title="taskcoachlib.domain.task.task.Task" class="py-name" href="#" onclick="return doclink('link-16', 'Task', 'link-16');">Task</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Class Method taskcoachlib.domain.task.task.Task.possibleStatuses()=taskcoachlib.domain.task.task.Task-class.html#possibleStatuses"><a title="taskcoachlib.domain.task.task.Task.possibleStatuses" class="py-name" href="#" onclick="return doclink('link-17', 'possibleStatuses', 'link-17');">possibleStatuses</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">            <tt id="link-18" class="py-name"><a title="taskcoachlib.patterns.metaclass.NumberedInstances.count
+taskcoachlib.thirdparty.dateutil.rrule.rrulebase.count" class="py-name" href="#" onclick="return doclink('link-18', 'count', 'link-12');">count</a></tt><tt class="py-op">[</tt><tt id="link-19" class="py-name"><a title="taskcoachlib.domain.task.status
+taskcoachlib.domain.task.task.Task.status
+taskcoachlib.gui.status
+taskcoachlib.thirdparty.googleapi.httplib2.Response.status" class="py-name" href="#" onclick="return doclink('link-19', 'status', 'link-10');">status</a></tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">statuses</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="taskcoachlib.patterns.metaclass.NumberedInstances.count
+taskcoachlib.thirdparty.dateutil.rrule.rrulebase.count" class="py-name" href="#" onclick="return doclink('link-20', 'count', 'link-12');">count</a></tt><tt class="py-op">(</tt><tt id="link-21" class="py-name"><a title="taskcoachlib.domain.task.status
+taskcoachlib.domain.task.task.Task.status
+taskcoachlib.gui.status
+taskcoachlib.thirdparty.googleapi.httplib2.Response.status" class="py-name" href="#" onclick="return doclink('link-21', 'status', 'link-10');">status</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-22" class="py-name"><a title="taskcoachlib.patterns.metaclass.NumberedInstances.count
+taskcoachlib.thirdparty.dateutil.rrule.rrulebase.count" class="py-name" href="#" onclick="return doclink('link-22', 'count', 'link-12');">count</a></tt> </tt>
+</div></div><a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">     </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">     </tt>
+<a name="TaskList"></a><div id="TaskList-def"><a name="L37"></a><tt class="py-lineno">37</tt> <a class="py-toggle" href="#" id="TaskList-toggle" onclick="return toggle('TaskList');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.domain.task.tasklist.TaskList-class.html">TaskList</a><tt class="py-op">(</tt><tt class="py-base-class">TaskListQueryMixin</tt><tt class="py-op">,</tt> <tt class="py-base-class">categorizable</tt><tt class="py-op">.</tt><tt class="py-base-class">CategorizableContainer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TaskList-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="TaskList-expanded"><a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">    <tt class="py-comment"># FIXME: TaskList should be called TaskCollection or TaskSet</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">    <tt id="link-23" class="py-name" targets="Variable taskcoachlib.domain.attachment.attachmentlist.AttachmentList.newItemMenuText=taskcoachlib.domain.attachment.attachmentlist.AttachmentList-class.html#newItemMenuText,Variable taskcoachlib.domain.effort.effortlist.EffortUICommandNamesMixin.newItemMenuText=taskcoachlib.domain.effort.effortlist.EffortUICommandNamesMixin-class.html#newItemMenuText,Variable taskcoachlib.domain.task.tasklist.TaskList.newItemMenuText=taskcoachlib.domain.task.tasklist.TaskList-class.html#newItemMenuText"><a title="taskcoachlib.domain.attachment.attachmentlist.AttachmentList.newItemMenuText
+taskcoachlib.domain.effort.effortlist.EffortUICommandNamesMixin.newItemMenuText
+taskcoachlib.domain.task.tasklist.TaskList.newItemMenuText" class="py-name" href="#" onclick="return doclink('link-23', 'newItemMenuText', 'link-23');">newItemMenuText</a></tt> <tt class="py-op">=</tt> <tt id="link-24" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-24', '_', 'link-2');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'&amp;New task...'</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-op">(</tt><tt class="py-string">'\tINSERT'</tt> <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-25" class="py-name"><a title="taskcoachlib.operating_system" class="py-name" href="#" onclick="return doclink('link-25', 'operating_system', 'link-8');">operating_system</a></tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Function taskcoachlib.operating_system.isMac()=taskcoachlib.operating_system-module.html#isMac"><a title="taskcoachlib.operating_system.isMac" class="py-name" href="#" onclick="return doclink('link-26', 'isMac', 'link-26');">isMac</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">else</tt> <tt class="py-string">'\tCtrl+N'</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">    <tt id="link-27" class="py-name" targets="Variable taskcoachlib.domain.attachment.attachmentlist.AttachmentList.newItemHelpText=taskcoachlib.domain.attachment.attachmentlist.AttachmentList-class.html#newItemHelpText,Variable taskcoachlib.domain.effort.effortlist.EffortUICommandNamesMixin.newItemHelpText=taskcoachlib.domain.effort.effortlist.EffortUICommandNamesMixin-class.html#newItemHelpText,Variable taskcoachlib.domain.task.tasklist.TaskList.newItemHelpText=taskcoachlib.domain.task.tasklist.TaskList-class.html#newItemHelpText"><a title="taskcoachlib.domain.attachment.attachmentlist.AttachmentList.newItemHelpText
+taskcoachlib.domain.effort.effortlist.EffortUICommandNamesMixin.newItemHelpText
+taskcoachlib.domain.task.tasklist.TaskList.newItemHelpText" class="py-name" href="#" onclick="return doclink('link-27', 'newItemHelpText', 'link-27');">newItemHelpText</a></tt> <tt class="py-op">=</tt> <tt id="link-28" class="py-name"><a title="taskcoachlib.help
+taskcoachlib.help.uicommand.help" class="py-name" href="#" onclick="return doclink('link-28', 'help', 'link-7');">help</a></tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Variable taskcoachlib.help.uicommand.taskNew=taskcoachlib.help.uicommand-module.html#taskNew"><a title="taskcoachlib.help.uicommand.taskNew" class="py-name" href="#" onclick="return doclink('link-29', 'taskNew', 'link-29');">taskNew</a></tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">        </tt>
+<a name="TaskList.nrBeingTracked"></a><div id="TaskList.nrBeingTracked-def"><a name="L43"></a><tt class="py-lineno">43</tt> <a class="py-toggle" href="#" id="TaskList.nrBeingTracked-toggle" onclick="return toggle('TaskList.nrBeingTracked');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.domain.task.tasklist.TaskList-class.html#nrBeingTracked">nrBeingTracked</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TaskList.nrBeingTracked-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TaskList.nrBeingTracked-expanded"><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Method taskcoachlib.domain.task.tasklist.TaskList.tasksBeingTracked()=taskcoachlib.domain.task.tasklist.TaskList-class.html#tasksBeingTracked"><a title="taskcoachlib.domain.task.tasklist.TaskList.tasksBeingTracked" class="py-name" href="#" onclick="return doclink('link-30', 'tasksBeingTracked', 'link-30');">tasksBeingTracked</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">     </tt>
+<a name="TaskList.tasksBeingTracked"></a><div id="TaskList.tasksBeingTracked-def"><a name="L46"></a><tt class="py-lineno">46</tt> <a class="py-toggle" href="#" id="TaskList.tasksBeingTracked-toggle" onclick="return toggle('TaskList.tasksBeingTracked');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.domain.task.tasklist.TaskList-class.html#tasksBeingTracked">tasksBeingTracked</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TaskList.tasksBeingTracked-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TaskList.tasksBeingTracked-expanded"><a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt class="py-name">eachTask</tt> <tt class="py-keyword">for</tt> <tt class="py-name">eachTask</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt> <tt class="py-keyword">if</tt> <tt class="py-name">eachTask</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Method taskcoachlib.domain.effort.composite.BaseCompositeEffort.isBeingTracked()=taskcoachlib.domain.effort.composite.BaseCompositeEffort-class.html#isBeingTracked,Method taskcoachlib.domain.effort.effort.Effort.isBeingTracked()=taskcoachlib.domain.effort.effort.Effort-class.html#isBeingTracked,Method taskcoachlib.domain.task.task.Task.isBeingTracked()=taskcoachlib.domain.task.task.Task-class.html#isBeingTracked"><a title="taskcoachlib.domain.effort.composite.BaseCompositeEffort.isBeingTracked
+taskcoachlib.domain.effort.effort.Effort.isBeingTracked
+taskcoachlib.domain.task.task.Task.isBeingTracked" class="py-name" href="#" onclick="return doclink('link-31', 'isBeingTracked', 'link-31');">isBeingTracked</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt>     </tt>
+</div><a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"> </tt>
+<a name="TaskList.efforts"></a><div id="TaskList.efforts-def"><a name="L49"></a><tt class="py-lineno">49</tt> <a class="py-toggle" href="#" id="TaskList.efforts-toggle" onclick="return toggle('TaskList.efforts');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.domain.task.tasklist.TaskList-class.html#efforts">efforts</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TaskList.efforts-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TaskList.efforts-expanded"><a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">        <tt class="py-name">result</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-32" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-32', 'task', 'link-9');">task</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">:</tt>  <tt class="py-comment"># pylint: disable=W0621</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">            <tt class="py-name">result</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Method taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer.extend()=taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer-class.html#extend,Method taskcoachlib.domain.category.categorycontainer.CategoryList.extend()=taskcoachlib.domain.category.categorycontainer.CategoryList-class.html#extend,Method taskcoachlib.domain.effort.effortlist.EffortList.extend()=taskcoachlib.domain.effort.effortlist.EffortList-class.html#extend,Method taskcoachlib.domain.effort.reducer.EffortAggregator.extend()=taskcoachlib.domain.effort.reducer.EffortAggregator-class.html#extend,Method taskcoachlib.patterns.composite.CompositeCollection.extend()=taskcoachlib.patterns.composite.CompositeCollection-class.html#extend,Method taskcoachlib.patterns.observer.CollectionDecorator.extend()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#extend,Method taskcoachlib.patterns.observer.ObservableList.extend()=taskcoachlib.patterns.observer.ObservableList-class.html#extend,Method taskcoachlib.patterns.observer.ObservableSet.extend()=taskcoachlib.patterns.observer.ObservableSet-class.html#extend"><a title="taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer.extend
+taskcoachlib.domain.category.categorycontainer.CategoryList.extend
+taskcoachlib.domain.effort.effortlist.EffortList.extend
+taskcoachlib.domain.effort.reducer.EffortAggregator.extend
+taskcoachlib.patterns.composite.CompositeCollection.extend
+taskcoachlib.patterns.observer.CollectionDecorator.extend
+taskcoachlib.patterns.observer.ObservableList.extend
+taskcoachlib.patterns.observer.ObservableSet.extend" class="py-name" href="#" onclick="return doclink('link-33', 'extend', 'link-33');">extend</a></tt><tt class="py-op">(</tt><tt id="link-34" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-34', 'task', 'link-9');">task</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Method taskcoachlib.domain.task.task.Task.efforts()=taskcoachlib.domain.task.task.Task-class.html#efforts,Method taskcoachlib.domain.task.tasklist.TaskList.efforts()=taskcoachlib.domain.task.tasklist.TaskList-class.html#efforts,Method taskcoachlib.gui.uicommand.uicommand.EffortStop.efforts()=taskcoachlib.gui.uicommand.uicommand.EffortStop-class.html#efforts,Method taskcoachlib.persistence.taskfile.TaskFile.efforts()=taskcoachlib.persistence.taskfile.TaskFile-class.html#efforts"><a title="taskcoachlib.domain.task.task.Task.efforts
+taskcoachlib.domain.task.tasklist.TaskList.efforts
+taskcoachlib.gui.uicommand.uicommand.EffortStop.efforts
+taskcoachlib.persistence.taskfile.TaskFile.efforts" class="py-name" href="#" onclick="return doclink('link-35', 'efforts', 'link-35');">efforts</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">result</tt> </tt>
+</div><a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">         </tt>
+<a name="TaskList.originalLength"></a><div id="TaskList.originalLength-def"><a name="L55"></a><tt class="py-lineno">55</tt> <a class="py-toggle" href="#" id="TaskList.originalLength-toggle" onclick="return toggle('TaskList.originalLength');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.domain.task.tasklist.TaskList-class.html#originalLength">originalLength</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TaskList.originalLength-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TaskList.originalLength-expanded"><a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">        <tt class="py-docstring">''' Provide a way for bypassing the __len__ method of decorators. '''</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">t</tt> <tt class="py-keyword">for</tt> <tt class="py-name">t</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt> <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">t</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="taskcoachlib.domain.base.object.SynchronizedObject.isDeleted" class="py-name" href="#" onclick="return doclink('link-36', 'isDeleted', 'link-11');">isDeleted</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">     </tt>
+<a name="TaskList.minPriority"></a><div id="TaskList.minPriority-def"><a name="L59"></a><tt class="py-lineno">59</tt> <a class="py-toggle" href="#" id="TaskList.minPriority-toggle" onclick="return toggle('TaskList.minPriority');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.domain.task.tasklist.TaskList-class.html#minPriority">minPriority</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TaskList.minPriority-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TaskList.minPriority-expanded"><a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-37" class="py-name" targets="Variable taskcoachlib.domain.date.dateandtime.DateTime.min=taskcoachlib.domain.date.dateandtime.DateTime-class.html#min"><a title="taskcoachlib.domain.date.dateandtime.DateTime.min" class="py-name" href="#" onclick="return doclink('link-37', 'min', 'link-37');">min</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name" targets="Method taskcoachlib.domain.task.tasklist.TaskList.__allPriorities()=taskcoachlib.domain.task.tasklist.TaskList-class.html#__allPriorities"><a title="taskcoachlib.domain.task.tasklist.TaskList.__allPriorities" class="py-name" href="#" onclick="return doclink('link-38', '__allPriorities', 'link-38');">__allPriorities</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">         </tt>
+<a name="TaskList.maxPriority"></a><div id="TaskList.maxPriority-def"><a name="L62"></a><tt class="py-lineno">62</tt> <a class="py-toggle" href="#" id="TaskList.maxPriority-toggle" onclick="return toggle('TaskList.maxPriority');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.domain.task.tasklist.TaskList-class.html#maxPriority">maxPriority</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TaskList.maxPriority-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TaskList.maxPriority-expanded"><a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-39" class="py-name" targets="Variable taskcoachlib.domain.date.dateandtime.DateTime.max=taskcoachlib.domain.date.dateandtime.DateTime-class.html#max"><a title="taskcoachlib.domain.date.dateandtime.DateTime.max" class="py-name" href="#" onclick="return doclink('link-39', 'max', 'link-39');">max</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="taskcoachlib.domain.task.tasklist.TaskList.__allPriorities" class="py-name" href="#" onclick="return doclink('link-40', '__allPriorities', 'link-38');">__allPriorities</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">         </tt>
+<a name="TaskList.__allPriorities"></a><div id="TaskList.__allPriorities-def"><a name="L65"></a><tt class="py-lineno">65</tt> <a class="py-toggle" href="#" id="TaskList.__allPriorities-toggle" onclick="return toggle('TaskList.__allPriorities');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.domain.task.tasklist.TaskList-class.html#__allPriorities">__allPriorities</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TaskList.__allPriorities-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TaskList.__allPriorities-expanded"><a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt id="link-41" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-41', 'task', 'link-9');">task</a></tt><tt class="py-op">.</tt><tt id="link-42" class="py-name" targets="Method taskcoachlib.domain.task.task.Task.priority()=taskcoachlib.domain.task.task.Task-class.html#priority,Static Method taskcoachlib.persistence.todotxt.reader.TodoTxtReader.priority()=taskcoachlib.persistence.todotxt.reader.TodoTxtReader-class.html#priority,Static Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.priority()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#priority,Function taskcoachlib.render.priority()=taskcoachlib.render-module.html#priority"><a title="taskcoachlib.domain.task.task.Task.priority
+taskcoachlib.persistence.todotxt.reader.TodoTxtReader.priority
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.priority
+taskcoachlib.render.priority" class="py-name" href="#" onclick="return doclink('link-42', 'priority', 'link-42');">priority</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt id="link-43" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-43', 'task', 'link-9');">task</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt> <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-44" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-44', 'task', 'link-9');">task</a></tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="taskcoachlib.domain.base.object.SynchronizedObject.isDeleted" class="py-name" href="#" onclick="return doclink('link-45', 'isDeleted', 'link-11');">isDeleted</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-op">)</tt>  <tt class="py-comment"># pylint: disable=W0621</tt> </tt>
+</div></div><a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:03 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

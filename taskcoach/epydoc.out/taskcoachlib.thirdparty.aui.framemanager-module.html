@@ -1,0 +1,1961 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.aui.framemanager</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.aui-module.html">Package&nbsp;aui</a> ::
+        Module&nbsp;framemanager
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.aui.framemanager-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module framemanager</h1><p class="nomargin-top"><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html">source&nbsp;code</a></span></p>
+<h1 class="heading">Description</h1>
+    <p>`framemanager.py` is the central module of the AUI class 
+    framework.</p>
+    <p>:class:`AuiManager` manages the panes associated with it for a 
+    particular :class:`Frame`, using a pane's :class:`AuiPaneInfo` 
+    information to determine each pane's docking and floating behavior. 
+    AuiManager uses wxPython' sizer mechanism to plan the layout of each 
+    frame. It uses a replaceable dock art class to do all drawing, so all 
+    drawing is localized in one area, and may be customized depending on an
+    application's specific needs.</p>
+    <p>AuiManager works as follows: the programmer adds panes to the class,
+    or makes changes to existing pane properties (dock position, floating 
+    state, show state, etc...). To apply these changes, AuiManager's 
+    :meth:`AuiManager.Update() &lt;AuiManager.Update&gt;` function is 
+    called. This batch processing can be used to avoid flicker, by 
+    modifying more than one pane at a time, and then &quot;committing&quot;
+    all of the changes at once by calling `Update()`.</p>
+    <p>Panes can be added quite easily:</p>
+<pre class="literalblock">
+   text1 = wx.TextCtrl(self, -1)
+   text2 = wx.TextCtrl(self, -1)
+   self._mgr.AddPane(text1, AuiPaneInfo().Left().Caption(&quot;Pane Number One&quot;))
+   self._mgr.AddPane(text2, AuiPaneInfo().Bottom().Caption(&quot;Pane Number Two&quot;))
+
+   self._mgr.Update()
+</pre>
+    <p>Later on, the positions can be modified easily. The following will 
+    float an existing pane in a tool window:</p>
+<pre class="literalblock">
+   self._mgr.GetPane(text1).Float()
+</pre>
+  <h1 class="heading">Layers, Rows and Directions, Positions</h1>
+    <p>Inside AUI, the docking layout is figured out by checking several 
+    pane parameters. Four of these are important for determining where a 
+    pane will end up.</p>
+    <p>**Direction** - Each docked pane has a direction, `Top`, `Bottom`, 
+    `Left`, `Right`, or `Center`. This is fairly self-explanatory. The pane
+    will be placed in the location specified by this variable.</p>
+    <p>**Position** - More than one pane can be placed inside of a 
+    &quot;dock&quot;. Imagine two panes being docked on the left side of a 
+    window. One pane can be placed over another. In proportionally managed 
+    docks, the pane position indicates it's sequential position, starting 
+    with zero. So, in our scenario with two panes docked on the left side, 
+    the top pane in the dock would have position 0, and the second one 
+    would occupy position 1.</p>
+    <p>**Row** - A row can allow for two docks to be placed next to each 
+    other. One of the most common places for this to happen is in the 
+    toolbar. Multiple toolbar rows are allowed, the first row being in row 
+    0, and the second in row 1. Rows can also be used on vertically docked 
+    panes.</p>
+    <p>**Layer** - A layer is akin to an onion. Layer 0 is the very center 
+    of the managed pane. Thus, if a pane is in layer 0, it will be closest 
+    to the center window (also sometimes known as the &quot;content 
+    window&quot;). Increasing layers &quot;swallow up&quot; all layers of a
+    lower value. This can look very similar to multiple rows, but is 
+    different because all panes in a lower level yield to panes in higher 
+    levels. The best way to understand layers is by running the AUI sample 
+    (`AUI.py`).</p>
+
+<hr />
+<div class="fields">      <p><strong>Date:</strong>
+        31 March 2009
+      </p>
+      <p><strong>Author:</strong>
+        Andrea Gavana &lt;andrea.gavana@gmail.com&gt;
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager.AuiDockInfo-class.html" class="summary-name">AuiDockInfo</a><br />
+      A class to store all properties of a dock.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager.AuiDockingGuideInfo-class.html" class="summary-name">AuiDockingGuideInfo</a><br />
+      A class which holds information about VS2005 docking guide windows.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager.AuiDockUIPart-class.html" class="summary-name">AuiDockUIPart</a><br />
+      A class which holds attributes for a UI part in the interface.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager.AuiPaneButton-class.html" class="summary-name">AuiPaneButton</a><br />
+      A simple class which describes the caption pane button attributes.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager.AuiManagerEvent-class.html" class="summary-name">AuiManagerEvent</a><br />
+      A specialized command event class for events sent by 
+      :class:`AuiManager`.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager.AuiPaneInfo-class.html" class="summary-name">AuiPaneInfo</a><br />
+      AuiPaneInfo specifies all the parameters for a pane.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager.AuiDockingGuide-class.html" class="summary-name">AuiDockingGuide</a><br />
+      Base class for :class:`AuiSingleDockingGuide` and 
+      :class:`AuiCenterDockingGuide`.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager.AuiDockingGuideWindow-class.html" class="summary-name">AuiDockingGuideWindow</a><br />
+      Target class for :class:`AuiDockingGuide` and 
+      :class:`AuiCenterDockingGuide`.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager.AuiSingleDockingGuide-class.html" class="summary-name">AuiSingleDockingGuide</a><br />
+      A docking guide window for single docking hint (not diamond-shaped 
+      HUD).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager.AuiCenterDockingGuide-class.html" class="summary-name">AuiCenterDockingGuide</a><br />
+      A docking guide window for multiple docking hint (diamond-shaped 
+      HUD).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager.AuiDockingHintWindow-class.html" class="summary-name">AuiDockingHintWindow</a><br />
+      The original wxAUI docking window hint.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager.AuiFloatingFrame-class.html" class="summary-name">AuiFloatingFrame</a><br />
+      AuiFloatingFrame is the frame class that holds floating panes.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager.AuiManager-class.html" class="summary-name">AuiManager</a><br />
+      AuiManager manages the panes associated with it for a particular 
+      :class:`Frame`, using a pane's :class:`AuiManager` information to 
+      determine each pane's docking and floating behavior.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager.AuiManager_DCP-class.html" class="summary-name">AuiManager_DCP</a><br />
+      A class similar to :class:`AuiManager` but with a Dummy Center Pane 
+      (**DCP**).
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#DrawResizeHint" class="summary-sig-name">DrawResizeHint</a>(<span class="summary-sig-arg">dc</span>,
+        <span class="summary-sig-arg">rect</span>)</span><br />
+      Draws a resize hint while a sash is dragged.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#DrawResizeHint">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#CopyDocksAndPanes" class="summary-sig-name">CopyDocksAndPanes</a>(<span class="summary-sig-arg">src_docks</span>,
+        <span class="summary-sig-arg">src_panes</span>)</span><br />
+      This utility function creates shallow copies of the dock and pane 
+      info.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#CopyDocksAndPanes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#CopyDocksAndPanes2" class="summary-sig-name">CopyDocksAndPanes2</a>(<span class="summary-sig-arg">src_docks</span>,
+        <span class="summary-sig-arg">src_panes</span>)</span><br />
+      This utility function creates full copies of the dock and pane info.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#CopyDocksAndPanes2">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#GetMaxLayer" class="summary-sig-name">GetMaxLayer</a>(<span class="summary-sig-arg">docks</span>,
+        <span class="summary-sig-arg">dock_direction</span>)</span><br />
+      This is an internal function which returns the highest layer inside 
+      the specified dock.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#GetMaxLayer">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#GetMaxRow" class="summary-sig-name">GetMaxRow</a>(<span class="summary-sig-arg">panes</span>,
+        <span class="summary-sig-arg">dock_direction</span>,
+        <span class="summary-sig-arg">dock_layer</span>)</span><br />
+      This is an internal function which returns the highest layer inside 
+      the specified dock.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#GetMaxRow">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#DoInsertDockLayer" class="summary-sig-name">DoInsertDockLayer</a>(<span class="summary-sig-arg">panes</span>,
+        <span class="summary-sig-arg">dock_direction</span>,
+        <span class="summary-sig-arg">dock_layer</span>)</span><br />
+      This is an internal function that inserts a new dock layer by 
+      incrementing all existing dock layer values by one.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#DoInsertDockLayer">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#DoInsertDockRow" class="summary-sig-name">DoInsertDockRow</a>(<span class="summary-sig-arg">panes</span>,
+        <span class="summary-sig-arg">dock_direction</span>,
+        <span class="summary-sig-arg">dock_layer</span>,
+        <span class="summary-sig-arg">dock_row</span>)</span><br />
+      This is an internal function that inserts a new dock row by 
+      incrementing all existing dock row values by one.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#DoInsertDockRow">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#DoInsertPane" class="summary-sig-name">DoInsertPane</a>(<span class="summary-sig-arg">panes</span>,
+        <span class="summary-sig-arg">dock_direction</span>,
+        <span class="summary-sig-arg">dock_layer</span>,
+        <span class="summary-sig-arg">dock_row</span>,
+        <span class="summary-sig-arg">dock_pos</span>)</span><br />
+      This is an internal function that inserts a new pane by incrementing 
+      all existing dock position values by one.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#DoInsertPane">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#FindDocks" class="summary-sig-name">FindDocks</a>(<span class="summary-sig-arg">docks</span>,
+        <span class="summary-sig-arg">dock_direction</span>,
+        <span class="summary-sig-arg">dock_layer</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">dock_row</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">reverse</span>=<span class="summary-sig-default">False</span>)</span><br />
+      This is an internal function that returns a list of docks which meet 
+      the specified conditions in the parameters and returns a sorted array
+      (sorted by layer and then row).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#FindDocks">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#FindOppositeDocks" class="summary-sig-name">FindOppositeDocks</a>(<span class="summary-sig-arg">docks</span>,
+        <span class="summary-sig-arg">dock_direction</span>)</span><br />
+      This is an internal function that returns a list of docks which is 
+      related to the opposite direction.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#FindOppositeDocks">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#FindPaneInDock" class="summary-sig-name">FindPaneInDock</a>(<span class="summary-sig-arg">dock</span>,
+        <span class="summary-sig-arg">window</span>)</span><br />
+      This method looks up a specified window pointer inside a dock.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#FindPaneInDock">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#GetToolBarDockOffsets" class="summary-sig-name">GetToolBarDockOffsets</a>(<span class="summary-sig-arg">docks</span>)</span><br />
+      Returns the toolbar dock offsets (top-left and bottom-right).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#GetToolBarDockOffsets">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#GetInternalFrameRect" class="summary-sig-name">GetInternalFrameRect</a>(<span class="summary-sig-arg">window</span>,
+        <span class="summary-sig-arg">docks</span>)</span><br />
+      Returns the window rectangle excluding toolbars.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#GetInternalFrameRect">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#CheckOutOfWindow" class="summary-sig-name">CheckOutOfWindow</a>(<span class="summary-sig-arg">window</span>,
+        <span class="summary-sig-arg">pt</span>)</span><br />
+      Checks if a point is outside the window rectangle.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#CheckOutOfWindow">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#CheckEdgeDrop" class="summary-sig-name">CheckEdgeDrop</a>(<span class="summary-sig-arg">window</span>,
+        <span class="summary-sig-arg">docks</span>,
+        <span class="summary-sig-arg">pt</span>)</span><br />
+      Checks on which edge of a window the drop action has taken place.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#CheckEdgeDrop">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#RemovePaneFromDocks" class="summary-sig-name">RemovePaneFromDocks</a>(<span class="summary-sig-arg">docks</span>,
+        <span class="summary-sig-arg">pane</span>,
+        <span class="summary-sig-arg">exc</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Removes a pane window from all docks with a possible exception 
+      specified by parameter `exc`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#RemovePaneFromDocks">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#RenumberDockRows" class="summary-sig-name">RenumberDockRows</a>(<span class="summary-sig-arg">docks</span>)</span><br />
+      Takes a dock and assigns sequential numbers to existing rows.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#RenumberDockRows">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#SetActivePane" class="summary-sig-name">SetActivePane</a>(<span class="summary-sig-arg">panes</span>,
+        <span class="summary-sig-arg">active_pane</span>)</span><br />
+      Sets the active pane, as well as cycles through every other pane and 
+      makes sure that all others' active flags are turned off.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#SetActivePane">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#ShowDockingGuides" class="summary-sig-name">ShowDockingGuides</a>(<span class="summary-sig-arg">guides</span>,
+        <span class="summary-sig-arg">show</span>)</span><br />
+      Shows or hide the docking guide windows.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#ShowDockingGuides">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#RefreshDockingGuides" class="summary-sig-name">RefreshDockingGuides</a>(<span class="summary-sig-arg">guides</span>)</span><br />
+      Refreshes the docking guide windows.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#RefreshDockingGuides">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#PaneSortFunc" class="summary-sig-name">PaneSortFunc</a>(<span class="summary-sig-arg">p1</span>,
+        <span class="summary-sig-arg">p2</span>)</span><br />
+      This function is used to sort panes by dock position.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#PaneSortFunc">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#GetNotebookRoot" class="summary-sig-name">GetNotebookRoot</a>(<span class="summary-sig-arg">panes</span>,
+        <span class="summary-sig-arg">notebook_id</span>)</span><br />
+      Returns the :class:`~lib.agw.aui.auibook.AuiNotebook` which has the 
+      specified `notebook_id`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#GetNotebookRoot">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#EscapeDelimiters" class="summary-sig-name">EscapeDelimiters</a>(<span class="summary-sig-arg">s</span>)</span><br />
+      Changes ``;`` into ``\`` and ``|`` into ``\|`` in the input string.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#EscapeDelimiters">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#IsDifferentDockingPosition" class="summary-sig-name">IsDifferentDockingPosition</a>(<span class="summary-sig-arg">pane1</span>,
+        <span class="summary-sig-arg">pane2</span>)</span><br />
+      Returns whether `pane1` and `pane2` are in a different docking 
+      position based on pane status, docking direction, docking layer and 
+      docking row.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#IsDifferentDockingPosition">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#AuiManager_HasLiveResize" class="summary-sig-name">AuiManager_HasLiveResize</a>(<span class="summary-sig-arg">manager</span>)</span><br />
+      Static function which returns if the input `manager` should have 
+      &quot;live resize&quot; behaviour.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#AuiManager_HasLiveResize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#AuiManager_UseNativeMiniframes" class="summary-sig-name">AuiManager_UseNativeMiniframes</a>(<span class="summary-sig-arg">manager</span>)</span><br />
+      Static function which returns if the input `manager` should use 
+      native :class:`MiniFrame` as floating panes.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#AuiManager_UseNativeMiniframes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.framemanager-module.html#GetManager" class="summary-sig-name">GetManager</a>(<span class="summary-sig-arg">window</span>)</span><br />
+      This function will return the aui manager for a given window.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#GetManager">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_"></a><span class="summary-name">_</span> = <code title="wx.GetTranslation">wx.GetTranslation</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_winxptheme"></a><span class="summary-name">_winxptheme</span> = <code title="True">True</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_VERSION_STRING"></a><span class="summary-name">_VERSION_STRING</span> = <code title="wx.VERSION_STRING">wx.VERSION_STRING</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_AUI_PANE_BUTTON"></a><span class="summary-name">wxEVT_AUI_PANE_BUTTON</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_AUI_PANE_CLOSE"></a><span class="summary-name">wxEVT_AUI_PANE_CLOSE</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_AUI_PANE_MAXIMIZE"></a><span class="summary-name">wxEVT_AUI_PANE_MAXIMIZE</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_AUI_PANE_RESTORE"></a><span class="summary-name">wxEVT_AUI_PANE_RESTORE</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_AUI_RENDER"></a><span class="summary-name">wxEVT_AUI_RENDER</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_AUI_FIND_MANAGER"></a><span class="summary-name">wxEVT_AUI_FIND_MANAGER</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_AUI_PANE_MINIMIZE"></a><span class="summary-name">wxEVT_AUI_PANE_MINIMIZE</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_AUI_PANE_MIN_RESTORE"></a><span class="summary-name">wxEVT_AUI_PANE_MIN_RESTORE</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_AUI_PANE_FLOATING"></a><span class="summary-name">wxEVT_AUI_PANE_FLOATING</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_AUI_PANE_FLOATED"></a><span class="summary-name">wxEVT_AUI_PANE_FLOATED</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_AUI_PANE_DOCKING"></a><span class="summary-name">wxEVT_AUI_PANE_DOCKING</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_AUI_PANE_DOCKED"></a><span class="summary-name">wxEVT_AUI_PANE_DOCKED</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_AUI_PANE_ACTIVATED"></a><span class="summary-name">wxEVT_AUI_PANE_ACTIVATED</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_AUI_PERSPECTIVE_CHANGED"></a><span class="summary-name">wxEVT_AUI_PERSPECTIVE_CHANGED</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_AUI_PANE_BUTTON"></a><span class="summary-name">EVT_AUI_PANE_BUTTON</span> = <code title="wx.PyEventBinder(wxEVT_AUI_PANE_BUTTON, 0)">wx.PyEventBinder(wxEVT_AUI_PANE_BUTTON, 0)</code><br />
+      Fires an event when the user left-clicks on a pane button.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_AUI_PANE_CLOSE"></a><span class="summary-name">EVT_AUI_PANE_CLOSE</span> = <code title="wx.PyEventBinder(wxEVT_AUI_PANE_CLOSE, 0)">wx.PyEventBinder(wxEVT_AUI_PANE_CLOSE, 0)</code><br />
+      A pane in `AuiManager` has been closed.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager-module.html#EVT_AUI_PANE_MAXIMIZE" class="summary-name">EVT_AUI_PANE_MAXIMIZE</a> = <code title="wx.PyEventBinder(wxEVT_AUI_PANE_MAXIMIZE, 0)">wx.PyEventBinder(wxEVT_AUI_PANE_MAXIMI<code class="variable-ellipsis">...</code></code><br />
+      A pane in `AuiManager` has been maximized.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager-module.html#EVT_AUI_PANE_RESTORE" class="summary-name">EVT_AUI_PANE_RESTORE</a> = <code title="wx.PyEventBinder(wxEVT_AUI_PANE_RESTORE, 0)">wx.PyEventBinder(wxEVT_AUI_PANE_RESTORE<code class="variable-ellipsis">...</code></code><br />
+      A pane in `AuiManager` has been restored from a maximized state.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_AUI_RENDER"></a><span class="summary-name">EVT_AUI_RENDER</span> = <code title="wx.PyEventBinder(wxEVT_AUI_RENDER, 0)">wx.PyEventBinder(wxEVT_AUI_RENDER, 0)</code><br />
+      Fires an event every time the AUI frame is being repainted.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager-module.html#EVT_AUI_FIND_MANAGER" class="summary-name">EVT_AUI_FIND_MANAGER</a> = <code title="wx.PyEventBinder(wxEVT_AUI_FIND_MANAGER, 0)">wx.PyEventBinder(wxEVT_AUI_FIND_MANAGER<code class="variable-ellipsis">...</code></code><br />
+      Used to find which AUI manager is controlling a certain pane.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager-module.html#EVT_AUI_PANE_MINIMIZE" class="summary-name">EVT_AUI_PANE_MINIMIZE</a> = <code title="wx.PyEventBinder(wxEVT_AUI_PANE_MINIMIZE, 0)">wx.PyEventBinder(wxEVT_AUI_PANE_MINIMI<code class="variable-ellipsis">...</code></code><br />
+      A pane in `AuiManager` has been minimized.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager-module.html#EVT_AUI_PANE_MIN_RESTORE" class="summary-name">EVT_AUI_PANE_MIN_RESTORE</a> = <code title="wx.PyEventBinder(wxEVT_AUI_PANE_MIN_RESTORE, 0)">wx.PyEventBinder(wxEVT_AUI_PANE_MIN<code class="variable-ellipsis">...</code></code><br />
+      A pane in `AuiManager` has been restored from a minimized state.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager-module.html#EVT_AUI_PANE_FLOATING" class="summary-name">EVT_AUI_PANE_FLOATING</a> = <code title="wx.PyEventBinder(wxEVT_AUI_PANE_FLOATING, 0)">wx.PyEventBinder(wxEVT_AUI_PANE_FLOATI<code class="variable-ellipsis">...</code></code><br />
+      A pane in `AuiManager` is about to be floated.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager-module.html#EVT_AUI_PANE_FLOATED" class="summary-name">EVT_AUI_PANE_FLOATED</a> = <code title="wx.PyEventBinder(wxEVT_AUI_PANE_FLOATED, 0)">wx.PyEventBinder(wxEVT_AUI_PANE_FLOATED<code class="variable-ellipsis">...</code></code><br />
+      A pane in `AuiManager` has been floated.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager-module.html#EVT_AUI_PANE_DOCKING" class="summary-name">EVT_AUI_PANE_DOCKING</a> = <code title="wx.PyEventBinder(wxEVT_AUI_PANE_DOCKING, 0)">wx.PyEventBinder(wxEVT_AUI_PANE_DOCKING<code class="variable-ellipsis">...</code></code><br />
+      A pane in `AuiManager` is about to be docked.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_AUI_PANE_DOCKED"></a><span class="summary-name">EVT_AUI_PANE_DOCKED</span> = <code title="wx.PyEventBinder(wxEVT_AUI_PANE_DOCKED, 0)">wx.PyEventBinder(wxEVT_AUI_PANE_DOCKED, 0)</code><br />
+      A pane in `AuiManager` has been docked.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager-module.html#EVT_AUI_PANE_ACTIVATED" class="summary-name">EVT_AUI_PANE_ACTIVATED</a> = <code title="wx.PyEventBinder(wxEVT_AUI_PANE_ACTIVATED, 0)">wx.PyEventBinder(wxEVT_AUI_PANE_ACTIV<code class="variable-ellipsis">...</code></code><br />
+      A pane in `AuiManager` has been activated.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.aui.framemanager-module.html#EVT_AUI_PERSPECTIVE_CHANGED" class="summary-name">EVT_AUI_PERSPECTIVE_CHANGED</a> = <code title="wx.PyEventBinder(wxEVT_AUI_PERSPECTIVE_CHANGED, 0)">wx.PyEventBinder(wxEVT_AUI_PERSP<code class="variable-ellipsis">...</code></code><br />
+      The layout in `AuiManager` has been changed.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NonePaneInfo"></a><span class="summary-name">NonePaneInfo</span> = <code title="AuiPaneInfo()">AuiPaneInfo()</code><br />
+      Null :class:`AuiPaneInfo` reference, an invalid instance of 
+      :class:`AuiPaneInfo`.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="DrawResizeHint"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DrawResizeHint</span>(<span class="sig-arg">dc</span>,
+        <span class="sig-arg">rect</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#DrawResizeHint">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Draws a resize hint while a sash is dragged.</p>
+  <p>:param Rect `rect`: a rectangle which specifies the sash 
+  dimensions.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="CopyDocksAndPanes"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CopyDocksAndPanes</span>(<span class="sig-arg">src_docks</span>,
+        <span class="sig-arg">src_panes</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#CopyDocksAndPanes">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This utility function creates shallow copies of the dock and pane 
+  info. :class:`AuiManager` usually contain pointers to 
+  :class:`AuiPaneInfo` classes, thus this function is necessary to reliably
+  reconstruct that relationship in the new dock info and pane info 
+  arrays.</p>
+  <p>:param `src_docks`: a list of :class:`AuiDockInfo` classes; :param 
+  `src_panes`: a list of :class:`AuiPaneInfo` classes.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="CopyDocksAndPanes2"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CopyDocksAndPanes2</span>(<span class="sig-arg">src_docks</span>,
+        <span class="sig-arg">src_panes</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#CopyDocksAndPanes2">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This utility function creates full copies of the dock and pane info. 
+  :class:`AuiManager` usually contain pointers to :class:`AuiPaneInfo` 
+  classes, thus this function is necessary to reliably reconstruct that 
+  relationship in the new dock info and pane info arrays.</p>
+  <p>:param `src_docks`: a list of :class:`AuiDockInfo` classes; :param 
+  `src_panes`: a list of :class:`AuiPaneInfo` classes.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetMaxLayer"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetMaxLayer</span>(<span class="sig-arg">docks</span>,
+        <span class="sig-arg">dock_direction</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#GetMaxLayer">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This is an internal function which returns the highest layer inside 
+  the specified dock.</p>
+  <p>:param `docks`: a list of :class:`AuiDockInfo`; :param 
+  `dock_direction`: the :class:`AuiDockInfo` docking direction to 
+  analyze.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetMaxRow"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetMaxRow</span>(<span class="sig-arg">panes</span>,
+        <span class="sig-arg">dock_direction</span>,
+        <span class="sig-arg">dock_layer</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#GetMaxRow">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This is an internal function which returns the highest layer inside 
+  the specified dock.</p>
+  <p>:param `panes`: a list of :class:`AuiPaneInfo`; :param integer 
+  `dock_direction`: the :class:`AuiDockInfo` docking direction to analyze; 
+  :param integer `dock_layer`: the :class:`AuiDockInfo` layer to 
+  analyze.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="DoInsertDockLayer"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DoInsertDockLayer</span>(<span class="sig-arg">panes</span>,
+        <span class="sig-arg">dock_direction</span>,
+        <span class="sig-arg">dock_layer</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#DoInsertDockLayer">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This is an internal function that inserts a new dock layer by 
+  incrementing all existing dock layer values by one.</p>
+  <p>:param `panes`: a list of :class:`AuiPaneInfo`; :param integer 
+  `dock_direction`: the :class:`AuiDockInfo` docking direction to analyze; 
+  :param integer `dock_layer`: the :class:`AuiDockInfo` layer to 
+  analyze.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="DoInsertDockRow"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DoInsertDockRow</span>(<span class="sig-arg">panes</span>,
+        <span class="sig-arg">dock_direction</span>,
+        <span class="sig-arg">dock_layer</span>,
+        <span class="sig-arg">dock_row</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#DoInsertDockRow">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This is an internal function that inserts a new dock row by 
+  incrementing all existing dock row values by one.</p>
+  <p>:param `panes`: a list of :class:`AuiPaneInfo`; :param integer 
+  `dock_direction`: the :class:`AuiDockInfo` docking direction to analyze; 
+  :param integer `dock_layer`: the :class:`AuiDockInfo` layer to analyze; 
+  :param integer `dock_row`: the :class:`AuiDockInfo` row to analyze.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="DoInsertPane"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DoInsertPane</span>(<span class="sig-arg">panes</span>,
+        <span class="sig-arg">dock_direction</span>,
+        <span class="sig-arg">dock_layer</span>,
+        <span class="sig-arg">dock_row</span>,
+        <span class="sig-arg">dock_pos</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#DoInsertPane">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This is an internal function that inserts a new pane by incrementing 
+  all existing dock position values by one.</p>
+  <p>:param `panes`: a list of :class:`AuiPaneInfo`; :param integer 
+  `dock_direction`: the :class:`AuiDockInfo` docking direction to analyze; 
+  :param integer `dock_layer`: the :class:`AuiDockInfo` layer to analyze. 
+  :param integer `dock_row`: the :class:`AuiDockInfo` row to analyze; 
+  :param integer `dock_pos`: the :class:`AuiDockInfo` position to 
+  analyze.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="FindDocks"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">FindDocks</span>(<span class="sig-arg">docks</span>,
+        <span class="sig-arg">dock_direction</span>,
+        <span class="sig-arg">dock_layer</span>=<span class="sig-default">-1</span>,
+        <span class="sig-arg">dock_row</span>=<span class="sig-default">-1</span>,
+        <span class="sig-arg">reverse</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#FindDocks">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This is an internal function that returns a list of docks which meet 
+  the specified conditions in the parameters and returns a sorted array 
+  (sorted by layer and then row).</p>
+  <p>:param `docks`: a list of :class:`AuiDockInfo`; :param integer 
+  `dock_direction`: the :class:`AuiDockInfo` docking direction to analyze; 
+  :param integer `dock_layer`: the :class:`AuiDockInfo` layer to analyze. 
+  :param integer `dock_row`: the :class:`AuiDockInfo` row to analyze;</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="FindOppositeDocks"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">FindOppositeDocks</span>(<span class="sig-arg">docks</span>,
+        <span class="sig-arg">dock_direction</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#FindOppositeDocks">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This is an internal function that returns a list of docks which is 
+  related to the opposite direction.</p>
+  <p>:param `docks`: a list of :class:`AuiDockInfo`; :param integer 
+  `dock_direction`: the :class:`AuiDockInfo` docking direction to 
+  analyze;</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="FindPaneInDock"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">FindPaneInDock</span>(<span class="sig-arg">dock</span>,
+        <span class="sig-arg">window</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#FindPaneInDock">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This method looks up a specified window pointer inside a dock. If 
+  found, the corresponding :class:`AuiDockInfo` pointer is returned, 
+  otherwise ``None``.</p>
+  <p>:param `dock`: a :class:`AuiDockInfo` structure; :param Window 
+  `window`: the window associated to the pane we are seeking.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetToolBarDockOffsets"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetToolBarDockOffsets</span>(<span class="sig-arg">docks</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#GetToolBarDockOffsets">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the toolbar dock offsets (top-left and bottom-right).</p>
+  <p>:param `docks`: a list of :class:`AuiDockInfo` to analyze.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetInternalFrameRect"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetInternalFrameRect</span>(<span class="sig-arg">window</span>,
+        <span class="sig-arg">docks</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#GetInternalFrameRect">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the window rectangle excluding toolbars.</p>
+  <p>:param `window`: a :class:`Window` derived window; :param `docks`: a 
+  list of :class:`AuiDockInfo` structures.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="CheckOutOfWindow"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CheckOutOfWindow</span>(<span class="sig-arg">window</span>,
+        <span class="sig-arg">pt</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#CheckOutOfWindow">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Checks if a point is outside the window rectangle.</p>
+  <p>:param `window`: a :class:`Window` derived window; :param `pt`: a 
+  :class:`Point` object.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="CheckEdgeDrop"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CheckEdgeDrop</span>(<span class="sig-arg">window</span>,
+        <span class="sig-arg">docks</span>,
+        <span class="sig-arg">pt</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#CheckEdgeDrop">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Checks on which edge of a window the drop action has taken place.</p>
+  <p>:param `window`: a :class:`Window` derived window; :param `docks`: a 
+  list of :class:`AuiDockInfo` structures; :param `pt`: a :class:`Point` 
+  object.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="RemovePaneFromDocks"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">RemovePaneFromDocks</span>(<span class="sig-arg">docks</span>,
+        <span class="sig-arg">pane</span>,
+        <span class="sig-arg">exc</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#RemovePaneFromDocks">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Removes a pane window from all docks with a possible exception 
+  specified by parameter `exc`.</p>
+  <p>:param `docks`: a list of :class:`AuiDockInfo` structures; :param 
+  AuiPaneInfo `pane`: the pane to be removed; :param AuiPaneInfo `exc`: the
+  possible pane exception.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="RenumberDockRows"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">RenumberDockRows</span>(<span class="sig-arg">docks</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#RenumberDockRows">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Takes a dock and assigns sequential numbers to existing rows.  
+  Basically it takes out the gaps so if a dock has rows with numbers 0, 2, 
+  5, they will become 0, 1, 2.</p>
+  <p>:param `docks`: a list of :class:`AuiDockInfo` structures.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetActivePane"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetActivePane</span>(<span class="sig-arg">panes</span>,
+        <span class="sig-arg">active_pane</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#SetActivePane">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the active pane, as well as cycles through every other pane and 
+  makes sure that all others' active flags are turned off.</p>
+  <p>:param `panes`: a list of :class:`AuiPaneInfo` structures; :param 
+  AuiPaneInfo `active_pane`: the pane to be made active (if found).</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="ShowDockingGuides"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ShowDockingGuides</span>(<span class="sig-arg">guides</span>,
+        <span class="sig-arg">show</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#ShowDockingGuides">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Shows or hide the docking guide windows.</p>
+  <p>:param `guides`: a list of :class:`AuiDockingGuide` classes; :param 
+  bool `show`: whether to show or hide the docking guide windows.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="RefreshDockingGuides"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">RefreshDockingGuides</span>(<span class="sig-arg">guides</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#RefreshDockingGuides">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Refreshes the docking guide windows.</p>
+  <p>:param `guides`: a list of :class:`AuiDockingGuide` classes;</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="PaneSortFunc"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">PaneSortFunc</span>(<span class="sig-arg">p1</span>,
+        <span class="sig-arg">p2</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#PaneSortFunc">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This function is used to sort panes by dock position.</p>
+  <p>:param AuiPaneInfo `p1`: the first pane instance to compare; :param 
+  AuiPaneInfo `p2`: the second pane instance to compare.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetNotebookRoot"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetNotebookRoot</span>(<span class="sig-arg">panes</span>,
+        <span class="sig-arg">notebook_id</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#GetNotebookRoot">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the :class:`~lib.agw.aui.auibook.AuiNotebook` which has the 
+  specified `notebook_id`.</p>
+  <p>:param `panes`: a list of :class:`AuiPaneInfo` instances; :param 
+  integer `notebook_id`: the target notebook id.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="EscapeDelimiters"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">EscapeDelimiters</span>(<span class="sig-arg">s</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#EscapeDelimiters">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Changes ``;`` into ``\`` and ``|`` into ``\|`` in the input 
+  string.</p>
+  <p>:param string `s`: the string to be analyzed.</p>
+  <p>:note: This is an internal functions which is used for saving 
+  perspectives.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="IsDifferentDockingPosition"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">IsDifferentDockingPosition</span>(<span class="sig-arg">pane1</span>,
+        <span class="sig-arg">pane2</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#IsDifferentDockingPosition">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns whether `pane1` and `pane2` are in a different docking 
+  position based on pane status, docking direction, docking layer and 
+  docking row.</p>
+  <p>:param `pane1`: a :class:`AuiPaneInfo` instance; :param `pane2`: 
+  another :class:`AuiPaneInfo` instance.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="AuiManager_HasLiveResize"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">AuiManager_HasLiveResize</span>(<span class="sig-arg">manager</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#AuiManager_HasLiveResize">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Static function which returns if the input `manager` should have 
+  &quot;live resize&quot; behaviour.</p>
+  <p>:param `manager`: an instance of :class:`AuiManager`.</p>
+  <p>.. note:</p>
+<pre class="literalblock">
+  This method always returns ``True`` on wxMAC as this platform doesn't have
+  the ability to use :class:`ScreenDC` to draw sashes.
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="AuiManager_UseNativeMiniframes"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">AuiManager_UseNativeMiniframes</span>(<span class="sig-arg">manager</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#AuiManager_UseNativeMiniframes">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Static function which returns if the input `manager` should use native
+  :class:`MiniFrame` as floating panes.</p>
+  <p>:param `manager`: an instance of :class:`AuiManager`.</p>
+  <p>.. note:</p>
+<pre class="literalblock">
+  This method always returns ``True`` on wxMAC as this platform doesn't have
+  the ability to use custom drawn miniframes.
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetManager"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetManager</span>(<span class="sig-arg">window</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.framemanager-pysrc.html#GetManager">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+This function will return the aui manager for a given window.
+
+:param Window `window`: this parameter should be any child window or grand-child
+ window (and so on) of the frame/window managed by :class:`AuiManager`. The window
+ does not need to be managed by the manager itself, nor does it even need
+ to be a child or sub-child of a managed window. It must however be inside
+ the window hierarchy underneath the managed window.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="EVT_AUI_PANE_MAXIMIZE"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_AUI_PANE_MAXIMIZE</h3>
+  <p>A pane in `AuiManager` has been maximized.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_AUI_PANE_MAXIMIZE, 0)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_AUI_PANE_RESTORE"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_AUI_PANE_RESTORE</h3>
+  <p>A pane in `AuiManager` has been restored from a maximized state.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_AUI_PANE_RESTORE, 0)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_AUI_FIND_MANAGER"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_AUI_FIND_MANAGER</h3>
+  <p>Used to find which AUI manager is controlling a certain pane.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_AUI_FIND_MANAGER, 0)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_AUI_PANE_MINIMIZE"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_AUI_PANE_MINIMIZE</h3>
+  <p>A pane in `AuiManager` has been minimized.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_AUI_PANE_MINIMIZE, 0)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_AUI_PANE_MIN_RESTORE"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_AUI_PANE_MIN_RESTORE</h3>
+  <p>A pane in `AuiManager` has been restored from a minimized state.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_AUI_PANE_MIN_RESTORE, 0)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_AUI_PANE_FLOATING"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_AUI_PANE_FLOATING</h3>
+  <p>A pane in `AuiManager` is about to be floated.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_AUI_PANE_FLOATING, 0)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_AUI_PANE_FLOATED"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_AUI_PANE_FLOATED</h3>
+  <p>A pane in `AuiManager` has been floated.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_AUI_PANE_FLOATED, 0)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_AUI_PANE_DOCKING"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_AUI_PANE_DOCKING</h3>
+  <p>A pane in `AuiManager` is about to be docked.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_AUI_PANE_DOCKING, 0)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_AUI_PANE_ACTIVATED"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_AUI_PANE_ACTIVATED</h3>
+  <p>A pane in `AuiManager` has been activated.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_AUI_PANE_ACTIVATED, 0)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_AUI_PERSPECTIVE_CHANGED"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_AUI_PERSPECTIVE_CHANGED</h3>
+  <p>The layout in `AuiManager` has been changed.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_AUI_PERSPECTIVE_CHANGED, 0)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:31 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

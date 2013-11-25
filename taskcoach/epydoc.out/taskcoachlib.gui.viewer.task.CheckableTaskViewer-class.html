@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.gui.viewer.task.CheckableTaskViewer</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.gui-module.html">Package&nbsp;gui</a> ::
+        <a href="taskcoachlib.gui.viewer-module.html">Package&nbsp;viewer</a> ::
+        <a href="taskcoachlib.gui.viewer.task-module.html">Module&nbsp;task</a> ::
+        Class&nbsp;CheckableTaskViewer
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.gui.viewer.task.CheckableTaskViewer-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class CheckableTaskViewer</h1><p class="nomargin-top"><span class="codelink"><a href="taskcoachlib.gui.viewer.task-pysrc.html#CheckableTaskViewer">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+                                              object --+        
+                                                       |        
+                         <a href="taskcoachlib.gui.viewer.mixin.AttachmentDropTargetMixin-class.html">mixin.AttachmentDropTargetMixin</a> --+    
+                                                           |    
+                                      object --+           |    
+                                               |           |    
+                       <a href="taskcoachlib.gui.viewer.mixin.SortableViewerMixin-class.html">mixin.SortableViewerMixin</a> --+       |    
+                                                   |       |    
+          <a href="taskcoachlib.gui.viewer.mixin.SortableViewerForCategorizablesMixin-class.html">mixin.SortableViewerForCategorizablesMixin</a> --+   |    
+                                                       |   |    
+                       <a href="taskcoachlib.gui.viewer.mixin.SortableViewerForTasksMixin-class.html">mixin.SortableViewerForTasksMixin</a> --+    
+                                                           |    
+                                              object --+   |    
+                                                       |   |    
+                                   <a href="taskcoachlib.gui.viewer.mixin.NoteColumnMixin-class.html">mixin.NoteColumnMixin</a> --+    
+                                                           |    
+                                              object --+   |    
+                                                       |   |    
+                             <a href="taskcoachlib.gui.viewer.mixin.AttachmentColumnMixin-class.html">mixin.AttachmentColumnMixin</a> --+    
+                                                           |    
+                                          object --+       |    
+                                                   |       |    
+                           <a href="taskcoachlib.gui.viewer.mixin.SortableViewerMixin-class.html">mixin.SortableViewerMixin</a> --+   |    
+                                                       |   |    
+                           patterns.Observer --+       |   |    
+                                               |       |   |    
+                                    wx.Panel --+       |   |    
+                                               |       |   |    
+                                     <a href="taskcoachlib.gui.viewer.base.Viewer-class.html">base.Viewer</a> --+   |   |    
+                                                   |   |   |    
+                              <a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html">base.ViewerWithColumns</a> --+   |    
+                                                       |   |    
+                          <a href="taskcoachlib.gui.viewer.base.SortableViewerWithColumns-class.html">base.SortableViewerWithColumns</a> --+    
+                                                           |    
+                                      object --+           |    
+                                               |           |    
+                     <a href="taskcoachlib.gui.viewer.mixin.SearchableViewerMixin-class.html">mixin.SearchableViewerMixin</a> --+       |    
+                                                   |       |    
+                              object --+           |       |    
+                                       |           |       |    
+             <a href="taskcoachlib.gui.viewer.mixin.FilterableViewerMixin-class.html">mixin.FilterableViewerMixin</a> --+       |       |    
+                                           |       |       |    
+<a href="taskcoachlib.gui.viewer.mixin.FilterableViewerForCategorizablesMixin-class.html">mixin.FilterableViewerForCategorizablesMixin</a> --+   |       |    
+                                               |   |       |    
+             <a href="taskcoachlib.gui.viewer.mixin.FilterableViewerForTasksMixin-class.html">mixin.FilterableViewerForTasksMixin</a> --+       |    
+                                                   |       |    
+                       patterns.Observer --+       |       |    
+                                           |       |       |    
+                                wx.Panel --+       |       |    
+                                           |       |       |    
+                                 <a href="taskcoachlib.gui.viewer.base.Viewer-class.html">base.Viewer</a> --+   |       |    
+                                               |   |       |    
+                                 <a href="taskcoachlib.gui.viewer.base.TreeViewer-class.html">base.TreeViewer</a> --+       |    
+                                                   |       |    
+                                      <a href="taskcoachlib.gui.viewer.task.BaseTaskViewer-class.html">BaseTaskViewer</a> --+   |    
+                                                       |   |    
+                                      <a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html">BaseTaskTreeViewer</a> --+    
+                                                           |    
+                                                  <a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html">TaskViewer</a> --+
+                                                               |
+                                                              <strong class="uidshort">CheckableTaskViewer</strong>
+</pre>
+
+<hr />
+<!-- ==================== NESTED CLASSES ==================== -->
+<a name="section-NestedClasses"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Nested Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-NestedClasses"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerForTasksMixin-class.html">mixin.SortableViewerForTasksMixin</a></code></b>:
+      <code><a href="taskcoachlib.domain.task.sorter.Sorter-class.html">SorterClass</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.gui.viewer.task.CheckableTaskViewer-class.html#createWidget" class="summary-sig-name">createWidget</a>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.gui.viewer.task-pysrc.html#CheckableTaskViewer.createWidget">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="onCheck"></a><span class="summary-sig-name">onCheck</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.gui.viewer.task-pysrc.html#CheckableTaskViewer.onCheck">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getIsItemChecked"></a><span class="summary-sig-name">getIsItemChecked</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">task</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.gui.viewer.task-pysrc.html#CheckableTaskViewer.getIsItemChecked">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getItemParentHasExclusiveChildren"></a><span class="summary-sig-name">getItemParentHasExclusiveChildren</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">task</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.gui.viewer.task-pysrc.html#CheckableTaskViewer.getItemParentHasExclusiveChildren">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html">TaskViewer</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#__init__">__init__</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#children">children</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#createColumnPopupMenu">createColumnPopupMenu</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#createColumnUICommands">createColumnUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#createModeToolBarUICommands">createModeToolBarUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#curselectionIsInstanceOf">curselectionIsInstanceOf</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#getItemParent">getItemParent</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#getModeUICommands">getModeUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#getRootItems">getRootItems</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#getSortOrderImage">getSortOrderImage</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#hasModes">hasModes</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#isTreeViewer">isTreeViewer</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#onBeginEdit">onBeginEdit</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#onEditActualStartDateTime">onEditActualStartDateTime</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#onEditBudget">onEditBudget</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#onEditCompletionDateTime">onEditCompletionDateTime</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#onEditDueDateTime">onEditDueDateTime</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#onEditFixedFee">onEditFixedFee</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#onEditHourlyFee">onEditHourlyFee</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#onEditPercentageComplete">onEditPercentageComplete</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#onEditPlannedStartDateTime">onEditPlannedStartDateTime</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#onEditPriority">onEditPriority</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#onEditReminderDateTime">onEditReminderDateTime</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#onEndEdit">onEndEdit</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#onEverySecond">onEverySecond</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#onTreeListModeChanged">onTreeListModeChanged</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderActualStartDateTime">renderActualStartDateTime</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderBudget">renderBudget</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderBudgetLeft">renderBudgetLeft</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderCompletionDateTime">renderCompletionDateTime</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderDependencies">renderDependencies</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderDueDateTime">renderDueDateTime</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderFixedFee">renderFixedFee</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderHourlyFee">renderHourlyFee</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderPercentageComplete">renderPercentageComplete</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderPlannedStartDateTime">renderPlannedStartDateTime</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderPrerequisites">renderPrerequisites</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderPriority">renderPriority</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderRecurrence">renderRecurrence</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderReminder">renderReminder</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderRevenue">renderRevenue</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderSubject">renderSubject</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderTimeLeft">renderTimeLeft</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderTimeSpent">renderTimeSpent</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#renderedValue">renderedValue</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#setSearchFilter">setSearchFilter</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#setSortByTaskStatusFirst">setSortByTaskStatusFirst</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#showColumn">showColumn</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html">TaskViewer</a></code></b> (private):
+      <code><a href="taskcoachlib.gui.viewer.task.TaskViewer-class.html#_createColumns" onclick="show_private();">_createColumns</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.mixin.AttachmentDropTargetMixin-class.html">mixin.AttachmentDropTargetMixin</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.mixin.AttachmentDropTargetMixin-class.html#onDropFiles">onDropFiles</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.AttachmentDropTargetMixin-class.html#onDropMail">onDropMail</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.AttachmentDropTargetMixin-class.html#onDropURL">onDropURL</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.AttachmentDropTargetMixin-class.html#widgetCreationKeywordArguments">widgetCreationKeywordArguments</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.mixin.AttachmentDropTargetMixin-class.html">mixin.AttachmentDropTargetMixin</a></code></b> (private):
+      <code><a href="taskcoachlib.gui.viewer.mixin.AttachmentDropTargetMixin-class.html#_addAttachments" onclick="show_private();">_addAttachments</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerForTasksMixin-class.html">mixin.SortableViewerForTasksMixin</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerForTasksMixin-class.html#createSortByUICommands">createSortByUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerForTasksMixin-class.html#createSortOrderUICommands">createSortOrderUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerForTasksMixin-class.html#isSortByTaskStatusFirst">isSortByTaskStatusFirst</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerForTasksMixin-class.html#sortBy">sortBy</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerForTasksMixin-class.html#sorterOptions">sorterOptions</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.mixin.NoteColumnMixin-class.html">mixin.NoteColumnMixin</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.mixin.NoteColumnMixin-class.html#noteImageIndices">noteImageIndices</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.mixin.AttachmentColumnMixin-class.html">mixin.AttachmentColumnMixin</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.mixin.AttachmentColumnMixin-class.html#attachmentImageIndices">attachmentImageIndices</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.base.SortableViewerWithColumns-class.html">base.SortableViewerWithColumns</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.base.SortableViewerWithColumns-class.html#initColumn">initColumn</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.SortableViewerWithColumns-class.html#setSortOrderAscending">setSortOrderAscending</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.SortableViewerWithColumns-class.html#showSortColumn">showSortColumn</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.SortableViewerWithColumns-class.html#showSortOrder">showSortOrder</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerMixin-class.html">mixin.SortableViewerMixin</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerMixin-class.html#createSortUICommands">createSortUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerMixin-class.html#createSorter">createSorter</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerMixin-class.html#detach">detach</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerMixin-class.html#getSortUICommands">getSortUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerMixin-class.html#isSortCaseSensitive">isSortCaseSensitive</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerMixin-class.html#isSortOrderAscending">isSortOrderAscending</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerMixin-class.html#isSortable">isSortable</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerMixin-class.html#isSortedBy">isSortedBy</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerMixin-class.html#onSortOrderChanged">onSortOrderChanged</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerMixin-class.html#registerPresentationObservers">registerPresentationObservers</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerMixin-class.html#setSortCaseSensitive">setSortCaseSensitive</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerMixin-class.html#sortKey">sortKey</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html">BaseTaskTreeViewer</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html#createActionToolBarUICommands">createActionToolBarUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html#createCreationToolBarUICommands">createCreationToolBarUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html#createTaskPopupMenu">createTaskPopupMenu</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html#deleteItemCommand">deleteItemCommand</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html#editItemDialog">editItemDialog</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html#getItemTooltipData">getItemTooltipData</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html#iconName">iconName</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html#itemEditorClass">itemEditorClass</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html#label">label</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html#newItemCommandClass">newItemCommandClass</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html#newItemDialog">newItemDialog</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html#newSubItemCommand">newSubItemCommand</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html#newSubItemCommandClass">newSubItemCommandClass</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.task.BaseTaskViewer-class.html">BaseTaskViewer</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskViewer-class.html#createFilter">createFilter</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskViewer-class.html#domainObjectsToView">domainObjectsToView</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskViewer-class.html#isShowingTasks">isShowingTasks</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskViewer-class.html#nrOfVisibleTasks">nrOfVisibleTasks</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskViewer-class.html#onAppearanceSettingChange">onAppearanceSettingChange</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.mixin.SearchableViewerMixin-class.html">mixin.SearchableViewerMixin</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.mixin.SearchableViewerMixin-class.html#createToolBarUICommands">createToolBarUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SearchableViewerMixin-class.html#getSearchFilter">getSearchFilter</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SearchableViewerMixin-class.html#isSearchable">isSearchable</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SearchableViewerMixin-class.html#searchOptions">searchOptions</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerForTasksMixin-class.html">mixin.FilterableViewerForTasksMixin</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerForTasksMixin-class.html#createFilterUICommands">createFilterUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerForTasksMixin-class.html#hasFilter">hasFilter</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerForTasksMixin-class.html#hiddenTaskStatuses">hiddenTaskStatuses</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerForTasksMixin-class.html#hideCompositeTasks">hideCompositeTasks</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerForTasksMixin-class.html#hideTaskStatus">hideTaskStatus</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerForTasksMixin-class.html#isHidingCompositeTasks">isHidingCompositeTasks</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerForTasksMixin-class.html#isHidingTaskStatus">isHidingTaskStatus</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerForTasksMixin-class.html#resetFilter">resetFilter</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerForTasksMixin-class.html#showOnlyTaskStatus">showOnlyTaskStatus</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerForTasksMixin-class.html#viewFilterOptions">viewFilterOptions</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerMixin-class.html">mixin.FilterableViewerMixin</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerMixin-class.html#createCategoryFilterCommands">createCategoryFilterCommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerMixin-class.html#createToggleCategoryFilterCommands">createToggleCategoryFilterCommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerMixin-class.html#getFilterUICommands">getFilterUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.FilterableViewerMixin-class.html#isFilterable">isFilterable</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html">base.ViewerWithColumns</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#columns">columns</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#getColumnUICommands">getColumnUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#getColumnWidth">getColumnWidth</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#getItemImages">getItemImages</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#getItemText">getItemText</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#hasColumnImages">hasColumnImages</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#hasHideableColumns">hasHideableColumns</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#hideColumn">hideColumn</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#hideableColumns">hideableColumns</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#initColumns">initColumns</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#isHideableColumn">isHideableColumn</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#isItemCollapsed">isItemCollapsed</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#isVisibleColumn">isVisibleColumn</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#isVisibleColumnByName">isVisibleColumnByName</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#onResizeColumn">onResizeColumn</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#refresh">refresh</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#renderCategories">renderCategories</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#renderSubjectsOfRelatedItems">renderSubjectsOfRelatedItems</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#selectableColumns">selectableColumns</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#showColumnByName">showColumnByName</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#subjectImageIndices">subjectImageIndices</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#visibleColumns">visibleColumns</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.base.TreeViewer-class.html">base.TreeViewer</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.base.TreeViewer-class.html#collapseAll">collapseAll</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.TreeViewer-class.html#expandAll">expandAll</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.TreeViewer-class.html#getItemExpanded">getItemExpanded</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.TreeViewer-class.html#isAnyItemCollapsable">isAnyItemCollapsable</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.TreeViewer-class.html#isAnyItemExpandable">isAnyItemExpandable</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.TreeViewer-class.html#onItemCollapsed">onItemCollapsed</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.TreeViewer-class.html#onItemExpanded">onItemExpanded</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.TreeViewer-class.html#select">select</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.TreeViewer-class.html#selectNextItemsAfterRemoval">selectNextItemsAfterRemoval</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.TreeViewer-class.html#updateSelection">updateSelection</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.TreeViewer-class.html#visibleItems">visibleItems</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html">base.Viewer</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#SetFocus">SetFocus</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#bitmap">bitmap</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#clear_selection">clear_selection</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#createClipboardToolBarUICommands">createClipboardToolBarUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#createEditToolBarUICommands">createEditToolBarUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#createImageList">createImageList</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#curselection">curselection</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#cutItemCommand">cutItemCommand</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#cutItemCommandClass">cutItemCommandClass</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#deleteItemCommandClass">deleteItemCommandClass</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#endOfSelectAll">endOfSelectAll</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#freeze">freeze</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#getRoundingUICommands">getRoundingUICommands</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#getToolBarPerspective">getToolBarPerspective</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#getWidget">getWidget</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#initLayout">initLayout</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#isShowingAttachments">isShowingAttachments</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#isShowingCategories">isShowingCategories</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#isShowingEffort">isShowingEffort</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#isShowingNotes">isShowingNotes</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#isViewerContainer">isViewerContainer</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#isselected">isselected</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#newItemCommand">newItemCommand</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#newSubItemDialog">newSubItemDialog</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#onAttributeChanged">onAttributeChanged</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#onAttributeChanged_Deprecated">onAttributeChanged_Deprecated</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#onBeginIO">onBeginIO</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#onEditDescription">onEditDescription</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#onEditSubject">onEditSubject</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#onEndIO">onEndIO</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#onNewItem">onNewItem</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#onPresentationChanged">onPresentationChanged</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#onSelect">onSelect</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#presentation">presentation</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#previousSettingsSection">previousSettingsSection</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#refreshItems">refreshItems</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#saveToolBarPerspective">saveToolBarPerspective</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#select_all">select_all</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#sendViewerStatusEvent">sendViewerStatusEvent</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#setPresentation">setPresentation</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#setTitle">setTitle</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#settingsSection">settingsSection</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#size">size</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#statusMessages">statusMessages</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#supportsRounding">supportsRounding</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#thaw">thaw</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#title">title</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#viewerStatusEventType">viewerStatusEventType</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== STATIC METHODS ==================== -->
+<a name="section-StaticMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Static Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-StaticMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html">base.ViewerWithColumns</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#renderCreationDateTime">renderCreationDateTime</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#renderModificationDateTime">renderModificationDateTime</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#renderSubjects">renderSubjects</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerForTasksMixin-class.html">mixin.SortableViewerForTasksMixin</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerForTasksMixin-class.html#sortByCategoryHelpText">sortByCategoryHelpText</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerForTasksMixin-class.html#sortByCreationDateTimeHelpText">sortByCreationDateTimeHelpText</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerForTasksMixin-class.html#sortByDescriptionHelpText">sortByDescriptionHelpText</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerForTasksMixin-class.html#sortByModificationDateTimeHelpText">sortByModificationDateTimeHelpText</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.mixin.SortableViewerForTasksMixin-class.html#sortBySubjectHelpText">sortBySubjectHelpText</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html">BaseTaskTreeViewer</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html#defaultBitmap">defaultBitmap</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.task.BaseTaskTreeViewer-class.html#defaultTitle">defaultTitle</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html">base.Viewer</a></code></b>:
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#__metaclass__">__metaclass__</a></code>,
+      <code><a href="taskcoachlib.gui.viewer.base.Viewer-class.html#viewerImages">viewerImages</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="createWidget"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">createWidget</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.gui.viewer.task-pysrc.html#CheckableTaskViewer.createWidget">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="taskcoachlib.gui.viewer.base.Viewer-class.html#createWidget">base.Viewer.createWidget</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:40 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

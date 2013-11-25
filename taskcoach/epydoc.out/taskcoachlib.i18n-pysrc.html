@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.i18n</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        Package&nbsp;i18n
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.i18n-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.i18n-module.html">Package taskcoachlib.i18n</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach - Your friendly task manager</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (C) 2004-2013 Task Coach developers &lt;developers@taskcoach.org&gt;</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is free software: you can redistribute it and/or modify</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">the Free Software Foundation, either version 3 of the License, or</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">(at your option) any later version.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">GNU General Public License for more details.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">wx</tt><tt class="py-op">,</tt> <tt class="py-name">os</tt><tt class="py-op">,</tt> <tt class="py-name">sys</tt><tt class="py-op">,</tt> <tt class="py-name">imp</tt><tt class="py-op">,</tt> <tt class="py-name">tempfile</tt><tt class="py-op">,</tt> <tt class="py-name">locale</tt><tt class="py-op">,</tt> <tt id="link-0" class="py-name" targets="Method taskcoachlib.config.settings.Settings.gettext()=taskcoachlib.config.settings.Settings-class.html#gettext,Method taskcoachlib.gui.dialog.preferences.SettingsPage.gettext()=taskcoachlib.gui.dialog.preferences.SettingsPage-class.html#gettext,Method taskcoachlib.gui.dialog.preferences.SettingsPageBase.gettext()=taskcoachlib.gui.dialog.preferences.SettingsPageBase-class.html#gettext"><a title="taskcoachlib.config.settings.Settings.gettext
+taskcoachlib.gui.dialog.preferences.SettingsPage.gettext
+taskcoachlib.gui.dialog.preferences.SettingsPageBase.gettext" class="py-name" href="#" onclick="return doclink('link-0', 'gettext', 'link-0');">gettext</a></tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Package taskcoachlib=taskcoachlib-module.html"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-1', 'taskcoachlib', 'link-1');">taskcoachlib</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Package taskcoachlib.patterns=taskcoachlib.patterns-module.html"><a title="taskcoachlib.patterns" class="py-name" href="#" onclick="return doclink('link-2', 'patterns', 'link-2');">patterns</a></tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name" targets="Module taskcoachlib.operating_system=taskcoachlib.operating_system-module.html"><a title="taskcoachlib.operating_system" class="py-name" href="#" onclick="return doclink('link-3', 'operating_system', 'link-3');">operating_system</a></tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Module taskcoachlib.i18n.po2dict=taskcoachlib.i18n.po2dict-module.html"><a title="taskcoachlib.i18n.po2dict" class="py-name" href="#" onclick="return doclink('link-4', 'po2dict', 'link-4');">po2dict</a></tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="Translator"></a><div id="Translator-def"><a name="L24"></a><tt class="py-lineno"> 24</tt> <a class="py-toggle" href="#" id="Translator-toggle" onclick="return toggle('Translator');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.i18n.Translator-class.html">Translator</a><tt class="py-op">:</tt> </tt>
+</div><div id="Translator-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Translator-expanded"><a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Variable taskcoachlib.application.application.Application.__metaclass__=taskcoachlib.application.application.Application-class.html#__metaclass__,Variable taskcoachlib.command.clipboard.Clipboard.__metaclass__=taskcoachlib.command.clipboard.Clipboard-class.html#__metaclass__,Variable taskcoachlib.domain.attachment.attachmentowner.AttachmentOwner.__metaclass__=taskcoachlib.domain.attachment.attachmentowner.AttachmentOwner-class.html#__metaclass__,Variable taskcoachlib.domain.date.date.InfiniteDate.__metaclass__=taskcoachlib.domain.date.date.InfiniteDate-class.html#__metaclass__,Variable taskcoachlib.domain.date.scheduler.Scheduler.__metaclass__=taskcoachlib.domain.date.scheduler.Scheduler-class.html#__metaclass__,Variable taskcoachlib.domain.note.noteowner.NoteOwner.__metaclass__=taskcoachlib.domain.note.noteowner.NoteOwner-class.html#__metaclass__,Variable taskcoachlib.gui.artprovider.IconProvider.__metaclass__=taskcoachlib.gui.artprovider.IconProvider-class.html#__metaclass__,Variable taskcoachlib.gui.printer.PrinterSettings.__metaclass__=taskcoachlib.gui.printer.PrinterSettings-class.html#__metaclass__,Variable taskcoachlib.gui.viewer.base.Viewer.__metaclass__=taskcoachlib.gui.viewer.base.Viewer-class.html#__metaclass__,Variable taskcoachlib.i18n.Translator.__metaclass__=taskcoachlib.i18n.Translator-class.html#__metaclass__,Variable taskcoachlib.persistence.sessiontempfile.TempFiles.__metaclass__=taskcoachlib.persistence.sessiontempfile.TempFiles-class.html#__metaclass__,Variable taskcoachlib.speak.speaker.Speaker.__metaclass__=taskcoachlib.speak.speaker.Speaker-class.html#__metaclass__,Variable taskcoachlib.thirdparty.googleapi.oauth2client.django_orm.CredentialsField.__metaclass__=taskcoachlib.thirdparty.googleapi.oauth2client.django_orm.CredentialsField-class.html#__metaclass__,Variable taskcoachlib.thirdparty.googleapi.oauth2client.django_orm.FlowField.__metaclass__=taskcoachlib.thirdparty.googleapi.oauth2client.django_orm.FlowField-class.html#__metaclass__,Variable taskcoachlib.thirdparty.keyring.backend.KeyringBackend.__metaclass__=taskcoachlib.thirdparty.keyring.backend.KeyringBackend-class.html#__metaclass__"><a title="taskcoachlib.application.application.Application.__metaclass__
+taskcoachlib.command.clipboard.Clipboard.__metaclass__
+taskcoachlib.domain.attachment.attachmentowner.AttachmentOwner.__metaclass__
+taskcoachlib.domain.date.date.InfiniteDate.__metaclass__
+taskcoachlib.domain.date.scheduler.Scheduler.__metaclass__
+taskcoachlib.domain.note.noteowner.NoteOwner.__metaclass__
+taskcoachlib.gui.artprovider.IconProvider.__metaclass__
+taskcoachlib.gui.printer.PrinterSettings.__metaclass__
+taskcoachlib.gui.viewer.base.Viewer.__metaclass__
+taskcoachlib.i18n.Translator.__metaclass__
+taskcoachlib.persistence.sessiontempfile.TempFiles.__metaclass__
+taskcoachlib.speak.speaker.Speaker.__metaclass__
+taskcoachlib.thirdparty.googleapi.oauth2client.django_orm.CredentialsField.__metaclass__
+taskcoachlib.thirdparty.googleapi.oauth2client.django_orm.FlowField.__metaclass__
+taskcoachlib.thirdparty.keyring.backend.KeyringBackend.__metaclass__" class="py-name" href="#" onclick="return doclink('link-5', '__metaclass__', 'link-5');">__metaclass__</a></tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="taskcoachlib.patterns" class="py-name" href="#" onclick="return doclink('link-6', 'patterns', 'link-2');">patterns</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Class taskcoachlib.patterns.singleton.Singleton=taskcoachlib.patterns.singleton.Singleton-class.html"><a title="taskcoachlib.patterns.singleton.Singleton" class="py-name" href="#" onclick="return doclink('link-7', 'Singleton', 'link-7');">Singleton</a></tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">     </tt>
+<a name="Translator.__init__"></a><div id="Translator.__init__-def"><a name="L27"></a><tt class="py-lineno"> 27</tt> <a class="py-toggle" href="#" id="Translator.__init__-toggle" onclick="return toggle('Translator.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.i18n.Translator-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">language</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Translator.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Translator.__init__-expanded"><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">        <tt id="link-8" class="py-name" targets="Method taskcoachlib.persistence.taskfile.LockedTaskFile.load()=taskcoachlib.persistence.taskfile.LockedTaskFile-class.html#load,Method taskcoachlib.persistence.taskfile.TaskFile.load()=taskcoachlib.persistence.taskfile.TaskFile-class.html#load,Function taskcoachlib.thirdparty.googleapi.oauth2client.clientsecrets.load()=taskcoachlib.thirdparty.googleapi.oauth2client.clientsecrets-module.html#load"><a title="taskcoachlib.persistence.taskfile.LockedTaskFile.load
+taskcoachlib.persistence.taskfile.TaskFile.load
+taskcoachlib.thirdparty.googleapi.oauth2client.clientsecrets.load" class="py-name" href="#" onclick="return doclink('link-8', 'load', 'link-8');">load</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method taskcoachlib.i18n.Translator._loadPoFile()=taskcoachlib.i18n.Translator-class.html#_loadPoFile"><a title="taskcoachlib.i18n.Translator._loadPoFile" class="py-name" href="#" onclick="return doclink('link-9', '_loadPoFile', 'link-9');">_loadPoFile</a></tt> <tt class="py-keyword">if</tt> <tt id="link-10" class="py-name" targets="Variable taskcoachlib.thirdparty.xdg.Config.language=taskcoachlib.thirdparty.xdg.Config-module.html#language"><a title="taskcoachlib.thirdparty.xdg.Config.language" class="py-name" href="#" onclick="return doclink('link-10', 'language', 'link-10');">language</a></tt><tt class="py-op">.</tt><tt class="py-name">endswith</tt><tt class="py-op">(</tt><tt class="py-string">'.po'</tt><tt class="py-op">)</tt> <tt class="py-keyword">else</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method taskcoachlib.i18n.Translator._loadModule()=taskcoachlib.i18n.Translator-class.html#_loadModule"><a title="taskcoachlib.i18n.Translator._loadModule" class="py-name" href="#" onclick="return doclink('link-11', '_loadModule', 'link-11');">_loadModule</a></tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">        <tt id="link-12" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.module()=taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase-class.html#module"><a title="taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.module" class="py-name" href="#" onclick="return doclink('link-12', 'module', 'link-12');">module</a></tt><tt class="py-op">,</tt> <tt id="link-13" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Config.language" class="py-name" href="#" onclick="return doclink('link-13', 'language', 'link-10');">language</a></tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name"><a title="taskcoachlib.persistence.taskfile.LockedTaskFile.load
+taskcoachlib.persistence.taskfile.TaskFile.load
+taskcoachlib.thirdparty.googleapi.oauth2client.clientsecrets.load" class="py-name" href="#" onclick="return doclink('link-14', 'load', 'link-8');">load</a></tt><tt class="py-op">(</tt><tt id="link-15" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Config.language" class="py-name" href="#" onclick="return doclink('link-15', 'language', 'link-10');">language</a></tt><tt class="py-op">)</tt>  </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method taskcoachlib.i18n.Translator._installModule()=taskcoachlib.i18n.Translator-class.html#_installModule"><a title="taskcoachlib.i18n.Translator._installModule" class="py-name" href="#" onclick="return doclink('link-16', '_installModule', 'link-16');">_installModule</a></tt><tt class="py-op">(</tt><tt id="link-17" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.module" class="py-name" href="#" onclick="return doclink('link-17', 'module', 'link-12');">module</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method taskcoachlib.i18n.Translator._setLocale()=taskcoachlib.i18n.Translator-class.html#_setLocale"><a title="taskcoachlib.i18n.Translator._setLocale" class="py-name" href="#" onclick="return doclink('link-18', '_setLocale', 'link-18');">_setLocale</a></tt><tt class="py-op">(</tt><tt id="link-19" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Config.language" class="py-name" href="#" onclick="return doclink('link-19', 'language', 'link-10');">language</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"> </tt>
+<a name="Translator._loadPoFile"></a><div id="Translator._loadPoFile-def"><a name="L33"></a><tt class="py-lineno"> 33</tt> <a class="py-toggle" href="#" id="Translator._loadPoFile-toggle" onclick="return toggle('Translator._loadPoFile');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.i18n.Translator-class.html#_loadPoFile">_loadPoFile</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">poFilename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Translator._loadPoFile-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Translator._loadPoFile-expanded"><a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-docstring">''' Load the translation from a .po file by creating a python </tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">            module with po2dict and them importing that module. '''</tt>  </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">        <tt id="link-20" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Config.language" class="py-name" href="#" onclick="return doclink('link-20', 'language', 'link-10');">language</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method taskcoachlib.i18n.Translator._languageFromPoFilename()=taskcoachlib.i18n.Translator-class.html#_languageFromPoFilename"><a title="taskcoachlib.i18n.Translator._languageFromPoFilename" class="py-name" href="#" onclick="return doclink('link-21', '_languageFromPoFilename', 'link-21');">_languageFromPoFilename</a></tt><tt class="py-op">(</tt><tt class="py-name">poFilename</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-name">pyFilename</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method taskcoachlib.i18n.Translator._tmpPyFilename()=taskcoachlib.i18n.Translator-class.html#_tmpPyFilename"><a title="taskcoachlib.i18n.Translator._tmpPyFilename" class="py-name" href="#" onclick="return doclink('link-22', '_tmpPyFilename', 'link-22');">_tmpPyFilename</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt id="link-23" class="py-name"><a title="taskcoachlib.i18n.po2dict" class="py-name" href="#" onclick="return doclink('link-23', 'po2dict', 'link-4');">po2dict</a></tt><tt class="py-op">.</tt><tt class="py-name">make</tt><tt class="py-op">(</tt><tt class="py-name">poFilename</tt><tt class="py-op">,</tt> <tt class="py-name">pyFilename</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt id="link-24" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.module" class="py-name" href="#" onclick="return doclink('link-24', 'module', 'link-12');">module</a></tt> <tt class="py-op">=</tt> <tt class="py-name">imp</tt><tt class="py-op">.</tt><tt class="py-name">load_source</tt><tt class="py-op">(</tt><tt id="link-25" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Config.language" class="py-name" href="#" onclick="return doclink('link-25', 'language', 'link-10');">language</a></tt><tt class="py-op">,</tt> <tt class="py-name">pyFilename</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Method taskcoachlib.domain.base.attribute.SetAttribute.remove()=taskcoachlib.domain.base.attribute.SetAttribute-class.html#remove,Method taskcoachlib.patterns.composite.CompositeCollection.remove()=taskcoachlib.patterns.composite.CompositeCollection-class.html#remove,Method taskcoachlib.patterns.observer.CollectionDecorator.remove()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#remove,Method taskcoachlib.patterns.observer.ObservableList.remove()=taskcoachlib.patterns.observer.ObservableList-class.html#remove,Method taskcoachlib.patterns.observer.ObservableSet.remove()=taskcoachlib.patterns.observer.ObservableSet-class.html#remove,Method taskcoachlib.thirdparty._weakrefset.WeakSet.remove()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#remove"><a title="taskcoachlib.domain.base.attribute.SetAttribute.remove
+taskcoachlib.patterns.composite.CompositeCollection.remove
+taskcoachlib.patterns.observer.CollectionDecorator.remove
+taskcoachlib.patterns.observer.ObservableList.remove
+taskcoachlib.patterns.observer.ObservableSet.remove
+taskcoachlib.thirdparty._weakrefset.WeakSet.remove" class="py-name" href="#" onclick="return doclink('link-26', 'remove', 'link-26');">remove</a></tt><tt class="py-op">(</tt><tt class="py-name">pyFilename</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-27" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.module" class="py-name" href="#" onclick="return doclink('link-27', 'module', 'link-12');">module</a></tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Config.language" class="py-name" href="#" onclick="return doclink('link-28', 'language', 'link-10');">language</a></tt> </tt>
+</div><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">     </tt>
+<a name="Translator._tmpPyFilename"></a><div id="Translator._tmpPyFilename-def"><a name="L43"></a><tt class="py-lineno"> 43</tt> <a class="py-toggle" href="#" id="Translator._tmpPyFilename-toggle" onclick="return toggle('Translator._tmpPyFilename');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.i18n.Translator-class.html#_tmpPyFilename">_tmpPyFilename</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Translator._tmpPyFilename-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Translator._tmpPyFilename-expanded"><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-docstring">''' Return a filename of a (closed) temporary .py file. '''</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-name">tmpFile</tt> <tt class="py-op">=</tt> <tt class="py-name">tempfile</tt><tt class="py-op">.</tt><tt class="py-name">NamedTemporaryFile</tt><tt class="py-op">(</tt><tt class="py-name">suffix</tt><tt class="py-op">=</tt><tt class="py-string">'.py'</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">        <tt class="py-name">pyFilename</tt> <tt class="py-op">=</tt> <tt class="py-name">tmpFile</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Method taskcoachlib.command.base.BaseCommand.name()=taskcoachlib.command.base.BaseCommand-class.html#name,Method taskcoachlib.command.base.NewItemCommand.name()=taskcoachlib.command.base.NewItemCommand-class.html#name,Variable taskcoachlib.meta.data.name=taskcoachlib.meta.data-module.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.CheckList.name=taskcoachlib.thirdparty.desktop.dialog.CheckList-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Error.name=taskcoachlib.thirdparty.desktop.dialog.Error-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Input.name=taskcoachlib.thirdparty.desktop.dialog.Input-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Menu.name=taskcoachlib.thirdparty.desktop.dialog.Menu-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Message.name=taskcoachlib.thirdparty.desktop.dialog.Message-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Password.name=taskcoachlib.thirdparty.desktop.dialog.Password-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Pulldown.name=taskcoachlib.thirdparty.desktop.dialog.Pulldown-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Question.name=taskcoachlib.thirdparty.desktop.dialog.Question-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.RadioList.name=taskcoachlib.thirdparty.desktop.dialog.RadioList-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.TextFile.name=taskcoachlib.thirdparty.desktop.dialog.TextFile-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Warning.name=taskcoachlib.thirdparty.desktop.dialog.Warning-class.html#name,Method taskcoachlib.thirdparty.desktop.windows.Window.name()=taskcoachlib.thirdparty.desktop.windows.Window-class.html#name,Method taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name()=taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase-class.html#name,Method taskcoachlib.widgets.itemctrl.Column.name()=taskcoachlib.widgets.itemctrl.Column-class.html#name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-29', 'name', 'link-29');">name</a></tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-name">tmpFile</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Method taskcoachlib.application.application.RedirectedOutput.close()=taskcoachlib.application.application.RedirectedOutput-class.html#close,Method taskcoachlib.filesystem.fs_darwin.FileMonitor.close()=taskcoachlib.filesystem.fs_darwin.FileMonitor-class.html#close,Variable taskcoachlib.filesystem.fs_darwin.close=taskcoachlib.filesystem.fs_darwin-module.html#close,Method taskcoachlib.filesystem.fs_inotify.Inotify.close()=taskcoachlib.filesystem.fs_inotify.Inotify-class.html#close,Method taskcoachlib.gui.dialog.editor.BudgetPage.close()=taskcoachlib.gui.dialog.editor.BudgetPage-class.html#close,Method taskcoachlib.gui.dialog.editor.Page.close()=taskcoachlib.gui.dialog.editor.Page-class.html#close,Method taskcoachlib.gui.dialog.editor.PageWithViewer.close()=taskcoachlib.gui.dialog.editor.PageWithViewer-class.html#close,Method taskcoachlib.gui.dialog.editor.SubjectPage.close()=taskcoachlib.gui.dialog.editor.SubjectPage-class.html#close,Method taskcoachlib.gui.iocontroller.IOController.close()=taskcoachlib.gui.iocontroller.IOController-class.html#close,Method taskcoachlib.persistence.taskfile.LockedTaskFile.close()=taskcoachlib.persistence.taskfile.LockedTaskFile-class.html#close,Method taskcoachlib.persistence.taskfile.TaskFile.close()=taskcoachlib.persistence.taskfile.TaskFile-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.base.JobStore-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.mongodb_store.MongoDBJobStore-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.shelve_store.ShelveJobStore-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.sqlalchemy_store.SQLAlchemyJobStore-class.html#close,Method taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close()=taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector-class.html#close,Method taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close()=taskcoachlib.thirdparty.pybonjour.DNSServiceRef-class.html#close"><a title="taskcoachlib.application.application.RedirectedOutput.close
+taskcoachlib.filesystem.fs_darwin.FileMonitor.close
+taskcoachlib.filesystem.fs_darwin.close
+taskcoachlib.filesystem.fs_inotify.Inotify.close
+taskcoachlib.gui.dialog.editor.BudgetPage.close
+taskcoachlib.gui.dialog.editor.Page.close
+taskcoachlib.gui.dialog.editor.PageWithViewer.close
+taskcoachlib.gui.dialog.editor.SubjectPage.close
+taskcoachlib.gui.iocontroller.IOController.close
+taskcoachlib.persistence.taskfile.LockedTaskFile.close
+taskcoachlib.persistence.taskfile.TaskFile.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close
+taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close
+taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close" class="py-name" href="#" onclick="return doclink('link-30', 'close', 'link-30');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">pyFilename</tt> </tt>
+</div><a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"> </tt>
+<a name="Translator._loadModule"></a><div id="Translator._loadModule-def"><a name="L50"></a><tt class="py-lineno"> 50</tt> <a class="py-toggle" href="#" id="Translator._loadModule-toggle" onclick="return toggle('Translator._loadModule');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.i18n.Translator-class.html#_loadModule">_loadModule</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">language</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Translator._loadModule-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Translator._loadModule-expanded"><a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-docstring">''' Load the translation from a python module that has been </tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">            created from a .po file with po2dict before. '''</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">moduleName</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Method taskcoachlib.i18n.Translator._localeStrings()=taskcoachlib.i18n.Translator-class.html#_localeStrings"><a title="taskcoachlib.i18n.Translator._localeStrings" class="py-name" href="#" onclick="return doclink('link-31', '_localeStrings', 'link-31');">_localeStrings</a></tt><tt class="py-op">(</tt><tt id="link-32" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Config.language" class="py-name" href="#" onclick="return doclink('link-32', 'language', 'link-10');">language</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">                <tt id="link-33" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.module" class="py-name" href="#" onclick="return doclink('link-33', 'module', 'link-12');">module</a></tt> <tt class="py-op">=</tt> <tt class="py-name">__import__</tt><tt class="py-op">(</tt><tt class="py-name">moduleName</tt><tt class="py-op">,</tt> <tt class="py-name">globals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">                <tt class="py-keyword">break</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">                <tt id="link-34" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.module" class="py-name" href="#" onclick="return doclink('link-34', 'module', 'link-12');">module</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-35" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.module" class="py-name" href="#" onclick="return doclink('link-35', 'module', 'link-12');">module</a></tt><tt class="py-op">,</tt> <tt id="link-36" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Config.language" class="py-name" href="#" onclick="return doclink('link-36', 'language', 'link-10');">language</a></tt> </tt>
+</div><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"> </tt>
+<a name="Translator._installModule"></a><div id="Translator._installModule-def"><a name="L61"></a><tt class="py-lineno"> 61</tt> <a class="py-toggle" href="#" id="Translator._installModule-toggle" onclick="return toggle('Translator._installModule');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.i18n.Translator-class.html#_installModule">_installModule</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">module</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Translator._installModule-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Translator._installModule-expanded"><a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-docstring">''' Make the module's translation dictionary and encoding available. '''</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-comment"># pylint: disable=W0201</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-37" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.module" class="py-name" href="#" onclick="return doclink('link-37', 'module', 'link-12');">module</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__language</tt> <tt class="py-op">=</tt> <tt id="link-38" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.module" class="py-name" href="#" onclick="return doclink('link-38', 'module', 'link-12');">module</a></tt><tt class="py-op">.</tt><tt id="link-39" class="py-name" targets="Variable taskcoachlib.i18n.ar.dict=taskcoachlib.i18n.ar-module.html#dict,Variable taskcoachlib.i18n.be.dict=taskcoachlib.i18n.be-module.html#dict,Variable taskcoachlib.i18n.bg.dict=taskcoachlib.i18n.bg-module.html#dict,Variable taskcoachlib.i18n.br.dict=taskcoachlib.i18n.br-module.html#dict,Variable taskcoachlib.i18n.bs.dict=taskcoachlib.i18n.bs-module.html#dict,Variable taskcoachlib.i18n.ca.dict=taskcoachlib.i18n.ca-module.html#dict,Variable taskcoachlib.i18n.cs.dict=taskcoachlib.i18n.cs-module.html#dict,Variable taskcoachlib.i18n.da.dict=taskcoachlib.i18n.da-module.html#dict,Variable taskcoachlib.i18n.de.dict=taskcoachlib.i18n.de-module.html#dict,Variable taskcoachlib.i18n.el.dict=taskcoachlib.i18n.el-module.html#dict,Variable taskcoachlib.i18n.en_AU.dict=taskcoachlib.i18n.en_AU-module.html#dict,Variable taskcoachlib.i18n.en_CA.dict=taskcoachlib.i18n.en_CA-module.html#dict,Variable taskcoachlib.i18n.en_GB.dict=taskcoachlib.i18n.en_GB-module.html#dict,Variable taskcoachlib.i18n.eo.dict=taskcoachlib.i18n.eo-module.html#dict,Variable taskcoachlib.i18n.es.dict=taskcoachlib.i18n.es-module.html#dict,Variable taskcoachlib.i18n.et.dict=taskcoachlib.i18n.et-module.html#dict,Variable taskcoachlib.i18n.eu.dict=taskcoachlib.i18n.eu-module.html#dict,Variable taskcoachlib.i18n.fa.dict=taskcoachlib.i18n.fa-module.html#dict,Variable taskcoachlib.i18n.fi.dict=taskcoachlib.i18n.fi-module.html#dict,Variable taskcoachlib.i18n.fr.dict=taskcoachlib.i18n.fr-module.html#dict,Variable taskcoachlib.i18n.gl.dict=taskcoachlib.i18n.gl-module.html#dict,Variable taskcoachlib.i18n.he.dict=taskcoachlib.i18n.he-module.html#dict,Variable taskcoachlib.i18n.hi.dict=taskcoachlib.i18n.hi-module.html#dict,Variable taskcoachlib.i18n.hu.dict=taskcoachlib.i18n.hu-module.html#dict,Variable taskcoachlib.i18n.id.dict=taskcoachlib.i18n.id-module.html#dict,Variable taskcoachlib.i18n.it.dict=taskcoachlib.i18n.it-module.html#dict,Variable taskcoachlib.i18n.ja.dict=taskcoachlib.i18n.ja-module.html#dict,Variable taskcoachlib.i18n.ko.dict=taskcoachlib.i18n.ko-module.html#dict,Variable taskcoachlib.i18n.lt.dict=taskcoachlib.i18n.lt-module.html#dict,Variable taskcoachlib.i18n.lv.dict=taskcoachlib.i18n.lv-module.html#dict,Variable taskcoachlib.i18n.mn.dict=taskcoachlib.i18n.mn-module.html#dict,Variable taskcoachlib.i18n.mr.dict=taskcoachlib.i18n.mr-module.html#dict,Variable taskcoachlib.i18n.nb.dict=taskcoachlib.i18n.nb-module.html#dict,Variable taskcoachlib.i18n.nds.dict=taskcoachlib.i18n.nds-module.html#dict,Variable taskcoachlib.i18n.nl.dict=taskcoachlib.i18n.nl-module.html#dict,Variable taskcoachlib.i18n.nn.dict=taskcoachlib.i18n.nn-module.html#dict,Variable taskcoachlib.i18n.oc.dict=taskcoachlib.i18n.oc-module.html#dict,Variable taskcoachlib.i18n.pap.dict=taskcoachlib.i18n.pap-module.html#dict,Variable taskcoachlib.i18n.pl.dict=taskcoachlib.i18n.pl-module.html#dict,Variable taskcoachlib.i18n.pt.dict=taskcoachlib.i18n.pt-module.html#dict,Variable taskcoachlib.i18n.pt_BR.dict=taskcoachlib.i18n.pt_BR-module.html#dict,Variable taskcoachlib.i18n.ro.dict=taskcoachlib.i18n.ro-module.html#dict,Variable taskcoachlib.i18n.ru.dict=taskcoachlib.i18n.ru-module.html#dict,Variable taskcoachlib.i18n.sk.dict=taskcoachlib.i18n.sk-module.html#dict,Variable taskcoachlib.i18n.sl.dict=taskcoachlib.i18n.sl-module.html#dict,Variable taskcoachlib.i18n.sv.dict=taskcoachlib.i18n.sv-module.html#dict,Variable taskcoachlib.i18n.te.dict=taskcoachlib.i18n.te-module.html#dict,Variable taskcoachlib.i18n.th.dict=taskcoachlib.i18n.th-module.html#dict,Variable taskcoachlib.i18n.tr.dict=taskcoachlib.i18n.tr-module.html#dict,Variable taskcoachlib.i18n.uk.dict=taskcoachlib.i18n.uk-module.html#dict,Variable taskcoachlib.i18n.vi.dict=taskcoachlib.i18n.vi-module.html#dict,Variable taskcoachlib.i18n.zh_CN.dict=taskcoachlib.i18n.zh_CN-module.html#dict,Variable taskcoachlib.i18n.zh_TW.dict=taskcoachlib.i18n.zh_TW-module.html#dict"><a title="taskcoachlib.i18n.ar.dict
+taskcoachlib.i18n.be.dict
+taskcoachlib.i18n.bg.dict
+taskcoachlib.i18n.br.dict
+taskcoachlib.i18n.bs.dict
+taskcoachlib.i18n.ca.dict
+taskcoachlib.i18n.cs.dict
+taskcoachlib.i18n.da.dict
+taskcoachlib.i18n.de.dict
+taskcoachlib.i18n.el.dict
+taskcoachlib.i18n.en_AU.dict
+taskcoachlib.i18n.en_CA.dict
+taskcoachlib.i18n.en_GB.dict
+taskcoachlib.i18n.eo.dict
+taskcoachlib.i18n.es.dict
+taskcoachlib.i18n.et.dict
+taskcoachlib.i18n.eu.dict
+taskcoachlib.i18n.fa.dict
+taskcoachlib.i18n.fi.dict
+taskcoachlib.i18n.fr.dict
+taskcoachlib.i18n.gl.dict
+taskcoachlib.i18n.he.dict
+taskcoachlib.i18n.hi.dict
+taskcoachlib.i18n.hu.dict
+taskcoachlib.i18n.id.dict
+taskcoachlib.i18n.it.dict
+taskcoachlib.i18n.ja.dict
+taskcoachlib.i18n.ko.dict
+taskcoachlib.i18n.lt.dict
+taskcoachlib.i18n.lv.dict
+taskcoachlib.i18n.mn.dict
+taskcoachlib.i18n.mr.dict
+taskcoachlib.i18n.nb.dict
+taskcoachlib.i18n.nds.dict
+taskcoachlib.i18n.nl.dict
+taskcoachlib.i18n.nn.dict
+taskcoachlib.i18n.oc.dict
+taskcoachlib.i18n.pap.dict
+taskcoachlib.i18n.pl.dict
+taskcoachlib.i18n.pt.dict
+taskcoachlib.i18n.pt_BR.dict
+taskcoachlib.i18n.ro.dict
+taskcoachlib.i18n.ru.dict
+taskcoachlib.i18n.sk.dict
+taskcoachlib.i18n.sl.dict
+taskcoachlib.i18n.sv.dict
+taskcoachlib.i18n.te.dict
+taskcoachlib.i18n.th.dict
+taskcoachlib.i18n.tr.dict
+taskcoachlib.i18n.uk.dict
+taskcoachlib.i18n.vi.dict
+taskcoachlib.i18n.zh_CN.dict
+taskcoachlib.i18n.zh_TW.dict" class="py-name" href="#" onclick="return doclink('link-39', 'dict', 'link-39');">dict</a></tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__encoding</tt> <tt class="py-op">=</tt> <tt id="link-40" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.module" class="py-name" href="#" onclick="return doclink('link-40', 'module', 'link-12');">module</a></tt><tt class="py-op">.</tt><tt id="link-41" class="py-name" targets="Variable taskcoachlib.i18n.ar.encoding=taskcoachlib.i18n.ar-module.html#encoding,Variable taskcoachlib.i18n.be.encoding=taskcoachlib.i18n.be-module.html#encoding,Variable taskcoachlib.i18n.bg.encoding=taskcoachlib.i18n.bg-module.html#encoding,Variable taskcoachlib.i18n.br.encoding=taskcoachlib.i18n.br-module.html#encoding,Variable taskcoachlib.i18n.bs.encoding=taskcoachlib.i18n.bs-module.html#encoding,Variable taskcoachlib.i18n.ca.encoding=taskcoachlib.i18n.ca-module.html#encoding,Variable taskcoachlib.i18n.cs.encoding=taskcoachlib.i18n.cs-module.html#encoding,Variable taskcoachlib.i18n.da.encoding=taskcoachlib.i18n.da-module.html#encoding,Variable taskcoachlib.i18n.de.encoding=taskcoachlib.i18n.de-module.html#encoding,Variable taskcoachlib.i18n.el.encoding=taskcoachlib.i18n.el-module.html#encoding,Variable taskcoachlib.i18n.en_AU.encoding=taskcoachlib.i18n.en_AU-module.html#encoding,Variable taskcoachlib.i18n.en_CA.encoding=taskcoachlib.i18n.en_CA-module.html#encoding,Variable taskcoachlib.i18n.en_GB.encoding=taskcoachlib.i18n.en_GB-module.html#encoding,Variable taskcoachlib.i18n.eo.encoding=taskcoachlib.i18n.eo-module.html#encoding,Variable taskcoachlib.i18n.es.encoding=taskcoachlib.i18n.es-module.html#encoding,Variable taskcoachlib.i18n.et.encoding=taskcoachlib.i18n.et-module.html#encoding,Variable taskcoachlib.i18n.eu.encoding=taskcoachlib.i18n.eu-module.html#encoding,Variable taskcoachlib.i18n.fa.encoding=taskcoachlib.i18n.fa-module.html#encoding,Variable taskcoachlib.i18n.fi.encoding=taskcoachlib.i18n.fi-module.html#encoding,Variable taskcoachlib.i18n.fr.encoding=taskcoachlib.i18n.fr-module.html#encoding,Variable taskcoachlib.i18n.gl.encoding=taskcoachlib.i18n.gl-module.html#encoding,Variable taskcoachlib.i18n.he.encoding=taskcoachlib.i18n.he-module.html#encoding,Variable taskcoachlib.i18n.hi.encoding=taskcoachlib.i18n.hi-module.html#encoding,Variable taskcoachlib.i18n.hu.encoding=taskcoachlib.i18n.hu-module.html#encoding,Variable taskcoachlib.i18n.id.encoding=taskcoachlib.i18n.id-module.html#encoding,Variable taskcoachlib.i18n.it.encoding=taskcoachlib.i18n.it-module.html#encoding,Variable taskcoachlib.i18n.ja.encoding=taskcoachlib.i18n.ja-module.html#encoding,Variable taskcoachlib.i18n.ko.encoding=taskcoachlib.i18n.ko-module.html#encoding,Variable taskcoachlib.i18n.lt.encoding=taskcoachlib.i18n.lt-module.html#encoding,Variable taskcoachlib.i18n.lv.encoding=taskcoachlib.i18n.lv-module.html#encoding,Variable taskcoachlib.i18n.mn.encoding=taskcoachlib.i18n.mn-module.html#encoding,Variable taskcoachlib.i18n.mr.encoding=taskcoachlib.i18n.mr-module.html#encoding,Variable taskcoachlib.i18n.nb.encoding=taskcoachlib.i18n.nb-module.html#encoding,Variable taskcoachlib.i18n.nds.encoding=taskcoachlib.i18n.nds-module.html#encoding,Variable taskcoachlib.i18n.nl.encoding=taskcoachlib.i18n.nl-module.html#encoding,Variable taskcoachlib.i18n.nn.encoding=taskcoachlib.i18n.nn-module.html#encoding,Variable taskcoachlib.i18n.oc.encoding=taskcoachlib.i18n.oc-module.html#encoding,Variable taskcoachlib.i18n.pap.encoding=taskcoachlib.i18n.pap-module.html#encoding,Variable taskcoachlib.i18n.pl.encoding=taskcoachlib.i18n.pl-module.html#encoding,Variable taskcoachlib.i18n.pt.encoding=taskcoachlib.i18n.pt-module.html#encoding,Variable taskcoachlib.i18n.pt_BR.encoding=taskcoachlib.i18n.pt_BR-module.html#encoding,Variable taskcoachlib.i18n.ro.encoding=taskcoachlib.i18n.ro-module.html#encoding,Variable taskcoachlib.i18n.ru.encoding=taskcoachlib.i18n.ru-module.html#encoding,Variable taskcoachlib.i18n.sk.encoding=taskcoachlib.i18n.sk-module.html#encoding,Variable taskcoachlib.i18n.sl.encoding=taskcoachlib.i18n.sl-module.html#encoding,Variable taskcoachlib.i18n.sv.encoding=taskcoachlib.i18n.sv-module.html#encoding,Variable taskcoachlib.i18n.te.encoding=taskcoachlib.i18n.te-module.html#encoding,Variable taskcoachlib.i18n.th.encoding=taskcoachlib.i18n.th-module.html#encoding,Variable taskcoachlib.i18n.tr.encoding=taskcoachlib.i18n.tr-module.html#encoding,Variable taskcoachlib.i18n.uk.encoding=taskcoachlib.i18n.uk-module.html#encoding,Variable taskcoachlib.i18n.vi.encoding=taskcoachlib.i18n.vi-module.html#encoding,Variable taskcoachlib.i18n.zh_CN.encoding=taskcoachlib.i18n.zh_CN-module.html#encoding,Variable taskcoachlib.i18n.zh_TW.encoding=taskcoachlib.i18n.zh_TW-module.html#encoding"><a title="taskcoachlib.i18n.ar.encoding
+taskcoachlib.i18n.be.encoding
+taskcoachlib.i18n.bg.encoding
+taskcoachlib.i18n.br.encoding
+taskcoachlib.i18n.bs.encoding
+taskcoachlib.i18n.ca.encoding
+taskcoachlib.i18n.cs.encoding
+taskcoachlib.i18n.da.encoding
+taskcoachlib.i18n.de.encoding
+taskcoachlib.i18n.el.encoding
+taskcoachlib.i18n.en_AU.encoding
+taskcoachlib.i18n.en_CA.encoding
+taskcoachlib.i18n.en_GB.encoding
+taskcoachlib.i18n.eo.encoding
+taskcoachlib.i18n.es.encoding
+taskcoachlib.i18n.et.encoding
+taskcoachlib.i18n.eu.encoding
+taskcoachlib.i18n.fa.encoding
+taskcoachlib.i18n.fi.encoding
+taskcoachlib.i18n.fr.encoding
+taskcoachlib.i18n.gl.encoding
+taskcoachlib.i18n.he.encoding
+taskcoachlib.i18n.hi.encoding
+taskcoachlib.i18n.hu.encoding
+taskcoachlib.i18n.id.encoding
+taskcoachlib.i18n.it.encoding
+taskcoachlib.i18n.ja.encoding
+taskcoachlib.i18n.ko.encoding
+taskcoachlib.i18n.lt.encoding
+taskcoachlib.i18n.lv.encoding
+taskcoachlib.i18n.mn.encoding
+taskcoachlib.i18n.mr.encoding
+taskcoachlib.i18n.nb.encoding
+taskcoachlib.i18n.nds.encoding
+taskcoachlib.i18n.nl.encoding
+taskcoachlib.i18n.nn.encoding
+taskcoachlib.i18n.oc.encoding
+taskcoachlib.i18n.pap.encoding
+taskcoachlib.i18n.pl.encoding
+taskcoachlib.i18n.pt.encoding
+taskcoachlib.i18n.pt_BR.encoding
+taskcoachlib.i18n.ro.encoding
+taskcoachlib.i18n.ru.encoding
+taskcoachlib.i18n.sk.encoding
+taskcoachlib.i18n.sl.encoding
+taskcoachlib.i18n.sv.encoding
+taskcoachlib.i18n.te.encoding
+taskcoachlib.i18n.th.encoding
+taskcoachlib.i18n.tr.encoding
+taskcoachlib.i18n.uk.encoding
+taskcoachlib.i18n.vi.encoding
+taskcoachlib.i18n.zh_CN.encoding
+taskcoachlib.i18n.zh_TW.encoding" class="py-name" href="#" onclick="return doclink('link-41', 'encoding', 'link-41');">encoding</a></tt> </tt>
+</div><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="Translator._setLocale"></a><div id="Translator._setLocale-def"><a name="L68"></a><tt class="py-lineno"> 68</tt> <a class="py-toggle" href="#" id="Translator._setLocale-toggle" onclick="return toggle('Translator._setLocale');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.i18n.Translator-class.html#_setLocale">_setLocale</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">language</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Translator._setLocale-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Translator._setLocale-expanded"><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-docstring">''' Try to set the locale, trying possibly multiple localeStrings. '''</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-42" class="py-name"><a title="taskcoachlib.operating_system" class="py-name" href="#" onclick="return doclink('link-42', 'operating_system', 'link-3');">operating_system</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Function taskcoachlib.operating_system.isGTK()=taskcoachlib.operating_system-module.html#isGTK"><a title="taskcoachlib.operating_system.isGTK" class="py-name" href="#" onclick="return doclink('link-43', 'isGTK', 'link-43');">isGTK</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">            <tt class="py-name">locale</tt><tt class="py-op">.</tt><tt class="py-name">setlocale</tt><tt class="py-op">(</tt><tt class="py-name">locale</tt><tt class="py-op">.</tt><tt class="py-name">LC_ALL</tt><tt class="py-op">,</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-comment"># Set the wxPython locale:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">localeString</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="taskcoachlib.i18n.Translator._localeStrings" class="py-name" href="#" onclick="return doclink('link-44', '_localeStrings', 'link-31');">_localeStrings</a></tt><tt class="py-op">(</tt><tt id="link-45" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Config.language" class="py-name" href="#" onclick="return doclink('link-45', 'language', 'link-10');">language</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">            <tt class="py-name">languageInfo</tt> <tt class="py-op">=</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name" targets="Module taskcoachlib.thirdparty.xdg.Locale=taskcoachlib.thirdparty.xdg.Locale-module.html"><a title="taskcoachlib.thirdparty.xdg.Locale" class="py-name" href="#" onclick="return doclink('link-46', 'Locale', 'link-46');">Locale</a></tt><tt class="py-op">.</tt><tt class="py-name">FindLanguageInfo</tt><tt class="py-op">(</tt><tt class="py-name">localeString</tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">languageInfo</tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__locale</tt> <tt class="py-op">=</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Locale" class="py-name" href="#" onclick="return doclink('link-47', 'Locale', 'link-46');">Locale</a></tt><tt class="py-op">(</tt><tt class="py-name">languageInfo</tt><tt class="py-op">.</tt><tt class="py-name">Language</tt><tt class="py-op">)</tt> <tt class="py-comment"># pylint: disable=W0201</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                <tt class="py-comment"># Add the wxWidgets message catalog. This is really only for </tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">                <tt class="py-comment"># py2exe'ified versions, but it doesn't seem to hurt on other</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                <tt class="py-comment"># platforms...</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">                <tt class="py-name">localeDir</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name" targets="Method taskcoachlib.config.settings.Settings.path()=taskcoachlib.config.settings.Settings-class.html#path,Method taskcoachlib.thirdparty.wmi._wmi_object.path()=taskcoachlib.thirdparty.wmi._wmi_object-class.html#path"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-48', 'path', 'link-48');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">StandardPaths_Get</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">GetResourcesDir</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">'locale'</tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__locale</tt><tt class="py-op">.</tt><tt class="py-name">AddCatalogLookupPathPrefix</tt><tt class="py-op">(</tt><tt class="py-name">localeDir</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__locale</tt><tt class="py-op">.</tt><tt class="py-name">AddCatalog</tt><tt class="py-op">(</tt><tt class="py-string">'wxstd'</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">                <tt class="py-keyword">break</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-49" class="py-name"><a title="taskcoachlib.operating_system" class="py-name" href="#" onclick="return doclink('link-49', 'operating_system', 'link-3');">operating_system</a></tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="taskcoachlib.operating_system.isGTK" class="py-name" href="#" onclick="return doclink('link-50', 'isGTK', 'link-43');">isGTK</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">            <tt class="py-name">locale</tt><tt class="py-op">.</tt><tt class="py-name">setlocale</tt><tt class="py-op">(</tt><tt class="py-name">locale</tt><tt class="py-op">.</tt><tt class="py-name">LC_ALL</tt><tt class="py-op">,</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name" targets="Method taskcoachlib.i18n.Translator._fixBrokenLocales()=taskcoachlib.i18n.Translator-class.html#_fixBrokenLocales"><a title="taskcoachlib.i18n.Translator._fixBrokenLocales" class="py-name" href="#" onclick="return doclink('link-51', '_fixBrokenLocales', 'link-51');">_fixBrokenLocales</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">             </tt>
+<a name="Translator._fixBrokenLocales"></a><div id="Translator._fixBrokenLocales-def"><a name="L88"></a><tt class="py-lineno"> 88</tt> <a class="py-toggle" href="#" id="Translator._fixBrokenLocales-toggle" onclick="return toggle('Translator._fixBrokenLocales');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.i18n.Translator-class.html#_fixBrokenLocales">_fixBrokenLocales</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Translator._fixBrokenLocales-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Translator._fixBrokenLocales-expanded"><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-name">current_language</tt> <tt class="py-op">=</tt> <tt class="py-name">locale</tt><tt class="py-op">.</tt><tt class="py-name">getlocale</tt><tt class="py-op">(</tt><tt class="py-name">locale</tt><tt class="py-op">.</tt><tt class="py-name">LC_TIME</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">current_language</tt> <tt class="py-keyword">and</tt> <tt class="py-string">'_NO'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">current_language</tt><tt class="py-op">:</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">            <tt class="py-comment"># nb_BO and ny_NO cause crashes in the wx.DatePicker. Set the</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">            <tt class="py-comment"># time part of the locale to some other locale. Since we don't</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">            <tt class="py-comment"># know which ones are available we try a few. First we try the</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">            <tt class="py-comment"># default locale of the user (''). It's probably *_NO, but it </tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">            <tt class="py-comment"># might be some other language so we try just in case. Then we try </tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">            <tt class="py-comment"># English (GB) so the user at least gets a European date and time </tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">            <tt class="py-comment"># format if that works. If all else fails we use the default </tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">            <tt class="py-comment"># 'C' locale.</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">lang</tt> <tt class="py-keyword">in</tt> <tt class="py-op">[</tt><tt class="py-string">''</tt><tt class="py-op">,</tt> <tt class="py-string">'en_GB.utf8'</tt><tt class="py-op">,</tt> <tt class="py-string">'C'</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                    <tt class="py-name">locale</tt><tt class="py-op">.</tt><tt class="py-name">setlocale</tt><tt class="py-op">(</tt><tt class="py-name">locale</tt><tt class="py-op">.</tt><tt class="py-name">LC_TIME</tt><tt class="py-op">,</tt> <tt class="py-name">lang</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt> <tt class="py-name">locale</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name" targets="Class taskcoachlib.thirdparty.desktop.dialog.Error=taskcoachlib.thirdparty.desktop.dialog.Error-class.html,Class taskcoachlib.thirdparty.googleapi.apiclient.errors.Error=taskcoachlib.thirdparty.googleapi.apiclient.errors.Error-class.html,Class taskcoachlib.thirdparty.googleapi.oauth2client.client.Error=taskcoachlib.thirdparty.googleapi.oauth2client.client.Error-class.html,Class taskcoachlib.thirdparty.googleapi.oauth2client.clientsecrets.Error=taskcoachlib.thirdparty.googleapi.oauth2client.clientsecrets.Error-class.html,Class taskcoachlib.thirdparty.googleapi.oauth2client.multistore_file.Error=taskcoachlib.thirdparty.googleapi.oauth2client.multistore_file.Error-class.html,Class taskcoachlib.thirdparty.lockfile.Error=taskcoachlib.thirdparty.lockfile.Error-class.html,Class taskcoachlib.thirdparty.xdg.Exceptions.Error=taskcoachlib.thirdparty.xdg.Exceptions.Error-class.html"><a title="taskcoachlib.thirdparty.desktop.dialog.Error
+taskcoachlib.thirdparty.googleapi.apiclient.errors.Error
+taskcoachlib.thirdparty.googleapi.oauth2client.client.Error
+taskcoachlib.thirdparty.googleapi.oauth2client.clientsecrets.Error
+taskcoachlib.thirdparty.googleapi.oauth2client.multistore_file.Error
+taskcoachlib.thirdparty.lockfile.Error
+taskcoachlib.thirdparty.xdg.Exceptions.Error" class="py-name" href="#" onclick="return doclink('link-52', 'Error', 'link-52');">Error</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">                    <tt class="py-keyword">continue</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                <tt class="py-name">current_language</tt> <tt class="py-op">=</tt> <tt class="py-name">locale</tt><tt class="py-op">.</tt><tt class="py-name">getlocale</tt><tt class="py-op">(</tt><tt class="py-name">locale</tt><tt class="py-op">.</tt><tt class="py-name">LC_TIME</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">current_language</tt> <tt class="py-keyword">and</tt> <tt class="py-string">'_NO'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">current_language</tt><tt class="py-op">:</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">                    <tt class="py-keyword">continue</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt>  </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">                    <tt class="py-keyword">break</tt> </tt>
+</div><a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"> </tt>
+<a name="Translator._localeStrings"></a><div id="Translator._localeStrings-def"><a name="L110"></a><tt class="py-lineno">110</tt> <a class="py-toggle" href="#" id="Translator._localeStrings-toggle" onclick="return toggle('Translator._localeStrings');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.i18n.Translator-class.html#_localeStrings">_localeStrings</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">language</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Translator._localeStrings-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Translator._localeStrings-expanded"><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-docstring">''' Extract language and language_country from language if possible. '''</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-name">localeStrings</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-53" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Config.language" class="py-name" href="#" onclick="return doclink('link-53', 'language', 'link-10');">language</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">            <tt class="py-name">localeStrings</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name" targets="Method taskcoachlib.iphone.protocol.CompositeItem.append()=taskcoachlib.iphone.protocol.CompositeItem-class.html#append,Method taskcoachlib.iphone.protocol.ListItem.append()=taskcoachlib.iphone.protocol.ListItem-class.html#append,Method taskcoachlib.patterns.command.CommandHistory.append()=taskcoachlib.patterns.command.CommandHistory-class.html#append,Method taskcoachlib.patterns.composite.CompositeCollection.append()=taskcoachlib.patterns.composite.CompositeCollection-class.html#append,Method taskcoachlib.patterns.observer.CollectionDecorator.append()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#append,Method taskcoachlib.patterns.observer.ObservableList.append()=taskcoachlib.patterns.observer.ObservableList-class.html#append,Method taskcoachlib.patterns.observer.ObservableSet.append()=taskcoachlib.patterns.observer.ObservableSet-class.html#append,Method taskcoachlib.thirdparty.pyparsing.ParseExpression.append()=taskcoachlib.thirdparty.pyparsing.ParseExpression-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.timeline.timeline.HotMap.append()=taskcoachlib.thirdparty.timeline.timeline.HotMap-class.html#append"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-54', 'append', 'link-54');">append</a></tt><tt class="py-op">(</tt><tt id="link-55" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Config.language" class="py-name" href="#" onclick="return doclink('link-55', 'language', 'link-10');">language</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-string">'_'</tt> <tt class="py-keyword">in</tt> <tt id="link-56" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Config.language" class="py-name" href="#" onclick="return doclink('link-56', 'language', 'link-10');">language</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">                <tt class="py-name">localeStrings</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-57', 'append', 'link-54');">append</a></tt><tt class="py-op">(</tt><tt id="link-58" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Config.language" class="py-name" href="#" onclick="return doclink('link-58', 'language', 'link-10');">language</a></tt><tt class="py-op">.</tt><tt id="link-59" class="py-name" targets="Class Method taskcoachlib.thirdparty.dateutil.parser._timelex.split()=taskcoachlib.thirdparty.dateutil.parser._timelex-class.html#split"><a title="taskcoachlib.thirdparty.dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-59', 'split', 'link-59');">split</a></tt><tt class="py-op">(</tt><tt class="py-string">'_'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">localeStrings</tt> </tt>
+</div><a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">     </tt>
+<a name="Translator._languageFromPoFilename"></a><div id="Translator._languageFromPoFilename-def"><a name="L119"></a><tt class="py-lineno">119</tt> <a class="py-toggle" href="#" id="Translator._languageFromPoFilename-toggle" onclick="return toggle('Translator._languageFromPoFilename');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.i18n.Translator-class.html#_languageFromPoFilename">_languageFromPoFilename</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">poFilename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Translator._languageFromPoFilename-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Translator._languageFromPoFilename-expanded"><a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-60" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-60', 'path', 'link-48');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">splitext</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-61', 'path', 'link-48');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">basename</tt><tt class="py-op">(</tt><tt class="py-name">poFilename</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">         </tt>
+<a name="Translator.translate"></a><div id="Translator.translate-def"><a name="L122"></a><tt class="py-lineno">122</tt> <a class="py-toggle" href="#" id="Translator.translate-toggle" onclick="return toggle('Translator.translate');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.i18n.Translator-class.html#translate">translate</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">string</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Translator.translate-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Translator.translate-expanded"><a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">        <tt class="py-docstring">''' Look up string in the current language dictionary. Return the</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">            passed string if no language dictionary is available or if the</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">            dictionary doesn't contain the string. '''</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__language</tt><tt class="py-op">[</tt><tt class="py-name">string</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name" targets="Method taskcoachlib.thirdparty.gntp.GNTPNotice.decode()=taskcoachlib.thirdparty.gntp.GNTPNotice-class.html#decode,Method taskcoachlib.thirdparty.gntp.GNTPRegister.decode()=taskcoachlib.thirdparty.gntp.GNTPRegister-class.html#decode,Method taskcoachlib.thirdparty.gntp._GNTPBase.decode()=taskcoachlib.thirdparty.gntp._GNTPBase-class.html#decode,Method taskcoachlib.thirdparty.pybonjour._utf8_char_p.decode()=taskcoachlib.thirdparty.pybonjour._utf8_char_p-class.html#decode"><a title="taskcoachlib.thirdparty.gntp.GNTPNotice.decode
+taskcoachlib.thirdparty.gntp.GNTPRegister.decode
+taskcoachlib.thirdparty.gntp._GNTPBase.decode
+taskcoachlib.thirdparty.pybonjour._utf8_char_p.decode" class="py-name" href="#" onclick="return doclink('link-62', 'decode', 'link-62');">decode</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__encoding</tt><tt class="py-op">)</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-op">(</tt><tt class="py-name">AttributeError</tt><tt class="py-op">,</tt> <tt class="py-name">KeyError</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">string</tt> </tt>
+</div></div><a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">     </tt>
+<a name="currentLanguageIsRightToLeft"></a><div id="currentLanguageIsRightToLeft-def"><a name="L132"></a><tt class="py-lineno">132</tt> <a class="py-toggle" href="#" id="currentLanguageIsRightToLeft-toggle" onclick="return toggle('currentLanguageIsRightToLeft');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.i18n-module.html#currentLanguageIsRightToLeft">currentLanguageIsRightToLeft</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="currentLanguageIsRightToLeft-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="currentLanguageIsRightToLeft-expanded"><a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">GetApp</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">GetLayoutDirection</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">wx</tt><tt class="py-op">.</tt><tt class="py-name">Layout_RightToLeft</tt>        </tt>
+</div><a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"> </tt>
+<a name="translate"></a><div id="translate-def"><a name="L135"></a><tt class="py-lineno">135</tt> <a class="py-toggle" href="#" id="translate-toggle" onclick="return toggle('translate');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.i18n-module.html#translate">translate</a><tt class="py-op">(</tt><tt class="py-param">string</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="translate-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="translate-expanded"><a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-63" class="py-name" targets="Class taskcoachlib.i18n.Translator=taskcoachlib.i18n.Translator-class.html"><a title="taskcoachlib.i18n.Translator" class="py-name" href="#" onclick="return doclink('link-63', 'Translator', 'link-63');">Translator</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-64" class="py-name" targets="Method taskcoachlib.i18n.Translator.translate()=taskcoachlib.i18n.Translator-class.html#translate,Function taskcoachlib.i18n.translate()=taskcoachlib.i18n-module.html#translate"><a title="taskcoachlib.i18n.Translator.translate
+taskcoachlib.i18n.translate" class="py-name" href="#" onclick="return doclink('link-64', 'translate', 'link-64');">translate</a></tt><tt class="py-op">(</tt><tt class="py-name">string</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"><tt id="link-65" class="py-name" targets="Variable taskcoachlib.thirdparty.aui.aui_switcherdialog._=taskcoachlib.thirdparty.aui.aui_switcherdialog-module.html#_,Variable taskcoachlib.thirdparty.aui.framemanager._=taskcoachlib.thirdparty.aui.framemanager-module.html#_,Variable taskcoachlib.thirdparty.aui.tabmdi._=taskcoachlib.thirdparty.aui.tabmdi-module.html#_,Variable taskcoachlib.thirdparty.smartdatetimectrl._=taskcoachlib.thirdparty.smartdatetimectrl-module.html#_"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-65', '_', 'link-65');">_</a></tt> <tt class="py-op">=</tt> <tt id="link-66" class="py-name"><a title="taskcoachlib.i18n.Translator.translate
+taskcoachlib.i18n.translate" class="py-name" href="#" onclick="return doclink('link-66', 'translate', 'link-64');">translate</a></tt> <tt class="py-comment"># This prevents a warning from pygettext.py</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"><tt class="py-comment"># Inject into builtins for 3rdparty packages</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">__builtin__</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"><tt class="py-name">__builtin__</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">[</tt><tt class="py-string">'_'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-67" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-67', '_', 'link-65');">_</a></tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:56 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

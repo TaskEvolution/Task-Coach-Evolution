@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.wmi._wmi_namespace</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.wmi-module.html">Module&nbsp;wmi</a> ::
+        Class&nbsp;_wmi_namespace
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.wmi._wmi_namespace-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class _wmi_namespace</h1><p class="nomargin-top"><span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace">source&nbsp;code</a></span></p>
+<p>A WMI root of a computer system. The classes attribute holds a list of
+  the classes on offer. This means you can explore a bit with things like 
+  this:</p>
+<pre class="literalblock">
+ c = wmi.WMI ()
+ for i in c.classes:
+   if &quot;user&quot; in i.lower ():
+     print i
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">namespace</span>,
+        <span class="summary-sig-arg">find_classes</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__repr__"></a><span class="summary-sig-name">__repr__</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.__repr__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__str__"></a><span class="summary-sig-name">__str__</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.__str__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_get_classes"></a><span class="summary-sig-name">_get_classes</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace._get_classes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="classes"></a><span class="summary-sig-name">classes</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.classes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get"></a><span class="summary-sig-name">get</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">moniker</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.get">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="handle"></a><span class="summary-sig-name">handle</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      The raw OLE object representing the WMI namespace</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.handle">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="subclasses_of"></a><span class="summary-sig-name">subclasses_of</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">root</span>=<span class="summary-sig-default">&quot;&quot;</span>,
+        <span class="summary-sig-arg">regex</span>=<span class="summary-sig-default">r&quot;.*&quot;</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.subclasses_of">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.wmi._wmi_namespace-class.html#instances" class="summary-sig-name">instances</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">class_name</span>)</span><br />
+      Return a list of instances of the WMI class.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.instances">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="new"></a><span class="summary-sig-name">new</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">wmi_class</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      This is now implemented by a call to :meth:`_wmi_class.new`</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.new">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="new_instance_of"></a><span class="summary-sig-name">new_instance_of</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">wmi_class</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      This is now implemented by a call to :meth:`_wmi_class.new`</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.new">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.wmi._wmi_namespace-class.html#_raw_query" class="summary-sig-name" onclick="show_private();">_raw_query</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">wql</span>)</span><br />
+      Execute a WQL query and return its raw results.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace._raw_query">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="query"></a><span class="summary-sig-name">query</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">wql</span>,
+        <span class="summary-sig-arg">instance_of</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">fields</span>=<span class="summary-sig-default">[]</span>)</span><br />
+      Perform an arbitrary query against a WMI object, and return a list of
+      _wmi_object representations of the results.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.query">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.wmi._wmi_namespace-class.html#fetch_as_classes" class="summary-sig-name">fetch_as_classes</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">wmi_classname</span>,
+        <span class="summary-sig-arg">fields</span>=<span class="summary-sig-default">()</span>,
+        <span class="summary-sig-arg">**where_clause</span>)</span><br />
+      Build and execute a wql query to fetch the specified list of fields 
+      from the specified wmi_classname + where_clause, then return the 
+      results as a list of simple class instances with attributes matching 
+      field_list.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.fetch_as_classes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="fetch_as_lists"></a><span class="summary-sig-name">fetch_as_lists</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">wmi_classname</span>,
+        <span class="summary-sig-arg">fields</span>,
+        <span class="summary-sig-arg">**where_clause</span>)</span><br />
+      Build and execute a wql query to fetch the specified list of fields 
+      from the specified wmi_classname + where_clause, then return the 
+      results as a list of lists whose values correspond to field_list.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.fetch_as_lists">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.wmi._wmi_namespace-class.html#watch_for" class="summary-sig-name">watch_for</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">raw_wql</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">notification_type</span>=<span class="summary-sig-default">&quot;operation&quot;</span>,
+        <span class="summary-sig-arg">wmi_class</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">delay_secs</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">fields</span>=<span class="summary-sig-default">[]</span>,
+        <span class="summary-sig-arg">**where_clause</span>)</span><br />
+      Set up an event tracker on a WMI event.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.watch_for">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.wmi._wmi_namespace-class.html#__getattr__" class="summary-sig-name">__getattr__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">attribute</span>)</span><br />
+      Offer WMI classes as simple attributes.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.__getattr__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.wmi._wmi_namespace-class.html#_cached_classes" class="summary-sig-name" onclick="show_private();">_cached_classes</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">class_name</span>)</span><br />
+      Standard caching helper which keeps track of classes already 
+      retrieved by name and returns the existing object if found.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace._cached_classes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_getAttributeNames"></a><span class="summary-sig-name">_getAttributeNames</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return list of classes for IPython completion engine</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace._getAttributeNames">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="instances"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">instances</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">class_name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.instances">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return a list of instances of the WMI class. This is (probably) 
+  equivalent to querying with no qualifiers:</p>
+<pre class="literalblock">
+ wmi.WMI ().instances (&quot;Win32_LogicalDisk&quot;)
+ # should be the same as
+ wmi.WMI ().Win32_LogicalDisk ()
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_raw_query"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_raw_query</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">wql</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace._raw_query">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Execute a WQL query and return its raw results.  Use the flags 
+  recommended by Microsoft to achieve a read-only, semi-synchronous query 
+  where the time is taken while looping through. NB Backslashes need to be 
+  doubled up.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="fetch_as_classes"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">fetch_as_classes</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">wmi_classname</span>,
+        <span class="sig-arg">fields</span>=<span class="sig-default">()</span>,
+        <span class="sig-arg">**where_clause</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.fetch_as_classes">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Build and execute a wql query to fetch the specified list of fields 
+  from the specified wmi_classname + where_clause, then return the results 
+  as a list of simple class instances with attributes matching 
+  field_list.</p>
+  <p>If fields is left empty, select * and pre-load all class attributes 
+  for each class returned.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="watch_for"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">watch_for</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">raw_wql</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">notification_type</span>=<span class="sig-default">&quot;operation&quot;</span>,
+        <span class="sig-arg">wmi_class</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">delay_secs</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">fields</span>=<span class="sig-default">[]</span>,
+        <span class="sig-arg">**where_clause</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.watch_for">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set up an event tracker on a WMI event. This function returns an 
+  wmi_watcher which can be called to get the next event:</p>
+<pre class="literalblock">
+ c = wmi.WMI ()
+
+ raw_wql = &quot;SELECT * FROM __InstanceCreationEvent WITHIN 2 WHERE TargetInstance ISA 'Win32_Process'&quot;
+ watcher = c.watch_for (raw_wql=raw_wql)
+ while 1:
+   process_created = watcher ()
+   print process_created.Name
+
+ # or
+
+ watcher = c.watch_for (
+   notification_type=&quot;Creation&quot;,
+   wmi_class=&quot;Win32_Process&quot;,
+   delay_secs=2,
+   Name='calc.exe'
+ )
+ calc_created = watcher ()
+</pre>
+  <p>Now supports timeout on the call to watcher:</p>
+<pre class="literalblock">
+ import pythoncom
+ import wmi
+ c = wmi.WMI (privileges=[&quot;Security&quot;])
+ watcher1 = c.watch_for (
+   notification_type=&quot;Creation&quot;,
+   wmi_class=&quot;Win32_NTLogEvent&quot;,
+   Type=&quot;error&quot;
+ )
+ watcher2 = c.watch_for (
+   notification_type=&quot;Creation&quot;,
+   wmi_class=&quot;Win32_NTLogEvent&quot;,
+   Type=&quot;warning&quot;
+ )
+
+ while 1:
+   try:
+     error_log = watcher1 (500)
+   except wmi.x_wmi_timed_out:
+     pythoncom.PumpWaitingMessages ()
+   else:
+     print error_log
+
+   try:
+     warning_log = watcher2 (500)
+   except wmi.x_wmi_timed_out:
+     pythoncom.PumpWaitingMessages ()
+   else:
+     print warning_log
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="__getattr__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__getattr__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">attribute</span>)</span>
+    <br /><em class="fname">(Qualification operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace.__getattr__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Offer WMI classes as simple attributes. Pass through any untrapped 
+  unattribute to the underlying OLE object. This means that new or unmapped
+  functionality is still available to the module user.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_cached_classes"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_cached_classes</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">class_name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.wmi-pysrc.html#_wmi_namespace._cached_classes">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Standard caching helper which keeps track of classes already retrieved
+  by name and returns the existing object if found. If this is the first 
+  retrieval, store it and pass it back</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:48 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.workarounds.exception</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.workarounds-module.html">Package&nbsp;workarounds</a> ::
+        Module&nbsp;exception
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.workarounds.exception-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.workarounds.exception-module.html">Module taskcoachlib.workarounds.exception</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach - Your friendly task manager</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (C) 2012 Task Coach developers &lt;developers@taskcoach.org&gt;</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is free software: you can redistribute it and/or modify</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">the Free Software Foundation, either version 3 of the License, or</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">(at your option) any later version.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">GNU General Public License for more details.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-comment"># No way to monkey-patch this unfortunately...</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="ExceptionAsUnicode"></a><div id="ExceptionAsUnicode-def"><a name="L21"></a><tt class="py-lineno">21</tt> <a class="py-toggle" href="#" id="ExceptionAsUnicode-toggle" onclick="return toggle('ExceptionAsUnicode');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.workarounds.exception-module.html#ExceptionAsUnicode">ExceptionAsUnicode</a><tt class="py-op">(</tt><tt class="py-param">e</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ExceptionAsUnicode-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="ExceptionAsUnicode-expanded"><a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-0" class="py-name" targets="Class unicode=unicode-class.html"><a title="unicode" class="py-name" href="#" onclick="return doclink('link-0', 'unicode', 'link-0');">unicode</a></tt><tt class="py-op">(</tt><tt class="py-name">e</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">UnicodeDecodeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-name">components</tt> <tt class="py-op">=</tt> <tt id="link-1" class="py-name" targets="Static Method taskcoachlib.thirdparty.dateutil.tzwin.tzwinbase.list()=taskcoachlib.thirdparty.dateutil.tzwin.tzwinbase-class.html#list,Function taskcoachlib.thirdparty.desktop.windows.list()=taskcoachlib.thirdparty.desktop.windows-module.html#list"><a title="taskcoachlib.thirdparty.dateutil.tzwin.tzwinbase.list
+taskcoachlib.thirdparty.desktop.windows.list" class="py-name" href="#" onclick="return doclink('link-1', 'list', 'link-1');">list</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">arg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">args</tt><tt class="py-op">:</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">arg</tt><tt class="py-op">,</tt> <tt id="link-2" class="py-name" targets="Class str=str-class.html"><a title="str" class="py-name" href="#" onclick="return doclink('link-2', 'str', 'link-2');">str</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">                    <tt class="py-name">components</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Method taskcoachlib.iphone.protocol.CompositeItem.append()=taskcoachlib.iphone.protocol.CompositeItem-class.html#append,Method taskcoachlib.iphone.protocol.ListItem.append()=taskcoachlib.iphone.protocol.ListItem-class.html#append,Method taskcoachlib.patterns.command.CommandHistory.append()=taskcoachlib.patterns.command.CommandHistory-class.html#append,Method taskcoachlib.patterns.composite.CompositeCollection.append()=taskcoachlib.patterns.composite.CompositeCollection-class.html#append,Method taskcoachlib.patterns.observer.CollectionDecorator.append()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#append,Method taskcoachlib.patterns.observer.ObservableList.append()=taskcoachlib.patterns.observer.ObservableList-class.html#append,Method taskcoachlib.patterns.observer.ObservableSet.append()=taskcoachlib.patterns.observer.ObservableSet-class.html#append,Method taskcoachlib.thirdparty.pyparsing.ParseExpression.append()=taskcoachlib.thirdparty.pyparsing.ParseExpression-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.timeline.timeline.HotMap.append()=taskcoachlib.thirdparty.timeline.timeline.HotMap-class.html#append"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-3', 'append', 'link-3');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">arg</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Method taskcoachlib.thirdparty.gntp.GNTPNotice.decode()=taskcoachlib.thirdparty.gntp.GNTPNotice-class.html#decode,Method taskcoachlib.thirdparty.gntp.GNTPRegister.decode()=taskcoachlib.thirdparty.gntp.GNTPRegister-class.html#decode,Method taskcoachlib.thirdparty.gntp._GNTPBase.decode()=taskcoachlib.thirdparty.gntp._GNTPBase-class.html#decode,Method taskcoachlib.thirdparty.pybonjour._utf8_char_p.decode()=taskcoachlib.thirdparty.pybonjour._utf8_char_p-class.html#decode"><a title="taskcoachlib.thirdparty.gntp.GNTPNotice.decode
+taskcoachlib.thirdparty.gntp.GNTPRegister.decode
+taskcoachlib.thirdparty.gntp._GNTPBase.decode
+taskcoachlib.thirdparty.pybonjour._utf8_char_p.decode" class="py-name" href="#" onclick="return doclink('link-4', 'decode', 'link-4');">decode</a></tt><tt class="py-op">(</tt><tt class="py-string">'utf-8'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt> <tt class="py-name">UnicodeDecodeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">                    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">                        <tt class="py-name">components</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-5', 'append', 'link-3');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">arg</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="taskcoachlib.thirdparty.gntp.GNTPNotice.decode
+taskcoachlib.thirdparty.gntp.GNTPRegister.decode
+taskcoachlib.thirdparty.gntp._GNTPBase.decode
+taskcoachlib.thirdparty.pybonjour._utf8_char_p.decode" class="py-name" href="#" onclick="return doclink('link-6', 'decode', 'link-4');">decode</a></tt><tt class="py-op">(</tt><tt class="py-string">'iso-8859-15'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">                    <tt class="py-keyword">except</tt> <tt class="py-name">UnicodeDecodeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">                        <tt class="py-name">components</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-7', 'append', 'link-3');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">repr</tt><tt class="py-op">(</tt><tt class="py-name">arg</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">                <tt class="py-name">components</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-8', 'append', 'link-3');">append</a></tt><tt class="py-op">(</tt><tt id="link-9" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-9', 'str', 'link-2');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">arg</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'%s: %s'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">,</tt> <tt class="py-string">' - '</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">components</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:56 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

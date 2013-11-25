@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.dateutil.easter</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.dateutil-module.html">Package&nbsp;dateutil</a> ::
+        Module&nbsp;easter
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.dateutil.easter-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.dateutil.easter-module.html">Module taskcoachlib.thirdparty.dateutil.easter</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (c) 2003-2007  Gustavo Niemeyer &lt;gustavo@niemeyer.net&gt;</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">This module offers extensions to the standard python 2.3+</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">datetime module.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">"Gustavo Niemeyer &lt;gustavo@niemeyer.net&gt;"</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-name">__license__</tt> <tt class="py-op">=</tt> <tt class="py-string">"PSF License"</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">datetime</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-name">__all__</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">"easter"</tt><tt class="py-op">,</tt> <tt class="py-string">"EASTER_JULIAN"</tt><tt class="py-op">,</tt> <tt class="py-string">"EASTER_ORTHODOX"</tt><tt class="py-op">,</tt> <tt class="py-string">"EASTER_WESTERN"</tt><tt class="py-op">]</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable taskcoachlib.thirdparty.dateutil.easter.EASTER_JULIAN=taskcoachlib.thirdparty.dateutil.easter-module.html#EASTER_JULIAN"><a title="taskcoachlib.thirdparty.dateutil.easter.EASTER_JULIAN" class="py-name" href="#" onclick="return doclink('link-0', 'EASTER_JULIAN', 'link-0');">EASTER_JULIAN</a></tt>   <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable taskcoachlib.thirdparty.dateutil.easter.EASTER_ORTHODOX=taskcoachlib.thirdparty.dateutil.easter-module.html#EASTER_ORTHODOX"><a title="taskcoachlib.thirdparty.dateutil.easter.EASTER_ORTHODOX" class="py-name" href="#" onclick="return doclink('link-1', 'EASTER_ORTHODOX', 'link-1');">EASTER_ORTHODOX</a></tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable taskcoachlib.thirdparty.dateutil.easter.EASTER_WESTERN=taskcoachlib.thirdparty.dateutil.easter-module.html#EASTER_WESTERN"><a title="taskcoachlib.thirdparty.dateutil.easter.EASTER_WESTERN" class="py-name" href="#" onclick="return doclink('link-2', 'EASTER_WESTERN', 'link-2');">EASTER_WESTERN</a></tt>  <tt class="py-op">=</tt> <tt class="py-number">3</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="easter"></a><div id="easter-def"><a name="L18"></a><tt class="py-lineno">18</tt> <a class="py-toggle" href="#" id="easter-toggle" onclick="return toggle('easter');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.dateutil.easter-module.html#easter">easter</a><tt class="py-op">(</tt><tt class="py-param">year</tt><tt class="py-op">,</tt> <tt class="py-param">method</tt><tt class="py-op">=</tt><tt id="link-3" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.easter.EASTER_WESTERN" class="py-name" href="#" onclick="return doclink('link-3', 'EASTER_WESTERN', 'link-2');">EASTER_WESTERN</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="easter-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="easter-expanded"><a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">    This method was ported from the work done by GM Arts,</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">    on top of the algorithm by Claus Tondering, which was</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">    based in part on the algorithm of Ouding (1940), as</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring">    quoted in "Explanatory Supplement to the Astronomical</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-docstring">    Almanac", P.  Kenneth Seidelmann, editor.</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">    This algorithm implements three different easter</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">    calculation methods:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">    1 - Original calculation in Julian calendar, valid in</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring">        dates after 326 AD</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">    2 - Original method, with date converted to Gregorian</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-docstring">        calendar, valid in years 1583 to 4099</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-docstring">    3 - Revised method, in Gregorian calendar, valid in</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring">        years 1583 to 4099 as well</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-docstring">    These methods are represented by the constants:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"><tt class="py-docstring">    EASTER_JULIAN   = 1</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt class="py-docstring">    EASTER_ORTHODOX = 2</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"><tt class="py-docstring">    EASTER_WESTERN  = 3</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"><tt class="py-docstring">    The default method is method 3.</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"><tt class="py-docstring">    More about the algorithm may be found at:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"><tt class="py-docstring">    http://users.chariot.net.au/~gmarts/eastalg.htm</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"><tt class="py-docstring">    and</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"><tt class="py-docstring">    http://www.tondering.dk/claus/calendar.html</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-op">(</tt><tt class="py-number">1</tt> <tt class="py-op">&lt;=</tt> <tt class="py-name">method</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">3</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">,</tt> <tt class="py-string">"invalid method"</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">    <tt class="py-comment"># g - Golden year - 1</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">    <tt class="py-comment"># c - Century</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">    <tt class="py-comment"># h - (23 - Epact) mod 30</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">    <tt class="py-comment"># i - Number of days from March 21 to Paschal Full Moon</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">    <tt class="py-comment"># j - Weekday for PFM (0=Sunday, etc)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">    <tt class="py-comment"># p - Number of days from March 21 to Sunday on or before PFM</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">    <tt class="py-comment">#     (-6 to 28 methods 1 &amp; 3, to 56 for method 2)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">    <tt class="py-comment"># e - Extra days to add for method 2 (converting Julian</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">    <tt class="py-comment">#     date to Gregorian date)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line"> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">    <tt class="py-name">y</tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name" targets="Method taskcoachlib.domain.date.date.InfiniteDate.year()=taskcoachlib.domain.date.date.InfiniteDate-class.html#year"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-4', 'year', 'link-4');">year</a></tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">    <tt class="py-name">g</tt> <tt class="py-op">=</tt> <tt class="py-name">y</tt> <tt class="py-op">%</tt> <tt class="py-number">19</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">    <tt class="py-name">e</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">method</tt> <tt class="py-op">&lt;</tt> <tt class="py-number">3</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">        <tt class="py-comment"># Old method</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">        <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-number">19</tt><tt class="py-op">*</tt><tt class="py-name">g</tt><tt class="py-op">+</tt><tt class="py-number">15</tt><tt class="py-op">)</tt><tt class="py-op">%</tt><tt class="py-number">30</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">        <tt class="py-name">j</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">y</tt><tt class="py-op">+</tt><tt class="py-name">y</tt><tt class="py-op">//</tt><tt class="py-number">4</tt><tt class="py-op">+</tt><tt class="py-name">i</tt><tt class="py-op">)</tt><tt class="py-op">%</tt><tt class="py-number">7</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">method</tt> <tt class="py-op">==</tt> <tt class="py-number">2</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">            <tt class="py-comment"># Extra dates to convert Julian to Gregorian date</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">            <tt class="py-name">e</tt> <tt class="py-op">=</tt> <tt class="py-number">10</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">y</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1600</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">                <tt class="py-name">e</tt> <tt class="py-op">=</tt> <tt class="py-name">e</tt><tt class="py-op">+</tt><tt class="py-name">y</tt><tt class="py-op">//</tt><tt class="py-number">100</tt><tt class="py-op">-</tt><tt class="py-number">16</tt><tt class="py-op">-</tt><tt class="py-op">(</tt><tt class="py-name">y</tt><tt class="py-op">//</tt><tt class="py-number">100</tt><tt class="py-op">-</tt><tt class="py-number">16</tt><tt class="py-op">)</tt><tt class="py-op">//</tt><tt class="py-number">4</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line">        <tt class="py-comment"># New method</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">        <tt class="py-name">c</tt> <tt class="py-op">=</tt> <tt class="py-name">y</tt><tt class="py-op">//</tt><tt class="py-number">100</tt> </tt>
+<a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line">        <tt id="link-5" class="py-name" targets="Function taskcoachlib.help.h()=taskcoachlib.help-module.html#h"><a title="taskcoachlib.help.h" class="py-name" href="#" onclick="return doclink('link-5', 'h', 'link-5');">h</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">c</tt><tt class="py-op">-</tt><tt class="py-name">c</tt><tt class="py-op">//</tt><tt class="py-number">4</tt><tt class="py-op">-</tt><tt class="py-op">(</tt><tt class="py-number">8</tt><tt class="py-op">*</tt><tt class="py-name">c</tt><tt class="py-op">+</tt><tt class="py-number">13</tt><tt class="py-op">)</tt><tt class="py-op">//</tt><tt class="py-number">25</tt><tt class="py-op">+</tt><tt class="py-number">19</tt><tt class="py-op">*</tt><tt class="py-name">g</tt><tt class="py-op">+</tt><tt class="py-number">15</tt><tt class="py-op">)</tt><tt class="py-op">%</tt><tt class="py-number">30</tt> </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line">        <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="taskcoachlib.help.h" class="py-name" href="#" onclick="return doclink('link-6', 'h', 'link-5');">h</a></tt><tt class="py-op">-</tt><tt class="py-op">(</tt><tt id="link-7" class="py-name"><a title="taskcoachlib.help.h" class="py-name" href="#" onclick="return doclink('link-7', 'h', 'link-5');">h</a></tt><tt class="py-op">//</tt><tt class="py-number">28</tt><tt class="py-op">)</tt><tt class="py-op">*</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">-</tt><tt class="py-op">(</tt><tt id="link-8" class="py-name"><a title="taskcoachlib.help.h" class="py-name" href="#" onclick="return doclink('link-8', 'h', 'link-5');">h</a></tt><tt class="py-op">//</tt><tt class="py-number">28</tt><tt class="py-op">)</tt><tt class="py-op">*</tt><tt class="py-op">(</tt><tt class="py-number">29</tt><tt class="py-op">//</tt><tt class="py-op">(</tt><tt id="link-9" class="py-name"><a title="taskcoachlib.help.h" class="py-name" href="#" onclick="return doclink('link-9', 'h', 'link-5');">h</a></tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">*</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-number">21</tt><tt class="py-op">-</tt><tt class="py-name">g</tt><tt class="py-op">)</tt><tt class="py-op">//</tt><tt class="py-number">11</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line">        <tt class="py-name">j</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">y</tt><tt class="py-op">+</tt><tt class="py-name">y</tt><tt class="py-op">//</tt><tt class="py-number">4</tt><tt class="py-op">+</tt><tt class="py-name">i</tt><tt class="py-op">+</tt><tt class="py-number">2</tt><tt class="py-op">-</tt><tt class="py-name">c</tt><tt class="py-op">+</tt><tt class="py-name">c</tt><tt class="py-op">//</tt><tt class="py-number">4</tt><tt class="py-op">)</tt><tt class="py-op">%</tt><tt class="py-number">7</tt> </tt>
+<a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line"> </tt>
+<a name="L86"></a><tt class="py-lineno">86</tt>  <tt class="py-line">    <tt class="py-comment"># p can be from -6 to 56 corresponding to dates 22 March to 23 May</tt> </tt>
+<a name="L87"></a><tt class="py-lineno">87</tt>  <tt class="py-line">    <tt class="py-comment"># (later dates apply to method 2, although 23 May never actually occurs)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno">88</tt>  <tt class="py-line">    <tt id="link-10" class="py-name" targets="Function taskcoachlib.help.p()=taskcoachlib.help-module.html#p"><a title="taskcoachlib.help.p" class="py-name" href="#" onclick="return doclink('link-10', 'p', 'link-10');">p</a></tt> <tt class="py-op">=</tt> <tt class="py-name">i</tt><tt class="py-op">-</tt><tt class="py-name">j</tt><tt class="py-op">+</tt><tt class="py-name">e</tt> </tt>
+<a name="L89"></a><tt class="py-lineno">89</tt>  <tt class="py-line">    <tt class="py-name">d</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt><tt class="py-op">+</tt><tt class="py-op">(</tt><tt id="link-11" class="py-name"><a title="taskcoachlib.help.p" class="py-name" href="#" onclick="return doclink('link-11', 'p', 'link-10');">p</a></tt><tt class="py-op">+</tt><tt class="py-number">27</tt><tt class="py-op">+</tt><tt class="py-op">(</tt><tt id="link-12" class="py-name"><a title="taskcoachlib.help.p" class="py-name" href="#" onclick="return doclink('link-12', 'p', 'link-10');">p</a></tt><tt class="py-op">+</tt><tt class="py-number">6</tt><tt class="py-op">)</tt><tt class="py-op">//</tt><tt class="py-number">40</tt><tt class="py-op">)</tt><tt class="py-op">%</tt><tt class="py-number">31</tt> </tt>
+<a name="L90"></a><tt class="py-lineno">90</tt>  <tt class="py-line">    <tt class="py-name">m</tt> <tt class="py-op">=</tt> <tt class="py-number">3</tt><tt class="py-op">+</tt><tt class="py-op">(</tt><tt id="link-13" class="py-name"><a title="taskcoachlib.help.p" class="py-name" href="#" onclick="return doclink('link-13', 'p', 'link-10');">p</a></tt><tt class="py-op">+</tt><tt class="py-number">26</tt><tt class="py-op">)</tt><tt class="py-op">//</tt><tt class="py-number">30</tt> </tt>
+<a name="L91"></a><tt class="py-lineno">91</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Package taskcoachlib.domain.date=taskcoachlib.domain.date-module.html,Module taskcoachlib.domain.date.date=taskcoachlib.domain.date.date-module.html,Variable taskcoachlib.meta.data.date=taskcoachlib.meta.data-module.html#date,Function taskcoachlib.render.date()=taskcoachlib.render-module.html#date"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-14', 'date', 'link-14');">date</a></tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">y</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">m</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">d</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L92"></a><tt class="py-lineno">92</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:55 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

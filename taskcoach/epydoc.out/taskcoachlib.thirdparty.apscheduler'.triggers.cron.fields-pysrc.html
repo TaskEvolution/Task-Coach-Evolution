@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.apscheduler%27-module.html">Package&nbsp;apscheduler'</a> ::
+        <a href="taskcoachlib.thirdparty.apscheduler%27.triggers-module.html">Package&nbsp;triggers</a> ::
+        <a href="taskcoachlib.thirdparty.apscheduler%27.triggers.cron-module.html">Package&nbsp;cron</a> ::
+        Module&nbsp;fields
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.apscheduler%27.triggers.cron.fields-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.apscheduler%27.triggers.cron.fields-module.html">Module taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">Fields represent CronTrigger options which map to :class:`~datetime.datetime`</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">fields.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">calendar</tt> <tt class="py-keyword">import</tt> <tt class="py-name">monthrange</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">apscheduler</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Package taskcoachlib.thirdparty.apscheduler'.triggers=taskcoachlib.thirdparty.apscheduler%27.triggers-module.html"><a title="taskcoachlib.thirdparty.apscheduler'.triggers" class="py-name" href="#" onclick="return doclink('link-0', 'triggers', 'link-0');">triggers</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package taskcoachlib.thirdparty.apscheduler'.triggers.cron=taskcoachlib.thirdparty.apscheduler%27.triggers.cron-module.html"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron" class="py-name" href="#" onclick="return doclink('link-1', 'cron', 'link-1');">cron</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions-module.html"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions" class="py-name" href="#" onclick="return doclink('link-2', 'expressions', 'link-2');">expressions</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-name">__all__</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'MIN_VALUES'</tt><tt class="py-op">,</tt> <tt class="py-string">'MAX_VALUES'</tt><tt class="py-op">,</tt> <tt class="py-string">'DEFAULT_VALUES'</tt><tt class="py-op">,</tt> <tt class="py-string">'BaseField'</tt><tt class="py-op">,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line">           <tt class="py-string">'WeekField'</tt><tt class="py-op">,</tt> <tt class="py-string">'DayOfMonthField'</tt><tt class="py-op">,</tt> <tt class="py-string">'DayOfWeekField'</tt><tt class="py-op">)</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.MIN_VALUES=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.fields-module.html#MIN_VALUES"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.MIN_VALUES" class="py-name" href="#" onclick="return doclink('link-3', 'MIN_VALUES', 'link-3');">MIN_VALUES</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'year'</tt><tt class="py-op">:</tt> <tt class="py-number">1970</tt><tt class="py-op">,</tt> <tt class="py-string">'month'</tt><tt class="py-op">:</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-string">'day'</tt><tt class="py-op">:</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-string">'week'</tt><tt class="py-op">:</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">              <tt class="py-string">'day_of_week'</tt><tt class="py-op">:</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-string">'hour'</tt><tt class="py-op">:</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-string">'minute'</tt><tt class="py-op">:</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-string">'second'</tt><tt class="py-op">:</tt> <tt class="py-number">0</tt><tt class="py-op">}</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.MAX_VALUES=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.fields-module.html#MAX_VALUES"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.MAX_VALUES" class="py-name" href="#" onclick="return doclink('link-4', 'MAX_VALUES', 'link-4');">MAX_VALUES</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'year'</tt><tt class="py-op">:</tt> <tt class="py-number">2</tt> <tt class="py-op">**</tt> <tt class="py-number">63</tt><tt class="py-op">,</tt> <tt class="py-string">'month'</tt><tt class="py-op">:</tt> <tt class="py-number">12</tt><tt class="py-op">,</tt> <tt class="py-string">'day:'</tt><tt class="py-op">:</tt> <tt class="py-number">31</tt><tt class="py-op">,</tt> <tt class="py-string">'week'</tt><tt class="py-op">:</tt> <tt class="py-number">53</tt><tt class="py-op">,</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">              <tt class="py-string">'day_of_week'</tt><tt class="py-op">:</tt> <tt class="py-number">6</tt><tt class="py-op">,</tt> <tt class="py-string">'hour'</tt><tt class="py-op">:</tt> <tt class="py-number">23</tt><tt class="py-op">,</tt> <tt class="py-string">'minute'</tt><tt class="py-op">:</tt> <tt class="py-number">59</tt><tt class="py-op">,</tt> <tt class="py-string">'second'</tt><tt class="py-op">:</tt> <tt class="py-number">59</tt><tt class="py-op">}</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DEFAULT_VALUES=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.fields-module.html#DEFAULT_VALUES"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DEFAULT_VALUES" class="py-name" href="#" onclick="return doclink('link-5', 'DEFAULT_VALUES', 'link-5');">DEFAULT_VALUES</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'year'</tt><tt class="py-op">:</tt> <tt class="py-string">'*'</tt><tt class="py-op">,</tt> <tt class="py-string">'month'</tt><tt class="py-op">:</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-string">'day'</tt><tt class="py-op">:</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-string">'week'</tt><tt class="py-op">:</tt> <tt class="py-string">'*'</tt><tt class="py-op">,</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">                  <tt class="py-string">'day_of_week'</tt><tt class="py-op">:</tt> <tt class="py-string">'*'</tt><tt class="py-op">,</tt> <tt class="py-string">'hour'</tt><tt class="py-op">:</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-string">'minute'</tt><tt class="py-op">:</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-string">'second'</tt><tt class="py-op">:</tt> <tt class="py-number">0</tt><tt class="py-op">}</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="BaseField"></a><div id="BaseField-def"><a name="L22"></a><tt class="py-lineno"> 22</tt> <a class="py-toggle" href="#" id="BaseField-toggle" onclick="return toggle('BaseField');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField-class.html">BaseField</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BaseField-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="BaseField-expanded"><a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Variable taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.REAL=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.fields.BaseField-class.html#REAL,Variable taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfWeekField.REAL=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.fields.DayOfWeekField-class.html#REAL,Variable taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.WeekField.REAL=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.fields.WeekField-class.html#REAL"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.REAL
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfWeekField.REAL
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.WeekField.REAL" class="py-name" href="#" onclick="return doclink('link-6', 'REAL', 'link-6');">REAL</a></tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.True=taskcoachlib.thirdparty.chardet.constants-module.html#True"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-7', 'True', 'link-7');">True</a></tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Variable taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.COMPILERS=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.fields.BaseField-class.html#COMPILERS,Variable taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfMonthField.COMPILERS=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.fields.DayOfMonthField-class.html#COMPILERS,Variable taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfWeekField.COMPILERS=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.fields.DayOfWeekField-class.html#COMPILERS"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.COMPILERS
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfMonthField.COMPILERS
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfWeekField.COMPILERS" class="py-name" href="#" onclick="return doclink('link-8', 'COMPILERS', 'link-8');">COMPILERS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt id="link-9" class="py-name" targets="Class taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.AllExpression=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions.AllExpression-class.html"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.AllExpression" class="py-name" href="#" onclick="return doclink('link-9', 'AllExpression', 'link-9');">AllExpression</a></tt><tt class="py-op">,</tt> <tt id="link-10" class="py-name" targets="Class taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.RangeExpression=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions.RangeExpression-class.html"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.RangeExpression" class="py-name" href="#" onclick="return doclink('link-10', 'RangeExpression', 'link-10');">RangeExpression</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"> </tt>
+<a name="BaseField.__init__"></a><div id="BaseField.__init__-def"><a name="L26"></a><tt class="py-lineno"> 26</tt> <a class="py-toggle" href="#" id="BaseField.__init__-toggle" onclick="return toggle('BaseField.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">,</tt> <tt class="py-param">exprs</tt><tt class="py-op">,</tt> <tt class="py-param">is_default</tt><tt class="py-op">=</tt><tt id="link-11" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.False=taskcoachlib.thirdparty.chardet.constants-module.html#False"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-11', 'False', 'link-11');">False</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BaseField.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="BaseField.__init__-expanded"><a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method taskcoachlib.command.base.BaseCommand.name()=taskcoachlib.command.base.BaseCommand-class.html#name,Method taskcoachlib.command.base.NewItemCommand.name()=taskcoachlib.command.base.NewItemCommand-class.html#name,Variable taskcoachlib.meta.data.name=taskcoachlib.meta.data-module.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.CheckList.name=taskcoachlib.thirdparty.desktop.dialog.CheckList-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Error.name=taskcoachlib.thirdparty.desktop.dialog.Error-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Input.name=taskcoachlib.thirdparty.desktop.dialog.Input-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Menu.name=taskcoachlib.thirdparty.desktop.dialog.Menu-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Message.name=taskcoachlib.thirdparty.desktop.dialog.Message-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Password.name=taskcoachlib.thirdparty.desktop.dialog.Password-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Pulldown.name=taskcoachlib.thirdparty.desktop.dialog.Pulldown-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Question.name=taskcoachlib.thirdparty.desktop.dialog.Question-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.RadioList.name=taskcoachlib.thirdparty.desktop.dialog.RadioList-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.TextFile.name=taskcoachlib.thirdparty.desktop.dialog.TextFile-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Warning.name=taskcoachlib.thirdparty.desktop.dialog.Warning-class.html#name,Method taskcoachlib.thirdparty.desktop.windows.Window.name()=taskcoachlib.thirdparty.desktop.windows.Window-class.html#name,Method taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name()=taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase-class.html#name,Method taskcoachlib.widgets.itemctrl.Column.name()=taskcoachlib.widgets.itemctrl.Column-class.html#name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-12', 'name', 'link-12');">name</a></tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-13', 'name', 'link-12');">name</a></tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">is_default</tt> <tt class="py-op">=</tt> <tt class="py-name">is_default</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.compile_expressions()=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.fields.BaseField-class.html#compile_expressions"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.compile_expressions" class="py-name" href="#" onclick="return doclink('link-14', 'compile_expressions', 'link-14');">compile_expressions</a></tt><tt class="py-op">(</tt><tt class="py-name">exprs</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"> </tt>
+<a name="BaseField.get_min"></a><div id="BaseField.get_min-def"><a name="L31"></a><tt class="py-lineno"> 31</tt> <a class="py-toggle" href="#" id="BaseField.get_min-toggle" onclick="return toggle('BaseField.get_min');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField-class.html#get_min">get_min</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dateval</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BaseField.get_min-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="BaseField.get_min-expanded"><a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-15" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.MIN_VALUES" class="py-name" href="#" onclick="return doclink('link-15', 'MIN_VALUES', 'link-3');">MIN_VALUES</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-16', 'name', 'link-12');">name</a></tt><tt class="py-op">]</tt> </tt>
+</div><a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"> </tt>
+<a name="BaseField.get_max"></a><div id="BaseField.get_max-def"><a name="L34"></a><tt class="py-lineno"> 34</tt> <a class="py-toggle" href="#" id="BaseField.get_max-toggle" onclick="return toggle('BaseField.get_max');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField-class.html#get_max">get_max</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dateval</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BaseField.get_max-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="BaseField.get_max-expanded"><a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-17" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.MAX_VALUES" class="py-name" href="#" onclick="return doclink('link-17', 'MAX_VALUES', 'link-4');">MAX_VALUES</a></tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-18', 'name', 'link-12');">name</a></tt><tt class="py-op">]</tt> </tt>
+</div><a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="BaseField.get_value"></a><div id="BaseField.get_value-def"><a name="L37"></a><tt class="py-lineno"> 37</tt> <a class="py-toggle" href="#" id="BaseField.get_value-toggle" onclick="return toggle('BaseField.get_value');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField-class.html#get_value">get_value</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dateval</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BaseField.get_value-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="BaseField.get_value-expanded"><a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">getattr</tt><tt class="py-op">(</tt><tt class="py-name">dateval</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-19', 'name', 'link-12');">name</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="BaseField.get_next_value"></a><div id="BaseField.get_next_value-def"><a name="L40"></a><tt class="py-lineno"> 40</tt> <a class="py-toggle" href="#" id="BaseField.get_next_value-toggle" onclick="return toggle('BaseField.get_next_value');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField-class.html#get_next_value">get_next_value</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dateval</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BaseField.get_next_value-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="BaseField.get_next_value-expanded"><a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-name">smallest</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">expr</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions" class="py-name" href="#" onclick="return doclink('link-20', 'expressions', 'link-2');">expressions</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">            <tt id="link-21" class="py-name" targets="Method taskcoachlib.gui.viewer.task.SquareTaskViewer.value()=taskcoachlib.gui.viewer.task.SquareTaskViewer-class.html#value,Method taskcoachlib.patterns.observer.Event.value()=taskcoachlib.patterns.observer.Event-class.html#value,Method taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value()=taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter-class.html#value,Method taskcoachlib.widgets.itemctrl.Column.value()=taskcoachlib.widgets.itemctrl.Column-class.html#value"><a title="taskcoachlib.gui.viewer.task.SquareTaskViewer.value
+taskcoachlib.patterns.observer.Event.value
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value
+taskcoachlib.widgets.itemctrl.Column.value" class="py-name" href="#" onclick="return doclink('link-21', 'value', 'link-21');">value</a></tt> <tt class="py-op">=</tt> <tt class="py-name">expr</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.AllExpression.get_next_value()=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions.AllExpression-class.html#get_next_value,Method taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.LastDayOfMonthExpression.get_next_value()=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions.LastDayOfMonthExpression-class.html#get_next_value,Method taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.RangeExpression.get_next_value()=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions.RangeExpression-class.html#get_next_value,Method taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayPositionExpression.get_next_value()=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions.WeekdayPositionExpression-class.html#get_next_value,Method taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.get_next_value()=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.fields.BaseField-class.html#get_next_value"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.AllExpression.get_next_value
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.LastDayOfMonthExpression.get_next_value
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.RangeExpression.get_next_value
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayPositionExpression.get_next_value
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.get_next_value" class="py-name" href="#" onclick="return doclink('link-22', 'get_next_value', 'link-22');">get_next_value</a></tt><tt class="py-op">(</tt><tt class="py-name">dateval</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">smallest</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt id="link-23" class="py-name"><a title="taskcoachlib.gui.viewer.task.SquareTaskViewer.value
+taskcoachlib.patterns.observer.Event.value
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value
+taskcoachlib.widgets.itemctrl.Column.value" class="py-name" href="#" onclick="return doclink('link-23', 'value', 'link-21');">value</a></tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt> <tt class="py-keyword">and</tt> <tt id="link-24" class="py-name"><a title="taskcoachlib.gui.viewer.task.SquareTaskViewer.value
+taskcoachlib.patterns.observer.Event.value
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value
+taskcoachlib.widgets.itemctrl.Column.value" class="py-name" href="#" onclick="return doclink('link-24', 'value', 'link-21');">value</a></tt> <tt class="py-op">&lt;</tt> <tt class="py-name">smallest</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">                <tt class="py-name">smallest</tt> <tt class="py-op">=</tt> <tt id="link-25" class="py-name"><a title="taskcoachlib.gui.viewer.task.SquareTaskViewer.value
+taskcoachlib.patterns.observer.Event.value
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value
+taskcoachlib.widgets.itemctrl.Column.value" class="py-name" href="#" onclick="return doclink('link-25', 'value', 'link-21');">value</a></tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">smallest</tt> </tt>
+</div><a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"> </tt>
+<a name="BaseField.compile_expressions"></a><div id="BaseField.compile_expressions-def"><a name="L49"></a><tt class="py-lineno"> 49</tt> <a class="py-toggle" href="#" id="BaseField.compile_expressions-toggle" onclick="return toggle('BaseField.compile_expressions');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField-class.html#compile_expressions">compile_expressions</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">exprs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BaseField.compile_expressions-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="BaseField.compile_expressions-expanded"><a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions" class="py-name" href="#" onclick="return doclink('link-26', 'expressions', 'link-2');">expressions</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-comment"># Split a comma-separated expression list, if any</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-name">exprs</tt> <tt class="py-op">=</tt> <tt id="link-27" class="py-name" targets="Class str=str-class.html"><a title="str" class="py-name" href="#" onclick="return doclink('link-27', 'str', 'link-27');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">exprs</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-string">','</tt> <tt class="py-keyword">in</tt> <tt class="py-name">exprs</tt><tt class="py-op">:</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">expr</tt> <tt class="py-keyword">in</tt> <tt class="py-name">exprs</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Class Method taskcoachlib.thirdparty.dateutil.parser._timelex.split()=taskcoachlib.thirdparty.dateutil.parser._timelex-class.html#split"><a title="taskcoachlib.thirdparty.dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-28', 'split', 'link-28');">split</a></tt><tt class="py-op">(</tt><tt class="py-string">','</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Method taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.compile_expression()=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.fields.BaseField-class.html#compile_expression"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.compile_expression" class="py-name" href="#" onclick="return doclink('link-29', 'compile_expression', 'link-29');">compile_expression</a></tt><tt class="py-op">(</tt><tt class="py-name">expr</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.compile_expression" class="py-name" href="#" onclick="return doclink('link-30', 'compile_expression', 'link-29');">compile_expression</a></tt><tt class="py-op">(</tt><tt class="py-name">exprs</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"> </tt>
+<a name="BaseField.compile_expression"></a><div id="BaseField.compile_expression-def"><a name="L60"></a><tt class="py-lineno"> 60</tt> <a class="py-toggle" href="#" id="BaseField.compile_expression-toggle" onclick="return toggle('BaseField.compile_expression');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField-class.html#compile_expression">compile_expression</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">expr</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BaseField.compile_expression-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="BaseField.compile_expression-expanded"><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">compiler</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.COMPILERS
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfMonthField.COMPILERS
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfWeekField.COMPILERS" class="py-name" href="#" onclick="return doclink('link-31', 'COMPILERS', 'link-8');">COMPILERS</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">            <tt id="link-32" class="py-name" targets="Method taskcoachlib.thirdparty.xdg.Mime.MagicDB.match()=taskcoachlib.thirdparty.xdg.Mime.MagicDB-class.html#match,Method taskcoachlib.thirdparty.xdg.Mime.MagicRule.match()=taskcoachlib.thirdparty.xdg.Mime.MagicRule-class.html#match,Method taskcoachlib.thirdparty.xdg.Mime.MagicType.match()=taskcoachlib.thirdparty.xdg.Mime.MagicType-class.html#match"><a title="taskcoachlib.thirdparty.xdg.Mime.MagicDB.match
+taskcoachlib.thirdparty.xdg.Mime.MagicRule.match
+taskcoachlib.thirdparty.xdg.Mime.MagicType.match" class="py-name" href="#" onclick="return doclink('link-32', 'match', 'link-32');">match</a></tt> <tt class="py-op">=</tt> <tt class="py-name">compiler</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Variable taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.AllExpression.value_re=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions.AllExpression-class.html#value_re,Variable taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.LastDayOfMonthExpression.value_re=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions.LastDayOfMonthExpression-class.html#value_re,Variable taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.RangeExpression.value_re=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions.RangeExpression-class.html#value_re,Variable taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayPositionExpression.value_re=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions.WeekdayPositionExpression-class.html#value_re,Variable taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayRangeExpression.value_re=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions.WeekdayRangeExpression-class.html#value_re"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.AllExpression.value_re
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.LastDayOfMonthExpression.value_re
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.RangeExpression.value_re
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayPositionExpression.value_re
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayRangeExpression.value_re" class="py-name" href="#" onclick="return doclink('link-33', 'value_re', 'link-33');">value_re</a></tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.MagicDB.match
+taskcoachlib.thirdparty.xdg.Mime.MagicRule.match
+taskcoachlib.thirdparty.xdg.Mime.MagicType.match" class="py-name" href="#" onclick="return doclink('link-34', 'match', 'link-32');">match</a></tt><tt class="py-op">(</tt><tt class="py-name">expr</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-35" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.MagicDB.match
+taskcoachlib.thirdparty.xdg.Mime.MagicRule.match
+taskcoachlib.thirdparty.xdg.Mime.MagicType.match" class="py-name" href="#" onclick="return doclink('link-35', 'match', 'link-32');">match</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                <tt class="py-name">compiled_expr</tt> <tt class="py-op">=</tt> <tt class="py-name">compiler</tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt id="link-36" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.MagicDB.match
+taskcoachlib.thirdparty.xdg.Mime.MagicRule.match
+taskcoachlib.thirdparty.xdg.Mime.MagicType.match" class="py-name" href="#" onclick="return doclink('link-36', 'match', 'link-32');">match</a></tt><tt class="py-op">.</tt><tt class="py-name">groupdict</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions" class="py-name" href="#" onclick="return doclink('link-37', 'expressions', 'link-2');">expressions</a></tt><tt class="py-op">.</tt><tt id="link-38" class="py-name" targets="Method taskcoachlib.iphone.protocol.CompositeItem.append()=taskcoachlib.iphone.protocol.CompositeItem-class.html#append,Method taskcoachlib.iphone.protocol.ListItem.append()=taskcoachlib.iphone.protocol.ListItem-class.html#append,Method taskcoachlib.patterns.command.CommandHistory.append()=taskcoachlib.patterns.command.CommandHistory-class.html#append,Method taskcoachlib.patterns.composite.CompositeCollection.append()=taskcoachlib.patterns.composite.CompositeCollection-class.html#append,Method taskcoachlib.patterns.observer.CollectionDecorator.append()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#append,Method taskcoachlib.patterns.observer.ObservableList.append()=taskcoachlib.patterns.observer.ObservableList-class.html#append,Method taskcoachlib.patterns.observer.ObservableSet.append()=taskcoachlib.patterns.observer.ObservableSet-class.html#append,Method taskcoachlib.thirdparty.pyparsing.ParseExpression.append()=taskcoachlib.thirdparty.pyparsing.ParseExpression-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.timeline.timeline.HotMap.append()=taskcoachlib.thirdparty.timeline.timeline.HotMap-class.html#append"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-38', 'append', 'link-38');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">compiled_expr</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'Unrecognized expression "%s" for field "%s"'</tt> <tt class="py-op">%</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                         <tt class="py-op">(</tt><tt class="py-name">expr</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-39', 'name', 'link-12');">name</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"> </tt>
+<a name="BaseField.__str__"></a><div id="BaseField.__str__-def"><a name="L71"></a><tt class="py-lineno"> 71</tt> <a class="py-toggle" href="#" id="BaseField.__str__-toggle" onclick="return toggle('BaseField.__str__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BaseField.__str__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="BaseField.__str__-expanded"><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-name">expr_strings</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt id="link-40" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-40', 'str', 'link-27');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">e</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">e</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions" class="py-name" href="#" onclick="return doclink('link-41', 'expressions', 'link-2');">expressions</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">','</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">expr_strings</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
+<a name="BaseField.__repr__"></a><div id="BaseField.__repr__-def"><a name="L75"></a><tt class="py-lineno"> 75</tt> <a class="py-toggle" href="#" id="BaseField.__repr__-toggle" onclick="return toggle('BaseField.__repr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField-class.html#__repr__">__repr__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BaseField.__repr__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="BaseField.__repr__-expanded"><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">"%s('%s', '%s')"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-42', 'name', 'link-12');">name</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                                   <tt id="link-43" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-43', 'str', 'link-27');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"> </tt>
+<a name="WeekField"></a><div id="WeekField-def"><a name="L80"></a><tt class="py-lineno"> 80</tt> <a class="py-toggle" href="#" id="WeekField-toggle" onclick="return toggle('WeekField');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.WeekField-class.html">WeekField</a><tt class="py-op">(</tt><tt class="py-base-class">BaseField</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="WeekField-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="WeekField-expanded"><a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">    <tt id="link-44" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.REAL
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfWeekField.REAL
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.WeekField.REAL" class="py-name" href="#" onclick="return doclink('link-44', 'REAL', 'link-6');">REAL</a></tt> <tt class="py-op">=</tt> <tt id="link-45" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-45', 'False', 'link-11');">False</a></tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> </tt>
+<a name="WeekField.get_value"></a><div id="WeekField.get_value-def"><a name="L83"></a><tt class="py-lineno"> 83</tt> <a class="py-toggle" href="#" id="WeekField.get_value-toggle" onclick="return toggle('WeekField.get_value');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.WeekField-class.html#get_value">get_value</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dateval</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="WeekField.get_value-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="WeekField.get_value-expanded"><a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">dateval</tt><tt class="py-op">.</tt><tt class="py-name">isocalendar</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+</div></div><a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"> </tt>
+<a name="DayOfMonthField"></a><div id="DayOfMonthField-def"><a name="L87"></a><tt class="py-lineno"> 87</tt> <a class="py-toggle" href="#" id="DayOfMonthField-toggle" onclick="return toggle('DayOfMonthField');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfMonthField-class.html">DayOfMonthField</a><tt class="py-op">(</tt><tt class="py-base-class">BaseField</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DayOfMonthField-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="DayOfMonthField-expanded"><a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">    <tt id="link-46" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.COMPILERS
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfMonthField.COMPILERS
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfWeekField.COMPILERS" class="py-name" href="#" onclick="return doclink('link-46', 'COMPILERS', 'link-8');">COMPILERS</a></tt> <tt class="py-op">=</tt> <tt id="link-47" class="py-name" targets="Class taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.fields.BaseField-class.html"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField" class="py-name" href="#" onclick="return doclink('link-47', 'BaseField', 'link-47');">BaseField</a></tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.COMPILERS
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfMonthField.COMPILERS
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfWeekField.COMPILERS" class="py-name" href="#" onclick="return doclink('link-48', 'COMPILERS', 'link-8');">COMPILERS</a></tt> <tt class="py-op">+</tt> <tt class="py-op">[</tt><tt id="link-49" class="py-name" targets="Class taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayPositionExpression=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions.WeekdayPositionExpression-class.html"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayPositionExpression" class="py-name" href="#" onclick="return doclink('link-49', 'WeekdayPositionExpression', 'link-49');">WeekdayPositionExpression</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">                                       <tt id="link-50" class="py-name" targets="Class taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.LastDayOfMonthExpression=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions.LastDayOfMonthExpression-class.html"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.LastDayOfMonthExpression" class="py-name" href="#" onclick="return doclink('link-50', 'LastDayOfMonthExpression', 'link-50');">LastDayOfMonthExpression</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
+<a name="DayOfMonthField.get_max"></a><div id="DayOfMonthField.get_max-def"><a name="L91"></a><tt class="py-lineno"> 91</tt> <a class="py-toggle" href="#" id="DayOfMonthField.get_max-toggle" onclick="return toggle('DayOfMonthField.get_max');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfMonthField-class.html#get_max">get_max</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dateval</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DayOfMonthField.get_max-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DayOfMonthField.get_max-expanded"><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">monthrange</tt><tt class="py-op">(</tt><tt class="py-name">dateval</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name" targets="Method taskcoachlib.domain.date.date.InfiniteDate.year()=taskcoachlib.domain.date.date.InfiniteDate-class.html#year"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-51', 'year', 'link-51');">year</a></tt><tt class="py-op">,</tt> <tt class="py-name">dateval</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name" targets="Method taskcoachlib.domain.date.date.InfiniteDate.month()=taskcoachlib.domain.date.date.InfiniteDate-class.html#month,Function taskcoachlib.render.month()=taskcoachlib.render-module.html#month,Method taskcoachlib.thirdparty.dateutil.parser.parserinfo.month()=taskcoachlib.thirdparty.dateutil.parser.parserinfo-class.html#month"><a title="taskcoachlib.domain.date.date.InfiniteDate.month
+taskcoachlib.render.month
+taskcoachlib.thirdparty.dateutil.parser.parserinfo.month" class="py-name" href="#" onclick="return doclink('link-52', 'month', 'link-52');">month</a></tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+</div></div><a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"> </tt>
+<a name="DayOfWeekField"></a><div id="DayOfWeekField-def"><a name="L95"></a><tt class="py-lineno"> 95</tt> <a class="py-toggle" href="#" id="DayOfWeekField-toggle" onclick="return toggle('DayOfWeekField');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfWeekField-class.html">DayOfWeekField</a><tt class="py-op">(</tt><tt class="py-base-class">BaseField</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DayOfWeekField-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="DayOfWeekField-expanded"><a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt id="link-53" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.REAL
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfWeekField.REAL
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.WeekField.REAL" class="py-name" href="#" onclick="return doclink('link-53', 'REAL', 'link-6');">REAL</a></tt> <tt class="py-op">=</tt> <tt id="link-54" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-54', 'False', 'link-11');">False</a></tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">    <tt id="link-55" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.COMPILERS
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfMonthField.COMPILERS
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfWeekField.COMPILERS" class="py-name" href="#" onclick="return doclink('link-55', 'COMPILERS', 'link-8');">COMPILERS</a></tt> <tt class="py-op">=</tt> <tt id="link-56" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField" class="py-name" href="#" onclick="return doclink('link-56', 'BaseField', 'link-47');">BaseField</a></tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.BaseField.COMPILERS
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfMonthField.COMPILERS
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfWeekField.COMPILERS" class="py-name" href="#" onclick="return doclink('link-57', 'COMPILERS', 'link-8');">COMPILERS</a></tt> <tt class="py-op">+</tt> <tt class="py-op">[</tt><tt id="link-58" class="py-name" targets="Class taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayRangeExpression=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions.WeekdayRangeExpression-class.html"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayRangeExpression" class="py-name" href="#" onclick="return doclink('link-58', 'WeekdayRangeExpression', 'link-58');">WeekdayRangeExpression</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"> </tt>
+<a name="DayOfWeekField.get_value"></a><div id="DayOfWeekField.get_value-def"><a name="L99"></a><tt class="py-lineno"> 99</tt> <a class="py-toggle" href="#" id="DayOfWeekField.get_value-toggle" onclick="return toggle('DayOfWeekField.get_value');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.cron.fields.DayOfWeekField-class.html#get_value">get_value</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dateval</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DayOfWeekField.get_value-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DayOfWeekField.get_value-expanded"><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">dateval</tt><tt class="py-op">.</tt><tt id="link-59" class="py-name" targets="Method taskcoachlib.domain.date.dateandtime.DateTime.weekday()=taskcoachlib.domain.date.dateandtime.DateTime-class.html#weekday,Method taskcoachlib.thirdparty.dateutil.parser.parserinfo.weekday()=taskcoachlib.thirdparty.dateutil.parser.parserinfo-class.html#weekday,Class taskcoachlib.thirdparty.dateutil.relativedelta.weekday=taskcoachlib.thirdparty.dateutil.relativedelta.weekday-class.html,Class taskcoachlib.thirdparty.dateutil.rrule.weekday=taskcoachlib.thirdparty.dateutil.rrule.weekday-class.html"><a title="taskcoachlib.domain.date.dateandtime.DateTime.weekday
+taskcoachlib.thirdparty.dateutil.parser.parserinfo.weekday
+taskcoachlib.thirdparty.dateutil.relativedelta.weekday
+taskcoachlib.thirdparty.dateutil.rrule.weekday" class="py-name" href="#" onclick="return doclink('link-59', 'weekday', 'link-59');">weekday</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:55 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

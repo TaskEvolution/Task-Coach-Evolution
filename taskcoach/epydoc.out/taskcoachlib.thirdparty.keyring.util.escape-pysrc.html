@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.keyring.util.escape</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.keyring-module.html">Package&nbsp;keyring</a> ::
+        <a href="taskcoachlib.thirdparty.keyring.util-module.html">Package&nbsp;util</a> ::
+        Module&nbsp;escape
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.keyring.util.escape-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.keyring.util.escape-module.html">Module taskcoachlib.thirdparty.keyring.util.escape</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">escape/unescape routines available for backends which need</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">alphanumeric usernames, services, or other values</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">string</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable taskcoachlib.thirdparty.keyring.util.escape.LEGAL_CHARS=taskcoachlib.thirdparty.keyring.util.escape-module.html#LEGAL_CHARS"><a title="taskcoachlib.thirdparty.keyring.util.escape.LEGAL_CHARS" class="py-name" href="#" onclick="return doclink('link-0', 'LEGAL_CHARS', 'link-0');">LEGAL_CHARS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">    <tt class="py-name">getattr</tt><tt class="py-op">(</tt><tt class="py-name">string</tt><tt class="py-op">,</tt> <tt class="py-string">'letters'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> <tt class="py-comment"># Python 2</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">    <tt class="py-keyword">or</tt> <tt class="py-name">getattr</tt><tt class="py-op">(</tt><tt class="py-name">string</tt><tt class="py-op">,</tt> <tt class="py-string">'ascii_letters'</tt><tt class="py-op">)</tt> <tt class="py-comment"># Python 3</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">string</tt><tt class="py-op">.</tt><tt class="py-name">digits</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable taskcoachlib.thirdparty.keyring.util.escape.ESCAPE_FMT=taskcoachlib.thirdparty.keyring.util.escape-module.html#ESCAPE_FMT"><a title="taskcoachlib.thirdparty.keyring.util.escape.ESCAPE_FMT" class="py-name" href="#" onclick="return doclink('link-1', 'ESCAPE_FMT', 'link-1');">ESCAPE_FMT</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"_%02X"</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"> </tt>
+<a name="_escape_char"></a><div id="_escape_char-def"><a name="L17"></a><tt class="py-lineno">17</tt> <a class="py-toggle" href="#" id="_escape_char-toggle" onclick="return toggle('_escape_char');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.util.escape-module.html#_escape_char">_escape_char</a><tt class="py-op">(</tt><tt class="py-param">c</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_escape_char-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="_escape_char-expanded"><a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">    <tt class="py-docstring">"Single char escape. Return the char, escaped if not already legal"</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">c</tt><tt class="py-op">,</tt> <tt class="py-name">int</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">        <tt class="py-name">c</tt> <tt class="py-op">=</tt> <tt id="link-2" class="py-name" targets="Function taskcoachlib.thirdparty.pyparsing.unichr()=taskcoachlib.thirdparty.pyparsing-module.html#unichr"><a title="taskcoachlib.thirdparty.pyparsing.unichr" class="py-name" href="#" onclick="return doclink('link-2', 'unichr', 'link-2');">unichr</a></tt><tt class="py-op">(</tt><tt class="py-name">c</tt><tt class="py-op">)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">c</tt> <tt class="py-keyword">if</tt> <tt class="py-name">c</tt> <tt class="py-keyword">in</tt> <tt id="link-3" class="py-name"><a title="taskcoachlib.thirdparty.keyring.util.escape.LEGAL_CHARS" class="py-name" href="#" onclick="return doclink('link-3', 'LEGAL_CHARS', 'link-0');">LEGAL_CHARS</a></tt> <tt class="py-keyword">else</tt> <tt id="link-4" class="py-name"><a title="taskcoachlib.thirdparty.keyring.util.escape.ESCAPE_FMT" class="py-name" href="#" onclick="return doclink('link-4', 'ESCAPE_FMT', 'link-1');">ESCAPE_FMT</a></tt> <tt class="py-op">%</tt> <tt class="py-name">ord</tt><tt class="py-op">(</tt><tt class="py-name">c</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="escape"></a><div id="escape-def"><a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="escape-toggle" onclick="return toggle('escape');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.util.escape-module.html#escape">escape</a><tt class="py-op">(</tt><tt class="py-param">value</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="escape-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="escape-expanded"><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-docstring">    Escapes given string so the result consists of alphanumeric chars and</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">    underscore only.</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-string">""</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-5" class="py-name" targets="Function taskcoachlib.thirdparty.keyring.util.escape._escape_char()=taskcoachlib.thirdparty.keyring.util.escape-module.html#_escape_char"><a title="taskcoachlib.thirdparty.keyring.util.escape._escape_char" class="py-name" href="#" onclick="return doclink('link-5', '_escape_char', 'link-5');">_escape_char</a></tt><tt class="py-op">(</tt><tt class="py-name">c</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">c</tt> <tt class="py-keyword">in</tt> <tt id="link-6" class="py-name" targets="Method taskcoachlib.gui.viewer.task.SquareTaskViewer.value()=taskcoachlib.gui.viewer.task.SquareTaskViewer-class.html#value,Method taskcoachlib.patterns.observer.Event.value()=taskcoachlib.patterns.observer.Event-class.html#value,Method taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value()=taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter-class.html#value,Method taskcoachlib.widgets.itemctrl.Column.value()=taskcoachlib.widgets.itemctrl.Column-class.html#value"><a title="taskcoachlib.gui.viewer.task.SquareTaskViewer.value
+taskcoachlib.patterns.observer.Event.value
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value
+taskcoachlib.widgets.itemctrl.Column.value" class="py-name" href="#" onclick="return doclink('link-6', 'value', 'link-6');">value</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method taskcoachlib.thirdparty.gntp.GNTPRegister.encode()=taskcoachlib.thirdparty.gntp.GNTPRegister-class.html#encode,Method taskcoachlib.thirdparty.gntp._GNTPBase.encode()=taskcoachlib.thirdparty.gntp._GNTPBase-class.html#encode,Function taskcoachlib.thirdparty.googleapi.httplib2.iri2uri'.encode()=taskcoachlib.thirdparty.googleapi.httplib2.iri2uri%27-module.html#encode"><a title="taskcoachlib.thirdparty.gntp.GNTPRegister.encode
+taskcoachlib.thirdparty.gntp._GNTPBase.encode
+taskcoachlib.thirdparty.googleapi.httplib2.iri2uri'.encode" class="py-name" href="#" onclick="return doclink('link-7', 'encode', 'link-7');">encode</a></tt><tt class="py-op">(</tt><tt class="py-string">'utf-8'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt>
+<a name="_unescape_code"></a><div id="_unescape_code-def"><a name="L30"></a><tt class="py-lineno">30</tt> <a class="py-toggle" href="#" id="_unescape_code-toggle" onclick="return toggle('_unescape_code');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.util.escape-module.html#_unescape_code">_unescape_code</a><tt class="py-op">(</tt><tt class="py-param">regex_match</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_unescape_code-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="_unescape_code-expanded"><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">    <tt class="py-name">ordinal</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">regex_match</tt><tt class="py-op">.</tt><tt class="py-name">group</tt><tt class="py-op">(</tt><tt class="py-string">'code'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-number">16</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Variable taskcoachlib.thirdparty.apscheduler'.version_info=taskcoachlib.thirdparty.apscheduler%27-module.html#version_info"><a title="taskcoachlib.thirdparty.apscheduler'.version_info" class="py-name" href="#" onclick="return doclink('link-8', 'version_info', 'link-8');">version_info</a></tt> <tt class="py-op">&gt;=</tt> <tt class="py-op">(</tt><tt class="py-number">3</tt><tt class="py-op">,</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">bytes</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">ordinal</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">chr</tt><tt class="py-op">(</tt><tt class="py-name">ordinal</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"> </tt>
+<a name="unescape"></a><div id="unescape-def"><a name="L36"></a><tt class="py-lineno">36</tt> <a class="py-toggle" href="#" id="unescape-toggle" onclick="return toggle('unescape');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.keyring.util.escape-module.html#unescape">unescape</a><tt class="py-op">(</tt><tt class="py-param">value</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="unescape-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="unescape-expanded"><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"><tt class="py-docstring">    Inverse of escape.</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">    <tt class="py-name">re_esc</tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">compile</tt><tt class="py-op">(</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">        <tt class="py-comment"># the pattern must be bytes to operate on bytes</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">        <tt id="link-9" class="py-name"><a title="taskcoachlib.thirdparty.keyring.util.escape.ESCAPE_FMT" class="py-name" href="#" onclick="return doclink('link-9', 'ESCAPE_FMT', 'link-1');">ESCAPE_FMT</a></tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">'%02X'</tt><tt class="py-op">,</tt> <tt class="py-string">'(?P&lt;code&gt;[0-9A-F]{2})'</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="taskcoachlib.thirdparty.gntp.GNTPRegister.encode
+taskcoachlib.thirdparty.gntp._GNTPBase.encode
+taskcoachlib.thirdparty.googleapi.httplib2.iri2uri'.encode" class="py-name" href="#" onclick="return doclink('link-10', 'encode', 'link-7');">encode</a></tt><tt class="py-op">(</tt><tt class="py-string">'ascii'</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">re_esc</tt><tt class="py-op">.</tt><tt class="py-name">sub</tt><tt class="py-op">(</tt><tt id="link-11" class="py-name" targets="Function taskcoachlib.thirdparty.keyring.util.escape._unescape_code()=taskcoachlib.thirdparty.keyring.util.escape-module.html#_unescape_code"><a title="taskcoachlib.thirdparty.keyring.util.escape._unescape_code" class="py-name" href="#" onclick="return doclink('link-11', '_unescape_code', 'link-11');">_unescape_code</a></tt><tt class="py-op">,</tt> <tt id="link-12" class="py-name"><a title="taskcoachlib.gui.viewer.task.SquareTaskViewer.value
+taskcoachlib.patterns.observer.Event.value
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.value
+taskcoachlib.widgets.itemctrl.Column.value" class="py-name" href="#" onclick="return doclink('link-12', 'value', 'link-6');">value</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="taskcoachlib.thirdparty.gntp.GNTPRegister.encode
+taskcoachlib.thirdparty.gntp._GNTPBase.encode
+taskcoachlib.thirdparty.googleapi.httplib2.iri2uri'.encode" class="py-name" href="#" onclick="return doclink('link-13', 'encode', 'link-7');">encode</a></tt><tt class="py-op">(</tt><tt class="py-string">'ascii'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method taskcoachlib.thirdparty.gntp.GNTPNotice.decode()=taskcoachlib.thirdparty.gntp.GNTPNotice-class.html#decode,Method taskcoachlib.thirdparty.gntp.GNTPRegister.decode()=taskcoachlib.thirdparty.gntp.GNTPRegister-class.html#decode,Method taskcoachlib.thirdparty.gntp._GNTPBase.decode()=taskcoachlib.thirdparty.gntp._GNTPBase-class.html#decode,Method taskcoachlib.thirdparty.pybonjour._utf8_char_p.decode()=taskcoachlib.thirdparty.pybonjour._utf8_char_p-class.html#decode"><a title="taskcoachlib.thirdparty.gntp.GNTPNotice.decode
+taskcoachlib.thirdparty.gntp.GNTPRegister.decode
+taskcoachlib.thirdparty.gntp._GNTPBase.decode
+taskcoachlib.thirdparty.pybonjour._utf8_char_p.decode" class="py-name" href="#" onclick="return doclink('link-14', 'decode', 'link-14');">decode</a></tt><tt class="py-op">(</tt><tt class="py-string">'utf-8'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:13 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

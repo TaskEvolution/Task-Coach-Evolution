@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.pubsub.utils.exchandling</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.pubsub-module.html">Package&nbsp;pubsub</a> ::
+        <a href="taskcoachlib.thirdparty.pubsub.utils-module.html">Package&nbsp;utils</a> ::
+        Module&nbsp;exchandling
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.pubsub.utils.exchandling-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.pubsub.utils.exchandling-module.html">Module taskcoachlib.thirdparty.pubsub.utils.exchandling</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">Some utility classes for exception handling of exceptions raised</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">within listeners:</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">- IExcHandler: base class for any handler that would be given to</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">  pub.setListenerExcHandler(). The derived class will probably</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">  want to make use of TracebackInfo.</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">- TracebackInfo: convenient way of getting stack trace of latest</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">  exception raised. The handler can create the instance to retrieve</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">  the stack trace and then log it, present it to user, etc.</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">- ExcPublisher: example handler that publishes a message containing</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">  traceback info</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">:copyright: Copyright since 2006 by Oliver Schoenborn, all rights reserved.</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">:license: BSD, see LICENSE.txt for details.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt><tt class="py-op">,</tt> <tt class="py-name">traceback</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"> </tt>
+<a name="TracebackInfo"></a><div id="TracebackInfo-def"><a name="L23"></a><tt class="py-lineno"> 23</tt> <a class="py-toggle" href="#" id="TracebackInfo-toggle" onclick="return toggle('TracebackInfo');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.exchandling.TracebackInfo-class.html">TracebackInfo</a><tt class="py-op">:</tt> </tt>
+</div><div id="TracebackInfo-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="TracebackInfo-expanded"><a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">    Represent the traceback information for when an exception is</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">    raised -- but not caught -- in a listener. The complete</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">    traceback cannot be stored since this leads to circular</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">    references (see docs for sys.exc_info()) which keeps</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">    listeners alive even after the application is no longer</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">    referring to them.</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">    Instances of this object are given to listeners of the</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">    'uncaughtExcInListener' topic as the excTraceback kwarg.</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring">    The instance calls sys.exc_info() to get the traceback</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">    info but keeps only the following info:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring">     * self.ExcClass: the class of exception that was raised and not caught</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">     * self.excArg: the argument given to exception when raised</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">     * self.traceback: list of quadruples as returned by traceback.extract_tb()</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">    Normally you just need to call one of the two getFormatted() methods.</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="TracebackInfo.__init__"></a><div id="TracebackInfo.__init__-def"><a name="L43"></a><tt class="py-lineno"> 43</tt> <a class="py-toggle" href="#" id="TracebackInfo.__init__-toggle" onclick="return toggle('TracebackInfo.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.exchandling.TracebackInfo-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TracebackInfo.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TracebackInfo.__init__-expanded"><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-name">tmpInfo</tt> <tt class="py-op">=</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exc_info</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ExcClass</tt> <tt class="py-op">=</tt> <tt class="py-name">tmpInfo</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">excArg</tt>   <tt class="py-op">=</tt> <tt class="py-name">tmpInfo</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-comment"># for the traceback, skip the first 3 entries, since they relate to</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-comment"># implementation details for pubsub.</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">traceback</tt> <tt class="py-op">=</tt> <tt class="py-name">traceback</tt><tt class="py-op">.</tt><tt class="py-name">extract_tb</tt><tt class="py-op">(</tt><tt class="py-name">tmpInfo</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">3</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-comment"># help avoid circular refs</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-keyword">del</tt> <tt class="py-name">tmpInfo</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="TracebackInfo.getFormattedList"></a><div id="TracebackInfo.getFormattedList-def"><a name="L53"></a><tt class="py-lineno"> 53</tt> <a class="py-toggle" href="#" id="TracebackInfo.getFormattedList-toggle" onclick="return toggle('TracebackInfo.getFormattedList');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.exchandling.TracebackInfo-class.html#getFormattedList">getFormattedList</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TracebackInfo.getFormattedList-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TracebackInfo.getFormattedList-expanded"><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-docstring">'''Get a list of strings as returned by the traceback module's</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">        format_list() and format_exception_only() functions.'''</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt id="link-0" class="py-name" targets="Variable taskcoachlib.thirdparty.xdg.Menu.tmp=taskcoachlib.thirdparty.xdg.Menu-module.html#tmp"><a title="taskcoachlib.thirdparty.xdg.Menu.tmp" class="py-name" href="#" onclick="return doclink('link-0', 'tmp', 'link-0');">tmp</a></tt> <tt class="py-op">=</tt> <tt class="py-name">traceback</tt><tt class="py-op">.</tt><tt class="py-name">format_list</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">traceback</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt id="link-1" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Menu.tmp" class="py-name" href="#" onclick="return doclink('link-1', 'tmp', 'link-0');">tmp</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Method taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer.extend()=taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer-class.html#extend,Method taskcoachlib.domain.category.categorycontainer.CategoryList.extend()=taskcoachlib.domain.category.categorycontainer.CategoryList-class.html#extend,Method taskcoachlib.domain.effort.effortlist.EffortList.extend()=taskcoachlib.domain.effort.effortlist.EffortList-class.html#extend,Method taskcoachlib.domain.effort.reducer.EffortAggregator.extend()=taskcoachlib.domain.effort.reducer.EffortAggregator-class.html#extend,Method taskcoachlib.patterns.composite.CompositeCollection.extend()=taskcoachlib.patterns.composite.CompositeCollection-class.html#extend,Method taskcoachlib.patterns.observer.CollectionDecorator.extend()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#extend,Method taskcoachlib.patterns.observer.ObservableList.extend()=taskcoachlib.patterns.observer.ObservableList-class.html#extend,Method taskcoachlib.patterns.observer.ObservableSet.extend()=taskcoachlib.patterns.observer.ObservableSet-class.html#extend"><a title="taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer.extend
+taskcoachlib.domain.category.categorycontainer.CategoryList.extend
+taskcoachlib.domain.effort.effortlist.EffortList.extend
+taskcoachlib.domain.effort.reducer.EffortAggregator.extend
+taskcoachlib.patterns.composite.CompositeCollection.extend
+taskcoachlib.patterns.observer.CollectionDecorator.extend
+taskcoachlib.patterns.observer.ObservableList.extend
+taskcoachlib.patterns.observer.ObservableSet.extend" class="py-name" href="#" onclick="return doclink('link-2', 'extend', 'link-2');">extend</a></tt><tt class="py-op">(</tt> <tt class="py-name">traceback</tt><tt class="py-op">.</tt><tt class="py-name">format_exception_only</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ExcClass</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">excArg</tt><tt class="py-op">)</tt> <tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-3" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Menu.tmp" class="py-name" href="#" onclick="return doclink('link-3', 'tmp', 'link-0');">tmp</a></tt> </tt>
+</div><a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"> </tt>
+<a name="TracebackInfo.getFormattedString"></a><div id="TracebackInfo.getFormattedString-def"><a name="L60"></a><tt class="py-lineno"> 60</tt> <a class="py-toggle" href="#" id="TracebackInfo.getFormattedString-toggle" onclick="return toggle('TracebackInfo.getFormattedString');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.exchandling.TracebackInfo-class.html#getFormattedString">getFormattedString</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TracebackInfo.getFormattedString-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TracebackInfo.getFormattedString-expanded"><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-docstring">'''Get a string similar to the stack trace that gets printed</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">        to stdout by Python interpreter when an exception is not caught.'''</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">''</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.utils.exchandling.TracebackInfo.getFormattedList()=taskcoachlib.thirdparty.pubsub.utils.exchandling.TracebackInfo-class.html#getFormattedList"><a title="taskcoachlib.thirdparty.pubsub.utils.exchandling.TracebackInfo.getFormattedList" class="py-name" href="#" onclick="return doclink('link-4', 'getFormattedList', 'link-4');">getFormattedList</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"> </tt>
+<a name="TracebackInfo.__str__"></a><div id="TracebackInfo.__str__-def"><a name="L65"></a><tt class="py-lineno"> 65</tt> <a class="py-toggle" href="#" id="TracebackInfo.__str__-toggle" onclick="return toggle('TracebackInfo.__str__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.exchandling.TracebackInfo-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TracebackInfo.__str__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TracebackInfo.__str__-expanded"><a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.utils.exchandling.TracebackInfo.getFormattedString()=taskcoachlib.thirdparty.pubsub.utils.exchandling.TracebackInfo-class.html#getFormattedString"><a title="taskcoachlib.thirdparty.pubsub.utils.exchandling.TracebackInfo.getFormattedString" class="py-name" href="#" onclick="return doclink('link-5', 'getFormattedString', 'link-5');">getFormattedString</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"> </tt>
+<a name="IExcHandler"></a><div id="IExcHandler-def"><a name="L69"></a><tt class="py-lineno"> 69</tt> <a class="py-toggle" href="#" id="IExcHandler-toggle" onclick="return toggle('IExcHandler');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.exchandling.IExcHandler-class.html">IExcHandler</a><tt class="py-op">:</tt> </tt>
+</div><div id="IExcHandler-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="IExcHandler-expanded"><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">    Interface class for the exception handler. Such handler is called</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">    whenever a listener raises an exception during a pub.sendMessage().</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">    You may give an instance of a class derived from IExcHandler to</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">    pub.setListenerExcHandler(). Example::</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">        from pubsub.utils.exchandling import IExcHandler</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">        class MyHandler(IExcHandler):</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">            def __call__(self, listenerID, topicObj):</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">                ... do something with listenerID ...</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="IExcHandler.__call__"></a><div id="IExcHandler.__call__-def"><a name="L81"></a><tt class="py-lineno"> 81</tt> <a class="py-toggle" href="#" id="IExcHandler.__call__-toggle" onclick="return toggle('IExcHandler.__call__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.exchandling.IExcHandler-class.html#__call__">__call__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">listenerID</tt><tt class="py-op">,</tt> <tt class="py-param">topicObj</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IExcHandler.__call__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="IExcHandler.__call__-expanded"><a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">NotImplementedError</tt><tt class="py-op">(</tt><tt class="py-string">'%s must override __call__()'</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"> </tt>
+<a name="ExcPublisher"></a><div id="ExcPublisher-def"><a name="L85"></a><tt class="py-lineno"> 85</tt> <a class="py-toggle" href="#" id="ExcPublisher-toggle" onclick="return toggle('ExcPublisher');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher-class.html">ExcPublisher</a><tt class="py-op">(</tt><tt class="py-base-class">IExcHandler</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ExcPublisher-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ExcPublisher-expanded"><a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">    Example exception handler that simply publishes the exception traceback.</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">    The topic used will be self.topicUncaughtExc.</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt class="py-comment"># name of the topic</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Variable taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher.topicUncaughtExc=taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher-class.html#topicUncaughtExc"><a title="taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher.topicUncaughtExc" class="py-name" href="#" onclick="return doclink('link-6', 'topicUncaughtExc', 'link-6');">topicUncaughtExc</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'uncaughtExcInListener'</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="ExcPublisher.__init__"></a><div id="ExcPublisher.__init__-def"><a name="L94"></a><tt class="py-lineno"> 94</tt> <a class="py-toggle" href="#" id="ExcPublisher.__init__-toggle" onclick="return toggle('ExcPublisher.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">topicMgr</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ExcPublisher.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ExcPublisher.__init__-expanded"><a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-docstring">'''If topic manager is specified, will automatically call init().</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring">        Otherwise, caller must call init() after pubsub imported. See</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">        pub.setListenerExcHandler().'''</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">topicMgr</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method taskcoachlib.application.application.Application.init()=taskcoachlib.application.application.Application-class.html#init,Method taskcoachlib.config.settings.Settings.init()=taskcoachlib.config.settings.Settings-class.html#init,Function taskcoachlib.gui.artprovider.init()=taskcoachlib.gui.artprovider-module.html#init,Method taskcoachlib.iphone.protocol.DayHoursState.init()=taskcoachlib.iphone.protocol.DayHoursState-class.html#init,Method taskcoachlib.iphone.protocol.DeviceNameState.init()=taskcoachlib.iphone.protocol.DeviceNameState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDesktopCategoryState.init()=taskcoachlib.iphone.protocol.FullFromDesktopCategoryState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDesktopEffortState.init()=taskcoachlib.iphone.protocol.FullFromDesktopEffortState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDesktopState.init()=taskcoachlib.iphone.protocol.FullFromDesktopState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDesktopTaskState.init()=taskcoachlib.iphone.protocol.FullFromDesktopTaskState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDeviceCategoryState.init()=taskcoachlib.iphone.protocol.FullFromDeviceCategoryState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDeviceState.init()=taskcoachlib.iphone.protocol.FullFromDeviceState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDeviceTaskState.init()=taskcoachlib.iphone.protocol.FullFromDeviceTaskState-class.html#init,Method taskcoachlib.iphone.protocol.GUIDState.init()=taskcoachlib.iphone.protocol.GUIDState-class.html#init,Method taskcoachlib.iphone.protocol.InitialState.init()=taskcoachlib.iphone.protocol.InitialState-class.html#init,Method taskcoachlib.iphone.protocol.PasswordState.init()=taskcoachlib.iphone.protocol.PasswordState-class.html#init,Method taskcoachlib.iphone.protocol.SendGUIDState.init()=taskcoachlib.iphone.protocol.SendGUIDState-class.html#init,Method taskcoachlib.iphone.protocol.State.init()=taskcoachlib.iphone.protocol.State-class.html#init,Method taskcoachlib.iphone.protocol.TaskFileNameState.init()=taskcoachlib.iphone.protocol.TaskFileNameState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayDeletedCategoriesState.init()=taskcoachlib.iphone.protocol.TwoWayDeletedCategoriesState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayDeletedTasksState.init()=taskcoachlib.iphone.protocol.TwoWayDeletedTasksState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayModifiedCategoriesState.init()=taskcoachlib.iphone.protocol.TwoWayModifiedCategoriesState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayModifiedEffortsState.init()=taskcoachlib.iphone.protocol.TwoWayModifiedEffortsState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayModifiedTasks.init()=taskcoachlib.iphone.protocol.TwoWayModifiedTasks-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayNewCategoriesState.init()=taskcoachlib.iphone.protocol.TwoWayNewCategoriesState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayNewEffortsState.init()=taskcoachlib.iphone.protocol.TwoWayNewEffortsState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayNewTasksState.init()=taskcoachlib.iphone.protocol.TwoWayNewTasksState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayNewTasksState4.init()=taskcoachlib.iphone.protocol.TwoWayNewTasksState4-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayNewTasksState5.init()=taskcoachlib.iphone.protocol.TwoWayNewTasksState5-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayState.init()=taskcoachlib.iphone.protocol.TwoWayState-class.html#init,Method taskcoachlib.persistence.icalendar.ical.VCalendarParser.init()=taskcoachlib.persistence.icalendar.ical.VCalendarParser-class.html#init,Method taskcoachlib.syncml.sync.Synchronizer.init()=taskcoachlib.syncml.sync.Synchronizer-class.html#init,Function taskcoachlib.thirdparty.googleapi.apiclient.sample_tools.init()=taskcoachlib.thirdparty.googleapi.apiclient.sample_tools-module.html#init,Method taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher.init()=taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher-class.html#init"><a title="taskcoachlib.application.application.Application.init
+taskcoachlib.config.settings.Settings.init
+taskcoachlib.gui.artprovider.init
+taskcoachlib.iphone.protocol.DayHoursState.init
+taskcoachlib.iphone.protocol.DeviceNameState.init
+taskcoachlib.iphone.protocol.FullFromDesktopCategoryState.init
+taskcoachlib.iphone.protocol.FullFromDesktopEffortState.init
+taskcoachlib.iphone.protocol.FullFromDesktopState.init
+taskcoachlib.iphone.protocol.FullFromDesktopTaskState.init
+taskcoachlib.iphone.protocol.FullFromDeviceCategoryState.init
+taskcoachlib.iphone.protocol.FullFromDeviceState.init
+taskcoachlib.iphone.protocol.FullFromDeviceTaskState.init
+taskcoachlib.iphone.protocol.GUIDState.init
+taskcoachlib.iphone.protocol.InitialState.init
+taskcoachlib.iphone.protocol.PasswordState.init
+taskcoachlib.iphone.protocol.SendGUIDState.init
+taskcoachlib.iphone.protocol.State.init
+taskcoachlib.iphone.protocol.TaskFileNameState.init
+taskcoachlib.iphone.protocol.TwoWayDeletedCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayDeletedTasksState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedEffortsState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedTasks.init
+taskcoachlib.iphone.protocol.TwoWayNewCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayNewEffortsState.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState4.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState5.init
+taskcoachlib.iphone.protocol.TwoWayState.init
+taskcoachlib.persistence.icalendar.ical.VCalendarParser.init
+taskcoachlib.syncml.sync.Synchronizer.init
+taskcoachlib.thirdparty.googleapi.apiclient.sample_tools.init
+taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher.init" class="py-name" href="#" onclick="return doclink('link-7', 'init', 'link-7');">init</a></tt><tt class="py-op">(</tt><tt class="py-name">topicMgr</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"> </tt>
+<a name="ExcPublisher.init"></a><div id="ExcPublisher.init-def"><a name="L101"></a><tt class="py-lineno">101</tt> <a class="py-toggle" href="#" id="ExcPublisher.init-toggle" onclick="return toggle('ExcPublisher.init');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher-class.html#init">init</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">topicMgr</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ExcPublisher.init-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ExcPublisher.init-expanded"><a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-docstring">'''Must be called only after pubsub has been imported since this</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring">        handler creates a pubsub topic.'''</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt id="link-8" class="py-name" targets="Variable taskcoachlib.thirdparty.wmi.obj=taskcoachlib.thirdparty.wmi-module.html#obj"><a title="taskcoachlib.thirdparty.wmi.obj" class="py-name" href="#" onclick="return doclink('link-8', 'obj', 'link-8');">obj</a></tt> <tt class="py-op">=</tt> <tt class="py-name">topicMgr</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.topicmgr.TopicManager.getOrCreateTopic()=taskcoachlib.thirdparty.pubsub.core.topicmgr.TopicManager-class.html#getOrCreateTopic,Variable taskcoachlib.thirdparty.pubsub.pub.getOrCreateTopic=taskcoachlib.thirdparty.pubsub.pub-module.html#getOrCreateTopic"><a title="taskcoachlib.thirdparty.pubsub.core.topicmgr.TopicManager.getOrCreateTopic
+taskcoachlib.thirdparty.pubsub.pub.getOrCreateTopic" class="py-name" href="#" onclick="return doclink('link-9', 'getOrCreateTopic', 'link-9');">getOrCreateTopic</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher.topicUncaughtExc" class="py-name" href="#" onclick="return doclink('link-10', 'topicUncaughtExc', 'link-6');">topicUncaughtExc</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt id="link-11" class="py-name"><a title="taskcoachlib.thirdparty.wmi.obj" class="py-name" href="#" onclick="return doclink('link-11', 'obj', 'link-8');">obj</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method taskcoachlib.domain.base.object.Object.setDescription()=taskcoachlib.domain.base.object.Object-class.html#setDescription,Method taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.setDescription()=taskcoachlib.thirdparty.pubsub.core.topicobj.Topic-class.html#setDescription"><a title="taskcoachlib.domain.base.object.Object.setDescription
+taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.setDescription" class="py-name" href="#" onclick="return doclink('link-12', 'setDescription', 'link-12');">setDescription</a></tt><tt class="py-op">(</tt><tt class="py-string">'generated when a listener raises an exception'</tt><tt class="py-op">)</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt id="link-13" class="py-name"><a title="taskcoachlib.thirdparty.wmi.obj" class="py-name" href="#" onclick="return doclink('link-13', 'obj', 'link-8');">obj</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.setMsgArgSpec()=taskcoachlib.thirdparty.pubsub.core.topicobj.Topic-class.html#setMsgArgSpec"><a title="taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.setMsgArgSpec" class="py-name" href="#" onclick="return doclink('link-14', 'setMsgArgSpec', 'link-14');">setMsgArgSpec</a></tt><tt class="py-op">(</tt> <tt id="link-15" class="py-name" targets="Variable taskcoachlib.i18n.ar.dict=taskcoachlib.i18n.ar-module.html#dict,Variable taskcoachlib.i18n.be.dict=taskcoachlib.i18n.be-module.html#dict,Variable taskcoachlib.i18n.bg.dict=taskcoachlib.i18n.bg-module.html#dict,Variable taskcoachlib.i18n.br.dict=taskcoachlib.i18n.br-module.html#dict,Variable taskcoachlib.i18n.bs.dict=taskcoachlib.i18n.bs-module.html#dict,Variable taskcoachlib.i18n.ca.dict=taskcoachlib.i18n.ca-module.html#dict,Variable taskcoachlib.i18n.cs.dict=taskcoachlib.i18n.cs-module.html#dict,Variable taskcoachlib.i18n.da.dict=taskcoachlib.i18n.da-module.html#dict,Variable taskcoachlib.i18n.de.dict=taskcoachlib.i18n.de-module.html#dict,Variable taskcoachlib.i18n.el.dict=taskcoachlib.i18n.el-module.html#dict,Variable taskcoachlib.i18n.en_AU.dict=taskcoachlib.i18n.en_AU-module.html#dict,Variable taskcoachlib.i18n.en_CA.dict=taskcoachlib.i18n.en_CA-module.html#dict,Variable taskcoachlib.i18n.en_GB.dict=taskcoachlib.i18n.en_GB-module.html#dict,Variable taskcoachlib.i18n.eo.dict=taskcoachlib.i18n.eo-module.html#dict,Variable taskcoachlib.i18n.es.dict=taskcoachlib.i18n.es-module.html#dict,Variable taskcoachlib.i18n.et.dict=taskcoachlib.i18n.et-module.html#dict,Variable taskcoachlib.i18n.eu.dict=taskcoachlib.i18n.eu-module.html#dict,Variable taskcoachlib.i18n.fa.dict=taskcoachlib.i18n.fa-module.html#dict,Variable taskcoachlib.i18n.fi.dict=taskcoachlib.i18n.fi-module.html#dict,Variable taskcoachlib.i18n.fr.dict=taskcoachlib.i18n.fr-module.html#dict,Variable taskcoachlib.i18n.gl.dict=taskcoachlib.i18n.gl-module.html#dict,Variable taskcoachlib.i18n.he.dict=taskcoachlib.i18n.he-module.html#dict,Variable taskcoachlib.i18n.hi.dict=taskcoachlib.i18n.hi-module.html#dict,Variable taskcoachlib.i18n.hu.dict=taskcoachlib.i18n.hu-module.html#dict,Variable taskcoachlib.i18n.id.dict=taskcoachlib.i18n.id-module.html#dict,Variable taskcoachlib.i18n.it.dict=taskcoachlib.i18n.it-module.html#dict,Variable taskcoachlib.i18n.ja.dict=taskcoachlib.i18n.ja-module.html#dict,Variable taskcoachlib.i18n.ko.dict=taskcoachlib.i18n.ko-module.html#dict,Variable taskcoachlib.i18n.lt.dict=taskcoachlib.i18n.lt-module.html#dict,Variable taskcoachlib.i18n.lv.dict=taskcoachlib.i18n.lv-module.html#dict,Variable taskcoachlib.i18n.mn.dict=taskcoachlib.i18n.mn-module.html#dict,Variable taskcoachlib.i18n.mr.dict=taskcoachlib.i18n.mr-module.html#dict,Variable taskcoachlib.i18n.nb.dict=taskcoachlib.i18n.nb-module.html#dict,Variable taskcoachlib.i18n.nds.dict=taskcoachlib.i18n.nds-module.html#dict,Variable taskcoachlib.i18n.nl.dict=taskcoachlib.i18n.nl-module.html#dict,Variable taskcoachlib.i18n.nn.dict=taskcoachlib.i18n.nn-module.html#dict,Variable taskcoachlib.i18n.oc.dict=taskcoachlib.i18n.oc-module.html#dict,Variable taskcoachlib.i18n.pap.dict=taskcoachlib.i18n.pap-module.html#dict,Variable taskcoachlib.i18n.pl.dict=taskcoachlib.i18n.pl-module.html#dict,Variable taskcoachlib.i18n.pt.dict=taskcoachlib.i18n.pt-module.html#dict,Variable taskcoachlib.i18n.pt_BR.dict=taskcoachlib.i18n.pt_BR-module.html#dict,Variable taskcoachlib.i18n.ro.dict=taskcoachlib.i18n.ro-module.html#dict,Variable taskcoachlib.i18n.ru.dict=taskcoachlib.i18n.ru-module.html#dict,Variable taskcoachlib.i18n.sk.dict=taskcoachlib.i18n.sk-module.html#dict,Variable taskcoachlib.i18n.sl.dict=taskcoachlib.i18n.sl-module.html#dict,Variable taskcoachlib.i18n.sv.dict=taskcoachlib.i18n.sv-module.html#dict,Variable taskcoachlib.i18n.te.dict=taskcoachlib.i18n.te-module.html#dict,Variable taskcoachlib.i18n.th.dict=taskcoachlib.i18n.th-module.html#dict,Variable taskcoachlib.i18n.tr.dict=taskcoachlib.i18n.tr-module.html#dict,Variable taskcoachlib.i18n.uk.dict=taskcoachlib.i18n.uk-module.html#dict,Variable taskcoachlib.i18n.vi.dict=taskcoachlib.i18n.vi-module.html#dict,Variable taskcoachlib.i18n.zh_CN.dict=taskcoachlib.i18n.zh_CN-module.html#dict,Variable taskcoachlib.i18n.zh_TW.dict=taskcoachlib.i18n.zh_TW-module.html#dict"><a title="taskcoachlib.i18n.ar.dict
+taskcoachlib.i18n.be.dict
+taskcoachlib.i18n.bg.dict
+taskcoachlib.i18n.br.dict
+taskcoachlib.i18n.bs.dict
+taskcoachlib.i18n.ca.dict
+taskcoachlib.i18n.cs.dict
+taskcoachlib.i18n.da.dict
+taskcoachlib.i18n.de.dict
+taskcoachlib.i18n.el.dict
+taskcoachlib.i18n.en_AU.dict
+taskcoachlib.i18n.en_CA.dict
+taskcoachlib.i18n.en_GB.dict
+taskcoachlib.i18n.eo.dict
+taskcoachlib.i18n.es.dict
+taskcoachlib.i18n.et.dict
+taskcoachlib.i18n.eu.dict
+taskcoachlib.i18n.fa.dict
+taskcoachlib.i18n.fi.dict
+taskcoachlib.i18n.fr.dict
+taskcoachlib.i18n.gl.dict
+taskcoachlib.i18n.he.dict
+taskcoachlib.i18n.hi.dict
+taskcoachlib.i18n.hu.dict
+taskcoachlib.i18n.id.dict
+taskcoachlib.i18n.it.dict
+taskcoachlib.i18n.ja.dict
+taskcoachlib.i18n.ko.dict
+taskcoachlib.i18n.lt.dict
+taskcoachlib.i18n.lv.dict
+taskcoachlib.i18n.mn.dict
+taskcoachlib.i18n.mr.dict
+taskcoachlib.i18n.nb.dict
+taskcoachlib.i18n.nds.dict
+taskcoachlib.i18n.nl.dict
+taskcoachlib.i18n.nn.dict
+taskcoachlib.i18n.oc.dict
+taskcoachlib.i18n.pap.dict
+taskcoachlib.i18n.pl.dict
+taskcoachlib.i18n.pt.dict
+taskcoachlib.i18n.pt_BR.dict
+taskcoachlib.i18n.ro.dict
+taskcoachlib.i18n.ru.dict
+taskcoachlib.i18n.sk.dict
+taskcoachlib.i18n.sl.dict
+taskcoachlib.i18n.sv.dict
+taskcoachlib.i18n.te.dict
+taskcoachlib.i18n.th.dict
+taskcoachlib.i18n.tr.dict
+taskcoachlib.i18n.uk.dict
+taskcoachlib.i18n.vi.dict
+taskcoachlib.i18n.zh_CN.dict
+taskcoachlib.i18n.zh_TW.dict" class="py-name" href="#" onclick="return doclink('link-15', 'dict', 'link-15');">dict</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">            <tt class="py-name">listenerStr</tt>  <tt class="py-op">=</tt> <tt class="py-string">'string representation of listener'</tt><tt class="py-op">,</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">            <tt class="py-name">excTraceback</tt> <tt class="py-op">=</tt> <tt class="py-string">'instance of TracebackInfo containing exception info'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__topicObj</tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="taskcoachlib.thirdparty.wmi.obj" class="py-name" href="#" onclick="return doclink('link-16', 'obj', 'link-8');">obj</a></tt> </tt>
+</div><a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"> </tt>
+<a name="ExcPublisher.__call__"></a><div id="ExcPublisher.__call__-def"><a name="L111"></a><tt class="py-lineno">111</tt> <a class="py-toggle" href="#" id="ExcPublisher.__call__-toggle" onclick="return toggle('ExcPublisher.__call__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher-class.html#__call__">__call__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">listenerID</tt><tt class="py-op">,</tt> <tt class="py-param">topicObj</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ExcPublisher.__call__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="ExcPublisher.__call__-expanded"><a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-docstring">'''Handle the exception raised by given listener. Send the</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">        Traceback to all subscribers of topic self.topicUncaughtExc. '''</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-name">tbInfo</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name" targets="Class taskcoachlib.thirdparty.pubsub.utils.exchandling.TracebackInfo=taskcoachlib.thirdparty.pubsub.utils.exchandling.TracebackInfo-class.html"><a title="taskcoachlib.thirdparty.pubsub.utils.exchandling.TracebackInfo" class="py-name" href="#" onclick="return doclink('link-17', 'TracebackInfo', 'link-17');">TracebackInfo</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__topicObj</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.arg1.publishermixin.PublisherMixin.publish()=taskcoachlib.thirdparty.pubsub.core.arg1.publishermixin.PublisherMixin-class.html#publish,Method taskcoachlib.thirdparty.pubsub.core.kwargs.publishermixin.PublisherMixin.publish()=taskcoachlib.thirdparty.pubsub.core.kwargs.publishermixin.PublisherMixin-class.html#publish"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.publishermixin.PublisherMixin.publish
+taskcoachlib.thirdparty.pubsub.core.kwargs.publishermixin.PublisherMixin.publish" class="py-name" href="#" onclick="return doclink('link-18', 'publish', 'link-18');">publish</a></tt><tt class="py-op">(</tt><tt class="py-name">listenerStr</tt><tt class="py-op">=</tt><tt class="py-name">listenerID</tt><tt class="py-op">,</tt> <tt class="py-name">excTraceback</tt><tt class="py-op">=</tt><tt class="py-name">tbInfo</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:15 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

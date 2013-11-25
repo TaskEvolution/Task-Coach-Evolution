@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.apscheduler'.job</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.apscheduler%27-module.html">Package&nbsp;apscheduler'</a> ::
+        Module&nbsp;job
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.apscheduler%27.job-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.apscheduler%27.job-module.html">Module taskcoachlib.thirdparty.apscheduler'.job</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">Jobs represent scheduled tasks.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">threading</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Lock</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">datetime</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module taskcoachlib.domain.date.timedelta=taskcoachlib.domain.date.timedelta-module.html"><a title="taskcoachlib.domain.date.timedelta" class="py-name" href="#" onclick="return doclink('link-0', 'timedelta', 'link-0');">timedelta</a></tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">apscheduler</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module taskcoachlib.thirdparty.apscheduler'.util=taskcoachlib.thirdparty.apscheduler%27.util-module.html,Module taskcoachlib.thirdparty.googleapi.oauth2client.util=taskcoachlib.thirdparty.googleapi.oauth2client.util-module.html,Package taskcoachlib.thirdparty.keyring.util=taskcoachlib.thirdparty.keyring.util-module.html,Module taskcoachlib.thirdparty.xdg.util=taskcoachlib.thirdparty.xdg.util-module.html"><a title="taskcoachlib.thirdparty.apscheduler'.util
+taskcoachlib.thirdparty.googleapi.oauth2client.util
+taskcoachlib.thirdparty.keyring.util
+taskcoachlib.thirdparty.xdg.util" class="py-name" href="#" onclick="return doclink('link-1', 'util', 'link-1');">util</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Function taskcoachlib.thirdparty.apscheduler'.util.to_unicode()=taskcoachlib.thirdparty.apscheduler%27.util-module.html#to_unicode"><a title="taskcoachlib.thirdparty.apscheduler'.util.to_unicode" class="py-name" href="#" onclick="return doclink('link-2', 'to_unicode', 'link-2');">to_unicode</a></tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name" targets="Function taskcoachlib.thirdparty.apscheduler'.util.ref_to_obj()=taskcoachlib.thirdparty.apscheduler%27.util-module.html#ref_to_obj"><a title="taskcoachlib.thirdparty.apscheduler'.util.ref_to_obj" class="py-name" href="#" onclick="return doclink('link-3', 'ref_to_obj', 'link-3');">ref_to_obj</a></tt><tt class="py-op">,</tt> <tt id="link-4" class="py-name" targets="Function taskcoachlib.thirdparty.apscheduler'.util.get_callable_name()=taskcoachlib.thirdparty.apscheduler%27.util-module.html#get_callable_name"><a title="taskcoachlib.thirdparty.apscheduler'.util.get_callable_name" class="py-name" href="#" onclick="return doclink('link-4', 'get_callable_name', 'link-4');">get_callable_name</a></tt><tt class="py-op">,</tt>\ </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Function taskcoachlib.thirdparty.apscheduler'.util.obj_to_ref()=taskcoachlib.thirdparty.apscheduler%27.util-module.html#obj_to_ref"><a title="taskcoachlib.thirdparty.apscheduler'.util.obj_to_ref" class="py-name" href="#" onclick="return doclink('link-5', 'obj_to_ref', 'link-5');">obj_to_ref</a></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="MaxInstancesReachedError"></a><div id="MaxInstancesReachedError-def"><a name="L12"></a><tt class="py-lineno"> 12</tt> <a class="py-toggle" href="#" id="MaxInstancesReachedError-toggle" onclick="return toggle('MaxInstancesReachedError');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.job.MaxInstancesReachedError-class.html">MaxInstancesReachedError</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MaxInstancesReachedError-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="MaxInstancesReachedError-expanded"><a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">    <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"> </tt>
+<a name="Job"></a><div id="Job-def"><a name="L16"></a><tt class="py-lineno"> 16</tt> <a class="py-toggle" href="#" id="Job-toggle" onclick="return toggle('Job');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.job.Job-class.html">Job</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Job-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Job-expanded"><a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">    Encapsulates the actual Job along with its metadata. Job instances</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">    are created by the scheduler when adding jobs, and it should not be</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">    directly instantiated.</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">    :param trigger: trigger that determines the execution times</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">    :param func: callable to call when the trigger is triggered</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">    :param args: list of positional arguments to call func with</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">    :param kwargs: dict of keyword arguments to call func with</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">    :param name: name of the job (optional)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">    :param misfire_grace_time: seconds after the designated run time that</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">        the job is still allowed to be run, or 0 if it must always be</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">        allowed to run.</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">    :param coalesce: run once instead of many times if the scheduler determines</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">        that the job should be run more than once in succession</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">    :param max_runs: maximum number of times this job is allowed to be</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">        triggered</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring">    :param max_instances: maximum number of concurrently running</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">        instances allowed for this job</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Method taskcoachlib.domain.base.object.Object.id()=taskcoachlib.domain.base.object.Object-class.html#id,Module taskcoachlib.i18n.id=taskcoachlib.i18n.id-module.html,Variable taskcoachlib.thirdparty.apscheduler'.job.Job.id=taskcoachlib.thirdparty.apscheduler%27.job.Job-class.html#id,Variable taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id=taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule-class.html#id"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-6', 'id', 'link-6');">id</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable taskcoachlib.thirdparty.apscheduler'.job.Job.next_run_time=taskcoachlib.thirdparty.apscheduler%27.job.Job-class.html#next_run_time"><a title="taskcoachlib.thirdparty.apscheduler'.job.Job.next_run_time" class="py-name" href="#" onclick="return doclink('link-7', 'next_run_time', 'link-7');">next_run_time</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="Job.__init__"></a><div id="Job.__init__-def"><a name="L40"></a><tt class="py-lineno"> 40</tt> <a class="py-toggle" href="#" id="Job.__init__-toggle" onclick="return toggle('Job.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.job.Job-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">trigger</tt><tt class="py-op">,</tt> <tt class="py-param">func</tt><tt class="py-op">,</tt> <tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-param">kwargs</tt><tt class="py-op">,</tt> <tt class="py-param">misfire_grace_time</tt><tt class="py-op">,</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">                 <tt class="py-param">coalesce</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">max_runs</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">max_instances</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Job.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Job.__init__-expanded"><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">trigger</tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'The trigger must not be None'</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">func</tt><tt class="py-op">,</tt> <tt class="py-string">'__call__'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">TypeError</tt><tt class="py-op">(</tt><tt class="py-string">'func must be callable'</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-string">'__getitem__'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">TypeError</tt><tt class="py-op">(</tt><tt class="py-string">'args must be a list-like object'</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt id="link-8" class="py-name" targets="Package taskcoachlib.thirdparty.pubsub.core.kwargs=taskcoachlib.thirdparty.pubsub.core.kwargs-module.html"><a title="taskcoachlib.thirdparty.pubsub.core.kwargs" class="py-name" href="#" onclick="return doclink('link-8', 'kwargs', 'link-8');">kwargs</a></tt><tt class="py-op">,</tt> <tt class="py-string">'__getitem__'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">TypeError</tt><tt class="py-op">(</tt><tt class="py-string">'kwargs must be a dict-like object'</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">misfire_grace_time</tt> <tt class="py-op">&lt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'misfire_grace_time must be a positive value or 0'</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">max_runs</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt> <tt class="py-keyword">and</tt> <tt class="py-name">max_runs</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'max_runs must be a positive value'</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">max_instances</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">'max_instances must be a positive value'</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method taskcoachlib.thirdparty.googleapi.oauth2client.multistore_file._MultiStore._lock()=taskcoachlib.thirdparty.googleapi.oauth2client.multistore_file._MultiStore-class.html#_lock,Method taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring._lock()=taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring-class.html#_lock"><a title="taskcoachlib.thirdparty.googleapi.oauth2client.multistore_file._MultiStore._lock
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring._lock" class="py-name" href="#" onclick="return doclink('link-9', '_lock', 'link-9');">_lock</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Lock</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">trigger</tt> <tt class="py-op">=</tt> <tt class="py-name">trigger</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">func</tt> <tt class="py-op">=</tt> <tt class="py-name">func</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">args</tt> <tt class="py-op">=</tt> <tt class="py-name">args</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.kwargs" class="py-name" href="#" onclick="return doclink('link-10', 'kwargs', 'link-8');">kwargs</a></tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.kwargs" class="py-name" href="#" onclick="return doclink('link-11', 'kwargs', 'link-8');">kwargs</a></tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method taskcoachlib.command.base.BaseCommand.name()=taskcoachlib.command.base.BaseCommand-class.html#name,Method taskcoachlib.command.base.NewItemCommand.name()=taskcoachlib.command.base.NewItemCommand-class.html#name,Variable taskcoachlib.meta.data.name=taskcoachlib.meta.data-module.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.CheckList.name=taskcoachlib.thirdparty.desktop.dialog.CheckList-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Error.name=taskcoachlib.thirdparty.desktop.dialog.Error-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Input.name=taskcoachlib.thirdparty.desktop.dialog.Input-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Menu.name=taskcoachlib.thirdparty.desktop.dialog.Menu-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Message.name=taskcoachlib.thirdparty.desktop.dialog.Message-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Password.name=taskcoachlib.thirdparty.desktop.dialog.Password-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Pulldown.name=taskcoachlib.thirdparty.desktop.dialog.Pulldown-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Question.name=taskcoachlib.thirdparty.desktop.dialog.Question-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.RadioList.name=taskcoachlib.thirdparty.desktop.dialog.RadioList-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.TextFile.name=taskcoachlib.thirdparty.desktop.dialog.TextFile-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Warning.name=taskcoachlib.thirdparty.desktop.dialog.Warning-class.html#name,Method taskcoachlib.thirdparty.desktop.windows.Window.name()=taskcoachlib.thirdparty.desktop.windows.Window-class.html#name,Method taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name()=taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase-class.html#name,Method taskcoachlib.widgets.itemctrl.Column.name()=taskcoachlib.widgets.itemctrl.Column-class.html#name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-12', 'name', 'link-12');">name</a></tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.util.to_unicode" class="py-name" href="#" onclick="return doclink('link-13', 'to_unicode', 'link-2');">to_unicode</a></tt><tt class="py-op">(</tt><tt id="link-14" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-14', 'name', 'link-12');">name</a></tt> <tt class="py-keyword">or</tt> <tt id="link-15" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.util.get_callable_name" class="py-name" href="#" onclick="return doclink('link-15', 'get_callable_name', 'link-4');">get_callable_name</a></tt><tt class="py-op">(</tt><tt class="py-name">func</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">misfire_grace_time</tt> <tt class="py-op">=</tt> <tt class="py-name">misfire_grace_time</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">coalesce</tt> <tt class="py-op">=</tt> <tt class="py-name">coalesce</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">max_runs</tt> <tt class="py-op">=</tt> <tt class="py-name">max_runs</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">max_instances</tt> <tt class="py-op">=</tt> <tt class="py-name">max_instances</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">runs</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method taskcoachlib.thirdparty.wmi._wmi_class.instances()=taskcoachlib.thirdparty.wmi._wmi_class-class.html#instances,Method taskcoachlib.thirdparty.wmi._wmi_namespace.instances()=taskcoachlib.thirdparty.wmi._wmi_namespace-class.html#instances"><a title="taskcoachlib.thirdparty.wmi._wmi_class.instances
+taskcoachlib.thirdparty.wmi._wmi_namespace.instances" class="py-name" href="#" onclick="return doclink('link-16', 'instances', 'link-16');">instances</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+</div><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"> </tt>
+<a name="Job.compute_next_run_time"></a><div id="Job.compute_next_run_time-def"><a name="L71"></a><tt class="py-lineno"> 71</tt> <a class="py-toggle" href="#" id="Job.compute_next_run_time-toggle" onclick="return toggle('Job.compute_next_run_time');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.job.Job-class.html#compute_next_run_time">compute_next_run_time</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">now</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Job.compute_next_run_time-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Job.compute_next_run_time-expanded"><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">runs</tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">max_runs</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job.Job.next_run_time" class="py-name" href="#" onclick="return doclink('link-17', 'next_run_time', 'link-7');">next_run_time</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job.Job.next_run_time" class="py-name" href="#" onclick="return doclink('link-18', 'next_run_time', 'link-7');">next_run_time</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">trigger</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Method taskcoachlib.thirdparty.apscheduler'.triggers.cron.CronTrigger.get_next_fire_time()=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.CronTrigger-class.html#get_next_fire_time,Method taskcoachlib.thirdparty.apscheduler'.triggers.interval.IntervalTrigger.get_next_fire_time()=taskcoachlib.thirdparty.apscheduler%27.triggers.interval.IntervalTrigger-class.html#get_next_fire_time,Method taskcoachlib.thirdparty.apscheduler'.triggers.simple.SimpleTrigger.get_next_fire_time()=taskcoachlib.thirdparty.apscheduler%27.triggers.simple.SimpleTrigger-class.html#get_next_fire_time"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.CronTrigger.get_next_fire_time
+taskcoachlib.thirdparty.apscheduler'.triggers.interval.IntervalTrigger.get_next_fire_time
+taskcoachlib.thirdparty.apscheduler'.triggers.simple.SimpleTrigger.get_next_fire_time" class="py-name" href="#" onclick="return doclink('link-19', 'get_next_fire_time', 'link-19');">get_next_fire_time</a></tt><tt class="py-op">(</tt><tt id="link-20" class="py-name" targets="Method taskcoachlib.gui.viewer.task.TimelineViewer.now()=taskcoachlib.gui.viewer.task.TimelineViewer-class.html#now,Variable taskcoachlib.meta.data.now=taskcoachlib.meta.data-module.html#now,Method taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.now()=taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter-class.html#now"><a title="taskcoachlib.gui.viewer.task.TimelineViewer.now
+taskcoachlib.meta.data.now
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.now" class="py-name" href="#" onclick="return doclink('link-20', 'now', 'link-20');">now</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job.Job.next_run_time" class="py-name" href="#" onclick="return doclink('link-21', 'next_run_time', 'link-7');">next_run_time</a></tt> </tt>
+</div><a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"> </tt>
+<a name="Job.get_run_times"></a><div id="Job.get_run_times-def"><a name="L79"></a><tt class="py-lineno"> 79</tt> <a class="py-toggle" href="#" id="Job.get_run_times-toggle" onclick="return toggle('Job.get_run_times');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.job.Job-class.html#get_run_times">get_run_times</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">now</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Job.get_run_times-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Job.get_run_times-expanded"><a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">        Computes the scheduled run times between ``next_run_time`` and ``now``.</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-name">run_times</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-name">run_time</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job.Job.next_run_time" class="py-name" href="#" onclick="return doclink('link-22', 'next_run_time', 'link-7');">next_run_time</a></tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-name">increment</tt> <tt class="py-op">=</tt> <tt id="link-23" class="py-name"><a title="taskcoachlib.domain.date.timedelta" class="py-name" href="#" onclick="return doclink('link-23', 'timedelta', 'link-0');">timedelta</a></tt><tt class="py-op">(</tt><tt class="py-name">microseconds</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-keyword">while</tt> <tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">max_runs</tt> <tt class="py-keyword">or</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">runs</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">max_runs</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">               <tt class="py-name">run_time</tt> <tt class="py-keyword">and</tt> <tt class="py-name">run_time</tt> <tt class="py-op">&lt;=</tt> <tt id="link-24" class="py-name"><a title="taskcoachlib.gui.viewer.task.TimelineViewer.now
+taskcoachlib.meta.data.now
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.now" class="py-name" href="#" onclick="return doclink('link-24', 'now', 'link-20');">now</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">            <tt class="py-name">run_times</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Method taskcoachlib.iphone.protocol.CompositeItem.append()=taskcoachlib.iphone.protocol.CompositeItem-class.html#append,Method taskcoachlib.iphone.protocol.ListItem.append()=taskcoachlib.iphone.protocol.ListItem-class.html#append,Method taskcoachlib.patterns.command.CommandHistory.append()=taskcoachlib.patterns.command.CommandHistory-class.html#append,Method taskcoachlib.patterns.composite.CompositeCollection.append()=taskcoachlib.patterns.composite.CompositeCollection-class.html#append,Method taskcoachlib.patterns.observer.CollectionDecorator.append()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#append,Method taskcoachlib.patterns.observer.ObservableList.append()=taskcoachlib.patterns.observer.ObservableList-class.html#append,Method taskcoachlib.patterns.observer.ObservableSet.append()=taskcoachlib.patterns.observer.ObservableSet-class.html#append,Method taskcoachlib.thirdparty.pyparsing.ParseExpression.append()=taskcoachlib.thirdparty.pyparsing.ParseExpression-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.timeline.timeline.HotMap.append()=taskcoachlib.thirdparty.timeline.timeline.HotMap-class.html#append"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-25', 'append', 'link-25');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">run_time</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">            <tt class="py-name">run_time</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">trigger</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.cron.CronTrigger.get_next_fire_time
+taskcoachlib.thirdparty.apscheduler'.triggers.interval.IntervalTrigger.get_next_fire_time
+taskcoachlib.thirdparty.apscheduler'.triggers.simple.SimpleTrigger.get_next_fire_time" class="py-name" href="#" onclick="return doclink('link-26', 'get_next_fire_time', 'link-19');">get_next_fire_time</a></tt><tt class="py-op">(</tt><tt class="py-name">run_time</tt> <tt class="py-op">+</tt> <tt class="py-name">increment</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">run_times</tt> </tt>
+</div><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"> </tt>
+<a name="Job.add_instance"></a><div id="Job.add_instance-def"><a name="L93"></a><tt class="py-lineno"> 93</tt> <a class="py-toggle" href="#" id="Job.add_instance-toggle" onclick="return toggle('Job.add_instance');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.job.Job-class.html#add_instance">add_instance</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Job.add_instance-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Job.add_instance-expanded"><a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="taskcoachlib.thirdparty.googleapi.oauth2client.multistore_file._MultiStore._lock
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring._lock" class="py-name" href="#" onclick="return doclink('link-27', '_lock', 'link-9');">_lock</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Method taskcoachlib.thirdparty.lockfile.LinkFileLock.acquire()=taskcoachlib.thirdparty.lockfile.LinkFileLock-class.html#acquire,Method taskcoachlib.thirdparty.lockfile.LockBase.acquire()=taskcoachlib.thirdparty.lockfile.LockBase-class.html#acquire,Method taskcoachlib.thirdparty.lockfile.MkdirFileLock.acquire()=taskcoachlib.thirdparty.lockfile.MkdirFileLock-class.html#acquire,Method taskcoachlib.thirdparty.lockfile.SQLiteFileLock.acquire()=taskcoachlib.thirdparty.lockfile.SQLiteFileLock-class.html#acquire,Static Method taskcoachlib.thirdparty.pybonjour._DummyLock.acquire()=taskcoachlib.thirdparty.pybonjour._DummyLock-class.html#acquire"><a title="taskcoachlib.thirdparty.lockfile.LinkFileLock.acquire
+taskcoachlib.thirdparty.lockfile.LockBase.acquire
+taskcoachlib.thirdparty.lockfile.MkdirFileLock.acquire
+taskcoachlib.thirdparty.lockfile.SQLiteFileLock.acquire
+taskcoachlib.thirdparty.pybonjour._DummyLock.acquire" class="py-name" href="#" onclick="return doclink('link-28', 'acquire', 'link-28');">acquire</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="taskcoachlib.thirdparty.wmi._wmi_class.instances
+taskcoachlib.thirdparty.wmi._wmi_namespace.instances" class="py-name" href="#" onclick="return doclink('link-29', 'instances', 'link-16');">instances</a></tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">max_instances</tt><tt class="py-op">:</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt id="link-30" class="py-name" targets="Class taskcoachlib.thirdparty.apscheduler'.job.MaxInstancesReachedError=taskcoachlib.thirdparty.apscheduler%27.job.MaxInstancesReachedError-class.html"><a title="taskcoachlib.thirdparty.apscheduler'.job.MaxInstancesReachedError" class="py-name" href="#" onclick="return doclink('link-30', 'MaxInstancesReachedError', 'link-30');">MaxInstancesReachedError</a></tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="taskcoachlib.thirdparty.wmi._wmi_class.instances
+taskcoachlib.thirdparty.wmi._wmi_namespace.instances" class="py-name" href="#" onclick="return doclink('link-31', 'instances', 'link-16');">instances</a></tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="taskcoachlib.thirdparty.googleapi.oauth2client.multistore_file._MultiStore._lock
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring._lock" class="py-name" href="#" onclick="return doclink('link-32', '_lock', 'link-9');">_lock</a></tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Method taskcoachlib.powermgt.xsm.SessionMonitor.release()=taskcoachlib.powermgt.xsm.SessionMonitor-class.html#release,Variable taskcoachlib.thirdparty.apscheduler'.release=taskcoachlib.thirdparty.apscheduler%27-module.html#release,Method taskcoachlib.thirdparty.lockfile.LinkFileLock.release()=taskcoachlib.thirdparty.lockfile.LinkFileLock-class.html#release,Method taskcoachlib.thirdparty.lockfile.LockBase.release()=taskcoachlib.thirdparty.lockfile.LockBase-class.html#release,Method taskcoachlib.thirdparty.lockfile.MkdirFileLock.release()=taskcoachlib.thirdparty.lockfile.MkdirFileLock-class.html#release,Method taskcoachlib.thirdparty.lockfile.SQLiteFileLock.release()=taskcoachlib.thirdparty.lockfile.SQLiteFileLock-class.html#release,Static Method taskcoachlib.thirdparty.pybonjour._DummyLock.release()=taskcoachlib.thirdparty.pybonjour._DummyLock-class.html#release"><a title="taskcoachlib.powermgt.xsm.SessionMonitor.release
+taskcoachlib.thirdparty.apscheduler'.release
+taskcoachlib.thirdparty.lockfile.LinkFileLock.release
+taskcoachlib.thirdparty.lockfile.LockBase.release
+taskcoachlib.thirdparty.lockfile.MkdirFileLock.release
+taskcoachlib.thirdparty.lockfile.SQLiteFileLock.release
+taskcoachlib.thirdparty.pybonjour._DummyLock.release" class="py-name" href="#" onclick="return doclink('link-33', 'release', 'link-33');">release</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"> </tt>
+<a name="Job.remove_instance"></a><div id="Job.remove_instance-def"><a name="L102"></a><tt class="py-lineno">102</tt> <a class="py-toggle" href="#" id="Job.remove_instance-toggle" onclick="return toggle('Job.remove_instance');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.job.Job-class.html#remove_instance">remove_instance</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Job.remove_instance-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Job.remove_instance-expanded"><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="taskcoachlib.thirdparty.googleapi.oauth2client.multistore_file._MultiStore._lock
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring._lock" class="py-name" href="#" onclick="return doclink('link-34', '_lock', 'link-9');">_lock</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="taskcoachlib.thirdparty.lockfile.LinkFileLock.acquire
+taskcoachlib.thirdparty.lockfile.LockBase.acquire
+taskcoachlib.thirdparty.lockfile.MkdirFileLock.acquire
+taskcoachlib.thirdparty.lockfile.SQLiteFileLock.acquire
+taskcoachlib.thirdparty.pybonjour._DummyLock.acquire" class="py-name" href="#" onclick="return doclink('link-35', 'acquire', 'link-28');">acquire</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">            <tt class="py-keyword">assert</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="taskcoachlib.thirdparty.wmi._wmi_class.instances
+taskcoachlib.thirdparty.wmi._wmi_namespace.instances" class="py-name" href="#" onclick="return doclink('link-36', 'instances', 'link-16');">instances</a></tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-string">'Already at 0 instances'</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="taskcoachlib.thirdparty.wmi._wmi_class.instances
+taskcoachlib.thirdparty.wmi._wmi_namespace.instances" class="py-name" href="#" onclick="return doclink('link-37', 'instances', 'link-16');">instances</a></tt> <tt class="py-op">-=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="taskcoachlib.thirdparty.googleapi.oauth2client.multistore_file._MultiStore._lock
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring._lock" class="py-name" href="#" onclick="return doclink('link-38', '_lock', 'link-9');">_lock</a></tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="taskcoachlib.powermgt.xsm.SessionMonitor.release
+taskcoachlib.thirdparty.apscheduler'.release
+taskcoachlib.thirdparty.lockfile.LinkFileLock.release
+taskcoachlib.thirdparty.lockfile.LockBase.release
+taskcoachlib.thirdparty.lockfile.MkdirFileLock.release
+taskcoachlib.thirdparty.lockfile.SQLiteFileLock.release
+taskcoachlib.thirdparty.pybonjour._DummyLock.release" class="py-name" href="#" onclick="return doclink('link-39', 'release', 'link-33');">release</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"> </tt>
+<a name="Job.__getstate__"></a><div id="Job.__getstate__-def"><a name="L110"></a><tt class="py-lineno">110</tt> <a class="py-toggle" href="#" id="Job.__getstate__-toggle" onclick="return toggle('Job.__getstate__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.job.Job-class.html#__getstate__">__getstate__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Job.__getstate__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Job.__getstate__-expanded"><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-comment"># Prevents the unwanted pickling of transient or unpicklable variables</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-name">state</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Method taskcoachlib.domain.base.object.Object.copy()=taskcoachlib.domain.base.object.Object-class.html#copy,Method taskcoachlib.domain.date.recurrence.Recurrence.copy()=taskcoachlib.domain.date.recurrence.Recurrence-class.html#copy,Method taskcoachlib.patterns.composite.Composite.copy()=taskcoachlib.patterns.composite.Composite-class.html#copy,Method taskcoachlib.thirdparty._weakrefset.WeakSet.copy()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.Forward.copy()=taskcoachlib.thirdparty.pyparsing.Forward-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.Keyword.copy()=taskcoachlib.thirdparty.pyparsing.Keyword-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.ParseResults.copy()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.ParserElement.copy()=taskcoachlib.thirdparty.pyparsing.ParserElement-class.html#copy"><a title="taskcoachlib.domain.base.object.Object.copy
+taskcoachlib.domain.date.recurrence.Recurrence.copy
+taskcoachlib.patterns.composite.Composite.copy
+taskcoachlib.thirdparty._weakrefset.WeakSet.copy
+taskcoachlib.thirdparty.pyparsing.Forward.copy
+taskcoachlib.thirdparty.pyparsing.Keyword.copy
+taskcoachlib.thirdparty.pyparsing.ParseResults.copy
+taskcoachlib.thirdparty.pyparsing.ParserElement.copy" class="py-name" href="#" onclick="return doclink('link-40', 'copy', 'link-40');">copy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt class="py-name">state</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name" targets="Method taskcoachlib.thirdparty._weakrefset.WeakSet.pop()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#pop,Method taskcoachlib.thirdparty.pyparsing.ParseResults.pop()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#pop"><a title="taskcoachlib.thirdparty._weakrefset.WeakSet.pop
+taskcoachlib.thirdparty.pyparsing.ParseResults.pop" class="py-name" href="#" onclick="return doclink('link-41', 'pop', 'link-41');">pop</a></tt><tt class="py-op">(</tt><tt class="py-string">'instances'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-name">state</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="taskcoachlib.thirdparty._weakrefset.WeakSet.pop
+taskcoachlib.thirdparty.pyparsing.ParseResults.pop" class="py-name" href="#" onclick="return doclink('link-42', 'pop', 'link-41');">pop</a></tt><tt class="py-op">(</tt><tt class="py-string">'func'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-name">state</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="taskcoachlib.thirdparty._weakrefset.WeakSet.pop
+taskcoachlib.thirdparty.pyparsing.ParseResults.pop" class="py-name" href="#" onclick="return doclink('link-43', 'pop', 'link-41');">pop</a></tt><tt class="py-op">(</tt><tt class="py-string">'_lock'</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-name">state</tt><tt class="py-op">[</tt><tt class="py-string">'func_ref'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-44" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.util.obj_to_ref" class="py-name" href="#" onclick="return doclink('link-44', 'obj_to_ref', 'link-5');">obj_to_ref</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">func</tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">state</tt> </tt>
+</div><a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"> </tt>
+<a name="Job.__setstate__"></a><div id="Job.__setstate__-def"><a name="L119"></a><tt class="py-lineno">119</tt> <a class="py-toggle" href="#" id="Job.__setstate__-toggle" onclick="return toggle('Job.__setstate__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.job.Job-class.html#__setstate__">__setstate__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">state</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Job.__setstate__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Job.__setstate__-expanded"><a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt class="py-name">state</tt><tt class="py-op">[</tt><tt class="py-string">'instances'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">        <tt class="py-name">state</tt><tt class="py-op">[</tt><tt class="py-string">'func'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-45" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.util.ref_to_obj" class="py-name" href="#" onclick="return doclink('link-45', 'ref_to_obj', 'link-3');">ref_to_obj</a></tt><tt class="py-op">(</tt><tt class="py-name">state</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="taskcoachlib.thirdparty._weakrefset.WeakSet.pop
+taskcoachlib.thirdparty.pyparsing.ParseResults.pop" class="py-name" href="#" onclick="return doclink('link-46', 'pop', 'link-41');">pop</a></tt><tt class="py-op">(</tt><tt class="py-string">'func_ref'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt class="py-name">state</tt><tt class="py-op">[</tt><tt class="py-string">'_lock'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">Lock</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt> <tt class="py-op">=</tt> <tt class="py-name">state</tt> </tt>
+</div><a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"> </tt>
+<a name="Job.__eq__"></a><div id="Job.__eq__-def"><a name="L125"></a><tt class="py-lineno">125</tt> <a class="py-toggle" href="#" id="Job.__eq__-toggle" onclick="return toggle('Job.__eq__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.job.Job-class.html#__eq__">__eq__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">other</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Job.__eq__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Job.__eq__-expanded"><a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">other</tt><tt class="py-op">,</tt> <tt id="link-47" class="py-name" targets="Class taskcoachlib.thirdparty.apscheduler'.job.Job=taskcoachlib.thirdparty.apscheduler%27.job.Job-class.html"><a title="taskcoachlib.thirdparty.apscheduler'.job.Job" class="py-name" href="#" onclick="return doclink('link-47', 'Job', 'link-47');">Job</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-48', 'id', 'link-6');">id</a></tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt> <tt class="py-keyword">and</tt> <tt class="py-name">other</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-49', 'id', 'link-6');">id</a></tt> <tt class="py-op">==</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-50', 'id', 'link-6');">id</a></tt> <tt class="py-keyword">or</tt> <tt class="py-name">self</tt> <tt class="py-keyword">is</tt> <tt class="py-name">other</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">NotImplemented</tt> </tt>
+</div><a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"> </tt>
+<a name="Job.__repr__"></a><div id="Job.__repr__-def"><a name="L130"></a><tt class="py-lineno">130</tt> <a class="py-toggle" href="#" id="Job.__repr__-toggle" onclick="return toggle('Job.__repr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.job.Job-class.html#__repr__">__repr__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Job.__repr__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Job.__repr__-expanded"><a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'&lt;Job (name=%s, trigger=%s)&gt;'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-51', 'name', 'link-12');">name</a></tt><tt class="py-op">,</tt> <tt class="py-name">repr</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">trigger</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"> </tt>
+<a name="Job.__str__"></a><div id="Job.__str__-def"><a name="L133"></a><tt class="py-lineno">133</tt> <a class="py-toggle" href="#" id="Job.__str__-toggle" onclick="return toggle('Job.__str__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.job.Job-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Job.__str__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Job.__str__-expanded"><a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'%s (trigger: %s, next run at: %s)'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-52', 'name', 'link-12');">name</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">            <tt id="link-53" class="py-name" targets="Class str=str-class.html"><a title="str" class="py-name" href="#" onclick="return doclink('link-53', 'str', 'link-53');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">trigger</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-54" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-54', 'str', 'link-53');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.job.Job.next_run_time" class="py-name" href="#" onclick="return doclink('link-55', 'next_run_time', 'link-7');">next_run_time</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:53 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

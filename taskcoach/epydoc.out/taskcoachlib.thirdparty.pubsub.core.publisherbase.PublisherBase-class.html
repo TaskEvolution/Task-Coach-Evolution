@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.pubsub.core.publisherbase.PublisherBase</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.pubsub-module.html">Package&nbsp;pubsub</a> ::
+        <a href="taskcoachlib.thirdparty.pubsub.core-module.html">Package&nbsp;core</a> ::
+        <a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-module.html">Module&nbsp;publisherbase</a> ::
+        Class&nbsp;PublisherBase
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.pubsub.core.publisherbase.PublisherBase-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class PublisherBase</h1><p class="nomargin-top"><span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase">source&nbsp;code</a></span></p>
+<p>Represent the class that send messages to listeners of given topics 
+  and that knows how to subscribe/unsubscribe listeners from topics.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">treeConfig</span>=<span class="summary-sig-default">None</span>)</span><br />
+      If treeConfig is None, a default one is created from an instance of 
+      topics.TreeConfig.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getTopicMgr"></a><span class="summary-sig-name">getTopicMgr</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Get the topic manager created for this publisher.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.getTopicMgr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getListenerExcHandler"></a><span class="summary-sig-name">getListenerExcHandler</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Get the listener exception handler that was registered via 
+      setListenerExcHandler(), or None of none registered.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.getListenerExcHandler">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase.PublisherBase-class.html#setListenerExcHandler" class="summary-sig-name">setListenerExcHandler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">handler</span>)</span><br />
+      Set the handler to call when a listener raises an exception during a 
+      sendMessage().</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.setListenerExcHandler">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase.PublisherBase-class.html#addNotificationHandler" class="summary-sig-name">addNotificationHandler</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">handler</span>)</span><br />
+      The handler should be a class that adheres to the API of 
+      pubsub.utils.INotificationHandler.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.addNotificationHandler">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="clearNotificationHandlers"></a><span class="summary-sig-name">clearNotificationHandlers</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Remove all notification handlers that were added via 
+      self.addNotificationHandler().</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.clearNotificationHandlers">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setNotificationFlags"></a><span class="summary-sig-name">setNotificationFlags</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Set the notification flags on or off for each supported notification 
+      type.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.setNotificationFlags">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getNotificationFlags"></a><span class="summary-sig-name">getNotificationFlags</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return a dictionary with the states</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.getNotificationFlags">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase.PublisherBase-class.html#setTopicUnspecifiedFatal" class="summary-sig-name">setTopicUnspecifiedFatal</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">newVal</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">checkExisting</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Changes the creation policy for topics.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.setTopicUnspecifiedFatal">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="sendMessage"></a><span class="summary-sig-name">sendMessage</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">topicName</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      This will be overridden by derived classes that implement 
+      message-sending for different messaging protocols.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.sendMessage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase.PublisherBase-class.html#subscribe" class="summary-sig-name">subscribe</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">listener</span>,
+        <span class="summary-sig-arg">topicName</span>)</span><br />
+      Subscribe listener to named topic.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.subscribe">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase.PublisherBase-class.html#unsubscribe" class="summary-sig-name">unsubscribe</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">listener</span>,
+        <span class="summary-sig-arg">topicName</span>)</span><br />
+      Unsubscribe from given topic.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.unsubscribe">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase.PublisherBase-class.html#unsubAll" class="summary-sig-name">unsubAll</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">topicName</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">listenerFilter</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">topicFilter</span>=<span class="summary-sig-default">None</span>)</span><br />
+      By default (no args given), unsubscribe all listeners from all 
+      topics.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.unsubAll">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="setListenerExcHandler"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setListenerExcHandler</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">handler</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.setListenerExcHandler">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set the handler to call when a listener raises an exception during a 
+  sendMessage(). Without a handler, the send operation aborts, whereas with
+  one, the exception information is sent to it (where it can be logged, 
+  printed, whatever), and sendMessage() continues to send messages to 
+  remaining listeners. The handler must adhere to the 
+  pubsub.utils.exchandling.IExcHandler API.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="addNotificationHandler"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">addNotificationHandler</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">handler</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.addNotificationHandler">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>The handler should be a class that adheres to the API of 
+  pubsub.utils.INotificationHandler. Whenever one of several special 
+  operations is performed on pubsub (such as sendMessage), each handler 
+  registered will get a notification with appropriate information about the
+  event.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="setTopicUnspecifiedFatal"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setTopicUnspecifiedFatal</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">newVal</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">checkExisting</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.setTopicUnspecifiedFatal">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Changes the creation policy for topics.
+
+If newVal=False, then any future pubsub operation that requires
+a topic to be created without a listener specification being
+available, will succeed. This is the default behavior for the
+pubsub package. This makes pubsub easier to use, but allows topic
+names with typos to go uncaught in common operations such as
+sendMessage() and subscribe(). Note that checkExisting is not
+used for newVal=False.
+
+When called with newVal=True, any future pubsub operation that
+requires a topic to be created without a listener specification being
+available, will cause pubsub to raise a ListenerSpecIncomplete
+exception. If checkExisting is not given or True, all existing
+topics are validated. A ListenerSpecIncomplete exception will be
+raised if one is found to be incomplete (has isSendable() false).
+
+The previous value of the setting is returned.
+
+A listener specification is only available to pubsub during a call to
+pub.subscribe() and a two-argument call to pub.getOrCreateTopic().
+Operations that prefer or require a specification but are not
+given one, such as sendMessage() and the one-argument call to
+getOrCreateTopic(), will query each Topic Definition Provider
+registered via pub.addTopicDefnProvider() (if any) until one is
+found. If none is found, the operation will either A. continue
+silently with a non-sendable topic (ie one without a listener
+specification), or B. raise a ListenerSpecIncomplete. Default
+pubsub behavior is (A). Using newVal=True changes this to B,
+newVal=False changes this back to A.
+
+Note that this method can be used in several ways:
+
+1. Only use it in your application when something is not working
+   as expected: just add a call at the beginning of your app when
+   you have a problem with topic messages not being received
+   (for instance), and remove it when you have fixed the problem.
+
+2. Use it from the beginning of your app and never use newVal=False:
+   add a call at the beginning of your app and you leave it in
+   (forever), and use Topic Definition Providers to provide the
+   listener specifications. These are easy to use via the
+   pub.addTopicDefnProvider().
+
+3. Use it as in #1 during app development, and once stable, use
+   #2. This is easiest to do in combination with
+   pub.exportTopicTreeSpec().
+ 
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="subscribe"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">subscribe</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">listener</span>,
+        <span class="sig-arg">topicName</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.subscribe">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Subscribe listener to named topic. Raises ListenerInadequate if 
+  listener isn't compatible with the topic's args. Returns (pub.Listener, 
+  success), where success is False if listener was already subscribed. The 
+  pub.Listener wraps the listener subscribed and provides various 
+  introspection-based info about the listener.</p>
+  <p>Note that if 'subscribe' notification is on, the handler's 
+  'notifySubscribe' method is called after subscription.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="unsubscribe"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">unsubscribe</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">listener</span>,
+        <span class="sig-arg">topicName</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.unsubscribe">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Unsubscribe from given topic. Returns the pub.Listener instance that 
+  was used to wrap listener at subscription time. Raises an UndefinedTopic 
+  or UndefinedSubtopic if topicName doesn't exist.</p>
+  <p>Note that if 'unsubscribe' notification is on, the handler's 
+  notifyUnsubscribe() method will be called after unsubscribing.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="unsubAll"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">unsubAll</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">topicName</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">listenerFilter</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">topicFilter</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.pubsub.core.publisherbase-pysrc.html#PublisherBase.unsubAll">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>By default (no args given), unsubscribe all listeners from all topics.
+  A listenerFilter can be given so that only the listeners that satisfy 
+  listenerFilter(listener) == True will be unsubscribed (with listener 
+  being a pub.Listener wrapper instance for each listener subscribed). A 
+  topicFilter can also be given so that only topics that satisfy 
+  topicFilter(topic name) == True will be affected. If only one topic 
+  should have listeners unsubscribed, then a topic name 'topicName' can be 
+  given *instead* instead of a topic filter.</p>
+  <p>Returns the list of all listeners (instances of pub.Listener) that 
+  were unsubscribed from the topic tree).</p>
+  <p>Note: this method will generate one 'unsubcribe' notification message 
+  (see pub.setNotificationFlags()) for each listener unsubscribed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:47 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

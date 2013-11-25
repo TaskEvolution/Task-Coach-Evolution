@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.persistence.todotxt.writer</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.persistence-module.html">Package&nbsp;persistence</a> ::
+        <a href="taskcoachlib.persistence.todotxt-module.html">Package&nbsp;todotxt</a> ::
+        Module&nbsp;writer
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.persistence.todotxt.writer-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.persistence.todotxt.writer-module.html">Module taskcoachlib.persistence.todotxt.writer</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach - Your friendly task manager</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (C) 2004-2013 Task Coach developers &lt;developers@taskcoach.org&gt;</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is free software: you can redistribute it and/or modify</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">the Free Software Foundation, either version 3 of the License, or</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">(at your option) any later version.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">GNU General Public License for more details.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package taskcoachlib=taskcoachlib-module.html"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-0', 'taskcoachlib', 'link-0');">taskcoachlib</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package taskcoachlib.domain=taskcoachlib.domain-module.html"><a title="taskcoachlib.domain" class="py-name" href="#" onclick="return doclink('link-1', 'domain', 'link-1');">domain</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Package taskcoachlib.domain.date=taskcoachlib.domain.date-module.html,Module taskcoachlib.domain.date.date=taskcoachlib.domain.date.date-module.html,Variable taskcoachlib.meta.data.date=taskcoachlib.meta.data-module.html#date,Function taskcoachlib.render.date()=taskcoachlib.render-module.html#date"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-2', 'date', 'link-2');">date</a></tt> </tt>
+<a name="TodoTxtWriter"></a><div id="TodoTxtWriter-def"><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="TodoTxtWriter-toggle" onclick="return toggle('TodoTxtWriter');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html">TodoTxtWriter</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TodoTxtWriter-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="TodoTxtWriter-expanded"><a name="TodoTxtWriter.__init__"></a><div id="TodoTxtWriter.__init__-def"><a name="L24"></a><tt class="py-lineno">24</tt> <a class="py-toggle" href="#" id="TodoTxtWriter.__init__-toggle" onclick="return toggle('TodoTxtWriter.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">fd</tt><tt class="py-op">,</tt> <tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TodoTxtWriter.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TodoTxtWriter.__init__-expanded"><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fd</tt> <tt class="py-op">=</tt> <tt class="py-name">fd</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__filename</tt> <tt class="py-op">=</tt> <tt id="link-3" class="py-name" targets="Method taskcoachlib.config.settings.Settings.filename()=taskcoachlib.config.settings.Settings-class.html#filename,Method taskcoachlib.gui.iocontroller.IOController.filename()=taskcoachlib.gui.iocontroller.IOController-class.html#filename,Variable taskcoachlib.meta.data.filename=taskcoachlib.meta.data-module.html#filename,Method taskcoachlib.persistence.taskfile.TaskFile.filename()=taskcoachlib.persistence.taskfile.TaskFile-class.html#filename,Method taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename()=taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile-class.html#filename,Method taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename()=taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener-class.html#filename,Method taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename()=taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename=taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename=taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename=taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring-class.html#filename,Variable taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#filename"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-3', 'filename', 'link-3');">filename</a></tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__maxDateTime</tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-4', 'date', 'link-2');">date</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Class taskcoachlib.domain.date.dateandtime.DateTime=taskcoachlib.domain.date.dateandtime.DateTime-class.html"><a title="taskcoachlib.domain.date.dateandtime.DateTime" class="py-name" href="#" onclick="return doclink('link-5', 'DateTime', 'link-5');">DateTime</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">         </tt>
+<a name="TodoTxtWriter.write"></a><div id="TodoTxtWriter.write-def"><a name="L29"></a><tt class="py-lineno">29</tt> <a class="py-toggle" href="#" id="TodoTxtWriter.write-toggle" onclick="return toggle('TodoTxtWriter.write');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#write">write</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">viewer</tt><tt class="py-op">,</tt> <tt class="py-param">settings</tt><tt class="py-op">,</tt> <tt class="py-param">selectionOnly</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TodoTxtWriter.write-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TodoTxtWriter.write-expanded"><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt id="link-6" class="py-name" targets="Method taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.tasks()=taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod-class.html#tasks,Method taskcoachlib.persistence.taskfile.TaskFile.tasks()=taskcoachlib.persistence.taskfile.TaskFile-class.html#tasks,Method taskcoachlib.persistence.templatelist.TemplateList.tasks()=taskcoachlib.persistence.templatelist.TemplateList-class.html#tasks"><a title="taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.tasks
+taskcoachlib.persistence.taskfile.TaskFile.tasks
+taskcoachlib.persistence.templatelist.TemplateList.tasks" class="py-name" href="#" onclick="return doclink('link-6', 'tasks', 'link-6');">tasks</a></tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name" targets="Package taskcoachlib.gui.viewer=taskcoachlib.gui.viewer-module.html"><a title="taskcoachlib.gui.viewer" class="py-name" href="#" onclick="return doclink('link-7', 'viewer', 'link-7');">viewer</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method taskcoachlib.gui.viewer.base.ListViewer.visibleItems()=taskcoachlib.gui.viewer.base.ListViewer-class.html#visibleItems,Method taskcoachlib.gui.viewer.base.TreeViewer.visibleItems()=taskcoachlib.gui.viewer.base.TreeViewer-class.html#visibleItems"><a title="taskcoachlib.gui.viewer.base.ListViewer.visibleItems
+taskcoachlib.gui.viewer.base.TreeViewer.visibleItems" class="py-name" href="#" onclick="return doclink('link-8', 'visibleItems', 'link-8');">visibleItems</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">selectionOnly</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">            <tt id="link-9" class="py-name"><a title="taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.tasks
+taskcoachlib.persistence.taskfile.TaskFile.tasks
+taskcoachlib.persistence.templatelist.TemplateList.tasks" class="py-name" href="#" onclick="return doclink('link-9', 'tasks', 'link-6');">tasks</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt id="link-10" class="py-name" targets="Method taskcoachlib.domain.effort.base.BaseEffort.task()=taskcoachlib.domain.effort.base.BaseEffort-class.html#task,Class Method taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task()=taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod-class.html#task,Method taskcoachlib.domain.effort.effort.Effort.task()=taskcoachlib.domain.effort.effort.Effort-class.html#task,Package taskcoachlib.domain.task=taskcoachlib.domain.task-module.html,Module taskcoachlib.domain.task.task=taskcoachlib.domain.task.task-module.html,Module taskcoachlib.gui.viewer.task=taskcoachlib.gui.viewer.task-module.html,Method taskcoachlib.widgets.calendarwidget.TaskSchedule.task()=taskcoachlib.widgets.calendarwidget.TaskSchedule-class.html#task"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-10', 'task', 'link-10');">task</a></tt> <tt class="py-keyword">for</tt> <tt id="link-11" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-11', 'task', 'link-10');">task</a></tt> <tt class="py-keyword">in</tt> <tt id="link-12" class="py-name"><a title="taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.tasks
+taskcoachlib.persistence.taskfile.TaskFile.tasks
+taskcoachlib.persistence.templatelist.TemplateList.tasks" class="py-name" href="#" onclick="return doclink('link-12', 'tasks', 'link-6');">tasks</a></tt> <tt class="py-keyword">if</tt> <tt id="link-13" class="py-name"><a title="taskcoachlib.gui.viewer" class="py-name" href="#" onclick="return doclink('link-13', 'viewer', 'link-7');">viewer</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method taskcoachlib.gui.viewer.base.Viewer.isselected()=taskcoachlib.gui.viewer.base.Viewer-class.html#isselected,Method taskcoachlib.gui.viewer.effort.EffortViewer.isselected()=taskcoachlib.gui.viewer.effort.EffortViewer-class.html#isselected"><a title="taskcoachlib.gui.viewer.base.Viewer.isselected
+taskcoachlib.gui.viewer.effort.EffortViewer.isselected" class="py-name" href="#" onclick="return doclink('link-14', 'isselected', 'link-14');">isselected</a></tt><tt class="py-op">(</tt><tt id="link-15" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-15', 'task', 'link-10');">task</a></tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.writeTasks()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#writeTasks"><a title="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.writeTasks" class="py-name" href="#" onclick="return doclink('link-16', 'writeTasks', 'link-16');">writeTasks</a></tt><tt class="py-op">(</tt><tt id="link-17" class="py-name"><a title="taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.tasks
+taskcoachlib.persistence.taskfile.TaskFile.tasks
+taskcoachlib.persistence.templatelist.TemplateList.tasks" class="py-name" href="#" onclick="return doclink('link-17', 'tasks', 'link-6');">tasks</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">     </tt>
+<a name="TodoTxtWriter.writeTasks"></a><div id="TodoTxtWriter.writeTasks-def"><a name="L35"></a><tt class="py-lineno">35</tt> <a class="py-toggle" href="#" id="TodoTxtWriter.writeTasks-toggle" onclick="return toggle('TodoTxtWriter.writeTasks');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#writeTasks">writeTasks</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">tasks</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TodoTxtWriter.writeTasks-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TodoTxtWriter.writeTasks-expanded"><a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt id="link-18" class="py-name" targets="Variable taskcoachlib.patterns.metaclass.NumberedInstances.count=taskcoachlib.patterns.metaclass.NumberedInstances-class.html#count,Method taskcoachlib.thirdparty.dateutil.rrule.rrulebase.count()=taskcoachlib.thirdparty.dateutil.rrule.rrulebase-class.html#count"><a title="taskcoachlib.patterns.metaclass.NumberedInstances.count
+taskcoachlib.thirdparty.dateutil.rrule.rrulebase.count" class="py-name" href="#" onclick="return doclink('link-18', 'count', 'link-18');">count</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-19" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-19', 'task', 'link-10');">task</a></tt> <tt class="py-keyword">in</tt> <tt id="link-20" class="py-name"><a title="taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.tasks
+taskcoachlib.persistence.taskfile.TaskFile.tasks
+taskcoachlib.persistence.templatelist.TemplateList.tasks" class="py-name" href="#" onclick="return doclink('link-20', 'tasks', 'link-6');">tasks</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">            <tt id="link-21" class="py-name"><a title="taskcoachlib.patterns.metaclass.NumberedInstances.count
+taskcoachlib.thirdparty.dateutil.rrule.rrulebase.count" class="py-name" href="#" onclick="return doclink('link-21', 'count', 'link-18');">count</a></tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fd</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method taskcoachlib.application.application.RedirectedOutput.write()=taskcoachlib.application.application.RedirectedOutput-class.html#write,Method taskcoachlib.persistence.csv.writer.CSVWriter.write()=taskcoachlib.persistence.csv.writer.CSVWriter-class.html#write,Method taskcoachlib.persistence.html.writer.HTMLWriter.write()=taskcoachlib.persistence.html.writer.HTMLWriter-class.html#write,Method taskcoachlib.persistence.icalendar.writer.iCalendarWriter.write()=taskcoachlib.persistence.icalendar.writer.iCalendarWriter-class.html#write,Method taskcoachlib.persistence.pdf.writer.PDFWriter.write()=taskcoachlib.persistence.pdf.writer.PDFWriter-class.html#write,Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.write()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.ChangesXMLWriter.write()=taskcoachlib.persistence.xml.writer.ChangesXMLWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.PIElementTree.write()=taskcoachlib.persistence.xml.writer.PIElementTree-class.html#write,Method taskcoachlib.persistence.xml.writer.TemplateXMLWriter.write()=taskcoachlib.persistence.xml.writer.TemplateXMLWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.XMLWriter.write()=taskcoachlib.persistence.xml.writer.XMLWriter-class.html#write,Method taskcoachlib.thirdparty.xdg.IniFile.IniFile.write()=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#write,Method taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.write()=taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles-class.html#write"><a title="taskcoachlib.application.application.RedirectedOutput.write
+taskcoachlib.persistence.csv.writer.CSVWriter.write
+taskcoachlib.persistence.html.writer.HTMLWriter.write
+taskcoachlib.persistence.icalendar.writer.iCalendarWriter.write
+taskcoachlib.persistence.pdf.writer.PDFWriter.write
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.write
+taskcoachlib.persistence.xml.writer.ChangesXMLWriter.write
+taskcoachlib.persistence.xml.writer.PIElementTree.write
+taskcoachlib.persistence.xml.writer.TemplateXMLWriter.write
+taskcoachlib.persistence.xml.writer.XMLWriter.write
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.write
+taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.write" class="py-name" href="#" onclick="return doclink('link-22', 'write', 'link-22');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Method taskcoachlib.domain.task.task.Task.priority()=taskcoachlib.domain.task.task.Task-class.html#priority,Static Method taskcoachlib.persistence.todotxt.reader.TodoTxtReader.priority()=taskcoachlib.persistence.todotxt.reader.TodoTxtReader-class.html#priority,Static Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.priority()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#priority,Function taskcoachlib.render.priority()=taskcoachlib.render-module.html#priority"><a title="taskcoachlib.domain.task.task.Task.priority
+taskcoachlib.persistence.todotxt.reader.TodoTxtReader.priority
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.priority
+taskcoachlib.render.priority" class="py-name" href="#" onclick="return doclink('link-23', 'priority', 'link-23');">priority</a></tt><tt class="py-op">(</tt><tt id="link-24" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-24', 'task', 'link-10');">task</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="taskcoachlib.domain.task.task.Task.priority
+taskcoachlib.persistence.todotxt.reader.TodoTxtReader.priority
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.priority
+taskcoachlib.render.priority" class="py-name" href="#" onclick="return doclink('link-25', 'priority', 'link-23');">priority</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> \ </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">                            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Class Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.completionDate()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#completionDate"><a title="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.completionDate" class="py-name" href="#" onclick="return doclink('link-26', 'completionDate', 'link-26');">completionDate</a></tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-27', 'task', 'link-10');">task</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Method taskcoachlib.domain.task.task.Task.completionDateTime()=taskcoachlib.domain.task.task.Task-class.html#completionDateTime,Class Method taskcoachlib.persistence.todotxt.reader.TodoTxtReader.completionDateTime()=taskcoachlib.persistence.todotxt.reader.TodoTxtReader-class.html#completionDateTime"><a title="taskcoachlib.domain.task.task.Task.completionDateTime
+taskcoachlib.persistence.todotxt.reader.TodoTxtReader.completionDateTime" class="py-name" href="#" onclick="return doclink('link-28', 'completionDateTime', 'link-28');">completionDateTime</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> \ </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">                            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Class Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.startDate()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#startDate"><a title="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.startDate" class="py-name" href="#" onclick="return doclink('link-29', 'startDate', 'link-29');">startDate</a></tt><tt class="py-op">(</tt><tt id="link-30" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-30', 'task', 'link-10');">task</a></tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Method taskcoachlib.domain.task.task.Task.plannedStartDateTime()=taskcoachlib.domain.task.task.Task-class.html#plannedStartDateTime,Method taskcoachlib.gui.viewer.task.TimelineRootNode.plannedStartDateTime()=taskcoachlib.gui.viewer.task.TimelineRootNode-class.html#plannedStartDateTime,Class Method taskcoachlib.persistence.todotxt.reader.TodoTxtReader.plannedStartDateTime()=taskcoachlib.persistence.todotxt.reader.TodoTxtReader-class.html#plannedStartDateTime"><a title="taskcoachlib.domain.task.task.Task.plannedStartDateTime
+taskcoachlib.gui.viewer.task.TimelineRootNode.plannedStartDateTime
+taskcoachlib.persistence.todotxt.reader.TodoTxtReader.plannedStartDateTime" class="py-name" href="#" onclick="return doclink('link-31', 'plannedStartDateTime', 'link-31');">plannedStartDateTime</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> \ </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">                            <tt id="link-32" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-32', 'task', 'link-10');">task</a></tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Method taskcoachlib.domain.base.object.CompositeObject.subject()=taskcoachlib.domain.base.object.CompositeObject-class.html#subject,Method taskcoachlib.domain.base.object.Object.subject()=taskcoachlib.domain.base.object.Object-class.html#subject,Method taskcoachlib.domain.effort.base.BaseEffort.subject()=taskcoachlib.domain.effort.base.BaseEffort-class.html#subject,Method taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.Total.subject()=taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.Total-class.html#subject,Method taskcoachlib.gui.uicommand.uicommand.Mail.subject()=taskcoachlib.gui.uicommand.uicommand.Mail-class.html#subject,Method taskcoachlib.gui.viewer.task.RootNode.subject()=taskcoachlib.gui.viewer.task.RootNode-class.html#subject"><a title="taskcoachlib.domain.base.object.CompositeObject.subject
+taskcoachlib.domain.base.object.Object.subject
+taskcoachlib.domain.effort.base.BaseEffort.subject
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.Total.subject
+taskcoachlib.gui.uicommand.uicommand.Mail.subject
+taskcoachlib.gui.viewer.task.RootNode.subject" class="py-name" href="#" onclick="return doclink('link-33', 'subject', 'link-33');">subject</a></tt><tt class="py-op">(</tt><tt class="py-name">recursive</tt><tt class="py-op">=</tt><tt id="link-34" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.True=taskcoachlib.thirdparty.chardet.constants-module.html#True"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-34', 'True', 'link-34');">True</a></tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> \ </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">                            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Class Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.contextsAndProjects()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#contextsAndProjects"><a title="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.contextsAndProjects" class="py-name" href="#" onclick="return doclink('link-35', 'contextsAndProjects', 'link-35');">contextsAndProjects</a></tt><tt class="py-op">(</tt><tt id="link-36" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-36', 'task', 'link-10');">task</a></tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> \ </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">                            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name" targets="Class Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dueDate()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#dueDate"><a title="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dueDate" class="py-name" href="#" onclick="return doclink('link-37', 'dueDate', 'link-37');">dueDate</a></tt><tt class="py-op">(</tt><tt id="link-38" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-38', 'task', 'link-10');">task</a></tt><tt class="py-op">.</tt><tt id="link-39" class="py-name" targets="Method taskcoachlib.domain.task.task.Task.dueDateTime()=taskcoachlib.domain.task.task.Task-class.html#dueDateTime,Method taskcoachlib.gui.viewer.task.TimelineRootNode.dueDateTime()=taskcoachlib.gui.viewer.task.TimelineRootNode-class.html#dueDateTime"><a title="taskcoachlib.domain.task.task.Task.dueDateTime
+taskcoachlib.gui.viewer.task.TimelineRootNode.dueDateTime" class="py-name" href="#" onclick="return doclink('link-39', 'dueDateTime', 'link-39');">dueDateTime</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-40" class="py-name"><a title="taskcoachlib.patterns.metaclass.NumberedInstances.count
+taskcoachlib.thirdparty.dateutil.rrule.rrulebase.count" class="py-name" href="#" onclick="return doclink('link-40', 'count', 'link-18');">count</a></tt> </tt>
+</div><a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">                 </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
+<a name="TodoTxtWriter.priority"></a><div id="TodoTxtWriter.priority-def"><a name="L48"></a><tt class="py-lineno">48</tt> <a class="py-toggle" href="#" id="TodoTxtWriter.priority-toggle" onclick="return toggle('TodoTxtWriter.priority');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#priority">priority</a><tt class="py-op">(</tt><tt class="py-param">priorityNumber</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TodoTxtWriter.priority-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TodoTxtWriter.priority-expanded"><a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'(%s) '</tt><tt class="py-op">%</tt><tt class="py-name">chr</tt><tt class="py-op">(</tt><tt class="py-name">ord</tt><tt class="py-op">(</tt><tt class="py-string">'A'</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">priorityNumber</tt> <tt class="py-op">-</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> <tt class="py-keyword">if</tt> <tt class="py-number">1</tt> <tt class="py-op">&lt;=</tt> <tt class="py-name">priorityNumber</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">26</tt> <tt class="py-keyword">else</tt> <tt class="py-string">''</tt> </tt>
+</div><a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="TodoTxtWriter.startDate"></a><div id="TodoTxtWriter.startDate-def"><a name="L52"></a><tt class="py-lineno">52</tt> <a class="py-toggle" href="#" id="TodoTxtWriter.startDate-toggle" onclick="return toggle('TodoTxtWriter.startDate');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#startDate">startDate</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">plannedStartDateTime</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TodoTxtWriter.startDate-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TodoTxtWriter.startDate-expanded"><a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'%s '</tt><tt class="py-op">%</tt><tt class="py-name">cls</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name" targets="Static Method taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime()=taskcoachlib.persistence.todotxt.reader.TodoTxtReader-class.html#dateTime,Static Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#dateTime,Function taskcoachlib.render.dateTime()=taskcoachlib.render-module.html#dateTime"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-41', 'dateTime', 'link-41');">dateTime</a></tt><tt class="py-op">(</tt><tt id="link-42" class="py-name"><a title="taskcoachlib.domain.task.task.Task.plannedStartDateTime
+taskcoachlib.gui.viewer.task.TimelineRootNode.plannedStartDateTime
+taskcoachlib.persistence.todotxt.reader.TodoTxtReader.plannedStartDateTime" class="py-name" href="#" onclick="return doclink('link-42', 'plannedStartDateTime', 'link-31');">plannedStartDateTime</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">if</tt> <tt class="py-name">cls</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Static Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.isActualDateTime()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#isActualDateTime"><a title="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.isActualDateTime" class="py-name" href="#" onclick="return doclink('link-43', 'isActualDateTime', 'link-43');">isActualDateTime</a></tt><tt class="py-op">(</tt><tt id="link-44" class="py-name"><a title="taskcoachlib.domain.task.task.Task.plannedStartDateTime
+taskcoachlib.gui.viewer.task.TimelineRootNode.plannedStartDateTime
+taskcoachlib.persistence.todotxt.reader.TodoTxtReader.plannedStartDateTime" class="py-name" href="#" onclick="return doclink('link-44', 'plannedStartDateTime', 'link-31');">plannedStartDateTime</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">else</tt> <tt class="py-string">''</tt> </tt>
+</div><a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">     </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="TodoTxtWriter.dueDate"></a><div id="TodoTxtWriter.dueDate-def"><a name="L56"></a><tt class="py-lineno">56</tt> <a class="py-toggle" href="#" id="TodoTxtWriter.dueDate-toggle" onclick="return toggle('TodoTxtWriter.dueDate');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#dueDate">dueDate</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">dueDateTime</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TodoTxtWriter.dueDate-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TodoTxtWriter.dueDate-expanded"><a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">' due:%s'</tt><tt class="py-op">%</tt><tt class="py-name">cls</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-45', 'dateTime', 'link-41');">dateTime</a></tt><tt class="py-op">(</tt><tt id="link-46" class="py-name"><a title="taskcoachlib.domain.task.task.Task.dueDateTime
+taskcoachlib.gui.viewer.task.TimelineRootNode.dueDateTime" class="py-name" href="#" onclick="return doclink('link-46', 'dueDateTime', 'link-39');">dueDateTime</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">if</tt> <tt class="py-name">cls</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.isActualDateTime" class="py-name" href="#" onclick="return doclink('link-47', 'isActualDateTime', 'link-43');">isActualDateTime</a></tt><tt class="py-op">(</tt><tt id="link-48" class="py-name"><a title="taskcoachlib.domain.task.task.Task.dueDateTime
+taskcoachlib.gui.viewer.task.TimelineRootNode.dueDateTime" class="py-name" href="#" onclick="return doclink('link-48', 'dueDateTime', 'link-39');">dueDateTime</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">else</tt> <tt class="py-string">''</tt> </tt>
+</div><a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">         </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="TodoTxtWriter.completionDate"></a><div id="TodoTxtWriter.completionDate-def"><a name="L60"></a><tt class="py-lineno">60</tt> <a class="py-toggle" href="#" id="TodoTxtWriter.completionDate-toggle" onclick="return toggle('TodoTxtWriter.completionDate');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#completionDate">completionDate</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">completionDateTime</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TodoTxtWriter.completionDate-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TodoTxtWriter.completionDate-expanded"><a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'X '</tt> <tt class="py-op">+</tt> <tt class="py-string">'%s '</tt><tt class="py-op">%</tt><tt class="py-name">cls</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-49', 'dateTime', 'link-41');">dateTime</a></tt><tt class="py-op">(</tt><tt id="link-50" class="py-name"><a title="taskcoachlib.domain.task.task.Task.completionDateTime
+taskcoachlib.persistence.todotxt.reader.TodoTxtReader.completionDateTime" class="py-name" href="#" onclick="return doclink('link-50', 'completionDateTime', 'link-28');">completionDateTime</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">if</tt> <tt class="py-name">cls</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.isActualDateTime" class="py-name" href="#" onclick="return doclink('link-51', 'isActualDateTime', 'link-43');">isActualDateTime</a></tt><tt class="py-op">(</tt><tt id="link-52" class="py-name"><a title="taskcoachlib.domain.task.task.Task.completionDateTime
+taskcoachlib.persistence.todotxt.reader.TodoTxtReader.completionDateTime" class="py-name" href="#" onclick="return doclink('link-52', 'completionDateTime', 'link-28');">completionDateTime</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">else</tt> <tt class="py-string">''</tt> </tt>
+</div><a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">         </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
+<a name="TodoTxtWriter.dateTime"></a><div id="TodoTxtWriter.dateTime-def"><a name="L64"></a><tt class="py-lineno">64</tt> <a class="py-toggle" href="#" id="TodoTxtWriter.dateTime-toggle" onclick="return toggle('TodoTxtWriter.dateTime');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#dateTime">dateTime</a><tt class="py-op">(</tt><tt class="py-param">dateTime</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TodoTxtWriter.dateTime-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TodoTxtWriter.dateTime-expanded"><a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">        <tt class="py-docstring">''' Todo.txt doesn't support time, just dates, so ignore the time part. '''</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-53" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-53', 'dateTime', 'link-41');">dateTime</a></tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-54', 'date', 'link-2');">date</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name" targets="Method taskcoachlib.domain.date.dateandtime.DateTime.strftime()=taskcoachlib.domain.date.dateandtime.DateTime-class.html#strftime"><a title="taskcoachlib.domain.date.dateandtime.DateTime.strftime" class="py-name" href="#" onclick="return doclink('link-55', 'strftime', 'link-55');">strftime</a></tt><tt class="py-op">(</tt><tt class="py-string">'%Y-%m-%d'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
+<a name="TodoTxtWriter.isActualDateTime"></a><div id="TodoTxtWriter.isActualDateTime-def"><a name="L69"></a><tt class="py-lineno">69</tt> <a class="py-toggle" href="#" id="TodoTxtWriter.isActualDateTime-toggle" onclick="return toggle('TodoTxtWriter.isActualDateTime');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#isActualDateTime">isActualDateTime</a><tt class="py-op">(</tt><tt class="py-param">dateTime</tt><tt class="py-op">,</tt> <tt class="py-param">maxDateTime</tt><tt class="py-op">=</tt><tt id="link-56" class="py-name"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-56', 'date', 'link-2');">date</a></tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="taskcoachlib.domain.date.dateandtime.DateTime" class="py-name" href="#" onclick="return doclink('link-57', 'DateTime', 'link-5');">DateTime</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TodoTxtWriter.isActualDateTime-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TodoTxtWriter.isActualDateTime-expanded"><a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-58" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-58', 'dateTime', 'link-41');">dateTime</a></tt> <tt class="py-op">!=</tt> <tt id="link-59" class="py-name" targets="Method taskcoachlib.domain.effort.effortlist.MaxDateTimeMixin.maxDateTime()=taskcoachlib.domain.effort.effortlist.MaxDateTimeMixin-class.html#maxDateTime,Method taskcoachlib.domain.effort.reducer.EffortAggregator.maxDateTime()=taskcoachlib.domain.effort.reducer.EffortAggregator-class.html#maxDateTime,Variable taskcoachlib.domain.task.task.Task.maxDateTime=taskcoachlib.domain.task.task.Task-class.html#maxDateTime,Variable taskcoachlib.persistence.xml.writer.XMLWriter.maxDateTime=taskcoachlib.persistence.xml.writer.XMLWriter-class.html#maxDateTime"><a title="taskcoachlib.domain.effort.effortlist.MaxDateTimeMixin.maxDateTime
+taskcoachlib.domain.effort.reducer.EffortAggregator.maxDateTime
+taskcoachlib.domain.task.task.Task.maxDateTime
+taskcoachlib.persistence.xml.writer.XMLWriter.maxDateTime" class="py-name" href="#" onclick="return doclink('link-59', 'maxDateTime', 'link-59');">maxDateTime</a></tt> </tt>
+</div><a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line"> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">classmethod</tt> </tt>
+<a name="TodoTxtWriter.contextsAndProjects"></a><div id="TodoTxtWriter.contextsAndProjects-def"><a name="L73"></a><tt class="py-lineno">73</tt> <a class="py-toggle" href="#" id="TodoTxtWriter.contextsAndProjects-toggle" onclick="return toggle('TodoTxtWriter.contextsAndProjects');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#contextsAndProjects">contextsAndProjects</a><tt class="py-op">(</tt><tt class="py-param">cls</tt><tt class="py-op">,</tt> <tt class="py-param">task</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TodoTxtWriter.contextsAndProjects-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="TodoTxtWriter.contextsAndProjects-expanded"><a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">        <tt class="py-name">subjects</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-60" class="py-name" targets="Package taskcoachlib.domain.category=taskcoachlib.domain.category-module.html,Module taskcoachlib.domain.category.category=taskcoachlib.domain.category.category-module.html,Module taskcoachlib.gui.viewer.category=taskcoachlib.gui.viewer.category-module.html,Variable taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.category=taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule-class.html#category"><a title="taskcoachlib.domain.category
+taskcoachlib.domain.category.category
+taskcoachlib.gui.viewer.category
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.category" class="py-name" href="#" onclick="return doclink('link-60', 'category', 'link-60');">category</a></tt> <tt class="py-keyword">in</tt> <tt id="link-61" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.task
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.task
+taskcoachlib.domain.effort.effort.Effort.task
+taskcoachlib.domain.task
+taskcoachlib.domain.task.task
+taskcoachlib.gui.viewer.task
+taskcoachlib.widgets.calendarwidget.TaskSchedule.task" class="py-name" href="#" onclick="return doclink('link-61', 'task', 'link-10');">task</a></tt><tt class="py-op">.</tt><tt id="link-62" class="py-name" targets="Method taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject.categories()=taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject-class.html#categories,Method taskcoachlib.domain.effort.base.BaseEffort.categories()=taskcoachlib.domain.effort.base.BaseEffort-class.html#categories,Method taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.categories()=taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod-class.html#categories,Method taskcoachlib.persistence.taskfile.TaskFile.categories()=taskcoachlib.persistence.taskfile.TaskFile-class.html#categories,Method taskcoachlib.persistence.todotxt.reader.TodoTxtReader.categories()=taskcoachlib.persistence.todotxt.reader.TodoTxtReader-class.html#categories"><a title="taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject.categories
+taskcoachlib.domain.effort.base.BaseEffort.categories
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.categories
+taskcoachlib.persistence.taskfile.TaskFile.categories
+taskcoachlib.persistence.todotxt.reader.TodoTxtReader.categories" class="py-name" href="#" onclick="return doclink('link-62', 'categories', 'link-62');">categories</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">            <tt id="link-63" class="py-name"><a title="taskcoachlib.domain.base.object.CompositeObject.subject
+taskcoachlib.domain.base.object.Object.subject
+taskcoachlib.domain.effort.base.BaseEffort.subject
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.Total.subject
+taskcoachlib.gui.uicommand.uicommand.Mail.subject
+taskcoachlib.gui.viewer.task.RootNode.subject" class="py-name" href="#" onclick="return doclink('link-63', 'subject', 'link-33');">subject</a></tt> <tt class="py-op">=</tt> <tt id="link-64" class="py-name"><a title="taskcoachlib.domain.category
+taskcoachlib.domain.category.category
+taskcoachlib.gui.viewer.category
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.category" class="py-name" href="#" onclick="return doclink('link-64', 'category', 'link-60');">category</a></tt><tt class="py-op">.</tt><tt id="link-65" class="py-name"><a title="taskcoachlib.domain.base.object.CompositeObject.subject
+taskcoachlib.domain.base.object.Object.subject
+taskcoachlib.domain.effort.base.BaseEffort.subject
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.Total.subject
+taskcoachlib.gui.uicommand.uicommand.Mail.subject
+taskcoachlib.gui.viewer.task.RootNode.subject" class="py-name" href="#" onclick="return doclink('link-65', 'subject', 'link-33');">subject</a></tt><tt class="py-op">(</tt><tt class="py-name">recursive</tt><tt class="py-op">=</tt><tt id="link-66" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-66', 'True', 'link-34');">True</a></tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-67" class="py-name"><a title="taskcoachlib.domain.base.object.CompositeObject.subject
+taskcoachlib.domain.base.object.Object.subject
+taskcoachlib.domain.effort.base.BaseEffort.subject
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.Total.subject
+taskcoachlib.gui.uicommand.uicommand.Mail.subject
+taskcoachlib.gui.viewer.task.RootNode.subject" class="py-name" href="#" onclick="return doclink('link-67', 'subject', 'link-33');">subject</a></tt> <tt class="py-keyword">and</tt> <tt id="link-68" class="py-name"><a title="taskcoachlib.domain.base.object.CompositeObject.subject
+taskcoachlib.domain.base.object.Object.subject
+taskcoachlib.domain.effort.base.BaseEffort.subject
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.Total.subject
+taskcoachlib.gui.uicommand.uicommand.Mail.subject
+taskcoachlib.gui.viewer.task.RootNode.subject" class="py-name" href="#" onclick="return doclink('link-68', 'subject', 'link-33');">subject</a></tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt class="py-string">'@'</tt><tt class="py-op">,</tt> <tt class="py-string">'+'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">                <tt id="link-69" class="py-name"><a title="taskcoachlib.domain.base.object.CompositeObject.subject
+taskcoachlib.domain.base.object.Object.subject
+taskcoachlib.domain.effort.base.BaseEffort.subject
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.Total.subject
+taskcoachlib.gui.uicommand.uicommand.Mail.subject
+taskcoachlib.gui.viewer.task.RootNode.subject" class="py-name" href="#" onclick="return doclink('link-69', 'subject', 'link-33');">subject</a></tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">sub</tt><tt class="py-op">(</tt><tt class="py-string">r' -&gt; '</tt><tt class="py-op">,</tt> <tt class="py-string">'-&gt;'</tt><tt class="py-op">,</tt> <tt id="link-70" class="py-name"><a title="taskcoachlib.domain.base.object.CompositeObject.subject
+taskcoachlib.domain.base.object.Object.subject
+taskcoachlib.domain.effort.base.BaseEffort.subject
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.Total.subject
+taskcoachlib.gui.uicommand.uicommand.Mail.subject
+taskcoachlib.gui.viewer.task.RootNode.subject" class="py-name" href="#" onclick="return doclink('link-70', 'subject', 'link-33');">subject</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">                <tt id="link-71" class="py-name"><a title="taskcoachlib.domain.base.object.CompositeObject.subject
+taskcoachlib.domain.base.object.Object.subject
+taskcoachlib.domain.effort.base.BaseEffort.subject
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.Total.subject
+taskcoachlib.gui.uicommand.uicommand.Mail.subject
+taskcoachlib.gui.viewer.task.RootNode.subject" class="py-name" href="#" onclick="return doclink('link-71', 'subject', 'link-33');">subject</a></tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">sub</tt><tt class="py-op">(</tt><tt class="py-string">r'\s+'</tt><tt class="py-op">,</tt> <tt class="py-string">'_'</tt><tt class="py-op">,</tt> <tt id="link-72" class="py-name"><a title="taskcoachlib.domain.base.object.CompositeObject.subject
+taskcoachlib.domain.base.object.Object.subject
+taskcoachlib.domain.effort.base.BaseEffort.subject
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.Total.subject
+taskcoachlib.gui.uicommand.uicommand.Mail.subject
+taskcoachlib.gui.viewer.task.RootNode.subject" class="py-name" href="#" onclick="return doclink('link-72', 'subject', 'link-33');">subject</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line">                <tt class="py-name">subjects</tt><tt class="py-op">.</tt><tt id="link-73" class="py-name" targets="Method taskcoachlib.iphone.protocol.CompositeItem.append()=taskcoachlib.iphone.protocol.CompositeItem-class.html#append,Method taskcoachlib.iphone.protocol.ListItem.append()=taskcoachlib.iphone.protocol.ListItem-class.html#append,Method taskcoachlib.patterns.command.CommandHistory.append()=taskcoachlib.patterns.command.CommandHistory-class.html#append,Method taskcoachlib.patterns.composite.CompositeCollection.append()=taskcoachlib.patterns.composite.CompositeCollection-class.html#append,Method taskcoachlib.patterns.observer.CollectionDecorator.append()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#append,Method taskcoachlib.patterns.observer.ObservableList.append()=taskcoachlib.patterns.observer.ObservableList-class.html#append,Method taskcoachlib.patterns.observer.ObservableSet.append()=taskcoachlib.patterns.observer.ObservableSet-class.html#append,Method taskcoachlib.thirdparty.pyparsing.ParseExpression.append()=taskcoachlib.thirdparty.pyparsing.ParseExpression-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.timeline.timeline.HotMap.append()=taskcoachlib.thirdparty.timeline.timeline.HotMap-class.html#append"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-73', 'append', 'link-73');">append</a></tt><tt class="py-op">(</tt><tt id="link-74" class="py-name"><a title="taskcoachlib.domain.base.object.CompositeObject.subject
+taskcoachlib.domain.base.object.Object.subject
+taskcoachlib.domain.effort.base.BaseEffort.subject
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.Total.subject
+taskcoachlib.gui.uicommand.uicommand.Mail.subject
+taskcoachlib.gui.viewer.task.RootNode.subject" class="py-name" href="#" onclick="return doclink('link-74', 'subject', 'link-33');">subject</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">' '</tt> <tt class="py-op">+</tt> <tt class="py-string">' '</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-75" class="py-name" targets="Function taskcoachlib.thirdparty.googleapi.httplib2.sorted()=taskcoachlib.thirdparty.googleapi.httplib2-module.html#sorted"><a title="taskcoachlib.thirdparty.googleapi.httplib2.sorted" class="py-name" href="#" onclick="return doclink('link-75', 'sorted', 'link-75');">sorted</a></tt><tt class="py-op">(</tt><tt class="py-name">subjects</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-keyword">if</tt> <tt class="py-name">subjects</tt> <tt class="py-keyword">else</tt> <tt class="py-string">''</tt> </tt>
+</div></div><a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:15:15 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

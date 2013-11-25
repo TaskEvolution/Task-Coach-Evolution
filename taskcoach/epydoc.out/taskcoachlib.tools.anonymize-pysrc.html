@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.tools.anonymize</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.tools-module.html">Package&nbsp;tools</a> ::
+        Module&nbsp;anonymize
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.tools.anonymize-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.tools.anonymize-module.html">Module taskcoachlib.tools.anonymize</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach - Your friendly task manager</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (C) 2011 Task Coach developers &lt;developers@taskcoach.org&gt;</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is free software: you can redistribute it and/or modify</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">the Free Software Foundation, either version 3 of the License, or</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">(at your option) any later version.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">GNU General Public License for more details.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package taskcoachlib.persistence.xml=taskcoachlib.persistence.xml-module.html"><a title="taskcoachlib.persistence.xml" class="py-name" href="#" onclick="return doclink('link-0', 'xml', 'link-0');">xml</a></tt><tt class="py-op">.</tt><tt class="py-name">etree</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ElementTree</tt> <tt class="py-keyword">as</tt> <tt class="py-name">ET</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="anonymize"></a><div id="anonymize-def"><a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="anonymize-toggle" onclick="return toggle('anonymize');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.tools.anonymize-module.html#anonymize">anonymize</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="anonymize-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="anonymize-expanded"><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt class="py-docstring">''' Anonymize the file specified by the filename by reading its contents,</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-docstring">        replacing the contents with X's and saving the anonymized contents to </tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">        a copy of the file. '''</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">     </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">    <tt class="py-keyword">def</tt> <tt class="py-def-name">anonymize_string</tt><tt class="py-op">(</tt><tt class="py-param">string</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-docstring">''' Return an anonymized version of the string. '''</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">u'X'</tt> <tt class="py-op">*</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">string</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">     </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">    <tt class="py-keyword">def</tt> <tt class="py-def-name">anonymize_text</tt><tt class="py-op">(</tt><tt class="py-param">text</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-docstring">''' Return an anonymized version of the text, keeping the line </tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring">            breaks. '''</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'\n'</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">anonymize_string</tt><tt class="py-op">(</tt><tt id="link-1" class="py-name" targets="Function taskcoachlib.thirdparty.pyparsing.line()=taskcoachlib.thirdparty.pyparsing-module.html#line"><a title="taskcoachlib.thirdparty.pyparsing.line" class="py-name" href="#" onclick="return doclink('link-1', 'line', 'link-1');">line</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt id="link-2" class="py-name"><a title="taskcoachlib.thirdparty.pyparsing.line" class="py-name" href="#" onclick="return doclink('link-2', 'line', 'link-1');">line</a></tt> <tt class="py-keyword">in</tt> <tt id="link-3" class="py-name" targets="Variable taskcoachlib.thirdparty.xdg.Mime.text=taskcoachlib.thirdparty.xdg.Mime-module.html#text"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-3', 'text', 'link-3');">text</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Class Method taskcoachlib.thirdparty.dateutil.parser._timelex.split()=taskcoachlib.thirdparty.dateutil.parser._timelex-class.html#split"><a title="taskcoachlib.thirdparty.dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-4', 'split', 'link-4');">split</a></tt><tt class="py-op">(</tt><tt class="py-string">'\n'</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">    <tt class="py-keyword">def</tt> <tt class="py-def-name">anonymize_node</tt><tt class="py-op">(</tt><tt class="py-param">node</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt class="py-docstring">''' Recursively anonymize the node and all of its child nodes. '''</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">child</tt> <tt class="py-keyword">in</tt> <tt class="py-name">node</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">            <tt class="py-name">anonymize_node</tt><tt class="py-op">(</tt><tt class="py-name">child</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-string">'subject'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">attrib</tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">            <tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">attrib</tt><tt class="py-op">[</tt><tt class="py-string">'subject'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">anonymize_string</tt><tt class="py-op">(</tt><tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">attrib</tt><tt class="py-op">[</tt><tt class="py-string">'subject'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">tag</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt class="py-string">'description'</tt><tt class="py-op">,</tt> <tt class="py-string">'data'</tt><tt class="py-op">)</tt> <tt class="py-keyword">and</tt> <tt class="py-name">node</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-5', 'text', 'link-3');">text</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">            <tt class="py-name">node</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-6', 'text', 'link-3');">text</a></tt> <tt class="py-op">=</tt> <tt class="py-name">anonymize_text</tt><tt class="py-op">(</tt><tt class="py-name">node</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-7', 'text', 'link-3');">text</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">tag</tt> <tt class="py-op">==</tt> <tt class="py-string">'data'</tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">                <tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">attrib</tt><tt class="py-op">[</tt><tt class="py-string">'extension'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> \ </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">                    <tt class="py-name">anonymize_string</tt><tt class="py-op">(</tt><tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">attrib</tt><tt class="py-op">[</tt><tt class="py-string">'extension'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">tag</tt> <tt class="py-op">==</tt> <tt class="py-string">'property'</tt> <tt class="py-keyword">and</tt> <tt class="py-string">'name'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">attrib</tt> <tt class="py-keyword">and</tt> \ </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">           <tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">attrib</tt><tt class="py-op">[</tt><tt class="py-string">'name'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'username'</tt><tt class="py-op">:</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">            <tt class="py-name">node</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-8', 'text', 'link-3');">text</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'XXX'</tt>  <tt class="py-comment"># pylint: disable=W0511</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">tag</tt> <tt class="py-op">==</tt> <tt class="py-string">'attachment'</tt> <tt class="py-keyword">and</tt> <tt class="py-string">'location'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">attrib</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">            <tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">attrib</tt><tt class="py-op">[</tt><tt class="py-string">'location'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">anonymize_string</tt><tt class="py-op">(</tt><tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">attrib</tt><tt class="py-op">[</tt><tt class="py-string">'location'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">             </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">    <tt class="py-name">tree</tt> <tt class="py-op">=</tt> <tt class="py-name">ET</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method taskcoachlib.iphone.protocol.ItemParser.parse()=taskcoachlib.iphone.protocol.ItemParser-class.html#parse,Method taskcoachlib.persistence.icalendar.ical.VCalendarParser.parse()=taskcoachlib.persistence.icalendar.ical.VCalendarParser-class.html#parse,Method taskcoachlib.thirdparty.dateutil.parser._tzparser.parse()=taskcoachlib.thirdparty.dateutil.parser._tzparser-class.html#parse,Function taskcoachlib.thirdparty.dateutil.parser.parse()=taskcoachlib.thirdparty.dateutil.parser-module.html#parse,Method taskcoachlib.thirdparty.dateutil.parser.parser.parse()=taskcoachlib.thirdparty.dateutil.parser.parser-class.html#parse,Class Method taskcoachlib.thirdparty.pybonjour.TXTRecord.parse()=taskcoachlib.thirdparty.pybonjour.TXTRecord-class.html#parse,Method taskcoachlib.thirdparty.xdg.DesktopEntry.DesktopEntry.parse()=taskcoachlib.thirdparty.xdg.DesktopEntry.DesktopEntry-class.html#parse,Method taskcoachlib.thirdparty.xdg.IconTheme.IconData.parse()=taskcoachlib.thirdparty.xdg.IconTheme.IconData-class.html#parse,Method taskcoachlib.thirdparty.xdg.IconTheme.IconTheme.parse()=taskcoachlib.thirdparty.xdg.IconTheme.IconTheme-class.html#parse,Method taskcoachlib.thirdparty.xdg.IniFile.IniFile.parse()=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#parse,Function taskcoachlib.thirdparty.xdg.Menu.parse()=taskcoachlib.thirdparty.xdg.Menu-module.html#parse,Method taskcoachlib.thirdparty.xdg.MenuEditor.MenuEditor.parse()=taskcoachlib.thirdparty.xdg.MenuEditor.MenuEditor-class.html#parse,Method taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.parse()=taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles-class.html#parse,Method taskcoachlib.widgets.itemctrl.Column.parse()=taskcoachlib.widgets.itemctrl.Column-class.html#parse"><a title="taskcoachlib.iphone.protocol.ItemParser.parse
+taskcoachlib.persistence.icalendar.ical.VCalendarParser.parse
+taskcoachlib.thirdparty.dateutil.parser._tzparser.parse
+taskcoachlib.thirdparty.dateutil.parser.parse
+taskcoachlib.thirdparty.dateutil.parser.parser.parse
+taskcoachlib.thirdparty.pybonjour.TXTRecord.parse
+taskcoachlib.thirdparty.xdg.DesktopEntry.DesktopEntry.parse
+taskcoachlib.thirdparty.xdg.IconTheme.IconData.parse
+taskcoachlib.thirdparty.xdg.IconTheme.IconTheme.parse
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.parse
+taskcoachlib.thirdparty.xdg.Menu.parse
+taskcoachlib.thirdparty.xdg.MenuEditor.MenuEditor.parse
+taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.parse
+taskcoachlib.widgets.itemctrl.Column.parse" class="py-name" href="#" onclick="return doclink('link-9', 'parse', 'link-9');">parse</a></tt><tt class="py-op">(</tt><tt id="link-10" class="py-name" targets="Module taskcoachlib.thirdparty.googleapi.oauth2client.file=taskcoachlib.thirdparty.googleapi.oauth2client.file-module.html"><a title="taskcoachlib.thirdparty.googleapi.oauth2client.file" class="py-name" href="#" onclick="return doclink('link-10', 'file', 'link-10');">file</a></tt><tt class="py-op">(</tt><tt id="link-11" class="py-name" targets="Method taskcoachlib.config.settings.Settings.filename()=taskcoachlib.config.settings.Settings-class.html#filename,Method taskcoachlib.gui.iocontroller.IOController.filename()=taskcoachlib.gui.iocontroller.IOController-class.html#filename,Variable taskcoachlib.meta.data.filename=taskcoachlib.meta.data-module.html#filename,Method taskcoachlib.persistence.taskfile.TaskFile.filename()=taskcoachlib.persistence.taskfile.TaskFile-class.html#filename,Method taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename()=taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile-class.html#filename,Method taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename()=taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener-class.html#filename,Method taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename()=taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename=taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename=taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename=taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring-class.html#filename,Variable taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#filename"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-11', 'filename', 'link-11');">filename</a></tt><tt class="py-op">,</tt> <tt class="py-string">'rb'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">    <tt class="py-name">anonymize_node</tt><tt class="py-op">(</tt><tt class="py-name">tree</tt><tt class="py-op">.</tt><tt class="py-name">getroot</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">    <tt id="link-12" class="py-name" targets="Method taskcoachlib.command.base.BaseCommand.name()=taskcoachlib.command.base.BaseCommand-class.html#name,Method taskcoachlib.command.base.NewItemCommand.name()=taskcoachlib.command.base.NewItemCommand-class.html#name,Variable taskcoachlib.meta.data.name=taskcoachlib.meta.data-module.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.CheckList.name=taskcoachlib.thirdparty.desktop.dialog.CheckList-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Error.name=taskcoachlib.thirdparty.desktop.dialog.Error-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Input.name=taskcoachlib.thirdparty.desktop.dialog.Input-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Menu.name=taskcoachlib.thirdparty.desktop.dialog.Menu-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Message.name=taskcoachlib.thirdparty.desktop.dialog.Message-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Password.name=taskcoachlib.thirdparty.desktop.dialog.Password-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Pulldown.name=taskcoachlib.thirdparty.desktop.dialog.Pulldown-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Question.name=taskcoachlib.thirdparty.desktop.dialog.Question-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.RadioList.name=taskcoachlib.thirdparty.desktop.dialog.RadioList-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.TextFile.name=taskcoachlib.thirdparty.desktop.dialog.TextFile-class.html#name,Variable taskcoachlib.thirdparty.desktop.dialog.Warning.name=taskcoachlib.thirdparty.desktop.dialog.Warning-class.html#name,Method taskcoachlib.thirdparty.desktop.windows.Window.name()=taskcoachlib.thirdparty.desktop.windows.Window-class.html#name,Method taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name()=taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase-class.html#name,Method taskcoachlib.widgets.itemctrl.Column.name()=taskcoachlib.widgets.itemctrl.Column-class.html#name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-12', 'name', 'link-12');">name</a></tt><tt class="py-op">,</tt> <tt class="py-name">ext</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method taskcoachlib.config.settings.Settings.path()=taskcoachlib.config.settings.Settings-class.html#path,Method taskcoachlib.thirdparty.wmi._wmi_object.path()=taskcoachlib.thirdparty.wmi._wmi_object-class.html#path"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-13', 'path', 'link-13');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">splitext</tt><tt class="py-op">(</tt><tt id="link-14" class="py-name"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-14', 'filename', 'link-11');">filename</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">    <tt class="py-name">anonymized_filename</tt> <tt class="py-op">=</tt> <tt id="link-15" class="py-name"><a title="taskcoachlib.command.base.BaseCommand.name
+taskcoachlib.command.base.NewItemCommand.name
+taskcoachlib.meta.data.name
+taskcoachlib.thirdparty.desktop.dialog.CheckList.name
+taskcoachlib.thirdparty.desktop.dialog.Error.name
+taskcoachlib.thirdparty.desktop.dialog.Input.name
+taskcoachlib.thirdparty.desktop.dialog.Menu.name
+taskcoachlib.thirdparty.desktop.dialog.Message.name
+taskcoachlib.thirdparty.desktop.dialog.Password.name
+taskcoachlib.thirdparty.desktop.dialog.Pulldown.name
+taskcoachlib.thirdparty.desktop.dialog.Question.name
+taskcoachlib.thirdparty.desktop.dialog.RadioList.name
+taskcoachlib.thirdparty.desktop.dialog.TextFile.name
+taskcoachlib.thirdparty.desktop.dialog.Warning.name
+taskcoachlib.thirdparty.desktop.windows.Window.name
+taskcoachlib.thirdparty.pubsub.core.listenerbase.ListenerBase.name
+taskcoachlib.widgets.itemctrl.Column.name" class="py-name" href="#" onclick="return doclink('link-15', 'name', 'link-12');">name</a></tt> <tt class="py-op">+</tt> <tt class="py-string">'.anonymized'</tt> <tt class="py-op">+</tt> <tt class="py-name">ext</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">    <tt class="py-name">tree</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method taskcoachlib.application.application.RedirectedOutput.write()=taskcoachlib.application.application.RedirectedOutput-class.html#write,Method taskcoachlib.persistence.csv.writer.CSVWriter.write()=taskcoachlib.persistence.csv.writer.CSVWriter-class.html#write,Method taskcoachlib.persistence.html.writer.HTMLWriter.write()=taskcoachlib.persistence.html.writer.HTMLWriter-class.html#write,Method taskcoachlib.persistence.icalendar.writer.iCalendarWriter.write()=taskcoachlib.persistence.icalendar.writer.iCalendarWriter-class.html#write,Method taskcoachlib.persistence.pdf.writer.PDFWriter.write()=taskcoachlib.persistence.pdf.writer.PDFWriter-class.html#write,Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.write()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.ChangesXMLWriter.write()=taskcoachlib.persistence.xml.writer.ChangesXMLWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.PIElementTree.write()=taskcoachlib.persistence.xml.writer.PIElementTree-class.html#write,Method taskcoachlib.persistence.xml.writer.TemplateXMLWriter.write()=taskcoachlib.persistence.xml.writer.TemplateXMLWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.XMLWriter.write()=taskcoachlib.persistence.xml.writer.XMLWriter-class.html#write,Method taskcoachlib.thirdparty.xdg.IniFile.IniFile.write()=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#write,Method taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.write()=taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles-class.html#write"><a title="taskcoachlib.application.application.RedirectedOutput.write
+taskcoachlib.persistence.csv.writer.CSVWriter.write
+taskcoachlib.persistence.html.writer.HTMLWriter.write
+taskcoachlib.persistence.icalendar.writer.iCalendarWriter.write
+taskcoachlib.persistence.pdf.writer.PDFWriter.write
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.write
+taskcoachlib.persistence.xml.writer.ChangesXMLWriter.write
+taskcoachlib.persistence.xml.writer.PIElementTree.write
+taskcoachlib.persistence.xml.writer.TemplateXMLWriter.write
+taskcoachlib.persistence.xml.writer.XMLWriter.write
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.write
+taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.write" class="py-name" href="#" onclick="return doclink('link-16', 'write', 'link-16');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">anonymized_filename</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">anonymized_filename</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:13 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

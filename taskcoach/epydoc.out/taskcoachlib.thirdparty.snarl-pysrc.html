@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.snarl</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        Module&nbsp;snarl
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.snarl-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.snarl-module.html">Module taskcoachlib.thirdparty.snarl</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#Python Snarl bindings version 0.2a</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment">#Hacked together by Alexander Lash in the wee hours of 2/27.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment">#Contact him at alexander.lash@gmail.com</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment">#0.1a: Initial release</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#0.2a: Added basic command line functions</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment">#LARGELY UNTESTED REFERENCE IMPLEMENTATION</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">win32gui</tt><tt class="py-op">,</tt> <tt class="py-name">win32api</tt><tt class="py-op">,</tt> <tt class="py-name">win32con</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">struct</tt><tt class="py-op">,</tt> <tt class="py-name">array</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">ctypes</tt> <tt class="py-keyword">import</tt> <tt class="py-name">cast</tt><tt class="py-op">,</tt> <tt class="py-name">POINTER</tt><tt class="py-op">,</tt> <tt class="py-name">c_byte</tt> </tt>
+<a name="SNARL_COMMANDS"></a><div id="SNARL_COMMANDS-def"><a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt> <a class="py-toggle" href="#" id="SNARL_COMMANDS-toggle" onclick="return toggle('SNARL_COMMANDS');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS-class.html">SNARL_COMMANDS</a><tt class="py-op">:</tt> </tt>
+</div><div id="SNARL_COMMANDS-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="SNARL_COMMANDS-expanded"><a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line">    <tt id="link-0" class="py-name" targets="Variable taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_SHOW=taskcoachlib.thirdparty.snarl.SNARL_COMMANDS-class.html#SNARL_SHOW"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_SHOW" class="py-name" href="#" onclick="return doclink('link-0', 'SNARL_SHOW', 'link-0');">SNARL_SHOW</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">    <tt id="link-1" class="py-name" targets="Variable taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_HIDE=taskcoachlib.thirdparty.snarl.SNARL_COMMANDS-class.html#SNARL_HIDE"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_HIDE" class="py-name" href="#" onclick="return doclink('link-1', 'SNARL_HIDE', 'link-1');">SNARL_HIDE</a></tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line">    <tt id="link-2" class="py-name" targets="Variable taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_UPDATE=taskcoachlib.thirdparty.snarl.SNARL_COMMANDS-class.html#SNARL_UPDATE"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_UPDATE" class="py-name" href="#" onclick="return doclink('link-2', 'SNARL_UPDATE', 'link-2');">SNARL_UPDATE</a></tt> <tt class="py-op">=</tt> <tt class="py-number">3</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Variable taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_IS_VISIBLE=taskcoachlib.thirdparty.snarl.SNARL_COMMANDS-class.html#SNARL_IS_VISIBLE"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_IS_VISIBLE" class="py-name" href="#" onclick="return doclink('link-3', 'SNARL_IS_VISIBLE', 'link-3');">SNARL_IS_VISIBLE</a></tt> <tt class="py-op">=</tt> <tt class="py-number">4</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">    <tt id="link-4" class="py-name" targets="Variable taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_GET_VERSION=taskcoachlib.thirdparty.snarl.SNARL_COMMANDS-class.html#SNARL_GET_VERSION"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_GET_VERSION" class="py-name" href="#" onclick="return doclink('link-4', 'SNARL_GET_VERSION', 'link-4');">SNARL_GET_VERSION</a></tt> <tt class="py-op">=</tt> <tt class="py-number">5</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Variable taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_REGISTER_CONFIG_WINDOW=taskcoachlib.thirdparty.snarl.SNARL_COMMANDS-class.html#SNARL_REGISTER_CONFIG_WINDOW"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_REGISTER_CONFIG_WINDOW" class="py-name" href="#" onclick="return doclink('link-5', 'SNARL_REGISTER_CONFIG_WINDOW', 'link-5');">SNARL_REGISTER_CONFIG_WINDOW</a></tt> <tt class="py-op">=</tt> <tt class="py-number">6</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Variable taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_REVOKE_CONFIG_WINDOW=taskcoachlib.thirdparty.snarl.SNARL_COMMANDS-class.html#SNARL_REVOKE_CONFIG_WINDOW"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_REVOKE_CONFIG_WINDOW" class="py-name" href="#" onclick="return doclink('link-6', 'SNARL_REVOKE_CONFIG_WINDOW', 'link-6');">SNARL_REVOKE_CONFIG_WINDOW</a></tt> <tt class="py-op">=</tt> <tt class="py-number">7</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_REGISTER_ALERT=taskcoachlib.thirdparty.snarl.SNARL_COMMANDS-class.html#SNARL_REGISTER_ALERT"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_REGISTER_ALERT" class="py-name" href="#" onclick="return doclink('link-7', 'SNARL_REGISTER_ALERT', 'link-7');">SNARL_REGISTER_ALERT</a></tt> <tt class="py-op">=</tt> <tt class="py-number">8</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Variable taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_REVOKE_ALERT=taskcoachlib.thirdparty.snarl.SNARL_COMMANDS-class.html#SNARL_REVOKE_ALERT"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_REVOKE_ALERT" class="py-name" href="#" onclick="return doclink('link-8', 'SNARL_REVOKE_ALERT', 'link-8');">SNARL_REVOKE_ALERT</a></tt> <tt class="py-op">=</tt> <tt class="py-number">9</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">    <tt id="link-9" class="py-name" targets="Variable taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_REGISTER_CONFIG_WINDOW_2=taskcoachlib.thirdparty.snarl.SNARL_COMMANDS-class.html#SNARL_REGISTER_CONFIG_WINDOW_2"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_REGISTER_CONFIG_WINDOW_2" class="py-name" href="#" onclick="return doclink('link-9', 'SNARL_REGISTER_CONFIG_WINDOW_2', 'link-9');">SNARL_REGISTER_CONFIG_WINDOW_2</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0xA</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">    <tt id="link-10" class="py-name" targets="Variable taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_EX_SHOW=taskcoachlib.thirdparty.snarl.SNARL_COMMANDS-class.html#SNARL_EX_SHOW"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_EX_SHOW" class="py-name" href="#" onclick="return doclink('link-10', 'SNARL_EX_SHOW', 'link-10');">SNARL_EX_SHOW</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0x20</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">     </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">staticmethod</tt> </tt>
+<a name="SNARL_COMMANDS.sendCommand"></a><div id="SNARL_COMMANDS.sendCommand-def"><a name="L25"></a><tt class="py-lineno"> 25</tt> <a class="py-toggle" href="#" id="SNARL_COMMANDS.sendCommand-toggle" onclick="return toggle('SNARL_COMMANDS.sendCommand');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS-class.html#sendCommand">sendCommand</a><tt class="py-op">(</tt><tt class="py-param">command</tt><tt class="py-op">,</tt> <tt class="py-param">id</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-param">timeout</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-param">longdata</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-param">title</tt><tt class="py-op">=</tt><tt class="py-string">""</tt><tt class="py-op">,</tt> <tt class="py-param">text</tt><tt class="py-op">=</tt><tt class="py-string">""</tt><tt class="py-op">,</tt> <tt class="py-param">icon</tt><tt class="py-op">=</tt><tt class="py-string">""</tt><tt class="py-op">,</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">                      <tt class="py-param">extra</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">extra2</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">reserved1</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">reserved2</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SNARL_COMMANDS.sendCommand-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SNARL_COMMANDS.sendCommand-expanded"><a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">extra</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-keyword">and</tt> <tt class="py-name">extra2</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-keyword">and</tt> <tt class="py-name">reserved1</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-keyword">and</tt> <tt class="py-name">reserved2</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">            <tt id="link-11" class="py-name" targets="Package taskcoachlib.command=taskcoachlib.command-module.html,Module taskcoachlib.patterns.command=taskcoachlib.patterns.command-module.html"><a title="taskcoachlib.command
+taskcoachlib.patterns.command" class="py-name" href="#" onclick="return doclink('link-11', 'command', 'link-11');">command</a></tt> <tt class="py-op">=</tt> <tt class="py-name">struct</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method taskcoachlib.iphone.protocol.BaseItem.pack()=taskcoachlib.iphone.protocol.BaseItem-class.html#pack,Method taskcoachlib.iphone.protocol.CompositeItem.pack()=taskcoachlib.iphone.protocol.CompositeItem-class.html#pack,Method taskcoachlib.iphone.protocol.DataItem.pack()=taskcoachlib.iphone.protocol.DataItem-class.html#pack,Method taskcoachlib.iphone.protocol.DateItem.pack()=taskcoachlib.iphone.protocol.DateItem-class.html#pack,Method taskcoachlib.iphone.protocol.DateTimeItem.pack()=taskcoachlib.iphone.protocol.DateTimeItem-class.html#pack,Method taskcoachlib.iphone.protocol.FixedSizeStringItem.pack()=taskcoachlib.iphone.protocol.FixedSizeStringItem-class.html#pack,Method taskcoachlib.iphone.protocol.InfiniteDateTimeItem.pack()=taskcoachlib.iphone.protocol.InfiniteDateTimeItem-class.html#pack,Method taskcoachlib.iphone.protocol.IntegerItem.pack()=taskcoachlib.iphone.protocol.IntegerItem-class.html#pack,Method taskcoachlib.iphone.protocol.ListItem.pack()=taskcoachlib.iphone.protocol.ListItem-class.html#pack,Method taskcoachlib.iphone.protocol.State.pack()=taskcoachlib.iphone.protocol.State-class.html#pack,Method taskcoachlib.iphone.protocol.StringItem.pack()=taskcoachlib.iphone.protocol.StringItem-class.html#pack"><a title="taskcoachlib.iphone.protocol.BaseItem.pack
+taskcoachlib.iphone.protocol.CompositeItem.pack
+taskcoachlib.iphone.protocol.DataItem.pack
+taskcoachlib.iphone.protocol.DateItem.pack
+taskcoachlib.iphone.protocol.DateTimeItem.pack
+taskcoachlib.iphone.protocol.FixedSizeStringItem.pack
+taskcoachlib.iphone.protocol.InfiniteDateTimeItem.pack
+taskcoachlib.iphone.protocol.IntegerItem.pack
+taskcoachlib.iphone.protocol.ListItem.pack
+taskcoachlib.iphone.protocol.State.pack
+taskcoachlib.iphone.protocol.StringItem.pack" class="py-name" href="#" onclick="return doclink('link-12', 'pack', 'link-12');">pack</a></tt><tt class="py-op">(</tt><tt class="py-string">"ILLL1024s1024s1024s"</tt><tt class="py-op">,</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">                              <tt id="link-13" class="py-name"><a title="taskcoachlib.command
+taskcoachlib.patterns.command" class="py-name" href="#" onclick="return doclink('link-13', 'command', 'link-11');">command</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">                              <tt id="link-14" class="py-name" targets="Method taskcoachlib.domain.base.object.Object.id()=taskcoachlib.domain.base.object.Object-class.html#id,Module taskcoachlib.i18n.id=taskcoachlib.i18n.id-module.html,Variable taskcoachlib.thirdparty.apscheduler'.job.Job.id=taskcoachlib.thirdparty.apscheduler%27.job.Job-class.html#id,Variable taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id=taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule-class.html#id"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-14', 'id', 'link-14');">id</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">                              <tt class="py-name">timeout</tt><tt class="py-op">,</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">                              <tt class="py-name">longdata</tt><tt class="py-op">,</tt> <tt class="py-comment">#LngData2</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">                              <tt class="py-name">array</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-string">'B'</tt><tt class="py-op">,</tt> <tt id="link-15" class="py-name" targets="Variable taskcoachlib.gui.dialog.export.ExportAsCSVDialog.title=taskcoachlib.gui.dialog.export.ExportAsCSVDialog-class.html#title,Variable taskcoachlib.gui.dialog.export.ExportAsHTMLDialog.title=taskcoachlib.gui.dialog.export.ExportAsHTMLDialog-class.html#title,Variable taskcoachlib.gui.dialog.export.ExportAsICalendarDialog.title=taskcoachlib.gui.dialog.export.ExportAsICalendarDialog-class.html#title,Variable taskcoachlib.gui.dialog.export.ExportAsPDFDialog.title=taskcoachlib.gui.dialog.export.ExportAsPDFDialog-class.html#title,Variable taskcoachlib.gui.dialog.export.ExportAsTodoTxtDialog.title=taskcoachlib.gui.dialog.export.ExportAsTodoTxtDialog-class.html#title,Variable taskcoachlib.gui.dialog.export.ExportDialog.title=taskcoachlib.gui.dialog.export.ExportDialog-class.html#title,Variable taskcoachlib.gui.dialog.version.NewVersionDialog.title=taskcoachlib.gui.dialog.version.NewVersionDialog-class.html#title,Variable taskcoachlib.gui.dialog.version.NoVersionDialog.title=taskcoachlib.gui.dialog.version.NoVersionDialog-class.html#title,Variable taskcoachlib.gui.dialog.version.PrereleaseVersionDialog.title=taskcoachlib.gui.dialog.version.PrereleaseVersionDialog-class.html#title,Variable taskcoachlib.gui.dialog.version.VersionDialog.title=taskcoachlib.gui.dialog.version.VersionDialog-class.html#title,Variable taskcoachlib.gui.dialog.version.VersionUpToDateDialog.title=taskcoachlib.gui.dialog.version.VersionUpToDateDialog-class.html#title,Method taskcoachlib.gui.viewer.base.Viewer.title()=taskcoachlib.gui.viewer.base.Viewer-class.html#title,Method taskcoachlib.mailer.macmail.MailAppInfoLoader.title()=taskcoachlib.mailer.macmail.MailAppInfoLoader-class.html#title"><a title="taskcoachlib.gui.dialog.export.ExportAsCSVDialog.title
+taskcoachlib.gui.dialog.export.ExportAsHTMLDialog.title
+taskcoachlib.gui.dialog.export.ExportAsICalendarDialog.title
+taskcoachlib.gui.dialog.export.ExportAsPDFDialog.title
+taskcoachlib.gui.dialog.export.ExportAsTodoTxtDialog.title
+taskcoachlib.gui.dialog.export.ExportDialog.title
+taskcoachlib.gui.dialog.version.NewVersionDialog.title
+taskcoachlib.gui.dialog.version.NoVersionDialog.title
+taskcoachlib.gui.dialog.version.PrereleaseVersionDialog.title
+taskcoachlib.gui.dialog.version.VersionDialog.title
+taskcoachlib.gui.dialog.version.VersionUpToDateDialog.title
+taskcoachlib.gui.viewer.base.Viewer.title
+taskcoachlib.mailer.macmail.MailAppInfoLoader.title" class="py-name" href="#" onclick="return doclink('link-15', 'title', 'link-15');">title</a></tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">tostring</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">                              <tt class="py-name">array</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-string">'B'</tt><tt class="py-op">,</tt> <tt id="link-16" class="py-name" targets="Variable taskcoachlib.thirdparty.xdg.Mime.text=taskcoachlib.thirdparty.xdg.Mime-module.html#text"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-16', 'text', 'link-16');">text</a></tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">tostring</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">                              <tt class="py-name">array</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-string">'B'</tt><tt class="py-op">,</tt> <tt id="link-17" class="py-name" targets="Package taskcoachlib.domain.attribute.icon=taskcoachlib.domain.attribute.icon-module.html,Method taskcoachlib.domain.base.object.CompositeObject.icon()=taskcoachlib.domain.base.object.CompositeObject-class.html#icon,Method taskcoachlib.domain.base.object.Object.icon()=taskcoachlib.domain.base.object.Object-class.html#icon,Method taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject.icon()=taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject-class.html#icon,Method taskcoachlib.domain.task.task.Task.icon()=taskcoachlib.domain.task.task.Task-class.html#icon,Method taskcoachlib.gui.viewer.task.SquareTaskViewer.icon()=taskcoachlib.gui.viewer.task.SquareTaskViewer-class.html#icon,Method taskcoachlib.gui.viewer.task.TimelineViewer.icon()=taskcoachlib.gui.viewer.task.TimelineViewer-class.html#icon,Variable taskcoachlib.meta.data.icon=taskcoachlib.meta.data-module.html#icon,Method taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.icon()=taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter-class.html#icon,Method taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.icon()=taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter-class.html#icon"><a title="taskcoachlib.domain.attribute.icon
+taskcoachlib.domain.base.object.CompositeObject.icon
+taskcoachlib.domain.base.object.Object.icon
+taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject.icon
+taskcoachlib.domain.task.task.Task.icon
+taskcoachlib.gui.viewer.task.SquareTaskViewer.icon
+taskcoachlib.gui.viewer.task.TimelineViewer.icon
+taskcoachlib.meta.data.icon
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.icon
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.icon" class="py-name" href="#" onclick="return doclink('link-17', 'icon', 'link-17');">icon</a></tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">tostring</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">reserved1</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">                <tt class="py-name">reserved1</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">reserved2</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">                <tt class="py-name">reserved2</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">extra</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">                <tt class="py-name">extra</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">extra2</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">                <tt class="py-name">extra2</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">            <tt id="link-18" class="py-name"><a title="taskcoachlib.command
+taskcoachlib.patterns.command" class="py-name" href="#" onclick="return doclink('link-18', 'command', 'link-11');">command</a></tt> <tt class="py-op">=</tt> <tt class="py-name">struct</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="taskcoachlib.iphone.protocol.BaseItem.pack
+taskcoachlib.iphone.protocol.CompositeItem.pack
+taskcoachlib.iphone.protocol.DataItem.pack
+taskcoachlib.iphone.protocol.DateItem.pack
+taskcoachlib.iphone.protocol.DateTimeItem.pack
+taskcoachlib.iphone.protocol.FixedSizeStringItem.pack
+taskcoachlib.iphone.protocol.InfiniteDateTimeItem.pack
+taskcoachlib.iphone.protocol.IntegerItem.pack
+taskcoachlib.iphone.protocol.ListItem.pack
+taskcoachlib.iphone.protocol.State.pack
+taskcoachlib.iphone.protocol.StringItem.pack" class="py-name" href="#" onclick="return doclink('link-19', 'pack', 'link-12');">pack</a></tt><tt class="py-op">(</tt><tt class="py-string">"ILLL1024s1024s1024s1024s1024sLL"</tt><tt class="py-op">,</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">                                  <tt id="link-20" class="py-name"><a title="taskcoachlib.command
+taskcoachlib.patterns.command" class="py-name" href="#" onclick="return doclink('link-20', 'command', 'link-11');">command</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">                                  <tt id="link-21" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-21', 'id', 'link-14');">id</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">                                  <tt class="py-name">timeout</tt><tt class="py-op">,</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">                                  <tt class="py-name">longdata</tt><tt class="py-op">,</tt> <tt class="py-comment">#LngData2</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">                                  <tt class="py-name">array</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-string">'B'</tt><tt class="py-op">,</tt> <tt id="link-22" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportAsCSVDialog.title
+taskcoachlib.gui.dialog.export.ExportAsHTMLDialog.title
+taskcoachlib.gui.dialog.export.ExportAsICalendarDialog.title
+taskcoachlib.gui.dialog.export.ExportAsPDFDialog.title
+taskcoachlib.gui.dialog.export.ExportAsTodoTxtDialog.title
+taskcoachlib.gui.dialog.export.ExportDialog.title
+taskcoachlib.gui.dialog.version.NewVersionDialog.title
+taskcoachlib.gui.dialog.version.NoVersionDialog.title
+taskcoachlib.gui.dialog.version.PrereleaseVersionDialog.title
+taskcoachlib.gui.dialog.version.VersionDialog.title
+taskcoachlib.gui.dialog.version.VersionUpToDateDialog.title
+taskcoachlib.gui.viewer.base.Viewer.title
+taskcoachlib.mailer.macmail.MailAppInfoLoader.title" class="py-name" href="#" onclick="return doclink('link-22', 'title', 'link-15');">title</a></tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">tostring</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">                                  <tt class="py-name">array</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-string">'B'</tt><tt class="py-op">,</tt> <tt id="link-23" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-23', 'text', 'link-16');">text</a></tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">tostring</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">                                  <tt class="py-name">array</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-string">'B'</tt><tt class="py-op">,</tt> <tt id="link-24" class="py-name"><a title="taskcoachlib.domain.attribute.icon
+taskcoachlib.domain.base.object.CompositeObject.icon
+taskcoachlib.domain.base.object.Object.icon
+taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject.icon
+taskcoachlib.domain.task.task.Task.icon
+taskcoachlib.gui.viewer.task.SquareTaskViewer.icon
+taskcoachlib.gui.viewer.task.TimelineViewer.icon
+taskcoachlib.meta.data.icon
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.icon
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.icon" class="py-name" href="#" onclick="return doclink('link-24', 'icon', 'link-17');">icon</a></tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">tostring</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">                                  <tt class="py-name">array</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-string">'B'</tt><tt class="py-op">,</tt> <tt class="py-name">extra</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">tostring</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">                                  <tt class="py-name">array</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-string">'B'</tt><tt class="py-op">,</tt> <tt class="py-name">extra2</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">tostring</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">                                  <tt class="py-name">reserved1</tt><tt class="py-op">,</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">                                  <tt class="py-name">reserved2</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-name">command_pack</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-string">"B"</tt><tt class="py-op">,</tt> <tt id="link-25" class="py-name"><a title="taskcoachlib.command
+taskcoachlib.patterns.command" class="py-name" href="#" onclick="return doclink('link-25', 'command', 'link-11');">command</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-name">command_info</tt> <tt class="py-op">=</tt> <tt class="py-name">command_pack</tt><tt class="py-op">.</tt><tt class="py-name">buffer_info</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">         </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-name">cd</tt> <tt class="py-op">=</tt> <tt class="py-name">struct</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="taskcoachlib.iphone.protocol.BaseItem.pack
+taskcoachlib.iphone.protocol.CompositeItem.pack
+taskcoachlib.iphone.protocol.DataItem.pack
+taskcoachlib.iphone.protocol.DateItem.pack
+taskcoachlib.iphone.protocol.DateTimeItem.pack
+taskcoachlib.iphone.protocol.FixedSizeStringItem.pack
+taskcoachlib.iphone.protocol.InfiniteDateTimeItem.pack
+taskcoachlib.iphone.protocol.IntegerItem.pack
+taskcoachlib.iphone.protocol.ListItem.pack
+taskcoachlib.iphone.protocol.State.pack
+taskcoachlib.iphone.protocol.StringItem.pack" class="py-name" href="#" onclick="return doclink('link-26', 'pack', 'link-12');">pack</a></tt><tt class="py-op">(</tt><tt class="py-string">"LLP"</tt><tt class="py-op">,</tt> <tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-name">command_info</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">command_info</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-name">cd_pack</tt> <tt class="py-op">=</tt> <tt class="py-name">array</tt><tt class="py-op">.</tt><tt class="py-name">array</tt><tt class="py-op">(</tt><tt class="py-string">"B"</tt><tt class="py-op">,</tt> <tt class="py-name">cd</tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-name">cd_info</tt> <tt class="py-op">=</tt> <tt class="py-name">cd_pack</tt><tt class="py-op">.</tt><tt class="py-name">buffer_info</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">         </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">         </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-name">hwnd</tt> <tt class="py-op">=</tt> <tt class="py-name">win32gui</tt><tt class="py-op">.</tt><tt class="py-name">FindWindow</tt><tt class="py-op">(</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-string">'Snarl'</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">hwnd</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">win32api</tt><tt class="py-op">.</tt><tt class="py-name">SendMessage</tt><tt class="py-op">(</tt><tt class="py-name">hwnd</tt><tt class="py-op">,</tt> <tt class="py-name">win32con</tt><tt class="py-op">.</tt><tt class="py-name">WM_COPYDATA</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">cd_info</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-27" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.False=taskcoachlib.thirdparty.chardet.constants-module.html#False"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-27', 'False', 'link-27');">False</a></tt> </tt>
+</div></div><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"> </tt>
+<a name="snGetVersion"></a><div id="snGetVersion-def"><a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-comment">#deviation from spec: Python doesn't do references.</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt> <a class="py-toggle" href="#" id="snGetVersion-toggle" onclick="return toggle('snGetVersion');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.snarl-module.html#snGetVersion">snGetVersion</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="snGetVersion-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="snGetVersion-expanded"><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">    <tt class="py-name">hr</tt> <tt class="py-op">=</tt> <tt id="link-28" class="py-name" targets="Class taskcoachlib.thirdparty.snarl.SNARL_COMMANDS=taskcoachlib.thirdparty.snarl.SNARL_COMMANDS-class.html"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-28', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Static Method taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.sendCommand()=taskcoachlib.thirdparty.snarl.SNARL_COMMANDS-class.html#sendCommand"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.sendCommand" class="py-name" href="#" onclick="return doclink('link-29', 'sendCommand', 'link-29');">sendCommand</a></tt><tt class="py-op">(</tt><tt id="link-30" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-30', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_GET_VERSION" class="py-name" href="#" onclick="return doclink('link-31', 'SNARL_GET_VERSION', 'link-4');">SNARL_GET_VERSION</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">hr</tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-name">ver</tt> <tt class="py-op">=</tt> <tt class="py-name">cast</tt><tt class="py-op">(</tt><tt class="py-name">hr</tt><tt class="py-op">,</tt> <tt class="py-name">POINTER</tt><tt class="py-op">(</tt><tt class="py-name">c_byte</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt class="py-name">ver</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">ver</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-32" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-32', 'False', 'link-27');">False</a></tt> </tt>
+</div><a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"> </tt>
+<a name="snShowMessage"></a><div id="snShowMessage-def"><a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-comment">#deviation from spec: sound is an optional parameter.</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt> <a class="py-toggle" href="#" id="snShowMessage-toggle" onclick="return toggle('snShowMessage');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.snarl-module.html#snShowMessage">snShowMessage</a><tt class="py-op">(</tt><tt class="py-param">title</tt><tt class="py-op">,</tt> <tt class="py-param">text</tt><tt class="py-op">,</tt> <tt class="py-param">timeout</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-param">iconPath</tt><tt class="py-op">=</tt><tt class="py-string">""</tt><tt class="py-op">,</tt> <tt class="py-param">reply</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-param">reply_msg</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-param">sound</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="snShowMessage-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="snShowMessage-expanded"><a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-33" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportAsCSVDialog.title
+taskcoachlib.gui.dialog.export.ExportAsHTMLDialog.title
+taskcoachlib.gui.dialog.export.ExportAsICalendarDialog.title
+taskcoachlib.gui.dialog.export.ExportAsPDFDialog.title
+taskcoachlib.gui.dialog.export.ExportAsTodoTxtDialog.title
+taskcoachlib.gui.dialog.export.ExportDialog.title
+taskcoachlib.gui.dialog.version.NewVersionDialog.title
+taskcoachlib.gui.dialog.version.NoVersionDialog.title
+taskcoachlib.gui.dialog.version.PrereleaseVersionDialog.title
+taskcoachlib.gui.dialog.version.VersionDialog.title
+taskcoachlib.gui.dialog.version.VersionUpToDateDialog.title
+taskcoachlib.gui.viewer.base.Viewer.title
+taskcoachlib.mailer.macmail.MailAppInfoLoader.title" class="py-name" href="#" onclick="return doclink('link-33', 'title', 'link-15');">title</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-keyword">or</tt> <tt id="link-34" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-34', 'text', 'link-16');">text</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-35" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-35', 'False', 'link-27');">False</a></tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">sound</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-36" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-36', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.sendCommand" class="py-name" href="#" onclick="return doclink('link-37', 'sendCommand', 'link-29');">sendCommand</a></tt><tt class="py-op">(</tt><tt id="link-38" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-38', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_SHOW" class="py-name" href="#" onclick="return doclink('link-39', 'SNARL_SHOW', 'link-0');">SNARL_SHOW</a></tt><tt class="py-op">,</tt> <tt class="py-name">reply</tt><tt class="py-op">,</tt> <tt class="py-name">timeout</tt><tt class="py-op">,</tt> <tt class="py-name">reply_msg</tt><tt class="py-op">,</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">                        <tt id="link-40" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportAsCSVDialog.title
+taskcoachlib.gui.dialog.export.ExportAsHTMLDialog.title
+taskcoachlib.gui.dialog.export.ExportAsICalendarDialog.title
+taskcoachlib.gui.dialog.export.ExportAsPDFDialog.title
+taskcoachlib.gui.dialog.export.ExportAsTodoTxtDialog.title
+taskcoachlib.gui.dialog.export.ExportDialog.title
+taskcoachlib.gui.dialog.version.NewVersionDialog.title
+taskcoachlib.gui.dialog.version.NoVersionDialog.title
+taskcoachlib.gui.dialog.version.PrereleaseVersionDialog.title
+taskcoachlib.gui.dialog.version.VersionDialog.title
+taskcoachlib.gui.dialog.version.VersionUpToDateDialog.title
+taskcoachlib.gui.viewer.base.Viewer.title
+taskcoachlib.mailer.macmail.MailAppInfoLoader.title" class="py-name" href="#" onclick="return doclink('link-40', 'title', 'link-15');">title</a></tt><tt class="py-op">,</tt><tt id="link-41" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-41', 'text', 'link-16');">text</a></tt><tt class="py-op">,</tt><tt class="py-name">iconPath</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-42" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-42', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.sendCommand" class="py-name" href="#" onclick="return doclink('link-43', 'sendCommand', 'link-29');">sendCommand</a></tt><tt class="py-op">(</tt><tt id="link-44" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-44', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_SHOW" class="py-name" href="#" onclick="return doclink('link-45', 'SNARL_SHOW', 'link-0');">SNARL_SHOW</a></tt><tt class="py-op">,</tt> <tt class="py-name">reply</tt><tt class="py-op">,</tt> <tt class="py-name">timeout</tt><tt class="py-op">,</tt> <tt class="py-name">reply_msg</tt><tt class="py-op">,</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">                        <tt id="link-46" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportAsCSVDialog.title
+taskcoachlib.gui.dialog.export.ExportAsHTMLDialog.title
+taskcoachlib.gui.dialog.export.ExportAsICalendarDialog.title
+taskcoachlib.gui.dialog.export.ExportAsPDFDialog.title
+taskcoachlib.gui.dialog.export.ExportAsTodoTxtDialog.title
+taskcoachlib.gui.dialog.export.ExportDialog.title
+taskcoachlib.gui.dialog.version.NewVersionDialog.title
+taskcoachlib.gui.dialog.version.NoVersionDialog.title
+taskcoachlib.gui.dialog.version.PrereleaseVersionDialog.title
+taskcoachlib.gui.dialog.version.VersionDialog.title
+taskcoachlib.gui.dialog.version.VersionUpToDateDialog.title
+taskcoachlib.gui.viewer.base.Viewer.title
+taskcoachlib.mailer.macmail.MailAppInfoLoader.title" class="py-name" href="#" onclick="return doclink('link-46', 'title', 'link-15');">title</a></tt><tt class="py-op">,</tt><tt id="link-47" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-47', 'text', 'link-16');">text</a></tt><tt class="py-op">,</tt><tt class="py-name">iconPath</tt><tt class="py-op">,</tt><tt class="py-name">sound</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="snUpdateMessage"></a><div id="snUpdateMessage-def"><a name="L90"></a><tt class="py-lineno"> 90</tt> <a class="py-toggle" href="#" id="snUpdateMessage-toggle" onclick="return toggle('snUpdateMessage');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.snarl-module.html#snUpdateMessage">snUpdateMessage</a><tt class="py-op">(</tt><tt class="py-param">id</tt><tt class="py-op">,</tt> <tt class="py-param">title</tt><tt class="py-op">,</tt> <tt class="py-param">text</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="snUpdateMessage-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="snUpdateMessage-expanded"><a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-48" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-48', 'id', 'link-14');">id</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-keyword">or</tt> <tt id="link-49" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportAsCSVDialog.title
+taskcoachlib.gui.dialog.export.ExportAsHTMLDialog.title
+taskcoachlib.gui.dialog.export.ExportAsICalendarDialog.title
+taskcoachlib.gui.dialog.export.ExportAsPDFDialog.title
+taskcoachlib.gui.dialog.export.ExportAsTodoTxtDialog.title
+taskcoachlib.gui.dialog.export.ExportDialog.title
+taskcoachlib.gui.dialog.version.NewVersionDialog.title
+taskcoachlib.gui.dialog.version.NoVersionDialog.title
+taskcoachlib.gui.dialog.version.PrereleaseVersionDialog.title
+taskcoachlib.gui.dialog.version.VersionDialog.title
+taskcoachlib.gui.dialog.version.VersionUpToDateDialog.title
+taskcoachlib.gui.viewer.base.Viewer.title
+taskcoachlib.mailer.macmail.MailAppInfoLoader.title" class="py-name" href="#" onclick="return doclink('link-49', 'title', 'link-15');">title</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-keyword">or</tt> <tt id="link-50" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-50', 'text', 'link-16');">text</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-51" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-51', 'False', 'link-27');">False</a></tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-52" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-52', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.sendCommand" class="py-name" href="#" onclick="return doclink('link-53', 'sendCommand', 'link-29');">sendCommand</a></tt><tt class="py-op">(</tt><tt id="link-54" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-54', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_UPDATE" class="py-name" href="#" onclick="return doclink('link-55', 'SNARL_UPDATE', 'link-2');">SNARL_UPDATE</a></tt><tt class="py-op">,</tt> <tt id="link-56" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-56', 'id', 'link-14');">id</a></tt><tt class="py-op">=</tt><tt id="link-57" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-57', 'id', 'link-14');">id</a></tt><tt class="py-op">,</tt> <tt id="link-58" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportAsCSVDialog.title
+taskcoachlib.gui.dialog.export.ExportAsHTMLDialog.title
+taskcoachlib.gui.dialog.export.ExportAsICalendarDialog.title
+taskcoachlib.gui.dialog.export.ExportAsPDFDialog.title
+taskcoachlib.gui.dialog.export.ExportAsTodoTxtDialog.title
+taskcoachlib.gui.dialog.export.ExportDialog.title
+taskcoachlib.gui.dialog.version.NewVersionDialog.title
+taskcoachlib.gui.dialog.version.NoVersionDialog.title
+taskcoachlib.gui.dialog.version.PrereleaseVersionDialog.title
+taskcoachlib.gui.dialog.version.VersionDialog.title
+taskcoachlib.gui.dialog.version.VersionUpToDateDialog.title
+taskcoachlib.gui.viewer.base.Viewer.title
+taskcoachlib.mailer.macmail.MailAppInfoLoader.title" class="py-name" href="#" onclick="return doclink('link-58', 'title', 'link-15');">title</a></tt><tt class="py-op">=</tt><tt id="link-59" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportAsCSVDialog.title
+taskcoachlib.gui.dialog.export.ExportAsHTMLDialog.title
+taskcoachlib.gui.dialog.export.ExportAsICalendarDialog.title
+taskcoachlib.gui.dialog.export.ExportAsPDFDialog.title
+taskcoachlib.gui.dialog.export.ExportAsTodoTxtDialog.title
+taskcoachlib.gui.dialog.export.ExportDialog.title
+taskcoachlib.gui.dialog.version.NewVersionDialog.title
+taskcoachlib.gui.dialog.version.NoVersionDialog.title
+taskcoachlib.gui.dialog.version.PrereleaseVersionDialog.title
+taskcoachlib.gui.dialog.version.VersionDialog.title
+taskcoachlib.gui.dialog.version.VersionUpToDateDialog.title
+taskcoachlib.gui.viewer.base.Viewer.title
+taskcoachlib.mailer.macmail.MailAppInfoLoader.title" class="py-name" href="#" onclick="return doclink('link-59', 'title', 'link-15');">title</a></tt><tt class="py-op">,</tt> <tt id="link-60" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-60', 'text', 'link-16');">text</a></tt><tt class="py-op">=</tt><tt id="link-61" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-61', 'text', 'link-16');">text</a></tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt> </tt>
+</div><a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"> </tt>
+<a name="snHideMessage"></a><div id="snHideMessage-def"><a name="L95"></a><tt class="py-lineno"> 95</tt> <a class="py-toggle" href="#" id="snHideMessage-toggle" onclick="return toggle('snHideMessage');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.snarl-module.html#snHideMessage">snHideMessage</a><tt class="py-op">(</tt><tt class="py-param">id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="snHideMessage-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="snHideMessage-expanded"><a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt id="link-62" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-62', 'id', 'link-14');">id</a></tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt id="link-63" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-63', 'id', 'link-14');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-64" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-64', 'id', 'link-14');">id</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-65" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-65', 'False', 'link-27');">False</a></tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-66" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-66', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-67" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.sendCommand" class="py-name" href="#" onclick="return doclink('link-67', 'sendCommand', 'link-29');">sendCommand</a></tt><tt class="py-op">(</tt><tt id="link-68" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-68', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-69" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_HIDE" class="py-name" href="#" onclick="return doclink('link-69', 'SNARL_HIDE', 'link-1');">SNARL_HIDE</a></tt><tt class="py-op">,</tt> <tt id="link-70" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-70', 'id', 'link-14');">id</a></tt><tt class="py-op">=</tt><tt id="link-71" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-71', 'id', 'link-14');">id</a></tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt> </tt>
+</div><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"> </tt>
+<a name="snIsMessageVisible"></a><div id="snIsMessageVisible-def"><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-comment">#For some reason this ALWAYS returns -1 for all messages that were once displayed.</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt> <a class="py-toggle" href="#" id="snIsMessageVisible-toggle" onclick="return toggle('snIsMessageVisible');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.snarl-module.html#snIsMessageVisible">snIsMessageVisible</a><tt class="py-op">(</tt><tt class="py-param">id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="snIsMessageVisible-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="snIsMessageVisible-expanded"><a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-72" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-72', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-73" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.sendCommand" class="py-name" href="#" onclick="return doclink('link-73', 'sendCommand', 'link-29');">sendCommand</a></tt><tt class="py-op">(</tt><tt id="link-74" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-74', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-75" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_IS_VISIBLE" class="py-name" href="#" onclick="return doclink('link-75', 'SNARL_IS_VISIBLE', 'link-3');">SNARL_IS_VISIBLE</a></tt><tt class="py-op">,</tt> <tt id="link-76" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-76', 'id', 'link-14');">id</a></tt><tt class="py-op">=</tt><tt id="link-77" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-77', 'id', 'link-14');">id</a></tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt> </tt>
+</div><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"> </tt>
+<a name="snRegisterConfig"></a><div id="snRegisterConfig-def"><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-comment">#Untested</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt> <a class="py-toggle" href="#" id="snRegisterConfig-toggle" onclick="return toggle('snRegisterConfig');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.snarl-module.html#snRegisterConfig">snRegisterConfig</a><tt class="py-op">(</tt><tt class="py-param">hwnd</tt><tt class="py-op">,</tt> <tt class="py-param">appname</tt><tt class="py-op">,</tt> <tt class="py-param">reply_msg</tt><tt class="py-op">,</tt> <tt class="py-param">icon</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="snRegisterConfig-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="snRegisterConfig-expanded"><a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-78" class="py-name"><a title="taskcoachlib.domain.attribute.icon
+taskcoachlib.domain.base.object.CompositeObject.icon
+taskcoachlib.domain.base.object.Object.icon
+taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject.icon
+taskcoachlib.domain.task.task.Task.icon
+taskcoachlib.gui.viewer.task.SquareTaskViewer.icon
+taskcoachlib.gui.viewer.task.TimelineViewer.icon
+taskcoachlib.meta.data.icon
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.icon
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.icon" class="py-name" href="#" onclick="return doclink('link-78', 'icon', 'link-17');">icon</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-79" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-79', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-80" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.sendCommand" class="py-name" href="#" onclick="return doclink('link-80', 'sendCommand', 'link-29');">sendCommand</a></tt><tt class="py-op">(</tt><tt id="link-81" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-81', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-82" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_REGISTER_CONFIG_WINDOW" class="py-name" href="#" onclick="return doclink('link-82', 'SNARL_REGISTER_CONFIG_WINDOW', 'link-5');">SNARL_REGISTER_CONFIG_WINDOW</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">                            <tt class="py-name">longdata</tt><tt class="py-op">=</tt><tt class="py-name">hwnd</tt><tt class="py-op">,</tt> <tt id="link-83" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportAsCSVDialog.title
+taskcoachlib.gui.dialog.export.ExportAsHTMLDialog.title
+taskcoachlib.gui.dialog.export.ExportAsICalendarDialog.title
+taskcoachlib.gui.dialog.export.ExportAsPDFDialog.title
+taskcoachlib.gui.dialog.export.ExportAsTodoTxtDialog.title
+taskcoachlib.gui.dialog.export.ExportDialog.title
+taskcoachlib.gui.dialog.version.NewVersionDialog.title
+taskcoachlib.gui.dialog.version.NoVersionDialog.title
+taskcoachlib.gui.dialog.version.PrereleaseVersionDialog.title
+taskcoachlib.gui.dialog.version.VersionDialog.title
+taskcoachlib.gui.dialog.version.VersionUpToDateDialog.title
+taskcoachlib.gui.viewer.base.Viewer.title
+taskcoachlib.mailer.macmail.MailAppInfoLoader.title" class="py-name" href="#" onclick="return doclink('link-83', 'title', 'link-15');">title</a></tt><tt class="py-op">=</tt><tt class="py-name">appname</tt><tt class="py-op">,</tt> <tt id="link-84" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-84', 'id', 'link-14');">id</a></tt> <tt class="py-op">=</tt> <tt class="py-name">reply_msg</tt><tt class="py-op">)</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-85" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-85', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-86" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.sendCommand" class="py-name" href="#" onclick="return doclink('link-86', 'sendCommand', 'link-29');">sendCommand</a></tt><tt class="py-op">(</tt><tt id="link-87" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-87', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-88" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_REGISTER_CONFIG_WINDOW" class="py-name" href="#" onclick="return doclink('link-88', 'SNARL_REGISTER_CONFIG_WINDOW', 'link-5');">SNARL_REGISTER_CONFIG_WINDOW</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                            <tt class="py-name">longdata</tt><tt class="py-op">=</tt><tt class="py-name">hwnd</tt><tt class="py-op">,</tt> <tt id="link-89" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportAsCSVDialog.title
+taskcoachlib.gui.dialog.export.ExportAsHTMLDialog.title
+taskcoachlib.gui.dialog.export.ExportAsICalendarDialog.title
+taskcoachlib.gui.dialog.export.ExportAsPDFDialog.title
+taskcoachlib.gui.dialog.export.ExportAsTodoTxtDialog.title
+taskcoachlib.gui.dialog.export.ExportDialog.title
+taskcoachlib.gui.dialog.version.NewVersionDialog.title
+taskcoachlib.gui.dialog.version.NoVersionDialog.title
+taskcoachlib.gui.dialog.version.PrereleaseVersionDialog.title
+taskcoachlib.gui.dialog.version.VersionDialog.title
+taskcoachlib.gui.dialog.version.VersionUpToDateDialog.title
+taskcoachlib.gui.viewer.base.Viewer.title
+taskcoachlib.mailer.macmail.MailAppInfoLoader.title" class="py-name" href="#" onclick="return doclink('link-89', 'title', 'link-15');">title</a></tt><tt class="py-op">=</tt><tt class="py-name">appname</tt><tt class="py-op">,</tt> <tt id="link-90" class="py-name"><a title="taskcoachlib.domain.base.object.Object.id
+taskcoachlib.i18n.id
+taskcoachlib.thirdparty.apscheduler'.job.Job.id
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.id" class="py-name" href="#" onclick="return doclink('link-90', 'id', 'link-14');">id</a></tt> <tt class="py-op">=</tt> <tt class="py-name">reply_msg</tt><tt class="py-op">,</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">                            <tt id="link-91" class="py-name"><a title="taskcoachlib.domain.attribute.icon
+taskcoachlib.domain.base.object.CompositeObject.icon
+taskcoachlib.domain.base.object.Object.icon
+taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject.icon
+taskcoachlib.domain.task.task.Task.icon
+taskcoachlib.gui.viewer.task.SquareTaskViewer.icon
+taskcoachlib.gui.viewer.task.TimelineViewer.icon
+taskcoachlib.meta.data.icon
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.icon
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.icon" class="py-name" href="#" onclick="return doclink('link-91', 'icon', 'link-17');">icon</a></tt><tt class="py-op">=</tt><tt id="link-92" class="py-name"><a title="taskcoachlib.domain.attribute.icon
+taskcoachlib.domain.base.object.CompositeObject.icon
+taskcoachlib.domain.base.object.Object.icon
+taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject.icon
+taskcoachlib.domain.task.task.Task.icon
+taskcoachlib.gui.viewer.task.SquareTaskViewer.icon
+taskcoachlib.gui.viewer.task.TimelineViewer.icon
+taskcoachlib.meta.data.icon
+taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.icon
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.icon" class="py-name" href="#" onclick="return doclink('link-92', 'icon', 'link-17');">icon</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"> </tt>
+<a name="snRevokeConfig"></a><div id="snRevokeConfig-def"><a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-comment">#Untested</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt> <a class="py-toggle" href="#" id="snRevokeConfig-toggle" onclick="return toggle('snRevokeConfig');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.snarl-module.html#snRevokeConfig">snRevokeConfig</a><tt class="py-op">(</tt><tt class="py-param">hwnd</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="snRevokeConfig-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="snRevokeConfig-expanded"><a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-93" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-93', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-94" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.sendCommand" class="py-name" href="#" onclick="return doclink('link-94', 'sendCommand', 'link-29');">sendCommand</a></tt><tt class="py-op">(</tt><tt id="link-95" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-95', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-96" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_REVOKE_CONFIG_WINDOW" class="py-name" href="#" onclick="return doclink('link-96', 'SNARL_REVOKE_CONFIG_WINDOW', 'link-6');">SNARL_REVOKE_CONFIG_WINDOW</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">                        <tt class="py-name">longdata</tt><tt class="py-op">=</tt><tt class="py-name">hwnd</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"> </tt>
+<a name="snRegisterAlert"></a><div id="snRegisterAlert-def"><a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-comment">#Reference implementation - seems to do nothing?</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt> <a class="py-toggle" href="#" id="snRegisterAlert-toggle" onclick="return toggle('snRegisterAlert');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.snarl-module.html#snRegisterAlert">snRegisterAlert</a><tt class="py-op">(</tt><tt class="py-param">title</tt><tt class="py-op">,</tt> <tt class="py-param">text</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="snRegisterAlert-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="snRegisterAlert-expanded"><a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-97" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-97', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-98" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.sendCommand" class="py-name" href="#" onclick="return doclink('link-98', 'sendCommand', 'link-29');">sendCommand</a></tt><tt class="py-op">(</tt><tt id="link-99" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-99', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-100" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_REGISTER_ALERT" class="py-name" href="#" onclick="return doclink('link-100', 'SNARL_REGISTER_ALERT', 'link-7');">SNARL_REGISTER_ALERT</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">                        <tt id="link-101" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportAsCSVDialog.title
+taskcoachlib.gui.dialog.export.ExportAsHTMLDialog.title
+taskcoachlib.gui.dialog.export.ExportAsICalendarDialog.title
+taskcoachlib.gui.dialog.export.ExportAsPDFDialog.title
+taskcoachlib.gui.dialog.export.ExportAsTodoTxtDialog.title
+taskcoachlib.gui.dialog.export.ExportDialog.title
+taskcoachlib.gui.dialog.version.NewVersionDialog.title
+taskcoachlib.gui.dialog.version.NoVersionDialog.title
+taskcoachlib.gui.dialog.version.PrereleaseVersionDialog.title
+taskcoachlib.gui.dialog.version.VersionDialog.title
+taskcoachlib.gui.dialog.version.VersionUpToDateDialog.title
+taskcoachlib.gui.viewer.base.Viewer.title
+taskcoachlib.mailer.macmail.MailAppInfoLoader.title" class="py-name" href="#" onclick="return doclink('link-101', 'title', 'link-15');">title</a></tt><tt class="py-op">=</tt><tt id="link-102" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportAsCSVDialog.title
+taskcoachlib.gui.dialog.export.ExportAsHTMLDialog.title
+taskcoachlib.gui.dialog.export.ExportAsICalendarDialog.title
+taskcoachlib.gui.dialog.export.ExportAsPDFDialog.title
+taskcoachlib.gui.dialog.export.ExportAsTodoTxtDialog.title
+taskcoachlib.gui.dialog.export.ExportDialog.title
+taskcoachlib.gui.dialog.version.NewVersionDialog.title
+taskcoachlib.gui.dialog.version.NoVersionDialog.title
+taskcoachlib.gui.dialog.version.PrereleaseVersionDialog.title
+taskcoachlib.gui.dialog.version.VersionDialog.title
+taskcoachlib.gui.dialog.version.VersionUpToDateDialog.title
+taskcoachlib.gui.viewer.base.Viewer.title
+taskcoachlib.mailer.macmail.MailAppInfoLoader.title" class="py-name" href="#" onclick="return doclink('link-102', 'title', 'link-15');">title</a></tt><tt class="py-op">,</tt> <tt id="link-103" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-103', 'text', 'link-16');">text</a></tt><tt class="py-op">=</tt><tt id="link-104" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-104', 'text', 'link-16');">text</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"> </tt>
+<a name="snRevokeAlert"></a><div id="snRevokeAlert-def"><a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-comment">#Reference implementation - seems to do nothing?</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt> <a class="py-toggle" href="#" id="snRevokeAlert-toggle" onclick="return toggle('snRevokeAlert');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.snarl-module.html#snRevokeAlert">snRevokeAlert</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="snRevokeAlert-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="snRevokeAlert-expanded"><a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-105" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-105', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-106" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.sendCommand" class="py-name" href="#" onclick="return doclink('link-106', 'sendCommand', 'link-29');">sendCommand</a></tt><tt class="py-op">(</tt><tt id="link-107" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS" class="py-name" href="#" onclick="return doclink('link-107', 'SNARL_COMMANDS', 'link-28');">SNARL_COMMANDS</a></tt><tt class="py-op">.</tt><tt id="link-108" class="py-name"><a title="taskcoachlib.thirdparty.snarl.SNARL_COMMANDS.SNARL_REVOKE_ALERT" class="py-name" href="#" onclick="return doclink('link-108', 'SNARL_REVOKE_ALERT', 'link-8');">SNARL_REVOKE_ALERT</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt><tt class="py-op">==</tt><tt class="py-string">'__main__'</tt><tt class="py-op">:</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">sys</tt><tt class="py-op">,</tt> <tt class="py-name">inspect</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">optparse</tt> <tt class="py-keyword">import</tt> <tt id="link-109" class="py-name" targets="Class taskcoachlib.config.options.OptionParser=taskcoachlib.config.options.OptionParser-class.html"><a title="taskcoachlib.config.options.OptionParser" class="py-name" href="#" onclick="return doclink('link-109', 'OptionParser', 'link-109');">OptionParser</a></tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">    <tt id="link-110" class="py-name" targets="Variable taskcoachlib.persistence.googledrive.driveconnect.parser=taskcoachlib.persistence.googledrive.driveconnect-module.html#parser,Variable taskcoachlib.persistence.googletask.apiconnect.parser=taskcoachlib.persistence.googletask.apiconnect-module.html#parser,Module taskcoachlib.thirdparty.dateutil.parser=taskcoachlib.thirdparty.dateutil.parser-module.html,Class taskcoachlib.thirdparty.dateutil.parser.parser=taskcoachlib.thirdparty.dateutil.parser.parser-class.html,Variable taskcoachlib.thirdparty.dateutil.rrule.parser=taskcoachlib.thirdparty.dateutil.rrule-module.html#parser,Variable taskcoachlib.thirdparty.dateutil.tz.parser=taskcoachlib.thirdparty.dateutil.tz-module.html#parser"><a title="taskcoachlib.persistence.googledrive.driveconnect.parser
+taskcoachlib.persistence.googletask.apiconnect.parser
+taskcoachlib.thirdparty.dateutil.parser
+taskcoachlib.thirdparty.dateutil.parser.parser
+taskcoachlib.thirdparty.dateutil.rrule.parser
+taskcoachlib.thirdparty.dateutil.tz.parser" class="py-name" href="#" onclick="return doclink('link-110', 'parser', 'link-110');">parser</a></tt> <tt class="py-op">=</tt> <tt id="link-111" class="py-name"><a title="taskcoachlib.config.options.OptionParser" class="py-name" href="#" onclick="return doclink('link-111', 'OptionParser', 'link-109');">OptionParser</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">    <tt id="link-112" class="py-name"><a title="taskcoachlib.persistence.googledrive.driveconnect.parser
+taskcoachlib.persistence.googletask.apiconnect.parser
+taskcoachlib.thirdparty.dateutil.parser
+taskcoachlib.thirdparty.dateutil.parser.parser
+taskcoachlib.thirdparty.dateutil.rrule.parser
+taskcoachlib.thirdparty.dateutil.tz.parser" class="py-name" href="#" onclick="return doclink('link-112', 'parser', 'link-110');">parser</a></tt><tt class="py-op">.</tt><tt class="py-name">add_option</tt><tt class="py-op">(</tt><tt class="py-string">"-s"</tt><tt class="py-op">,</tt> <tt class="py-string">"--show"</tt><tt class="py-op">,</tt> <tt class="py-name">action</tt><tt class="py-op">=</tt><tt class="py-string">"store_const"</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">"cmd"</tt><tt class="py-op">,</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">                      <tt class="py-name">const</tt><tt class="py-op">=</tt><tt id="link-113" class="py-name" targets="Function taskcoachlib.thirdparty.snarl.snShowMessage()=taskcoachlib.thirdparty.snarl-module.html#snShowMessage"><a title="taskcoachlib.thirdparty.snarl.snShowMessage" class="py-name" href="#" onclick="return doclink('link-113', 'snShowMessage', 'link-113');">snShowMessage</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">                      <tt id="link-114" class="py-name" targets="Package taskcoachlib.help=taskcoachlib.help-module.html,Variable taskcoachlib.help.uicommand.help=taskcoachlib.help.uicommand-module.html#help"><a title="taskcoachlib.help
+taskcoachlib.help.uicommand.help" class="py-name" href="#" onclick="return doclink('link-114', 'help', 'link-114');">help</a></tt><tt class="py-op">=</tt><tt class="py-string">"Show a message with the given parameters."</tt><tt class="py-op">)</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">    <tt id="link-115" class="py-name"><a title="taskcoachlib.persistence.googledrive.driveconnect.parser
+taskcoachlib.persistence.googletask.apiconnect.parser
+taskcoachlib.thirdparty.dateutil.parser
+taskcoachlib.thirdparty.dateutil.parser.parser
+taskcoachlib.thirdparty.dateutil.rrule.parser
+taskcoachlib.thirdparty.dateutil.tz.parser" class="py-name" href="#" onclick="return doclink('link-115', 'parser', 'link-110');">parser</a></tt><tt class="py-op">.</tt><tt class="py-name">add_option</tt><tt class="py-op">(</tt><tt class="py-string">"-u"</tt><tt class="py-op">,</tt> <tt class="py-string">"--update"</tt><tt class="py-op">,</tt> <tt class="py-name">action</tt><tt class="py-op">=</tt><tt class="py-string">"store_const"</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">"cmd"</tt><tt class="py-op">,</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">                      <tt class="py-name">const</tt><tt class="py-op">=</tt><tt id="link-116" class="py-name" targets="Function taskcoachlib.thirdparty.snarl.snUpdateMessage()=taskcoachlib.thirdparty.snarl-module.html#snUpdateMessage"><a title="taskcoachlib.thirdparty.snarl.snUpdateMessage" class="py-name" href="#" onclick="return doclink('link-116', 'snUpdateMessage', 'link-116');">snUpdateMessage</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">                      <tt id="link-117" class="py-name"><a title="taskcoachlib.help
+taskcoachlib.help.uicommand.help" class="py-name" href="#" onclick="return doclink('link-117', 'help', 'link-114');">help</a></tt><tt class="py-op">=</tt><tt class="py-string">"Update a message with the given parameters."</tt><tt class="py-op">)</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">    <tt id="link-118" class="py-name"><a title="taskcoachlib.persistence.googledrive.driveconnect.parser
+taskcoachlib.persistence.googletask.apiconnect.parser
+taskcoachlib.thirdparty.dateutil.parser
+taskcoachlib.thirdparty.dateutil.parser.parser
+taskcoachlib.thirdparty.dateutil.rrule.parser
+taskcoachlib.thirdparty.dateutil.tz.parser" class="py-name" href="#" onclick="return doclink('link-118', 'parser', 'link-110');">parser</a></tt><tt class="py-op">.</tt><tt class="py-name">add_option</tt><tt class="py-op">(</tt><tt class="py-string">"-c"</tt><tt class="py-op">,</tt> <tt class="py-string">"--hide"</tt><tt class="py-op">,</tt> <tt class="py-name">action</tt><tt class="py-op">=</tt><tt class="py-string">"store_const"</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">"cmd"</tt><tt class="py-op">,</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">                      <tt class="py-name">const</tt><tt class="py-op">=</tt><tt id="link-119" class="py-name" targets="Function taskcoachlib.thirdparty.snarl.snHideMessage()=taskcoachlib.thirdparty.snarl-module.html#snHideMessage"><a title="taskcoachlib.thirdparty.snarl.snHideMessage" class="py-name" href="#" onclick="return doclink('link-119', 'snHideMessage', 'link-119');">snHideMessage</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">                      <tt id="link-120" class="py-name"><a title="taskcoachlib.help
+taskcoachlib.help.uicommand.help" class="py-name" href="#" onclick="return doclink('link-120', 'help', 'link-114');">help</a></tt><tt class="py-op">=</tt><tt class="py-string">"Hide a message with the given ID."</tt><tt class="py-op">)</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">    <tt id="link-121" class="py-name"><a title="taskcoachlib.persistence.googledrive.driveconnect.parser
+taskcoachlib.persistence.googletask.apiconnect.parser
+taskcoachlib.thirdparty.dateutil.parser
+taskcoachlib.thirdparty.dateutil.parser.parser
+taskcoachlib.thirdparty.dateutil.rrule.parser
+taskcoachlib.thirdparty.dateutil.tz.parser" class="py-name" href="#" onclick="return doclink('link-121', 'parser', 'link-110');">parser</a></tt><tt class="py-op">.</tt><tt class="py-name">add_option</tt><tt class="py-op">(</tt><tt class="py-string">"-i"</tt><tt class="py-op">,</tt> <tt class="py-string">"--id"</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">"id"</tt><tt class="py-op">,</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">                      <tt id="link-122" class="py-name"><a title="taskcoachlib.help
+taskcoachlib.help.uicommand.help" class="py-name" href="#" onclick="return doclink('link-122', 'help', 'link-114');">help</a></tt><tt class="py-op">=</tt><tt class="py-string">"ID to use for the update/hide."</tt><tt class="py-op">)</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">    <tt id="link-123" class="py-name"><a title="taskcoachlib.persistence.googledrive.driveconnect.parser
+taskcoachlib.persistence.googletask.apiconnect.parser
+taskcoachlib.thirdparty.dateutil.parser
+taskcoachlib.thirdparty.dateutil.parser.parser
+taskcoachlib.thirdparty.dateutil.rrule.parser
+taskcoachlib.thirdparty.dateutil.tz.parser" class="py-name" href="#" onclick="return doclink('link-123', 'parser', 'link-110');">parser</a></tt><tt class="py-op">.</tt><tt class="py-name">add_option</tt><tt class="py-op">(</tt><tt class="py-string">"-t"</tt><tt class="py-op">,</tt> <tt class="py-string">"--title"</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">"title"</tt><tt class="py-op">,</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">                      <tt id="link-124" class="py-name"><a title="taskcoachlib.help
+taskcoachlib.help.uicommand.help" class="py-name" href="#" onclick="return doclink('link-124', 'help', 'link-114');">help</a></tt><tt class="py-op">=</tt><tt class="py-string">"Title to use for the show/update."</tt><tt class="py-op">)</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">    <tt id="link-125" class="py-name"><a title="taskcoachlib.persistence.googledrive.driveconnect.parser
+taskcoachlib.persistence.googletask.apiconnect.parser
+taskcoachlib.thirdparty.dateutil.parser
+taskcoachlib.thirdparty.dateutil.parser.parser
+taskcoachlib.thirdparty.dateutil.rrule.parser
+taskcoachlib.thirdparty.dateutil.tz.parser" class="py-name" href="#" onclick="return doclink('link-125', 'parser', 'link-110');">parser</a></tt><tt class="py-op">.</tt><tt class="py-name">add_option</tt><tt class="py-op">(</tt><tt class="py-string">"-x"</tt><tt class="py-op">,</tt> <tt class="py-string">"--text"</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">"text"</tt><tt class="py-op">,</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">                      <tt id="link-126" class="py-name"><a title="taskcoachlib.help
+taskcoachlib.help.uicommand.help" class="py-name" href="#" onclick="return doclink('link-126', 'help', 'link-114');">help</a></tt><tt class="py-op">=</tt><tt class="py-string">"Text to use for the show/update."</tt><tt class="py-op">)</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">    <tt id="link-127" class="py-name"><a title="taskcoachlib.persistence.googledrive.driveconnect.parser
+taskcoachlib.persistence.googletask.apiconnect.parser
+taskcoachlib.thirdparty.dateutil.parser
+taskcoachlib.thirdparty.dateutil.parser.parser
+taskcoachlib.thirdparty.dateutil.rrule.parser
+taskcoachlib.thirdparty.dateutil.tz.parser" class="py-name" href="#" onclick="return doclink('link-127', 'parser', 'link-110');">parser</a></tt><tt class="py-op">.</tt><tt class="py-name">add_option</tt><tt class="py-op">(</tt><tt class="py-string">"-T"</tt><tt class="py-op">,</tt> <tt class="py-string">"--timeout"</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">"timeout"</tt><tt class="py-op">,</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">                      <tt id="link-128" class="py-name"><a title="taskcoachlib.help
+taskcoachlib.help.uicommand.help" class="py-name" href="#" onclick="return doclink('link-128', 'help', 'link-114');">help</a></tt><tt class="py-op">=</tt><tt class="py-string">"Timeout to use for the show."</tt><tt class="py-op">)</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">    <tt id="link-129" class="py-name"><a title="taskcoachlib.persistence.googledrive.driveconnect.parser
+taskcoachlib.persistence.googletask.apiconnect.parser
+taskcoachlib.thirdparty.dateutil.parser
+taskcoachlib.thirdparty.dateutil.parser.parser
+taskcoachlib.thirdparty.dateutil.rrule.parser
+taskcoachlib.thirdparty.dateutil.tz.parser" class="py-name" href="#" onclick="return doclink('link-129', 'parser', 'link-110');">parser</a></tt><tt class="py-op">.</tt><tt class="py-name">add_option</tt><tt class="py-op">(</tt><tt class="py-string">"-I"</tt><tt class="py-op">,</tt> <tt class="py-string">"--icon"</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">"iconPath"</tt><tt class="py-op">,</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">                      <tt id="link-130" class="py-name"><a title="taskcoachlib.help
+taskcoachlib.help.uicommand.help" class="py-name" href="#" onclick="return doclink('link-130', 'help', 'link-114');">help</a></tt><tt class="py-op">=</tt><tt class="py-string">"Icon to use for the show."</tt><tt class="py-op">)</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">    <tt id="link-131" class="py-name"><a title="taskcoachlib.persistence.googledrive.driveconnect.parser
+taskcoachlib.persistence.googletask.apiconnect.parser
+taskcoachlib.thirdparty.dateutil.parser
+taskcoachlib.thirdparty.dateutil.parser.parser
+taskcoachlib.thirdparty.dateutil.rrule.parser
+taskcoachlib.thirdparty.dateutil.tz.parser" class="py-name" href="#" onclick="return doclink('link-131', 'parser', 'link-110');">parser</a></tt><tt class="py-op">.</tt><tt class="py-name">add_option</tt><tt class="py-op">(</tt><tt class="py-string">"-S"</tt><tt class="py-op">,</tt> <tt class="py-string">"--sound"</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">"sound"</tt><tt class="py-op">,</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">                      <tt id="link-132" class="py-name"><a title="taskcoachlib.help
+taskcoachlib.help.uicommand.help" class="py-name" href="#" onclick="return doclink('link-132', 'help', 'link-114');">help</a></tt><tt class="py-op">=</tt><tt class="py-string">"Sound to use for the show."</tt><tt class="py-op">)</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-133" class="py-name" targets="Function taskcoachlib.thirdparty.snarl.snGetVersion()=taskcoachlib.thirdparty.snarl-module.html#snGetVersion"><a title="taskcoachlib.thirdparty.snarl.snGetVersion" class="py-name" href="#" onclick="return doclink('link-133', 'snGetVersion', 'link-133');">snGetVersion</a></tt> <tt class="py-op">==</tt> <tt id="link-134" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-134', 'False', 'link-27');">False</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Snarl not running!"</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">        <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-135" class="py-name" targets="Method taskcoachlib.thirdparty.keyring.tests.test_backend.FauxQtGui.QApplication.exit()=taskcoachlib.thirdparty.keyring.tests.test_backend.FauxQtGui.QApplication-class.html#exit"><a title="taskcoachlib.thirdparty.keyring.tests.test_backend.FauxQtGui.QApplication.exit" class="py-name" href="#" onclick="return doclink('link-135', 'exit', 'link-135');">exit</a></tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">    <tt class="py-op">(</tt><tt id="link-136" class="py-name" targets="Module taskcoachlib.config.options=taskcoachlib.config.options-module.html,Method taskcoachlib.gui.dialog.export.ColumnPicker.options()=taskcoachlib.gui.dialog.export.ColumnPicker-class.html#options,Method taskcoachlib.gui.dialog.export.ExportDialog.options()=taskcoachlib.gui.dialog.export.ExportDialog-class.html#options,Method taskcoachlib.gui.dialog.export.SelectionOnlyCheckBox.options()=taskcoachlib.gui.dialog.export.SelectionOnlyCheckBox-class.html#options,Method taskcoachlib.gui.dialog.export.SeparateCSSCheckBox.options()=taskcoachlib.gui.dialog.export.SeparateCSSCheckBox-class.html#options,Method taskcoachlib.gui.dialog.export.SeparateDateAndTimeColumnsCheckBox.options()=taskcoachlib.gui.dialog.export.SeparateDateAndTimeColumnsCheckBox-class.html#options,Method taskcoachlib.gui.dialog.export.ViewerPicker.options()=taskcoachlib.gui.dialog.export.ViewerPicker-class.html#options,Variable taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayPositionExpression.options=taskcoachlib.thirdparty.apscheduler%27.triggers.cron.expressions.WeekdayPositionExpression-class.html#options"><a title="taskcoachlib.config.options
+taskcoachlib.gui.dialog.export.ColumnPicker.options
+taskcoachlib.gui.dialog.export.ExportDialog.options
+taskcoachlib.gui.dialog.export.SelectionOnlyCheckBox.options
+taskcoachlib.gui.dialog.export.SeparateCSSCheckBox.options
+taskcoachlib.gui.dialog.export.SeparateDateAndTimeColumnsCheckBox.options
+taskcoachlib.gui.dialog.export.ViewerPicker.options
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayPositionExpression.options" class="py-name" href="#" onclick="return doclink('link-136', 'options', 'link-136');">options</a></tt><tt class="py-op">,</tt> <tt class="py-name">args</tt><tt class="py-op">)</tt> <tt class="py-op">=</tt> <tt id="link-137" class="py-name"><a title="taskcoachlib.persistence.googledrive.driveconnect.parser
+taskcoachlib.persistence.googletask.apiconnect.parser
+taskcoachlib.thirdparty.dateutil.parser
+taskcoachlib.thirdparty.dateutil.parser.parser
+taskcoachlib.thirdparty.dateutil.rrule.parser
+taskcoachlib.thirdparty.dateutil.tz.parser" class="py-name" href="#" onclick="return doclink('link-137', 'parser', 'link-110');">parser</a></tt><tt class="py-op">.</tt><tt id="link-138" class="py-name" targets="Method taskcoachlib.thirdparty.gntp.cli.ClientParser.parse_args()=taskcoachlib.thirdparty.gntp.cli.ClientParser-class.html#parse_args"><a title="taskcoachlib.thirdparty.gntp.cli.ClientParser.parse_args" class="py-name" href="#" onclick="return doclink('link-138', 'parse_args', 'link-138');">parse_args</a></tt><tt class="py-op">(</tt><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">argv</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-139" class="py-name"><a title="taskcoachlib.config.options
+taskcoachlib.gui.dialog.export.ColumnPicker.options
+taskcoachlib.gui.dialog.export.ExportDialog.options
+taskcoachlib.gui.dialog.export.SelectionOnlyCheckBox.options
+taskcoachlib.gui.dialog.export.SeparateCSSCheckBox.options
+taskcoachlib.gui.dialog.export.SeparateDateAndTimeColumnsCheckBox.options
+taskcoachlib.gui.dialog.export.ViewerPicker.options
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayPositionExpression.options" class="py-name" href="#" onclick="return doclink('link-139', 'options', 'link-136');">options</a></tt><tt class="py-op">.</tt><tt class="py-name">cmd</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">        <tt id="link-140" class="py-name"><a title="taskcoachlib.persistence.googledrive.driveconnect.parser
+taskcoachlib.persistence.googletask.apiconnect.parser
+taskcoachlib.thirdparty.dateutil.parser
+taskcoachlib.thirdparty.dateutil.parser.parser
+taskcoachlib.thirdparty.dateutil.rrule.parser
+taskcoachlib.thirdparty.dateutil.tz.parser" class="py-name" href="#" onclick="return doclink('link-140', 'parser', 'link-110');">parser</a></tt><tt class="py-op">.</tt><tt id="link-141" class="py-name"><a title="taskcoachlib.thirdparty.gntp.cli.ClientParser.parse_args" class="py-name" href="#" onclick="return doclink('link-141', 'parse_args', 'link-138');">parse_args</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">'-h'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">    <tt class="py-name">d</tt> <tt class="py-op">=</tt> <tt id="link-142" class="py-name"><a title="taskcoachlib.config.options
+taskcoachlib.gui.dialog.export.ColumnPicker.options
+taskcoachlib.gui.dialog.export.ExportDialog.options
+taskcoachlib.gui.dialog.export.SelectionOnlyCheckBox.options
+taskcoachlib.gui.dialog.export.SeparateCSSCheckBox.options
+taskcoachlib.gui.dialog.export.SeparateDateAndTimeColumnsCheckBox.options
+taskcoachlib.gui.dialog.export.ViewerPicker.options
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayPositionExpression.options" class="py-name" href="#" onclick="return doclink('link-142', 'options', 'link-136');">options</a></tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">.</tt><tt id="link-143" class="py-name" targets="Method taskcoachlib.domain.base.object.Object.copy()=taskcoachlib.domain.base.object.Object-class.html#copy,Method taskcoachlib.domain.date.recurrence.Recurrence.copy()=taskcoachlib.domain.date.recurrence.Recurrence-class.html#copy,Method taskcoachlib.patterns.composite.Composite.copy()=taskcoachlib.patterns.composite.Composite-class.html#copy,Method taskcoachlib.thirdparty._weakrefset.WeakSet.copy()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.Forward.copy()=taskcoachlib.thirdparty.pyparsing.Forward-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.Keyword.copy()=taskcoachlib.thirdparty.pyparsing.Keyword-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.ParseResults.copy()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.ParserElement.copy()=taskcoachlib.thirdparty.pyparsing.ParserElement-class.html#copy"><a title="taskcoachlib.domain.base.object.Object.copy
+taskcoachlib.domain.date.recurrence.Recurrence.copy
+taskcoachlib.patterns.composite.Composite.copy
+taskcoachlib.thirdparty._weakrefset.WeakSet.copy
+taskcoachlib.thirdparty.pyparsing.Forward.copy
+taskcoachlib.thirdparty.pyparsing.Keyword.copy
+taskcoachlib.thirdparty.pyparsing.ParseResults.copy
+taskcoachlib.thirdparty.pyparsing.ParserElement.copy" class="py-name" href="#" onclick="return doclink('link-143', 'copy', 'link-143');">copy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">    <tt class="py-name">cmd</tt> <tt class="py-op">=</tt> <tt id="link-144" class="py-name"><a title="taskcoachlib.config.options
+taskcoachlib.gui.dialog.export.ColumnPicker.options
+taskcoachlib.gui.dialog.export.ExportDialog.options
+taskcoachlib.gui.dialog.export.SelectionOnlyCheckBox.options
+taskcoachlib.gui.dialog.export.SeparateCSSCheckBox.options
+taskcoachlib.gui.dialog.export.SeparateDateAndTimeColumnsCheckBox.options
+taskcoachlib.gui.dialog.export.ViewerPicker.options
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayPositionExpression.options" class="py-name" href="#" onclick="return doclink('link-144', 'options', 'link-136');">options</a></tt><tt class="py-op">.</tt><tt class="py-name">cmd</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">key</tt> <tt class="py-keyword">in</tt> <tt id="link-145" class="py-name"><a title="taskcoachlib.config.options
+taskcoachlib.gui.dialog.export.ColumnPicker.options
+taskcoachlib.gui.dialog.export.ExportDialog.options
+taskcoachlib.gui.dialog.export.SelectionOnlyCheckBox.options
+taskcoachlib.gui.dialog.export.SeparateCSSCheckBox.options
+taskcoachlib.gui.dialog.export.SeparateDateAndTimeColumnsCheckBox.options
+taskcoachlib.gui.dialog.export.ViewerPicker.options
+taskcoachlib.thirdparty.apscheduler'.triggers.cron.expressions.WeekdayPositionExpression.options" class="py-name" href="#" onclick="return doclink('link-145', 'options', 'link-136');">options</a></tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">:</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">key</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-name">inspect</tt><tt class="py-op">.</tt><tt class="py-name">getargspec</tt><tt class="py-op">(</tt><tt class="py-name">cmd</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">            <tt class="py-keyword">del</tt> <tt class="py-name">d</tt><tt class="py-op">[</tt><tt class="py-name">key</tt><tt class="py-op">]</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">d</tt><tt class="py-op">[</tt><tt class="py-name">key</tt><tt class="py-op">]</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">            <tt class="py-keyword">del</tt> <tt class="py-name">d</tt><tt class="py-op">[</tt><tt class="py-name">key</tt><tt class="py-op">]</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-name">cmd</tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">d</tt><tt class="py-op">)</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">    <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-146" class="py-name"><a title="taskcoachlib.thirdparty.keyring.tests.test_backend.FauxQtGui.QApplication.exit" class="py-name" href="#" onclick="return doclink('link-146', 'exit', 'link-135');">exit</a></tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:15:01 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

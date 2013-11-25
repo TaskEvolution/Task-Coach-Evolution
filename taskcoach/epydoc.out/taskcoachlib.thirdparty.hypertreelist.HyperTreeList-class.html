@@ -1,0 +1,2292 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.hypertreelist.HyperTreeList</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.hypertreelist-module.html">Module&nbsp;hypertreelist</a> ::
+        Class&nbsp;HyperTreeList
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class HyperTreeList</h1><p class="nomargin-top"><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+wx.PyControl --+
+               |
+              <strong class="uidshort">HyperTreeList</strong>
+</pre>
+
+<hr />
+<p><a 
+  href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html" 
+  class="link">HyperTreeList</a> is a class that mimics the behaviour of 
+  `wx.gizmos.TreeListCtrl`, with almost the same base functionalities plus 
+  some more enhancements. This class does not rely on the native control, 
+  as it is a full owner-drawn tree-list control.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">id</span>=<span class="summary-sig-default">wx.ID_ANY</span>,
+        <span class="summary-sig-arg">pos</span>=<span class="summary-sig-default">wx.DefaultPosition</span>,
+        <span class="summary-sig-arg">size</span>=<span class="summary-sig-default">wx.DefaultSize</span>,
+        <span class="summary-sig-arg">style</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">agwStyle</span>=<span class="summary-sig-default">wx.TR_DEFAULT_STYLE</span>,
+        <span class="summary-sig-arg">validator</span>=<span class="summary-sig-default">wx.DefaultValidator</span>,
+        <span class="summary-sig-arg">name</span>=<span class="summary-sig-default">&quot;HyperTreeList&quot;</span>)</span><br />
+      Default class constructor.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetBuffered" class="summary-sig-name">SetBuffered</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">buffered</span>)</span><br />
+      Sets/unsets the double buffering for the header and the main window.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetBuffered">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="CalculateAndSetHeaderHeight"></a><span class="summary-sig-name">CalculateAndSetHeaderHeight</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Calculates the best header height and stores it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.CalculateAndSetHeaderHeight">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="DoHeaderLayout"></a><span class="summary-sig-name">DoHeaderLayout</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Layouts the header control.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.DoHeaderLayout">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#OnSize" class="summary-sig-name">OnSize</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``wx.EVT_SIZE`` event for <a 
+      href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html"
+      class="link">HyperTreeList</a>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.OnSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetFont" class="summary-sig-name">SetFont</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">font</span>)</span><br />
+      Sets the default font for the header window and the main window.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetFont">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetHeaderFont" class="summary-sig-name">SetHeaderFont</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">font</span>)</span><br />
+      Sets the default font for the header window..</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetHeaderFont">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetHeaderCustomRenderer" class="summary-sig-name">SetHeaderCustomRenderer</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">renderer</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Associate a custom renderer with the header - all columns will use it</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetHeaderCustomRenderer">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetAGWWindowStyleFlag" class="summary-sig-name">SetAGWWindowStyleFlag</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">agwStyle</span>)</span><br />
+      Sets the window style for L{HyperTreeList}.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetAGWWindowStyleFlag">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#GetAGWWindowStyleFlag" class="summary-sig-name">GetAGWWindowStyleFlag</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the <a 
+      href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html"
+      class="link">HyperTreeList</a> window style flag.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetAGWWindowStyleFlag">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#HasAGWFlag" class="summary-sig-name">HasAGWFlag</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">flag</span>)</span><br />
+      Returns whether a flag is present in the <a 
+      href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html"
+      class="link">HyperTreeList</a> style.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.HasAGWFlag">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetBackgroundColour" class="summary-sig-name">SetBackgroundColour</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">colour</span>)</span><br />
+      Changes the background colour of L{HyperTreeList}.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetBackgroundColour">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetForegroundColour" class="summary-sig-name">SetForegroundColour</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">colour</span>)</span><br />
+      Changes the foreground colour of L{HyperTreeList}.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetForegroundColour">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetColumnWidth" class="summary-sig-name">SetColumnWidth</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>,
+        <span class="summary-sig-arg">width</span>)</span><br />
+      Sets the column width, in pixels.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnWidth">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#GetColumnWidth" class="summary-sig-name">GetColumnWidth</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>)</span><br />
+      Returns the column width, in pixels.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetColumnWidth">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetColumnText" class="summary-sig-name">SetColumnText</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>,
+        <span class="summary-sig-arg">text</span>)</span><br />
+      Sets the column text label.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnText">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#GetColumnText" class="summary-sig-name">GetColumnText</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>)</span><br />
+      Returns the column text label.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetColumnText">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#AddColumn" class="summary-sig-name">AddColumn</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">text</span>,
+        <span class="summary-sig-arg">width</span>=<span class="summary-sig-default">_DEFAULT_COL_WIDTH</span>,
+        <span class="summary-sig-arg">flag</span>=<span class="summary-sig-default">wx.ALIGN_LEFT</span>,
+        <span class="summary-sig-arg">image</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">shown</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">colour</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">edit</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Appends a column to the L{HyperTreeList}.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.AddColumn">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#AddColumnInfo" class="summary-sig-name">AddColumnInfo</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">colInfo</span>)</span><br />
+      Appends a column to the <a 
+      href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html"
+      class="link">HyperTreeList</a>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.AddColumnInfo">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#InsertColumnInfo" class="summary-sig-name">InsertColumnInfo</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">before</span>,
+        <span class="summary-sig-arg">colInfo</span>)</span><br />
+      Inserts a column to the <a 
+      href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html"
+      class="link">HyperTreeList</a> at the position specified by `before`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.InsertColumnInfo">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#InsertColumn" class="summary-sig-name">InsertColumn</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">before</span>,
+        <span class="summary-sig-arg">text</span>,
+        <span class="summary-sig-arg">width</span>=<span class="summary-sig-default">_DEFAULT_COL_WIDTH</span>,
+        <span class="summary-sig-arg">flag</span>=<span class="summary-sig-default">wx.ALIGN_LEFT</span>,
+        <span class="summary-sig-arg">image</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">shown</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">colour</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">edit</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Inserts a column to the L{HyperTreeList} at the position specified
+by `before`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.InsertColumn">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#RemoveColumn" class="summary-sig-name">RemoveColumn</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>)</span><br />
+      Removes a column from the <a 
+      href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html"
+      class="link">HyperTreeList</a>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.RemoveColumn">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetColumn" class="summary-sig-name">SetColumn</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>,
+        <span class="summary-sig-arg">colInfo</span>)</span><br />
+      Sets a column using an instance of <a 
+      href="taskcoachlib.thirdparty.hypertreelist.TreeListColumnInfo-class.html"
+      class="link">TreeListColumnInfo</a>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumn">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#GetColumn" class="summary-sig-name">GetColumn</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>)</span><br />
+      Returns an instance of <a 
+      href="taskcoachlib.thirdparty.hypertreelist.TreeListColumnInfo-class.html"
+      class="link">TreeListColumnInfo</a> containing column information.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetColumn">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetColumnImage" class="summary-sig-name">SetColumnImage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>,
+        <span class="summary-sig-arg">image</span>)</span><br />
+      Sets an image on the specified column.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnImage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#GetColumnImage" class="summary-sig-name">GetColumnImage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>)</span><br />
+      Returns the image assigned to the specified column.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetColumnImage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetColumnEditable" class="summary-sig-name">SetColumnEditable</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>,
+        <span class="summary-sig-arg">edit</span>)</span><br />
+      Sets the column as editable or non-editable.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnEditable">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetColumnShown" class="summary-sig-name">SetColumnShown</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>,
+        <span class="summary-sig-arg">shown</span>)</span><br />
+      Sets the column as shown or hidden.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnShown">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#IsColumnEditable" class="summary-sig-name">IsColumnEditable</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>)</span><br />
+      Returns ``True`` if the column is editable, ``False`` otherwise.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.IsColumnEditable">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#IsColumnShown" class="summary-sig-name">IsColumnShown</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>)</span><br />
+      Returns ``True`` if the column is shown, ``False`` otherwise.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.IsColumnShown">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetColumnAlignment" class="summary-sig-name">SetColumnAlignment</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>,
+        <span class="summary-sig-arg">flag</span>)</span><br />
+      Sets the column text alignment.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnAlignment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#GetColumnAlignment" class="summary-sig-name">GetColumnAlignment</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>)</span><br />
+      Returns the column text alignment.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetColumnAlignment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetColumnColour" class="summary-sig-name">SetColumnColour</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>,
+        <span class="summary-sig-arg">colour</span>)</span><br />
+      Sets the column text colour.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnColour">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#GetColumnColour" class="summary-sig-name">GetColumnColour</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>)</span><br />
+      Returns the column text colour.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetColumnColour">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetColumnFont" class="summary-sig-name">SetColumnFont</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>,
+        <span class="summary-sig-arg">font</span>)</span><br />
+      Sets the column text font.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnFont">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#GetColumnFont" class="summary-sig-name">GetColumnFont</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>)</span><br />
+      Returns the column text font.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetColumnFont">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#Refresh" class="summary-sig-name">Refresh</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">erase</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">rect</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Causes this window, and all of its children recursively (except under wxGTK1
+where this is not implemented), to be repainted.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.Refresh">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="SetFocus"></a><span class="summary-sig-name">SetFocus</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      This sets the window to receive keyboard input.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetFocus">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetHeaderWindow"></a><span class="summary-sig-name">GetHeaderWindow</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the header window, an instance of <a 
+      href="taskcoachlib.thirdparty.hypertreelist.TreeListHeaderWindow-class.html"
+      class="link">TreeListHeaderWindow</a>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetHeaderWindow">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetMainWindow"></a><span class="summary-sig-name">GetMainWindow</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the main window, an instance of <a 
+      href="taskcoachlib.thirdparty.hypertreelist.TreeListMainWindow-class.html"
+      class="link">TreeListMainWindow</a>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetMainWindow">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#DoGetBestSize" class="summary-sig-name">DoGetBestSize</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Gets the size which best suits the window: for a control, it would be
+      the minimal size which doesn't truncate the control, for a panel - 
+      the same size as it would have after a call to `Fit()`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.DoGetBestSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#OnGetItemText" class="summary-sig-name">OnGetItemText</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>,
+        <span class="summary-sig-arg">column</span>)</span><br />
+      This function **must** be overloaded in the derived class for a 
+      control with ``TR_VIRTUAL`` style.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.OnGetItemText">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SortChildren" class="summary-sig-name">SortChildren</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>)</span><br />
+      Sorts the children of the given item using <a 
+      href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#OnCompareItems"
+      class="link">OnCompareItems</a> method of <a 
+      href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html"
+      class="link">HyperTreeList</a>.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SortChildren">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#OnCompareItems" class="summary-sig-name">OnCompareItems</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item1</span>,
+        <span class="summary-sig-arg">item2</span>)</span><br />
+      Returns whether 2 items have the same text.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.OnCompareItems">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#CreateEditCtrl" class="summary-sig-name">CreateEditCtrl</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">item</span>,
+        <span class="summary-sig-arg">column</span>)</span><br />
+      Create an edit control for editing a label of an item.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.CreateEditCtrl">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#GetTextCtrlStyle" class="summary-sig-name">GetTextCtrlStyle</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>)</span><br />
+      Return the style to use for the text control that is used to edit 
+      labels of items.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetTextCtrlStyle">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#GetTextCtrlAlignmentStyle" class="summary-sig-name">GetTextCtrlAlignmentStyle</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">column</span>)</span><br />
+      Return the alignment style to use for the text control that is used 
+      to edit labels of items.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetTextCtrlAlignmentStyle">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS METHODS ==================== -->
+<a name="section-ClassMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#GetClassDefaultAttributes" class="summary-sig-name">GetClassDefaultAttributes</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the default font and colours which are used by the control.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetClassDefaultAttributes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parent</span>,
+        <span class="sig-arg">id</span>=<span class="sig-default">wx.ID_ANY</span>,
+        <span class="sig-arg">pos</span>=<span class="sig-default">wx.DefaultPosition</span>,
+        <span class="sig-arg">size</span>=<span class="sig-default">wx.DefaultSize</span>,
+        <span class="sig-arg">style</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">agwStyle</span>=<span class="sig-default">wx.TR_DEFAULT_STYLE</span>,
+        <span class="sig-arg">validator</span>=<span class="sig-default">wx.DefaultValidator</span>,
+        <span class="sig-arg">name</span>=<span class="sig-default">&quot;HyperTreeList&quot;</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Default class constructor.
+
+:param `parent`: parent window. Must not be ``None``;
+:param `id`: window identifier. A value of -1 indicates a default value;
+:param `pos`: the control position. A value of (-1, -1) indicates a default position,
+ chosen by either the windowing system or wxPython, depending on platform;
+:param `size`: the control size. A value of (-1, -1) indicates a default size,
+ chosen by either the windowing system or wxPython, depending on platform;
+:param `style`: the underlying `wx.PyScrolledWindow` style;
+:param `agwStyle`: the AGW-specific L{HyperTreeList} window style. This can be a combination
+ of the following bits:
+
+ ============================== =========== ==================================================
+ Window Styles                  Hex Value   Description
+ ============================== =========== ==================================================
+ ``TR_NO_BUTTONS``                      0x0 For convenience to document that no buttons are to be drawn.
+ ``TR_SINGLE``                          0x0 For convenience to document that only one item may be selected at a time. Selecting another item causes the current selection, if any, to be deselected. This is the default.
+ ``TR_HAS_BUTTONS``                     0x1 Use this style to show + and - buttons to the left of parent items.
+ ``TR_NO_LINES``                        0x4 Use this style to hide vertical level connectors.
+ ``TR_LINES_AT_ROOT``                   0x8 Use this style to show lines between root nodes. Only applicable if ``TR_HIDE_ROOT`` is set and ``TR_NO_LINES`` is not set.
+ ``TR_DEFAULT_STYLE``                   0x9 The set of flags that are closest to the defaults for the native control for a particular toolkit.
+ ``TR_TWIST_BUTTONS``                  0x10 Use old Mac-twist style buttons.
+ ``TR_MULTIPLE``                       0x20 Use this style to allow a range of items to be selected. If a second range is selected, the current range, if any, is deselected.
+ ``TR_EXTENDED``                       0x40 Use this style to allow disjoint items to be selected. (Only partially implemented; may not work in all cases).
+ ``TR_HAS_VARIABLE_ROW_HEIGHT``        0x80 Use this style to cause row heights to be just big enough to fit the content. If not set, all rows use the largest row height. The default is that this flag is unset.
+ ``TR_EDIT_LABELS``                   0x200 Use this style if you wish the user to be able to edit labels in the tree control.
+ ``TR_ROW_LINES``                     0x400 Use this style to draw a contrasting border between displayed rows.
+ ``TR_HIDE_ROOT``                     0x800 Use this style to suppress the display of the root node, effectively causing the first-level nodes to appear as a series of root nodes.
+ ``TR_COLUMN_LINES``                 0x1000 Use this style to draw a contrasting border between displayed columns.
+ ``TR_FULL_ROW_HIGHLIGHT``           0x2000 Use this style to have the background colour and the selection highlight extend  over the entire horizontal row of the tree control window.
+ ``TR_AUTO_CHECK_CHILD``             0x4000 Only meaningful foe checkbox-type items: when a parent item is checked/unchecked its children are checked/unchecked as well.
+ ``TR_AUTO_TOGGLE_CHILD``            0x8000 Only meaningful foe checkbox-type items: when a parent item is checked/unchecked its children are toggled accordingly.
+ ``TR_AUTO_CHECK_PARENT``           0x10000 Only meaningful foe checkbox-type items: when a child item is checked/unchecked its parent item is checked/unchecked as well.
+ ``TR_ALIGN_WINDOWS``               0x20000 Flag used to align windows (in items with windows) at the same horizontal position.
+ ``TR_NO_HEADER``                   0x40000 Use this style to hide the columns header.
+ ``TR_ELLIPSIZE_LONG_ITEMS``        0x80000 Flag used to ellipsize long items when the horizontal space for L{CustomTreeCtrl} is low.
+ ``TR_VIRTUAL``                    0x100000 L{HyperTreeList} will have virtual behaviour.
+ ============================== =========== ==================================================
+
+:param `validator`: window validator;
+:param `name`: window name.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetBuffered"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetBuffered</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">buffered</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetBuffered">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets/unsets the double buffering for the header and the main 
+  window.</p>
+  <p>:param `buffered`: ``True`` to use double-buffering, ``False`` 
+  otherwise.</p>
+  <p>:note: Currently we are using double-buffering only on Windows XP.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnSize"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnSize</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.OnSize">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``wx.EVT_SIZE`` event for <a 
+  href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html" 
+  class="link">HyperTreeList</a>.</p>
+  <p>:param `event`: a `wx.SizeEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetFont"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetFont</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">font</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetFont">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the default font for the header window and the main window.</p>
+  <p>:param `font`: a valid `wx.Font` object.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetHeaderFont"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetHeaderFont</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">font</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetHeaderFont">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the default font for the header window..</p>
+  <p>:param `font`: a valid `wx.Font` object.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetHeaderCustomRenderer"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetHeaderCustomRenderer</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">renderer</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetHeaderCustomRenderer">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Associate a custom renderer with the header - all columns will use 
+  it</p>
+  <p>:param `renderer`: a class able to correctly render header buttons</p>
+  <p>:note: the renderer class **must** implement the method 
+  `DrawHeaderButton`</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetAGWWindowStyleFlag"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetAGWWindowStyleFlag</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">agwStyle</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetAGWWindowStyleFlag">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Sets the window style for L{HyperTreeList}.
+
+:param `agwStyle`: can be a combination of the following bits:
+
+ ============================== =========== ==================================================
+ Window Styles                  Hex Value   Description
+ ============================== =========== ==================================================
+ ``TR_NO_BUTTONS``                      0x0 For convenience to document that no buttons are to be drawn.
+ ``TR_SINGLE``                          0x0 For convenience to document that only one item may be selected at a time. Selecting another item causes the current selection, if any, to be deselected. This is the default.
+ ``TR_HAS_BUTTONS``                     0x1 Use this style to show + and - buttons to the left of parent items.
+ ``TR_NO_LINES``                        0x4 Use this style to hide vertical level connectors.
+ ``TR_LINES_AT_ROOT``                   0x8 Use this style to show lines between root nodes. Only applicable if ``TR_HIDE_ROOT`` is set and ``TR_NO_LINES`` is not set.
+ ``TR_DEFAULT_STYLE``                   0x9 The set of flags that are closest to the defaults for the native control for a particular toolkit.
+ ``TR_TWIST_BUTTONS``                  0x10 Use old Mac-twist style buttons.
+ ``TR_MULTIPLE``                       0x20 Use this style to allow a range of items to be selected. If a second range is selected, the current range, if any, is deselected.
+ ``TR_EXTENDED``                       0x40 Use this style to allow disjoint items to be selected. (Only partially implemented; may not work in all cases).
+ ``TR_HAS_VARIABLE_ROW_HEIGHT``        0x80 Use this style to cause row heights to be just big enough to fit the content. If not set, all rows use the largest row height. The default is that this flag is unset.
+ ``TR_EDIT_LABELS``                   0x200 Use this style if you wish the user to be able to edit labels in the tree control.
+ ``TR_ROW_LINES``                     0x400 Use this style to draw a contrasting border between displayed rows.
+ ``TR_HIDE_ROOT``                     0x800 Use this style to suppress the display of the root node, effectively causing the first-level nodes to appear as a series of root nodes.
+ ``TR_COLUMN_LINES``                 0x1000 Use this style to draw a contrasting border between displayed columns.
+ ``TR_FULL_ROW_HIGHLIGHT``           0x2000 Use this style to have the background colour and the selection highlight extend  over the entire horizontal row of the tree control window.
+ ``TR_AUTO_CHECK_CHILD``             0x4000 Only meaningful foe checkbox-type items: when a parent item is checked/unchecked its children are checked/unchecked as well.
+ ``TR_AUTO_TOGGLE_CHILD``            0x8000 Only meaningful foe checkbox-type items: when a parent item is checked/unchecked its children are toggled accordingly.
+ ``TR_AUTO_CHECK_PARENT``           0x10000 Only meaningful foe checkbox-type items: when a child item is checked/unchecked its parent item is checked/unchecked as well.
+ ``TR_ALIGN_WINDOWS``               0x20000 Flag used to align windows (in items with windows) at the same horizontal position.
+ ``TR_NO_HEADER``                   0x40000 Use this style to hide the columns header.
+ ``TR_ELLIPSIZE_LONG_ITEMS``        0x80000 Flag used to ellipsize long items when the horizontal space for L{CustomTreeCtrl} is low.
+ ``TR_VIRTUAL``                    0x100000 L{HyperTreeList} will have virtual behaviour.
+ ============================== =========== ==================================================
+ 
+:note: Please note that some styles cannot be changed after the window creation
+ and that `Refresh()` might need to be be called after changing the others for
+ the change to take place immediately.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetAGWWindowStyleFlag"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetAGWWindowStyleFlag</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetAGWWindowStyleFlag">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the <a 
+  href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html" 
+  class="link">HyperTreeList</a> window style flag.</p>
+  <p>:see: <a 
+  href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetAGWWindowStyleFlag"
+  class="link">SetAGWWindowStyleFlag</a> for a list of valid window 
+  styles.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="HasAGWFlag"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">HasAGWFlag</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">flag</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.HasAGWFlag">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns whether a flag is present in the <a 
+  href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html" 
+  class="link">HyperTreeList</a> style.</p>
+  <p>:param `flag`: one of the possible <a 
+  href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html" 
+  class="link">HyperTreeList</a> window styles.</p>
+  <p>:see: <a 
+  href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#SetAGWWindowStyleFlag"
+  class="link">SetAGWWindowStyleFlag</a> for a list of possible window 
+  style flags.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetBackgroundColour"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetBackgroundColour</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">colour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetBackgroundColour">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Changes the background colour of L{HyperTreeList}.
+
+:param `colour`: the colour to be used as the background colour, pass
+ `wx.NullColour` to reset to the default colour.
+
+:note: The background colour is usually painted by the default `wx.EraseEvent`
+ event handler function under Windows and automatically under GTK.
+
+:note: Setting the background colour does not cause an immediate refresh, so
+ you may wish to call `wx.Window.ClearBackground` or `wx.Window.Refresh` after
+ calling this function.
+
+:note: Overridden from `wx.PyControl`.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetForegroundColour"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetForegroundColour</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">colour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetForegroundColour">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Changes the foreground colour of L{HyperTreeList}.
+
+:param `colour`: the colour to be used as the foreground colour, pass
+ `wx.NullColour` to reset to the default colour.
+
+:note: Overridden from `wx.PyControl`.         
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetColumnWidth"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetColumnWidth</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>,
+        <span class="sig-arg">width</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnWidth">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the column width, in pixels.</p>
+  <p>:param `column`: an integer specifying the column index; :param 
+  `width`: the new column width, in pixels.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetColumnWidth"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetColumnWidth</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetColumnWidth">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the column width, in pixels.</p>
+  <p>:param `column`: an integer specifying the column index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetColumnText"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetColumnText</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>,
+        <span class="sig-arg">text</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnText">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the column text label.</p>
+  <p>:param `column`: an integer specifying the column index; :param 
+  `text`: the new column label.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetColumnText"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetColumnText</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetColumnText">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the column text label.</p>
+  <p>:param `column`: an integer specifying the column index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="AddColumn"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">AddColumn</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">text</span>,
+        <span class="sig-arg">width</span>=<span class="sig-default">_DEFAULT_COL_WIDTH</span>,
+        <span class="sig-arg">flag</span>=<span class="sig-default">wx.ALIGN_LEFT</span>,
+        <span class="sig-arg">image</span>=<span class="sig-default">-1</span>,
+        <span class="sig-arg">shown</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">colour</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">edit</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.AddColumn">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Appends a column to the L{HyperTreeList}.
+
+:param `text`: the column text label;
+:param `width`: the column width in pixels;
+:param `flag`: the column alignment flag, one of ``wx.ALIGN_LEFT``,
+ ``wx.ALIGN_RIGHT``, ``wx.ALIGN_CENTER``;
+:param `image`: an index within the normal image list assigned to
+ L{HyperTreeList} specifying the image to use for the column;
+:param `shown`: ``True`` to show the column, ``False`` to hide it;
+:param `colour`: a valid `wx.Colour`, representing the text foreground colour
+ for the column;
+:param `edit`: ``True`` to set the column as editable, ``False`` otherwise.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="AddColumnInfo"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">AddColumnInfo</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">colInfo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.AddColumnInfo">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Appends a column to the <a 
+  href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html" 
+  class="link">HyperTreeList</a>.</p>
+  <p>:param `colInfo`: an instance of <a 
+  href="taskcoachlib.thirdparty.hypertreelist.TreeListColumnInfo-class.html"
+  class="link">TreeListColumnInfo</a>.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="InsertColumnInfo"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">InsertColumnInfo</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">before</span>,
+        <span class="sig-arg">colInfo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.InsertColumnInfo">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Inserts a column to the <a 
+  href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html" 
+  class="link">HyperTreeList</a> at the position specified by `before`.</p>
+  <p>:param `before`: the index at which we wish to insert the new column; 
+  :param `colInfo`: an instance of <a 
+  href="taskcoachlib.thirdparty.hypertreelist.TreeListColumnInfo-class.html"
+  class="link">TreeListColumnInfo</a>.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="InsertColumn"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">InsertColumn</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">before</span>,
+        <span class="sig-arg">text</span>,
+        <span class="sig-arg">width</span>=<span class="sig-default">_DEFAULT_COL_WIDTH</span>,
+        <span class="sig-arg">flag</span>=<span class="sig-default">wx.ALIGN_LEFT</span>,
+        <span class="sig-arg">image</span>=<span class="sig-default">-1</span>,
+        <span class="sig-arg">shown</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">colour</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">edit</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.InsertColumn">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Inserts a column to the L{HyperTreeList} at the position specified
+by `before`.
+
+:param `before`: the index at which we wish to insert the new column;
+:param `text`: the column text label;
+:param `width`: the column width in pixels;
+:param `flag`: the column alignment flag, one of ``wx.ALIGN_LEFT``,
+ ``wx.ALIGN_RIGHT``, ``wx.ALIGN_CENTER``;
+:param `image`: an index within the normal image list assigned to
+ L{HyperTreeList} specifying the image to use for the column;
+:param `shown`: ``True`` to show the column, ``False`` to hide it;
+:param `colour`: a valid `wx.Colour`, representing the text foreground colour
+ for the column;
+:param `edit`: ``True`` to set the column as editable, ``False`` otherwise.        
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="RemoveColumn"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">RemoveColumn</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.RemoveColumn">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Removes a column from the <a 
+  href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html" 
+  class="link">HyperTreeList</a>.</p>
+  <p>:param `column`: an integer specifying the column index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetColumn"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetColumn</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>,
+        <span class="sig-arg">colInfo</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumn">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets a column using an instance of <a 
+  href="taskcoachlib.thirdparty.hypertreelist.TreeListColumnInfo-class.html"
+  class="link">TreeListColumnInfo</a>.</p>
+  <p>:param `column`: an integer specifying the column index; :param 
+  `info`: an instance of <a 
+  href="taskcoachlib.thirdparty.hypertreelist.TreeListColumnInfo-class.html"
+  class="link">TreeListColumnInfo</a>.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetColumn"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetColumn</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetColumn">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns an instance of <a 
+  href="taskcoachlib.thirdparty.hypertreelist.TreeListColumnInfo-class.html"
+  class="link">TreeListColumnInfo</a> containing column information.</p>
+  <p>:param `column`: an integer specifying the column index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetColumnImage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetColumnImage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>,
+        <span class="sig-arg">image</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnImage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Sets an image on the specified column.
+
+:param `column`: an integer specifying the column index.
+:param `image`: an index within the normal image list assigned to
+ L{HyperTreeList} specifying the image to use for the column.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetColumnImage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetColumnImage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetColumnImage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the image assigned to the specified column.</p>
+  <p>:param `column`: an integer specifying the column index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetColumnEditable"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetColumnEditable</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>,
+        <span class="sig-arg">edit</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnEditable">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the column as editable or non-editable.</p>
+  <p>:param `column`: an integer specifying the column index; :param 
+  `edit`: ``True`` if the column should be editable, ``False`` 
+  otherwise.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetColumnShown"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetColumnShown</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>,
+        <span class="sig-arg">shown</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnShown">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Sets the column as shown or hidden.
+
+:param `column`: an integer specifying the column index;
+:param `shown`: ``True`` if the column should be shown, ``False`` if it
+ should be hidden.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="IsColumnEditable"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">IsColumnEditable</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.IsColumnEditable">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns ``True`` if the column is editable, ``False`` otherwise.</p>
+  <p>:param `column`: an integer specifying the column index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="IsColumnShown"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">IsColumnShown</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.IsColumnShown">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns ``True`` if the column is shown, ``False`` otherwise.</p>
+  <p>:param `column`: an integer specifying the column index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetColumnAlignment"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetColumnAlignment</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>,
+        <span class="sig-arg">flag</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnAlignment">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Sets the column text alignment.
+
+:param `column`: an integer specifying the column index;
+:param `flag`: the alignment flag, one of ``wx.ALIGN_LEFT``, ``wx.ALIGN_RIGHT``,
+ ``wx.ALIGN_CENTER``.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetColumnAlignment"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetColumnAlignment</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetColumnAlignment">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the column text alignment.</p>
+  <p>:param `column`: an integer specifying the column index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetColumnColour"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetColumnColour</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>,
+        <span class="sig-arg">colour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnColour">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the column text colour.</p>
+  <p>:param `column`: an integer specifying the column index; :param 
+  `colour`: a valid `wx.Colour` object.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetColumnColour"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetColumnColour</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetColumnColour">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the column text colour.</p>
+  <p>:param `column`: an integer specifying the column index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetColumnFont"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetColumnFont</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>,
+        <span class="sig-arg">font</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SetColumnFont">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the column text font.</p>
+  <p>:param `column`: an integer specifying the column index; :param 
+  `font`: a valid `wx.Font` object.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetColumnFont"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetColumnFont</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetColumnFont">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the column text font.</p>
+  <p>:param `column`: an integer specifying the column index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="Refresh"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">Refresh</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">erase</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">rect</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.Refresh">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Causes this window, and all of its children recursively (except under wxGTK1
+where this is not implemented), to be repainted. 
+
+:param `erase`: If ``True``, the background will be erased;
+:param `rect`: If not ``None``, only the given rectangle will be treated as damaged.
+
+:note: Note that repainting doesn't happen immediately but only during the next
+ event loop iteration, if you need to update the window immediately you should
+ use `Update` instead.
+
+:note: Overridden from `wx.PyControl`.         
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="DoGetBestSize"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DoGetBestSize</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.DoGetBestSize">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Gets the size which best suits the window: for a control, it would be 
+  the minimal size which doesn't truncate the control, for a panel - the 
+  same size as it would have after a call to `Fit()`.</p>
+  <p>:note: Overridden from `wx.PyControl`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnGetItemText"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnGetItemText</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">item</span>,
+        <span class="sig-arg">column</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.OnGetItemText">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This function **must** be overloaded in the derived class for a 
+  control with ``TR_VIRTUAL`` style. It should return the string containing
+  the text of the given column for the specified item.</p>
+  <p>:param `item`: an instance of <a 
+  href="taskcoachlib.thirdparty.hypertreelist.TreeListItem-class.html" 
+  class="link">TreeListItem</a>; :param `column`: an integer specifying the
+  column index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SortChildren"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SortChildren</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">item</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.SortChildren">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sorts the children of the given item using <a 
+  href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html#OnCompareItems"
+  class="link">OnCompareItems</a> method of <a 
+  href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html" 
+  class="link">HyperTreeList</a>. You should override that method to change
+  the sort order (the default is ascending case-sensitive alphabetical 
+  order).</p>
+  <p>:param `item`: an instance of <a 
+  href="taskcoachlib.thirdparty.hypertreelist.TreeListItem-class.html" 
+  class="link">TreeListItem</a>;</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnCompareItems"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnCompareItems</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">item1</span>,
+        <span class="sig-arg">item2</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.OnCompareItems">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns whether 2 items have the same text.</p>
+  <p>Override this function in the derived class to change the sort order 
+  of the items in the <a 
+  href="taskcoachlib.thirdparty.hypertreelist.HyperTreeList-class.html" 
+  class="link">HyperTreeList</a>. The function should return a negative, 
+  zero or positive value if the first item is less than, equal to or 
+  greater than the second one.</p>
+  <p>:param `item1`: an instance of <a 
+  href="taskcoachlib.thirdparty.hypertreelist.TreeListItem-class.html" 
+  class="link">TreeListItem</a>; :param `item2`: another instance of <a 
+  href="taskcoachlib.thirdparty.hypertreelist.TreeListItem-class.html" 
+  class="link">TreeListItem</a>.</p>
+  <p>:note: The base class version compares items alphabetically.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="CreateEditCtrl"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CreateEditCtrl</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">item</span>,
+        <span class="sig-arg">column</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.CreateEditCtrl">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create an edit control for editing a label of an item. By default, 
+  this returns a text control.</p>
+  <p>Override this function in the derived class to return a different type
+  of control.</p>
+  <p>:param `item`: an instance of <a 
+  href="taskcoachlib.thirdparty.hypertreelist.TreeListItem-class.html" 
+  class="link">TreeListItem</a>; :param `column`: an integer specifying the
+  column index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetTextCtrlStyle"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetTextCtrlStyle</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetTextCtrlStyle">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return the style to use for the text control that is used to edit 
+  labels of items.</p>
+  <p>Override this function in the derived class to support a different 
+  style, e.g. ``wx.TE_MULTILINE``.</p>
+  <p>:param `column`: an integer specifying the column index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetTextCtrlAlignmentStyle"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetTextCtrlAlignmentStyle</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">column</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetTextCtrlAlignmentStyle">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return the alignment style to use for the text control that is used to
+  edit labels of items. The alignment style is derived from the column 
+  alignment.</p>
+  <p>:param `column`: an integer specifying the column index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetClassDefaultAttributes"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetClassDefaultAttributes</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">Class Method</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.hypertreelist-pysrc.html#HyperTreeList.GetClassDefaultAttributes">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Returns the default font and colours which are used by the control. This is
+useful if you want to use the same font or colour in your own control as in
+a standard control -- which is a much better idea than hard coding specific
+colours or fonts which might look completely out of place on the users system,
+especially if it uses themes.
+
+This static method is &quot;overridden'' in many derived classes and so calling,
+for example, `wx.Button.GetClassDefaultAttributes()` will typically return the
+values appropriate for a button which will be normally different from those
+returned by, say, `wx.ListCtrl.GetClassDefaultAttributes()`.
+
+:note: The `wx.VisualAttributes` structure has at least the fields `font`,
+ `colFg` and `colBg`. All of them may be invalid if it was not possible to
+ determine the default control appearance or, especially for the background
+ colour, if the field doesn't make sense as is the case for `colBg` for the
+ controls with themed background.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:46 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

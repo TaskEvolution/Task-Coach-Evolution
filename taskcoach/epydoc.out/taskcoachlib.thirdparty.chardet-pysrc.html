@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.chardet</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        Package&nbsp;chardet
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.chardet-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.chardet-module.html">Package taskcoachlib.thirdparty.chardet</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">######################## BEGIN LICENSE BLOCK ########################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"># This library is free software; you can redistribute it and/or</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># modify it under the terms of the GNU Lesser General Public</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># License as published by the Free Software Foundation; either</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment"># version 2.1 of the License, or (at your option) any later version.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># </tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># This library is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># Lesser General Public License for more details.</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment"># </tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment"># You should have received a copy of the GNU Lesser General Public</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-comment"># License along with this library; if not, write to the Free Software</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-comment"># Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-comment"># 02110-1301  USA</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-comment">######################### END LICENSE BLOCK #########################</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-name">__version__</tt> <tt class="py-op">=</tt> <tt class="py-docstring">"2.1.1"</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="detect"></a><div id="detect-def"><a name="L20"></a><tt class="py-lineno">20</tt> <a class="py-toggle" href="#" id="detect-toggle" onclick="return toggle('detect');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.chardet-module.html#detect">detect</a><tt class="py-op">(</tt><tt class="py-param">aBuf</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="detect-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="detect-expanded"><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module taskcoachlib.thirdparty.chardet.universaldetector=taskcoachlib.thirdparty.chardet.universaldetector-module.html"><a title="taskcoachlib.thirdparty.chardet.universaldetector" class="py-name" href="#" onclick="return doclink('link-0', 'universaldetector', 'link-0');">universaldetector</a></tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt id="link-1" class="py-name" targets="Function taskcoachlib.thirdparty.xdg.util.u()=taskcoachlib.thirdparty.xdg.util-module.html#u"><a title="taskcoachlib.thirdparty.xdg.util.u" class="py-name" href="#" onclick="return doclink('link-1', 'u', 'link-1');">u</a></tt> <tt class="py-op">=</tt> <tt id="link-2" class="py-name"><a title="taskcoachlib.thirdparty.chardet.universaldetector" class="py-name" href="#" onclick="return doclink('link-2', 'universaldetector', 'link-0');">universaldetector</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Class taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector=taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector-class.html"><a title="taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector" class="py-name" href="#" onclick="return doclink('link-3', 'UniversalDetector', 'link-3');">UniversalDetector</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">    <tt id="link-4" class="py-name"><a title="taskcoachlib.thirdparty.xdg.util.u" class="py-name" href="#" onclick="return doclink('link-4', 'u', 'link-1');">u</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method taskcoachlib.changes.monitor.ChangeMonitor.reset()=taskcoachlib.changes.monitor.ChangeMonitor-class.html#reset,Method taskcoachlib.domain.base.filter.Filter.reset()=taskcoachlib.domain.base.filter.Filter-class.html#reset,Method taskcoachlib.domain.base.sorter.Sorter.reset()=taskcoachlib.domain.base.sorter.Sorter-class.html#reset,Method taskcoachlib.domain.base.sorter.TreeSorter.reset()=taskcoachlib.domain.base.sorter.TreeSorter-class.html#reset,Method taskcoachlib.thirdparty.chardet.chardistribution.CharDistributionAnalysis.reset()=taskcoachlib.thirdparty.chardet.chardistribution.CharDistributionAnalysis-class.html#reset,Method taskcoachlib.thirdparty.chardet.charsetgroupprober.CharSetGroupProber.reset()=taskcoachlib.thirdparty.chardet.charsetgroupprober.CharSetGroupProber-class.html#reset,Method taskcoachlib.thirdparty.chardet.charsetprober.CharSetProber.reset()=taskcoachlib.thirdparty.chardet.charsetprober.CharSetProber-class.html#reset,Method taskcoachlib.thirdparty.chardet.codingstatemachine.CodingStateMachine.reset()=taskcoachlib.thirdparty.chardet.codingstatemachine.CodingStateMachine-class.html#reset,Method taskcoachlib.thirdparty.chardet.escprober.EscCharSetProber.reset()=taskcoachlib.thirdparty.chardet.escprober.EscCharSetProber-class.html#reset,Method taskcoachlib.thirdparty.chardet.eucjpprober.EUCJPProber.reset()=taskcoachlib.thirdparty.chardet.eucjpprober.EUCJPProber-class.html#reset,Method taskcoachlib.thirdparty.chardet.hebrewprober.HebrewProber.reset()=taskcoachlib.thirdparty.chardet.hebrewprober.HebrewProber-class.html#reset,Method taskcoachlib.thirdparty.chardet.jpcntx.JapaneseContextAnalysis.reset()=taskcoachlib.thirdparty.chardet.jpcntx.JapaneseContextAnalysis-class.html#reset,Method taskcoachlib.thirdparty.chardet.latin1prober.Latin1Prober.reset()=taskcoachlib.thirdparty.chardet.latin1prober.Latin1Prober-class.html#reset,Method taskcoachlib.thirdparty.chardet.mbcharsetprober.MultiByteCharSetProber.reset()=taskcoachlib.thirdparty.chardet.mbcharsetprober.MultiByteCharSetProber-class.html#reset,Method taskcoachlib.thirdparty.chardet.sbcharsetprober.SingleByteCharSetProber.reset()=taskcoachlib.thirdparty.chardet.sbcharsetprober.SingleByteCharSetProber-class.html#reset,Method taskcoachlib.thirdparty.chardet.sjisprober.SJISProber.reset()=taskcoachlib.thirdparty.chardet.sjisprober.SJISProber-class.html#reset,Method taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.reset()=taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector-class.html#reset,Method taskcoachlib.thirdparty.chardet.utf8prober.UTF8Prober.reset()=taskcoachlib.thirdparty.chardet.utf8prober.UTF8Prober-class.html#reset,Method taskcoachlib.thirdparty.pyparsing.OnlyOnce.reset()=taskcoachlib.thirdparty.pyparsing.OnlyOnce-class.html#reset"><a title="taskcoachlib.changes.monitor.ChangeMonitor.reset
+taskcoachlib.domain.base.filter.Filter.reset
+taskcoachlib.domain.base.sorter.Sorter.reset
+taskcoachlib.domain.base.sorter.TreeSorter.reset
+taskcoachlib.thirdparty.chardet.chardistribution.CharDistributionAnalysis.reset
+taskcoachlib.thirdparty.chardet.charsetgroupprober.CharSetGroupProber.reset
+taskcoachlib.thirdparty.chardet.charsetprober.CharSetProber.reset
+taskcoachlib.thirdparty.chardet.codingstatemachine.CodingStateMachine.reset
+taskcoachlib.thirdparty.chardet.escprober.EscCharSetProber.reset
+taskcoachlib.thirdparty.chardet.eucjpprober.EUCJPProber.reset
+taskcoachlib.thirdparty.chardet.hebrewprober.HebrewProber.reset
+taskcoachlib.thirdparty.chardet.jpcntx.JapaneseContextAnalysis.reset
+taskcoachlib.thirdparty.chardet.latin1prober.Latin1Prober.reset
+taskcoachlib.thirdparty.chardet.mbcharsetprober.MultiByteCharSetProber.reset
+taskcoachlib.thirdparty.chardet.sbcharsetprober.SingleByteCharSetProber.reset
+taskcoachlib.thirdparty.chardet.sjisprober.SJISProber.reset
+taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.reset
+taskcoachlib.thirdparty.chardet.utf8prober.UTF8Prober.reset
+taskcoachlib.thirdparty.pyparsing.OnlyOnce.reset" class="py-name" href="#" onclick="return doclink('link-5', 'reset', 'link-5');">reset</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt id="link-6" class="py-name"><a title="taskcoachlib.thirdparty.xdg.util.u" class="py-name" href="#" onclick="return doclink('link-6', 'u', 'link-1');">u</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method taskcoachlib.iphone.protocol.BaseItem.feed()=taskcoachlib.iphone.protocol.BaseItem-class.html#feed,Method taskcoachlib.iphone.protocol.CompositeItem.feed()=taskcoachlib.iphone.protocol.CompositeItem-class.html#feed,Method taskcoachlib.iphone.protocol.DataItem.feed()=taskcoachlib.iphone.protocol.DataItem-class.html#feed,Method taskcoachlib.iphone.protocol.DateItem.feed()=taskcoachlib.iphone.protocol.DateItem-class.html#feed,Method taskcoachlib.iphone.protocol.DateTimeItem.feed()=taskcoachlib.iphone.protocol.DateTimeItem-class.html#feed,Method taskcoachlib.iphone.protocol.FixedSizeStringItem.feed()=taskcoachlib.iphone.protocol.FixedSizeStringItem-class.html#feed,Method taskcoachlib.iphone.protocol.InfiniteDateTimeItem.feed()=taskcoachlib.iphone.protocol.InfiniteDateTimeItem-class.html#feed,Method taskcoachlib.iphone.protocol.IntegerItem.feed()=taskcoachlib.iphone.protocol.IntegerItem-class.html#feed,Method taskcoachlib.iphone.protocol.ListItem.feed()=taskcoachlib.iphone.protocol.ListItem-class.html#feed,Method taskcoachlib.iphone.protocol.StringItem.feed()=taskcoachlib.iphone.protocol.StringItem-class.html#feed,Method taskcoachlib.thirdparty.chardet.chardistribution.CharDistributionAnalysis.feed()=taskcoachlib.thirdparty.chardet.chardistribution.CharDistributionAnalysis-class.html#feed,Method taskcoachlib.thirdparty.chardet.charsetgroupprober.CharSetGroupProber.feed()=taskcoachlib.thirdparty.chardet.charsetgroupprober.CharSetGroupProber-class.html#feed,Method taskcoachlib.thirdparty.chardet.charsetprober.CharSetProber.feed()=taskcoachlib.thirdparty.chardet.charsetprober.CharSetProber-class.html#feed,Method taskcoachlib.thirdparty.chardet.escprober.EscCharSetProber.feed()=taskcoachlib.thirdparty.chardet.escprober.EscCharSetProber-class.html#feed,Method taskcoachlib.thirdparty.chardet.eucjpprober.EUCJPProber.feed()=taskcoachlib.thirdparty.chardet.eucjpprober.EUCJPProber-class.html#feed,Method taskcoachlib.thirdparty.chardet.hebrewprober.HebrewProber.feed()=taskcoachlib.thirdparty.chardet.hebrewprober.HebrewProber-class.html#feed,Method taskcoachlib.thirdparty.chardet.jpcntx.JapaneseContextAnalysis.feed()=taskcoachlib.thirdparty.chardet.jpcntx.JapaneseContextAnalysis-class.html#feed,Method taskcoachlib.thirdparty.chardet.latin1prober.Latin1Prober.feed()=taskcoachlib.thirdparty.chardet.latin1prober.Latin1Prober-class.html#feed,Method taskcoachlib.thirdparty.chardet.mbcharsetprober.MultiByteCharSetProber.feed()=taskcoachlib.thirdparty.chardet.mbcharsetprober.MultiByteCharSetProber-class.html#feed,Method taskcoachlib.thirdparty.chardet.sbcharsetprober.SingleByteCharSetProber.feed()=taskcoachlib.thirdparty.chardet.sbcharsetprober.SingleByteCharSetProber-class.html#feed,Method taskcoachlib.thirdparty.chardet.sjisprober.SJISProber.feed()=taskcoachlib.thirdparty.chardet.sjisprober.SJISProber-class.html#feed,Method taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.feed()=taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector-class.html#feed,Method taskcoachlib.thirdparty.chardet.utf8prober.UTF8Prober.feed()=taskcoachlib.thirdparty.chardet.utf8prober.UTF8Prober-class.html#feed"><a title="taskcoachlib.iphone.protocol.BaseItem.feed
+taskcoachlib.iphone.protocol.CompositeItem.feed
+taskcoachlib.iphone.protocol.DataItem.feed
+taskcoachlib.iphone.protocol.DateItem.feed
+taskcoachlib.iphone.protocol.DateTimeItem.feed
+taskcoachlib.iphone.protocol.FixedSizeStringItem.feed
+taskcoachlib.iphone.protocol.InfiniteDateTimeItem.feed
+taskcoachlib.iphone.protocol.IntegerItem.feed
+taskcoachlib.iphone.protocol.ListItem.feed
+taskcoachlib.iphone.protocol.StringItem.feed
+taskcoachlib.thirdparty.chardet.chardistribution.CharDistributionAnalysis.feed
+taskcoachlib.thirdparty.chardet.charsetgroupprober.CharSetGroupProber.feed
+taskcoachlib.thirdparty.chardet.charsetprober.CharSetProber.feed
+taskcoachlib.thirdparty.chardet.escprober.EscCharSetProber.feed
+taskcoachlib.thirdparty.chardet.eucjpprober.EUCJPProber.feed
+taskcoachlib.thirdparty.chardet.hebrewprober.HebrewProber.feed
+taskcoachlib.thirdparty.chardet.jpcntx.JapaneseContextAnalysis.feed
+taskcoachlib.thirdparty.chardet.latin1prober.Latin1Prober.feed
+taskcoachlib.thirdparty.chardet.mbcharsetprober.MultiByteCharSetProber.feed
+taskcoachlib.thirdparty.chardet.sbcharsetprober.SingleByteCharSetProber.feed
+taskcoachlib.thirdparty.chardet.sjisprober.SJISProber.feed
+taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.feed
+taskcoachlib.thirdparty.chardet.utf8prober.UTF8Prober.feed" class="py-name" href="#" onclick="return doclink('link-7', 'feed', 'link-7');">feed</a></tt><tt class="py-op">(</tt><tt class="py-name">aBuf</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">    <tt id="link-8" class="py-name"><a title="taskcoachlib.thirdparty.xdg.util.u" class="py-name" href="#" onclick="return doclink('link-8', 'u', 'link-1');">u</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method taskcoachlib.application.application.RedirectedOutput.close()=taskcoachlib.application.application.RedirectedOutput-class.html#close,Method taskcoachlib.filesystem.fs_darwin.FileMonitor.close()=taskcoachlib.filesystem.fs_darwin.FileMonitor-class.html#close,Variable taskcoachlib.filesystem.fs_darwin.close=taskcoachlib.filesystem.fs_darwin-module.html#close,Method taskcoachlib.filesystem.fs_inotify.Inotify.close()=taskcoachlib.filesystem.fs_inotify.Inotify-class.html#close,Method taskcoachlib.gui.dialog.editor.BudgetPage.close()=taskcoachlib.gui.dialog.editor.BudgetPage-class.html#close,Method taskcoachlib.gui.dialog.editor.Page.close()=taskcoachlib.gui.dialog.editor.Page-class.html#close,Method taskcoachlib.gui.dialog.editor.PageWithViewer.close()=taskcoachlib.gui.dialog.editor.PageWithViewer-class.html#close,Method taskcoachlib.gui.dialog.editor.SubjectPage.close()=taskcoachlib.gui.dialog.editor.SubjectPage-class.html#close,Method taskcoachlib.gui.iocontroller.IOController.close()=taskcoachlib.gui.iocontroller.IOController-class.html#close,Method taskcoachlib.persistence.taskfile.LockedTaskFile.close()=taskcoachlib.persistence.taskfile.LockedTaskFile-class.html#close,Method taskcoachlib.persistence.taskfile.TaskFile.close()=taskcoachlib.persistence.taskfile.TaskFile-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.base.JobStore-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.mongodb_store.MongoDBJobStore-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.shelve_store.ShelveJobStore-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.sqlalchemy_store.SQLAlchemyJobStore-class.html#close,Method taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close()=taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector-class.html#close,Method taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close()=taskcoachlib.thirdparty.pybonjour.DNSServiceRef-class.html#close"><a title="taskcoachlib.application.application.RedirectedOutput.close
+taskcoachlib.filesystem.fs_darwin.FileMonitor.close
+taskcoachlib.filesystem.fs_darwin.close
+taskcoachlib.filesystem.fs_inotify.Inotify.close
+taskcoachlib.gui.dialog.editor.BudgetPage.close
+taskcoachlib.gui.dialog.editor.Page.close
+taskcoachlib.gui.dialog.editor.PageWithViewer.close
+taskcoachlib.gui.dialog.editor.SubjectPage.close
+taskcoachlib.gui.iocontroller.IOController.close
+taskcoachlib.persistence.taskfile.LockedTaskFile.close
+taskcoachlib.persistence.taskfile.TaskFile.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close
+taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close
+taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close" class="py-name" href="#" onclick="return doclink('link-9', 'close', 'link-9');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-10" class="py-name"><a title="taskcoachlib.thirdparty.xdg.util.u" class="py-name" href="#" onclick="return doclink('link-10', 'u', 'link-1');">u</a></tt><tt class="py-op">.</tt><tt class="py-name">result</tt> </tt>
+</div><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:01 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

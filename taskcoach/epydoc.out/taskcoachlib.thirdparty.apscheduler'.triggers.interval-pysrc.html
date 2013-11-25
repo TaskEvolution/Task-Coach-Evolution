@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.apscheduler'.triggers.interval</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.apscheduler%27-module.html">Package&nbsp;apscheduler'</a> ::
+        <a href="taskcoachlib.thirdparty.apscheduler%27.triggers-module.html">Package&nbsp;triggers</a> ::
+        Module&nbsp;interval
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.apscheduler%27.triggers.interval-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.apscheduler%27.triggers.interval-module.html">Module taskcoachlib.thirdparty.apscheduler'.triggers.interval</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">datetime</tt> <tt class="py-keyword">import</tt> <tt class="py-name">datetime</tt><tt class="py-op">,</tt> <tt id="link-0" class="py-name" targets="Module taskcoachlib.domain.date.timedelta=taskcoachlib.domain.date.timedelta-module.html"><a title="taskcoachlib.domain.date.timedelta" class="py-name" href="#" onclick="return doclink('link-0', 'timedelta', 'link-0');">timedelta</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">math</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ceil</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">apscheduler</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module taskcoachlib.thirdparty.apscheduler'.util=taskcoachlib.thirdparty.apscheduler%27.util-module.html,Module taskcoachlib.thirdparty.googleapi.oauth2client.util=taskcoachlib.thirdparty.googleapi.oauth2client.util-module.html,Package taskcoachlib.thirdparty.keyring.util=taskcoachlib.thirdparty.keyring.util-module.html,Module taskcoachlib.thirdparty.xdg.util=taskcoachlib.thirdparty.xdg.util-module.html"><a title="taskcoachlib.thirdparty.apscheduler'.util
+taskcoachlib.thirdparty.googleapi.oauth2client.util
+taskcoachlib.thirdparty.keyring.util
+taskcoachlib.thirdparty.xdg.util" class="py-name" href="#" onclick="return doclink('link-1', 'util', 'link-1');">util</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Function taskcoachlib.thirdparty.apscheduler'.util.convert_to_datetime()=taskcoachlib.thirdparty.apscheduler%27.util-module.html#convert_to_datetime"><a title="taskcoachlib.thirdparty.apscheduler'.util.convert_to_datetime" class="py-name" href="#" onclick="return doclink('link-2', 'convert_to_datetime', 'link-2');">convert_to_datetime</a></tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name" targets="Function taskcoachlib.thirdparty.apscheduler'.util.timedelta_seconds()=taskcoachlib.thirdparty.apscheduler%27.util-module.html#timedelta_seconds"><a title="taskcoachlib.thirdparty.apscheduler'.util.timedelta_seconds" class="py-name" href="#" onclick="return doclink('link-3', 'timedelta_seconds', 'link-3');">timedelta_seconds</a></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"> </tt>
+<a name="IntervalTrigger"></a><div id="IntervalTrigger-def"><a name="L7"></a><tt class="py-lineno"> 7</tt> <a class="py-toggle" href="#" id="IntervalTrigger-toggle" onclick="return toggle('IntervalTrigger');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.interval.IntervalTrigger-class.html">IntervalTrigger</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IntervalTrigger-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="IntervalTrigger-expanded"><a name="IntervalTrigger.__init__"></a><div id="IntervalTrigger.__init__-def"><a name="L8"></a><tt class="py-lineno"> 8</tt> <a class="py-toggle" href="#" id="IntervalTrigger.__init__-toggle" onclick="return toggle('IntervalTrigger.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.interval.IntervalTrigger-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">interval</tt><tt class="py-op">,</tt> <tt class="py-param">start_date</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IntervalTrigger.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="IntervalTrigger.__init__-expanded"><a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-4" class="py-name" targets="Module taskcoachlib.thirdparty.apscheduler'.triggers.interval=taskcoachlib.thirdparty.apscheduler%27.triggers.interval-module.html"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.interval" class="py-name" href="#" onclick="return doclink('link-4', 'interval', 'link-4');">interval</a></tt><tt class="py-op">,</tt> <tt id="link-5" class="py-name"><a title="taskcoachlib.domain.date.timedelta" class="py-name" href="#" onclick="return doclink('link-5', 'timedelta', 'link-0');">timedelta</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">TypeError</tt><tt class="py-op">(</tt><tt class="py-string">'interval must be a timedelta'</tt><tt class="py-op">)</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">start_date</tt><tt class="py-op">:</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">            <tt class="py-name">start_date</tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.util.convert_to_datetime" class="py-name" href="#" onclick="return doclink('link-6', 'convert_to_datetime', 'link-2');">convert_to_datetime</a></tt><tt class="py-op">(</tt><tt class="py-name">start_date</tt><tt class="py-op">)</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.interval" class="py-name" href="#" onclick="return doclink('link-7', 'interval', 'link-4');">interval</a></tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.interval" class="py-name" href="#" onclick="return doclink('link-8', 'interval', 'link-4');">interval</a></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">interval_length</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.util.timedelta_seconds" class="py-name" href="#" onclick="return doclink('link-9', 'timedelta_seconds', 'link-3');">timedelta_seconds</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.interval" class="py-name" href="#" onclick="return doclink('link-10', 'interval', 'link-4');">interval</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">interval_length</tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.interval" class="py-name" href="#" onclick="return doclink('link-11', 'interval', 'link-4');">interval</a></tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name"><a title="taskcoachlib.domain.date.timedelta" class="py-name" href="#" onclick="return doclink('link-12', 'timedelta', 'link-0');">timedelta</a></tt><tt class="py-op">(</tt><tt class="py-name">seconds</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">interval_length</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">start_date</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">start_date</tt> <tt class="py-op">=</tt> <tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method taskcoachlib.gui.viewer.task.TimelineViewer.now()=taskcoachlib.gui.viewer.task.TimelineViewer-class.html#now,Variable taskcoachlib.meta.data.now=taskcoachlib.meta.data-module.html#now,Method taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.now()=taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter-class.html#now"><a title="taskcoachlib.gui.viewer.task.TimelineViewer.now
+taskcoachlib.meta.data.now
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.now" class="py-name" href="#" onclick="return doclink('link-13', 'now', 'link-13');">now</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.interval" class="py-name" href="#" onclick="return doclink('link-14', 'interval', 'link-4');">interval</a></tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">start_date</tt> <tt class="py-op">=</tt> <tt id="link-15" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.util.convert_to_datetime" class="py-name" href="#" onclick="return doclink('link-15', 'convert_to_datetime', 'link-2');">convert_to_datetime</a></tt><tt class="py-op">(</tt><tt class="py-name">start_date</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"> </tt>
+<a name="IntervalTrigger.get_next_fire_time"></a><div id="IntervalTrigger.get_next_fire_time-def"><a name="L25"></a><tt class="py-lineno">25</tt> <a class="py-toggle" href="#" id="IntervalTrigger.get_next_fire_time-toggle" onclick="return toggle('IntervalTrigger.get_next_fire_time');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.interval.IntervalTrigger-class.html#get_next_fire_time">get_next_fire_time</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">start_date</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IntervalTrigger.get_next_fire_time-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="IntervalTrigger.get_next_fire_time-expanded"><a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">start_date</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">start_date</tt><tt class="py-op">:</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">start_date</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-name">timediff_seconds</tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.util.timedelta_seconds" class="py-name" href="#" onclick="return doclink('link-16', 'timedelta_seconds', 'link-3');">timedelta_seconds</a></tt><tt class="py-op">(</tt><tt class="py-name">start_date</tt> <tt class="py-op">-</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">start_date</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-name">next_interval_num</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">ceil</tt><tt class="py-op">(</tt><tt class="py-name">timediff_seconds</tt> <tt class="py-op">/</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">interval_length</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">start_date</tt> <tt class="py-op">+</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.interval" class="py-name" href="#" onclick="return doclink('link-17', 'interval', 'link-4');">interval</a></tt> <tt class="py-op">*</tt> <tt class="py-name">next_interval_num</tt> </tt>
+</div><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"> </tt>
+<a name="IntervalTrigger.__str__"></a><div id="IntervalTrigger.__str__-def"><a name="L33"></a><tt class="py-lineno">33</tt> <a class="py-toggle" href="#" id="IntervalTrigger.__str__-toggle" onclick="return toggle('IntervalTrigger.__str__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.interval.IntervalTrigger-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IntervalTrigger.__str__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="IntervalTrigger.__str__-expanded"><a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'interval[%s]'</tt> <tt class="py-op">%</tt> <tt id="link-18" class="py-name" targets="Class str=str-class.html"><a title="str" class="py-name" href="#" onclick="return doclink('link-18', 'str', 'link-18');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.interval" class="py-name" href="#" onclick="return doclink('link-19', 'interval', 'link-4');">interval</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"> </tt>
+<a name="IntervalTrigger.__repr__"></a><div id="IntervalTrigger.__repr__-def"><a name="L36"></a><tt class="py-lineno">36</tt> <a class="py-toggle" href="#" id="IntervalTrigger.__repr__-toggle" onclick="return toggle('IntervalTrigger.__repr__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.apscheduler'.triggers.interval.IntervalTrigger-class.html#__repr__">__repr__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IntervalTrigger.__repr__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="IntervalTrigger.__repr__-expanded"><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">"&lt;%s (interval=%s, start_date=%s)&gt;"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">,</tt> <tt class="py-name">repr</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="taskcoachlib.thirdparty.apscheduler'.triggers.interval" class="py-name" href="#" onclick="return doclink('link-20', 'interval', 'link-4');">interval</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">            <tt class="py-name">repr</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">start_date</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:16 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

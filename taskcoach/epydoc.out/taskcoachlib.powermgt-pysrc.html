@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.powermgt</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        Package&nbsp;powermgt
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.powermgt-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.powermgt-module.html">Package taskcoachlib.powermgt</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach - Your friendly task manager</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (C) 2004-2013 Task Coach developers &lt;developers@taskcoach.org&gt;</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is free software: you can redistribute it and/or modify</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">the Free Software Foundation, either version 3 of the License, or</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">(at your option) any later version.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">GNU General Public License for more details.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Variable taskcoachlib.meta.data.platform=taskcoachlib.meta.data-module.html#platform,Module taskcoachlib.thirdparty.keyring.util.platform=taskcoachlib.thirdparty.keyring.util.platform-module.html,Variable taskcoachlib.thirdparty.keyring.util.platform.platform=taskcoachlib.thirdparty.keyring.util.platform-module.html#platform"><a title="taskcoachlib.meta.data.platform
+taskcoachlib.thirdparty.keyring.util.platform
+taskcoachlib.thirdparty.keyring.util.platform.platform" class="py-name" href="#" onclick="return doclink('link-0', 'platform', 'link-0');">platform</a></tt> <tt class="py-op">==</tt> <tt class="py-string">'win32'</tt><tt class="py-op">:</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Package taskcoachlib=taskcoachlib-module.html"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-1', 'taskcoachlib', 'link-1');">taskcoachlib</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package taskcoachlib.powermgt=taskcoachlib.powermgt-module.html"><a title="taskcoachlib.powermgt" class="py-name" href="#" onclick="return doclink('link-2', 'powermgt', 'link-2');">powermgt</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module taskcoachlib.powermgt.win32=taskcoachlib.powermgt.win32-module.html"><a title="taskcoachlib.powermgt.win32" class="py-name" href="#" onclick="return doclink('link-3', 'win32', 'link-3');">win32</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Class taskcoachlib.powermgt.macos.PowerStateMixin=taskcoachlib.powermgt.macos.PowerStateMixin-class.html,Class taskcoachlib.powermgt.win32.PowerStateMixin=taskcoachlib.powermgt.win32.PowerStateMixin-class.html"><a title="taskcoachlib.powermgt.macos.PowerStateMixin
+taskcoachlib.powermgt.win32.PowerStateMixin" class="py-name" href="#" onclick="return doclink('link-4', 'PowerStateMixin', 'link-4');">PowerStateMixin</a></tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-keyword">elif</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="taskcoachlib.meta.data.platform
+taskcoachlib.thirdparty.keyring.util.platform
+taskcoachlib.thirdparty.keyring.util.platform.platform" class="py-name" href="#" onclick="return doclink('link-5', 'platform', 'link-0');">platform</a></tt> <tt class="py-op">==</tt> <tt class="py-string">'darwin'</tt><tt class="py-op">:</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt id="link-6" class="py-name"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-6', 'taskcoachlib', 'link-1');">taskcoachlib</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="taskcoachlib.powermgt" class="py-name" href="#" onclick="return doclink('link-7', 'powermgt', 'link-2');">powermgt</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Module taskcoachlib.powermgt.macos=taskcoachlib.powermgt.macos-module.html"><a title="taskcoachlib.powermgt.macos" class="py-name" href="#" onclick="return doclink('link-8', 'macos', 'link-8');">macos</a></tt> <tt class="py-keyword">import</tt> <tt id="link-9" class="py-name"><a title="taskcoachlib.powermgt.macos.PowerStateMixin
+taskcoachlib.powermgt.win32.PowerStateMixin" class="py-name" href="#" onclick="return doclink('link-9', 'PowerStateMixin', 'link-4');">PowerStateMixin</a></tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">    <tt class="py-comment"># No way to know yet</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt id="link-10" class="py-name"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-10', 'taskcoachlib', 'link-1');">taskcoachlib</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="taskcoachlib.powermgt" class="py-name" href="#" onclick="return doclink('link-11', 'powermgt', 'link-2');">powermgt</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Module taskcoachlib.command.base=taskcoachlib.command.base-module.html,Package taskcoachlib.domain.base=taskcoachlib.domain.base-module.html,Module taskcoachlib.domain.effort.base=taskcoachlib.domain.effort.base-module.html,Module taskcoachlib.filesystem.base=taskcoachlib.filesystem.base-module.html,Module taskcoachlib.gui.viewer.base=taskcoachlib.gui.viewer.base-module.html,Module taskcoachlib.powermgt.base=taskcoachlib.powermgt.base-module.html,Module taskcoachlib.thirdparty.apscheduler'.jobstores.base=taskcoachlib.thirdparty.apscheduler%27.jobstores.base-module.html"><a title="taskcoachlib.command.base
+taskcoachlib.domain.base
+taskcoachlib.domain.effort.base
+taskcoachlib.filesystem.base
+taskcoachlib.gui.viewer.base
+taskcoachlib.powermgt.base
+taskcoachlib.thirdparty.apscheduler'.jobstores.base" class="py-name" href="#" onclick="return doclink('link-12', 'base', 'link-12');">base</a></tt> <tt class="py-keyword">import</tt> <tt id="link-13" class="py-name" targets="Class taskcoachlib.powermgt.base.PowerStateMixinBase=taskcoachlib.powermgt.base.PowerStateMixinBase-class.html"><a title="taskcoachlib.powermgt.base.PowerStateMixinBase" class="py-name" href="#" onclick="return doclink('link-13', 'PowerStateMixinBase', 'link-13');">PowerStateMixinBase</a></tt> <tt class="py-keyword">as</tt> <tt id="link-14" class="py-name"><a title="taskcoachlib.powermgt.macos.PowerStateMixin
+taskcoachlib.powermgt.win32.PowerStateMixin" class="py-name" href="#" onclick="return doclink('link-14', 'PowerStateMixin', 'link-4');">PowerStateMixin</a></tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-15" class="py-name"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-15', 'taskcoachlib', 'link-1');">taskcoachlib</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="taskcoachlib.powermgt" class="py-name" href="#" onclick="return doclink('link-16', 'powermgt', 'link-2');">powermgt</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Module taskcoachlib.powermgt.idle=taskcoachlib.powermgt.idle-module.html"><a title="taskcoachlib.powermgt.idle" class="py-name" href="#" onclick="return doclink('link-17', 'idle', 'link-17');">idle</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">IdleNotifier</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:33 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

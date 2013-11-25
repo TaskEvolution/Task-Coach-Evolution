@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.pubsub.core.arg1.publishermixin</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.pubsub-module.html">Package&nbsp;pubsub</a> ::
+        <a href="taskcoachlib.thirdparty.pubsub.core-module.html">Package&nbsp;core</a> ::
+        <a href="taskcoachlib.thirdparty.pubsub.core.arg1-module.html">Package&nbsp;arg1</a> ::
+        Module&nbsp;publishermixin
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.pubsub.core.arg1.publishermixin-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.pubsub.core.arg1.publishermixin-module.html">Module taskcoachlib.thirdparty.pubsub.core.arg1.publishermixin</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Mixin for publishing messages to a topic's listeners. This will be</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">mixed into topicobj.Topic so that a user can use a Topic object to</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">send a message to the topic's listeners via a publish() method.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">Note that it is important that the PublisherMixin NOT modify any</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">state data during message sending, because in principle it could</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">happen that a listener causes another message of same topic to be</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">sent (presumably, the listener has a way of preventing infinite</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">loop).</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">:copyright: Copyright since 2006 by Oliver Schoenborn, all rights reserved.</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">:license: BSD, see LICENSE.txt for details.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="PublisherMixin"></a><div id="PublisherMixin-def"><a name="L18"></a><tt class="py-lineno">18</tt> <a class="py-toggle" href="#" id="PublisherMixin-toggle" onclick="return toggle('PublisherMixin');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.core.arg1.publishermixin.PublisherMixin-class.html">PublisherMixin</a><tt class="py-op">:</tt> </tt>
+</div><div id="PublisherMixin-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="PublisherMixin-expanded"><a name="PublisherMixin.__init__"></a><div id="PublisherMixin.__init__-def"><a name="L19"></a><tt class="py-lineno">19</tt> <a class="py-toggle" href="#" id="PublisherMixin.__init__-toggle" onclick="return toggle('PublisherMixin.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.core.arg1.publishermixin.PublisherMixin-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PublisherMixin.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="PublisherMixin.__init__-expanded"><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="PublisherMixin.publish"></a><div id="PublisherMixin.publish-def"><a name="L22"></a><tt class="py-lineno">22</tt> <a class="py-toggle" href="#" id="PublisherMixin.publish-toggle" onclick="return toggle('PublisherMixin.publish');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.core.arg1.publishermixin.PublisherMixin-class.html#publish">publish</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PublisherMixin.publish-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="PublisherMixin.publish-expanded"><a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.topicobj.Topic._publish()=taskcoachlib.thirdparty.pubsub.core.topicobj.Topic-class.html#_publish"><a title="taskcoachlib.thirdparty.pubsub.core.topicobj.Topic._publish" class="py-name" href="#" onclick="return doclink('link-0', '_publish', 'link-0');">_publish</a></tt><tt class="py-op">(</tt><tt id="link-1" class="py-name" targets="Method taskcoachlib.domain.attachment.attachment.Attachment.data()=taskcoachlib.domain.attachment.attachment.Attachment-class.html#data,Method taskcoachlib.domain.attachment.attachment.MailAttachment.data()=taskcoachlib.domain.attachment.attachment.MailAttachment-class.html#data,Method taskcoachlib.iphone.protocol.State.data()=taskcoachlib.iphone.protocol.State-class.html#data,Module taskcoachlib.meta.data=taskcoachlib.meta.data-module.html"><a title="taskcoachlib.domain.attachment.attachment.Attachment.data
+taskcoachlib.domain.attachment.attachment.MailAttachment.data
+taskcoachlib.iphone.protocol.State.data
+taskcoachlib.meta.data" class="py-name" href="#" onclick="return doclink('link-1', 'data', 'link-1');">data</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">    <tt class="py-comment">############## IMPLEMENTATION ###############</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"> </tt>
+<a name="PublisherMixin._mix_prePublish"></a><div id="PublisherMixin._mix_prePublish-def"><a name="L27"></a><tt class="py-lineno">27</tt> <a class="py-toggle" href="#" id="PublisherMixin._mix_prePublish-toggle" onclick="return toggle('PublisherMixin._mix_prePublish');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.core.arg1.publishermixin.PublisherMixin-class.html#_mix_prePublish">_mix_prePublish</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">,</tt> <tt class="py-param">topicObj</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">iterState</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PublisherMixin._mix_prePublish-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="PublisherMixin._mix_prePublish-expanded"><a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-docstring">'''Called just before the __sendMessage, to perform any argument</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">        checking, set iterState, etc'''</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt>
+<a name="PublisherMixin._mix_callListener"></a><div id="PublisherMixin._mix_callListener-def"><a name="L32"></a><tt class="py-lineno">32</tt> <a class="py-toggle" href="#" id="PublisherMixin._mix_callListener-toggle" onclick="return toggle('PublisherMixin._mix_callListener');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.core.arg1.publishermixin.PublisherMixin-class.html#_mix_callListener">_mix_callListener</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">listener</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">,</tt> <tt class="py-param">iterState</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PublisherMixin._mix_callListener-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="PublisherMixin._mix_callListener-expanded"><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-docstring">'''Send the data to given listener.'''</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt id="link-2" class="py-name" targets="Module taskcoachlib.thirdparty.pubsub.core.listener=taskcoachlib.thirdparty.pubsub.core.listener-module.html"><a title="taskcoachlib.thirdparty.pubsub.core.listener" class="py-name" href="#" onclick="return doclink('link-2', 'listener', 'link-2');">listener</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name"><a title="taskcoachlib.domain.attachment.attachment.Attachment.data
+taskcoachlib.domain.attachment.attachment.MailAttachment.data
+taskcoachlib.iphone.protocol.State.data
+taskcoachlib.meta.data" class="py-name" href="#" onclick="return doclink('link-3', 'data', 'link-1');">data</a></tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:55 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

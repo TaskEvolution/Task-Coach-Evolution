@@ -1,0 +1,1102 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.aui-module.html">Package&nbsp;aui</a> ::
+        <a href="taskcoachlib.thirdparty.aui.tabart-module.html">Module&nbsp;tabart</a> ::
+        Class&nbsp;AuiDefaultTabArt
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class AuiDefaultTabArt</h1><p class="nomargin-top"><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+object --+
+         |
+        <strong class="uidshort">AuiDefaultTabArt</strong>
+</pre>
+
+<hr />
+<p>Tab art provider code - a tab provider provides all drawing 
+  functionality to the :class:`~lib.agw.aui.auibook.AuiNotebook`. This 
+  allows the :class:`~lib.agw.aui.auibook.AuiNotebook` to have a plugable 
+  look-and-feel.</p>
+  <p>By default, a :class:`~lib.agw.aui.auibook.AuiNotebook` uses an 
+  instance of this class called :class:`AuiDefaultTabArt` which provides 
+  bitmap art and a colour scheme that is adapted to the major platforms' 
+  look. You can either derive from that class to alter its behaviour or 
+  write a completely new tab art class. Call 
+  :meth:`AuiNotebook.SetArtProvider() 
+  &lt;lib.agw.aui.auibook.AuiNotebook.SetArtProvider&gt;` to make use this 
+  new tab art.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Default class constructor.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#SetBaseColour" class="summary-sig-name">SetBaseColour</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">base_colour</span>)</span><br />
+      Sets a new base colour.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetBaseColour">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#SetDefaultColours" class="summary-sig-name">SetDefaultColours</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">base_colour</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Sets the default colours, which are calculated from the given base colour.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetDefaultColours">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="Clone"></a><span class="summary-sig-name">Clone</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Clones the art object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.Clone">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#SetAGWFlags" class="summary-sig-name">SetAGWFlags</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">agwFlags</span>)</span><br />
+      Sets the tab art flags.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetAGWFlags">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#GetAGWFlags" class="summary-sig-name">GetAGWFlags</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the tab art flags.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.GetAGWFlags">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#SetSizingInfo" class="summary-sig-name">SetSizingInfo</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">tab_ctrl_size</span>,
+        <span class="summary-sig-arg">tab_count</span>,
+        <span class="summary-sig-arg">minMaxTabWidth</span>)</span><br />
+      Sets the tab sizing information.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetSizingInfo">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#DrawBackground" class="summary-sig-name">DrawBackground</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>,
+        <span class="summary-sig-arg">wnd</span>,
+        <span class="summary-sig-arg">rect</span>)</span><br />
+      Draws the tab area background.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.DrawBackground">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#DrawTab" class="summary-sig-name">DrawTab</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>,
+        <span class="summary-sig-arg">wnd</span>,
+        <span class="summary-sig-arg">page</span>,
+        <span class="summary-sig-arg">in_rect</span>,
+        <span class="summary-sig-arg">close_button_state</span>,
+        <span class="summary-sig-arg">paint_control</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Draws a single tab.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.DrawTab">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#SetCustomButton" class="summary-sig-name">SetCustomButton</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">bitmap_id</span>,
+        <span class="summary-sig-arg">button_state</span>,
+        <span class="summary-sig-arg">bmp</span>)</span><br />
+      Sets a custom bitmap for the close, left, right and window list 
+      buttons.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetCustomButton">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetIndentSize"></a><span class="summary-sig-name">GetIndentSize</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the tabs indent size.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.GetIndentSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#GetTabSize" class="summary-sig-name">GetTabSize</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>,
+        <span class="summary-sig-arg">wnd</span>,
+        <span class="summary-sig-arg">caption</span>,
+        <span class="summary-sig-arg">bitmap</span>,
+        <span class="summary-sig-arg">active</span>,
+        <span class="summary-sig-arg">close_button_state</span>,
+        <span class="summary-sig-arg">control</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Returns the tab size for the given caption, bitmap and button state.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.GetTabSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#DrawButton" class="summary-sig-name">DrawButton</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>,
+        <span class="summary-sig-arg">wnd</span>,
+        <span class="summary-sig-arg">in_rect</span>,
+        <span class="summary-sig-arg">button</span>,
+        <span class="summary-sig-arg">orientation</span>)</span><br />
+      Draws a button on the tab or on the tab area, depending on the button
+      identifier.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.DrawButton">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#DrawFocusRectangle" class="summary-sig-name">DrawFocusRectangle</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dc</span>,
+        <span class="summary-sig-arg">page</span>,
+        <span class="summary-sig-arg">wnd</span>,
+        <span class="summary-sig-arg">draw_text</span>,
+        <span class="summary-sig-arg">text_offset</span>,
+        <span class="summary-sig-arg">bitmap_offset</span>,
+        <span class="summary-sig-arg">drawn_tab_yoff</span>,
+        <span class="summary-sig-arg">drawn_tab_height</span>,
+        <span class="summary-sig-arg">textx</span>,
+        <span class="summary-sig-arg">texty</span>)</span><br />
+      Draws the focus rectangle on a tab.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.DrawFocusRectangle">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#GetBestTabCtrlSize" class="summary-sig-name">GetBestTabCtrlSize</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">wnd</span>,
+        <span class="summary-sig-arg">pages</span>,
+        <span class="summary-sig-arg">required_bmp_size</span>)</span><br />
+      Returns the best tab control size.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.GetBestTabCtrlSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#SetNormalFont" class="summary-sig-name">SetNormalFont</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">font</span>)</span><br />
+      Sets the normal font for drawing tab labels.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetNormalFont">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#SetSelectedFont" class="summary-sig-name">SetSelectedFont</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">font</span>)</span><br />
+      Sets the selected tab font for drawing tab labels.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetSelectedFont">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#SetMeasuringFont" class="summary-sig-name">SetMeasuringFont</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">font</span>)</span><br />
+      Sets the font for calculating text measurements.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetMeasuringFont">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetNormalFont"></a><span class="summary-sig-name">GetNormalFont</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the normal font for drawing tab labels.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.GetNormalFont">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetSelectedFont"></a><span class="summary-sig-name">GetSelectedFont</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the selected tab font for drawing tab labels.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.GetSelectedFont">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetMeasuringFont"></a><span class="summary-sig-name">GetMeasuringFont</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the font for calculating text measurements.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.GetMeasuringFont">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.tabart.AuiDefaultTabArt-class.html#ShowDropDown" class="summary-sig-name">ShowDropDown</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">wnd</span>,
+        <span class="summary-sig-arg">pages</span>,
+        <span class="summary-sig-arg">active_idx</span>)</span><br />
+      Shows the drop-down window menu on the tab area.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.ShowDropDown">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Default class constructor.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetBaseColour"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetBaseColour</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">base_colour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetBaseColour">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets a new base colour.</p>
+  <p>:param `base_colour`: an instance of :class:`Colour`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetDefaultColours"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetDefaultColours</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">base_colour</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetDefaultColours">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Sets the default colours, which are calculated from the given base colour.
+
+:param `base_colour`: an instance of :class:`Colour`. If defaulted to ``None``, a colour
+ is generated accordingly to the platform and theme.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetAGWFlags"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetAGWFlags</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">agwFlags</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetAGWFlags">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Sets the tab art flags.
+
+:param integer `agwFlags`: a combination of the following values:
+
+ ==================================== ==================================
+ Flag name                            Description
+ ==================================== ==================================
+ ``AUI_NB_TOP``                       With this style, tabs are drawn along the top of the notebook
+ ``AUI_NB_LEFT``                      With this style, tabs are drawn along the left of the notebook. Not implemented yet.
+ ``AUI_NB_RIGHT``                     With this style, tabs are drawn along the right of the notebook. Not implemented yet.
+ ``AUI_NB_BOTTOM``                    With this style, tabs are drawn along the bottom of the notebook
+ ``AUI_NB_TAB_SPLIT``                 Allows the tab control to be split by dragging a tab
+ ``AUI_NB_TAB_MOVE``                  Allows a tab to be moved horizontally by dragging
+ ``AUI_NB_TAB_EXTERNAL_MOVE``         Allows a tab to be moved to another tab control
+ ``AUI_NB_TAB_FIXED_WIDTH``           With this style, all tabs have the same width
+ ``AUI_NB_SCROLL_BUTTONS``            With this style, left and right scroll buttons are displayed
+ ``AUI_NB_WINDOWLIST_BUTTON``         With this style, a drop-down list of windows is available
+ ``AUI_NB_CLOSE_BUTTON``              With this style, a close button is available on the tab bar
+ ``AUI_NB_CLOSE_ON_ACTIVE_TAB``       With this style, a close button is available on the active tab
+ ``AUI_NB_CLOSE_ON_ALL_TABS``         With this style, a close button is available on all tabs
+ ``AUI_NB_MIDDLE_CLICK_CLOSE``        Allows to close :class:`~lib.agw.aui.auibook.AuiNotebook` tabs by mouse middle button click
+ ``AUI_NB_SUB_NOTEBOOK``              This style is used by :class:`~lib.agw.aui.framemanager.AuiManager` to create automatic AuiNotebooks
+ ``AUI_NB_HIDE_ON_SINGLE_TAB``        Hides the tab window if only one tab is present
+ ``AUI_NB_SMART_TABS``                Use Smart Tabbing, like ``Alt`` + ``Tab`` on Windows
+ ``AUI_NB_USE_IMAGES_DROPDOWN``       Uses images on dropdown window list menu instead of check items
+ ``AUI_NB_CLOSE_ON_TAB_LEFT``         Draws the tab close button on the left instead of on the right (a la Camino browser)
+ ``AUI_NB_TAB_FLOAT``                 Allows the floating of single tabs. Known limitation: when the notebook is more or less
+                                      full screen, tabs cannot be dragged far enough outside of the notebook to become floating pages
+ ``AUI_NB_DRAW_DND_TAB``              Draws an image representation of a tab while dragging (on by default)
+ ``AUI_NB_ORDER_BY_ACCESS``           Tab navigation order by last access time for the tabs
+ ``AUI_NB_NO_TAB_FOCUS``              Don't draw tab focus rectangle
+ ==================================== ==================================
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetAGWFlags"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetAGWFlags</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.GetAGWFlags">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the tab art flags.</p>
+  <p>:see: :meth:`~AuiDefaultTabArt.SetAGWFlags` for a list of possible 
+  return values.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetSizingInfo"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetSizingInfo</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">tab_ctrl_size</span>,
+        <span class="sig-arg">tab_count</span>,
+        <span class="sig-arg">minMaxTabWidth</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetSizingInfo">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Sets the tab sizing information.
+
+:param Size `tab_ctrl_size`: the size of the tab control area;
+:param integer `tab_count`: the number of tabs;
+:param tuple `minMaxTabWidth`: a tuple containing the minimum and maximum tab widths
+ to be used when the ``AUI_NB_TAB_FIXED_WIDTH`` style is active.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="DrawBackground"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DrawBackground</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dc</span>,
+        <span class="sig-arg">wnd</span>,
+        <span class="sig-arg">rect</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.DrawBackground">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Draws the tab area background.</p>
+  <p>:param `dc`: a :class:`DC` device context; :param `wnd`: a 
+  :class:`Window` instance object; :param Rect `rect`: the tab control 
+  rectangle.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="DrawTab"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DrawTab</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dc</span>,
+        <span class="sig-arg">wnd</span>,
+        <span class="sig-arg">page</span>,
+        <span class="sig-arg">in_rect</span>,
+        <span class="sig-arg">close_button_state</span>,
+        <span class="sig-arg">paint_control</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.DrawTab">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Draws a single tab.</p>
+  <p>:param `dc`: a :class:`DC` device context; :param `wnd`: a 
+  :class:`Window` instance object; :param `page`: the tab control page 
+  associated with the tab; :param Rect `in_rect`: rectangle the tab should 
+  be confined to; :param integer `close_button_state`: the state of the 
+  close button on the tab; :param bool `paint_control`: whether to draw the
+  control inside a tab (if any) on a :class:`MemoryDC`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetCustomButton"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetCustomButton</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">bitmap_id</span>,
+        <span class="sig-arg">button_state</span>,
+        <span class="sig-arg">bmp</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetCustomButton">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets a custom bitmap for the close, left, right and window list 
+  buttons.</p>
+  <p>:param integer `bitmap_id`: the button identifier; :param integer 
+  `button_state`: the button state; :param Bitmap `bmp`: the custom bitmap 
+  to use for the button.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetTabSize"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetTabSize</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dc</span>,
+        <span class="sig-arg">wnd</span>,
+        <span class="sig-arg">caption</span>,
+        <span class="sig-arg">bitmap</span>,
+        <span class="sig-arg">active</span>,
+        <span class="sig-arg">close_button_state</span>,
+        <span class="sig-arg">control</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.GetTabSize">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the tab size for the given caption, bitmap and button 
+  state.</p>
+  <p>:param `dc`: a :class:`DC` device context; :param `wnd`: a 
+  :class:`Window` instance object; :param string `caption`: the tab text 
+  caption; :param Bitmap `bitmap`: the bitmap displayed on the tab; :param 
+  bool `active`: whether the tab is selected or not; :param integer 
+  `close_button_state`: the state of the close button on the tab; :param 
+  Window `control`: a :class:`Window` instance inside a tab (or 
+  ``None``).</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="DrawButton"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DrawButton</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dc</span>,
+        <span class="sig-arg">wnd</span>,
+        <span class="sig-arg">in_rect</span>,
+        <span class="sig-arg">button</span>,
+        <span class="sig-arg">orientation</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.DrawButton">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Draws a button on the tab or on the tab area, depending on the button 
+  identifier.</p>
+  <p>:param `dc`: a :class:`DC` device context; :param `wnd`: a 
+  :class:`Window` instance object; :param Rect `in_rect`: rectangle the tab
+  should be confined to; :param `button`: an instance of the button class; 
+  :param integer `orientation`: the tab orientation.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="DrawFocusRectangle"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DrawFocusRectangle</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dc</span>,
+        <span class="sig-arg">page</span>,
+        <span class="sig-arg">wnd</span>,
+        <span class="sig-arg">draw_text</span>,
+        <span class="sig-arg">text_offset</span>,
+        <span class="sig-arg">bitmap_offset</span>,
+        <span class="sig-arg">drawn_tab_yoff</span>,
+        <span class="sig-arg">drawn_tab_height</span>,
+        <span class="sig-arg">textx</span>,
+        <span class="sig-arg">texty</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.DrawFocusRectangle">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Draws the focus rectangle on a tab.</p>
+  <p>:param `dc`: a :class:`DC` device context; :param `page`: the page 
+  associated with the tab; :param `wnd`: a :class:`Window` instance object;
+  :param string `draw_text`: the text that has been drawn on the tab; 
+  :param integer `text_offset`: the text offset on the tab; :param integer 
+  `bitmap_offset`: the bitmap offset on the tab; :param integer 
+  `drawn_tab_yoff`: the y offset of the tab text; :param integer 
+  `drawn_tab_height`: the height of the tab; :param integer `textx`: the x 
+  text extent; :param integer `texty`: the y text extent.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetBestTabCtrlSize"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetBestTabCtrlSize</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">wnd</span>,
+        <span class="sig-arg">pages</span>,
+        <span class="sig-arg">required_bmp_size</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.GetBestTabCtrlSize">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the best tab control size.</p>
+  <p>:param `wnd`: a :class:`Window` instance object; :param list `pages`: 
+  the pages associated with the tabs; :param Size `required_bmp_size`: the 
+  size of the bitmap on the tabs.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetNormalFont"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetNormalFont</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">font</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetNormalFont">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the normal font for drawing tab labels.</p>
+  <p>:param Font `font`: the new font to use to draw tab labels in their 
+  normal, un-selected state.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetSelectedFont"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetSelectedFont</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">font</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetSelectedFont">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the selected tab font for drawing tab labels.</p>
+  <p>:param Font `font`: the new font to use to draw tab labels in their 
+  selected state.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetMeasuringFont"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetMeasuringFont</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">font</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.SetMeasuringFont">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the font for calculating text measurements.</p>
+  <p>:param Font `font`: the new font to use to measure tab labels text 
+  extents.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="ShowDropDown"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ShowDropDown</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">wnd</span>,
+        <span class="sig-arg">pages</span>,
+        <span class="sig-arg">active_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.tabart-pysrc.html#AuiDefaultTabArt.ShowDropDown">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Shows the drop-down window menu on the tab area.</p>
+  <p>:param `wnd`: a :class:`Window` derived window instance; :param list 
+  `pages`: the pages associated with the tabs; :param integer `active_idx`:
+  the active tab index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:43 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

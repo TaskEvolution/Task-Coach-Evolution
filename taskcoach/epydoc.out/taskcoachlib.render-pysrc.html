@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.render</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        Module&nbsp;render
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.render-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.render-module.html">Module taskcoachlib.render</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach - Your friendly task manager</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (C) 2004-2013 Task Coach developers &lt;developers@taskcoach.org&gt;</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is free software: you can redistribute it and/or modify</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">the Free Software Foundation, either version 3 of the License, or</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">(at your option) any later version.</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">GNU General Public License for more details.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-string">''' render.py - functions to render various objects, like date, time, </tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-string">etc. '''</tt>  <tt class="py-comment"># pylint: disable=W0105</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package taskcoachlib=taskcoachlib-module.html"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-0', 'taskcoachlib', 'link-0');">taskcoachlib</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package taskcoachlib.domain=taskcoachlib.domain-module.html"><a title="taskcoachlib.domain" class="py-name" href="#" onclick="return doclink('link-1', 'domain', 'link-1');">domain</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Package taskcoachlib.domain.date=taskcoachlib.domain.date-module.html,Module taskcoachlib.domain.date.date=taskcoachlib.domain.date.date-module.html,Variable taskcoachlib.meta.data.date=taskcoachlib.meta.data-module.html#date,Function taskcoachlib.render.date()=taskcoachlib.render-module.html#date"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-2', 'date', 'link-2');">date</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">datemodule</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-3', 'taskcoachlib', 'link-0');">taskcoachlib</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Package taskcoachlib.thirdparty=taskcoachlib.thirdparty-module.html"><a title="taskcoachlib.thirdparty" class="py-name" href="#" onclick="return doclink('link-4', 'thirdparty', 'link-4');">thirdparty</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Package taskcoachlib.thirdparty.desktop=taskcoachlib.thirdparty.desktop-module.html"><a title="taskcoachlib.thirdparty.desktop" class="py-name" href="#" onclick="return doclink('link-5', 'desktop', 'link-5');">desktop</a></tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-6" class="py-name"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-6', 'taskcoachlib', 'link-0');">taskcoachlib</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Package taskcoachlib.i18n=taskcoachlib.i18n-module.html"><a title="taskcoachlib.i18n" class="py-name" href="#" onclick="return doclink('link-7', 'i18n', 'link-7');">i18n</a></tt> <tt class="py-keyword">import</tt> <tt id="link-8" class="py-name" targets="Variable taskcoachlib.thirdparty.aui.aui_switcherdialog._=taskcoachlib.thirdparty.aui.aui_switcherdialog-module.html#_,Variable taskcoachlib.thirdparty.aui.framemanager._=taskcoachlib.thirdparty.aui.framemanager-module.html#_,Variable taskcoachlib.thirdparty.aui.tabmdi._=taskcoachlib.thirdparty.aui.tabmdi-module.html#_,Variable taskcoachlib.thirdparty.smartdatetimectrl._=taskcoachlib.thirdparty.smartdatetimectrl-module.html#_"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-8', '_', 'link-8');">_</a></tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-9" class="py-name"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-9', 'taskcoachlib', 'link-0');">taskcoachlib</a></tt> <tt class="py-keyword">import</tt> <tt id="link-10" class="py-name" targets="Module taskcoachlib.operating_system=taskcoachlib.operating_system-module.html"><a title="taskcoachlib.operating_system" class="py-name" href="#" onclick="return doclink('link-10', 'operating_system', 'link-10');">operating_system</a></tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">datetime</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">codecs</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">locale</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-comment"># pylint: disable=W0621</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
+<a name="priority"></a><div id="priority-def"><a name="L36"></a><tt class="py-lineno"> 36</tt> <a class="py-toggle" href="#" id="priority-toggle" onclick="return toggle('priority');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#priority">priority</a><tt class="py-op">(</tt><tt class="py-param">priority</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="priority-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="priority-expanded"><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">    <tt class="py-docstring">''' Render an (integer) priority '''</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-11" class="py-name" targets="Class str=str-class.html"><a title="str" class="py-name" href="#" onclick="return doclink('link-11', 'str', 'link-11');">str</a></tt><tt class="py-op">(</tt><tt id="link-12" class="py-name" targets="Method taskcoachlib.domain.task.task.Task.priority()=taskcoachlib.domain.task.task.Task-class.html#priority,Static Method taskcoachlib.persistence.todotxt.reader.TodoTxtReader.priority()=taskcoachlib.persistence.todotxt.reader.TodoTxtReader-class.html#priority,Static Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.priority()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#priority,Function taskcoachlib.render.priority()=taskcoachlib.render-module.html#priority"><a title="taskcoachlib.domain.task.task.Task.priority
+taskcoachlib.persistence.todotxt.reader.TodoTxtReader.priority
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.priority
+taskcoachlib.render.priority" class="py-name" href="#" onclick="return doclink('link-12', 'priority', 'link-12');">priority</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">  </tt>
+<a name="timeLeft"></a><div id="timeLeft-def"><a name="L41"></a><tt class="py-lineno"> 41</tt> <a class="py-toggle" href="#" id="timeLeft-toggle" onclick="return toggle('timeLeft');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#timeLeft">timeLeft</a><tt class="py-op">(</tt><tt class="py-param">time_left</tt><tt class="py-op">,</tt> <tt class="py-param">completed_task</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="timeLeft-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="timeLeft-expanded"><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">    <tt class="py-docstring">''' Render time left as a text string. Returns an empty string for </tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">        completed tasks and for tasks without planned due date. Otherwise it </tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">        returns the number of days, hours, and minutes left. '''</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">completed_task</tt> <tt class="py-keyword">or</tt> <tt class="py-name">time_left</tt> <tt class="py-op">==</tt> <tt class="py-name">datemodule</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Class taskcoachlib.domain.date.timedelta.TimeDelta=taskcoachlib.domain.date.timedelta.TimeDelta-class.html"><a title="taskcoachlib.domain.date.timedelta.TimeDelta" class="py-name" href="#" onclick="return doclink('link-13', 'TimeDelta', 'link-13');">TimeDelta</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Variable taskcoachlib.domain.date.dateandtime.DateTime.max=taskcoachlib.domain.date.dateandtime.DateTime-class.html#max"><a title="taskcoachlib.domain.date.dateandtime.DateTime.max" class="py-name" href="#" onclick="return doclink('link-14', 'max', 'link-14');">max</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">''</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">    <tt id="link-15" class="py-name" targets="Method taskcoachlib.domain.date.timedelta.TimeDelta.sign()=taskcoachlib.domain.date.timedelta.TimeDelta-class.html#sign"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.sign" class="py-name" href="#" onclick="return doclink('link-15', 'sign', 'link-15');">sign</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'-'</tt> <tt class="py-keyword">if</tt> <tt class="py-name">time_left</tt><tt class="py-op">.</tt><tt class="py-name">days</tt> <tt class="py-op">&lt;</tt> <tt class="py-number">0</tt> <tt class="py-keyword">else</tt> <tt class="py-string">''</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">    <tt class="py-name">time_left</tt> <tt class="py-op">=</tt> <tt class="py-name">abs</tt><tt class="py-op">(</tt><tt class="py-name">time_left</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">time_left</tt><tt class="py-op">.</tt><tt class="py-name">days</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-name">days</tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-16', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'%d days'</tt><tt class="py-op">)</tt> <tt class="py-op">%</tt> <tt class="py-name">time_left</tt><tt class="py-op">.</tt><tt class="py-name">days</tt> <tt class="py-keyword">if</tt> <tt class="py-name">time_left</tt><tt class="py-op">.</tt><tt class="py-name">days</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1</tt> <tt class="py-keyword">else</tt> \ </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">               <tt id="link-17" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-17', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'1 day'</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-name">days</tt> <tt class="py-op">+=</tt> <tt class="py-string">', '</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-name">days</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt>  </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt class="py-name">hours_and_minutes</tt> <tt class="py-op">=</tt> <tt class="py-string">':'</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-18" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-18', 'str', 'link-11');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">time_left</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Class Method taskcoachlib.thirdparty.dateutil.parser._timelex.split()=taskcoachlib.thirdparty.dateutil.parser._timelex-class.html#split"><a title="taskcoachlib.thirdparty.dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-19', 'split', 'link-19');">split</a></tt><tt class="py-op">(</tt><tt class="py-string">':'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-20', 'split', 'link-19');">split</a></tt><tt class="py-op">(</tt><tt class="py-string">', '</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-21" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.sign" class="py-name" href="#" onclick="return doclink('link-21', 'sign', 'link-15');">sign</a></tt> <tt class="py-op">+</tt> <tt class="py-name">days</tt> <tt class="py-op">+</tt> <tt class="py-name">hours_and_minutes</tt> </tt>
+</div><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="timeSpent"></a><div id="timeSpent-def"><a name="L59"></a><tt class="py-lineno"> 59</tt> <a class="py-toggle" href="#" id="timeSpent-toggle" onclick="return toggle('timeSpent');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#timeSpent">timeSpent</a><tt class="py-op">(</tt><tt class="py-param">timeSpent</tt><tt class="py-op">,</tt> <tt class="py-param">showSeconds</tt><tt class="py-op">=</tt><tt id="link-22" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.True=taskcoachlib.thirdparty.chardet.constants-module.html#True"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-22', 'True', 'link-22');">True</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="timeSpent-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="timeSpent-expanded"><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">    <tt class="py-docstring">''' Render time spent (of type date.TimeDelta) as</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">        "&lt;hours&gt;:&lt;minutes&gt;:&lt;seconds&gt;" or "&lt;hours&gt;:&lt;minutes&gt;" '''</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">    <tt class="py-name">zero</tt> <tt class="py-op">=</tt> <tt class="py-name">datemodule</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta" class="py-name" href="#" onclick="return doclink('link-23', 'TimeDelta', 'link-13');">TimeDelta</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-24" class="py-name" targets="Method taskcoachlib.domain.task.task.Task.timeSpent()=taskcoachlib.domain.task.task.Task-class.html#timeSpent,Function taskcoachlib.render.timeSpent()=taskcoachlib.render-module.html#timeSpent"><a title="taskcoachlib.domain.task.task.Task.timeSpent
+taskcoachlib.render.timeSpent" class="py-name" href="#" onclick="return doclink('link-24', 'timeSpent', 'link-24');">timeSpent</a></tt> <tt class="py-op">==</tt> <tt class="py-name">zero</tt><tt class="py-op">:</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">''</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt id="link-25" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.sign" class="py-name" href="#" onclick="return doclink('link-25', 'sign', 'link-15');">sign</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'-'</tt> <tt class="py-keyword">if</tt> <tt id="link-26" class="py-name"><a title="taskcoachlib.domain.task.task.Task.timeSpent
+taskcoachlib.render.timeSpent" class="py-name" href="#" onclick="return doclink('link-26', 'timeSpent', 'link-24');">timeSpent</a></tt> <tt class="py-op">&lt;</tt> <tt class="py-name">zero</tt> <tt class="py-keyword">else</tt> <tt class="py-string">''</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt id="link-27" class="py-name" targets="Method taskcoachlib.domain.date.timedelta.TimeDelta.hours()=taskcoachlib.domain.date.timedelta.TimeDelta-class.html#hours"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.hours" class="py-name" href="#" onclick="return doclink('link-27', 'hours', 'link-27');">hours</a></tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name" targets="Method taskcoachlib.domain.date.timedelta.TimeDelta.minutes()=taskcoachlib.domain.date.timedelta.TimeDelta-class.html#minutes"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.minutes" class="py-name" href="#" onclick="return doclink('link-28', 'minutes', 'link-28');">minutes</a></tt><tt class="py-op">,</tt> <tt class="py-name">seconds</tt> <tt class="py-op">=</tt> <tt id="link-29" class="py-name"><a title="taskcoachlib.domain.task.task.Task.timeSpent
+taskcoachlib.render.timeSpent" class="py-name" href="#" onclick="return doclink('link-29', 'timeSpent', 'link-24');">timeSpent</a></tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Method taskcoachlib.domain.date.timedelta.TimeDelta.hoursMinutesSeconds()=taskcoachlib.domain.date.timedelta.TimeDelta-class.html#hoursMinutesSeconds"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.hoursMinutesSeconds" class="py-name" href="#" onclick="return doclink('link-30', 'hoursMinutesSeconds', 'link-30');">hoursMinutesSeconds</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-31" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.sign" class="py-name" href="#" onclick="return doclink('link-31', 'sign', 'link-15');">sign</a></tt> <tt class="py-op">+</tt> <tt class="py-string">'%d:%02d'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-32" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.hours" class="py-name" href="#" onclick="return doclink('link-32', 'hours', 'link-27');">hours</a></tt><tt class="py-op">,</tt> <tt id="link-33" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.minutes" class="py-name" href="#" onclick="return doclink('link-33', 'minutes', 'link-28');">minutes</a></tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> \ </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">               <tt class="py-op">(</tt><tt class="py-string">':%02d'</tt> <tt class="py-op">%</tt> <tt class="py-name">seconds</tt> <tt class="py-keyword">if</tt> <tt class="py-name">showSeconds</tt> <tt class="py-keyword">else</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"> </tt>
+<a name="recurrence"></a><div id="recurrence-def"><a name="L72"></a><tt class="py-lineno"> 72</tt> <a class="py-toggle" href="#" id="recurrence-toggle" onclick="return toggle('recurrence');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#recurrence">recurrence</a><tt class="py-op">(</tt><tt class="py-param">recurrence</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="recurrence-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="recurrence-expanded"><a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">    <tt class="py-docstring">''' Render the recurrence as a short string describing the frequency of</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">        the recurrence. '''</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-34" class="py-name" targets="Module taskcoachlib.domain.date.recurrence=taskcoachlib.domain.date.recurrence-module.html,Method taskcoachlib.domain.task.task.Task.recurrence()=taskcoachlib.domain.task.task.Task-class.html#recurrence,Function taskcoachlib.render.recurrence()=taskcoachlib.render-module.html#recurrence"><a title="taskcoachlib.domain.date.recurrence
+taskcoachlib.domain.task.task.Task.recurrence
+taskcoachlib.render.recurrence" class="py-name" href="#" onclick="return doclink('link-34', 'recurrence', 'link-34');">recurrence</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">''</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-35" class="py-name"><a title="taskcoachlib.domain.date.recurrence
+taskcoachlib.domain.task.task.Task.recurrence
+taskcoachlib.render.recurrence" class="py-name" href="#" onclick="return doclink('link-35', 'recurrence', 'link-34');">recurrence</a></tt><tt class="py-op">.</tt><tt class="py-name">amount</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">2</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt id="link-36" class="py-name" targets="Variable taskcoachlib.gui.uicommand.uicommand.NewSubItem.labels=taskcoachlib.gui.uicommand.uicommand.NewSubItem-class.html#labels"><a title="taskcoachlib.gui.uicommand.uicommand.NewSubItem.labels" class="py-name" href="#" onclick="return doclink('link-36', 'labels', 'link-36');">labels</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt id="link-37" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-37', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'Every %(frequency)d days'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt>  </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                  <tt id="link-38" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-38', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'Every %(frequency)d weeks'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">                  <tt id="link-39" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-39', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'Every %(frequency)d months'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                  <tt id="link-40" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-40', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'Every %(frequency)d years'</tt><tt class="py-op">)</tt><tt class="py-op">]</tt>  </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt id="link-41" class="py-name"><a title="taskcoachlib.domain.date.recurrence
+taskcoachlib.domain.task.task.Task.recurrence
+taskcoachlib.render.recurrence" class="py-name" href="#" onclick="return doclink('link-41', 'recurrence', 'link-34');">recurrence</a></tt><tt class="py-op">.</tt><tt class="py-name">amount</tt> <tt class="py-op">==</tt> <tt class="py-number">2</tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt id="link-42" class="py-name"><a title="taskcoachlib.gui.uicommand.uicommand.NewSubItem.labels" class="py-name" href="#" onclick="return doclink('link-42', 'labels', 'link-36');">labels</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt id="link-43" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-43', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'Every other day'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-44" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-44', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'Every other week'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">                  <tt id="link-45" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-45', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'Every other month'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-46" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-46', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'Every other year'</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt id="link-47" class="py-name"><a title="taskcoachlib.gui.uicommand.uicommand.NewSubItem.labels" class="py-name" href="#" onclick="return doclink('link-47', 'labels', 'link-36');">labels</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt id="link-48" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-48', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'Daily'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-49" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-49', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'Weekly'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-50" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-50', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'Monthly'</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-51" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-51', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'Yearly'</tt><tt class="py-op">)</tt><tt class="py-op">]</tt>  </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">    <tt class="py-name">mapping</tt> <tt class="py-op">=</tt> <tt id="link-52" class="py-name" targets="Variable taskcoachlib.i18n.ar.dict=taskcoachlib.i18n.ar-module.html#dict,Variable taskcoachlib.i18n.be.dict=taskcoachlib.i18n.be-module.html#dict,Variable taskcoachlib.i18n.bg.dict=taskcoachlib.i18n.bg-module.html#dict,Variable taskcoachlib.i18n.br.dict=taskcoachlib.i18n.br-module.html#dict,Variable taskcoachlib.i18n.bs.dict=taskcoachlib.i18n.bs-module.html#dict,Variable taskcoachlib.i18n.ca.dict=taskcoachlib.i18n.ca-module.html#dict,Variable taskcoachlib.i18n.cs.dict=taskcoachlib.i18n.cs-module.html#dict,Variable taskcoachlib.i18n.da.dict=taskcoachlib.i18n.da-module.html#dict,Variable taskcoachlib.i18n.de.dict=taskcoachlib.i18n.de-module.html#dict,Variable taskcoachlib.i18n.el.dict=taskcoachlib.i18n.el-module.html#dict,Variable taskcoachlib.i18n.en_AU.dict=taskcoachlib.i18n.en_AU-module.html#dict,Variable taskcoachlib.i18n.en_CA.dict=taskcoachlib.i18n.en_CA-module.html#dict,Variable taskcoachlib.i18n.en_GB.dict=taskcoachlib.i18n.en_GB-module.html#dict,Variable taskcoachlib.i18n.eo.dict=taskcoachlib.i18n.eo-module.html#dict,Variable taskcoachlib.i18n.es.dict=taskcoachlib.i18n.es-module.html#dict,Variable taskcoachlib.i18n.et.dict=taskcoachlib.i18n.et-module.html#dict,Variable taskcoachlib.i18n.eu.dict=taskcoachlib.i18n.eu-module.html#dict,Variable taskcoachlib.i18n.fa.dict=taskcoachlib.i18n.fa-module.html#dict,Variable taskcoachlib.i18n.fi.dict=taskcoachlib.i18n.fi-module.html#dict,Variable taskcoachlib.i18n.fr.dict=taskcoachlib.i18n.fr-module.html#dict,Variable taskcoachlib.i18n.gl.dict=taskcoachlib.i18n.gl-module.html#dict,Variable taskcoachlib.i18n.he.dict=taskcoachlib.i18n.he-module.html#dict,Variable taskcoachlib.i18n.hi.dict=taskcoachlib.i18n.hi-module.html#dict,Variable taskcoachlib.i18n.hu.dict=taskcoachlib.i18n.hu-module.html#dict,Variable taskcoachlib.i18n.id.dict=taskcoachlib.i18n.id-module.html#dict,Variable taskcoachlib.i18n.it.dict=taskcoachlib.i18n.it-module.html#dict,Variable taskcoachlib.i18n.ja.dict=taskcoachlib.i18n.ja-module.html#dict,Variable taskcoachlib.i18n.ko.dict=taskcoachlib.i18n.ko-module.html#dict,Variable taskcoachlib.i18n.lt.dict=taskcoachlib.i18n.lt-module.html#dict,Variable taskcoachlib.i18n.lv.dict=taskcoachlib.i18n.lv-module.html#dict,Variable taskcoachlib.i18n.mn.dict=taskcoachlib.i18n.mn-module.html#dict,Variable taskcoachlib.i18n.mr.dict=taskcoachlib.i18n.mr-module.html#dict,Variable taskcoachlib.i18n.nb.dict=taskcoachlib.i18n.nb-module.html#dict,Variable taskcoachlib.i18n.nds.dict=taskcoachlib.i18n.nds-module.html#dict,Variable taskcoachlib.i18n.nl.dict=taskcoachlib.i18n.nl-module.html#dict,Variable taskcoachlib.i18n.nn.dict=taskcoachlib.i18n.nn-module.html#dict,Variable taskcoachlib.i18n.oc.dict=taskcoachlib.i18n.oc-module.html#dict,Variable taskcoachlib.i18n.pap.dict=taskcoachlib.i18n.pap-module.html#dict,Variable taskcoachlib.i18n.pl.dict=taskcoachlib.i18n.pl-module.html#dict,Variable taskcoachlib.i18n.pt.dict=taskcoachlib.i18n.pt-module.html#dict,Variable taskcoachlib.i18n.pt_BR.dict=taskcoachlib.i18n.pt_BR-module.html#dict,Variable taskcoachlib.i18n.ro.dict=taskcoachlib.i18n.ro-module.html#dict,Variable taskcoachlib.i18n.ru.dict=taskcoachlib.i18n.ru-module.html#dict,Variable taskcoachlib.i18n.sk.dict=taskcoachlib.i18n.sk-module.html#dict,Variable taskcoachlib.i18n.sl.dict=taskcoachlib.i18n.sl-module.html#dict,Variable taskcoachlib.i18n.sv.dict=taskcoachlib.i18n.sv-module.html#dict,Variable taskcoachlib.i18n.te.dict=taskcoachlib.i18n.te-module.html#dict,Variable taskcoachlib.i18n.th.dict=taskcoachlib.i18n.th-module.html#dict,Variable taskcoachlib.i18n.tr.dict=taskcoachlib.i18n.tr-module.html#dict,Variable taskcoachlib.i18n.uk.dict=taskcoachlib.i18n.uk-module.html#dict,Variable taskcoachlib.i18n.vi.dict=taskcoachlib.i18n.vi-module.html#dict,Variable taskcoachlib.i18n.zh_CN.dict=taskcoachlib.i18n.zh_CN-module.html#dict,Variable taskcoachlib.i18n.zh_TW.dict=taskcoachlib.i18n.zh_TW-module.html#dict"><a title="taskcoachlib.i18n.ar.dict
+taskcoachlib.i18n.be.dict
+taskcoachlib.i18n.bg.dict
+taskcoachlib.i18n.br.dict
+taskcoachlib.i18n.bs.dict
+taskcoachlib.i18n.ca.dict
+taskcoachlib.i18n.cs.dict
+taskcoachlib.i18n.da.dict
+taskcoachlib.i18n.de.dict
+taskcoachlib.i18n.el.dict
+taskcoachlib.i18n.en_AU.dict
+taskcoachlib.i18n.en_CA.dict
+taskcoachlib.i18n.en_GB.dict
+taskcoachlib.i18n.eo.dict
+taskcoachlib.i18n.es.dict
+taskcoachlib.i18n.et.dict
+taskcoachlib.i18n.eu.dict
+taskcoachlib.i18n.fa.dict
+taskcoachlib.i18n.fi.dict
+taskcoachlib.i18n.fr.dict
+taskcoachlib.i18n.gl.dict
+taskcoachlib.i18n.he.dict
+taskcoachlib.i18n.hi.dict
+taskcoachlib.i18n.hu.dict
+taskcoachlib.i18n.id.dict
+taskcoachlib.i18n.it.dict
+taskcoachlib.i18n.ja.dict
+taskcoachlib.i18n.ko.dict
+taskcoachlib.i18n.lt.dict
+taskcoachlib.i18n.lv.dict
+taskcoachlib.i18n.mn.dict
+taskcoachlib.i18n.mr.dict
+taskcoachlib.i18n.nb.dict
+taskcoachlib.i18n.nds.dict
+taskcoachlib.i18n.nl.dict
+taskcoachlib.i18n.nn.dict
+taskcoachlib.i18n.oc.dict
+taskcoachlib.i18n.pap.dict
+taskcoachlib.i18n.pl.dict
+taskcoachlib.i18n.pt.dict
+taskcoachlib.i18n.pt_BR.dict
+taskcoachlib.i18n.ro.dict
+taskcoachlib.i18n.ru.dict
+taskcoachlib.i18n.sk.dict
+taskcoachlib.i18n.sl.dict
+taskcoachlib.i18n.sv.dict
+taskcoachlib.i18n.te.dict
+taskcoachlib.i18n.th.dict
+taskcoachlib.i18n.tr.dict
+taskcoachlib.i18n.uk.dict
+taskcoachlib.i18n.vi.dict
+taskcoachlib.i18n.zh_CN.dict
+taskcoachlib.i18n.zh_TW.dict" class="py-name" href="#" onclick="return doclink('link-52', 'dict', 'link-52');">dict</a></tt><tt class="py-op">(</tt><tt class="py-name">zip</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">'daily'</tt><tt class="py-op">,</tt> <tt class="py-string">'weekly'</tt><tt class="py-op">,</tt> <tt class="py-string">'monthly'</tt><tt class="py-op">,</tt> <tt class="py-string">'yearly'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-53" class="py-name"><a title="taskcoachlib.gui.uicommand.uicommand.NewSubItem.labels" class="py-name" href="#" onclick="return doclink('link-53', 'labels', 'link-36');">labels</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">mapping</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name" targets="Method taskcoachlib.command.clipboard.Clipboard.get()=taskcoachlib.command.clipboard.Clipboard-class.html#get,Method taskcoachlib.config.settings.CachingConfigParser.get()=taskcoachlib.config.settings.CachingConfigParser-class.html#get,Method taskcoachlib.config.settings.Settings.get()=taskcoachlib.config.settings.Settings-class.html#get,Method taskcoachlib.config.settings.UnicodeAwareConfigParser.get()=taskcoachlib.config.settings.UnicodeAwareConfigParser-class.html#get,Method taskcoachlib.domain.base.attribute.Attribute.get()=taskcoachlib.domain.base.attribute.Attribute-class.html#get,Method taskcoachlib.domain.base.attribute.SetAttribute.get()=taskcoachlib.domain.base.attribute.SetAttribute-class.html#get,Method taskcoachlib.gui.dialog.preferences.SettingsPage.get()=taskcoachlib.gui.dialog.preferences.SettingsPage-class.html#get,Method taskcoachlib.gui.dialog.preferences.SettingsPageBase.get()=taskcoachlib.gui.dialog.preferences.SettingsPageBase-class.html#get,Method taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.get()=taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage-class.html#get,Class Method taskcoachlib.notify.notifier.AbstractNotifier.get()=taskcoachlib.notify.notifier.AbstractNotifier-class.html#get,Method taskcoachlib.syncml.config.SyncMLConfigNode.get()=taskcoachlib.syncml.config.SyncMLConfigNode-class.html#get,Method taskcoachlib.thirdparty.dateutil.tz.tzical.get()=taskcoachlib.thirdparty.dateutil.tz.tzical-class.html#get,Method taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas.get()=taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas-class.html#get,Method taskcoachlib.thirdparty.googleapi.httplib2.FileCache.get()=taskcoachlib.thirdparty.googleapi.httplib2.FileCache-class.html#get,Method taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.get()=taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache-class.html#get,Method taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage.get()=taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage-class.html#get,Method taskcoachlib.thirdparty.pyparsing.ParseResults.get()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#get,Method taskcoachlib.thirdparty.wmi._wmi_namespace.get()=taskcoachlib.thirdparty.wmi._wmi_namespace-class.html#get,Method taskcoachlib.thirdparty.xdg.IniFile.IniFile.get()=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#get"><a title="taskcoachlib.command.clipboard.Clipboard.get
+taskcoachlib.config.settings.CachingConfigParser.get
+taskcoachlib.config.settings.Settings.get
+taskcoachlib.config.settings.UnicodeAwareConfigParser.get
+taskcoachlib.domain.base.attribute.Attribute.get
+taskcoachlib.domain.base.attribute.SetAttribute.get
+taskcoachlib.gui.dialog.preferences.SettingsPage.get
+taskcoachlib.gui.dialog.preferences.SettingsPageBase.get
+taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.get
+taskcoachlib.notify.notifier.AbstractNotifier.get
+taskcoachlib.syncml.config.SyncMLConfigNode.get
+taskcoachlib.thirdparty.dateutil.tz.tzical.get
+taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas.get
+taskcoachlib.thirdparty.googleapi.httplib2.FileCache.get
+taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.get
+taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage.get
+taskcoachlib.thirdparty.pyparsing.ParseResults.get
+taskcoachlib.thirdparty.wmi._wmi_namespace.get
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.get" class="py-name" href="#" onclick="return doclink('link-54', 'get', 'link-54');">get</a></tt><tt class="py-op">(</tt><tt id="link-55" class="py-name"><a title="taskcoachlib.domain.date.recurrence
+taskcoachlib.domain.task.task.Task.recurrence
+taskcoachlib.render.recurrence" class="py-name" href="#" onclick="return doclink('link-55', 'recurrence', 'link-34');">recurrence</a></tt><tt class="py-op">.</tt><tt class="py-name">unit</tt><tt class="py-op">)</tt> <tt class="py-op">%</tt> <tt id="link-56" class="py-name"><a title="taskcoachlib.i18n.ar.dict
+taskcoachlib.i18n.be.dict
+taskcoachlib.i18n.bg.dict
+taskcoachlib.i18n.br.dict
+taskcoachlib.i18n.bs.dict
+taskcoachlib.i18n.ca.dict
+taskcoachlib.i18n.cs.dict
+taskcoachlib.i18n.da.dict
+taskcoachlib.i18n.de.dict
+taskcoachlib.i18n.el.dict
+taskcoachlib.i18n.en_AU.dict
+taskcoachlib.i18n.en_CA.dict
+taskcoachlib.i18n.en_GB.dict
+taskcoachlib.i18n.eo.dict
+taskcoachlib.i18n.es.dict
+taskcoachlib.i18n.et.dict
+taskcoachlib.i18n.eu.dict
+taskcoachlib.i18n.fa.dict
+taskcoachlib.i18n.fi.dict
+taskcoachlib.i18n.fr.dict
+taskcoachlib.i18n.gl.dict
+taskcoachlib.i18n.he.dict
+taskcoachlib.i18n.hi.dict
+taskcoachlib.i18n.hu.dict
+taskcoachlib.i18n.id.dict
+taskcoachlib.i18n.it.dict
+taskcoachlib.i18n.ja.dict
+taskcoachlib.i18n.ko.dict
+taskcoachlib.i18n.lt.dict
+taskcoachlib.i18n.lv.dict
+taskcoachlib.i18n.mn.dict
+taskcoachlib.i18n.mr.dict
+taskcoachlib.i18n.nb.dict
+taskcoachlib.i18n.nds.dict
+taskcoachlib.i18n.nl.dict
+taskcoachlib.i18n.nn.dict
+taskcoachlib.i18n.oc.dict
+taskcoachlib.i18n.pap.dict
+taskcoachlib.i18n.pl.dict
+taskcoachlib.i18n.pt.dict
+taskcoachlib.i18n.pt_BR.dict
+taskcoachlib.i18n.ro.dict
+taskcoachlib.i18n.ru.dict
+taskcoachlib.i18n.sk.dict
+taskcoachlib.i18n.sl.dict
+taskcoachlib.i18n.sv.dict
+taskcoachlib.i18n.te.dict
+taskcoachlib.i18n.th.dict
+taskcoachlib.i18n.tr.dict
+taskcoachlib.i18n.uk.dict
+taskcoachlib.i18n.vi.dict
+taskcoachlib.i18n.zh_CN.dict
+taskcoachlib.i18n.zh_TW.dict" class="py-name" href="#" onclick="return doclink('link-56', 'dict', 'link-52');">dict</a></tt><tt class="py-op">(</tt><tt class="py-name">frequency</tt><tt class="py-op">=</tt><tt id="link-57" class="py-name"><a title="taskcoachlib.domain.date.recurrence
+taskcoachlib.domain.task.task.Task.recurrence
+taskcoachlib.render.recurrence" class="py-name" href="#" onclick="return doclink('link-57', 'recurrence', 'link-34');">recurrence</a></tt><tt class="py-op">.</tt><tt class="py-name">amount</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
+<a name="budget"></a><div id="budget-def"><a name="L91"></a><tt class="py-lineno"> 91</tt> <a class="py-toggle" href="#" id="budget-toggle" onclick="return toggle('budget');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#budget">budget</a><tt class="py-op">(</tt><tt class="py-param">aBudget</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="budget-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="budget-expanded"><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">    <tt class="py-docstring">''' Render budget (of type date.TimeDelta) as </tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">        "&lt;hours&gt;:&lt;minutes&gt;:&lt;seconds&gt;". '''</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-58" class="py-name"><a title="taskcoachlib.domain.task.task.Task.timeSpent
+taskcoachlib.render.timeSpent" class="py-name" href="#" onclick="return doclink('link-58', 'timeSpent', 'link-24');">timeSpent</a></tt><tt class="py-op">(</tt><tt class="py-name">aBudget</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-comment"># Default time formatting</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt id="link-59" class="py-name" targets="Variable taskcoachlib.render.language_and_country=taskcoachlib.render-module.html#language_and_country"><a title="taskcoachlib.render.language_and_country" class="py-name" href="#" onclick="return doclink('link-59', 'language_and_country', 'link-59');">language_and_country</a></tt> <tt class="py-op">=</tt> <tt class="py-name">locale</tt><tt class="py-op">.</tt><tt class="py-name">getlocale</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt id="link-60" class="py-name"><a title="taskcoachlib.render.language_and_country" class="py-name" href="#" onclick="return doclink('link-60', 'language_and_country', 'link-59');">language_and_country</a></tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-string">'_US'</tt> <tt class="py-keyword">in</tt> <tt id="link-61" class="py-name"><a title="taskcoachlib.render.language_and_country" class="py-name" href="#" onclick="return doclink('link-61', 'language_and_country', 'link-59');">language_and_country</a></tt> <tt class="py-keyword">or</tt>  </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                             <tt class="py-string">'_United States'</tt> <tt class="py-keyword">in</tt> <tt id="link-62" class="py-name"><a title="taskcoachlib.render.language_and_country" class="py-name" href="#" onclick="return doclink('link-62', 'language_and_country', 'link-59');">language_and_country</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">    <tt id="link-63" class="py-name" targets="Variable taskcoachlib.render.timeFormat=taskcoachlib.render-module.html#timeFormat"><a title="taskcoachlib.render.timeFormat" class="py-name" href="#" onclick="return doclink('link-63', 'timeFormat', 'link-63');">timeFormat</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'%I %p'</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">    <tt id="link-64" class="py-name" targets="Variable taskcoachlib.render.timeWithMinutesFormat=taskcoachlib.render-module.html#timeWithMinutesFormat"><a title="taskcoachlib.render.timeWithMinutesFormat" class="py-name" href="#" onclick="return doclink('link-64', 'timeWithMinutesFormat', 'link-64');">timeWithMinutesFormat</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'%I:%M %p'</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">    <tt id="link-65" class="py-name" targets="Variable taskcoachlib.render.timeWithSecondsFormat=taskcoachlib.render-module.html#timeWithSecondsFormat"><a title="taskcoachlib.render.timeWithSecondsFormat" class="py-name" href="#" onclick="return doclink('link-65', 'timeWithSecondsFormat', 'link-65');">timeWithSecondsFormat</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'%I:%M:%S %p'</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">    <tt id="link-66" class="py-name"><a title="taskcoachlib.render.timeFormat" class="py-name" href="#" onclick="return doclink('link-66', 'timeFormat', 'link-63');">timeFormat</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'%H'</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">    <tt id="link-67" class="py-name"><a title="taskcoachlib.render.timeWithMinutesFormat" class="py-name" href="#" onclick="return doclink('link-67', 'timeWithMinutesFormat', 'link-64');">timeWithMinutesFormat</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'%H:%M'</tt>  <tt class="py-comment"># %X includes seconds (see http://stackoverflow.com/questions/2507726)</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">    <tt id="link-68" class="py-name"><a title="taskcoachlib.render.timeWithSecondsFormat" class="py-name" href="#" onclick="return doclink('link-68', 'timeWithSecondsFormat', 'link-65');">timeWithSecondsFormat</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'%X'</tt> </tt>
+<a name="rawTimeFunc"></a><div id="rawTimeFunc-def"><a name="L108"></a><tt class="py-lineno">108</tt> <a class="py-toggle" href="#" id="rawTimeFunc-toggle" onclick="return toggle('rawTimeFunc');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#rawTimeFunc">rawTimeFunc</a><tt class="py-op">(</tt><tt class="py-param">dt</tt><tt class="py-op">,</tt> <tt class="py-param">minutes</tt><tt class="py-op">=</tt><tt id="link-69" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-69', 'True', 'link-22');">True</a></tt><tt class="py-op">,</tt> <tt class="py-param">seconds</tt><tt class="py-op">=</tt><tt id="link-70" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.False=taskcoachlib.thirdparty.chardet.constants-module.html#False"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-70', 'False', 'link-70');">False</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="rawTimeFunc-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="rawTimeFunc-expanded"><a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">seconds</tt><tt class="py-op">:</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-name">fmt</tt> <tt class="py-op">=</tt> <tt id="link-71" class="py-name"><a title="taskcoachlib.render.timeWithSecondsFormat" class="py-name" href="#" onclick="return doclink('link-71', 'timeWithSecondsFormat', 'link-65');">timeWithSecondsFormat</a></tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-72" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.minutes" class="py-name" href="#" onclick="return doclink('link-72', 'minutes', 'link-28');">minutes</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">            <tt class="py-name">fmt</tt> <tt class="py-op">=</tt> <tt id="link-73" class="py-name"><a title="taskcoachlib.render.timeWithMinutesFormat" class="py-name" href="#" onclick="return doclink('link-73', 'timeWithMinutesFormat', 'link-64');">timeWithMinutesFormat</a></tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">            <tt class="py-name">fmt</tt> <tt class="py-op">=</tt> <tt id="link-74" class="py-name"><a title="taskcoachlib.render.timeFormat" class="py-name" href="#" onclick="return doclink('link-74', 'timeFormat', 'link-63');">timeFormat</a></tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">datemodule</tt><tt class="py-op">.</tt><tt id="link-75" class="py-name" targets="Class taskcoachlib.domain.date.dateandtime.DateTime=taskcoachlib.domain.date.dateandtime.DateTime-class.html"><a title="taskcoachlib.domain.date.dateandtime.DateTime" class="py-name" href="#" onclick="return doclink('link-75', 'DateTime', 'link-75');">DateTime</a></tt><tt class="py-op">.</tt><tt id="link-76" class="py-name" targets="Method taskcoachlib.domain.date.dateandtime.DateTime.strftime()=taskcoachlib.domain.date.dateandtime.DateTime-class.html#strftime"><a title="taskcoachlib.domain.date.dateandtime.DateTime.strftime" class="py-name" href="#" onclick="return doclink('link-76', 'strftime', 'link-76');">strftime</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">,</tt> <tt class="py-name">fmt</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt id="link-77" class="py-name" targets="Variable taskcoachlib.render.dateFormat=taskcoachlib.render-module.html#dateFormat"><a title="taskcoachlib.render.dateFormat" class="py-name" href="#" onclick="return doclink('link-77', 'dateFormat', 'link-77');">dateFormat</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'%x'</tt> </tt>
+<a name="rawDateFunc"></a><div id="rawDateFunc-def"><a name="L120"></a><tt class="py-lineno">120</tt> <a class="py-toggle" href="#" id="rawDateFunc-toggle" onclick="return toggle('rawDateFunc');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#rawDateFunc">rawDateFunc</a><tt class="py-op">(</tt><tt class="py-param">dt</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="rawDateFunc-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="rawDateFunc-expanded"><a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-78" class="py-name"><a title="taskcoachlib.operating_system" class="py-name" href="#" onclick="return doclink('link-78', 'operating_system', 'link-10');">operating_system</a></tt><tt class="py-op">.</tt><tt id="link-79" class="py-name" targets="Function taskcoachlib.operating_system.decodeSystemString()=taskcoachlib.operating_system-module.html#decodeSystemString,Function taskcoachlib.thirdparty.smartdatetimectrl.decodeSystemString()=taskcoachlib.thirdparty.smartdatetimectrl-module.html#decodeSystemString"><a title="taskcoachlib.operating_system.decodeSystemString
+taskcoachlib.thirdparty.smartdatetimectrl.decodeSystemString" class="py-name" href="#" onclick="return doclink('link-79', 'decodeSystemString', 'link-79');">decodeSystemString</a></tt><tt class="py-op">(</tt><tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt id="link-80" class="py-name"><a title="taskcoachlib.domain.date.dateandtime.DateTime.strftime" class="py-name" href="#" onclick="return doclink('link-80', 'strftime', 'link-76');">strftime</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">,</tt> <tt id="link-81" class="py-name"><a title="taskcoachlib.render.dateFormat" class="py-name" href="#" onclick="return doclink('link-81', 'dateFormat', 'link-77');">dateFormat</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"> </tt>
+<a name="dateFunc"></a><div id="dateFunc-def"><a name="L124"></a><tt class="py-lineno">124</tt> <a class="py-toggle" href="#" id="dateFunc-toggle" onclick="return toggle('dateFunc');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#dateFunc">dateFunc</a><tt class="py-op">(</tt><tt class="py-param">dt</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">humanReadable</tt><tt class="py-op">=</tt><tt id="link-82" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-82', 'False', 'link-70');">False</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="dateFunc-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="dateFunc-expanded"><a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">humanReadable</tt><tt class="py-op">:</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">        <tt class="py-name">theDate</tt> <tt class="py-op">=</tt> <tt class="py-name">dt</tt><tt class="py-op">.</tt><tt id="link-83" class="py-name"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-83', 'date', 'link-2');">date</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">theDate</tt> <tt class="py-op">==</tt> <tt class="py-name">datemodule</tt><tt class="py-op">.</tt><tt id="link-84" class="py-name" targets="Function taskcoachlib.domain.date.dateandtime.Now()=taskcoachlib.domain.date.dateandtime-module.html#Now"><a title="taskcoachlib.domain.date.dateandtime.Now" class="py-name" href="#" onclick="return doclink('link-84', 'Now', 'link-84');">Now</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-85" class="py-name"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-85', 'date', 'link-2');">date</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-86" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-86', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'Today'</tt><tt class="py-op">)</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">theDate</tt> <tt class="py-op">==</tt> <tt class="py-name">datemodule</tt><tt class="py-op">.</tt><tt id="link-87" class="py-name" targets="Function taskcoachlib.domain.date.dateandtime.Yesterday()=taskcoachlib.domain.date.dateandtime-module.html#Yesterday"><a title="taskcoachlib.domain.date.dateandtime.Yesterday" class="py-name" href="#" onclick="return doclink('link-87', 'Yesterday', 'link-87');">Yesterday</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-88" class="py-name"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-88', 'date', 'link-2');">date</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-89" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-89', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'Yesterday'</tt><tt class="py-op">)</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">theDate</tt> <tt class="py-op">==</tt> <tt class="py-name">datemodule</tt><tt class="py-op">.</tt><tt id="link-90" class="py-name" targets="Function taskcoachlib.domain.date.dateandtime.Tomorrow()=taskcoachlib.domain.date.dateandtime-module.html#Tomorrow"><a title="taskcoachlib.domain.date.dateandtime.Tomorrow" class="py-name" href="#" onclick="return doclink('link-90', 'Tomorrow', 'link-90');">Tomorrow</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-91" class="py-name"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-91', 'date', 'link-2');">date</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-92" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-92', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'Tomorrow'</tt><tt class="py-op">)</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-93" class="py-name" targets="Function taskcoachlib.render.rawDateFunc()=taskcoachlib.render-module.html#rawDateFunc"><a title="taskcoachlib.render.rawDateFunc" class="py-name" href="#" onclick="return doclink('link-93', 'rawDateFunc', 'link-93');">rawDateFunc</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-comment"># OS-specific time formatting</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt id="link-94" class="py-name"><a title="taskcoachlib.operating_system" class="py-name" href="#" onclick="return doclink('link-94', 'operating_system', 'link-10');">operating_system</a></tt><tt class="py-op">.</tt><tt id="link-95" class="py-name" targets="Function taskcoachlib.operating_system.isWindows()=taskcoachlib.operating_system-module.html#isWindows"><a title="taskcoachlib.operating_system.isWindows" class="py-name" href="#" onclick="return doclink('link-95', 'isWindows', 'link-95');">isWindows</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">pywintypes</tt><tt class="py-op">,</tt> <tt class="py-name">win32api</tt> </tt>
+<a name="rawTimeFunc"></a><div id="rawTimeFunc-def"><a name="L139"></a><tt class="py-lineno">139</tt> <a class="py-toggle" href="#" id="rawTimeFunc-toggle" onclick="return toggle('rawTimeFunc');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#rawTimeFunc">rawTimeFunc</a><tt class="py-op">(</tt><tt class="py-param">dt</tt><tt class="py-op">,</tt> <tt class="py-param">minutes</tt><tt class="py-op">=</tt><tt id="link-96" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-96', 'True', 'link-22');">True</a></tt><tt class="py-op">,</tt> <tt class="py-param">seconds</tt><tt class="py-op">=</tt><tt id="link-97" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-97', 'False', 'link-70');">False</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="rawTimeFunc-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="rawTimeFunc-expanded"><a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">seconds</tt><tt class="py-op">:</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">            <tt class="py-comment"># You can't include seconds without minutes</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">            <tt class="py-name">flags</tt> <tt class="py-op">=</tt> <tt class="py-number">0x0</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-98" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.minutes" class="py-name" href="#" onclick="return doclink('link-98', 'minutes', 'link-28');">minutes</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">                <tt class="py-name">flags</tt> <tt class="py-op">=</tt> <tt class="py-number">0x2</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">                <tt class="py-name">flags</tt> <tt class="py-op">=</tt> <tt class="py-number">0x1</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-99" class="py-name"><a title="taskcoachlib.operating_system" class="py-name" href="#" onclick="return doclink('link-99', 'operating_system', 'link-10');">operating_system</a></tt><tt class="py-op">.</tt><tt id="link-100" class="py-name"><a title="taskcoachlib.operating_system.decodeSystemString
+taskcoachlib.thirdparty.smartdatetimectrl.decodeSystemString" class="py-name" href="#" onclick="return doclink('link-100', 'decodeSystemString', 'link-79');">decodeSystemString</a></tt><tt class="py-op">(</tt><tt class="py-name">win32api</tt><tt class="py-op">.</tt><tt class="py-name">GetTimeFormat</tt><tt class="py-op">(</tt><tt class="py-number">0x400</tt><tt class="py-op">,</tt> <tt class="py-name">flags</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt> <tt class="py-keyword">if</tt> <tt class="py-name">dt</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-keyword">else</tt> <tt class="py-name">pywintypes</tt><tt class="py-op">.</tt><tt id="link-101" class="py-name" targets="Class taskcoachlib.domain.date.timeclass.Time=taskcoachlib.domain.date.timeclass.Time-class.html"><a title="taskcoachlib.domain.date.timeclass.Time" class="py-name" href="#" onclick="return doclink('link-101', 'Time', 'link-101');">Time</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"> </tt>
+<a name="rawDateFunc"></a><div id="rawDateFunc-def"><a name="L150"></a><tt class="py-lineno">150</tt> <a class="py-toggle" href="#" id="rawDateFunc-toggle" onclick="return toggle('rawDateFunc');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#rawDateFunc">rawDateFunc</a><tt class="py-op">(</tt><tt class="py-param">dt</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="rawDateFunc-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="rawDateFunc-expanded"><a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-102" class="py-name"><a title="taskcoachlib.operating_system" class="py-name" href="#" onclick="return doclink('link-102', 'operating_system', 'link-10');">operating_system</a></tt><tt class="py-op">.</tt><tt id="link-103" class="py-name"><a title="taskcoachlib.operating_system.decodeSystemString
+taskcoachlib.thirdparty.smartdatetimectrl.decodeSystemString" class="py-name" href="#" onclick="return doclink('link-103', 'decodeSystemString', 'link-79');">decodeSystemString</a></tt><tt class="py-op">(</tt><tt class="py-name">win32api</tt><tt class="py-op">.</tt><tt class="py-name">GetDateFormat</tt><tt class="py-op">(</tt><tt class="py-number">0x400</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt> <tt class="py-keyword">if</tt> <tt class="py-name">dt</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-keyword">else</tt> <tt class="py-name">pywintypes</tt><tt class="py-op">.</tt><tt id="link-104" class="py-name"><a title="taskcoachlib.domain.date.timeclass.Time" class="py-name" href="#" onclick="return doclink('link-104', 'Time', 'link-101');">Time</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"><tt class="py-keyword">elif</tt> <tt id="link-105" class="py-name"><a title="taskcoachlib.operating_system" class="py-name" href="#" onclick="return doclink('link-105', 'operating_system', 'link-10');">operating_system</a></tt><tt class="py-op">.</tt><tt id="link-106" class="py-name" targets="Function taskcoachlib.operating_system.isMac()=taskcoachlib.operating_system-module.html#isMac"><a title="taskcoachlib.operating_system.isMac" class="py-name" href="#" onclick="return doclink('link-106', 'isMac', 'link-106');">isMac</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt class="py-name">Cocoa</tt><tt class="py-op">,</tt> <tt class="py-name">calendar</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">    <tt class="py-comment"># We don't actually respect the 'seconds' parameter; this assumes that the short time format does</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">    <tt class="py-comment"># not include them, but the medium format does.</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">    <tt id="link-107" class="py-name" targets="Variable taskcoachlib.render._shortFormatter=taskcoachlib.render-module.html#_shortFormatter"><a title="taskcoachlib.render._shortFormatter" class="py-name" href="#" onclick="return doclink('link-107', '_shortFormatter', 'link-107');">_shortFormatter</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSDateFormatter</tt><tt class="py-op">.</tt><tt class="py-name">alloc</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-108" class="py-name" targets="Method taskcoachlib.application.application.Application.init()=taskcoachlib.application.application.Application-class.html#init,Method taskcoachlib.config.settings.Settings.init()=taskcoachlib.config.settings.Settings-class.html#init,Function taskcoachlib.gui.artprovider.init()=taskcoachlib.gui.artprovider-module.html#init,Method taskcoachlib.iphone.protocol.DayHoursState.init()=taskcoachlib.iphone.protocol.DayHoursState-class.html#init,Method taskcoachlib.iphone.protocol.DeviceNameState.init()=taskcoachlib.iphone.protocol.DeviceNameState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDesktopCategoryState.init()=taskcoachlib.iphone.protocol.FullFromDesktopCategoryState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDesktopEffortState.init()=taskcoachlib.iphone.protocol.FullFromDesktopEffortState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDesktopState.init()=taskcoachlib.iphone.protocol.FullFromDesktopState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDesktopTaskState.init()=taskcoachlib.iphone.protocol.FullFromDesktopTaskState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDeviceCategoryState.init()=taskcoachlib.iphone.protocol.FullFromDeviceCategoryState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDeviceState.init()=taskcoachlib.iphone.protocol.FullFromDeviceState-class.html#init,Method taskcoachlib.iphone.protocol.FullFromDeviceTaskState.init()=taskcoachlib.iphone.protocol.FullFromDeviceTaskState-class.html#init,Method taskcoachlib.iphone.protocol.GUIDState.init()=taskcoachlib.iphone.protocol.GUIDState-class.html#init,Method taskcoachlib.iphone.protocol.InitialState.init()=taskcoachlib.iphone.protocol.InitialState-class.html#init,Method taskcoachlib.iphone.protocol.PasswordState.init()=taskcoachlib.iphone.protocol.PasswordState-class.html#init,Method taskcoachlib.iphone.protocol.SendGUIDState.init()=taskcoachlib.iphone.protocol.SendGUIDState-class.html#init,Method taskcoachlib.iphone.protocol.State.init()=taskcoachlib.iphone.protocol.State-class.html#init,Method taskcoachlib.iphone.protocol.TaskFileNameState.init()=taskcoachlib.iphone.protocol.TaskFileNameState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayDeletedCategoriesState.init()=taskcoachlib.iphone.protocol.TwoWayDeletedCategoriesState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayDeletedTasksState.init()=taskcoachlib.iphone.protocol.TwoWayDeletedTasksState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayModifiedCategoriesState.init()=taskcoachlib.iphone.protocol.TwoWayModifiedCategoriesState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayModifiedEffortsState.init()=taskcoachlib.iphone.protocol.TwoWayModifiedEffortsState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayModifiedTasks.init()=taskcoachlib.iphone.protocol.TwoWayModifiedTasks-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayNewCategoriesState.init()=taskcoachlib.iphone.protocol.TwoWayNewCategoriesState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayNewEffortsState.init()=taskcoachlib.iphone.protocol.TwoWayNewEffortsState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayNewTasksState.init()=taskcoachlib.iphone.protocol.TwoWayNewTasksState-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayNewTasksState4.init()=taskcoachlib.iphone.protocol.TwoWayNewTasksState4-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayNewTasksState5.init()=taskcoachlib.iphone.protocol.TwoWayNewTasksState5-class.html#init,Method taskcoachlib.iphone.protocol.TwoWayState.init()=taskcoachlib.iphone.protocol.TwoWayState-class.html#init,Method taskcoachlib.persistence.icalendar.ical.VCalendarParser.init()=taskcoachlib.persistence.icalendar.ical.VCalendarParser-class.html#init,Method taskcoachlib.syncml.sync.Synchronizer.init()=taskcoachlib.syncml.sync.Synchronizer-class.html#init,Function taskcoachlib.thirdparty.googleapi.apiclient.sample_tools.init()=taskcoachlib.thirdparty.googleapi.apiclient.sample_tools-module.html#init,Method taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher.init()=taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher-class.html#init"><a title="taskcoachlib.application.application.Application.init
+taskcoachlib.config.settings.Settings.init
+taskcoachlib.gui.artprovider.init
+taskcoachlib.iphone.protocol.DayHoursState.init
+taskcoachlib.iphone.protocol.DeviceNameState.init
+taskcoachlib.iphone.protocol.FullFromDesktopCategoryState.init
+taskcoachlib.iphone.protocol.FullFromDesktopEffortState.init
+taskcoachlib.iphone.protocol.FullFromDesktopState.init
+taskcoachlib.iphone.protocol.FullFromDesktopTaskState.init
+taskcoachlib.iphone.protocol.FullFromDeviceCategoryState.init
+taskcoachlib.iphone.protocol.FullFromDeviceState.init
+taskcoachlib.iphone.protocol.FullFromDeviceTaskState.init
+taskcoachlib.iphone.protocol.GUIDState.init
+taskcoachlib.iphone.protocol.InitialState.init
+taskcoachlib.iphone.protocol.PasswordState.init
+taskcoachlib.iphone.protocol.SendGUIDState.init
+taskcoachlib.iphone.protocol.State.init
+taskcoachlib.iphone.protocol.TaskFileNameState.init
+taskcoachlib.iphone.protocol.TwoWayDeletedCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayDeletedTasksState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedEffortsState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedTasks.init
+taskcoachlib.iphone.protocol.TwoWayNewCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayNewEffortsState.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState4.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState5.init
+taskcoachlib.iphone.protocol.TwoWayState.init
+taskcoachlib.persistence.icalendar.ical.VCalendarParser.init
+taskcoachlib.syncml.sync.Synchronizer.init
+taskcoachlib.thirdparty.googleapi.apiclient.sample_tools.init
+taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher.init" class="py-name" href="#" onclick="return doclink('link-108', 'init', 'link-108');">init</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">    <tt id="link-109" class="py-name"><a title="taskcoachlib.render._shortFormatter" class="py-name" href="#" onclick="return doclink('link-109', '_shortFormatter', 'link-107');">_shortFormatter</a></tt><tt class="py-op">.</tt><tt class="py-name">setFormatterBehavior_</tt><tt class="py-op">(</tt><tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSDateFormatterBehavior10_4</tt><tt class="py-op">)</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">    <tt id="link-110" class="py-name"><a title="taskcoachlib.render._shortFormatter" class="py-name" href="#" onclick="return doclink('link-110', '_shortFormatter', 'link-107');">_shortFormatter</a></tt><tt class="py-op">.</tt><tt class="py-name">setTimeStyle_</tt><tt class="py-op">(</tt><tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSDateFormatterShortStyle</tt><tt class="py-op">)</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">    <tt id="link-111" class="py-name"><a title="taskcoachlib.render._shortFormatter" class="py-name" href="#" onclick="return doclink('link-111', '_shortFormatter', 'link-107');">_shortFormatter</a></tt><tt class="py-op">.</tt><tt class="py-name">setDateStyle_</tt><tt class="py-op">(</tt><tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSDateFormatterNoStyle</tt><tt class="py-op">)</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">    <tt id="link-112" class="py-name"><a title="taskcoachlib.render._shortFormatter" class="py-name" href="#" onclick="return doclink('link-112', '_shortFormatter', 'link-107');">_shortFormatter</a></tt><tt class="py-op">.</tt><tt class="py-name">setTimeZone_</tt><tt class="py-op">(</tt><tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSTimeZone</tt><tt class="py-op">.</tt><tt class="py-name">timeZoneForSecondsFromGMT_</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">    <tt id="link-113" class="py-name" targets="Variable taskcoachlib.render._mediumFormatter=taskcoachlib.render-module.html#_mediumFormatter"><a title="taskcoachlib.render._mediumFormatter" class="py-name" href="#" onclick="return doclink('link-113', '_mediumFormatter', 'link-113');">_mediumFormatter</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSDateFormatter</tt><tt class="py-op">.</tt><tt class="py-name">alloc</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-114" class="py-name"><a title="taskcoachlib.application.application.Application.init
+taskcoachlib.config.settings.Settings.init
+taskcoachlib.gui.artprovider.init
+taskcoachlib.iphone.protocol.DayHoursState.init
+taskcoachlib.iphone.protocol.DeviceNameState.init
+taskcoachlib.iphone.protocol.FullFromDesktopCategoryState.init
+taskcoachlib.iphone.protocol.FullFromDesktopEffortState.init
+taskcoachlib.iphone.protocol.FullFromDesktopState.init
+taskcoachlib.iphone.protocol.FullFromDesktopTaskState.init
+taskcoachlib.iphone.protocol.FullFromDeviceCategoryState.init
+taskcoachlib.iphone.protocol.FullFromDeviceState.init
+taskcoachlib.iphone.protocol.FullFromDeviceTaskState.init
+taskcoachlib.iphone.protocol.GUIDState.init
+taskcoachlib.iphone.protocol.InitialState.init
+taskcoachlib.iphone.protocol.PasswordState.init
+taskcoachlib.iphone.protocol.SendGUIDState.init
+taskcoachlib.iphone.protocol.State.init
+taskcoachlib.iphone.protocol.TaskFileNameState.init
+taskcoachlib.iphone.protocol.TwoWayDeletedCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayDeletedTasksState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedEffortsState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedTasks.init
+taskcoachlib.iphone.protocol.TwoWayNewCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayNewEffortsState.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState4.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState5.init
+taskcoachlib.iphone.protocol.TwoWayState.init
+taskcoachlib.persistence.icalendar.ical.VCalendarParser.init
+taskcoachlib.syncml.sync.Synchronizer.init
+taskcoachlib.thirdparty.googleapi.apiclient.sample_tools.init
+taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher.init" class="py-name" href="#" onclick="return doclink('link-114', 'init', 'link-108');">init</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">    <tt id="link-115" class="py-name"><a title="taskcoachlib.render._mediumFormatter" class="py-name" href="#" onclick="return doclink('link-115', '_mediumFormatter', 'link-113');">_mediumFormatter</a></tt><tt class="py-op">.</tt><tt class="py-name">setFormatterBehavior_</tt><tt class="py-op">(</tt><tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSDateFormatterBehavior10_4</tt><tt class="py-op">)</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">    <tt id="link-116" class="py-name"><a title="taskcoachlib.render._mediumFormatter" class="py-name" href="#" onclick="return doclink('link-116', '_mediumFormatter', 'link-113');">_mediumFormatter</a></tt><tt class="py-op">.</tt><tt class="py-name">setTimeStyle_</tt><tt class="py-op">(</tt><tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSDateFormatterMediumStyle</tt><tt class="py-op">)</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">    <tt id="link-117" class="py-name"><a title="taskcoachlib.render._mediumFormatter" class="py-name" href="#" onclick="return doclink('link-117', '_mediumFormatter', 'link-113');">_mediumFormatter</a></tt><tt class="py-op">.</tt><tt class="py-name">setDateStyle_</tt><tt class="py-op">(</tt><tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSDateFormatterNoStyle</tt><tt class="py-op">)</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">    <tt id="link-118" class="py-name"><a title="taskcoachlib.render._mediumFormatter" class="py-name" href="#" onclick="return doclink('link-118', '_mediumFormatter', 'link-113');">_mediumFormatter</a></tt><tt class="py-op">.</tt><tt class="py-name">setTimeZone_</tt><tt class="py-op">(</tt><tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSTimeZone</tt><tt class="py-op">.</tt><tt class="py-name">timeZoneForSecondsFromGMT_</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">    <tt class="py-comment"># Special case for hour without minutes or seconds. I don't know if it is possible to get the AM/PM</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">    <tt class="py-comment"># setting alone, so parse the format string instead.</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">    <tt class="py-comment"># See http://www.unicode.org/reports/tr35/tr35-25.html#Date_Format_Patterns</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">    <tt id="link-119" class="py-name" targets="Variable taskcoachlib.render._state=taskcoachlib.render-module.html#_state"><a title="taskcoachlib.render._state" class="py-name" href="#" onclick="return doclink('link-119', '_state', 'link-119');">_state</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">    <tt id="link-120" class="py-name" targets="Variable taskcoachlib.render._hourFormat=taskcoachlib.render-module.html#_hourFormat"><a title="taskcoachlib.render._hourFormat" class="py-name" href="#" onclick="return doclink('link-120', '_hourFormat', 'link-120');">_hourFormat</a></tt> <tt class="py-op">=</tt> <tt class="py-string">u''</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">    <tt id="link-121" class="py-name" targets="Variable taskcoachlib.render._ampmFormat=taskcoachlib.render-module.html#_ampmFormat"><a title="taskcoachlib.render._ampmFormat" class="py-name" href="#" onclick="return doclink('link-121', '_ampmFormat', 'link-121');">_ampmFormat</a></tt> <tt class="py-op">=</tt> <tt class="py-string">u''</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">c</tt> <tt class="py-keyword">in</tt> <tt id="link-122" class="py-name"><a title="taskcoachlib.render._mediumFormatter" class="py-name" href="#" onclick="return doclink('link-122', '_mediumFormatter', 'link-113');">_mediumFormatter</a></tt><tt class="py-op">.</tt><tt id="link-123" class="py-name"><a title="taskcoachlib.render.dateFormat" class="py-name" href="#" onclick="return doclink('link-123', 'dateFormat', 'link-77');">dateFormat</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-124" class="py-name"><a title="taskcoachlib.render._state" class="py-name" href="#" onclick="return doclink('link-124', '_state', 'link-119');">_state</a></tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">c</tt> <tt class="py-op">==</tt> <tt class="py-string">u"'"</tt><tt class="py-op">:</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">                <tt id="link-125" class="py-name"><a title="taskcoachlib.render._state" class="py-name" href="#" onclick="return doclink('link-125', '_state', 'link-119');">_state</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> <tt class="py-comment"># After single quote</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">c</tt> <tt class="py-keyword">in</tt> <tt class="py-op">[</tt><tt class="py-string">u'h'</tt><tt class="py-op">,</tt> <tt class="py-string">u'H'</tt><tt class="py-op">,</tt> <tt class="py-string">u'k'</tt><tt class="py-op">,</tt> <tt class="py-string">u'K'</tt><tt class="py-op">,</tt> <tt class="py-string">u'j'</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">                <tt id="link-126" class="py-name"><a title="taskcoachlib.render._hourFormat" class="py-name" href="#" onclick="return doclink('link-126', '_hourFormat', 'link-120');">_hourFormat</a></tt> <tt class="py-op">+=</tt> <tt class="py-name">c</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">c</tt> <tt class="py-op">==</tt> <tt class="py-string">'a'</tt><tt class="py-op">:</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">                <tt id="link-127" class="py-name"><a title="taskcoachlib.render._ampmFormat" class="py-name" href="#" onclick="return doclink('link-127', '_ampmFormat', 'link-121');">_ampmFormat</a></tt> <tt class="py-op">=</tt> <tt class="py-name">c</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt id="link-128" class="py-name"><a title="taskcoachlib.render._state" class="py-name" href="#" onclick="return doclink('link-128', '_state', 'link-119');">_state</a></tt> <tt class="py-op">==</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">c</tt> <tt class="py-op">==</tt> <tt class="py-string">u"'"</tt><tt class="py-op">:</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">                <tt id="link-129" class="py-name"><a title="taskcoachlib.render._state" class="py-name" href="#" onclick="return doclink('link-129', '_state', 'link-119');">_state</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">                <tt id="link-130" class="py-name"><a title="taskcoachlib.render._state" class="py-name" href="#" onclick="return doclink('link-130', '_state', 'link-119');">_state</a></tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt> <tt class="py-comment"># Escaped string</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt id="link-131" class="py-name"><a title="taskcoachlib.render._state" class="py-name" href="#" onclick="return doclink('link-131', '_state', 'link-119');">_state</a></tt> <tt class="py-op">==</tt> <tt class="py-number">2</tt><tt class="py-op">:</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">c</tt> <tt class="py-op">==</tt> <tt class="py-string">u"'"</tt><tt class="py-op">:</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">                <tt id="link-132" class="py-name"><a title="taskcoachlib.render._state" class="py-name" href="#" onclick="return doclink('link-132', '_state', 'link-119');">_state</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">    <tt id="link-133" class="py-name" targets="Variable taskcoachlib.render._hourFormatter=taskcoachlib.render-module.html#_hourFormatter"><a title="taskcoachlib.render._hourFormatter" class="py-name" href="#" onclick="return doclink('link-133', '_hourFormatter', 'link-133');">_hourFormatter</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSDateFormatter</tt><tt class="py-op">.</tt><tt class="py-name">alloc</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-134" class="py-name"><a title="taskcoachlib.application.application.Application.init
+taskcoachlib.config.settings.Settings.init
+taskcoachlib.gui.artprovider.init
+taskcoachlib.iphone.protocol.DayHoursState.init
+taskcoachlib.iphone.protocol.DeviceNameState.init
+taskcoachlib.iphone.protocol.FullFromDesktopCategoryState.init
+taskcoachlib.iphone.protocol.FullFromDesktopEffortState.init
+taskcoachlib.iphone.protocol.FullFromDesktopState.init
+taskcoachlib.iphone.protocol.FullFromDesktopTaskState.init
+taskcoachlib.iphone.protocol.FullFromDeviceCategoryState.init
+taskcoachlib.iphone.protocol.FullFromDeviceState.init
+taskcoachlib.iphone.protocol.FullFromDeviceTaskState.init
+taskcoachlib.iphone.protocol.GUIDState.init
+taskcoachlib.iphone.protocol.InitialState.init
+taskcoachlib.iphone.protocol.PasswordState.init
+taskcoachlib.iphone.protocol.SendGUIDState.init
+taskcoachlib.iphone.protocol.State.init
+taskcoachlib.iphone.protocol.TaskFileNameState.init
+taskcoachlib.iphone.protocol.TwoWayDeletedCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayDeletedTasksState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedEffortsState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedTasks.init
+taskcoachlib.iphone.protocol.TwoWayNewCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayNewEffortsState.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState4.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState5.init
+taskcoachlib.iphone.protocol.TwoWayState.init
+taskcoachlib.persistence.icalendar.ical.VCalendarParser.init
+taskcoachlib.syncml.sync.Synchronizer.init
+taskcoachlib.thirdparty.googleapi.apiclient.sample_tools.init
+taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher.init" class="py-name" href="#" onclick="return doclink('link-134', 'init', 'link-108');">init</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">    <tt id="link-135" class="py-name"><a title="taskcoachlib.render._hourFormatter" class="py-name" href="#" onclick="return doclink('link-135', '_hourFormatter', 'link-133');">_hourFormatter</a></tt><tt class="py-op">.</tt><tt class="py-name">setFormatterBehavior_</tt><tt class="py-op">(</tt><tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSDateFormatterBehavior10_4</tt><tt class="py-op">)</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">    <tt id="link-136" class="py-name"><a title="taskcoachlib.render._hourFormatter" class="py-name" href="#" onclick="return doclink('link-136', '_hourFormatter', 'link-133');">_hourFormatter</a></tt><tt class="py-op">.</tt><tt class="py-name">setDateFormat_</tt><tt class="py-op">(</tt><tt id="link-137" class="py-name"><a title="taskcoachlib.render._hourFormat" class="py-name" href="#" onclick="return doclink('link-137', '_hourFormat', 'link-120');">_hourFormat</a></tt> <tt class="py-op">+</tt> <tt class="py-op">(</tt><tt class="py-string">' %s'</tt> <tt class="py-op">%</tt> <tt id="link-138" class="py-name"><a title="taskcoachlib.render._ampmFormat" class="py-name" href="#" onclick="return doclink('link-138', '_ampmFormat', 'link-121');">_ampmFormat</a></tt> <tt class="py-keyword">if</tt> <tt id="link-139" class="py-name"><a title="taskcoachlib.render._ampmFormat" class="py-name" href="#" onclick="return doclink('link-139', '_ampmFormat', 'link-121');">_ampmFormat</a></tt> <tt class="py-keyword">else</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">    <tt id="link-140" class="py-name"><a title="taskcoachlib.render._hourFormatter" class="py-name" href="#" onclick="return doclink('link-140', '_hourFormatter', 'link-133');">_hourFormatter</a></tt><tt class="py-op">.</tt><tt class="py-name">setTimeZone_</tt><tt class="py-op">(</tt><tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSTimeZone</tt><tt class="py-op">.</tt><tt class="py-name">timeZoneForSecondsFromGMT_</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">    <tt id="link-141" class="py-name" targets="Variable taskcoachlib.render._dateFormatter=taskcoachlib.render-module.html#_dateFormatter"><a title="taskcoachlib.render._dateFormatter" class="py-name" href="#" onclick="return doclink('link-141', '_dateFormatter', 'link-141');">_dateFormatter</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSDateFormatter</tt><tt class="py-op">.</tt><tt class="py-name">alloc</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-142" class="py-name"><a title="taskcoachlib.application.application.Application.init
+taskcoachlib.config.settings.Settings.init
+taskcoachlib.gui.artprovider.init
+taskcoachlib.iphone.protocol.DayHoursState.init
+taskcoachlib.iphone.protocol.DeviceNameState.init
+taskcoachlib.iphone.protocol.FullFromDesktopCategoryState.init
+taskcoachlib.iphone.protocol.FullFromDesktopEffortState.init
+taskcoachlib.iphone.protocol.FullFromDesktopState.init
+taskcoachlib.iphone.protocol.FullFromDesktopTaskState.init
+taskcoachlib.iphone.protocol.FullFromDeviceCategoryState.init
+taskcoachlib.iphone.protocol.FullFromDeviceState.init
+taskcoachlib.iphone.protocol.FullFromDeviceTaskState.init
+taskcoachlib.iphone.protocol.GUIDState.init
+taskcoachlib.iphone.protocol.InitialState.init
+taskcoachlib.iphone.protocol.PasswordState.init
+taskcoachlib.iphone.protocol.SendGUIDState.init
+taskcoachlib.iphone.protocol.State.init
+taskcoachlib.iphone.protocol.TaskFileNameState.init
+taskcoachlib.iphone.protocol.TwoWayDeletedCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayDeletedTasksState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedEffortsState.init
+taskcoachlib.iphone.protocol.TwoWayModifiedTasks.init
+taskcoachlib.iphone.protocol.TwoWayNewCategoriesState.init
+taskcoachlib.iphone.protocol.TwoWayNewEffortsState.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState4.init
+taskcoachlib.iphone.protocol.TwoWayNewTasksState5.init
+taskcoachlib.iphone.protocol.TwoWayState.init
+taskcoachlib.persistence.icalendar.ical.VCalendarParser.init
+taskcoachlib.syncml.sync.Synchronizer.init
+taskcoachlib.thirdparty.googleapi.apiclient.sample_tools.init
+taskcoachlib.thirdparty.pubsub.utils.exchandling.ExcPublisher.init" class="py-name" href="#" onclick="return doclink('link-142', 'init', 'link-108');">init</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">    <tt id="link-143" class="py-name"><a title="taskcoachlib.render._dateFormatter" class="py-name" href="#" onclick="return doclink('link-143', '_dateFormatter', 'link-141');">_dateFormatter</a></tt><tt class="py-op">.</tt><tt class="py-name">setFormatterBehavior_</tt><tt class="py-op">(</tt><tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSDateFormatterBehavior10_4</tt><tt class="py-op">)</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">    <tt id="link-144" class="py-name"><a title="taskcoachlib.render._dateFormatter" class="py-name" href="#" onclick="return doclink('link-144', '_dateFormatter', 'link-141');">_dateFormatter</a></tt><tt class="py-op">.</tt><tt class="py-name">setDateStyle_</tt><tt class="py-op">(</tt><tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSDateFormatterShortStyle</tt><tt class="py-op">)</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">    <tt id="link-145" class="py-name"><a title="taskcoachlib.render._dateFormatter" class="py-name" href="#" onclick="return doclink('link-145', '_dateFormatter', 'link-141');">_dateFormatter</a></tt><tt class="py-op">.</tt><tt class="py-name">setTimeStyle_</tt><tt class="py-op">(</tt><tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSDateFormatterNoStyle</tt><tt class="py-op">)</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">    <tt id="link-146" class="py-name"><a title="taskcoachlib.render._dateFormatter" class="py-name" href="#" onclick="return doclink('link-146', '_dateFormatter', 'link-141');">_dateFormatter</a></tt><tt class="py-op">.</tt><tt class="py-name">setTimeZone_</tt><tt class="py-op">(</tt><tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSTimeZone</tt><tt class="py-op">.</tt><tt class="py-name">timeZoneForSecondsFromGMT_</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line"> </tt>
+<a name="_applyFormatter"></a><div id="_applyFormatter-def"><a name="L198"></a><tt class="py-lineno">198</tt> <a class="py-toggle" href="#" id="_applyFormatter-toggle" onclick="return toggle('_applyFormatter');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#_applyFormatter">_applyFormatter</a><tt class="py-op">(</tt><tt class="py-param">dt</tt><tt class="py-op">,</tt> <tt class="py-param">fmt</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_applyFormatter-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="_applyFormatter-expanded"><a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">        <tt class="py-name">dt_native</tt> <tt class="py-op">=</tt> <tt class="py-name">Cocoa</tt><tt class="py-op">.</tt><tt class="py-name">NSDate</tt><tt class="py-op">.</tt><tt class="py-name">dateWithTimeIntervalSince1970_</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">dt</tt> <tt class="py-op">-</tt> <tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt class="py-name">datetime</tt><tt class="py-op">(</tt><tt class="py-number">1970</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">total_seconds</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">fmt</tt><tt class="py-op">.</tt><tt class="py-name">stringFromDate_</tt><tt class="py-op">(</tt><tt class="py-name">dt_native</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line"> </tt>
+<a name="rawTimeFunc"></a><div id="rawTimeFunc-def"><a name="L202"></a><tt class="py-lineno">202</tt> <a class="py-toggle" href="#" id="rawTimeFunc-toggle" onclick="return toggle('rawTimeFunc');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#rawTimeFunc">rawTimeFunc</a><tt class="py-op">(</tt><tt class="py-param">dt</tt><tt class="py-op">,</tt> <tt class="py-param">minutes</tt><tt class="py-op">=</tt><tt id="link-147" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-147', 'True', 'link-22');">True</a></tt><tt class="py-op">,</tt> <tt class="py-param">seconds</tt><tt class="py-op">=</tt><tt id="link-148" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-148', 'False', 'link-70');">False</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="rawTimeFunc-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="rawTimeFunc-expanded"><a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-149" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.minutes" class="py-name" href="#" onclick="return doclink('link-149', 'minutes', 'link-28');">minutes</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">seconds</tt><tt class="py-op">:</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt id="link-150" class="py-name" targets="Function taskcoachlib.render._applyFormatter()=taskcoachlib.render-module.html#_applyFormatter"><a title="taskcoachlib.render._applyFormatter" class="py-name" href="#" onclick="return doclink('link-150', '_applyFormatter', 'link-150');">_applyFormatter</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">,</tt> <tt id="link-151" class="py-name"><a title="taskcoachlib.render._mediumFormatter" class="py-name" href="#" onclick="return doclink('link-151', '_mediumFormatter', 'link-113');">_mediumFormatter</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-152" class="py-name"><a title="taskcoachlib.render._applyFormatter" class="py-name" href="#" onclick="return doclink('link-152', '_applyFormatter', 'link-150');">_applyFormatter</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">,</tt> <tt id="link-153" class="py-name"><a title="taskcoachlib.render._shortFormatter" class="py-name" href="#" onclick="return doclink('link-153', '_shortFormatter', 'link-107');">_shortFormatter</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-154" class="py-name"><a title="taskcoachlib.render._applyFormatter" class="py-name" href="#" onclick="return doclink('link-154', '_applyFormatter', 'link-150');">_applyFormatter</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">,</tt> <tt id="link-155" class="py-name"><a title="taskcoachlib.render._hourFormatter" class="py-name" href="#" onclick="return doclink('link-155', '_hourFormatter', 'link-133');">_hourFormatter</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line"> </tt>
+<a name="rawDateFunc"></a><div id="rawDateFunc-def"><a name="L209"></a><tt class="py-lineno">209</tt> <a class="py-toggle" href="#" id="rawDateFunc-toggle" onclick="return toggle('rawDateFunc');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#rawDateFunc">rawDateFunc</a><tt class="py-op">(</tt><tt class="py-param">dt</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="rawDateFunc-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="rawDateFunc-expanded"><a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-156" class="py-name"><a title="taskcoachlib.render._applyFormatter" class="py-name" href="#" onclick="return doclink('link-156', '_applyFormatter', 'link-150');">_applyFormatter</a></tt><tt class="py-op">(</tt><tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt class="py-name">combine</tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">,</tt> <tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt id="link-157" class="py-name" targets="Function taskcoachlib.render.time()=taskcoachlib.render-module.html#time"><a title="taskcoachlib.render.time" class="py-name" href="#" onclick="return doclink('link-157', 'time', 'link-157');">time</a></tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-158" class="py-name"><a title="taskcoachlib.render._dateFormatter" class="py-name" href="#" onclick="return doclink('link-158', '_dateFormatter', 'link-141');">_dateFormatter</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line"><tt class="py-keyword">elif</tt> <tt id="link-159" class="py-name"><a title="taskcoachlib.thirdparty.desktop" class="py-name" href="#" onclick="return doclink('link-159', 'desktop', 'link-5');">desktop</a></tt><tt class="py-op">.</tt><tt class="py-name">get_desktop</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">'KDE4'</tt><tt class="py-op">:</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">        <tt class="py-comment"># Import gtk first because when it's imported indirectly it generates a RuntimeWarning.</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">gtk</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt class="py-name">PyKDE4</tt><tt class="py-op">.</tt><tt class="py-name">kdecore</tt> <tt class="py-keyword">import</tt> <tt class="py-name">KGlobal</tt><tt class="py-op">,</tt> <tt class="py-name">KLocale</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt class="py-name">PyQt4</tt><tt class="py-op">.</tt><tt class="py-name">QtCore</tt> <tt class="py-keyword">import</tt> <tt class="py-name">QTime</tt><tt class="py-op">,</tt> <tt class="py-name">QDate</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">        <tt id="link-160" class="py-name" targets="Variable taskcoachlib.render._localeCopy=taskcoachlib.render-module.html#_localeCopy"><a title="taskcoachlib.render._localeCopy" class="py-name" href="#" onclick="return doclink('link-160', '_localeCopy', 'link-160');">_localeCopy</a></tt> <tt class="py-op">=</tt> <tt class="py-name">KLocale</tt><tt class="py-op">(</tt><tt class="py-name">KGlobal</tt><tt class="py-op">.</tt><tt class="py-name">locale</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-string">'%p'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">KGlobal</tt><tt class="py-op">.</tt><tt class="py-name">locale</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-161" class="py-name"><a title="taskcoachlib.render.timeFormat" class="py-name" href="#" onclick="return doclink('link-161', 'timeFormat', 'link-63');">timeFormat</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">            <tt id="link-162" class="py-name"><a title="taskcoachlib.render._localeCopy" class="py-name" href="#" onclick="return doclink('link-162', '_localeCopy', 'link-160');">_localeCopy</a></tt><tt class="py-op">.</tt><tt class="py-name">setTimeFormat</tt><tt class="py-op">(</tt><tt class="py-string">'%I %p'</tt><tt class="py-op">)</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">            <tt id="link-163" class="py-name"><a title="taskcoachlib.render._localeCopy" class="py-name" href="#" onclick="return doclink('link-163', '_localeCopy', 'link-160');">_localeCopy</a></tt><tt class="py-op">.</tt><tt class="py-name">setTimeFormat</tt><tt class="py-op">(</tt><tt class="py-string">'%H'</tt><tt class="py-op">)</tt> </tt>
+<a name="rawTimeFunc"></a><div id="rawTimeFunc-def"><a name="L225"></a><tt class="py-lineno">225</tt> <a class="py-toggle" href="#" id="rawTimeFunc-toggle" onclick="return toggle('rawTimeFunc');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#rawTimeFunc">rawTimeFunc</a><tt class="py-op">(</tt><tt class="py-param">dt</tt><tt class="py-op">,</tt> <tt class="py-param">minutes</tt><tt class="py-op">=</tt><tt id="link-164" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-164', 'True', 'link-22');">True</a></tt><tt class="py-op">,</tt> <tt class="py-param">seconds</tt><tt class="py-op">=</tt><tt id="link-165" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-165', 'False', 'link-70');">False</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="rawTimeFunc-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++"></div><div id="rawTimeFunc-expanded"><a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">            <tt class="py-name">qtdt</tt> <tt class="py-op">=</tt> <tt class="py-name">QTime</tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">.</tt><tt class="py-name">hour</tt><tt class="py-op">,</tt> <tt class="py-name">dt</tt><tt class="py-op">.</tt><tt class="py-name">minute</tt><tt class="py-op">,</tt> <tt class="py-name">dt</tt><tt class="py-op">.</tt><tt class="py-name">second</tt><tt class="py-op">)</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-166" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.minutes" class="py-name" href="#" onclick="return doclink('link-166', 'minutes', 'link-28');">minutes</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt id="link-167" class="py-name" targets="Class unicode=unicode-class.html"><a title="unicode" class="py-name" href="#" onclick="return doclink('link-167', 'unicode', 'link-167');">unicode</a></tt><tt class="py-op">(</tt><tt class="py-name">KGlobal</tt><tt class="py-op">.</tt><tt class="py-name">locale</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">formatTime</tt><tt class="py-op">(</tt><tt class="py-name">qtdt</tt><tt class="py-op">,</tt> <tt class="py-name">seconds</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-168" class="py-name"><a title="unicode" class="py-name" href="#" onclick="return doclink('link-168', 'unicode', 'link-167');">unicode</a></tt><tt class="py-op">(</tt><tt id="link-169" class="py-name"><a title="taskcoachlib.render._localeCopy" class="py-name" href="#" onclick="return doclink('link-169', '_localeCopy', 'link-160');">_localeCopy</a></tt><tt class="py-op">.</tt><tt class="py-name">formatTime</tt><tt class="py-op">(</tt><tt class="py-name">qtdt</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line"> </tt>
+<a name="rawDateFunc"></a><div id="rawDateFunc-def"><a name="L231"></a><tt class="py-lineno">231</tt> <a class="py-toggle" href="#" id="rawDateFunc-toggle" onclick="return toggle('rawDateFunc');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#rawDateFunc">rawDateFunc</a><tt class="py-op">(</tt><tt class="py-param">dt</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="rawDateFunc-collapsed" style="display:none;" pad="+++" indent="++++++++++++++++"></div><div id="rawDateFunc-expanded"><a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line">            <tt class="py-name">qtdt</tt> <tt class="py-op">=</tt> <tt class="py-name">QDate</tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">.</tt><tt id="link-170" class="py-name" targets="Method taskcoachlib.domain.date.date.InfiniteDate.year()=taskcoachlib.domain.date.date.InfiniteDate-class.html#year"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-170', 'year', 'link-170');">year</a></tt><tt class="py-op">,</tt> <tt class="py-name">dt</tt><tt class="py-op">.</tt><tt id="link-171" class="py-name" targets="Method taskcoachlib.domain.date.date.InfiniteDate.month()=taskcoachlib.domain.date.date.InfiniteDate-class.html#month,Function taskcoachlib.render.month()=taskcoachlib.render-module.html#month,Method taskcoachlib.thirdparty.dateutil.parser.parserinfo.month()=taskcoachlib.thirdparty.dateutil.parser.parserinfo-class.html#month"><a title="taskcoachlib.domain.date.date.InfiniteDate.month
+taskcoachlib.render.month
+taskcoachlib.thirdparty.dateutil.parser.parserinfo.month" class="py-name" href="#" onclick="return doclink('link-171', 'month', 'link-171');">month</a></tt><tt class="py-op">,</tt> <tt class="py-name">dt</tt><tt class="py-op">.</tt><tt id="link-172" class="py-name" targets="Method taskcoachlib.domain.date.date.InfiniteDate.day()=taskcoachlib.domain.date.date.InfiniteDate-class.html#day"><a title="taskcoachlib.domain.date.date.InfiniteDate.day" class="py-name" href="#" onclick="return doclink('link-172', 'day', 'link-172');">day</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-173" class="py-name"><a title="unicode" class="py-name" href="#" onclick="return doclink('link-173', 'unicode', 'link-167');">unicode</a></tt><tt class="py-op">(</tt><tt class="py-name">KGlobal</tt><tt class="py-op">.</tt><tt class="py-name">locale</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">formatDate</tt><tt class="py-op">(</tt><tt class="py-name">qtdt</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line"> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line"> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line"><tt class="py-name">timeFunc</tt> <tt class="py-op">=</tt> <tt class="py-keyword">lambda</tt> <tt class="py-name">dt</tt><tt class="py-op">,</tt> <tt id="link-174" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.minutes" class="py-name" href="#" onclick="return doclink('link-174', 'minutes', 'link-28');">minutes</a></tt><tt class="py-op">=</tt><tt id="link-175" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-175', 'True', 'link-22');">True</a></tt><tt class="py-op">,</tt> <tt class="py-name">seconds</tt><tt class="py-op">=</tt><tt id="link-176" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-176', 'False', 'link-70');">False</a></tt><tt class="py-op">:</tt> <tt id="link-177" class="py-name"><a title="taskcoachlib.operating_system" class="py-name" href="#" onclick="return doclink('link-177', 'operating_system', 'link-10');">operating_system</a></tt><tt class="py-op">.</tt><tt id="link-178" class="py-name"><a title="taskcoachlib.operating_system.decodeSystemString
+taskcoachlib.thirdparty.smartdatetimectrl.decodeSystemString" class="py-name" href="#" onclick="return doclink('link-178', 'decodeSystemString', 'link-79');">decodeSystemString</a></tt><tt class="py-op">(</tt><tt id="link-179" class="py-name" targets="Function taskcoachlib.render.rawTimeFunc()=taskcoachlib.render-module.html#rawTimeFunc"><a title="taskcoachlib.render.rawTimeFunc" class="py-name" href="#" onclick="return doclink('link-179', 'rawTimeFunc', 'link-179');">rawTimeFunc</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">,</tt> <tt id="link-180" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.minutes" class="py-name" href="#" onclick="return doclink('link-180', 'minutes', 'link-28');">minutes</a></tt><tt class="py-op">=</tt><tt id="link-181" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.minutes" class="py-name" href="#" onclick="return doclink('link-181', 'minutes', 'link-28');">minutes</a></tt><tt class="py-op">,</tt> <tt class="py-name">seconds</tt><tt class="py-op">=</tt><tt class="py-name">seconds</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line"> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line"><tt class="py-name">dateTimeFunc</tt> <tt class="py-op">=</tt> <tt class="py-keyword">lambda</tt> <tt class="py-name">dt</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-name">humanReadable</tt><tt class="py-op">=</tt><tt id="link-182" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-182', 'False', 'link-70');">False</a></tt><tt class="py-op">:</tt> <tt class="py-string">u'%s %s'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-183" class="py-name" targets="Function taskcoachlib.render.dateFunc()=taskcoachlib.render-module.html#dateFunc"><a title="taskcoachlib.render.dateFunc" class="py-name" href="#" onclick="return doclink('link-183', 'dateFunc', 'link-183');">dateFunc</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">,</tt> <tt class="py-name">humanReadable</tt><tt class="py-op">=</tt><tt class="py-name">humanReadable</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">timeFunc</tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line"> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line"> </tt>
+<a name="date"></a><div id="date-def"><a name="L241"></a><tt class="py-lineno">241</tt> <a class="py-toggle" href="#" id="date-toggle" onclick="return toggle('date');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#date">date</a><tt class="py-op">(</tt><tt class="py-param">aDateTime</tt><tt class="py-op">,</tt> <tt class="py-param">humanReadable</tt><tt class="py-op">=</tt><tt id="link-184" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-184', 'False', 'link-70');">False</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="date-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="date-expanded"><a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line">    <tt class="py-docstring">''' Render a date/time as date. '''</tt> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-185" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-185', 'str', 'link-11');">str</a></tt><tt class="py-op">(</tt><tt class="py-name">aDateTime</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-string">''</tt><tt class="py-op">:</tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">''</tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line">    <tt id="link-186" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-186', 'year', 'link-170');">year</a></tt> <tt class="py-op">=</tt> <tt class="py-name">aDateTime</tt><tt class="py-op">.</tt><tt id="link-187" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-187', 'year', 'link-170');">year</a></tt> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-188" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-188', 'year', 'link-170');">year</a></tt> <tt class="py-op">&gt;=</tt> <tt class="py-number">1900</tt><tt class="py-op">:</tt> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-189" class="py-name"><a title="taskcoachlib.render.dateFunc" class="py-name" href="#" onclick="return doclink('link-189', 'dateFunc', 'link-183');">dateFunc</a></tt><tt class="py-op">(</tt><tt class="py-name">aDateTime</tt><tt class="py-op">,</tt> <tt class="py-name">humanReadable</tt><tt class="py-op">=</tt><tt class="py-name">humanReadable</tt><tt class="py-op">)</tt> </tt>
+<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line">        <tt class="py-name">result</tt> <tt class="py-op">=</tt> <tt id="link-190" class="py-name"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-190', 'date', 'link-2');">date</a></tt><tt class="py-op">(</tt><tt class="py-name">datemodule</tt><tt class="py-op">.</tt><tt id="link-191" class="py-name"><a title="taskcoachlib.domain.date.dateandtime.DateTime" class="py-name" href="#" onclick="return doclink('link-191', 'DateTime', 'link-75');">DateTime</a></tt><tt class="py-op">(</tt><tt id="link-192" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-192', 'year', 'link-170');">year</a></tt> <tt class="py-op">+</tt> <tt class="py-number">1900</tt><tt class="py-op">,</tt> <tt class="py-name">aDateTime</tt><tt class="py-op">.</tt><tt id="link-193" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.month
+taskcoachlib.render.month
+taskcoachlib.thirdparty.dateutil.parser.parserinfo.month" class="py-name" href="#" onclick="return doclink('link-193', 'month', 'link-171');">month</a></tt><tt class="py-op">,</tt>  </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line">                                          <tt class="py-name">aDateTime</tt><tt class="py-op">.</tt><tt id="link-194" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.day" class="py-name" href="#" onclick="return doclink('link-194', 'day', 'link-172');">day</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt>  </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line">                      <tt class="py-name">humanReadable</tt><tt class="py-op">=</tt><tt class="py-name">humanReadable</tt><tt class="py-op">)</tt> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">sub</tt><tt class="py-op">(</tt><tt id="link-195" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-195', 'str', 'link-11');">str</a></tt><tt class="py-op">(</tt><tt id="link-196" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-196', 'year', 'link-170');">year</a></tt> <tt class="py-op">+</tt> <tt class="py-number">1900</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-197" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-197', 'str', 'link-11');">str</a></tt><tt class="py-op">(</tt><tt id="link-198" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-198', 'year', 'link-170');">year</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">result</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line"> </tt>
+<a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line"> </tt>
+<a name="dateTime"></a><div id="dateTime-def"><a name="L255"></a><tt class="py-lineno">255</tt> <a class="py-toggle" href="#" id="dateTime-toggle" onclick="return toggle('dateTime');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#dateTime">dateTime</a><tt class="py-op">(</tt><tt class="py-param">aDateTime</tt><tt class="py-op">,</tt> <tt class="py-param">humanReadable</tt><tt class="py-op">=</tt><tt id="link-199" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-199', 'False', 'link-70');">False</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="dateTime-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="dateTime-expanded"><a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">aDateTime</tt> <tt class="py-keyword">or</tt> <tt class="py-name">aDateTime</tt> <tt class="py-op">==</tt> <tt class="py-name">datemodule</tt><tt class="py-op">.</tt><tt id="link-200" class="py-name"><a title="taskcoachlib.domain.date.dateandtime.DateTime" class="py-name" href="#" onclick="return doclink('link-200', 'DateTime', 'link-75');">DateTime</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-name">aDateTime</tt> <tt class="py-op">==</tt> <tt class="py-name">datemodule</tt><tt class="py-op">.</tt><tt id="link-201" class="py-name"><a title="taskcoachlib.domain.date.dateandtime.DateTime" class="py-name" href="#" onclick="return doclink('link-201', 'DateTime', 'link-75');">DateTime</a></tt><tt class="py-op">.</tt><tt id="link-202" class="py-name" targets="Variable taskcoachlib.domain.date.dateandtime.DateTime.min=taskcoachlib.domain.date.dateandtime.DateTime-class.html#min"><a title="taskcoachlib.domain.date.dateandtime.DateTime.min" class="py-name" href="#" onclick="return doclink('link-202', 'min', 'link-202');">min</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">''</tt> </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line">    <tt class="py-name">timeIsMidnight</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">aDateTime</tt><tt class="py-op">.</tt><tt class="py-name">hour</tt><tt class="py-op">,</tt> <tt class="py-name">aDateTime</tt><tt class="py-op">.</tt><tt class="py-name">minute</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-number">23</tt><tt class="py-op">,</tt> <tt class="py-number">59</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line">    <tt id="link-203" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-203', 'year', 'link-170');">year</a></tt> <tt class="py-op">=</tt> <tt class="py-name">aDateTime</tt><tt class="py-op">.</tt><tt id="link-204" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-204', 'year', 'link-170');">year</a></tt> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-205" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-205', 'year', 'link-170');">year</a></tt> <tt class="py-op">&gt;=</tt> <tt class="py-number">1900</tt><tt class="py-op">:</tt> </tt>
+<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-206" class="py-name"><a title="taskcoachlib.render.dateFunc" class="py-name" href="#" onclick="return doclink('link-206', 'dateFunc', 'link-183');">dateFunc</a></tt><tt class="py-op">(</tt><tt class="py-name">aDateTime</tt><tt class="py-op">,</tt> <tt class="py-name">humanReadable</tt><tt class="py-op">=</tt><tt class="py-name">humanReadable</tt><tt class="py-op">)</tt> <tt class="py-keyword">if</tt> <tt class="py-name">timeIsMidnight</tt> <tt class="py-keyword">else</tt> \ </tt>
+<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line">            <tt class="py-name">dateTimeFunc</tt><tt class="py-op">(</tt><tt class="py-name">aDateTime</tt><tt class="py-op">,</tt> <tt class="py-name">humanReadable</tt><tt class="py-op">=</tt><tt class="py-name">humanReadable</tt><tt class="py-op">)</tt> </tt>
+<a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line">        <tt class="py-name">result</tt> <tt class="py-op">=</tt> <tt id="link-207" class="py-name" targets="Static Method taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime()=taskcoachlib.persistence.todotxt.reader.TodoTxtReader-class.html#dateTime,Static Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#dateTime,Function taskcoachlib.render.dateTime()=taskcoachlib.render-module.html#dateTime"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-207', 'dateTime', 'link-207');">dateTime</a></tt><tt class="py-op">(</tt><tt class="py-name">aDateTime</tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt id="link-208" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-208', 'year', 'link-170');">year</a></tt><tt class="py-op">=</tt><tt id="link-209" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-209', 'year', 'link-170');">year</a></tt> <tt class="py-op">+</tt> <tt class="py-number">1900</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">humanReadable</tt><tt class="py-op">=</tt><tt class="py-name">humanReadable</tt><tt class="py-op">)</tt> </tt>
+<a name="L265"></a><tt class="py-lineno">265</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt class="py-name">sub</tt><tt class="py-op">(</tt><tt id="link-210" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-210', 'str', 'link-11');">str</a></tt><tt class="py-op">(</tt><tt id="link-211" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-211', 'year', 'link-170');">year</a></tt> <tt class="py-op">+</tt> <tt class="py-number">1900</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-212" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-212', 'str', 'link-11');">str</a></tt><tt class="py-op">(</tt><tt id="link-213" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-213', 'year', 'link-170');">year</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">result</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L266"></a><tt class="py-lineno">266</tt>  <tt class="py-line"> </tt>
+<a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line">    </tt>
+<a name="dateTimePeriod"></a><div id="dateTimePeriod-def"><a name="L268"></a><tt class="py-lineno">268</tt> <a class="py-toggle" href="#" id="dateTimePeriod-toggle" onclick="return toggle('dateTimePeriod');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#dateTimePeriod">dateTimePeriod</a><tt class="py-op">(</tt><tt class="py-param">start</tt><tt class="py-op">,</tt> <tt class="py-param">stop</tt><tt class="py-op">,</tt> <tt class="py-param">humanReadable</tt><tt class="py-op">=</tt><tt id="link-214" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-214', 'False', 'link-70');">False</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="dateTimePeriod-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="dateTimePeriod-expanded"><a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-215" class="py-name" targets="Method taskcoachlib.filesystem.base.NotifierBase.stop()=taskcoachlib.filesystem.base.NotifierBase-class.html#stop,Method taskcoachlib.filesystem.fs_darwin.FileMonitor.stop()=taskcoachlib.filesystem.fs_darwin.FileMonitor-class.html#stop,Method taskcoachlib.filesystem.fs_darwin.FilesystemNotifier.stop()=taskcoachlib.filesystem.fs_darwin.FilesystemNotifier-class.html#stop,Method taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.stop()=taskcoachlib.filesystem.fs_inotify.FilesystemNotifier-class.html#stop,Method taskcoachlib.filesystem.fs_inotify.Inotify.stop()=taskcoachlib.filesystem.fs_inotify.Inotify-class.html#stop,Method taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.stop()=taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier-class.html#stop,Method taskcoachlib.filesystem.fs_win32.DirectoryWatcher.stop()=taskcoachlib.filesystem.fs_win32.DirectoryWatcher-class.html#stop,Method taskcoachlib.filesystem.fs_win32.FilesystemNotifier.stop()=taskcoachlib.filesystem.fs_win32.FilesystemNotifier-class.html#stop,Method taskcoachlib.gui.viewer.task.TimelineViewer.stop()=taskcoachlib.gui.viewer.task.TimelineViewer-class.html#stop,Method taskcoachlib.iphone.bonjour.BonjourServiceRegister.stop()=taskcoachlib.iphone.bonjour.BonjourServiceRegister-class.html#stop,Method taskcoachlib.persistence.taskfile.TaskFile.stop()=taskcoachlib.persistence.taskfile.TaskFile-class.html#stop,Method taskcoachlib.powermgt.xsm.ICELoop.stop()=taskcoachlib.powermgt.xsm.ICELoop-class.html#stop,Method taskcoachlib.powermgt.xsm.SessionMonitor.stop()=taskcoachlib.powermgt.xsm.SessionMonitor-class.html#stop,Method taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.stop()=taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter-class.html#stop"><a title="taskcoachlib.filesystem.base.NotifierBase.stop
+taskcoachlib.filesystem.fs_darwin.FileMonitor.stop
+taskcoachlib.filesystem.fs_darwin.FilesystemNotifier.stop
+taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.stop
+taskcoachlib.filesystem.fs_inotify.Inotify.stop
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.stop
+taskcoachlib.filesystem.fs_win32.DirectoryWatcher.stop
+taskcoachlib.filesystem.fs_win32.FilesystemNotifier.stop
+taskcoachlib.gui.viewer.task.TimelineViewer.stop
+taskcoachlib.iphone.bonjour.BonjourServiceRegister.stop
+taskcoachlib.persistence.taskfile.TaskFile.stop
+taskcoachlib.powermgt.xsm.ICELoop.stop
+taskcoachlib.powermgt.xsm.SessionMonitor.stop
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.stop" class="py-name" href="#" onclick="return doclink('link-215', 'stop', 'link-215');">stop</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'%s - %s'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-216" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-216', 'dateTime', 'link-207');">dateTime</a></tt><tt class="py-op">(</tt><tt id="link-217" class="py-name" targets="Function taskcoach.start()=taskcoach-module.html#start,Method taskcoachlib.application.application.Application.start()=taskcoachlib.application.application.Application-class.html#start,Method taskcoachlib.gui.viewer.task.TimelineViewer.start()=taskcoachlib.gui.viewer.task.TimelineViewer-class.html#start,Method taskcoachlib.iphone.protocol.BaseItem.start()=taskcoachlib.iphone.protocol.BaseItem-class.html#start,Method taskcoachlib.iphone.protocol.CompositeItem.start()=taskcoachlib.iphone.protocol.CompositeItem-class.html#start,Method taskcoachlib.iphone.protocol.ListItem.start()=taskcoachlib.iphone.protocol.ListItem-class.html#start,Method taskcoachlib.thirdparty.apscheduler'.scheduler.Scheduler.start()=taskcoachlib.thirdparty.apscheduler%27.scheduler.Scheduler-class.html#start,Method taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.start()=taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter-class.html#start,Variable taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.start=taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule-class.html#start"><a title="taskcoach.start
+taskcoachlib.application.application.Application.start
+taskcoachlib.gui.viewer.task.TimelineViewer.start
+taskcoachlib.iphone.protocol.BaseItem.start
+taskcoachlib.iphone.protocol.CompositeItem.start
+taskcoachlib.iphone.protocol.ListItem.start
+taskcoachlib.thirdparty.apscheduler'.scheduler.Scheduler.start
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.start
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.start" class="py-name" href="#" onclick="return doclink('link-217', 'start', 'link-217');">start</a></tt><tt class="py-op">,</tt> <tt class="py-name">humanReadable</tt><tt class="py-op">=</tt><tt class="py-name">humanReadable</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-218" class="py-name"><a title="taskcoachlib.thirdparty.aui.aui_switcherdialog._
+taskcoachlib.thirdparty.aui.framemanager._
+taskcoachlib.thirdparty.aui.tabmdi._
+taskcoachlib.thirdparty.smartdatetimectrl._" class="py-name" href="#" onclick="return doclink('link-218', '_', 'link-8');">_</a></tt><tt class="py-op">(</tt><tt class="py-string">'now'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt id="link-219" class="py-name"><a title="taskcoach.start
+taskcoachlib.application.application.Application.start
+taskcoachlib.gui.viewer.task.TimelineViewer.start
+taskcoachlib.iphone.protocol.BaseItem.start
+taskcoachlib.iphone.protocol.CompositeItem.start
+taskcoachlib.iphone.protocol.ListItem.start
+taskcoachlib.thirdparty.apscheduler'.scheduler.Scheduler.start
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.start
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.start" class="py-name" href="#" onclick="return doclink('link-219', 'start', 'link-217');">start</a></tt><tt class="py-op">.</tt><tt id="link-220" class="py-name"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-220', 'date', 'link-2');">date</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt id="link-221" class="py-name"><a title="taskcoachlib.filesystem.base.NotifierBase.stop
+taskcoachlib.filesystem.fs_darwin.FileMonitor.stop
+taskcoachlib.filesystem.fs_darwin.FilesystemNotifier.stop
+taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.stop
+taskcoachlib.filesystem.fs_inotify.Inotify.stop
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.stop
+taskcoachlib.filesystem.fs_win32.DirectoryWatcher.stop
+taskcoachlib.filesystem.fs_win32.FilesystemNotifier.stop
+taskcoachlib.gui.viewer.task.TimelineViewer.stop
+taskcoachlib.iphone.bonjour.BonjourServiceRegister.stop
+taskcoachlib.persistence.taskfile.TaskFile.stop
+taskcoachlib.powermgt.xsm.ICELoop.stop
+taskcoachlib.powermgt.xsm.SessionMonitor.stop
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.stop" class="py-name" href="#" onclick="return doclink('link-221', 'stop', 'link-215');">stop</a></tt><tt class="py-op">.</tt><tt id="link-222" class="py-name"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-222', 'date', 'link-2');">date</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L272"></a><tt class="py-lineno">272</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'%s %s - %s'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-223" class="py-name"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-223', 'date', 'link-2');">date</a></tt><tt class="py-op">(</tt><tt id="link-224" class="py-name"><a title="taskcoach.start
+taskcoachlib.application.application.Application.start
+taskcoachlib.gui.viewer.task.TimelineViewer.start
+taskcoachlib.iphone.protocol.BaseItem.start
+taskcoachlib.iphone.protocol.CompositeItem.start
+taskcoachlib.iphone.protocol.ListItem.start
+taskcoachlib.thirdparty.apscheduler'.scheduler.Scheduler.start
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.start
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.start" class="py-name" href="#" onclick="return doclink('link-224', 'start', 'link-217');">start</a></tt><tt class="py-op">,</tt> <tt class="py-name">humanReadable</tt><tt class="py-op">=</tt><tt class="py-name">humanReadable</tt><tt class="py-op">)</tt><tt class="py-op">,</tt>  </tt>
+<a name="L273"></a><tt class="py-lineno">273</tt>  <tt class="py-line">                               <tt id="link-225" class="py-name"><a title="taskcoachlib.render.time" class="py-name" href="#" onclick="return doclink('link-225', 'time', 'link-157');">time</a></tt><tt class="py-op">(</tt><tt id="link-226" class="py-name"><a title="taskcoach.start
+taskcoachlib.application.application.Application.start
+taskcoachlib.gui.viewer.task.TimelineViewer.start
+taskcoachlib.iphone.protocol.BaseItem.start
+taskcoachlib.iphone.protocol.CompositeItem.start
+taskcoachlib.iphone.protocol.ListItem.start
+taskcoachlib.thirdparty.apscheduler'.scheduler.Scheduler.start
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.start
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.start" class="py-name" href="#" onclick="return doclink('link-226', 'start', 'link-217');">start</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-227" class="py-name"><a title="taskcoachlib.render.time" class="py-name" href="#" onclick="return doclink('link-227', 'time', 'link-157');">time</a></tt><tt class="py-op">(</tt><tt id="link-228" class="py-name"><a title="taskcoachlib.filesystem.base.NotifierBase.stop
+taskcoachlib.filesystem.fs_darwin.FileMonitor.stop
+taskcoachlib.filesystem.fs_darwin.FilesystemNotifier.stop
+taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.stop
+taskcoachlib.filesystem.fs_inotify.Inotify.stop
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.stop
+taskcoachlib.filesystem.fs_win32.DirectoryWatcher.stop
+taskcoachlib.filesystem.fs_win32.FilesystemNotifier.stop
+taskcoachlib.gui.viewer.task.TimelineViewer.stop
+taskcoachlib.iphone.bonjour.BonjourServiceRegister.stop
+taskcoachlib.persistence.taskfile.TaskFile.stop
+taskcoachlib.powermgt.xsm.ICELoop.stop
+taskcoachlib.powermgt.xsm.SessionMonitor.stop
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.stop" class="py-name" href="#" onclick="return doclink('link-228', 'stop', 'link-215');">stop</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L274"></a><tt class="py-lineno">274</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L275"></a><tt class="py-lineno">275</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'%s - %s'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-229" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-229', 'dateTime', 'link-207');">dateTime</a></tt><tt class="py-op">(</tt><tt id="link-230" class="py-name"><a title="taskcoach.start
+taskcoachlib.application.application.Application.start
+taskcoachlib.gui.viewer.task.TimelineViewer.start
+taskcoachlib.iphone.protocol.BaseItem.start
+taskcoachlib.iphone.protocol.CompositeItem.start
+taskcoachlib.iphone.protocol.ListItem.start
+taskcoachlib.thirdparty.apscheduler'.scheduler.Scheduler.start
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.start
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.start" class="py-name" href="#" onclick="return doclink('link-230', 'start', 'link-217');">start</a></tt><tt class="py-op">,</tt> <tt class="py-name">humanReadable</tt><tt class="py-op">=</tt><tt class="py-name">humanReadable</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-231" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-231', 'dateTime', 'link-207');">dateTime</a></tt><tt class="py-op">(</tt><tt id="link-232" class="py-name"><a title="taskcoachlib.filesystem.base.NotifierBase.stop
+taskcoachlib.filesystem.fs_darwin.FileMonitor.stop
+taskcoachlib.filesystem.fs_darwin.FilesystemNotifier.stop
+taskcoachlib.filesystem.fs_inotify.FilesystemNotifier.stop
+taskcoachlib.filesystem.fs_inotify.Inotify.stop
+taskcoachlib.filesystem.fs_poller.FilesystemPollerNotifier.stop
+taskcoachlib.filesystem.fs_win32.DirectoryWatcher.stop
+taskcoachlib.filesystem.fs_win32.FilesystemNotifier.stop
+taskcoachlib.gui.viewer.task.TimelineViewer.stop
+taskcoachlib.iphone.bonjour.BonjourServiceRegister.stop
+taskcoachlib.persistence.taskfile.TaskFile.stop
+taskcoachlib.powermgt.xsm.ICELoop.stop
+taskcoachlib.powermgt.xsm.SessionMonitor.stop
+taskcoachlib.thirdparty.timeline.timeline.DefaultAdapter.stop" class="py-name" href="#" onclick="return doclink('link-232', 'stop', 'link-215');">stop</a></tt><tt class="py-op">,</tt> <tt class="py-name">humanReadable</tt><tt class="py-op">=</tt><tt class="py-name">humanReadable</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L276"></a><tt class="py-lineno">276</tt>  <tt class="py-line">     </tt>
+<a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line">     </tt>
+<a name="time"></a><div id="time-def"><a name="L278"></a><tt class="py-lineno">278</tt> <a class="py-toggle" href="#" id="time-toggle" onclick="return toggle('time');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#time">time</a><tt class="py-op">(</tt><tt class="py-param">dateTime</tt><tt class="py-op">,</tt> <tt class="py-param">seconds</tt><tt class="py-op">=</tt><tt id="link-233" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.False" class="py-name" href="#" onclick="return doclink('link-233', 'False', 'link-70');">False</a></tt><tt class="py-op">,</tt> <tt class="py-param">minutes</tt><tt class="py-op">=</tt><tt id="link-234" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-234', 'True', 'link-22');">True</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="time-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="time-expanded"><a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L280"></a><tt class="py-lineno">280</tt>  <tt class="py-line">        <tt class="py-comment"># strftime doesn't handle years before 1900, be prepared:</tt> </tt>
+<a name="L281"></a><tt class="py-lineno">281</tt>  <tt class="py-line">        <tt id="link-235" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-235', 'dateTime', 'link-207');">dateTime</a></tt> <tt class="py-op">=</tt> <tt id="link-236" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-236', 'dateTime', 'link-207');">dateTime</a></tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt id="link-237" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-237', 'year', 'link-170');">year</a></tt><tt class="py-op">=</tt><tt class="py-number">2000</tt><tt class="py-op">)</tt>   </tt>
+<a name="L282"></a><tt class="py-lineno">282</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">TypeError</tt><tt class="py-op">:</tt>  <tt class="py-comment"># We got a time instead of a dateTime</tt> </tt>
+<a name="L283"></a><tt class="py-lineno">283</tt>  <tt class="py-line">        <tt id="link-238" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-238', 'dateTime', 'link-207');">dateTime</a></tt> <tt class="py-op">=</tt> <tt class="py-name">datemodule</tt><tt class="py-op">.</tt><tt id="link-239" class="py-name"><a title="taskcoachlib.domain.date.dateandtime.Now" class="py-name" href="#" onclick="return doclink('link-239', 'Now', 'link-84');">Now</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-name">hour</tt><tt class="py-op">=</tt><tt id="link-240" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-240', 'dateTime', 'link-207');">dateTime</a></tt><tt class="py-op">.</tt><tt class="py-name">hour</tt><tt class="py-op">,</tt>  </tt>
+<a name="L284"></a><tt class="py-lineno">284</tt>  <tt class="py-line">                                            <tt class="py-name">minute</tt><tt class="py-op">=</tt><tt id="link-241" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-241', 'dateTime', 'link-207');">dateTime</a></tt><tt class="py-op">.</tt><tt class="py-name">minute</tt><tt class="py-op">,</tt> </tt>
+<a name="L285"></a><tt class="py-lineno">285</tt>  <tt class="py-line">                                            <tt class="py-name">second</tt><tt class="py-op">=</tt><tt id="link-242" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-242', 'dateTime', 'link-207');">dateTime</a></tt><tt class="py-op">.</tt><tt class="py-name">second</tt><tt class="py-op">)</tt>  </tt>
+<a name="L286"></a><tt class="py-lineno">286</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">timeFunc</tt><tt class="py-op">(</tt><tt id="link-243" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-243', 'dateTime', 'link-207');">dateTime</a></tt><tt class="py-op">,</tt> <tt id="link-244" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.minutes" class="py-name" href="#" onclick="return doclink('link-244', 'minutes', 'link-28');">minutes</a></tt><tt class="py-op">=</tt><tt id="link-245" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.minutes" class="py-name" href="#" onclick="return doclink('link-245', 'minutes', 'link-28');">minutes</a></tt><tt class="py-op">,</tt> <tt class="py-name">seconds</tt><tt class="py-op">=</tt><tt class="py-name">seconds</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L287"></a><tt class="py-lineno">287</tt>  <tt class="py-line"> </tt>
+<a name="L288"></a><tt class="py-lineno">288</tt>  <tt class="py-line"> </tt>
+<a name="month"></a><div id="month-def"><a name="L289"></a><tt class="py-lineno">289</tt> <a class="py-toggle" href="#" id="month-toggle" onclick="return toggle('month');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#month">month</a><tt class="py-op">(</tt><tt class="py-param">dateTime</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="month-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="month-expanded"><a name="L290"></a><tt class="py-lineno">290</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-246" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-246', 'dateTime', 'link-207');">dateTime</a></tt><tt class="py-op">.</tt><tt id="link-247" class="py-name"><a title="taskcoachlib.domain.date.dateandtime.DateTime.strftime" class="py-name" href="#" onclick="return doclink('link-247', 'strftime', 'link-76');">strftime</a></tt><tt class="py-op">(</tt><tt class="py-string">'%Y %B'</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L291"></a><tt class="py-lineno">291</tt>  <tt class="py-line"> </tt>
+<a name="L292"></a><tt class="py-lineno">292</tt>  <tt class="py-line">     </tt>
+<a name="weekNumber"></a><div id="weekNumber-def"><a name="L293"></a><tt class="py-lineno">293</tt> <a class="py-toggle" href="#" id="weekNumber-toggle" onclick="return toggle('weekNumber');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#weekNumber">weekNumber</a><tt class="py-op">(</tt><tt class="py-param">dateTime</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="weekNumber-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="weekNumber-expanded"><a name="L294"></a><tt class="py-lineno">294</tt>  <tt class="py-line">    <tt class="py-comment"># Would have liked to use dateTime.strftime('%Y-%U'), but the week number </tt> </tt>
+<a name="L295"></a><tt class="py-lineno">295</tt>  <tt class="py-line">    <tt class="py-comment"># is one off in 2004</tt> </tt>
+<a name="L296"></a><tt class="py-lineno">296</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-string">'%d-%d'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-248" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-248', 'dateTime', 'link-207');">dateTime</a></tt><tt class="py-op">.</tt><tt id="link-249" class="py-name"><a title="taskcoachlib.domain.date.date.InfiniteDate.year" class="py-name" href="#" onclick="return doclink('link-249', 'year', 'link-170');">year</a></tt><tt class="py-op">,</tt> <tt id="link-250" class="py-name"><a title="taskcoachlib.persistence.todotxt.reader.TodoTxtReader.dateTime
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.dateTime
+taskcoachlib.render.dateTime" class="py-name" href="#" onclick="return doclink('link-250', 'dateTime', 'link-207');">dateTime</a></tt><tt class="py-op">.</tt><tt id="link-251" class="py-name" targets="Method taskcoachlib.domain.date.dateandtime.DateTime.weeknumber()=taskcoachlib.domain.date.dateandtime.DateTime-class.html#weeknumber"><a title="taskcoachlib.domain.date.dateandtime.DateTime.weeknumber" class="py-name" href="#" onclick="return doclink('link-251', 'weeknumber', 'link-251');">weeknumber</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L297"></a><tt class="py-lineno">297</tt>  <tt class="py-line"> </tt>
+<a name="L298"></a><tt class="py-lineno">298</tt>  <tt class="py-line"> </tt>
+<a name="monetaryAmount"></a><div id="monetaryAmount-def"><a name="L299"></a><tt class="py-lineno">299</tt> <a class="py-toggle" href="#" id="monetaryAmount-toggle" onclick="return toggle('monetaryAmount');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#monetaryAmount">monetaryAmount</a><tt class="py-op">(</tt><tt class="py-param">aFloat</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="monetaryAmount-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="monetaryAmount-expanded"><a name="L300"></a><tt class="py-lineno">300</tt>  <tt class="py-line">    <tt class="py-docstring">''' Render a monetary amount, using the user's locale. '''</tt> </tt>
+<a name="L301"></a><tt class="py-lineno">301</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-string">''</tt> <tt class="py-keyword">if</tt> <tt id="link-252" class="py-name" targets="Method taskcoachlib.domain.date.timedelta.TimeDelta.round()=taskcoachlib.domain.date.timedelta.TimeDelta-class.html#round"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.round" class="py-name" href="#" onclick="return doclink('link-252', 'round', 'link-252');">round</a></tt><tt class="py-op">(</tt><tt class="py-name">aFloat</tt><tt class="py-op">,</tt> <tt class="py-number">2</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt> <tt class="py-keyword">else</tt> \ </tt>
+<a name="L302"></a><tt class="py-lineno">302</tt>  <tt class="py-line">        <tt class="py-name">locale</tt><tt class="py-op">.</tt><tt class="py-name">format</tt><tt class="py-op">(</tt><tt class="py-string">'%.2f'</tt><tt class="py-op">,</tt> <tt class="py-name">aFloat</tt><tt class="py-op">,</tt> <tt class="py-name">monetary</tt><tt class="py-op">=</tt><tt id="link-253" class="py-name"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-253', 'True', 'link-22');">True</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L303"></a><tt class="py-lineno">303</tt>  <tt class="py-line"> </tt>
+<a name="L304"></a><tt class="py-lineno">304</tt>  <tt class="py-line"> </tt>
+<a name="percentage"></a><div id="percentage-def"><a name="L305"></a><tt class="py-lineno">305</tt> <a class="py-toggle" href="#" id="percentage-toggle" onclick="return toggle('percentage');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#percentage">percentage</a><tt class="py-op">(</tt><tt class="py-param">aFloat</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="percentage-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="percentage-expanded"><a name="L306"></a><tt class="py-lineno">306</tt>  <tt class="py-line">    <tt class="py-docstring">''' Render a percentage. '''</tt> </tt>
+<a name="L307"></a><tt class="py-lineno">307</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-string">''</tt> <tt class="py-keyword">if</tt> <tt id="link-254" class="py-name"><a title="taskcoachlib.domain.date.timedelta.TimeDelta.round" class="py-name" href="#" onclick="return doclink('link-254', 'round', 'link-252');">round</a></tt><tt class="py-op">(</tt><tt class="py-name">aFloat</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt> <tt class="py-keyword">else</tt> <tt class="py-string">'%.0f%%'</tt> <tt class="py-op">%</tt> <tt class="py-name">aFloat</tt> </tt>
+</div><a name="L308"></a><tt class="py-lineno">308</tt>  <tt class="py-line"> </tt>
+<a name="L309"></a><tt class="py-lineno">309</tt>  <tt class="py-line"> </tt>
+<a name="exception"></a><div id="exception-def"><a name="L310"></a><tt class="py-lineno">310</tt> <a class="py-toggle" href="#" id="exception-toggle" onclick="return toggle('exception');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.render-module.html#exception">exception</a><tt class="py-op">(</tt><tt class="py-param">exception</tt><tt class="py-op">,</tt> <tt class="py-param">instance</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="exception-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="exception-expanded"><a name="L311"></a><tt class="py-lineno">311</tt>  <tt class="py-line">    <tt class="py-docstring">''' Safely render an exception, being prepared for new exceptions. '''</tt> </tt>
+<a name="L312"></a><tt class="py-lineno">312</tt>  <tt class="py-line"> </tt>
+<a name="L313"></a><tt class="py-lineno">313</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L314"></a><tt class="py-lineno">314</tt>  <tt class="py-line">        <tt class="py-comment"># In this order. Python 2.6 fixed the unicode exception problem.</tt> </tt>
+<a name="L315"></a><tt class="py-lineno">315</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L316"></a><tt class="py-lineno">316</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-255" class="py-name"><a title="unicode" class="py-name" href="#" onclick="return doclink('link-255', 'unicode', 'link-167');">unicode</a></tt><tt class="py-op">(</tt><tt id="link-256" class="py-name" targets="Static Method taskcoachlib.thirdparty.keyring.tests.test_backend.FauxQtGui.qApp.instance()=taskcoachlib.thirdparty.keyring.tests.test_backend.FauxQtGui.qApp-class.html#instance"><a title="taskcoachlib.thirdparty.keyring.tests.test_backend.FauxQtGui.qApp.instance" class="py-name" href="#" onclick="return doclink('link-256', 'instance', 'link-256');">instance</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L317"></a><tt class="py-lineno">317</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">UnicodeDecodeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L318"></a><tt class="py-lineno">318</tt>  <tt class="py-line">            <tt class="py-comment"># On Windows, some exceptions raised by win32all lead to this</tt> </tt>
+<a name="L319"></a><tt class="py-lineno">319</tt>  <tt class="py-line">            <tt class="py-comment"># Hack around it</tt> </tt>
+<a name="L320"></a><tt class="py-lineno">320</tt>  <tt class="py-line">            <tt class="py-name">result</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L321"></a><tt class="py-lineno">321</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">val</tt> <tt class="py-keyword">in</tt> <tt id="link-257" class="py-name"><a title="taskcoachlib.thirdparty.keyring.tests.test_backend.FauxQtGui.qApp.instance" class="py-name" href="#" onclick="return doclink('link-257', 'instance', 'link-256');">instance</a></tt><tt class="py-op">.</tt><tt class="py-name">args</tt><tt class="py-op">:</tt> </tt>
+<a name="L322"></a><tt class="py-lineno">322</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">val</tt><tt class="py-op">,</tt> <tt id="link-258" class="py-name"><a title="unicode" class="py-name" href="#" onclick="return doclink('link-258', 'unicode', 'link-167');">unicode</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L323"></a><tt class="py-lineno">323</tt>  <tt class="py-line">                    <tt class="py-name">result</tt><tt class="py-op">.</tt><tt id="link-259" class="py-name" targets="Method taskcoachlib.iphone.protocol.CompositeItem.append()=taskcoachlib.iphone.protocol.CompositeItem-class.html#append,Method taskcoachlib.iphone.protocol.ListItem.append()=taskcoachlib.iphone.protocol.ListItem-class.html#append,Method taskcoachlib.patterns.command.CommandHistory.append()=taskcoachlib.patterns.command.CommandHistory-class.html#append,Method taskcoachlib.patterns.composite.CompositeCollection.append()=taskcoachlib.patterns.composite.CompositeCollection-class.html#append,Method taskcoachlib.patterns.observer.CollectionDecorator.append()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#append,Method taskcoachlib.patterns.observer.ObservableList.append()=taskcoachlib.patterns.observer.ObservableList-class.html#append,Method taskcoachlib.patterns.observer.ObservableSet.append()=taskcoachlib.patterns.observer.ObservableSet-class.html#append,Method taskcoachlib.thirdparty.pyparsing.ParseExpression.append()=taskcoachlib.thirdparty.pyparsing.ParseExpression-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.timeline.timeline.HotMap.append()=taskcoachlib.thirdparty.timeline.timeline.HotMap-class.html#append"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-259', 'append', 'link-259');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">val</tt><tt class="py-op">.</tt><tt id="link-260" class="py-name" targets="Method taskcoachlib.thirdparty.gntp.GNTPRegister.encode()=taskcoachlib.thirdparty.gntp.GNTPRegister-class.html#encode,Method taskcoachlib.thirdparty.gntp._GNTPBase.encode()=taskcoachlib.thirdparty.gntp._GNTPBase-class.html#encode,Function taskcoachlib.thirdparty.googleapi.httplib2.iri2uri'.encode()=taskcoachlib.thirdparty.googleapi.httplib2.iri2uri%27-module.html#encode"><a title="taskcoachlib.thirdparty.gntp.GNTPRegister.encode
+taskcoachlib.thirdparty.gntp._GNTPBase.encode
+taskcoachlib.thirdparty.googleapi.httplib2.iri2uri'.encode" class="py-name" href="#" onclick="return doclink('link-260', 'encode', 'link-260');">encode</a></tt><tt class="py-op">(</tt><tt class="py-string">'UTF-8'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L324"></a><tt class="py-lineno">324</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L325"></a><tt class="py-lineno">325</tt>  <tt class="py-line">                    <tt class="py-name">result</tt><tt class="py-op">.</tt><tt id="link-261" class="py-name"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
+taskcoachlib.iphone.protocol.ListItem.append
+taskcoachlib.patterns.command.CommandHistory.append
+taskcoachlib.patterns.composite.CompositeCollection.append
+taskcoachlib.patterns.observer.CollectionDecorator.append
+taskcoachlib.patterns.observer.ObservableList.append
+taskcoachlib.patterns.observer.ObservableSet.append
+taskcoachlib.thirdparty.pyparsing.ParseExpression.append
+taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
+taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
+taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-261', 'append', 'link-259');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">val</tt><tt class="py-op">)</tt> </tt>
+<a name="L326"></a><tt class="py-lineno">326</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-262" class="py-name"><a title="unicode" class="py-name" href="#" onclick="return doclink('link-262', 'unicode', 'link-167');">unicode</a></tt><tt class="py-op">(</tt><tt class="py-name">result</tt><tt class="py-op">)</tt> </tt>
+<a name="L327"></a><tt class="py-lineno">327</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">UnicodeEncodeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L328"></a><tt class="py-lineno">328</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">'&lt;class %s&gt;'</tt> <tt class="py-op">%</tt> <tt id="link-263" class="py-name"><a title="str" class="py-name" href="#" onclick="return doclink('link-263', 'str', 'link-11');">str</a></tt><tt class="py-op">(</tt><tt id="link-264" class="py-name" targets="Function taskcoachlib.render.exception()=taskcoachlib.render-module.html#exception,Module taskcoachlib.workarounds.exception=taskcoachlib.workarounds.exception-module.html"><a title="taskcoachlib.render.exception
+taskcoachlib.workarounds.exception" class="py-name" href="#" onclick="return doclink('link-264', 'exception', 'link-264');">exception</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L329"></a><tt class="py-lineno">329</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:55 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

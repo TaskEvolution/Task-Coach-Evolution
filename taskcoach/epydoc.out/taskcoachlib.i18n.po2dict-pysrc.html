@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.i18n.po2dict</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.i18n-module.html">Package&nbsp;i18n</a> ::
+        Module&nbsp;po2dict
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.i18n.po2dict-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.i18n.po2dict-module.html">Module taskcoachlib.i18n.po2dict</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#! /usr/bin/env python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: iso-8859-1 -*-</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">"""Generate python dictionaries catalog from textual translation description.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">This program converts a textual Uniforum-style message catalog (.po file) into</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">a python dictionary </tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">Based on msgfmt.py by Martin v. L&#246;wis &lt;loewis@informatik.hu-berlin.de&gt;</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt><tt class="py-op">,</tt> <tt class="py-name">re</tt><tt class="py-op">,</tt> <tt class="py-name">os</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable taskcoachlib.i18n.po2dict.MESSAGES=taskcoachlib.i18n.po2dict-module.html#MESSAGES"><a title="taskcoachlib.i18n.po2dict.MESSAGES" class="py-name" href="#" onclick="return doclink('link-0', 'MESSAGES', 'link-0');">MESSAGES</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment"># pylint: disable=W0602,W0603</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="add"></a><div id="add-def"><a name="L19"></a><tt class="py-lineno"> 19</tt> <a class="py-toggle" href="#" id="add-toggle" onclick="return toggle('add');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.i18n.po2dict-module.html#add">add</a><tt class="py-op">(</tt><tt class="py-param">id_</tt><tt class="py-op">,</tt> <tt class="py-param">string</tt><tt class="py-op">,</tt> <tt class="py-param">fuzzy</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="add-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="add-expanded"><a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">    <tt class="py-docstring">"Add a non-fuzzy translation to the dictionary."</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">    <tt class="py-keyword">global</tt> <tt id="link-1" class="py-name"><a title="taskcoachlib.i18n.po2dict.MESSAGES" class="py-name" href="#" onclick="return doclink('link-1', 'MESSAGES', 'link-0');">MESSAGES</a></tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">fuzzy</tt> <tt class="py-keyword">and</tt> <tt class="py-name">string</tt><tt class="py-op">:</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">        <tt id="link-2" class="py-name"><a title="taskcoachlib.i18n.po2dict.MESSAGES" class="py-name" href="#" onclick="return doclink('link-2', 'MESSAGES', 'link-0');">MESSAGES</a></tt><tt class="py-op">[</tt><tt class="py-name">id_</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">string</tt> </tt>
+</div><a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"> </tt>
+<a name="generateDict"></a><div id="generateDict-def"><a name="L26"></a><tt class="py-lineno"> 26</tt> <a class="py-toggle" href="#" id="generateDict-toggle" onclick="return toggle('generateDict');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.i18n.po2dict-module.html#generateDict">generateDict</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="generateDict-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="generateDict-expanded"><a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">    <tt class="py-docstring">"Return the generated dictionary"</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">    <tt class="py-keyword">global</tt> <tt id="link-3" class="py-name"><a title="taskcoachlib.i18n.po2dict.MESSAGES" class="py-name" href="#" onclick="return doclink('link-3', 'MESSAGES', 'link-0');">MESSAGES</a></tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">    <tt class="py-name">metadata</tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name"><a title="taskcoachlib.i18n.po2dict.MESSAGES" class="py-name" href="#" onclick="return doclink('link-4', 'MESSAGES', 'link-0');">MESSAGES</a></tt><tt class="py-op">[</tt><tt class="py-string">''</tt><tt class="py-op">]</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-keyword">del</tt> <tt id="link-5" class="py-name"><a title="taskcoachlib.i18n.po2dict.MESSAGES" class="py-name" href="#" onclick="return doclink('link-5', 'MESSAGES', 'link-0');">MESSAGES</a></tt><tt class="py-op">[</tt><tt class="py-string">''</tt><tt class="py-op">]</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Variable taskcoachlib.i18n.ar.encoding=taskcoachlib.i18n.ar-module.html#encoding,Variable taskcoachlib.i18n.be.encoding=taskcoachlib.i18n.be-module.html#encoding,Variable taskcoachlib.i18n.bg.encoding=taskcoachlib.i18n.bg-module.html#encoding,Variable taskcoachlib.i18n.br.encoding=taskcoachlib.i18n.br-module.html#encoding,Variable taskcoachlib.i18n.bs.encoding=taskcoachlib.i18n.bs-module.html#encoding,Variable taskcoachlib.i18n.ca.encoding=taskcoachlib.i18n.ca-module.html#encoding,Variable taskcoachlib.i18n.cs.encoding=taskcoachlib.i18n.cs-module.html#encoding,Variable taskcoachlib.i18n.da.encoding=taskcoachlib.i18n.da-module.html#encoding,Variable taskcoachlib.i18n.de.encoding=taskcoachlib.i18n.de-module.html#encoding,Variable taskcoachlib.i18n.el.encoding=taskcoachlib.i18n.el-module.html#encoding,Variable taskcoachlib.i18n.en_AU.encoding=taskcoachlib.i18n.en_AU-module.html#encoding,Variable taskcoachlib.i18n.en_CA.encoding=taskcoachlib.i18n.en_CA-module.html#encoding,Variable taskcoachlib.i18n.en_GB.encoding=taskcoachlib.i18n.en_GB-module.html#encoding,Variable taskcoachlib.i18n.eo.encoding=taskcoachlib.i18n.eo-module.html#encoding,Variable taskcoachlib.i18n.es.encoding=taskcoachlib.i18n.es-module.html#encoding,Variable taskcoachlib.i18n.et.encoding=taskcoachlib.i18n.et-module.html#encoding,Variable taskcoachlib.i18n.eu.encoding=taskcoachlib.i18n.eu-module.html#encoding,Variable taskcoachlib.i18n.fa.encoding=taskcoachlib.i18n.fa-module.html#encoding,Variable taskcoachlib.i18n.fi.encoding=taskcoachlib.i18n.fi-module.html#encoding,Variable taskcoachlib.i18n.fr.encoding=taskcoachlib.i18n.fr-module.html#encoding,Variable taskcoachlib.i18n.gl.encoding=taskcoachlib.i18n.gl-module.html#encoding,Variable taskcoachlib.i18n.he.encoding=taskcoachlib.i18n.he-module.html#encoding,Variable taskcoachlib.i18n.hi.encoding=taskcoachlib.i18n.hi-module.html#encoding,Variable taskcoachlib.i18n.hu.encoding=taskcoachlib.i18n.hu-module.html#encoding,Variable taskcoachlib.i18n.id.encoding=taskcoachlib.i18n.id-module.html#encoding,Variable taskcoachlib.i18n.it.encoding=taskcoachlib.i18n.it-module.html#encoding,Variable taskcoachlib.i18n.ja.encoding=taskcoachlib.i18n.ja-module.html#encoding,Variable taskcoachlib.i18n.ko.encoding=taskcoachlib.i18n.ko-module.html#encoding,Variable taskcoachlib.i18n.lt.encoding=taskcoachlib.i18n.lt-module.html#encoding,Variable taskcoachlib.i18n.lv.encoding=taskcoachlib.i18n.lv-module.html#encoding,Variable taskcoachlib.i18n.mn.encoding=taskcoachlib.i18n.mn-module.html#encoding,Variable taskcoachlib.i18n.mr.encoding=taskcoachlib.i18n.mr-module.html#encoding,Variable taskcoachlib.i18n.nb.encoding=taskcoachlib.i18n.nb-module.html#encoding,Variable taskcoachlib.i18n.nds.encoding=taskcoachlib.i18n.nds-module.html#encoding,Variable taskcoachlib.i18n.nl.encoding=taskcoachlib.i18n.nl-module.html#encoding,Variable taskcoachlib.i18n.nn.encoding=taskcoachlib.i18n.nn-module.html#encoding,Variable taskcoachlib.i18n.oc.encoding=taskcoachlib.i18n.oc-module.html#encoding,Variable taskcoachlib.i18n.pap.encoding=taskcoachlib.i18n.pap-module.html#encoding,Variable taskcoachlib.i18n.pl.encoding=taskcoachlib.i18n.pl-module.html#encoding,Variable taskcoachlib.i18n.pt.encoding=taskcoachlib.i18n.pt-module.html#encoding,Variable taskcoachlib.i18n.pt_BR.encoding=taskcoachlib.i18n.pt_BR-module.html#encoding,Variable taskcoachlib.i18n.ro.encoding=taskcoachlib.i18n.ro-module.html#encoding,Variable taskcoachlib.i18n.ru.encoding=taskcoachlib.i18n.ru-module.html#encoding,Variable taskcoachlib.i18n.sk.encoding=taskcoachlib.i18n.sk-module.html#encoding,Variable taskcoachlib.i18n.sl.encoding=taskcoachlib.i18n.sl-module.html#encoding,Variable taskcoachlib.i18n.sv.encoding=taskcoachlib.i18n.sv-module.html#encoding,Variable taskcoachlib.i18n.te.encoding=taskcoachlib.i18n.te-module.html#encoding,Variable taskcoachlib.i18n.th.encoding=taskcoachlib.i18n.th-module.html#encoding,Variable taskcoachlib.i18n.tr.encoding=taskcoachlib.i18n.tr-module.html#encoding,Variable taskcoachlib.i18n.uk.encoding=taskcoachlib.i18n.uk-module.html#encoding,Variable taskcoachlib.i18n.vi.encoding=taskcoachlib.i18n.vi-module.html#encoding,Variable taskcoachlib.i18n.zh_CN.encoding=taskcoachlib.i18n.zh_CN-module.html#encoding,Variable taskcoachlib.i18n.zh_TW.encoding=taskcoachlib.i18n.zh_TW-module.html#encoding"><a title="taskcoachlib.i18n.ar.encoding
+taskcoachlib.i18n.be.encoding
+taskcoachlib.i18n.bg.encoding
+taskcoachlib.i18n.br.encoding
+taskcoachlib.i18n.bs.encoding
+taskcoachlib.i18n.ca.encoding
+taskcoachlib.i18n.cs.encoding
+taskcoachlib.i18n.da.encoding
+taskcoachlib.i18n.de.encoding
+taskcoachlib.i18n.el.encoding
+taskcoachlib.i18n.en_AU.encoding
+taskcoachlib.i18n.en_CA.encoding
+taskcoachlib.i18n.en_GB.encoding
+taskcoachlib.i18n.eo.encoding
+taskcoachlib.i18n.es.encoding
+taskcoachlib.i18n.et.encoding
+taskcoachlib.i18n.eu.encoding
+taskcoachlib.i18n.fa.encoding
+taskcoachlib.i18n.fi.encoding
+taskcoachlib.i18n.fr.encoding
+taskcoachlib.i18n.gl.encoding
+taskcoachlib.i18n.he.encoding
+taskcoachlib.i18n.hi.encoding
+taskcoachlib.i18n.hu.encoding
+taskcoachlib.i18n.id.encoding
+taskcoachlib.i18n.it.encoding
+taskcoachlib.i18n.ja.encoding
+taskcoachlib.i18n.ko.encoding
+taskcoachlib.i18n.lt.encoding
+taskcoachlib.i18n.lv.encoding
+taskcoachlib.i18n.mn.encoding
+taskcoachlib.i18n.mr.encoding
+taskcoachlib.i18n.nb.encoding
+taskcoachlib.i18n.nds.encoding
+taskcoachlib.i18n.nl.encoding
+taskcoachlib.i18n.nn.encoding
+taskcoachlib.i18n.oc.encoding
+taskcoachlib.i18n.pap.encoding
+taskcoachlib.i18n.pl.encoding
+taskcoachlib.i18n.pt.encoding
+taskcoachlib.i18n.pt_BR.encoding
+taskcoachlib.i18n.ro.encoding
+taskcoachlib.i18n.ru.encoding
+taskcoachlib.i18n.sk.encoding
+taskcoachlib.i18n.sl.encoding
+taskcoachlib.i18n.sv.encoding
+taskcoachlib.i18n.te.encoding
+taskcoachlib.i18n.th.encoding
+taskcoachlib.i18n.tr.encoding
+taskcoachlib.i18n.uk.encoding
+taskcoachlib.i18n.vi.encoding
+taskcoachlib.i18n.zh_CN.encoding
+taskcoachlib.i18n.zh_TW.encoding" class="py-name" href="#" onclick="return doclink('link-6', 'encoding', 'link-6');">encoding</a></tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Variable taskcoachlib.help.uicommand.search=taskcoachlib.help.uicommand-module.html#search"><a title="taskcoachlib.help.uicommand.search" class="py-name" href="#" onclick="return doclink('link-7', 'search', 'link-7');">search</a></tt><tt class="py-op">(</tt><tt class="py-string">r'charset=(\S*)\n'</tt><tt class="py-op">,</tt> <tt class="py-name">metadata</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">group</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-string">"# -*- coding: %s -*-\n#This is generated code - do not edit\nencoding = '%s'\ndict = %s"</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt id="link-8" class="py-name"><a title="taskcoachlib.i18n.ar.encoding
+taskcoachlib.i18n.be.encoding
+taskcoachlib.i18n.bg.encoding
+taskcoachlib.i18n.br.encoding
+taskcoachlib.i18n.bs.encoding
+taskcoachlib.i18n.ca.encoding
+taskcoachlib.i18n.cs.encoding
+taskcoachlib.i18n.da.encoding
+taskcoachlib.i18n.de.encoding
+taskcoachlib.i18n.el.encoding
+taskcoachlib.i18n.en_AU.encoding
+taskcoachlib.i18n.en_CA.encoding
+taskcoachlib.i18n.en_GB.encoding
+taskcoachlib.i18n.eo.encoding
+taskcoachlib.i18n.es.encoding
+taskcoachlib.i18n.et.encoding
+taskcoachlib.i18n.eu.encoding
+taskcoachlib.i18n.fa.encoding
+taskcoachlib.i18n.fi.encoding
+taskcoachlib.i18n.fr.encoding
+taskcoachlib.i18n.gl.encoding
+taskcoachlib.i18n.he.encoding
+taskcoachlib.i18n.hi.encoding
+taskcoachlib.i18n.hu.encoding
+taskcoachlib.i18n.id.encoding
+taskcoachlib.i18n.it.encoding
+taskcoachlib.i18n.ja.encoding
+taskcoachlib.i18n.ko.encoding
+taskcoachlib.i18n.lt.encoding
+taskcoachlib.i18n.lv.encoding
+taskcoachlib.i18n.mn.encoding
+taskcoachlib.i18n.mr.encoding
+taskcoachlib.i18n.nb.encoding
+taskcoachlib.i18n.nds.encoding
+taskcoachlib.i18n.nl.encoding
+taskcoachlib.i18n.nn.encoding
+taskcoachlib.i18n.oc.encoding
+taskcoachlib.i18n.pap.encoding
+taskcoachlib.i18n.pl.encoding
+taskcoachlib.i18n.pt.encoding
+taskcoachlib.i18n.pt_BR.encoding
+taskcoachlib.i18n.ro.encoding
+taskcoachlib.i18n.ru.encoding
+taskcoachlib.i18n.sk.encoding
+taskcoachlib.i18n.sl.encoding
+taskcoachlib.i18n.sv.encoding
+taskcoachlib.i18n.te.encoding
+taskcoachlib.i18n.th.encoding
+taskcoachlib.i18n.tr.encoding
+taskcoachlib.i18n.uk.encoding
+taskcoachlib.i18n.vi.encoding
+taskcoachlib.i18n.zh_CN.encoding
+taskcoachlib.i18n.zh_TW.encoding" class="py-name" href="#" onclick="return doclink('link-8', 'encoding', 'link-6');">encoding</a></tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name"><a title="taskcoachlib.i18n.ar.encoding
+taskcoachlib.i18n.be.encoding
+taskcoachlib.i18n.bg.encoding
+taskcoachlib.i18n.br.encoding
+taskcoachlib.i18n.bs.encoding
+taskcoachlib.i18n.ca.encoding
+taskcoachlib.i18n.cs.encoding
+taskcoachlib.i18n.da.encoding
+taskcoachlib.i18n.de.encoding
+taskcoachlib.i18n.el.encoding
+taskcoachlib.i18n.en_AU.encoding
+taskcoachlib.i18n.en_CA.encoding
+taskcoachlib.i18n.en_GB.encoding
+taskcoachlib.i18n.eo.encoding
+taskcoachlib.i18n.es.encoding
+taskcoachlib.i18n.et.encoding
+taskcoachlib.i18n.eu.encoding
+taskcoachlib.i18n.fa.encoding
+taskcoachlib.i18n.fi.encoding
+taskcoachlib.i18n.fr.encoding
+taskcoachlib.i18n.gl.encoding
+taskcoachlib.i18n.he.encoding
+taskcoachlib.i18n.hi.encoding
+taskcoachlib.i18n.hu.encoding
+taskcoachlib.i18n.id.encoding
+taskcoachlib.i18n.it.encoding
+taskcoachlib.i18n.ja.encoding
+taskcoachlib.i18n.ko.encoding
+taskcoachlib.i18n.lt.encoding
+taskcoachlib.i18n.lv.encoding
+taskcoachlib.i18n.mn.encoding
+taskcoachlib.i18n.mr.encoding
+taskcoachlib.i18n.nb.encoding
+taskcoachlib.i18n.nds.encoding
+taskcoachlib.i18n.nl.encoding
+taskcoachlib.i18n.nn.encoding
+taskcoachlib.i18n.oc.encoding
+taskcoachlib.i18n.pap.encoding
+taskcoachlib.i18n.pl.encoding
+taskcoachlib.i18n.pt.encoding
+taskcoachlib.i18n.pt_BR.encoding
+taskcoachlib.i18n.ro.encoding
+taskcoachlib.i18n.ru.encoding
+taskcoachlib.i18n.sk.encoding
+taskcoachlib.i18n.sl.encoding
+taskcoachlib.i18n.sv.encoding
+taskcoachlib.i18n.te.encoding
+taskcoachlib.i18n.th.encoding
+taskcoachlib.i18n.tr.encoding
+taskcoachlib.i18n.uk.encoding
+taskcoachlib.i18n.vi.encoding
+taskcoachlib.i18n.zh_CN.encoding
+taskcoachlib.i18n.zh_TW.encoding" class="py-name" href="#" onclick="return doclink('link-9', 'encoding', 'link-6');">encoding</a></tt><tt class="py-op">,</tt> <tt id="link-10" class="py-name"><a title="taskcoachlib.i18n.po2dict.MESSAGES" class="py-name" href="#" onclick="return doclink('link-10', 'MESSAGES', 'link-0');">MESSAGES</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"> </tt>
+<a name="make"></a><div id="make-def"><a name="L35"></a><tt class="py-lineno"> 35</tt> <a class="py-toggle" href="#" id="make-toggle" onclick="return toggle('make');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.i18n.po2dict-module.html#make">make</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">,</tt> <tt class="py-param">outfile</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="make-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="make-expanded"><a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">    <tt class="py-name">ID</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">    <tt class="py-name">STR</tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">    <tt class="py-keyword">global</tt> <tt id="link-11" class="py-name"><a title="taskcoachlib.i18n.po2dict.MESSAGES" class="py-name" href="#" onclick="return doclink('link-11', 'MESSAGES', 'link-0');">MESSAGES</a></tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">    <tt id="link-12" class="py-name"><a title="taskcoachlib.i18n.po2dict.MESSAGES" class="py-name" href="#" onclick="return doclink('link-12', 'MESSAGES', 'link-0');">MESSAGES</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">    <tt class="py-comment"># Compute .py name from .po name and arguments</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-13" class="py-name" targets="Method taskcoachlib.config.settings.Settings.filename()=taskcoachlib.config.settings.Settings-class.html#filename,Method taskcoachlib.gui.iocontroller.IOController.filename()=taskcoachlib.gui.iocontroller.IOController-class.html#filename,Variable taskcoachlib.meta.data.filename=taskcoachlib.meta.data-module.html#filename,Method taskcoachlib.persistence.taskfile.TaskFile.filename()=taskcoachlib.persistence.taskfile.TaskFile-class.html#filename,Method taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename()=taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile-class.html#filename,Method taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename()=taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener-class.html#filename,Method taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename()=taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename=taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename=taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename=taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring-class.html#filename,Variable taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#filename"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-13', 'filename', 'link-13');">filename</a></tt><tt class="py-op">.</tt><tt class="py-name">endswith</tt><tt class="py-op">(</tt><tt class="py-string">'.po'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-name">infile</tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-14', 'filename', 'link-13');">filename</a></tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-name">infile</tt> <tt class="py-op">=</tt> <tt id="link-15" class="py-name"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-15', 'filename', 'link-13');">filename</a></tt> <tt class="py-op">+</tt> <tt class="py-string">'.po'</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">outfile</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-name">outfile</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method taskcoachlib.config.settings.Settings.path()=taskcoachlib.config.settings.Settings-class.html#path,Method taskcoachlib.thirdparty.wmi._wmi_object.path()=taskcoachlib.thirdparty.wmi._wmi_object-class.html#path"><a title="taskcoachlib.config.settings.Settings.path
+taskcoachlib.thirdparty.wmi._wmi_object.path" class="py-name" href="#" onclick="return doclink('link-16', 'path', 'link-16');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">splitext</tt><tt class="py-op">(</tt><tt class="py-name">infile</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-string">'.py'</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-name">lines</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name" targets="Method taskcoachlib.domain.attachment.attachment.Attachment.open()=taskcoachlib.domain.attachment.attachment.Attachment-class.html#open,Method taskcoachlib.domain.attachment.attachment.FileAttachment.open()=taskcoachlib.domain.attachment.attachment.FileAttachment-class.html#open,Method taskcoachlib.domain.attachment.attachment.MailAttachment.open()=taskcoachlib.domain.attachment.attachment.MailAttachment-class.html#open,Method taskcoachlib.domain.attachment.attachment.URIAttachment.open()=taskcoachlib.domain.attachment.attachment.URIAttachment-class.html#open,Method taskcoachlib.gui.iocontroller.IOController.open()=taskcoachlib.gui.iocontroller.IOController-class.html#open,Method taskcoachlib.thirdparty.desktop.dialog.Dialogue.open()=taskcoachlib.thirdparty.desktop.dialog.Dialogue-class.html#open"><a title="taskcoachlib.domain.attachment.attachment.Attachment.open
+taskcoachlib.domain.attachment.attachment.FileAttachment.open
+taskcoachlib.domain.attachment.attachment.MailAttachment.open
+taskcoachlib.domain.attachment.attachment.URIAttachment.open
+taskcoachlib.gui.iocontroller.IOController.open
+taskcoachlib.thirdparty.desktop.dialog.Dialogue.open" class="py-name" href="#" onclick="return doclink('link-17', 'open', 'link-17');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">infile</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">readlines</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">IOError</tt><tt class="py-op">,</tt> <tt id="link-18" class="py-name" targets="Variable taskcoachlib.thirdparty.pubsub.core.arg1.msg=taskcoachlib.thirdparty.pubsub.core.arg1-module.html#msg,Variable taskcoachlib.thirdparty.pubsub.core.kwargs.msg=taskcoachlib.thirdparty.pubsub.core.kwargs-module.html#msg"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.msg
+taskcoachlib.thirdparty.pubsub.core.kwargs.msg" class="py-name" href="#" onclick="return doclink('link-18', 'msg', 'link-18');">msg</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt id="link-19" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.msg
+taskcoachlib.thirdparty.pubsub.core.kwargs.msg" class="py-name" href="#" onclick="return doclink('link-19', 'msg', 'link-18');">msg</a></tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method taskcoachlib.thirdparty.keyring.tests.test_backend.FauxQtGui.QApplication.exit()=taskcoachlib.thirdparty.keyring.tests.test_backend.FauxQtGui.QApplication-class.html#exit"><a title="taskcoachlib.thirdparty.keyring.tests.test_backend.FauxQtGui.QApplication.exit" class="py-name" href="#" onclick="return doclink('link-20', 'exit', 'link-20');">exit</a></tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt id="link-21" class="py-name" targets="Variable taskcoachlib.gui.dialog.export.ExportDialog.section=taskcoachlib.gui.dialog.export.ExportDialog-class.html#section"><a title="taskcoachlib.gui.dialog.export.ExportDialog.section" class="py-name" href="#" onclick="return doclink('link-21', 'section', 'link-21');">section</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">    <tt class="py-name">fuzzy</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">    <tt class="py-comment"># Parse the catalog</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">    <tt class="py-name">lno</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">l</tt> <tt class="py-keyword">in</tt> <tt class="py-name">lines</tt><tt class="py-op">:</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-name">lno</tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-comment"># If we get a comment line after a msgstr, this is a new entry</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">l</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'#'</tt> <tt class="py-keyword">and</tt> <tt id="link-22" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportDialog.section" class="py-name" href="#" onclick="return doclink('link-22', 'section', 'link-21');">section</a></tt> <tt class="py-op">==</tt> <tt class="py-name">STR</tt><tt class="py-op">:</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">            <tt id="link-23" class="py-name" targets="Method taskcoachlib.domain.base.attribute.SetAttribute.add()=taskcoachlib.domain.base.attribute.SetAttribute-class.html#add,Method taskcoachlib.thirdparty._weakrefset.WeakSet.add()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#add,Method taskcoachlib.thirdparty.desktop.dialog.Menu.add()=taskcoachlib.thirdparty.desktop.dialog.Menu-class.html#add,Method taskcoachlib.thirdparty.googleapi.apiclient.http.BatchHttpRequest.add()=taskcoachlib.thirdparty.googleapi.apiclient.http.BatchHttpRequest-class.html#add,Method taskcoachlib.thirdparty.googleapi.httplib2.Credentials.add()=taskcoachlib.thirdparty.googleapi.httplib2.Credentials-class.html#add,Method taskcoachlib.widgets.panel.BoxWithBoxSizer.add()=taskcoachlib.widgets.panel.BoxWithBoxSizer-class.html#add,Method taskcoachlib.widgets.panel.BoxWithFlexGridSizer.add()=taskcoachlib.widgets.panel.BoxWithFlexGridSizer-class.html#add,Method taskcoachlib.widgets.panel.PanelWithBoxSizer.add()=taskcoachlib.widgets.panel.PanelWithBoxSizer-class.html#add"><a title="taskcoachlib.domain.base.attribute.SetAttribute.add
+taskcoachlib.thirdparty._weakrefset.WeakSet.add
+taskcoachlib.thirdparty.desktop.dialog.Menu.add
+taskcoachlib.thirdparty.googleapi.apiclient.http.BatchHttpRequest.add
+taskcoachlib.thirdparty.googleapi.httplib2.Credentials.add
+taskcoachlib.widgets.panel.BoxWithBoxSizer.add
+taskcoachlib.widgets.panel.BoxWithFlexGridSizer.add
+taskcoachlib.widgets.panel.PanelWithBoxSizer.add" class="py-name" href="#" onclick="return doclink('link-23', 'add', 'link-23');">add</a></tt><tt class="py-op">(</tt><tt class="py-name">msgid</tt><tt class="py-op">,</tt> <tt class="py-name">msgstr</tt><tt class="py-op">,</tt> <tt class="py-name">fuzzy</tt><tt class="py-op">)</tt> <tt class="py-comment"># pylint: disable=E0601</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">            <tt id="link-24" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportDialog.section" class="py-name" href="#" onclick="return doclink('link-24', 'section', 'link-21');">section</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">            <tt class="py-name">fuzzy</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-comment"># Record a fuzzy mark</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">l</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'#,'</tt> <tt class="py-keyword">and</tt> <tt class="py-name">l</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Method taskcoachlib.thirdparty.desktop.windows.Window.find()=taskcoachlib.thirdparty.desktop.windows.Window-class.html#find,Function taskcoachlib.thirdparty.desktop.windows.find()=taskcoachlib.thirdparty.desktop.windows-module.html#find"><a title="taskcoachlib.thirdparty.desktop.windows.Window.find
+taskcoachlib.thirdparty.desktop.windows.find" class="py-name" href="#" onclick="return doclink('link-25', 'find', 'link-25');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">'fuzzy'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-name">fuzzy</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-comment"># Skip comments</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">l</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'#'</tt><tt class="py-op">:</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">            <tt class="py-keyword">continue</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-comment"># Now we are in a msgid section, output previous section</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">l</tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt class="py-string">'msgid'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-26" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportDialog.section" class="py-name" href="#" onclick="return doclink('link-26', 'section', 'link-21');">section</a></tt> <tt class="py-op">==</tt> <tt class="py-name">STR</tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">                <tt id="link-27" class="py-name"><a title="taskcoachlib.domain.base.attribute.SetAttribute.add
+taskcoachlib.thirdparty._weakrefset.WeakSet.add
+taskcoachlib.thirdparty.desktop.dialog.Menu.add
+taskcoachlib.thirdparty.googleapi.apiclient.http.BatchHttpRequest.add
+taskcoachlib.thirdparty.googleapi.httplib2.Credentials.add
+taskcoachlib.widgets.panel.BoxWithBoxSizer.add
+taskcoachlib.widgets.panel.BoxWithFlexGridSizer.add
+taskcoachlib.widgets.panel.PanelWithBoxSizer.add" class="py-name" href="#" onclick="return doclink('link-27', 'add', 'link-23');">add</a></tt><tt class="py-op">(</tt><tt class="py-name">msgid</tt><tt class="py-op">,</tt> <tt class="py-name">msgstr</tt><tt class="py-op">,</tt> <tt class="py-name">fuzzy</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">            <tt id="link-28" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportDialog.section" class="py-name" href="#" onclick="return doclink('link-28', 'section', 'link-21');">section</a></tt> <tt class="py-op">=</tt> <tt class="py-name">ID</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">            <tt class="py-name">l</tt> <tt class="py-op">=</tt> <tt class="py-name">l</tt><tt class="py-op">[</tt><tt class="py-number">5</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">            <tt class="py-name">msgid</tt> <tt class="py-op">=</tt> <tt class="py-name">msgstr</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-comment"># Now we are in a msgstr section</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">l</tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt class="py-string">'msgstr'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">            <tt id="link-29" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportDialog.section" class="py-name" href="#" onclick="return doclink('link-29', 'section', 'link-21');">section</a></tt> <tt class="py-op">=</tt> <tt class="py-name">STR</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">            <tt class="py-name">l</tt> <tt class="py-op">=</tt> <tt class="py-name">l</tt><tt class="py-op">[</tt><tt class="py-number">6</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-comment"># Skip empty lines</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-name">l</tt> <tt class="py-op">=</tt> <tt class="py-name">l</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">l</tt><tt class="py-op">:</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">            <tt class="py-keyword">continue</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-comment"># XXX: Does this always follow Python escape semantics? # pylint: disable=W0511</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-name">l</tt> <tt class="py-op">=</tt> <tt class="py-name">eval</tt><tt class="py-op">(</tt><tt class="py-name">l</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-30" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportDialog.section" class="py-name" href="#" onclick="return doclink('link-30', 'section', 'link-21');">section</a></tt> <tt class="py-op">==</tt> <tt class="py-name">ID</tt><tt class="py-op">:</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">            <tt class="py-name">msgid</tt> <tt class="py-op">+=</tt> <tt class="py-name">l</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt id="link-31" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportDialog.section" class="py-name" href="#" onclick="return doclink('link-31', 'section', 'link-21');">section</a></tt> <tt class="py-op">==</tt> <tt class="py-name">STR</tt><tt class="py-op">:</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">            <tt class="py-name">msgstr</tt> <tt class="py-op">+=</tt> <tt class="py-name">l</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-string">'Syntax error on %s:%d'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">infile</tt><tt class="py-op">,</tt> <tt class="py-name">lno</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> \ </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">                  <tt class="py-string">'before:'</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-name">l</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">            <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="taskcoachlib.thirdparty.keyring.tests.test_backend.FauxQtGui.QApplication.exit" class="py-name" href="#" onclick="return doclink('link-32', 'exit', 'link-20');">exit</a></tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">    <tt class="py-comment"># Add last entry</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-33" class="py-name"><a title="taskcoachlib.gui.dialog.export.ExportDialog.section" class="py-name" href="#" onclick="return doclink('link-33', 'section', 'link-21');">section</a></tt> <tt class="py-op">==</tt> <tt class="py-name">STR</tt><tt class="py-op">:</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt id="link-34" class="py-name"><a title="taskcoachlib.domain.base.attribute.SetAttribute.add
+taskcoachlib.thirdparty._weakrefset.WeakSet.add
+taskcoachlib.thirdparty.desktop.dialog.Menu.add
+taskcoachlib.thirdparty.googleapi.apiclient.http.BatchHttpRequest.add
+taskcoachlib.thirdparty.googleapi.httplib2.Credentials.add
+taskcoachlib.widgets.panel.BoxWithBoxSizer.add
+taskcoachlib.widgets.panel.BoxWithFlexGridSizer.add
+taskcoachlib.widgets.panel.PanelWithBoxSizer.add" class="py-name" href="#" onclick="return doclink('link-34', 'add', 'link-23');">add</a></tt><tt class="py-op">(</tt><tt class="py-name">msgid</tt><tt class="py-op">,</tt> <tt class="py-name">msgstr</tt><tt class="py-op">,</tt> <tt class="py-name">fuzzy</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">    <tt class="py-comment"># Compute output</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">    <tt class="py-name">output</tt> <tt class="py-op">=</tt> <tt class="py-name">generateDict</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt id="link-35" class="py-name"><a title="taskcoachlib.domain.attachment.attachment.Attachment.open
+taskcoachlib.domain.attachment.attachment.FileAttachment.open
+taskcoachlib.domain.attachment.attachment.MailAttachment.open
+taskcoachlib.domain.attachment.attachment.URIAttachment.open
+taskcoachlib.gui.iocontroller.IOController.open
+taskcoachlib.thirdparty.desktop.dialog.Dialogue.open" class="py-name" href="#" onclick="return doclink('link-35', 'open', 'link-17');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">outfile</tt><tt class="py-op">,</tt><tt class="py-string">"wb"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name" targets="Method taskcoachlib.application.application.RedirectedOutput.write()=taskcoachlib.application.application.RedirectedOutput-class.html#write,Method taskcoachlib.persistence.csv.writer.CSVWriter.write()=taskcoachlib.persistence.csv.writer.CSVWriter-class.html#write,Method taskcoachlib.persistence.html.writer.HTMLWriter.write()=taskcoachlib.persistence.html.writer.HTMLWriter-class.html#write,Method taskcoachlib.persistence.icalendar.writer.iCalendarWriter.write()=taskcoachlib.persistence.icalendar.writer.iCalendarWriter-class.html#write,Method taskcoachlib.persistence.pdf.writer.PDFWriter.write()=taskcoachlib.persistence.pdf.writer.PDFWriter-class.html#write,Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.write()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.ChangesXMLWriter.write()=taskcoachlib.persistence.xml.writer.ChangesXMLWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.PIElementTree.write()=taskcoachlib.persistence.xml.writer.PIElementTree-class.html#write,Method taskcoachlib.persistence.xml.writer.TemplateXMLWriter.write()=taskcoachlib.persistence.xml.writer.TemplateXMLWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.XMLWriter.write()=taskcoachlib.persistence.xml.writer.XMLWriter-class.html#write,Method taskcoachlib.thirdparty.xdg.IniFile.IniFile.write()=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#write,Method taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.write()=taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles-class.html#write"><a title="taskcoachlib.application.application.RedirectedOutput.write
+taskcoachlib.persistence.csv.writer.CSVWriter.write
+taskcoachlib.persistence.html.writer.HTMLWriter.write
+taskcoachlib.persistence.icalendar.writer.iCalendarWriter.write
+taskcoachlib.persistence.pdf.writer.PDFWriter.write
+taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.write
+taskcoachlib.persistence.xml.writer.ChangesXMLWriter.write
+taskcoachlib.persistence.xml.writer.PIElementTree.write
+taskcoachlib.persistence.xml.writer.TemplateXMLWriter.write
+taskcoachlib.persistence.xml.writer.XMLWriter.write
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.write
+taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.write" class="py-name" href="#" onclick="return doclink('link-36', 'write', 'link-36');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">output</tt><tt class="py-op">)</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">IOError</tt><tt class="py-op">,</tt><tt id="link-37" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.msg
+taskcoachlib.thirdparty.pubsub.core.kwargs.msg" class="py-name" href="#" onclick="return doclink('link-37', 'msg', 'link-18');">msg</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt id="link-38" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.msg
+taskcoachlib.thirdparty.pubsub.core.kwargs.msg" class="py-name" href="#" onclick="return doclink('link-38', 'msg', 'link-18');">msg</a></tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">outfile</tt> </tt>
+</div><a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:58 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

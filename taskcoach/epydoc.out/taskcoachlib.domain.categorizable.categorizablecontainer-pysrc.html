@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.domain.categorizable.categorizablecontainer</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.domain-module.html">Package&nbsp;domain</a> ::
+        <a href="taskcoachlib.domain.categorizable-module.html">Package&nbsp;categorizable</a> ::
+        Module&nbsp;categorizablecontainer
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.domain.categorizable.categorizablecontainer-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.domain.categorizable.categorizablecontainer-module.html">Module taskcoachlib.domain.categorizable.categorizablecontainer</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach - Your friendly task manager</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (C) 2004-2013 Task Coach developers &lt;developers@taskcoach.org&gt;</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is free software: you can redistribute it and/or modify</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">the Free Software Foundation, either version 3 of the License, or</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">(at your option) any later version.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">GNU General Public License for more details.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package taskcoachlib=taskcoachlib-module.html"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-0', 'taskcoachlib', 'link-0');">taskcoachlib</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package taskcoachlib.domain=taskcoachlib.domain-module.html"><a title="taskcoachlib.domain" class="py-name" href="#" onclick="return doclink('link-1', 'domain', 'link-1');">domain</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Module taskcoachlib.command.base=taskcoachlib.command.base-module.html,Package taskcoachlib.domain.base=taskcoachlib.domain.base-module.html,Module taskcoachlib.domain.effort.base=taskcoachlib.domain.effort.base-module.html,Module taskcoachlib.filesystem.base=taskcoachlib.filesystem.base-module.html,Module taskcoachlib.gui.viewer.base=taskcoachlib.gui.viewer.base-module.html,Module taskcoachlib.powermgt.base=taskcoachlib.powermgt.base-module.html,Module taskcoachlib.thirdparty.apscheduler'.jobstores.base=taskcoachlib.thirdparty.apscheduler%27.jobstores.base-module.html"><a title="taskcoachlib.command.base
+taskcoachlib.domain.base
+taskcoachlib.domain.effort.base
+taskcoachlib.filesystem.base
+taskcoachlib.gui.viewer.base
+taskcoachlib.powermgt.base
+taskcoachlib.thirdparty.apscheduler'.jobstores.base" class="py-name" href="#" onclick="return doclink('link-2', 'base', 'link-2');">base</a></tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-3', 'taskcoachlib', 'link-0');">taskcoachlib</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Package taskcoachlib.patterns=taskcoachlib.patterns-module.html"><a title="taskcoachlib.patterns" class="py-name" href="#" onclick="return doclink('link-4', 'patterns', 'link-4');">patterns</a></tt> </tt>
+<a name="CategorizableContainer"></a><div id="CategorizableContainer-def"><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="CategorizableContainer-toggle" onclick="return toggle('CategorizableContainer');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer-class.html">CategorizableContainer</a><tt class="py-op">(</tt><tt class="py-base-class">base</tt><tt class="py-op">.</tt><tt class="py-base-class">Collection</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CategorizableContainer-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="CategorizableContainer-expanded"><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">patterns</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Function taskcoachlib.patterns.observer.eventSource()=taskcoachlib.patterns.observer-module.html#eventSource"><a title="taskcoachlib.patterns.observer.eventSource" class="py-name" href="#" onclick="return doclink('link-5', 'eventSource', 'link-5');">eventSource</a></tt> </tt>
+<a name="CategorizableContainer.extend"></a><div id="CategorizableContainer.extend-def"><a name="L25"></a><tt class="py-lineno">25</tt> <a class="py-toggle" href="#" id="CategorizableContainer.extend-toggle" onclick="return toggle('CategorizableContainer.extend');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer-class.html#extend">extend</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">items</tt><tt class="py-op">,</tt> <tt class="py-param">event</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CategorizableContainer.extend-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="CategorizableContainer.extend-expanded"><a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-6" class="py-name" targets="Class taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer=taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer-class.html"><a title="taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer" class="py-name" href="#" onclick="return doclink('link-6', 'CategorizableContainer', 'link-6');">CategorizableContainer</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer.extend()=taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer-class.html#extend,Method taskcoachlib.domain.category.categorycontainer.CategoryList.extend()=taskcoachlib.domain.category.categorycontainer.CategoryList-class.html#extend,Method taskcoachlib.domain.effort.effortlist.EffortList.extend()=taskcoachlib.domain.effort.effortlist.EffortList-class.html#extend,Method taskcoachlib.domain.effort.reducer.EffortAggregator.extend()=taskcoachlib.domain.effort.reducer.EffortAggregator-class.html#extend,Method taskcoachlib.patterns.composite.CompositeCollection.extend()=taskcoachlib.patterns.composite.CompositeCollection-class.html#extend,Method taskcoachlib.patterns.observer.CollectionDecorator.extend()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#extend,Method taskcoachlib.patterns.observer.ObservableList.extend()=taskcoachlib.patterns.observer.ObservableList-class.html#extend,Method taskcoachlib.patterns.observer.ObservableSet.extend()=taskcoachlib.patterns.observer.ObservableSet-class.html#extend"><a title="taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer.extend
+taskcoachlib.domain.category.categorycontainer.CategoryList.extend
+taskcoachlib.domain.effort.effortlist.EffortList.extend
+taskcoachlib.domain.effort.reducer.EffortAggregator.extend
+taskcoachlib.patterns.composite.CompositeCollection.extend
+taskcoachlib.patterns.observer.CollectionDecorator.extend
+taskcoachlib.patterns.observer.ObservableList.extend
+taskcoachlib.patterns.observer.ObservableSet.extend" class="py-name" href="#" onclick="return doclink('link-7', 'extend', 'link-7');">extend</a></tt><tt class="py-op">(</tt><tt id="link-8" class="py-name" targets="Method taskcoachlib.thirdparty.pyparsing.ParseResults.items()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#items"><a title="taskcoachlib.thirdparty.pyparsing.ParseResults.items" class="py-name" href="#" onclick="return doclink('link-8', 'items', 'link-8');">items</a></tt><tt class="py-op">,</tt> <tt class="py-name">event</tt><tt class="py-op">=</tt><tt class="py-name">event</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-9" class="py-name" targets="Method taskcoachlib.thirdparty.aui.auibook.TabTextCtrl.item()=taskcoachlib.thirdparty.aui.auibook.TabTextCtrl-class.html#item,Method taskcoachlib.thirdparty.customtreectrl.TreeTextCtrl.item()=taskcoachlib.thirdparty.customtreectrl.TreeTextCtrl-class.html#item,Method taskcoachlib.thirdparty.hypertreelist.EditCtrl.item()=taskcoachlib.thirdparty.hypertreelist.EditCtrl-class.html#item"><a title="taskcoachlib.thirdparty.aui.auibook.TabTextCtrl.item
+taskcoachlib.thirdparty.customtreectrl.TreeTextCtrl.item
+taskcoachlib.thirdparty.hypertreelist.EditCtrl.item" class="py-name" href="#" onclick="return doclink('link-9', 'item', 'link-9');">item</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method taskcoachlib.patterns.composite.CompositeCollection._compositesAndAllChildren()=taskcoachlib.patterns.composite.CompositeCollection-class.html#_compositesAndAllChildren"><a title="taskcoachlib.patterns.composite.CompositeCollection._compositesAndAllChildren" class="py-name" href="#" onclick="return doclink('link-10', '_compositesAndAllChildren', 'link-10');">_compositesAndAllChildren</a></tt><tt class="py-op">(</tt><tt id="link-11" class="py-name"><a title="taskcoachlib.thirdparty.pyparsing.ParseResults.items" class="py-name" href="#" onclick="return doclink('link-11', 'items', 'link-8');">items</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt id="link-12" class="py-name" targets="Package taskcoachlib.domain.category=taskcoachlib.domain.category-module.html,Module taskcoachlib.domain.category.category=taskcoachlib.domain.category.category-module.html,Module taskcoachlib.gui.viewer.category=taskcoachlib.gui.viewer.category-module.html,Variable taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.category=taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule-class.html#category"><a title="taskcoachlib.domain.category
+taskcoachlib.domain.category.category
+taskcoachlib.gui.viewer.category
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.category" class="py-name" href="#" onclick="return doclink('link-12', 'category', 'link-12');">category</a></tt> <tt class="py-keyword">in</tt> <tt id="link-13" class="py-name"><a title="taskcoachlib.thirdparty.aui.auibook.TabTextCtrl.item
+taskcoachlib.thirdparty.customtreectrl.TreeTextCtrl.item
+taskcoachlib.thirdparty.hypertreelist.EditCtrl.item" class="py-name" href="#" onclick="return doclink('link-13', 'item', 'link-9');">item</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject.categories()=taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject-class.html#categories,Method taskcoachlib.domain.effort.base.BaseEffort.categories()=taskcoachlib.domain.effort.base.BaseEffort-class.html#categories,Method taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.categories()=taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod-class.html#categories,Method taskcoachlib.persistence.taskfile.TaskFile.categories()=taskcoachlib.persistence.taskfile.TaskFile-class.html#categories,Method taskcoachlib.persistence.todotxt.reader.TodoTxtReader.categories()=taskcoachlib.persistence.todotxt.reader.TodoTxtReader-class.html#categories"><a title="taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject.categories
+taskcoachlib.domain.effort.base.BaseEffort.categories
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.categories
+taskcoachlib.persistence.taskfile.TaskFile.categories
+taskcoachlib.persistence.todotxt.reader.TodoTxtReader.categories" class="py-name" href="#" onclick="return doclink('link-14', 'categories', 'link-14');">categories</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">                <tt id="link-15" class="py-name"><a title="taskcoachlib.domain.category
+taskcoachlib.domain.category.category
+taskcoachlib.gui.viewer.category
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.category" class="py-name" href="#" onclick="return doclink('link-15', 'category', 'link-12');">category</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method taskcoachlib.domain.category.category.Category.addCategorizable()=taskcoachlib.domain.category.category.Category-class.html#addCategorizable"><a title="taskcoachlib.domain.category.category.Category.addCategorizable" class="py-name" href="#" onclick="return doclink('link-16', 'addCategorizable', 'link-16');">addCategorizable</a></tt><tt class="py-op">(</tt><tt id="link-17" class="py-name"><a title="taskcoachlib.thirdparty.aui.auibook.TabTextCtrl.item
+taskcoachlib.thirdparty.customtreectrl.TreeTextCtrl.item
+taskcoachlib.thirdparty.hypertreelist.EditCtrl.item" class="py-name" href="#" onclick="return doclink('link-17', 'item', 'link-9');">item</a></tt><tt class="py-op">,</tt> <tt class="py-name">event</tt><tt class="py-op">=</tt><tt class="py-name">event</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">patterns</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="taskcoachlib.patterns.observer.eventSource" class="py-name" href="#" onclick="return doclink('link-18', 'eventSource', 'link-5');">eventSource</a></tt>                 </tt>
+<a name="CategorizableContainer.removeItems"></a><div id="CategorizableContainer.removeItems-def"><a name="L32"></a><tt class="py-lineno">32</tt> <a class="py-toggle" href="#" id="CategorizableContainer.removeItems-toggle" onclick="return toggle('CategorizableContainer.removeItems');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer-class.html#removeItems">removeItems</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">items</tt><tt class="py-op">,</tt> <tt class="py-param">event</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CategorizableContainer.removeItems-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="CategorizableContainer.removeItems-expanded"><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-19" class="py-name"><a title="taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer" class="py-name" href="#" onclick="return doclink('link-19', 'CategorizableContainer', 'link-6');">CategorizableContainer</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer.removeItems()=taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer-class.html#removeItems,Method taskcoachlib.domain.category.categorycontainer.CategoryList.removeItems()=taskcoachlib.domain.category.categorycontainer.CategoryList-class.html#removeItems,Method taskcoachlib.domain.effort.effortlist.EffortList.removeItems()=taskcoachlib.domain.effort.effortlist.EffortList-class.html#removeItems,Method taskcoachlib.domain.effort.reducer.EffortAggregator.removeItems()=taskcoachlib.domain.effort.reducer.EffortAggregator-class.html#removeItems,Method taskcoachlib.patterns.composite.CompositeCollection.removeItems()=taskcoachlib.patterns.composite.CompositeCollection-class.html#removeItems,Method taskcoachlib.patterns.observer.CollectionDecorator.removeItems()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#removeItems,Method taskcoachlib.patterns.observer.List.removeItems()=taskcoachlib.patterns.observer.List-class.html#removeItems,Method taskcoachlib.patterns.observer.ObservableList.removeItems()=taskcoachlib.patterns.observer.ObservableList-class.html#removeItems,Method taskcoachlib.patterns.observer.ObservableSet.removeItems()=taskcoachlib.patterns.observer.ObservableSet-class.html#removeItems"><a title="taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer.removeItems
+taskcoachlib.domain.category.categorycontainer.CategoryList.removeItems
+taskcoachlib.domain.effort.effortlist.EffortList.removeItems
+taskcoachlib.domain.effort.reducer.EffortAggregator.removeItems
+taskcoachlib.patterns.composite.CompositeCollection.removeItems
+taskcoachlib.patterns.observer.CollectionDecorator.removeItems
+taskcoachlib.patterns.observer.List.removeItems
+taskcoachlib.patterns.observer.ObservableList.removeItems
+taskcoachlib.patterns.observer.ObservableSet.removeItems" class="py-name" href="#" onclick="return doclink('link-20', 'removeItems', 'link-20');">removeItems</a></tt><tt class="py-op">(</tt><tt id="link-21" class="py-name"><a title="taskcoachlib.thirdparty.pyparsing.ParseResults.items" class="py-name" href="#" onclick="return doclink('link-21', 'items', 'link-8');">items</a></tt><tt class="py-op">,</tt> <tt class="py-name">event</tt><tt class="py-op">=</tt><tt class="py-name">event</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-22" class="py-name"><a title="taskcoachlib.thirdparty.aui.auibook.TabTextCtrl.item
+taskcoachlib.thirdparty.customtreectrl.TreeTextCtrl.item
+taskcoachlib.thirdparty.hypertreelist.EditCtrl.item" class="py-name" href="#" onclick="return doclink('link-22', 'item', 'link-9');">item</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="taskcoachlib.patterns.composite.CompositeCollection._compositesAndAllChildren" class="py-name" href="#" onclick="return doclink('link-23', '_compositesAndAllChildren', 'link-10');">_compositesAndAllChildren</a></tt><tt class="py-op">(</tt><tt id="link-24" class="py-name"><a title="taskcoachlib.thirdparty.pyparsing.ParseResults.items" class="py-name" href="#" onclick="return doclink('link-24', 'items', 'link-8');">items</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt id="link-25" class="py-name"><a title="taskcoachlib.domain.category
+taskcoachlib.domain.category.category
+taskcoachlib.gui.viewer.category
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.category" class="py-name" href="#" onclick="return doclink('link-25', 'category', 'link-12');">category</a></tt> <tt class="py-keyword">in</tt> <tt id="link-26" class="py-name"><a title="taskcoachlib.thirdparty.aui.auibook.TabTextCtrl.item
+taskcoachlib.thirdparty.customtreectrl.TreeTextCtrl.item
+taskcoachlib.thirdparty.hypertreelist.EditCtrl.item" class="py-name" href="#" onclick="return doclink('link-26', 'item', 'link-9');">item</a></tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="taskcoachlib.domain.categorizable.categorizable.CategorizableCompositeObject.categories
+taskcoachlib.domain.effort.base.BaseEffort.categories
+taskcoachlib.domain.effort.composite.CompositeEffortPerPeriod.categories
+taskcoachlib.persistence.taskfile.TaskFile.categories
+taskcoachlib.persistence.todotxt.reader.TodoTxtReader.categories" class="py-name" href="#" onclick="return doclink('link-27', 'categories', 'link-14');">categories</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">                <tt id="link-28" class="py-name"><a title="taskcoachlib.domain.category
+taskcoachlib.domain.category.category
+taskcoachlib.gui.viewer.category
+taskcoachlib.thirdparty.wxScheduler.wxSchedule.wxSchedule.category" class="py-name" href="#" onclick="return doclink('link-28', 'category', 'link-12');">category</a></tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Method taskcoachlib.domain.category.category.Category.removeCategorizable()=taskcoachlib.domain.category.category.Category-class.html#removeCategorizable"><a title="taskcoachlib.domain.category.category.Category.removeCategorizable" class="py-name" href="#" onclick="return doclink('link-29', 'removeCategorizable', 'link-29');">removeCategorizable</a></tt><tt class="py-op">(</tt><tt id="link-30" class="py-name"><a title="taskcoachlib.thirdparty.aui.auibook.TabTextCtrl.item
+taskcoachlib.thirdparty.customtreectrl.TreeTextCtrl.item
+taskcoachlib.thirdparty.hypertreelist.EditCtrl.item" class="py-name" href="#" onclick="return doclink('link-30', 'item', 'link-9');">item</a></tt><tt class="py-op">,</tt> <tt class="py-name">event</tt><tt class="py-op">=</tt><tt class="py-name">event</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:15:14 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

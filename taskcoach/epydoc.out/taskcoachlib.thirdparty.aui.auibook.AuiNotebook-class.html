@@ -1,0 +1,4425 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.aui.auibook.AuiNotebook</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        <a href="taskcoachlib.thirdparty.aui-module.html">Package&nbsp;aui</a> ::
+        <a href="taskcoachlib.thirdparty.aui.auibook-module.html">Module&nbsp;auibook</a> ::
+        Class&nbsp;AuiNotebook
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class AuiNotebook</h1><p class="nomargin-top"><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+wx.PyPanel --+
+             |
+            <strong class="uidshort">AuiNotebook</strong>
+</pre>
+
+<hr />
+<p>AuiNotebook is a notebook control which implements many features 
+  common in applications with dockable panes. Specifically, AuiNotebook 
+  implements functionality which allows the user to rearrange tab order via
+  drag-and-drop, split the tab window into many different splitter 
+  configurations, and toggle through different themes to customize the 
+  control's look and feel.</p>
+  <p>An effort has been made to try to maintain an API as similar to that 
+  of :class:`Notebook`.</p>
+  <p>The default theme that is used is 
+  :class:`~lib.agw.aui.tabart.AuiDefaultTabArt`, which provides a modern, 
+  glossy look and feel. The theme can be changed by calling 
+  :meth:`AuiNotebook.SetArtProvider`.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">parent</span>,
+        <span class="summary-sig-arg">id</span>=<span class="summary-sig-default">wx.ID_ANY</span>,
+        <span class="summary-sig-arg">pos</span>=<span class="summary-sig-default">wx.DefaultPosition</span>,
+        <span class="summary-sig-arg">size</span>=<span class="summary-sig-default">wx.DefaultSize</span>,
+        <span class="summary-sig-arg">style</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">agwStyle</span>=<span class="summary-sig-default">AUI_NB_DEFAULT_STYLE</span>,
+        <span class="summary-sig-arg">name</span>=<span class="summary-sig-default">&quot;AuiNotebook&quot;</span>)</span><br />
+      Default class constructor.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#Destroy" class="summary-sig-name">Destroy</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Destroys the window safely.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.Destroy">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#__getitem__" class="summary-sig-name">__getitem__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">index</span>)</span><br />
+      More Pythonic way to get a specific page, also useful for iterating 
+      over all pages.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.__getitem__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetTabContainer"></a><span class="summary-sig-name">GetTabContainer</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the instance of :class:`AuiTabContainer`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetTabContainer">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#InitNotebook" class="summary-sig-name">InitNotebook</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">agwStyle</span>)</span><br />
+      Contains common initialization code called by all constructors.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.InitNotebook">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetArtProvider" class="summary-sig-name">SetArtProvider</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">art</span>)</span><br />
+      Sets the art provider to be used by the notebook.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetArtProvider">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SavePerspective" class="summary-sig-name">SavePerspective</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Saves the entire user interface layout into an encoded string, which 
+      can then be stored by the application (probably using 
+      :class:`Config`).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SavePerspective">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#LoadPerspective" class="summary-sig-name">LoadPerspective</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">layout</span>)</span><br />
+      Loads a layout which was saved with :meth:`SavePerspective`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.LoadPerspective">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetTabCtrlHeight" class="summary-sig-name">SetTabCtrlHeight</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">height</span>)</span><br />
+      Sets the tab height.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetTabCtrlHeight">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetUniformBitmapSize" class="summary-sig-name">SetUniformBitmapSize</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">size</span>)</span><br />
+      Ensures that all tabs will have the same height, even if some tabs 
+      don't have bitmaps.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetUniformBitmapSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#UpdateTabCtrlHeight" class="summary-sig-name">UpdateTabCtrlHeight</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">force</span>=<span class="summary-sig-default">False</span>)</span><br />
+      :meth:`UpdateTabCtrlHeight` does the actual tab resizing.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.UpdateTabCtrlHeight">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="UpdateHintWindowSize"></a><span class="summary-sig-name">UpdateHintWindowSize</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Updates the :class:`~lib.agw.aui.framemanager.AuiManager` hint window
+      size.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.UpdateHintWindowSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="CalculateNewSplitSize"></a><span class="summary-sig-name">CalculateNewSplitSize</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Calculates the size of the new split.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.CalculateNewSplitSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="CalculateTabCtrlHeight"></a><span class="summary-sig-name">CalculateTabCtrlHeight</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Calculates the tab control area height.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.CalculateTabCtrlHeight">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetArtProvider"></a><span class="summary-sig-name">GetArtProvider</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the associated art provider.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetArtProvider">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetAGWWindowStyleFlag" class="summary-sig-name">SetAGWWindowStyleFlag</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">agwStyle</span>)</span><br />
+      Sets the AGW-specific style of the window.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetAGWWindowStyleFlag">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetAGWWindowStyleFlag" class="summary-sig-name">GetAGWWindowStyleFlag</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the AGW-specific style of the window.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetAGWWindowStyleFlag">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#AddPage" class="summary-sig-name">AddPage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page</span>,
+        <span class="summary-sig-arg">caption</span>,
+        <span class="summary-sig-arg">select</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">bitmap</span>=<span class="summary-sig-default">wx.NullBitmap</span>,
+        <span class="summary-sig-arg">disabled_bitmap</span>=<span class="summary-sig-default">wx.NullBitmap</span>,
+        <span class="summary-sig-arg">control</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">tooltip</span>=<span class="summary-sig-default">&quot;&quot;</span>)</span><br />
+      Adds a page.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.AddPage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#InsertPage" class="summary-sig-name">InsertPage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>,
+        <span class="summary-sig-arg">page</span>,
+        <span class="summary-sig-arg">caption</span>,
+        <span class="summary-sig-arg">select</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">bitmap</span>=<span class="summary-sig-default">wx.NullBitmap</span>,
+        <span class="summary-sig-arg">disabled_bitmap</span>=<span class="summary-sig-default">wx.NullBitmap</span>,
+        <span class="summary-sig-arg">control</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">tooltip</span>=<span class="summary-sig-default">&quot;&quot;</span>)</span><br />
+      This is similar to :meth:`AddPage`, but allows the ability to specify the insert location.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.InsertPage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#DeletePage" class="summary-sig-name">DeletePage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>)</span><br />
+      Deletes a page at the given index.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.DeletePage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#RemovePage" class="summary-sig-name">RemovePage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>)</span><br />
+      Removes a page, without deleting the window pointer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.RemovePage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#FindNextActiveTab" class="summary-sig-name">FindNextActiveTab</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ctrl_idx</span>,
+        <span class="summary-sig-arg">ctrl</span>)</span><br />
+      Finds the next active tab (used mainly when :class:`AuiNotebook` has 
+      inactive/disabled tabs in it).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.FindNextActiveTab">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#HideAllTabs" class="summary-sig-name">HideAllTabs</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">hidden</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Hides all tabs on the :class:`AuiNotebook` control.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.HideAllTabs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetSashDClickUnsplit" class="summary-sig-name">SetSashDClickUnsplit</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">unsplit</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Sets whether to unsplit a splitted :class:`AuiNotebook` when 
+      double-clicking on a sash.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetSashDClickUnsplit">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetSashDClickUnsplit"></a><span class="summary-sig-name">GetSashDClickUnsplit</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns whether a splitted :class:`AuiNotebook` can be unsplitted by 
+      double-clicking on the splitter sash.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetSashDClickUnsplit">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetMinMaxTabWidth" class="summary-sig-name">SetMinMaxTabWidth</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">minTabWidth</span>,
+        <span class="summary-sig-arg">maxTabWidth</span>)</span><br />
+      Sets the minimum and/or the maximum tab widths for :class:`AuiNotebook` when the
+``AUI_NB_TAB_FIXED_WIDTH`` style is defined.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetMinMaxTabWidth">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetMinMaxTabWidth" class="summary-sig-name">GetMinMaxTabWidth</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the minimum and the maximum tab widths for :class:`AuiNotebook` when the
+``AUI_NB_TAB_FIXED_WIDTH`` style is defined.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetMinMaxTabWidth">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetPageIndex" class="summary-sig-name">GetPageIndex</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_wnd</span>)</span><br />
+      Returns the page index for the specified window.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPageIndex">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetPageText" class="summary-sig-name">SetPageText</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>,
+        <span class="summary-sig-arg">text</span>)</span><br />
+      Sets the tab label for the page.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetPageText">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetPageText" class="summary-sig-name">GetPageText</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>)</span><br />
+      Returns the tab label for the page.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPageText">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetPageBitmap" class="summary-sig-name">SetPageBitmap</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>,
+        <span class="summary-sig-arg">bitmap</span>)</span><br />
+      Sets the tab bitmap for the page.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetPageBitmap">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetPageBitmap" class="summary-sig-name">GetPageBitmap</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>)</span><br />
+      Returns the tab bitmap for the page.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPageBitmap">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetPageTooltip" class="summary-sig-name">SetPageTooltip</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>,
+        <span class="summary-sig-arg">tooltip</span>)</span><br />
+      Sets the tab tooltip for the page.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetPageTooltip">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetPageTooltip" class="summary-sig-name">GetPageTooltip</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>)</span><br />
+      Returns the tab tooltip for the page.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPageTooltip">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetImageList" class="summary-sig-name">SetImageList</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">imageList</span>)</span><br />
+      Sets the image list for the :class:`AuiNotebook` control.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetImageList">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#AssignImageList" class="summary-sig-name">AssignImageList</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">imageList</span>)</span><br />
+      Sets the image list for the :class:`AuiNotebook` control.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.AssignImageList">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetImageList"></a><span class="summary-sig-name">GetImageList</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the associated image list (if any).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetImageList">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetPageImage" class="summary-sig-name">SetPageImage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page</span>,
+        <span class="summary-sig-arg">image</span>)</span><br />
+      Sets the image index for the given page.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetPageImage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetPageImage" class="summary-sig-name">GetPageImage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page</span>)</span><br />
+      Returns the image index for the given page.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPageImage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetPageTextColour" class="summary-sig-name">SetPageTextColour</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>,
+        <span class="summary-sig-arg">colour</span>)</span><br />
+      Sets the tab text colour for the page.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetPageTextColour">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetPageTextColour" class="summary-sig-name">GetPageTextColour</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>)</span><br />
+      Returns the tab text colour for the page.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPageTextColour">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#AddControlToPage" class="summary-sig-name">AddControlToPage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>,
+        <span class="summary-sig-arg">control</span>)</span><br />
+      Adds a control inside a tab (not in the tab area).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.AddControlToPage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#RemoveControlFromPage" class="summary-sig-name">RemoveControlFromPage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>)</span><br />
+      Removes a control from a tab (not from the tab area).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.RemoveControlFromPage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetCloseButton" class="summary-sig-name">SetCloseButton</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>,
+        <span class="summary-sig-arg">hasCloseButton</span>)</span><br />
+      Sets whether a tab should display a close button or not.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetCloseButton">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#HasCloseButton" class="summary-sig-name">HasCloseButton</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>)</span><br />
+      Returns whether a tab displays a close button or not.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.HasCloseButton">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetSelection"></a><span class="summary-sig-name">GetSelection</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the index of the currently active page, or -1 if none was 
+      selected.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetSelection">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetCurrentPage"></a><span class="summary-sig-name">GetCurrentPage</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the currently active page (not the index), or ``None`` if 
+      none was selected.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetCurrentPage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#EnsureVisible" class="summary-sig-name">EnsureVisible</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">indx</span>)</span><br />
+      Ensures the input page index `indx` is visible.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.EnsureVisible">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetSelection" class="summary-sig-name">SetSelection</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">new_page</span>,
+        <span class="summary-sig-arg">force</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Sets the page selection.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetSelection">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetSelectionToWindow" class="summary-sig-name">SetSelectionToWindow</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">win</span>)</span><br />
+      Sets the selection based on the input window `win`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetSelectionToWindow">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetSelectionToPage" class="summary-sig-name">SetSelectionToPage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page</span>)</span><br />
+      Sets the selection based on the input page.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetSelectionToPage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetPageCount"></a><span class="summary-sig-name">GetPageCount</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the number of pages in the notebook.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPageCount">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetPage" class="summary-sig-name">GetPage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>)</span><br />
+      Returns the page specified by the given index.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetPageInfo" class="summary-sig-name">GetPageInfo</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>)</span><br />
+      Returns the :class:`AuiNotebookPage` info structure specified by the 
+      given index.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPageInfo">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetEnabled" class="summary-sig-name">GetEnabled</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>)</span><br />
+      Returns whether the page specified by the index `page_idx` is 
+      enabled.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetEnabled">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#EnableTab" class="summary-sig-name">EnableTab</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>,
+        <span class="summary-sig-arg">enable</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Enables/disables a page in the notebook.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.EnableTab">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="DoSizing"></a><span class="summary-sig-name">DoSizing</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Performs all sizing operations in each tab control.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.DoSizing">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetAuiManager"></a><span class="summary-sig-name">GetAuiManager</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the associated :class:`~lib.agw.aui.framemanager.AuiManager`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetAuiManager">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetActiveTabCtrl" class="summary-sig-name">GetActiveTabCtrl</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the active tab control.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetActiveTabCtrl">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#FindTab" class="summary-sig-name">FindTab</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page</span>)</span><br />
+      Finds the tab control that currently contains the window as well as 
+      the index of the window in the tab control.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.FindTab">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#Split" class="summary-sig-name">Split</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page</span>,
+        <span class="summary-sig-arg">direction</span>)</span><br />
+      Performs a split operation programmatically.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.Split">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="UnSplit"></a><span class="summary-sig-name">UnSplit</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Restores original view after a tab split.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.UnSplit">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#ReparentControl" class="summary-sig-name">ReparentControl</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">control</span>,
+        <span class="summary-sig-arg">dest_tabs</span>)</span><br />
+      Reparents a control added inside a tab.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.ReparentControl">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#UnsplitDClick" class="summary-sig-name">UnsplitDClick</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">part</span>,
+        <span class="summary-sig-arg">sash_size</span>,
+        <span class="summary-sig-arg">pos</span>)</span><br />
+      Unsplit the :class:`AuiNotebook` on sash double-click.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.UnsplitDClick">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnSize" class="summary-sig-name">OnSize</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``wx.EVT_SIZE`` event for :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnSize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnTabClicked" class="summary-sig-name">OnTabClicked</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``EVT_AUINOTEBOOK_PAGE_CHANGING`` event for 
+      :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabClicked">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnTabBgDClick" class="summary-sig-name">OnTabBgDClick</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``EVT_AUINOTEBOOK_BG_DCLICK`` event for 
+      :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabBgDClick">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnTabDClick" class="summary-sig-name">OnTabDClick</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``EVT_AUINOTEBOOK_TAB_DCLICK`` event for 
+      :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabDClick">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnTabBeginDrag" class="summary-sig-name">OnTabBeginDrag</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``EVT_AUINOTEBOOK_BEGIN_DRAG`` event for 
+      :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabBeginDrag">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnTabDragMotion" class="summary-sig-name">OnTabDragMotion</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``EVT_AUINOTEBOOK_DRAG_MOTION`` event for 
+      :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabDragMotion">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnTabEndDrag" class="summary-sig-name">OnTabEndDrag</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``EVT_AUINOTEBOOK_END_DRAG`` event for 
+      :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabEndDrag">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnTabCancelDrag" class="summary-sig-name">OnTabCancelDrag</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``EVT_AUINOTEBOOK_CANCEL_DRAG`` event for 
+      :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabCancelDrag">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="IsMouseWellOutsideWindow"></a><span class="summary-sig-name">IsMouseWellOutsideWindow</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns whether the mouse is well outside the :class:`AuiNotebook` 
+      screen rectangle.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.IsMouseWellOutsideWindow">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#FloatPage" class="summary-sig-name">FloatPage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_index</span>)</span><br />
+      Float the page in `page_index` by reparenting it to a floating frame.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.FloatPage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnCloseFloatingPage" class="summary-sig-name">OnCloseFloatingPage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``wx.EVT_CLOSE`` event for a floating page in 
+      :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnCloseFloatingPage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#ReDockPage" class="summary-sig-name">ReDockPage</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pane</span>)</span><br />
+      Re-docks a floating :class:`AuiNotebook` tab in the original 
+      position, when possible.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.ReDockPage">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetTabCtrlFromPoint" class="summary-sig-name">GetTabCtrlFromPoint</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pt</span>)</span><br />
+      Returns the tab control at the specified point.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetTabCtrlFromPoint">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetTabFrameFromTabCtrl" class="summary-sig-name">GetTabFrameFromTabCtrl</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">tab_ctrl</span>)</span><br />
+      Returns the tab frame associated with a tab control.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetTabFrameFromTabCtrl">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetTabFrameFromWindow" class="summary-sig-name">GetTabFrameFromWindow</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">wnd</span>)</span><br />
+      Returns the tab frame associated with a window.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetTabFrameFromWindow">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="RemoveEmptyTabFrames"></a><span class="summary-sig-name">RemoveEmptyTabFrames</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Removes all the empty tab frames.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.RemoveEmptyTabFrames">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnChildFocusNotebook" class="summary-sig-name">OnChildFocusNotebook</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``wx.EVT_CHILD_FOCUS`` event for :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnChildFocusNotebook">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetNavigatorIcon" class="summary-sig-name">SetNavigatorIcon</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">bmp</span>)</span><br />
+      Sets the icon used by the :class:`TabNavigatorWindow`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetNavigatorIcon">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnNavigationKeyNotebook" class="summary-sig-name">OnNavigationKeyNotebook</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``wx.EVT_NAVIGATION_KEY`` event for :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnNavigationKeyNotebook">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnTabButton" class="summary-sig-name">OnTabButton</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``EVT_AUINOTEBOOK_BUTTON`` event for 
+      :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabButton">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnTabMiddleDown" class="summary-sig-name">OnTabMiddleDown</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``EVT_AUINOTEBOOK_TAB_MIDDLE_DOWN`` event for 
+      :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabMiddleDown">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnTabMiddleUp" class="summary-sig-name">OnTabMiddleUp</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``EVT_AUINOTEBOOK_TAB_MIDDLE_UP`` event for 
+      :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabMiddleUp">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnTabRightDown" class="summary-sig-name">OnTabRightDown</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``EVT_AUINOTEBOOK_TAB_RIGHT_DOWN`` event for 
+      :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabRightDown">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnTabRightUp" class="summary-sig-name">OnTabRightUp</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">event</span>)</span><br />
+      Handles the ``EVT_AUINOTEBOOK_TAB_RIGHT_UP`` event for 
+      :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabRightUp">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetNormalFont" class="summary-sig-name">SetNormalFont</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">font</span>)</span><br />
+      Sets the normal font for drawing tab labels.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetNormalFont">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetSelectedFont" class="summary-sig-name">SetSelectedFont</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">font</span>)</span><br />
+      Sets the selected tab font for drawing tab labels.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetSelectedFont">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetMeasuringFont" class="summary-sig-name">SetMeasuringFont</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">font</span>)</span><br />
+      Sets the font for calculating text measurements.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetMeasuringFont">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetFont" class="summary-sig-name">SetFont</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">font</span>)</span><br />
+      Sets the tab font.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetFont">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetTabCtrlHeight"></a><span class="summary-sig-name">GetTabCtrlHeight</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the tab control height.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetTabCtrlHeight">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#GetHeightForPageHeight" class="summary-sig-name">GetHeightForPageHeight</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pageHeight</span>)</span><br />
+      Gets the height of the notebook for a given page height.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetHeightForPageHeight">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#AdvanceSelection" class="summary-sig-name">AdvanceSelection</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">forward</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">wrap</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Cycles through the tabs.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.AdvanceSelection">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="ShowWindowMenu"></a><span class="summary-sig-name">ShowWindowMenu</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Shows the window menu for the active tab control associated with this
+      notebook, and returns ``True`` if a selection was made.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.ShowWindowMenu">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#AddTabAreaButton" class="summary-sig-name">AddTabAreaButton</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>,
+        <span class="summary-sig-arg">location</span>,
+        <span class="summary-sig-arg">normal_bitmap</span>=<span class="summary-sig-default">wx.NullBitmap</span>,
+        <span class="summary-sig-arg">disabled_bitmap</span>=<span class="summary-sig-default">wx.NullBitmap</span>,
+        <span class="summary-sig-arg">name</span>=<span class="summary-sig-default">&quot;&quot;</span>)</span><br />
+      Adds a button in the tab area.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.AddTabAreaButton">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#RemoveTabAreaButton" class="summary-sig-name">RemoveTabAreaButton</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>)</span><br />
+      Removes a button from the tab area.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.RemoveTabAreaButton">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#CloneTabAreaButtons" class="summary-sig-name">CloneTabAreaButtons</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Clones the tab area buttons when the :class:`AuiNotebook` is being 
+      split.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.CloneTabAreaButtons">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#HasMultiplePages" class="summary-sig-name">HasMultiplePages</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      This method should be overridden to return ``True`` if this window 
+      has multiple pages.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.HasMultiplePages">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="GetDefaultBorder"></a><span class="summary-sig-name">GetDefaultBorder</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the default border style for :class:`AuiNotebook`.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetDefaultBorder">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#NotebookPreview" class="summary-sig-name">NotebookPreview</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">thumbnail_size</span>=<span class="summary-sig-default">200</span>)</span><br />
+      Generates a preview of all the pages in the notebook (MSW and GTK only).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.NotebookPreview">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#SetRenamable" class="summary-sig-name">SetRenamable</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>,
+        <span class="summary-sig-arg">renamable</span>)</span><br />
+      Sets whether a tab can be renamed via a left double-click or not.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetRenamable">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#IsRenamable" class="summary-sig-name">IsRenamable</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_idx</span>)</span><br />
+      Returns whether a tab can be renamed or not.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.IsRenamable">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnRenameCancelled" class="summary-sig-name">OnRenameCancelled</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_index</span>)</span><br />
+      Called by :class:`TabTextCtrl`, to cancel the changes and to send the
+      ``EVT_AUINOTEBOOK_END_LABEL_EDIT`` event.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnRenameCancelled">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#OnRenameAccept" class="summary-sig-name">OnRenameAccept</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_index</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Called by :class:`TabTextCtrl`, to accept the changes and to send the
+      ``EVT_AUINOTEBOOK_END_LABEL_EDIT`` event.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnRenameAccept">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="ResetTextControl"></a><span class="summary-sig-name">ResetTextControl</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Called by :class:`TabTextCtrl` when it marks itself for deletion.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.ResetTextControl">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.aui.auibook.AuiNotebook-class.html#EditTab" class="summary-sig-name">EditTab</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">page_index</span>)</span><br />
+      Starts the editing of an item label, sending a 
+      ``EVT_AUINOTEBOOK_BEGIN_LABEL_EDIT`` event.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.EditTab">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NavigatorProps"></a><span class="summary-name">NavigatorProps</span> = <code title="property(lambda self: self._navProps)">property(lambda self: self._navProps)</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">parent</span>,
+        <span class="sig-arg">id</span>=<span class="sig-default">wx.ID_ANY</span>,
+        <span class="sig-arg">pos</span>=<span class="sig-default">wx.DefaultPosition</span>,
+        <span class="sig-arg">size</span>=<span class="sig-default">wx.DefaultSize</span>,
+        <span class="sig-arg">style</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">agwStyle</span>=<span class="sig-default">AUI_NB_DEFAULT_STYLE</span>,
+        <span class="sig-arg">name</span>=<span class="sig-default">&quot;AuiNotebook&quot;</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Default class constructor.
+
+:param Window `parent`: the :class:`AuiNotebook` parent;
+:param integer `id`: an identifier for the control: a value of -1 is taken to mean a default;
+:param Point `pos`: the control position. A value of (-1, -1) indicates a default position,
+ chosen by either the windowing system or wxPython, depending on platform;
+:param Size `size`: the control size. A value of (-1, -1) indicates a default size,
+ chosen by either the windowing system or wxPython, depending on platform;
+:param integer `style`: the underlying :class:`PyPanel` window style;
+:param integer `agwStyle`: the AGW-specific window style. This can be a combination of the following bits:
+
+ ==================================== ==================================
+ Flag name                            Description
+ ==================================== ==================================
+ ``AUI_NB_TOP``                       With this style, tabs are drawn along the top of the notebook
+ ``AUI_NB_LEFT``                      With this style, tabs are drawn along the left of the notebook. Not implemented yet.
+ ``AUI_NB_RIGHT``                     With this style, tabs are drawn along the right of the notebook. Not implemented yet.
+ ``AUI_NB_BOTTOM``                    With this style, tabs are drawn along the bottom of the notebook
+ ``AUI_NB_TAB_SPLIT``                 Allows the tab control to be split by dragging a tab
+ ``AUI_NB_TAB_MOVE``                  Allows a tab to be moved horizontally by dragging
+ ``AUI_NB_TAB_EXTERNAL_MOVE``         Allows a tab to be moved to another tab control
+ ``AUI_NB_TAB_FIXED_WIDTH``           With this style, all tabs have the same width
+ ``AUI_NB_SCROLL_BUTTONS``            With this style, left and right scroll buttons are displayed
+ ``AUI_NB_WINDOWLIST_BUTTON``         With this style, a drop-down list of windows is available
+ ``AUI_NB_CLOSE_BUTTON``              With this style, a close button is available on the tab bar
+ ``AUI_NB_CLOSE_ON_ACTIVE_TAB``       With this style, a close button is available on the active tab
+ ``AUI_NB_CLOSE_ON_ALL_TABS``         With this style, a close button is available on all tabs
+ ``AUI_NB_MIDDLE_CLICK_CLOSE``        Allows to close :class:`AuiNotebook` tabs by mouse middle button click
+ ``AUI_NB_SUB_NOTEBOOK``              This style is used by :class:`~lib.agw.aui.framemanager.AuiManager` to create automatic AuiNotebooks
+ ``AUI_NB_HIDE_ON_SINGLE_TAB``        Hides the tab window if only one tab is present
+ ``AUI_NB_SMART_TABS``                Use Smart Tabbing, like ``Alt`` + ``Tab`` on Windows
+ ``AUI_NB_USE_IMAGES_DROPDOWN``       Uses images on dropdown window list menu instead of check items
+ ``AUI_NB_CLOSE_ON_TAB_LEFT``         Draws the tab close button on the left instead of on the right (a la Camino browser)
+ ``AUI_NB_TAB_FLOAT``                 Allows the floating of single tabs. Known limitation: when the notebook is more or less full screen,
+                                      tabs cannot be dragged far enough outside of the notebook to become floating pages
+ ``AUI_NB_DRAW_DND_TAB``              Draws an image representation of a tab while dragging (on by default)
+ ``AUI_NB_ORDER_BY_ACCESS``           Tab navigation order by last access time for the tabs
+ ``AUI_NB_NO_TAB_FOCUS``              Don't draw tab focus rectangle
+ ==================================== ==================================
+
+ Default value for `agwStyle` is:
+ ``AUI_NB_DEFAULT_STYLE`` = ``AUI_NB_TOP`` | ``AUI_NB_TAB_SPLIT`` | ``AUI_NB_TAB_MOVE`` | ``AUI_NB_SCROLL_BUTTONS`` | ``AUI_NB_CLOSE_ON_ACTIVE_TAB`` | ``AUI_NB_MIDDLE_CLICK_CLOSE`` | ``AUI_NB_DRAW_DND_TAB``
+
+:param string `name`: the window name.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="Destroy"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">Destroy</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.Destroy">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Destroys the window safely.
+
+Use this function instead of the ``del`` operator, since different window
+classes can be destroyed differently. Frames and dialogs are not destroyed
+immediately when this function is called -- they are added to a list of
+windows to be deleted on idle time, when all the window's events have been
+processed. This prevents problems with events being sent to non-existent windows.
+
+:return: ``True`` if the window has either been successfully deleted, or
+ it has been added to the list of windows pending real deletion.
+
+.. note::
+
+   This method has been added to safely un-initialize the underlying
+   :class:`~lib.agw.aui.framemanager.AuiManager` which manages the :class:`AuiNotebook`
+   layout (i.e., tab split, re-ordering, tab floating etc...).
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="__getitem__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__getitem__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">index</span>)</span>
+    <br /><em class="fname">(Indexing operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.__getitem__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>More Pythonic way to get a specific page, also useful for iterating 
+  over all pages.</p>
+  <p>:param integer `index`: the page index.</p>
+  <p>.. note:</p>
+<pre class="literalblock">
+  This method makes easier to iterate over all the pages in the notebook, i.e. you can
+  safely do::
+
+      for page in notebook:
+          DoSomething(page)
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="InitNotebook"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">InitNotebook</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">agwStyle</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.InitNotebook">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Contains common initialization code called by all constructors.</p>
+  <p>:param integer `agwStyle`: the notebook style.</p>
+  <p>:see: :meth:`~AuiNotebook.__init__` for a list of available `agwStyle`
+  bits.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetArtProvider"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetArtProvider</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">art</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetArtProvider">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the art provider to be used by the notebook.</p>
+  <p>:param `art`: an art provider.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SavePerspective"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SavePerspective</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SavePerspective">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Saves the entire user interface layout into an encoded string, which 
+  can then be stored by the application (probably using :class:`Config`). 
+  When a perspective is restored using :meth:`LoadPerspective`, the entire 
+  user interface will return to the state it was when the perspective was 
+  saved.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="LoadPerspective"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">LoadPerspective</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">layout</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.LoadPerspective">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Loads a layout which was saved with :meth:`SavePerspective`.</p>
+  <p>:param string `layout`: a string which contains a saved 
+  :class:`AuiNotebook` layout.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetTabCtrlHeight"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetTabCtrlHeight</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">height</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetTabCtrlHeight">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the tab height.</p>
+  <p>By default, the tab control height is calculated by measuring the text
+  height and bitmap sizes on the tab captions.</p>
+  <p>Calling this method will override that calculation and set the tab 
+  control to the specified height parameter. A call to this method will 
+  override any call to :meth:`SetUniformBitmapSize`. Specifying -1 as the 
+  height will return the control to its default auto-sizing behaviour.</p>
+  <p>:param integer `height`: the tab control area height.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetUniformBitmapSize"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetUniformBitmapSize</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">size</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetUniformBitmapSize">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Ensures that all tabs will have the same height, even if some tabs 
+  don't have bitmaps. Passing ``wx.DefaultSize`` to this method will 
+  instruct the control to use dynamic tab height, which is the default 
+  behaviour. Under the default behaviour, when a tab with a large bitmap is
+  added, the tab control's height will automatically increase to 
+  accommodate the larger bitmap.</p>
+  <p>:param Size `size`: the tab bitmap size.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="UpdateTabCtrlHeight"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">UpdateTabCtrlHeight</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">force</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.UpdateTabCtrlHeight">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>:meth:`UpdateTabCtrlHeight` does the actual tab resizing. It's meant 
+  to be used interally.</p>
+  <p>:param bool `force`: ``True`` to force the tab art to repaint.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetAGWWindowStyleFlag"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetAGWWindowStyleFlag</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">agwStyle</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetAGWWindowStyleFlag">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Sets the AGW-specific style of the window.
+
+:param integer `agwStyle`: the new window style. This can be a combination of the following bits:
+
+ ==================================== ==================================
+ Flag name                            Description
+ ==================================== ==================================
+ ``AUI_NB_TOP``                       With this style, tabs are drawn along the top of the notebook
+ ``AUI_NB_LEFT``                      With this style, tabs are drawn along the left of the notebook. Not implemented yet.
+ ``AUI_NB_RIGHT``                     With this style, tabs are drawn along the right of the notebook. Not implemented yet.
+ ``AUI_NB_BOTTOM``                    With this style, tabs are drawn along the bottom of the notebook
+ ``AUI_NB_TAB_SPLIT``                 Allows the tab control to be split by dragging a tab
+ ``AUI_NB_TAB_MOVE``                  Allows a tab to be moved horizontally by dragging
+ ``AUI_NB_TAB_EXTERNAL_MOVE``         Allows a tab to be moved to another tab control
+ ``AUI_NB_TAB_FIXED_WIDTH``           With this style, all tabs have the same width
+ ``AUI_NB_SCROLL_BUTTONS``            With this style, left and right scroll buttons are displayed
+ ``AUI_NB_WINDOWLIST_BUTTON``         With this style, a drop-down list of windows is available
+ ``AUI_NB_CLOSE_BUTTON``              With this style, a close button is available on the tab bar
+ ``AUI_NB_CLOSE_ON_ACTIVE_TAB``       With this style, a close button is available on the active tab
+ ``AUI_NB_CLOSE_ON_ALL_TABS``         With this style, a close button is available on all tabs
+ ``AUI_NB_MIDDLE_CLICK_CLOSE``        Allows to close :class:`AuiNotebook` tabs by mouse middle button click
+ ``AUI_NB_SUB_NOTEBOOK``              This style is used by :class:`~lib.agw.aui.framemanager.AuiManager` to create automatic AuiNotebooks
+ ``AUI_NB_HIDE_ON_SINGLE_TAB``        Hides the tab window if only one tab is present
+ ``AUI_NB_SMART_TABS``                Use Smart Tabbing, like ``Alt`` + ``Tab`` on Windows
+ ``AUI_NB_USE_IMAGES_DROPDOWN``       Uses images on dropdown window list menu instead of check items
+ ``AUI_NB_CLOSE_ON_TAB_LEFT``         Draws the tab close button on the left instead of on the right (a la Camino browser)
+ ``AUI_NB_TAB_FLOAT``                 Allows the floating of single tabs. Known limitation: when the notebook is more or less full screen,
+                                      tabs cannot be dragged far enough outside of the notebook to become floating pages
+ ``AUI_NB_DRAW_DND_TAB``              Draws an image representation of a tab while dragging (on by default)
+ ``AUI_NB_ORDER_BY_ACCESS``           Tab navigation order by last access time for the tabs
+ ``AUI_NB_NO_TAB_FOCUS``              Don't draw tab focus rectangle
+ ==================================== ==================================
+
+:note: Please note that some styles cannot be changed after the window
+ creation and that `Refresh` might need to be be called after changing the
+ others for the change to take place immediately.
+
+.. todo:: Implementation of flags ``AUI_NB_RIGHT`` and ``AUI_NB_LEFT``.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetAGWWindowStyleFlag"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetAGWWindowStyleFlag</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetAGWWindowStyleFlag">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the AGW-specific style of the window.</p>
+  <p>:see: :meth:`SetAGWWindowStyleFlag` for a list of possible 
+  AGW-specific window styles.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="AddPage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">AddPage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page</span>,
+        <span class="sig-arg">caption</span>,
+        <span class="sig-arg">select</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">bitmap</span>=<span class="sig-default">wx.NullBitmap</span>,
+        <span class="sig-arg">disabled_bitmap</span>=<span class="sig-default">wx.NullBitmap</span>,
+        <span class="sig-arg">control</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">tooltip</span>=<span class="sig-default">&quot;&quot;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.AddPage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Adds a page. If the `select` parameter is ``True``, calling this will generate a
+page change event.
+
+:param Window `page`: the page to be added;
+:param string `caption`: specifies the text for the new page;
+:param bool `select`: specifies whether the page should be selected;
+:param Bitmap `bitmap`: the bitmap to display in the enabled tab;
+:param Bitmap `disabled_bitmap`: the bitmap to display in the disabled tab;
+:param Window `control`: almost any :class:`Window` -derived instance to be located
+ inside a tab;
+:param string `tooltip`: the tooltip to display when the mouse hovers over the tab.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="InsertPage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">InsertPage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>,
+        <span class="sig-arg">page</span>,
+        <span class="sig-arg">caption</span>,
+        <span class="sig-arg">select</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">bitmap</span>=<span class="sig-default">wx.NullBitmap</span>,
+        <span class="sig-arg">disabled_bitmap</span>=<span class="sig-default">wx.NullBitmap</span>,
+        <span class="sig-arg">control</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">tooltip</span>=<span class="sig-default">&quot;&quot;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.InsertPage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+This is similar to :meth:`AddPage`, but allows the ability to specify the insert location.
+
+:param integer `page_idx`: specifies the position for the new page;
+:param Window `page`: the page to be added;
+:param string `caption`: specifies the text for the new page;
+:param bool `select`: specifies whether the page should be selected;
+:param Bitmap `bitmap`: the bitmap to display in the enabled tab;
+:param Bitmap `disabled_bitmap`: the bitmap to display in the disabled tab;
+:param Window `control`: almost any :class:`Window` -derived instance to be located
+ inside a ;
+:param string `tooltip`: the tooltip to display when the mouse hovers over the tab.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="DeletePage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DeletePage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.DeletePage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Deletes a page at the given index. Calling this method will generate a page
+change event.
+
+:param integer `page_idx`: the page index to be deleted.
+
+:note:
+
+ :meth:`DeletePage` removes a tab from the multi-notebook, and destroys the window as well.
+
+:see: :meth:`RemovePage`
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="RemovePage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">RemovePage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.RemovePage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Removes a page, without deleting the window pointer.
+
+:param integer `page_idx`: the page index to be removed.
+
+:note:
+
+ :meth:`RemovePage` removes a tab from the multi-notebook, but does not destroy the window.
+
+:see: :meth:`DeletePage`
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="FindNextActiveTab"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">FindNextActiveTab</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">ctrl_idx</span>,
+        <span class="sig-arg">ctrl</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.FindNextActiveTab">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Finds the next active tab (used mainly when :class:`AuiNotebook` has 
+  inactive/disabled tabs in it).</p>
+  <p>:param integer `ctrl_idx`: the index of the first (most obvious) tab 
+  to check for active status; :param `ctrl`: an instance of 
+  :class:`AuiTabCtrl`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="HideAllTabs"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">HideAllTabs</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">hidden</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.HideAllTabs">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Hides all tabs on the :class:`AuiNotebook` control.</p>
+  <p>:param bool `hidden`: if ``True`` hides all tabs.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetSashDClickUnsplit"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetSashDClickUnsplit</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">unsplit</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetSashDClickUnsplit">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets whether to unsplit a splitted :class:`AuiNotebook` when 
+  double-clicking on a sash.</p>
+  <p>:param bool `unsplit`: ``True`` to unsplit on sash double-clicking, 
+  ``False`` otherwise.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetMinMaxTabWidth"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetMinMaxTabWidth</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">minTabWidth</span>,
+        <span class="sig-arg">maxTabWidth</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetMinMaxTabWidth">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Sets the minimum and/or the maximum tab widths for :class:`AuiNotebook` when the
+``AUI_NB_TAB_FIXED_WIDTH`` style is defined.
+
+Pass -1 to either `minTabWidth` or `maxTabWidth` to reset to the default tab
+width behaviour for :class:`AuiNotebook`.
+
+:param integer `minTabWidth`: the minimum allowed tab width, in pixels;
+:param integer `maxTabWidth`: the maximum allowed tab width, in pixels.
+
+:note: Minimum and maximum tabs widths are used only when the ``AUI_NB_TAB_FIXED_WIDTH``
+ style is present.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetMinMaxTabWidth"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetMinMaxTabWidth</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetMinMaxTabWidth">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Returns the minimum and the maximum tab widths for :class:`AuiNotebook` when the
+``AUI_NB_TAB_FIXED_WIDTH`` style is defined.
+
+:note: Minimum and maximum tabs widths are used only when the ``AUI_NB_TAB_FIXED_WIDTH``
+ style is present.
+
+:see: :meth:`SetMinMaxTabWidth` for more information.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetPageIndex"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetPageIndex</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_wnd</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPageIndex">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the page index for the specified window. If the window is not 
+  found in the notebook, ``wx.NOT_FOUND`` is returned.</p>
+  <p>:param Window `page_wnd`: the window we are looking for.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetPageText"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetPageText</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>,
+        <span class="sig-arg">text</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetPageText">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the tab label for the page.</p>
+  <p>:param integer `page_idx`: the page index; :param string `text`: the 
+  new tab label.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetPageText"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetPageText</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPageText">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the tab label for the page.</p>
+  <p>:param integer `page_idx`: the page index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetPageBitmap"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetPageBitmap</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>,
+        <span class="sig-arg">bitmap</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetPageBitmap">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the tab bitmap for the page.</p>
+  <p>:param integer `page_idx`: the page index; :param Bitmap `bitmap`: the
+  bitmap to display on the page tab.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetPageBitmap"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetPageBitmap</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPageBitmap">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the tab bitmap for the page.</p>
+  <p>:param integer `page_idx`: the page index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetPageTooltip"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetPageTooltip</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>,
+        <span class="sig-arg">tooltip</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetPageTooltip">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Sets the tab tooltip for the page.
+
+:param integer `page_idx`: the page index;
+:param string `tooltip`: the new tooltip.
+
+:returns: ``True`` if the page tooltip has been set, ``False`` otherwise
+ (for example when the input `page_idx` is greater than the number of
+ pages in the notebook.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetPageTooltip"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetPageTooltip</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPageTooltip">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the tab tooltip for the page.</p>
+  <p>:param integer `page_idx`: the page index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetImageList"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetImageList</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">imageList</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetImageList">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the image list for the :class:`AuiNotebook` control.</p>
+  <p>:param ImageList `imageList`: the bitmap image list to associate to 
+  :class:`AuiNotebook`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="AssignImageList"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">AssignImageList</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">imageList</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.AssignImageList">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the image list for the :class:`AuiNotebook` control.</p>
+  <p>:param `imageList`: an instance of :class:`ImageList`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetPageImage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetPageImage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page</span>,
+        <span class="sig-arg">image</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetPageImage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the image index for the given page.</p>
+  <p>:param integer `page`: the page index; :param integer `image`: an 
+  index into the image list which was set with :meth:`SetImageList`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetPageImage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetPageImage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPageImage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the image index for the given page.</p>
+  <p>:param integer `page`: the given page for which to retrieve the image 
+  index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetPageTextColour"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetPageTextColour</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>,
+        <span class="sig-arg">colour</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetPageTextColour">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the tab text colour for the page.</p>
+  <p>:param integer `page_idx`: the page index; :param Colour `colour`: the
+  new tab label text colour.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetPageTextColour"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetPageTextColour</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPageTextColour">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the tab text colour for the page.</p>
+  <p>:param integer `page_idx`: the page index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="AddControlToPage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">AddControlToPage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>,
+        <span class="sig-arg">control</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.AddControlToPage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Adds a control inside a tab (not in the tab area).
+
+:param integer `page_idx`: the page index;
+:param Window `control`: almost any :class:`Window` -derived instance to be located
+ inside a tab.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="RemoveControlFromPage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">RemoveControlFromPage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.RemoveControlFromPage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Removes a control from a tab (not from the tab area).</p>
+  <p>:param integer `page_idx`: the page index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetCloseButton"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetCloseButton</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>,
+        <span class="sig-arg">hasCloseButton</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetCloseButton">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets whether a tab should display a close button or not.</p>
+  <p>:param integer `page_idx`: the page index; :param bool 
+  `hasCloseButton`: ``True`` if the page displays a close button.</p>
+  <p>:note: This can only be called if ``AUI_NB_CLOSE_ON_ALL_TABS`` is 
+  specified.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="HasCloseButton"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">HasCloseButton</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.HasCloseButton">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns whether a tab displays a close button or not.</p>
+  <p>:param integer `page_idx`: the page index.</p>
+  <p>:note: This can only be called if ``AUI_NB_CLOSE_ON_ALL_TABS`` is 
+  specified.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="EnsureVisible"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">EnsureVisible</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">indx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.EnsureVisible">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Ensures the input page index `indx` is visible.</p>
+  <p>:param integer `indx`: the page index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetSelection"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetSelection</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">new_page</span>,
+        <span class="sig-arg">force</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetSelection">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the page selection. Calling this method will generate a page 
+  change event.</p>
+  <p>:param integer `new_page`: the index of the new selection; :param bool
+  `force`: whether to force the selection or not.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetSelectionToWindow"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetSelectionToWindow</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">win</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetSelectionToWindow">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the selection based on the input window `win`.</p>
+  <p>:param `win`: a :class:`Window` derived window.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetSelectionToPage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetSelectionToPage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetSelectionToPage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the selection based on the input page.</p>
+  <p>:param `page`: an instance of :class:`AuiNotebookPage`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetPage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetPage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the page specified by the given index.</p>
+  <p>:param integer `page_idx`: the page index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetPageInfo"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetPageInfo</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetPageInfo">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the :class:`AuiNotebookPage` info structure specified by the 
+  given index.</p>
+  <p>:param integer `page_idx`: the page index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetEnabled"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetEnabled</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetEnabled">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns whether the page specified by the index `page_idx` is 
+  enabled.</p>
+  <p>:param integer `page_idx`: the page index.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="EnableTab"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">EnableTab</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>,
+        <span class="sig-arg">enable</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.EnableTab">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Enables/disables a page in the notebook.</p>
+  <p>:param integer `page_idx`: the page index; :param bool `enable`: 
+  ``True`` to enable the page, ``False`` to disable it.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetActiveTabCtrl"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetActiveTabCtrl</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetActiveTabCtrl">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the active tab control. It is called to determine which 
+  control gets new windows being added.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="FindTab"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">FindTab</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.FindTab">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Finds the tab control that currently contains the window as well as 
+  the index of the window in the tab control. It returns ``True`` if the 
+  window was found, otherwise ``False``.</p>
+  <p>:param `page`: an instance of :class:`AuiNotebookPage`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="Split"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">Split</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page</span>,
+        <span class="sig-arg">direction</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.Split">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Performs a split operation programmatically.
+
+:param integer `page`: indicates the page that will be split off. This page will also become
+ the active page after the split.
+:param integer `direction`: specifies where the pane should go, it should be one of the
+ following: ``wx.TOP``, ``wx.BOTTOM``, ``wx.LEFT``, or ``wx.RIGHT``.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="ReparentControl"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ReparentControl</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">control</span>,
+        <span class="sig-arg">dest_tabs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.ReparentControl">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Reparents a control added inside a tab.
+
+:param Window `control`: almost any :class:`Window` -derived instance to be located
+ inside a tab;
+:param `dest_tabs`: the destination :class:`AuiTabCtrl`.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="UnsplitDClick"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">UnsplitDClick</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">part</span>,
+        <span class="sig-arg">sash_size</span>,
+        <span class="sig-arg">pos</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.UnsplitDClick">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Unsplit the :class:`AuiNotebook` on sash double-click.</p>
+  <p>:param `part`: an UI part representing the sash; :param integer 
+  `sash_size`: the sash size; :param Point `pos`: the double-click mouse 
+  position.</p>
+  <p>.. warning:</p>
+<pre class="literalblock">
+  Due to a bug on MSW, for disabled pages :func:`FindWindowAtPoint`
+  returns the wrong window. See http://trac.wxwidgets.org/ticket/2942
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnSize"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnSize</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnSize">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``wx.EVT_SIZE`` event for :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`SizeEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnTabClicked"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnTabClicked</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabClicked">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``EVT_AUINOTEBOOK_PAGE_CHANGING`` event for 
+  :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`AuiNotebookEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnTabBgDClick"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnTabBgDClick</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabBgDClick">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``EVT_AUINOTEBOOK_BG_DCLICK`` event for 
+  :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`AuiNotebookEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnTabDClick"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnTabDClick</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabDClick">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``EVT_AUINOTEBOOK_TAB_DCLICK`` event for 
+  :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`AuiNotebookEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnTabBeginDrag"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnTabBeginDrag</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabBeginDrag">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``EVT_AUINOTEBOOK_BEGIN_DRAG`` event for 
+  :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`AuiNotebookEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnTabDragMotion"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnTabDragMotion</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabDragMotion">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``EVT_AUINOTEBOOK_DRAG_MOTION`` event for 
+  :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`AuiNotebookEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnTabEndDrag"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnTabEndDrag</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabEndDrag">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``EVT_AUINOTEBOOK_END_DRAG`` event for 
+  :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`AuiNotebookEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnTabCancelDrag"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnTabCancelDrag</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabCancelDrag">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``EVT_AUINOTEBOOK_CANCEL_DRAG`` event for 
+  :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`AuiNotebookEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="FloatPage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">FloatPage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_index</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.FloatPage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Float the page in `page_index` by reparenting it to a floating 
+  frame.</p>
+  <p>:param integer `page_index`: the index of the page to be floated.</p>
+  <p>.. warning:</p>
+<pre class="literalblock">
+  When the notebook is more or less full screen, tabs cannot be dragged far
+  enough outside of the notebook to become floating pages.
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnCloseFloatingPage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnCloseFloatingPage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnCloseFloatingPage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``wx.EVT_CLOSE`` event for a floating page in 
+  :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`CloseEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="ReDockPage"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ReDockPage</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">pane</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.ReDockPage">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Re-docks a floating :class:`AuiNotebook` tab in the original position,
+  when possible.</p>
+  <p>:param `pane`: an instance of 
+  :class:`~lib.agw.aui.framemanager.AuiPaneInfo`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetTabCtrlFromPoint"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetTabCtrlFromPoint</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">pt</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetTabCtrlFromPoint">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the tab control at the specified point.</p>
+  <p>:param Point `pt`: the mouse location.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetTabFrameFromTabCtrl"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetTabFrameFromTabCtrl</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">tab_ctrl</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetTabFrameFromTabCtrl">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the tab frame associated with a tab control.</p>
+  <p>:param `tab_ctrl`: an instance of :class:`AuiTabCtrl`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetTabFrameFromWindow"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetTabFrameFromWindow</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">wnd</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetTabFrameFromWindow">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the tab frame associated with a window.</p>
+  <p>:param Window `wnd`: the window for which we want to locate the 
+  :class:`TabFrame`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnChildFocusNotebook"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnChildFocusNotebook</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnChildFocusNotebook">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``wx.EVT_CHILD_FOCUS`` event for :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`ChildFocusEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetNavigatorIcon"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetNavigatorIcon</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">bmp</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetNavigatorIcon">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the icon used by the :class:`TabNavigatorWindow`.</p>
+  <p>:param Bitmap `bmp`: the new bitmap for the 
+  :class:`TabNavigatorWindow`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnNavigationKeyNotebook"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnNavigationKeyNotebook</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnNavigationKeyNotebook">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``wx.EVT_NAVIGATION_KEY`` event for 
+  :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`NavigationKeyEvent` event to be 
+  processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnTabButton"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnTabButton</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabButton">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``EVT_AUINOTEBOOK_BUTTON`` event for 
+  :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`AuiNotebookEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnTabMiddleDown"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnTabMiddleDown</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabMiddleDown">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``EVT_AUINOTEBOOK_TAB_MIDDLE_DOWN`` event for 
+  :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`AuiNotebookEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnTabMiddleUp"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnTabMiddleUp</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabMiddleUp">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``EVT_AUINOTEBOOK_TAB_MIDDLE_UP`` event for 
+  :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`AuiNotebookEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnTabRightDown"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnTabRightDown</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabRightDown">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``EVT_AUINOTEBOOK_TAB_RIGHT_DOWN`` event for 
+  :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`AuiNotebookEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnTabRightUp"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnTabRightUp</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">event</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnTabRightUp">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Handles the ``EVT_AUINOTEBOOK_TAB_RIGHT_UP`` event for 
+  :class:`AuiNotebook`.</p>
+  <p>:param `event`: a :class:`AuiNotebookEvent` event to be processed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetNormalFont"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetNormalFont</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">font</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetNormalFont">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the normal font for drawing tab labels.</p>
+  <p>:param Font `font`: the new font to use to draw tab labels in their 
+  normal, un-selected state.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetSelectedFont"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetSelectedFont</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">font</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetSelectedFont">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the selected tab font for drawing tab labels.</p>
+  <p>:param Font `font`: the new font to use to draw tab labels in their 
+  selected state.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetMeasuringFont"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetMeasuringFont</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">font</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetMeasuringFont">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the font for calculating text measurements.</p>
+  <p>:param Font `font`: the new font to use to measure tab label text 
+  extents.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetFont"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetFont</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">font</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetFont">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets the tab font.</p>
+  <p>:param Font `font`: the new font to use to draw tab labels in their 
+  normal, un-selected state.</p>
+  <p>:note: Overridden from :class:`PyPanel`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="GetHeightForPageHeight"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">GetHeightForPageHeight</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">pageHeight</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.GetHeightForPageHeight">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Gets the height of the notebook for a given page height.</p>
+  <p>:param integer `pageHeight`: the given page height.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="AdvanceSelection"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">AdvanceSelection</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">forward</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">wrap</span>=<span class="sig-default">True</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.AdvanceSelection">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Cycles through the tabs.</p>
+  <p>:param bool `forward`: whether to advance forward or backward; :param 
+  bool `wrap`: ``True`` to return to the first tab if we reach the last 
+  tab.</p>
+  <p>:note: The call to this function generates the page changing 
+  events.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="AddTabAreaButton"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">AddTabAreaButton</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">id</span>,
+        <span class="sig-arg">location</span>,
+        <span class="sig-arg">normal_bitmap</span>=<span class="sig-default">wx.NullBitmap</span>,
+        <span class="sig-arg">disabled_bitmap</span>=<span class="sig-default">wx.NullBitmap</span>,
+        <span class="sig-arg">name</span>=<span class="sig-default">&quot;&quot;</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.AddTabAreaButton">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Adds a button in the tab area.
+
+:param integer `id`: the button identifier. This can be one of the following:
+
+ ==============================  =================================
+ Button Identifier               Description
+ ==============================  =================================
+ ``AUI_BUTTON_CLOSE``            Shows a close button on the tab area
+ ``AUI_BUTTON_WINDOWLIST``       Shows a window list button on the tab area
+ ``AUI_BUTTON_LEFT``             Shows a left button on the tab area
+ ``AUI_BUTTON_RIGHT``            Shows a right button on the tab area
+ ==============================  =================================
+
+:param integer `location`: the button location. Can be ``wx.LEFT`` or ``wx.RIGHT``;
+:param Bitmap `normal_bitmap`: the bitmap for an enabled tab;
+:param Bitmap `disabled_bitmap`: the bitmap for a disabled tab;
+:param string `name`: the button name.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="RemoveTabAreaButton"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">RemoveTabAreaButton</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">id</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.RemoveTabAreaButton">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Removes a button from the tab area.</p>
+  <p>:param integer `id`: the button identifier.</p>
+  <p>:see: :meth:`AddTabAreaButton` for a list of button identifiers.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="CloneTabAreaButtons"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">CloneTabAreaButtons</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.CloneTabAreaButtons">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Clones the tab area buttons when the :class:`AuiNotebook` is being 
+  split.</p>
+  <p>:see: :meth:`AddTabAreaButton`</p>
+  <p>:note: Standard buttons for :class:`AuiNotebook` are not cloned, only 
+  custom ones.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="HasMultiplePages"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">HasMultiplePages</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.HasMultiplePages">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This method should be overridden to return ``True`` if this window has
+  multiple pages. All standard class with multiple pages such as 
+  :class:`Notebook`, :class:`Listbook` and :class:`Treebook` already 
+  override it to return ``True`` and user-defined classes with similar 
+  behaviour should do it as well to allow the library to handle such 
+  windows appropriately.</p>
+  <p>:note: Overridden from :class:`PyPanel`.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="NotebookPreview"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">NotebookPreview</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">thumbnail_size</span>=<span class="sig-default">200</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.NotebookPreview">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Generates a preview of all the pages in the notebook (MSW and GTK only).
+
+:param integer `thumbnail_size`: the maximum size of every page thumbnail
+ (default=200 pixels).
+
+:note: this functionality is currently unavailable on wxMAC.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="SetRenamable"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">SetRenamable</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>,
+        <span class="sig-arg">renamable</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.SetRenamable">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Sets whether a tab can be renamed via a left double-click or not.</p>
+  <p>:param integer `page_idx`: the page index; :param bool `renamable`: 
+  ``True`` if the page can be renamed.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="IsRenamable"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">IsRenamable</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.IsRenamable">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns whether a tab can be renamed or not.</p>
+  <p>:param integer `page_idx`: the page index.</p>
+  <p>:returns: ``True`` is a page can be renamed, ``False`` otherwise.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnRenameCancelled"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnRenameCancelled</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_index</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnRenameCancelled">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Called by :class:`TabTextCtrl`, to cancel the changes and to send the 
+  ``EVT_AUINOTEBOOK_END_LABEL_EDIT`` event.</p>
+  <p>:param integer `page_index`: the page index in the notebook.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="OnRenameAccept"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">OnRenameAccept</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_index</span>,
+        <span class="sig-arg">value</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.OnRenameAccept">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Called by :class:`TabTextCtrl`, to accept the changes and to send the 
+  ``EVT_AUINOTEBOOK_END_LABEL_EDIT`` event.</p>
+  <p>:param integer `page_index`: the page index in the notebook; :param 
+  string `value`: the new label for the tab.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="EditTab"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">EditTab</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">page_index</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.aui.auibook-pysrc.html#AuiNotebook.EditTab">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Starts the editing of an item label, sending a 
+  ``EVT_AUINOTEBOOK_BEGIN_LABEL_EDIT`` event.</p>
+  <p>:param integer `page_index`: the page index we want to edit.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:42 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

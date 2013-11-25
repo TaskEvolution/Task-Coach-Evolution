@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.persistence.pdf.writer</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.persistence-module.html">Package&nbsp;persistence</a> ::
+        <a href="taskcoachlib.persistence.pdf-module.html">Package&nbsp;pdf</a> ::
+        Module&nbsp;writer
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.persistence.pdf.writer-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="taskcoachlib.persistence.pdf.writer-module.html">Module taskcoachlib.persistence.pdf.writer</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach - Your friendly task manager</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">Copyright (C) 2004-2013 Task Coach developers &lt;developers@taskcoach.org&gt;</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is free software: you can redistribute it and/or modify</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">the Free Software Foundation, either version 3 of the License, or</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">(at your option) any later version.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">Task Coach is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">GNU General Public License for more details.</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt><tt class="py-op">,</tt> <tt id="link-0" class="py-name" targets="Module taskcoachlib.persistence.csv.generator=taskcoachlib.persistence.csv.generator-module.html,Module taskcoachlib.persistence.html.generator=taskcoachlib.persistence.html.generator-module.html,Module taskcoachlib.persistence.pdf.generator=taskcoachlib.persistence.pdf.generator-module.html"><a title="taskcoachlib.persistence.csv.generator
+taskcoachlib.persistence.html.generator
+taskcoachlib.persistence.pdf.generator" class="py-name" href="#" onclick="return doclink('link-0', 'generator', 'link-0');">generator</a></tt><tt class="py-op">,</tt> <tt class="py-name">os</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Package taskcoachlib=taskcoachlib-module.html"><a title="taskcoachlib" class="py-name" href="#" onclick="return doclink('link-1', 'taskcoachlib', 'link-1');">taskcoachlib</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package taskcoachlib.domain=taskcoachlib.domain-module.html"><a title="taskcoachlib.domain" class="py-name" href="#" onclick="return doclink('link-2', 'domain', 'link-2');">domain</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Package taskcoachlib.domain.date=taskcoachlib.domain.date-module.html,Module taskcoachlib.domain.date.date=taskcoachlib.domain.date.date-module.html,Variable taskcoachlib.meta.data.date=taskcoachlib.meta.data-module.html#date,Function taskcoachlib.render.date()=taskcoachlib.render-module.html#date"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-3', 'date', 'link-3');">date</a></tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">xhtml2pdf</tt> <tt class="py-keyword">import</tt> <tt class="py-name">pisa</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"> </tt>
+<a name="PDFWriter"></a><div id="PDFWriter-def"><a name="L24"></a><tt class="py-lineno">24</tt> <a class="py-toggle" href="#" id="PDFWriter-toggle" onclick="return toggle('PDFWriter');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.persistence.pdf.writer.PDFWriter-class.html">PDFWriter</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PDFWriter-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="PDFWriter-expanded"><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-comment">#Export to PDF</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-comment">#author: Erik Ivarsson </tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="PDFWriter.__init__"></a><div id="PDFWriter.__init__-def"><a name="L29"></a><tt class="py-lineno">29</tt> <a class="py-toggle" href="#" id="PDFWriter.__init__-toggle" onclick="return toggle('PDFWriter.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.pdf.writer.PDFWriter-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">fd</tt><tt class="py-op">,</tt> <tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PDFWriter.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="PDFWriter.__init__-expanded"><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fd</tt> <tt class="py-op">=</tt> <tt class="py-name">fd</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__filename</tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name" targets="Method taskcoachlib.config.settings.Settings.filename()=taskcoachlib.config.settings.Settings-class.html#filename,Method taskcoachlib.gui.iocontroller.IOController.filename()=taskcoachlib.gui.iocontroller.IOController-class.html#filename,Variable taskcoachlib.meta.data.filename=taskcoachlib.meta.data-module.html#filename,Method taskcoachlib.persistence.taskfile.TaskFile.filename()=taskcoachlib.persistence.taskfile.TaskFile-class.html#filename,Method taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename()=taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile-class.html#filename,Method taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename()=taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener-class.html#filename,Method taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename()=taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename=taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename=taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename=taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring-class.html#filename,Variable taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#filename"><a title="taskcoachlib.config.settings.Settings.filename
+taskcoachlib.gui.iocontroller.IOController.filename
+taskcoachlib.meta.data.filename
+taskcoachlib.persistence.taskfile.TaskFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
+taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
+taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
+taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
+taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-4', 'filename', 'link-4');">filename</a></tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__maxDateTime</tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="taskcoachlib.domain.date
+taskcoachlib.domain.date.date
+taskcoachlib.meta.data.date
+taskcoachlib.render.date" class="py-name" href="#" onclick="return doclink('link-5', 'date', 'link-3');">date</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Class taskcoachlib.domain.date.dateandtime.DateTime=taskcoachlib.domain.date.dateandtime.DateTime-class.html"><a title="taskcoachlib.domain.date.dateandtime.DateTime" class="py-name" href="#" onclick="return doclink('link-6', 'DateTime', 'link-6');">DateTime</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">         </tt>
+<a name="PDFWriter.write"></a><div id="PDFWriter.write-def"><a name="L34"></a><tt class="py-lineno">34</tt> <a class="py-toggle" href="#" id="PDFWriter.write-toggle" onclick="return toggle('PDFWriter.write');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.persistence.pdf.writer.PDFWriter-class.html#write">write</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">viewer</tt><tt class="py-op">,</tt> <tt class="py-param">settings</tt><tt class="py-op">,</tt> <tt class="py-param">selectionOnly</tt><tt class="py-op">,</tt> <tt class="py-param">columns</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PDFWriter.write-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="PDFWriter.write-expanded"><a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">         </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">         </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-name">textToPdf</tt><tt class="py-op">,</tt> <tt id="link-7" class="py-name" targets="Variable taskcoachlib.patterns.metaclass.NumberedInstances.count=taskcoachlib.patterns.metaclass.NumberedInstances-class.html#count,Method taskcoachlib.thirdparty.dateutil.rrule.rrulebase.count()=taskcoachlib.thirdparty.dateutil.rrule.rrulebase-class.html#count"><a title="taskcoachlib.patterns.metaclass.NumberedInstances.count
+taskcoachlib.thirdparty.dateutil.rrule.rrulebase.count" class="py-name" href="#" onclick="return doclink('link-7', 'count', 'link-7');">count</a></tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="taskcoachlib.persistence.csv.generator
+taskcoachlib.persistence.html.generator
+taskcoachlib.persistence.pdf.generator" class="py-name" href="#" onclick="return doclink('link-8', 'generator', 'link-0');">generator</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Function taskcoachlib.persistence.pdf.generator.viewer2pdf()=taskcoachlib.persistence.pdf.generator-module.html#viewer2pdf"><a title="taskcoachlib.persistence.pdf.generator.viewer2pdf" class="py-name" href="#" onclick="return doclink('link-9', 'viewer2pdf', 'link-9');">viewer2pdf</a></tt><tt class="py-op">(</tt><tt id="link-10" class="py-name" targets="Package taskcoachlib.gui.viewer=taskcoachlib.gui.viewer-module.html"><a title="taskcoachlib.gui.viewer" class="py-name" href="#" onclick="return doclink('link-10', 'viewer', 'link-10');">viewer</a></tt><tt class="py-op">,</tt> <tt id="link-11" class="py-name" targets="Module taskcoachlib.config.settings=taskcoachlib.config.settings-module.html"><a title="taskcoachlib.config.settings" class="py-name" href="#" onclick="return doclink('link-11', 'settings', 'link-11');">settings</a></tt><tt class="py-op">,</tt> <tt class="py-name">selectionOnly</tt><tt class="py-op">,</tt> <tt id="link-12" class="py-name" targets="Variable taskcoachlib.gui.dialog.editor.EffortEditBook.columns=taskcoachlib.gui.dialog.editor.EffortEditBook-class.html#columns,Variable taskcoachlib.gui.dialog.editor.Page.columns=taskcoachlib.gui.dialog.editor.Page-class.html#columns,Variable taskcoachlib.gui.dialog.editor.PageWithViewer.columns=taskcoachlib.gui.dialog.editor.PageWithViewer-class.html#columns,Variable taskcoachlib.gui.dialog.editor.TaskAppearancePage.columns=taskcoachlib.gui.dialog.editor.TaskAppearancePage-class.html#columns,Method taskcoachlib.gui.viewer.base.ViewerWithColumns.columns()=taskcoachlib.gui.viewer.base.ViewerWithColumns-class.html#columns"><a title="taskcoachlib.gui.dialog.editor.EffortEditBook.columns
+taskcoachlib.gui.dialog.editor.Page.columns
+taskcoachlib.gui.dialog.editor.PageWithViewer.columns
+taskcoachlib.gui.dialog.editor.TaskAppearancePage.columns
+taskcoachlib.gui.viewer.base.ViewerWithColumns.columns" class="py-name" href="#" onclick="return doclink('link-12', 'columns', 'link-12');">columns</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__fd</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method taskcoachlib.application.application.RedirectedOutput.close()=taskcoachlib.application.application.RedirectedOutput-class.html#close,Method taskcoachlib.filesystem.fs_darwin.FileMonitor.close()=taskcoachlib.filesystem.fs_darwin.FileMonitor-class.html#close,Variable taskcoachlib.filesystem.fs_darwin.close=taskcoachlib.filesystem.fs_darwin-module.html#close,Method taskcoachlib.filesystem.fs_inotify.Inotify.close()=taskcoachlib.filesystem.fs_inotify.Inotify-class.html#close,Method taskcoachlib.gui.dialog.editor.BudgetPage.close()=taskcoachlib.gui.dialog.editor.BudgetPage-class.html#close,Method taskcoachlib.gui.dialog.editor.Page.close()=taskcoachlib.gui.dialog.editor.Page-class.html#close,Method taskcoachlib.gui.dialog.editor.PageWithViewer.close()=taskcoachlib.gui.dialog.editor.PageWithViewer-class.html#close,Method taskcoachlib.gui.dialog.editor.SubjectPage.close()=taskcoachlib.gui.dialog.editor.SubjectPage-class.html#close,Method taskcoachlib.gui.iocontroller.IOController.close()=taskcoachlib.gui.iocontroller.IOController-class.html#close,Method taskcoachlib.persistence.taskfile.LockedTaskFile.close()=taskcoachlib.persistence.taskfile.LockedTaskFile-class.html#close,Method taskcoachlib.persistence.taskfile.TaskFile.close()=taskcoachlib.persistence.taskfile.TaskFile-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.base.JobStore-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.mongodb_store.MongoDBJobStore-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.shelve_store.ShelveJobStore-class.html#close,Method taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close()=taskcoachlib.thirdparty.apscheduler%27.jobstores.sqlalchemy_store.SQLAlchemyJobStore-class.html#close,Method taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close()=taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector-class.html#close,Method taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close()=taskcoachlib.thirdparty.pybonjour.DNSServiceRef-class.html#close"><a title="taskcoachlib.application.application.RedirectedOutput.close
+taskcoachlib.filesystem.fs_darwin.FileMonitor.close
+taskcoachlib.filesystem.fs_darwin.close
+taskcoachlib.filesystem.fs_inotify.Inotify.close
+taskcoachlib.gui.dialog.editor.BudgetPage.close
+taskcoachlib.gui.dialog.editor.Page.close
+taskcoachlib.gui.dialog.editor.PageWithViewer.close
+taskcoachlib.gui.dialog.editor.SubjectPage.close
+taskcoachlib.gui.iocontroller.IOController.close
+taskcoachlib.persistence.taskfile.LockedTaskFile.close
+taskcoachlib.persistence.taskfile.TaskFile.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close
+taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close
+taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close" class="py-name" href="#" onclick="return doclink('link-13', 'close', 'link-13');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">        <tt class="py-name">resultFile</tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name" targets="Method taskcoachlib.domain.attachment.attachment.Attachment.open()=taskcoachlib.domain.attachment.attachment.Attachment-class.html#open,Method taskcoachlib.domain.attachment.attachment.FileAttachment.open()=taskcoachlib.domain.attachment.attachment.FileAttachment-class.html#open,Method taskcoachlib.domain.attachment.attachment.MailAttachment.open()=taskcoachlib.domain.attachment.attachment.MailAttachment-class.html#open,Method taskcoachlib.domain.attachment.attachment.URIAttachment.open()=taskcoachlib.domain.attachment.attachment.URIAttachment-class.html#open,Method taskcoachlib.gui.iocontroller.IOController.open()=taskcoachlib.gui.iocontroller.IOController-class.html#open,Method taskcoachlib.thirdparty.desktop.dialog.Dialogue.open()=taskcoachlib.thirdparty.desktop.dialog.Dialogue-class.html#open"><a title="taskcoachlib.domain.attachment.attachment.Attachment.open
+taskcoachlib.domain.attachment.attachment.FileAttachment.open
+taskcoachlib.domain.attachment.attachment.MailAttachment.open
+taskcoachlib.domain.attachment.attachment.URIAttachment.open
+taskcoachlib.gui.iocontroller.IOController.open
+taskcoachlib.thirdparty.desktop.dialog.Dialogue.open" class="py-name" href="#" onclick="return doclink('link-14', 'open', 'link-14');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__filename</tt><tt class="py-op">,</tt> <tt class="py-string">"w+b"</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-name">pisa</tt><tt class="py-op">.</tt><tt class="py-name">CreatePDF</tt><tt class="py-op">(</tt><tt class="py-name">textToPdf</tt><tt class="py-op">,</tt> <tt class="py-name">resultFile</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">        <tt class="py-name">resultFile</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="taskcoachlib.application.application.RedirectedOutput.close
+taskcoachlib.filesystem.fs_darwin.FileMonitor.close
+taskcoachlib.filesystem.fs_darwin.close
+taskcoachlib.filesystem.fs_inotify.Inotify.close
+taskcoachlib.gui.dialog.editor.BudgetPage.close
+taskcoachlib.gui.dialog.editor.Page.close
+taskcoachlib.gui.dialog.editor.PageWithViewer.close
+taskcoachlib.gui.dialog.editor.SubjectPage.close
+taskcoachlib.gui.iocontroller.IOController.close
+taskcoachlib.persistence.taskfile.LockedTaskFile.close
+taskcoachlib.persistence.taskfile.TaskFile.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.base.JobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.mongodb_store.MongoDBJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.shelve_store.ShelveJobStore.close
+taskcoachlib.thirdparty.apscheduler'.jobstores.sqlalchemy_store.SQLAlchemyJobStore.close
+taskcoachlib.thirdparty.chardet.universaldetector.UniversalDetector.close
+taskcoachlib.thirdparty.pybonjour.DNSServiceRef.close" class="py-name" href="#" onclick="return doclink('link-15', 'close', 'link-13');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">textToPdf</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-16" class="py-name"><a title="taskcoachlib.patterns.metaclass.NumberedInstances.count
+taskcoachlib.thirdparty.dateutil.rrule.rrulebase.count" class="py-name" href="#" onclick="return doclink('link-16', 'count', 'link-7');">count</a></tt> </tt>
+</div></div><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:57 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

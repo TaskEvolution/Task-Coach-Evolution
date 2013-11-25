@@ -1,0 +1,1919 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>taskcoachlib.thirdparty.customtreectrl</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
+        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
+        Module&nbsp;customtreectrl
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.customtreectrl-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module customtreectrl</h1><p class="nomargin-top"><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+L{CustomTreeCtrl} is a class that mimics the behaviour of `wx.TreeCtrl`, with some more
+enhancements.
+
+
+Description
+===========
+
+L{CustomTreeCtrl} is a class that mimics the behaviour of `wx.TreeCtrl`, with almost the
+same base functionalities plus some more enhancements. This class does not rely on
+the native control, as it is a full owner-drawn tree control.
+Apart of the base functionalities of L{CustomTreeCtrl} (described below), in addition
+to the standard `wx.TreeCtrl` behaviour this class supports:
+
+* CheckBox-type items: checkboxes are easy to handle, just selected or unselected
+  state with no particular issues in handling the item's children;
+* Added support for 3-state value checkbox items;
+* RadioButton-type items: since I elected to put radiobuttons in L{CustomTreeCtrl}, I
+  needed some way to handle them, that made sense. So, I used the following approach:
+  
+  - All peer-nodes that are radiobuttons will be mutually exclusive. In other words,
+    only one of a set of radiobuttons that share a common parent can be checked at
+    once. If a radiobutton node becomes checked, then all of its peer radiobuttons
+    must be unchecked.
+  - If a radiobutton node becomes unchecked, then all of its child nodes will become
+    inactive.
+
+* Hyperlink-type items: they look like an hyperlink, with the proper mouse cursor on
+  hovering;
+* Multiline text items (**note**: to add a newline character in a multiline item, press
+  ``Shift`` + ``Enter`` as the ``Enter`` key alone is consumed by L{CustomTreeCtrl} to finish
+  the editing and ``Ctrl`` + ``Enter`` is consumed by the platform for tab navigation);
+* Enabling/disabling items (together with their plain or grayed out icons);
+* Whatever non-toplevel widget can be attached next to an item;
+* Possibility to horizontally align the widgets attached to tree items on the
+  same tree level.
+* Possibility to align the widgets attached to tree items to the rightmost edge of L{CustomTreeCtrl};
+* Default selection style, gradient (horizontal/vertical) selection style and Windows
+  Vista selection style;
+* Customized drag and drop images built on the fly;
+* Setting the L{CustomTreeCtrl} item buttons to a personalized imagelist;
+* Setting the L{CustomTreeCtrl} check/radio item icons to a personalized imagelist;
+* Changing the style of the lines that connect the items (in terms of `wx.Pen` styles);
+* Using an image as a L{CustomTreeCtrl} background (currently only in &quot;tile&quot; mode);
+* Adding images to any item in the leftmost area of the L{CustomTreeCtrl} client window.
+* Separator-type items which are simply visual indicators that are meant to set apart
+  or divide tree items, with the following caveats:
+
+  - Separator items should not have children, labels, data or an associated window;
+  - You can change the color of individual separators by using L{SetItemTextColour}, or you can use
+    L{SetSeparatorColour} to change the color of all separators. The default separator colour
+    is that returned by `wx.SystemSettings.GetColour(wx.SYS_COLOUR_GRAYTEXT)`;
+  - Separators can be selected just like any other tree item;
+  - Separators cannot have text;
+  - Separators cannot have children;
+  - Separators cannot be edited via the ``EVT_TREE_BEGIN_LABEL_EDIT`` event.
+
+* Ellipsization of long items when the horizontal space is low, via the ``TR_ELLIPSIZE_LONG_ITEMS``
+  style (`New in version 0.9.3`);
+* Tooltips on long items when the horizontal space is low, via the ``TR_TOOLTIP_ON_LONG_ITEMS``
+  style (`New in version 0.9.3`).
+
+And a lot more. Check the demo for an almost complete review of the functionalities.
+
+
+Base Functionalities
+====================
+
+L{CustomTreeCtrl} supports all the `wx.TreeCtrl` styles, except:
+
+- ``TR_EXTENDED``: supports for this style is on the todo list (am I sure of this?).
+
+Plus it has 3 more styles to handle checkbox-type items:
+
+- ``TR_AUTO_CHECK_CHILD``: automatically checks/unchecks the item children;
+- ``TR_AUTO_CHECK_PARENT``: automatically checks/unchecks the item parent;
+- ``TR_AUTO_TOGGLE_CHILD``: automatically toggles the item children.
+
+And two styles you can use to force the horizontal alignment of all the widgets
+attached to the tree items:
+
+- ``TR_ALIGN_WINDOWS``: aligns horizontally the windows belonging to the item on the
+  same tree level.
+- ``TR_ALIGN_WINDOWS_RIGHT``: aligns to the rightmost position the windows belonging
+  to the item on the same tree level.
+
+And two styles related to long items (with a lot of text in them), which can be 
+ellipsized and/or highlighted with a tooltip:
+
+- ``TR_ELLIPSIZE_LONG_ITEMS``: ellipsizes long items when the horizontal space for
+  L{CustomTreeCtrl} is low (`New in version 0.9.3`);
+- ``TR_TOOLTIP_ON_LONG_ITEMS``: shows tooltips on long items when the horizontal space
+  for L{CustomTreeCtrl} is low (`New in version 0.9.3`);.
+
+All the methods available in `wx.TreeCtrl` are also available in L{CustomTreeCtrl}.
+
+
+Usage
+=====
+
+Usage example::
+
+    import wx
+    import wx.lib.agw.customtreectrl as CT
+
+    class MyFrame(wx.Frame):
+
+        def __init__(self, parent):
+
+            wx.Frame.__init(self, parent, -1, &quot;CustomTreeCtrl Demo&quot;)        
+
+            # Create a CustomTreeCtrl instance
+            custom_tree = CT.CustomTreeCtrl(self, agwStyle=wx.TR_DEFAULT_STYLE)
+            
+            # Add a root node to it
+            root = custom_tree.AddRoot(&quot;The Root Item&quot;)            
+
+            # Create an image list to add icons next to an item
+            il = wx.ImageList(16, 16)
+            fldridx     = il.Add(wx.ArtProvider_GetBitmap(wx.ART_FOLDER,      wx.ART_OTHER, 16))
+            fldropenidx = il.Add(wx.ArtProvider_GetBitmap(wx.ART_FILE_OPEN,   wx.ART_OTHER, 16))
+            fileidx     = il.Add(wx.ArtProvider_GetBitmap(wx.ART_NORMAL_FILE, wx.ART_OTHER, 16))
+
+            custom_tree.SetImageList(il)
+            
+            custom_tree.SetItemImage(root, fldridx, wx.TreeItemIcon_Normal)
+            custom_tree.SetItemImage(root, fldropenidx, wx.TreeItemIcon_Expanded)
+
+            for x in range(15):
+                child = custom_tree.AppendItem(root, &quot;Item %d&quot; % x)
+                custom_tree.SetItemImage(child, fldridx, wx.TreeItemIcon_Normal)
+                custom_tree.SetItemImage(child, fldropenidx, wx.TreeItemIcon_Expanded)
+
+                for y in range(5):
+                    last = custom_tree.AppendItem(child, &quot;item %d-%s&quot; % (x, chr(ord(&quot;a&quot;)+y)))
+                    custom_tree.SetItemImage(last, fldridx, wx.TreeItemIcon_Normal)
+                    custom_tree.SetItemImage(last, fldropenidx, wx.TreeItemIcon_Expanded)
+
+                    for z in range(5):
+                        item = custom_tree.AppendItem(last,  &quot;item %d-%s-%d&quot; % (x, chr(ord(&quot;a&quot;)+y), z))
+                        custom_tree.SetItemImage(item, fileidx, wx.TreeItemIcon_Normal)
+                        custom_tree.SetItemImage(item, smileidx, wx.TreeItemIcon_Selected)
+
+            custom_tree.Expand(self.root)
+
+
+    # our normal wxApp-derived class, as usual
+
+    app = wx.PySimpleApp()
+
+    frame = MyFrame(None)
+    app.SetTopWindow(frame)
+    frame.Show()
+
+    app.MainLoop()
+
+
+        
+Events
+======
+
+All the events supported by `wx.TreeCtrl` are also available in L{CustomTreeCtrl}, with
+a few exceptions:
+
+- ``EVT_TREE_GET_INFO`` (don't know what this means);
+- ``EVT_TREE_SET_INFO`` (don't know what this means);
+- ``EVT_TREE_ITEM_MIDDLE_CLICK`` (not implemented, but easy to add);
+- ``EVT_TREE_STATE_IMAGE_CLICK`` (no need for that, look at the checking events below).
+
+Plus, L{CustomTreeCtrl} supports the events related to the checkbutton-type items:
+
+- ``EVT_TREE_ITEM_CHECKING``: an item is being checked;
+- ``EVT_TREE_ITEM_CHECKED``: an item has been checked.
+
+And to hyperlink-type items:
+
+- ``EVT_TREE_ITEM_HYPERLINK``: an hyperlink item has been clicked (this event is sent
+  after the ``EVT_TREE_SEL_CHANGED`` event).
+
+
+Supported Platforms
+===================
+
+L{CustomTreeCtrl} has been tested on the following platforms:
+  * Windows (Windows XP);
+  * GTK (Thanks to Michele Petrazzo);
+  * Mac OS (Thanks to John Jackson).
+
+
+Window Styles
+=============
+
+This class supports the following window styles:
+
+============================== =========== ==================================================
+Window Styles                  Hex Value   Description
+============================== =========== ==================================================
+``TR_NO_BUTTONS``                      0x0 For convenience to document that no buttons are to be drawn.
+``TR_SINGLE``                          0x0 For convenience to document that only one item may be selected at a time. Selecting another item causes the current selection, if any, to be deselected. This is the default.
+``TR_HAS_BUTTONS``                     0x1 Use this style to show + and - buttons to the left of parent items.
+``TR_NO_LINES``                        0x4 Use this style to hide vertical level connectors.
+``TR_LINES_AT_ROOT``                   0x8 Use this style to show lines between root nodes. Only applicable if ``TR_HIDE_ROOT`` is set and ``TR_NO_LINES`` is not set.
+``TR_DEFAULT_STYLE``                   0x9 The set of flags that are closest to the defaults for the native control for a particular toolkit.
+``TR_TWIST_BUTTONS``                  0x10 Use old Mac-twist style buttons.
+``TR_MULTIPLE``                       0x20 Use this style to allow a range of items to be selected. If a second range is selected, the current range, if any, is deselected.
+``TR_EXTENDED``                       0x40 Use this style to allow disjoint items to be selected. (Only partially implemented; may not work in all cases).
+``TR_HAS_VARIABLE_ROW_HEIGHT``        0x80 Use this style to cause row heights to be just big enough to fit the content. If not set, all rows use the largest row height. The default is that this flag is unset.
+``TR_EDIT_LABELS``                   0x200 Use this style if you wish the user to be able to edit labels in the tree control.
+``TR_ROW_LINES``                     0x400 Use this style to draw a contrasting border between displayed rows.
+``TR_HIDE_ROOT``                     0x800 Use this style to suppress the display of the root node, effectively causing the first-level nodes to appear as a series of root nodes.
+``TR_FULL_ROW_HIGHLIGHT``           0x2000 Use this style to have the background colour and the selection highlight extend  over the entire horizontal row of the tree control window.
+``TR_AUTO_CHECK_CHILD``             0x4000 Only meaningful foe checkbox-type items: when a parent item is checked/unchecked its children are checked/unchecked as well.
+``TR_AUTO_TOGGLE_CHILD``            0x8000 Only meaningful foe checkbox-type items: when a parent item is checked/unchecked its children are toggled accordingly.
+``TR_AUTO_CHECK_PARENT``           0x10000 Only meaningful foe checkbox-type items: when a child item is checked/unchecked its parent item is checked/unchecked as well.
+``TR_ALIGN_WINDOWS``               0x20000 Flag used to align windows (in items with windows) at the same horizontal position.
+``TR_ALIGN_WINDOWS_RIGHT``         0x40000 Flag used to align windows (in items with windows) to the rightmost edge of L{CustomTreeCtrl}.
+``TR_ELLIPSIZE_LONG_ITEMS``        0x80000 Flag used to ellipsize long items when the horizontal space for L{CustomTreeCtrl} is low.
+``TR_TOOLTIP_ON_LONG_ITEMS``      0x100000 Flag used to show tooltips on long items when the horizontal space for L{CustomTreeCtrl} is low.
+============================== =========== ==================================================
+
+
+Events Processing
+=================
+
+This class processes the following events:
+
+============================== ==================================================
+Event Name                     Description
+============================== ==================================================
+``EVT_TREE_BEGIN_DRAG``        Begin dragging with the left mouse button.
+``EVT_TREE_BEGIN_LABEL_EDIT``  Begin editing a label. This can be prevented by calling L{Veto}.
+``EVT_TREE_BEGIN_RDRAG``       Begin dragging with the right mouse button.
+``EVT_TREE_DELETE_ITEM``       Delete an item.
+``EVT_TREE_END_DRAG``          End dragging with the left or right mouse button.
+``EVT_TREE_END_LABEL_EDIT``    End editing a label. This can be prevented by calling L{Veto}.
+``EVT_TREE_GET_INFO``          Request information from the application (not implemented in L{CustomTreeCtrl}).
+``EVT_TREE_ITEM_ACTIVATED``    The item has been activated, i.e. chosen by double clicking it with mouse or from keyboard.
+``EVT_TREE_ITEM_CHECKED``      A checkbox or radiobox type item has been checked.
+``EVT_TREE_ITEM_CHECKING``     A checkbox or radiobox type item is being checked.
+``EVT_TREE_ITEM_COLLAPSED``    The item has been collapsed.
+``EVT_TREE_ITEM_COLLAPSING``   The item is being collapsed. This can be prevented by calling L{Veto}.
+``EVT_TREE_ITEM_EXPANDED``     The item has been expanded.
+``EVT_TREE_ITEM_EXPANDING``    The item is being expanded. This can be prevented by calling L{Veto}.
+``EVT_TREE_ITEM_GETTOOLTIP``   The opportunity to set the item tooltip is being given to the application (call `TreeEvent.SetToolTip`).
+``EVT_TREE_ITEM_HYPERLINK``    An hyperlink type item has been clicked.
+``EVT_TREE_ITEM_MENU``         The context menu for the selected item has been requested, either by a right click or by using the menu key.
+``EVT_TREE_ITEM_MIDDLE_CLICK`` The user has clicked the item with the middle mouse button (not implemented in L{CustomTreeCtrl}).
+``EVT_TREE_ITEM_RIGHT_CLICK``  The user has clicked the item with the right mouse button.
+``EVT_TREE_KEY_DOWN``          A key has been pressed.
+``EVT_TREE_SEL_CHANGED``       Selection has changed.
+``EVT_TREE_SEL_CHANGING``      Selection is changing. This can be prevented by calling L{Veto}.
+``EVT_TREE_SET_INFO``          Information is being supplied to the application (not implemented in L{CustomTreeCtrl}).
+``EVT_TREE_STATE_IMAGE_CLICK`` The state image has been clicked (not implemented in L{CustomTreeCtrl}).
+============================== ==================================================
+
+
+License And Version
+===================
+
+L{CustomTreeCtrl} is distributed under the wxPython license. 
+
+Latest Revision: Andrea Gavana @ 08 Mar 2012, 21.00 GMT
+
+Version 2.6
+
+</pre>
+
+<hr />
+<div class="fields">      <p><strong>Version:</strong>
+        2.6
+      </p>
+</div><!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl.DragImage-class.html" class="summary-name">DragImage</a><br />
+      This class handles the creation of a custom image in case of item 
+      drag and drop.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl.TreeItemAttr-class.html" class="summary-name">TreeItemAttr</a><br />
+      Creates the item attributes (text colour, background colour and 
+        font).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html" class="summary-name">CommandTreeEvent</a><br />
+      <a 
+      href="taskcoachlib.thirdparty.customtreectrl.CommandTreeEvent-class.html"
+      class="link">CommandTreeEvent</a> is a special subclassing of 
+      `wx.PyCommandEvent`.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl.TreeEvent-class.html" class="summary-name">TreeEvent</a><br />
+      <a href="taskcoachlib.thirdparty.customtreectrl.TreeEvent-class.html"
+      class="link">TreeEvent</a> is a special class for all events 
+      associated with tree controls.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl.TreeEditTimer-class.html" class="summary-name">TreeEditTimer</a><br />
+      Timer used for enabling in-place edit.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl.TreeTextCtrl-class.html" class="summary-name">TreeTextCtrl</a><br />
+      Control used for in-place edit.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl.TreeFindTimer-class.html" class="summary-name">TreeFindTimer</a><br />
+      Timer used to clear the <a 
+      href="taskcoachlib.thirdparty.customtreectrl.CustomTreeCtrl-class.html"
+      class="link">CustomTreeCtrl</a> `_findPrefix` attribute if no key was
+      pressed for a sufficiently long time.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl.GenericTreeItem-class.html" class="summary-name">GenericTreeItem</a><br />
+      This class holds all the information and methods for every single 
+        item in <a 
+        href="taskcoachlib.thirdparty.customtreectrl.CustomTreeCtrl-class.html"
+        class="link">CustomTreeCtrl</a>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl.CustomTreeCtrl-class.html" class="summary-name">CustomTreeCtrl</a><br />
+      <a 
+      href="taskcoachlib.thirdparty.customtreectrl.CustomTreeCtrl-class.html"
+      class="link">CustomTreeCtrl</a> is a class that mimics the behaviour 
+      of `wx.TreeCtrl`, with almost the same base functionalities plus some
+      more enhancements.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl-module.html#MakeDisabledBitmap" class="summary-sig-name">MakeDisabledBitmap</a>(<span class="summary-sig-arg">original</span>)</span><br />
+      Creates a disabled-looking bitmap starting from the input one.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#MakeDisabledBitmap">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl-module.html#DrawTreeItemButton" class="summary-sig-name">DrawTreeItemButton</a>(<span class="summary-sig-arg">win</span>,
+        <span class="summary-sig-arg">dc</span>,
+        <span class="summary-sig-arg">rect</span>,
+        <span class="summary-sig-arg">flags</span>)</span><br />
+      Draw the expanded/collapsed icon for a tree control item.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#DrawTreeItemButton">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl-module.html#EventFlagsToSelType" class="summary-sig-name">EventFlagsToSelType</a>(<span class="summary-sig-arg">style</span>,
+        <span class="summary-sig-arg">shiftDown</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">ctrlDown</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Translate the key or mouse event flag to the type of selection we are
+      dealing with.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#EventFlagsToSelType">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="taskcoachlib.thirdparty.customtreectrl-module.html#ChopText" class="summary-sig-name">ChopText</a>(<span class="summary-sig-arg">dc</span>,
+        <span class="summary-sig-arg">text</span>,
+        <span class="summary-sig-arg">max_size</span>)</span><br />
+      Chops the input `text` if its size does not fit in `max_size`, by cutting the
+text and adding ellipsis at the end.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#ChopText">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_NO_IMAGE"></a><span class="summary-name">_NO_IMAGE</span> = <code title="-1">-1</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_PIXELS_PER_UNIT"></a><span class="summary-name">_PIXELS_PER_UNIT</span> = <code title="10">10</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_DELAY"></a><span class="summary-name">_DELAY</span> = <code title="500">500</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_VERSION_STRING"></a><span class="summary-name">_VERSION_STRING</span> = <code title="wx.VERSION_STRING">wx.VERSION_STRING</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TreeItemIcon_Normal"></a><span class="summary-name">TreeItemIcon_Normal</span> = <code title="0">0</code><br />
+      The tree item is not selected and not expanded.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TreeItemIcon_Selected"></a><span class="summary-name">TreeItemIcon_Selected</span> = <code title="1">1</code><br />
+      The tree item is selected and not expanded.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TreeItemIcon_Expanded"></a><span class="summary-name">TreeItemIcon_Expanded</span> = <code title="2">2</code><br />
+      The tree item is not selected but expanded.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TreeItemIcon_SelectedExpanded"></a><span class="summary-name">TreeItemIcon_SelectedExpanded</span> = <code title="3">3</code><br />
+      The tree item is selected and expanded.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TreeItemIcon_Checked"></a><span class="summary-name">TreeItemIcon_Checked</span> = <code title="0">0</code><br />
+      The item's check button is checked.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TreeItemIcon_NotChecked"></a><span class="summary-name">TreeItemIcon_NotChecked</span> = <code title="1">1</code><br />
+      The item's check button is not checked.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TreeItemIcon_Undetermined"></a><span class="summary-name">TreeItemIcon_Undetermined</span> = <code title="2">2</code><br />
+      The item's check button is in undetermined state (used only for a 
+      3-state check button).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TreeItemIcon_Flagged"></a><span class="summary-name">TreeItemIcon_Flagged</span> = <code title="3">3</code><br />
+      The item's radio button is checked.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TreeItemIcon_NotFlagged"></a><span class="summary-name">TreeItemIcon_NotFlagged</span> = <code title="4">4</code><br />
+      The item's radio button is not checked.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_NO_BUTTONS"></a><span class="summary-name">TR_NO_BUTTONS</span> = <code title="wx.TR_NO_BUTTONS">wx.TR_NO_BUTTONS</code><br />
+      For convenience to document that no buttons are to be drawn.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_HAS_BUTTONS"></a><span class="summary-name">TR_HAS_BUTTONS</span> = <code title="wx.TR_HAS_BUTTONS">wx.TR_HAS_BUTTONS</code><br />
+      Use this style to show + and - buttons to the left of parent items.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_NO_LINES"></a><span class="summary-name">TR_NO_LINES</span> = <code title="wx.TR_NO_LINES">wx.TR_NO_LINES</code><br />
+      Use this style to hide vertical level connectors.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_LINES_AT_ROOT"></a><span class="summary-name">TR_LINES_AT_ROOT</span> = <code title="wx.TR_LINES_AT_ROOT">wx.TR_LINES_AT_ROOT</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_TWIST_BUTTONS"></a><span class="summary-name">TR_TWIST_BUTTONS</span> = <code title="wx.TR_TWIST_BUTTONS">wx.TR_TWIST_BUTTONS</code><br />
+      Use old Mac-twist style buttons.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_SINGLE"></a><span class="summary-name">TR_SINGLE</span> = <code title="wx.TR_SINGLE">wx.TR_SINGLE</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_MULTIPLE"></a><span class="summary-name">TR_MULTIPLE</span> = <code title="wx.TR_MULTIPLE">wx.TR_MULTIPLE</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_EXTENDED"></a><span class="summary-name">TR_EXTENDED</span> = <code title="wx.TR_EXTENDED">wx.TR_EXTENDED</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_HAS_VARIABLE_ROW_HEIGHT"></a><span class="summary-name">TR_HAS_VARIABLE_ROW_HEIGHT</span> = <code title="wx.TR_HAS_VARIABLE_ROW_HEIGHT">wx.TR_HAS_VARIABLE_ROW_HEIGHT</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_EDIT_LABELS"></a><span class="summary-name">TR_EDIT_LABELS</span> = <code title="wx.TR_EDIT_LABELS">wx.TR_EDIT_LABELS</code><br />
+      Use this style if you wish the user to be able to edit labels in the 
+      tree control.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_ROW_LINES"></a><span class="summary-name">TR_ROW_LINES</span> = <code title="wx.TR_ROW_LINES">wx.TR_ROW_LINES</code><br />
+      Use this style to draw a contrasting border between displayed rows.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_HIDE_ROOT"></a><span class="summary-name">TR_HIDE_ROOT</span> = <code title="wx.TR_HIDE_ROOT">wx.TR_HIDE_ROOT</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_FULL_ROW_HIGHLIGHT"></a><span class="summary-name">TR_FULL_ROW_HIGHLIGHT</span> = <code title="wx.TR_FULL_ROW_HIGHLIGHT">wx.TR_FULL_ROW_HIGHLIGHT</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_AUTO_CHECK_CHILD"></a><span class="summary-name">TR_AUTO_CHECK_CHILD</span> = <code title="0x04000">0x04000</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_AUTO_TOGGLE_CHILD"></a><span class="summary-name">TR_AUTO_TOGGLE_CHILD</span> = <code title="0x08000">0x08000</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_AUTO_CHECK_PARENT"></a><span class="summary-name">TR_AUTO_CHECK_PARENT</span> = <code title="0x10000">0x10000</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_ALIGN_WINDOWS"></a><span class="summary-name">TR_ALIGN_WINDOWS</span> = <code title="0x20000">0x20000</code><br />
+      Flag used to align windows (in items with windows) at the same 
+      horizontal position.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_ALIGN_WINDOWS_RIGHT"></a><span class="summary-name">TR_ALIGN_WINDOWS_RIGHT</span> = <code title="0x40000">0x40000</code><br />
+      Flag used to align windows (in items with windows) to the rightmost 
+      edge of <a 
+      href="taskcoachlib.thirdparty.customtreectrl.CustomTreeCtrl-class.html"
+      class="link">CustomTreeCtrl</a>.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_ELLIPSIZE_LONG_ITEMS"></a><span class="summary-name">TR_ELLIPSIZE_LONG_ITEMS</span> = <code title="0x80000">0x80000</code><br />
+      Flag used to ellipsize long items when the horizontal space for <a 
+      href="taskcoachlib.thirdparty.customtreectrl.CustomTreeCtrl-class.html"
+      class="link">CustomTreeCtrl</a> is low.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_TOOLTIP_ON_LONG_ITEMS"></a><span class="summary-name">TR_TOOLTIP_ON_LONG_ITEMS</span> = <code title="0x100000">0x100000</code><br />
+      Flag used to show tooltips on long items when the horizontal space 
+      for <a 
+      href="taskcoachlib.thirdparty.customtreectrl.CustomTreeCtrl-class.html"
+      class="link">CustomTreeCtrl</a> is low.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TR_DEFAULT_STYLE"></a><span class="summary-name">TR_DEFAULT_STYLE</span> = <code title="wx.TR_DEFAULT_STYLE">wx.TR_DEFAULT_STYLE</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_HITTEST_ABOVE"></a><span class="summary-name">TREE_HITTEST_ABOVE</span> = <code title="wx.TREE_HITTEST_ABOVE">wx.TREE_HITTEST_ABOVE</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_HITTEST_BELOW"></a><span class="summary-name">TREE_HITTEST_BELOW</span> = <code title="wx.TREE_HITTEST_BELOW">wx.TREE_HITTEST_BELOW</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_HITTEST_NOWHERE"></a><span class="summary-name">TREE_HITTEST_NOWHERE</span> = <code title="wx.TREE_HITTEST_NOWHERE">wx.TREE_HITTEST_NOWHERE</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_HITTEST_ONITEMBUTTON"></a><span class="summary-name">TREE_HITTEST_ONITEMBUTTON</span> = <code title="wx.TREE_HITTEST_ONITEMBUTTON">wx.TREE_HITTEST_ONITEMBUTTON</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_HITTEST_ONITEMICON"></a><span class="summary-name">TREE_HITTEST_ONITEMICON</span> = <code title="wx.TREE_HITTEST_ONITEMICON">wx.TREE_HITTEST_ONITEMICON</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_HITTEST_ONITEMINDENT"></a><span class="summary-name">TREE_HITTEST_ONITEMINDENT</span> = <code title="wx.TREE_HITTEST_ONITEMINDENT">wx.TREE_HITTEST_ONITEMINDENT</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_HITTEST_ONITEMLABEL"></a><span class="summary-name">TREE_HITTEST_ONITEMLABEL</span> = <code title="wx.TREE_HITTEST_ONITEMLABEL">wx.TREE_HITTEST_ONITEMLABEL</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_HITTEST_ONITEMRIGHT"></a><span class="summary-name">TREE_HITTEST_ONITEMRIGHT</span> = <code title="wx.TREE_HITTEST_ONITEMRIGHT">wx.TREE_HITTEST_ONITEMRIGHT</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_HITTEST_ONITEMSTATEICON"></a><span class="summary-name">TREE_HITTEST_ONITEMSTATEICON</span> = <code title="wx.TREE_HITTEST_ONITEMSTATEICON">wx.TREE_HITTEST_ONITEMSTATEICON</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_HITTEST_TOLEFT"></a><span class="summary-name">TREE_HITTEST_TOLEFT</span> = <code title="wx.TREE_HITTEST_TOLEFT">wx.TREE_HITTEST_TOLEFT</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_HITTEST_TORIGHT"></a><span class="summary-name">TREE_HITTEST_TORIGHT</span> = <code title="wx.TREE_HITTEST_TORIGHT">wx.TREE_HITTEST_TORIGHT</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_HITTEST_ONITEMUPPERPART"></a><span class="summary-name">TREE_HITTEST_ONITEMUPPERPART</span> = <code title="wx.TREE_HITTEST_ONITEMUPPERPART">wx.TREE_HITTEST_ONITEMUPPERPART</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_HITTEST_ONITEMLOWERPART"></a><span class="summary-name">TREE_HITTEST_ONITEMLOWERPART</span> = <code title="wx.TREE_HITTEST_ONITEMLOWERPART">wx.TREE_HITTEST_ONITEMLOWERPART</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_HITTEST_ONITEMCHECKICON"></a><span class="summary-name">TREE_HITTEST_ONITEMCHECKICON</span> = <code title="0x4000">0x4000</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#TREE_HITTEST_ONITEM" class="summary-name">TREE_HITTEST_ONITEM</a> = <code title="TREE_HITTEST_ONITEMICON | TREE_HITTEST_ONITEMLABEL | TREE_HITTEST_ONIT\
+EMCHECKICON">TREE_HITTEST_ONITEMICON | TREE_HITTEST_O<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_ITEMTYPE_NORMAL"></a><span class="summary-name">TREE_ITEMTYPE_NORMAL</span> = <code title="0">0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_ITEMTYPE_CHECK"></a><span class="summary-name">TREE_ITEMTYPE_CHECK</span> = <code title="1">1</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TREE_ITEMTYPE_RADIO"></a><span class="summary-name">TREE_ITEMTYPE_RADIO</span> = <code title="2">2</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_StyleTile"></a><span class="summary-name">_StyleTile</span> = <code title="0">0</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_StyleStretch"></a><span class="summary-name">_StyleStretch</span> = <code title="1">1</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_rgbSelectOuter"></a><span class="summary-name">_rgbSelectOuter</span> = <code title="wx.Colour(170, 200, 245)">wx.Colour(170, 200, 245)</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_rgbSelectInner"></a><span class="summary-name">_rgbSelectInner</span> = <code title="wx.Colour(230, 250, 250)">wx.Colour(230, 250, 250)</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_rgbSelectTop"></a><span class="summary-name">_rgbSelectTop</span> = <code title="wx.Colour(210, 240, 250)">wx.Colour(210, 240, 250)</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_rgbSelectBottom"></a><span class="summary-name">_rgbSelectBottom</span> = <code title="wx.Colour(185, 215, 250)">wx.Colour(185, 215, 250)</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_rgbNoFocusTop"></a><span class="summary-name">_rgbNoFocusTop</span> = <code title="wx.Colour(250, 250, 250)">wx.Colour(250, 250, 250)</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_rgbNoFocusBottom"></a><span class="summary-name">_rgbNoFocusBottom</span> = <code title="wx.Colour(235, 235, 235)">wx.Colour(235, 235, 235)</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_rgbNoFocusOuter"></a><span class="summary-name">_rgbNoFocusOuter</span> = <code title="wx.Colour(220, 220, 220)">wx.Colour(220, 220, 220)</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_rgbNoFocusInner"></a><span class="summary-name">_rgbNoFocusInner</span> = <code title="wx.Colour(245, 245, 245)">wx.Colour(245, 245, 245)</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_CONTROL_EXPANDED"></a><span class="summary-name">_CONTROL_EXPANDED</span> = <code title="8">8</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_CONTROL_CURRENT"></a><span class="summary-name">_CONTROL_CURRENT</span> = <code title="16">16</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_BEGIN_DRAG"></a><span class="summary-name">wxEVT_TREE_BEGIN_DRAG</span> = <code title="wx.wxEVT_COMMAND_TREE_BEGIN_DRAG">wx.wxEVT_COMMAND_TREE_BEGIN_DRAG</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_BEGIN_RDRAG"></a><span class="summary-name">wxEVT_TREE_BEGIN_RDRAG</span> = <code title="wx.wxEVT_COMMAND_TREE_BEGIN_RDRAG">wx.wxEVT_COMMAND_TREE_BEGIN_RDRAG</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#wxEVT_TREE_BEGIN_LABEL_EDIT" class="summary-name">wxEVT_TREE_BEGIN_LABEL_EDIT</a> = <code title="wx.wxEVT_COMMAND_TREE_BEGIN_LABEL_EDIT">wx.wxEVT_COMMAND_TREE_BEGIN_LABE<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_END_LABEL_EDIT"></a><span class="summary-name">wxEVT_TREE_END_LABEL_EDIT</span> = <code title="wx.wxEVT_COMMAND_TREE_END_LABEL_EDIT">wx.wxEVT_COMMAND_TREE_END_LABEL_EDIT</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_DELETE_ITEM"></a><span class="summary-name">wxEVT_TREE_DELETE_ITEM</span> = <code title="wx.wxEVT_COMMAND_TREE_DELETE_ITEM">wx.wxEVT_COMMAND_TREE_DELETE_ITEM</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_GET_INFO"></a><span class="summary-name">wxEVT_TREE_GET_INFO</span> = <code title="wx.wxEVT_COMMAND_TREE_GET_INFO">wx.wxEVT_COMMAND_TREE_GET_INFO</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_SET_INFO"></a><span class="summary-name">wxEVT_TREE_SET_INFO</span> = <code title="wx.wxEVT_COMMAND_TREE_SET_INFO">wx.wxEVT_COMMAND_TREE_SET_INFO</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_ITEM_EXPANDED"></a><span class="summary-name">wxEVT_TREE_ITEM_EXPANDED</span> = <code title="wx.wxEVT_COMMAND_TREE_ITEM_EXPANDED">wx.wxEVT_COMMAND_TREE_ITEM_EXPANDED</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_ITEM_EXPANDING"></a><span class="summary-name">wxEVT_TREE_ITEM_EXPANDING</span> = <code title="wx.wxEVT_COMMAND_TREE_ITEM_EXPANDING">wx.wxEVT_COMMAND_TREE_ITEM_EXPANDING</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_ITEM_COLLAPSED"></a><span class="summary-name">wxEVT_TREE_ITEM_COLLAPSED</span> = <code title="wx.wxEVT_COMMAND_TREE_ITEM_COLLAPSED">wx.wxEVT_COMMAND_TREE_ITEM_COLLAPSED</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#wxEVT_TREE_ITEM_COLLAPSING" class="summary-name">wxEVT_TREE_ITEM_COLLAPSING</a> = <code title="wx.wxEVT_COMMAND_TREE_ITEM_COLLAPSING">wx.wxEVT_COMMAND_TREE_ITEM_COLLAP<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_SEL_CHANGED"></a><span class="summary-name">wxEVT_TREE_SEL_CHANGED</span> = <code title="wx.wxEVT_COMMAND_TREE_SEL_CHANGED">wx.wxEVT_COMMAND_TREE_SEL_CHANGED</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_SEL_CHANGING"></a><span class="summary-name">wxEVT_TREE_SEL_CHANGING</span> = <code title="wx.wxEVT_COMMAND_TREE_SEL_CHANGING">wx.wxEVT_COMMAND_TREE_SEL_CHANGING</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_KEY_DOWN"></a><span class="summary-name">wxEVT_TREE_KEY_DOWN</span> = <code title="wx.wxEVT_COMMAND_TREE_KEY_DOWN">wx.wxEVT_COMMAND_TREE_KEY_DOWN</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_ITEM_ACTIVATED"></a><span class="summary-name">wxEVT_TREE_ITEM_ACTIVATED</span> = <code title="wx.wxEVT_COMMAND_TREE_ITEM_ACTIVATED">wx.wxEVT_COMMAND_TREE_ITEM_ACTIVATED</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#wxEVT_TREE_ITEM_RIGHT_CLICK" class="summary-name">wxEVT_TREE_ITEM_RIGHT_CLICK</a> = <code title="wx.wxEVT_COMMAND_TREE_ITEM_RIGHT_CLICK">wx.wxEVT_COMMAND_TREE_ITEM_RIGHT<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#wxEVT_TREE_ITEM_MIDDLE_CLICK" class="summary-name">wxEVT_TREE_ITEM_MIDDLE_CLICK</a> = <code title="wx.wxEVT_COMMAND_TREE_ITEM_MIDDLE_CLICK">wx.wxEVT_COMMAND_TREE_ITEM_MIDD<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_END_DRAG"></a><span class="summary-name">wxEVT_TREE_END_DRAG</span> = <code title="wx.wxEVT_COMMAND_TREE_END_DRAG">wx.wxEVT_COMMAND_TREE_END_DRAG</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#wxEVT_TREE_STATE_IMAGE_CLICK" class="summary-name">wxEVT_TREE_STATE_IMAGE_CLICK</a> = <code title="wx.wxEVT_COMMAND_TREE_STATE_IMAGE_CLICK">wx.wxEVT_COMMAND_TREE_STATE_IMA<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#wxEVT_TREE_ITEM_GETTOOLTIP" class="summary-name">wxEVT_TREE_ITEM_GETTOOLTIP</a> = <code title="wx.wxEVT_COMMAND_TREE_ITEM_GETTOOLTIP">wx.wxEVT_COMMAND_TREE_ITEM_GETTOO<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_ITEM_MENU"></a><span class="summary-name">wxEVT_TREE_ITEM_MENU</span> = <code title="wx.wxEVT_COMMAND_TREE_ITEM_MENU">wx.wxEVT_COMMAND_TREE_ITEM_MENU</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_ITEM_CHECKING"></a><span class="summary-name">wxEVT_TREE_ITEM_CHECKING</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_ITEM_CHECKED"></a><span class="summary-name">wxEVT_TREE_ITEM_CHECKED</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="wxEVT_TREE_ITEM_HYPERLINK"></a><span class="summary-name">wxEVT_TREE_ITEM_HYPERLINK</span> = <code title="wx.NewEventType()">wx.NewEventType()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_TREE_BEGIN_DRAG"></a><span class="summary-name">EVT_TREE_BEGIN_DRAG</span> = <code title="wx.EVT_TREE_BEGIN_DRAG">wx.EVT_TREE_BEGIN_DRAG</code><br />
+      Begin dragging with the left mouse button.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_TREE_BEGIN_RDRAG"></a><span class="summary-name">EVT_TREE_BEGIN_RDRAG</span> = <code title="wx.EVT_TREE_BEGIN_RDRAG">wx.EVT_TREE_BEGIN_RDRAG</code><br />
+      Begin dragging with the right mouse button.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#EVT_TREE_BEGIN_LABEL_EDIT" class="summary-name">EVT_TREE_BEGIN_LABEL_EDIT</a> = <code title="wx.EVT_TREE_BEGIN_LABEL_EDIT">wx.EVT_TREE_BEGIN_LABEL_EDIT</code><br />
+      Begin editing a label.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#EVT_TREE_END_LABEL_EDIT" class="summary-name">EVT_TREE_END_LABEL_EDIT</a> = <code title="wx.EVT_TREE_END_LABEL_EDIT">wx.EVT_TREE_END_LABEL_EDIT</code><br />
+      End editing a label.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_TREE_DELETE_ITEM"></a><span class="summary-name">EVT_TREE_DELETE_ITEM</span> = <code title="wx.EVT_TREE_DELETE_ITEM">wx.EVT_TREE_DELETE_ITEM</code><br />
+      Delete an item.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_TREE_GET_INFO"></a><span class="summary-name">EVT_TREE_GET_INFO</span> = <code title="wx.EVT_TREE_GET_INFO">wx.EVT_TREE_GET_INFO</code><br />
+      Request information from the application (not implemented in <a 
+      href="taskcoachlib.thirdparty.customtreectrl.CustomTreeCtrl-class.html"
+      class="link">CustomTreeCtrl</a>).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_TREE_SET_INFO"></a><span class="summary-name">EVT_TREE_SET_INFO</span> = <code title="wx.EVT_TREE_SET_INFO">wx.EVT_TREE_SET_INFO</code><br />
+      Information is being supplied to the application (not implemented in 
+      <a 
+      href="taskcoachlib.thirdparty.customtreectrl.CustomTreeCtrl-class.html"
+      class="link">CustomTreeCtrl</a>).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_TREE_ITEM_EXPANDED"></a><span class="summary-name">EVT_TREE_ITEM_EXPANDED</span> = <code title="wx.EVT_TREE_ITEM_EXPANDED">wx.EVT_TREE_ITEM_EXPANDED</code><br />
+      The item has been expanded.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#EVT_TREE_ITEM_EXPANDING" class="summary-name">EVT_TREE_ITEM_EXPANDING</a> = <code title="wx.EVT_TREE_ITEM_EXPANDING">wx.EVT_TREE_ITEM_EXPANDING</code><br />
+      The item is being expanded.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_TREE_ITEM_COLLAPSED"></a><span class="summary-name">EVT_TREE_ITEM_COLLAPSED</span> = <code title="wx.EVT_TREE_ITEM_COLLAPSED">wx.EVT_TREE_ITEM_COLLAPSED</code><br />
+      The item has been collapsed.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#EVT_TREE_ITEM_COLLAPSING" class="summary-name">EVT_TREE_ITEM_COLLAPSING</a> = <code title="wx.EVT_TREE_ITEM_COLLAPSING">wx.EVT_TREE_ITEM_COLLAPSING</code><br />
+      The item is being collapsed.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_TREE_SEL_CHANGED"></a><span class="summary-name">EVT_TREE_SEL_CHANGED</span> = <code title="wx.EVT_TREE_SEL_CHANGED">wx.EVT_TREE_SEL_CHANGED</code><br />
+      Selection has changed.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#EVT_TREE_SEL_CHANGING" class="summary-name">EVT_TREE_SEL_CHANGING</a> = <code title="wx.EVT_TREE_SEL_CHANGING">wx.EVT_TREE_SEL_CHANGING</code><br />
+      Selection is changing.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_TREE_KEY_DOWN"></a><span class="summary-name">EVT_TREE_KEY_DOWN</span> = <code title="wx.EVT_TREE_KEY_DOWN">wx.EVT_TREE_KEY_DOWN</code><br />
+      A key has been pressed.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#EVT_TREE_ITEM_ACTIVATED" class="summary-name">EVT_TREE_ITEM_ACTIVATED</a> = <code title="wx.EVT_TREE_ITEM_ACTIVATED">wx.EVT_TREE_ITEM_ACTIVATED</code><br />
+      The item has been activated, i.e.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_TREE_ITEM_RIGHT_CLICK"></a><span class="summary-name">EVT_TREE_ITEM_RIGHT_CLICK</span> = <code title="wx.EVT_TREE_ITEM_RIGHT_CLICK">wx.EVT_TREE_ITEM_RIGHT_CLICK</code><br />
+      The user has clicked the item with the right mouse button.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_TREE_ITEM_MIDDLE_CLICK"></a><span class="summary-name">EVT_TREE_ITEM_MIDDLE_CLICK</span> = <code title="wx.EVT_TREE_ITEM_MIDDLE_CLICK">wx.EVT_TREE_ITEM_MIDDLE_CLICK</code><br />
+      The user has clicked the item with the middle mouse button (not 
+      implemented in <a 
+      href="taskcoachlib.thirdparty.customtreectrl.CustomTreeCtrl-class.html"
+      class="link">CustomTreeCtrl</a>).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_TREE_END_DRAG"></a><span class="summary-name">EVT_TREE_END_DRAG</span> = <code title="wx.EVT_TREE_END_DRAG">wx.EVT_TREE_END_DRAG</code><br />
+      End dragging with the left or right mouse button.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_TREE_STATE_IMAGE_CLICK"></a><span class="summary-name">EVT_TREE_STATE_IMAGE_CLICK</span> = <code title="wx.EVT_TREE_STATE_IMAGE_CLICK">wx.EVT_TREE_STATE_IMAGE_CLICK</code><br />
+      The state image has been clicked (not implemented in <a 
+      href="taskcoachlib.thirdparty.customtreectrl.CustomTreeCtrl-class.html"
+      class="link">CustomTreeCtrl</a>).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_TREE_ITEM_GETTOOLTIP"></a><span class="summary-name">EVT_TREE_ITEM_GETTOOLTIP</span> = <code title="wx.EVT_TREE_ITEM_GETTOOLTIP">wx.EVT_TREE_ITEM_GETTOOLTIP</code><br />
+      The opportunity to set the item tooltip is being given to the 
+      application (call `TreeEvent.SetToolTip`).
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="EVT_TREE_ITEM_MENU"></a><span class="summary-name">EVT_TREE_ITEM_MENU</span> = <code title="wx.EVT_TREE_ITEM_MENU">wx.EVT_TREE_ITEM_MENU</code><br />
+      The context menu for the selected item has been requested, either by 
+      a right click or by using the menu key.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#EVT_TREE_ITEM_CHECKING" class="summary-name">EVT_TREE_ITEM_CHECKING</a> = <code title="wx.PyEventBinder(wxEVT_TREE_ITEM_CHECKING, 1)">wx.PyEventBinder(wxEVT_TREE_ITEM_CHEC<code class="variable-ellipsis">...</code></code><br />
+      A checkbox or radiobox type item is being checked.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#EVT_TREE_ITEM_CHECKED" class="summary-name">EVT_TREE_ITEM_CHECKED</a> = <code title="wx.PyEventBinder(wxEVT_TREE_ITEM_CHECKED, 1)">wx.PyEventBinder(wxEVT_TREE_ITEM_CHECK<code class="variable-ellipsis">...</code></code><br />
+      A checkbox or radiobox type item has been checked.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="taskcoachlib.thirdparty.customtreectrl-module.html#EVT_TREE_ITEM_HYPERLINK" class="summary-name">EVT_TREE_ITEM_HYPERLINK</a> = <code title="wx.PyEventBinder(wxEVT_TREE_ITEM_HYPERLINK, 1)">wx.PyEventBinder(wxEVT_TREE_ITEM_HYP<code class="variable-ellipsis">...</code></code><br />
+      An hyperlink type item has been clicked.
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="MakeDisabledBitmap"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">MakeDisabledBitmap</span>(<span class="sig-arg">original</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#MakeDisabledBitmap">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Creates a disabled-looking bitmap starting from the input one.
+
+:param `original`: an instance of `wx.Bitmap` to be greyed-out.
+
+:return: An instance of `wx.Bitmap`, containing a disabled-looking
+ representation of the original item image.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="DrawTreeItemButton"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">DrawTreeItemButton</span>(<span class="sig-arg">win</span>,
+        <span class="sig-arg">dc</span>,
+        <span class="sig-arg">rect</span>,
+        <span class="sig-arg">flags</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#DrawTreeItemButton">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Draw the expanded/collapsed icon for a tree control item.</p>
+  <p>:param `win`: an instance of `wx.Window`; :param `dc`: an instance of 
+  `wx.DC`; :param `wx.Rect` `rect`: the client rectangle where to draw the 
+  tree item button; :param integer `flags`: contains 
+  ``wx.CONTROL_EXPANDED`` bit for expanded tree items.</p>
+  <p>:note: This is a simple replacement of 
+  `wx.RendererNative.DrawTreeItemButton`.</p>
+  <p>:note: This method is never used in wxPython versions newer than 
+  2.6.2.1.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="EventFlagsToSelType"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">EventFlagsToSelType</span>(<span class="sig-arg">style</span>,
+        <span class="sig-arg">shiftDown</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">ctrlDown</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#EventFlagsToSelType">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Translate the key or mouse event flag to the type of selection we are 
+  dealing with.</p>
+  <p>:param integer `style`: the main <a 
+  href="taskcoachlib.thirdparty.customtreectrl.CustomTreeCtrl-class.html" 
+  class="link">CustomTreeCtrl</a> window style flag; :param bool 
+  `shiftDown`: ``True`` if the ``Shift`` key is pressed, ``False`` 
+  otherwise; :param bool `ctrlDown`: ``True`` if the ``Ctrl`` key is 
+  pressed, ``False`` otherwise;</p>
+  <p>:return: A 3-elements tuple, with the following elements:</p>
+  <ul>
+    <li>
+      `is_multiple`: ``True`` if <a 
+      href="taskcoachlib.thirdparty.customtreectrl.CustomTreeCtrl-class.html"
+      class="link">CustomTreeCtrl</a> has the ``TR_MULTIPLE`` flag set, 
+      ``False`` otherwise;
+    </li>
+    <li>
+      `extended_select`: ``True`` if the ``Shift`` key is pressend and if 
+      <a 
+      href="taskcoachlib.thirdparty.customtreectrl.CustomTreeCtrl-class.html"
+      class="link">CustomTreeCtrl</a> has the ``TR_MULTIPLE`` flag set, 
+      ``False`` otherwise;
+    </li>
+    <li>
+      `unselect_others`: ``True`` if the ``Ctrl`` key is pressend and if <a
+      
+      href="taskcoachlib.thirdparty.customtreectrl.CustomTreeCtrl-class.html"
+      class="link">CustomTreeCtrl</a> has the ``TR_MULTIPLE`` flag set, 
+      ``False`` otherwise.
+    </li>
+  </ul>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="ChopText"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ChopText</span>(<span class="sig-arg">dc</span>,
+        <span class="sig-arg">text</span>,
+        <span class="sig-arg">max_size</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="taskcoachlib.thirdparty.customtreectrl-pysrc.html#ChopText">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Chops the input `text` if its size does not fit in `max_size`, by cutting the
+text and adding ellipsis at the end.
+
+:param `dc`: a `wx.DC` device context;
+:param `text`: the text to chop;
+:param `max_size`: the maximum size in which the text should fit.
+
+:note: This method is used exclusively when L{CustomTreeCtrl} has the ``TR_ELLIPSIZE_LONG_ITEMS``
+ style set.
+
+.. versionadded:: 0.9.3
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="TREE_HITTEST_ONITEM"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">TREE_HITTEST_ONITEM</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+TREE_HITTEST_ONITEMICON | TREE_HITTEST_ONITEMLABEL | TREE_HITTEST_ONIT<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+EMCHECKICON
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="wxEVT_TREE_BEGIN_LABEL_EDIT"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">wxEVT_TREE_BEGIN_LABEL_EDIT</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.wxEVT_COMMAND_TREE_BEGIN_LABEL_EDIT
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="wxEVT_TREE_ITEM_COLLAPSING"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">wxEVT_TREE_ITEM_COLLAPSING</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.wxEVT_COMMAND_TREE_ITEM_COLLAPSING
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="wxEVT_TREE_ITEM_RIGHT_CLICK"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">wxEVT_TREE_ITEM_RIGHT_CLICK</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.wxEVT_COMMAND_TREE_ITEM_RIGHT_CLICK
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="wxEVT_TREE_ITEM_MIDDLE_CLICK"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">wxEVT_TREE_ITEM_MIDDLE_CLICK</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.wxEVT_COMMAND_TREE_ITEM_MIDDLE_CLICK
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="wxEVT_TREE_STATE_IMAGE_CLICK"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">wxEVT_TREE_STATE_IMAGE_CLICK</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.wxEVT_COMMAND_TREE_STATE_IMAGE_CLICK
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="wxEVT_TREE_ITEM_GETTOOLTIP"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">wxEVT_TREE_ITEM_GETTOOLTIP</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.wxEVT_COMMAND_TREE_ITEM_GETTOOLTIP
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_TREE_BEGIN_LABEL_EDIT"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_TREE_BEGIN_LABEL_EDIT</h3>
+  <p>Begin editing a label. This can be prevented by calling <code 
+  class="link">Veto</code>.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.EVT_TREE_BEGIN_LABEL_EDIT
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_TREE_END_LABEL_EDIT"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_TREE_END_LABEL_EDIT</h3>
+  <p>End editing a label. This can be prevented by calling <code 
+  class="link">Veto</code>.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.EVT_TREE_END_LABEL_EDIT
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_TREE_ITEM_EXPANDING"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_TREE_ITEM_EXPANDING</h3>
+  <p>The item is being expanded. This can be prevented by calling <code 
+  class="link">Veto</code>.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.EVT_TREE_ITEM_EXPANDING
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_TREE_ITEM_COLLAPSING"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_TREE_ITEM_COLLAPSING</h3>
+  <p>The item is being collapsed. This can be prevented by calling <code 
+  class="link">Veto</code>.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.EVT_TREE_ITEM_COLLAPSING
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_TREE_SEL_CHANGING"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_TREE_SEL_CHANGING</h3>
+  <p>Selection is changing. This can be prevented by calling <code 
+  class="link">Veto</code>.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.EVT_TREE_SEL_CHANGING
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_TREE_ITEM_ACTIVATED"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_TREE_ITEM_ACTIVATED</h3>
+  <p>The item has been activated, i.e. chosen by double clicking it with 
+  mouse or from keyboard.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.EVT_TREE_ITEM_ACTIVATED
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_TREE_ITEM_CHECKING"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_TREE_ITEM_CHECKING</h3>
+  <p>A checkbox or radiobox type item is being checked.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_TREE_ITEM_CHECKING, 1)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_TREE_ITEM_CHECKED"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_TREE_ITEM_CHECKED</h3>
+  <p>A checkbox or radiobox type item has been checked.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_TREE_ITEM_CHECKED, 1)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="EVT_TREE_ITEM_HYPERLINK"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">EVT_TREE_ITEM_HYPERLINK</h3>
+  <p>An hyperlink type item has been clicked.</p>
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+wx.PyEventBinder(wxEVT_TREE_ITEM_HYPERLINK, 1)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Nov 25 04:13:32 2013
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
