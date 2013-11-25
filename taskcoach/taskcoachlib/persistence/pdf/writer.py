@@ -33,7 +33,8 @@ class PDFWriter(object):
     def write(self, viewer, settings, selectionOnly, columns = None):
 
         textToPdf, count = generator.viewer2pdf(viewer, settings, selectionOnly, columns)
-
+        print textToPdf
+        
         self.__fd.close()
         resultFile = open(self.__filename, "w+b")
         pisa.CreatePDF(textToPdf, resultFile)

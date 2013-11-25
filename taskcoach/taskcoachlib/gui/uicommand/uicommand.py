@@ -418,7 +418,7 @@ class FileExportAsTodoTxt(FileExportCommand):
         return aViewer.isShowingTasks()
 
 
-class FileExportAsPDF(IOCommand):
+class FileExportAsPDF(FileExportCommand):
     ''' Action for exporting the contents of a viewer to PDF. '''
     ''' author: Erik Ivarsson  '''
 
@@ -527,8 +527,7 @@ class FileImportFromGoogleTask(IOCommand):
                                                        description=task['notes'] if 'notes' in task else '',
                                                        dueDateTime=date.DateTime.strptime
                                                            (task['due'],'%Y-%m-%dT%H:%M:%S.%fz') if 'due' in task
-                                                            else date.DateTime.strptime
-                                                           ('2010-10-15T12:00:00.000Z','%Y-%m-%dT%H:%M:%S.%fz'),
+                                                            else None,
                                                        percentageComplete=100 if task['status']=='completed' else 0,
                                                        categories=[category],id=task['id'])
 

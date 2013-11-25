@@ -3,7 +3,7 @@
 *.pyc
 taskcoach/taskcoachlib/thirdparty/
 
-taskcoach/credentials.dat
+taskcoach/*.dat
 
 taskcoach/taskcoachlib/i18n/
 
