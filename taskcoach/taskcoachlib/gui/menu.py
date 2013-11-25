@@ -407,6 +407,7 @@ activatePreviousViewerId = wx.NewId()
 class ViewMenu(Menu):
     def __init__(self, mainwindow, settings, viewerContainer, taskFile):
         super(ViewMenu, self).__init__(mainwindow)
+        tasks = taskFile.tasks()
         self.appendMenu(_('&New viewer'), 
             ViewViewerMenu(mainwindow, settings, viewerContainer, taskFile),
                 'viewnewviewer')
@@ -418,10 +419,12 @@ class ViewMenu(Menu):
             menuText=_('Activate &previous viewer\tCtrl+PgUp'),
             helpText=help.viewPreviousViewer, forward=False,
             bitmap='activatepreviousviewer', id=activatePreviousViewerId)
+
         self.appendUICommands(
             activateNextViewer,
             activatePreviousViewer,
             uicommand.RenameViewer(viewer=viewerContainer),
+            uicommand.Today(viewer=viewerContainer, taskList=tasks),
             None)
         self.appendMenu(_('&Mode'),
                         ModeMenu(mainwindow, self, _('&Mode')))
@@ -443,6 +446,7 @@ class ViewMenu(Menu):
         self.appendUICommands(uicommand.UICheckCommand(settings=settings,
             menuText=_('Status&bar'), helpText=_('Show/hide status bar'),
             setting='statusbar'))
+
 
 
 class ViewViewerMenu(Menu):

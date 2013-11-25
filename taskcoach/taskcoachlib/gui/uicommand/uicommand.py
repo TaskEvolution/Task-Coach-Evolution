@@ -40,6 +40,7 @@ from taskcoachlib.workarounds import ExceptionAsUnicode
 import base_uicommand
 import mixin_uicommand
 import settings_uicommand
+import datetime
 
 
 class IOCommand(base_uicommand.UICommand):  # pylint: disable=W0223
@@ -1701,6 +1702,54 @@ class Mail(mixin_uicommand.NeedsSelectionMixin, ViewerCommand, settings_uicomman
         elif result == wx.NO:
             print "NO!" 
             '''
+
+class Today(ViewerCommand, TaskListCommand):
+        def __init__(self, *args, **kwargs):
+            menuText = _('&Today View\tShift-Ctrl-T') if operating_system.isMac() else _('&Today View\tCtrl-T')
+            taskList = kwargs['taskList']
+            super(Today, self).__init__(menuText=menuText, *args, **kwargs)
+
+            
+        def doCommand(self, event):
+            tasks = self.taskList
+            dia = TodayDialog(None, -1, 'Today View', tasks)
+            dia.Show(True)
+
+
+
+
+
+class TodayDialog(wx.Dialog):
+        def __init__ (self, parent, ID, title, tasks):
+            wx.Dialog.__init__(self, parent, ID, title)
+   
+            font = wx.Font(10, wx.DEFAULT, wx.NORMAL, wx.BOLD)
+            fontDates = wx.Font(7, wx.DEFAULT, wx.NORMAL, wx.BOLD)
+            #fontTasks = wx.Font(7, wx.DEFAULT, wx.ITALIC, wx.NORMAL)
+            heading = wx.StaticText(self, -1, 'Tasks that are due to today', (25, 15))
+            heading.SetFont(font)
+            n = 0
+            currentDate = str(datetime.datetime.now())[:10]
+
+            wx.StaticLine(self, -1, (25, 50), (250,1))
+            for task in tasks:
+                date = str(task.dueDateTime())[:10]
+
+                if str(task.dueDateTime())[:4] != '9999' and date == currentDate:
+                    txtT = wx.StaticText(self, -1, task.subject(), (25, (70+n)), style=wx.ALIGN_RIGHT)
+                    txtD = wx.StaticText(self, -1, date, (250, (70+n)))
+                    #txtT.SetFont(fontTasks)
+                    txtD.SetFont(fontDates)
+                    n = n + 20
+            
+            wx.StaticLine(self, -1, (25, n+85), (250,1))
+            wx.Button(self, 1, 'Ok', (25, n+100), (45, 23))
+            self.Bind(wx.EVT_BUTTON, self.OnOk, id=1)
+            self.Fit()
+            self.Centre()
+   
+        def OnOk(self, event):
+            self.Close()
 
 class AddNote(mixin_uicommand.NeedsSelectedNoteOwnersMixin, ViewerCommand,
               settings_uicommand.SettingsCommand):
