@@ -417,7 +417,7 @@ class FileExportAsTodoTxt(FileExportCommand):
         return aViewer.isShowingTasks()
 
 
-class FileExportAsPDF(IOCommand):
+class FileExportAsPDF(FileExportCommand):
     ''' Action for exporting the contents of a viewer to PDF. '''
     ''' author: Erik Ivarsson  '''
 
@@ -447,7 +447,19 @@ class FileExportToGoogleTask(IOCommand):
         self.iocontroller.exportToGoogleTasks(self.mainWindow().viewer.visibleItems())
 
 
+class ExportButton(mixin_uicommand.PopupButtonMixin,
+                    settings_uicommand.SettingsCommand,IOCommand):
 
+    def createPopupMenu(self):
+        from taskcoachlib.gui import menu
+
+        return menu.ExportMenu(self.mainWindow(),self.iocontroller,self.settings)
+
+    def getMenuText(self):
+        return _('New from &template')
+
+    def getHelpText(self):
+        return _('Create a new task from a template')
 
 class FileImportCSV(IOCommand):
     ''' Action for importing data from a CSV file into the current task 

@@ -313,7 +313,8 @@ If this happens again, please make a copy of your TaskCoach.ini file '''
                 uicommand.Print(viewer=self.viewer, settings=self.settings), 
                 None, 
                 uicommand.EditUndo(), 
-                uicommand.EditRedo()]
+                uicommand.EditRedo(),uicommand.ExportButton(settings=self.settings,
+                                        bitmap='newtmpl')]
         if self.settings.getboolean('feature', 'effort'):
             uiCommands.extend([ 
                 None, 
