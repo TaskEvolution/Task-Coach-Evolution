@@ -1,676 +1,0 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-          "DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <title>taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider</title>
-  <link rel="stylesheet" href="epydoc.css" type="text/css" />
-  <script type="text/javascript" src="epydoc.js"></script>
-</head>
-
-<body bgcolor="white" text="black" link="blue" vlink="#204080"
-      alink="#204080">
-<!-- ==================== NAVIGATION BAR ==================== -->
-<table class="navbar" border="0" width="100%" cellpadding="0"
-       bgcolor="#a0c0ff" cellspacing="0">
-  <tr valign="middle">
-
-  <!-- Tree link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
-
-  <!-- Index link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
-
-  <!-- Help link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
-
-      <th class="navbar" width="100%"></th>
-  </tr>
-</table>
-<table width="100%" cellpadding="0" cellspacing="0">
-  <tr valign="top">
-    <td width="100%">
-      <span class="breadcrumbs">
-        <a href="taskcoachlib-module.html">Package&nbsp;taskcoachlib</a> ::
-        <a href="taskcoachlib.thirdparty-module.html">Package&nbsp;thirdparty</a> ::
-        <a href="taskcoachlib.thirdparty.pubsub-module.html">Package&nbsp;pubsub</a> ::
-        <a href="taskcoachlib.thirdparty.pubsub.utils-module.html">Package&nbsp;utils</a> ::
-        Module&nbsp;xmltopicdefnprovider
-      </span>
-    </td>
-    <td>
-      <table cellpadding="0" cellspacing="0">
-        <!-- hide/show private -->
-        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
-    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
-        <tr><td align="right"><span class="options"
-            >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider-pysrc.html"
-            target="_top">no&nbsp;frames</a>]</span></td></tr>
-      </table>
-    </td>
-  </tr>
-</table>
-<h1 class="epydoc">Source Code for <a href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider-module.html">Module taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider</a></h1>
-<pre class="py-src">
-<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
-<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">Contributed by Joshua R English, adapted by Oliver Schoenborn to be </tt> </tt>
-<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">consistent with pubsub API. </tt> </tt>
-<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">An extension for pubsub (http://pubsub.sourceforge.net) so topic tree </tt> </tt>
-<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">specification can be encoded in XML format rather than pubsub's default </tt> </tt>
-<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">Python nested class format.</tt> </tt>
-<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">To use:</tt> </tt>
-<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">    xml = """</tt> </tt>
-<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">        &lt;topicdefntree&gt;</tt> </tt>
-<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">        &lt;description&gt;Test showing topic hierarchy and inheritance&lt;/description&gt;</tt> </tt>
-<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">        &lt;topic id="parent"&gt;</tt> </tt>
-<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring">            &lt;description&gt;Parent with a parameter and subtopics&lt;/description&gt;</tt> </tt>
-<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">            &lt;listenerspec&gt;</tt> </tt>
-<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">                &lt;arg id="name" optional="true"&gt;given name&lt;/arg&gt;</tt> </tt>
-<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">                &lt;arg id="lastname"&gt;surname&lt;/arg&gt;</tt> </tt>
-<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">            &lt;/listenerspec&gt;</tt> </tt>
-<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">            &lt;topic id="child"&gt;</tt> </tt>
-<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">                &lt;description&gt;This is the first child&lt;/description&gt;</tt> </tt>
-<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">                &lt;listenerspec&gt;</tt> </tt>
-<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">                    &lt;arg id="nick"&gt;A nickname&lt;/arg&gt;</tt> </tt>
-<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">                &lt;/listenerspec&gt;</tt> </tt>
-<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">            &lt;/topic&gt;</tt> </tt>
-<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">        &lt;/topic&gt;</tt> </tt>
-<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">        &lt;/topicdefntree&gt;</tt> </tt>
-<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
-<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">These topic definitions are loaded through an XmlTopicDefnProvider:</tt> </tt>
-<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">    pub.addTopicDefnProvider( XmlTopicDefnProvider(xml) )</tt> </tt>
-<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">The XmlTopicDefnProvider also accepts a filename instead of XML string: </tt> </tt>
-<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring">    provider = XmlTopicDefnProvider("path/to/XMLfile.xml", TOPIC_TREE_FROM_FILE)</tt> </tt>
-<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">    pub.addTopicDefnProvider( provider )</tt> </tt>
-<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">Topics can be exported to an XML file using the exportTopicTreeSpecXml function.</tt> </tt>
-<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">This will create a text file for the XML and return the string representation</tt> </tt>
-<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">of the XML tree.</tt> </tt>
-<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">:copyright: Copyright since 2013 by Oliver Schoenborn, all rights reserved.</tt> </tt>
-<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">:license: BSD, see LICENSE.txt for details.</tt> </tt>
-<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
-<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"> </tt>
-<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-name">__author__</tt> <tt class="py-op">=</tt> <tt class="py-string">'Joshua R English'</tt> </tt>
-<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.__revision__=taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider-module.html#__revision__,Variable taskcoachlib.thirdparty.pybonjour.__revision__=taskcoachlib.thirdparty.pybonjour-module.html#__revision__"><a title="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.__revision__
-taskcoachlib.thirdparty.pybonjour.__revision__" class="py-name" href="#" onclick="return doclink('link-0', '__revision__', 'link-0');">__revision__</a></tt> <tt class="py-op">=</tt> <tt class="py-number">6</tt> </tt>
-<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-name">__date__</tt> <tt class="py-op">=</tt> <tt class="py-string">'2013-07-27'</tt> </tt>
-<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"> </tt>
-<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Package taskcoachlib.thirdparty.pubsub=taskcoachlib.thirdparty.pubsub-module.html"><a title="taskcoachlib.thirdparty.pubsub" class="py-name" href="#" onclick="return doclink('link-1', 'pubsub', 'link-1');">pubsub</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Module taskcoachlib.thirdparty.pubsub.pub=taskcoachlib.thirdparty.pubsub.pub-module.html"><a title="taskcoachlib.thirdparty.pubsub.pub" class="py-name" href="#" onclick="return doclink('link-2', 'pub', 'link-2');">pub</a></tt> </tt>
-<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"> </tt>
-<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name"><a title="taskcoachlib.thirdparty.pubsub" class="py-name" href="#" onclick="return doclink('link-3', 'pubsub', 'link-1');">pubsub</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Module taskcoachlib.syncml.core=taskcoachlib.syncml.core-module.html,Module taskcoachlib.thirdparty.keyring.core=taskcoachlib.thirdparty.keyring.core-module.html,Package taskcoachlib.thirdparty.pubsub.core=taskcoachlib.thirdparty.pubsub.core-module.html"><a title="taskcoachlib.syncml.core
-taskcoachlib.thirdparty.keyring.core
-taskcoachlib.thirdparty.pubsub.core" class="py-name" href="#" onclick="return doclink('link-4', 'core', 'link-4');">core</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Module taskcoachlib.thirdparty.pubsub.core.topictreetraverser=taskcoachlib.thirdparty.pubsub.core.topictreetraverser-module.html"><a title="taskcoachlib.thirdparty.pubsub.core.topictreetraverser" class="py-name" href="#" onclick="return doclink('link-5', 'topictreetraverser', 'link-5');">topictreetraverser</a></tt> <tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Class taskcoachlib.thirdparty.pubsub.core.topictreetraverser.ITopicTreeVisitor=taskcoachlib.thirdparty.pubsub.core.topictreetraverser.ITopicTreeVisitor-class.html"><a title="taskcoachlib.thirdparty.pubsub.core.topictreetraverser.ITopicTreeVisitor" class="py-name" href="#" onclick="return doclink('link-6', 'ITopicTreeVisitor', 'link-6');">ITopicTreeVisitor</a></tt> </tt>
-<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-7" class="py-name"><a title="taskcoachlib.thirdparty.pubsub" class="py-name" href="#" onclick="return doclink('link-7', 'pubsub', 'link-1');">pubsub</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="taskcoachlib.syncml.core
-taskcoachlib.thirdparty.keyring.core
-taskcoachlib.thirdparty.pubsub.core" class="py-name" href="#" onclick="return doclink('link-8', 'core', 'link-4');">core</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Module taskcoachlib.thirdparty.pubsub.core.itopicdefnprovider=taskcoachlib.thirdparty.pubsub.core.itopicdefnprovider-module.html"><a title="taskcoachlib.thirdparty.pubsub.core.itopicdefnprovider" class="py-name" href="#" onclick="return doclink('link-9', 'itopicdefnprovider', 'link-9');">itopicdefnprovider</a></tt> <tt class="py-keyword">import</tt> <tt id="link-10" class="py-name" targets="Class taskcoachlib.thirdparty.pubsub.core.itopicdefnprovider.ITopicDefnProvider=taskcoachlib.thirdparty.pubsub.core.itopicdefnprovider.ITopicDefnProvider-class.html"><a title="taskcoachlib.thirdparty.pubsub.core.itopicdefnprovider.ITopicDefnProvider" class="py-name" href="#" onclick="return doclink('link-10', 'ITopicDefnProvider', 'link-10');">ITopicDefnProvider</a></tt> </tt>
-<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-11" class="py-name"><a title="taskcoachlib.thirdparty.pubsub" class="py-name" href="#" onclick="return doclink('link-11', 'pubsub', 'link-1');">pubsub</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="taskcoachlib.syncml.core
-taskcoachlib.thirdparty.keyring.core
-taskcoachlib.thirdparty.pubsub.core" class="py-name" href="#" onclick="return doclink('link-12', 'core', 'link-4');">core</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Module taskcoachlib.thirdparty.pubsub.core.topicdefnprovider=taskcoachlib.thirdparty.pubsub.core.topicdefnprovider-module.html"><a title="taskcoachlib.thirdparty.pubsub.core.topicdefnprovider" class="py-name" href="#" onclick="return doclink('link-13', 'topicdefnprovider', 'link-13');">topicdefnprovider</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">(</tt> </tt>
-<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">    <tt id="link-14" class="py-name" targets="Variable taskcoachlib.thirdparty.pubsub.core.topicdefnprovider.TOPIC_TREE_FROM_STRING=taskcoachlib.thirdparty.pubsub.core.topicdefnprovider-module.html#TOPIC_TREE_FROM_STRING"><a title="taskcoachlib.thirdparty.pubsub.core.topicdefnprovider.TOPIC_TREE_FROM_STRING" class="py-name" href="#" onclick="return doclink('link-14', 'TOPIC_TREE_FROM_STRING', 'link-14');">TOPIC_TREE_FROM_STRING</a></tt><tt class="py-op">,</tt> </tt>
-<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
-<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"> </tt>
-<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"> </tt>
-<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
-<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">elementtree</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ElementTree</tt> <tt class="py-keyword">as</tt> <tt class="py-name">ET</tt> </tt>
-<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
-<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> <tt class="py-comment"># for Python 2.4, must use cElementTree:</tt> </tt>
-<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt id="link-15" class="py-name" targets="Package taskcoachlib.persistence.xml=taskcoachlib.persistence.xml-module.html"><a title="taskcoachlib.persistence.xml" class="py-name" href="#" onclick="return doclink('link-15', 'xml', 'link-15');">xml</a></tt><tt class="py-op">.</tt><tt class="py-name">etree</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ElementTree</tt> <tt class="py-keyword">as</tt> <tt class="py-name">ET</tt> </tt>
-<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
-<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt class="py-name">cElementTree</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ElementTree</tt> <tt class="py-keyword">as</tt> <tt class="py-name">ET</tt> </tt>
-<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"> </tt>
-<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-name">__all__</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
-<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">    <tt class="py-string">'XmlTopicDefnProvider'</tt><tt class="py-op">,</tt> </tt>
-<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">    <tt class="py-string">'importTopicTreeXml'</tt><tt class="py-op">,</tt> </tt>
-<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">    <tt class="py-string">'exportTopicTreeSpecXml'</tt><tt class="py-op">,</tt> </tt>
-<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">    <tt class="py-string">'TOPIC_TREE_FROM_FILE'</tt> </tt>
-<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
-<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"> </tt>
-<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">     </tt>
-<a name="_get_elem"></a><div id="_get_elem-def"><a name="L77"></a><tt class="py-lineno"> 77</tt> <a class="py-toggle" href="#" id="_get_elem-toggle" onclick="return toggle('_get_elem');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider-module.html#_get_elem">_get_elem</a><tt class="py-op">(</tt><tt class="py-param">elem</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="_get_elem-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="_get_elem-expanded"><a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">    <tt class="py-docstring">"""Assume an ETree.Element object or a string representation.</tt> </tt>
-<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">    Return the ETree.Element object"""</tt> </tt>
-<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">ET</tt><tt class="py-op">.</tt><tt class="py-name">iselement</tt><tt class="py-op">(</tt><tt class="py-name">elem</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
-<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">            <tt class="py-name">elem</tt> <tt class="py-op">=</tt> <tt class="py-name">ET</tt><tt class="py-op">.</tt><tt class="py-name">fromstring</tt><tt class="py-op">(</tt><tt class="py-name">elem</tt><tt class="py-op">)</tt> </tt>
-<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
-<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-string">"Value Error"</tt><tt class="py-op">,</tt> <tt class="py-name">elem</tt> </tt>
-<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">"Cannot convert to element"</tt><tt class="py-op">)</tt> </tt>
-<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">elem</tt> </tt>
-</div><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"> </tt>
-<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">     </tt>
-<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt id="link-16" class="py-name" targets="Variable taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.TOPIC_TREE_FROM_FILE=taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider-module.html#TOPIC_TREE_FROM_FILE"><a title="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.TOPIC_TREE_FROM_FILE" class="py-name" href="#" onclick="return doclink('link-16', 'TOPIC_TREE_FROM_FILE', 'link-16');">TOPIC_TREE_FROM_FILE</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'file'</tt> </tt>
-<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
-<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"> </tt>
-<a name="XmlTopicDefnProvider"></a><div id="XmlTopicDefnProvider-def"><a name="L92"></a><tt class="py-lineno"> 92</tt> <a class="py-toggle" href="#" id="XmlTopicDefnProvider-toggle" onclick="return toggle('XmlTopicDefnProvider');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider-class.html">XmlTopicDefnProvider</a><tt class="py-op">(</tt><tt class="py-base-class">ITopicDefnProvider</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="XmlTopicDefnProvider-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="XmlTopicDefnProvider-expanded"><a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
-<a name="XmlTopicDefnProvider.XmlParserError"></a><div id="XmlTopicDefnProvider.XmlParserError-def"><a name="L94"></a><tt class="py-lineno"> 94</tt> <a class="py-toggle" href="#" id="XmlTopicDefnProvider.XmlParserError-toggle" onclick="return toggle('XmlTopicDefnProvider.XmlParserError');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider.XmlParserError-class.html">XmlParserError</a><tt class="py-op">(</tt><tt class="py-base-class">RuntimeError</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-keyword">pass</tt> </tt>
-</div><a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"> </tt>
-<a name="XmlTopicDefnProvider.UnrecognizedImportFormat"></a><div id="XmlTopicDefnProvider.UnrecognizedImportFormat-def"><a name="L96"></a><tt class="py-lineno"> 96</tt> <a class="py-toggle" href="#" id="XmlTopicDefnProvider.UnrecognizedImportFormat-toggle" onclick="return toggle('XmlTopicDefnProvider.UnrecognizedImportFormat');">-</a><tt class="py-line">    <tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider.UnrecognizedImportFormat-class.html">UnrecognizedImportFormat</a><tt class="py-op">(</tt><tt class="py-base-class">ValueError</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-keyword">pass</tt> </tt>
-</div><a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">     </tt>
-<a name="XmlTopicDefnProvider.__init__"></a><div id="XmlTopicDefnProvider.__init__-def"><a name="L98"></a><tt class="py-lineno"> 98</tt> <a class="py-toggle" href="#" id="XmlTopicDefnProvider.__init__-toggle" onclick="return toggle('XmlTopicDefnProvider.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">xml</tt><tt class="py-op">,</tt> <tt class="py-param">format</tt><tt class="py-op">=</tt><tt id="link-17" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.topicdefnprovider.TOPIC_TREE_FROM_STRING" class="py-name" href="#" onclick="return doclink('link-17', 'TOPIC_TREE_FROM_STRING', 'link-14');">TOPIC_TREE_FROM_STRING</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="XmlTopicDefnProvider.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlTopicDefnProvider.__init__-expanded"><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_topics</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
-<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_treeDoc</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
-<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">format</tt> <tt class="py-op">==</tt> <tt id="link-18" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.TOPIC_TREE_FROM_FILE" class="py-name" href="#" onclick="return doclink('link-18', 'TOPIC_TREE_FROM_FILE', 'link-16');">TOPIC_TREE_FROM_FILE</a></tt><tt class="py-op">:</tt> </tt>
-<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider._parse_tree()=taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider-class.html#_parse_tree"><a title="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider._parse_tree" class="py-name" href="#" onclick="return doclink('link-19', '_parse_tree', 'link-19');">_parse_tree</a></tt><tt class="py-op">(</tt><tt id="link-20" class="py-name" targets="Function taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider._get_elem()=taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider-module.html#_get_elem"><a title="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider._get_elem" class="py-name" href="#" onclick="return doclink('link-20', '_get_elem', 'link-20');">_get_elem</a></tt><tt class="py-op">(</tt><tt id="link-21" class="py-name" targets="Method taskcoachlib.domain.attachment.attachment.Attachment.open()=taskcoachlib.domain.attachment.attachment.Attachment-class.html#open,Method taskcoachlib.domain.attachment.attachment.FileAttachment.open()=taskcoachlib.domain.attachment.attachment.FileAttachment-class.html#open,Method taskcoachlib.domain.attachment.attachment.MailAttachment.open()=taskcoachlib.domain.attachment.attachment.MailAttachment-class.html#open,Method taskcoachlib.domain.attachment.attachment.URIAttachment.open()=taskcoachlib.domain.attachment.attachment.URIAttachment-class.html#open,Method taskcoachlib.gui.iocontroller.IOController.open()=taskcoachlib.gui.iocontroller.IOController-class.html#open,Method taskcoachlib.thirdparty.desktop.dialog.Dialogue.open()=taskcoachlib.thirdparty.desktop.dialog.Dialogue-class.html#open"><a title="taskcoachlib.domain.attachment.attachment.Attachment.open
-taskcoachlib.domain.attachment.attachment.FileAttachment.open
-taskcoachlib.domain.attachment.attachment.MailAttachment.open
-taskcoachlib.domain.attachment.attachment.URIAttachment.open
-taskcoachlib.gui.iocontroller.IOController.open
-taskcoachlib.thirdparty.desktop.dialog.Dialogue.open" class="py-name" href="#" onclick="return doclink('link-21', 'open', 'link-21');">open</a></tt><tt class="py-op">(</tt><tt id="link-22" class="py-name"><a title="taskcoachlib.persistence.xml" class="py-name" href="#" onclick="return doclink('link-22', 'xml', 'link-15');">xml</a></tt><tt class="py-op">,</tt><tt class="py-name">mode</tt><tt class="py-op">=</tt><tt class="py-string">"r"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Method taskcoachlib.config.settings.CachingConfigParser.read()=taskcoachlib.config.settings.CachingConfigParser-class.html#read,Method taskcoachlib.domain.attachment.attachment.MailAttachment.read()=taskcoachlib.domain.attachment.attachment.MailAttachment-class.html#read,Method taskcoachlib.filesystem.fs_inotify.Inotify.read()=taskcoachlib.filesystem.fs_inotify.Inotify-class.html#read,Method taskcoachlib.mailer.thunderbird.ThunderbirdMailboxReader.read()=taskcoachlib.mailer.thunderbird.ThunderbirdMailboxReader-class.html#read,Method taskcoachlib.persistence.csv.reader.CSVReader.read()=taskcoachlib.persistence.csv.reader.CSVReader-class.html#read,Method taskcoachlib.persistence.todotxt.reader.TodoTxtReader.read()=taskcoachlib.persistence.todotxt.reader.TodoTxtReader-class.html#read,Method taskcoachlib.persistence.xml.reader.ChangesXMLReader.read()=taskcoachlib.persistence.xml.reader.ChangesXMLReader-class.html#read,Method taskcoachlib.persistence.xml.reader.TemplateXMLReader.read()=taskcoachlib.persistence.xml.reader.TemplateXMLReader-class.html#read,Method taskcoachlib.persistence.xml.reader.XMLReader.read()=taskcoachlib.persistence.xml.reader.XMLReader-class.html#read,Method taskcoachlib.thirdparty.googleapi.apiclient.http._StreamSlice.read()=taskcoachlib.thirdparty.googleapi.apiclient.http._StreamSlice-class.html#read"><a title="taskcoachlib.config.settings.CachingConfigParser.read
-taskcoachlib.domain.attachment.attachment.MailAttachment.read
-taskcoachlib.filesystem.fs_inotify.Inotify.read
-taskcoachlib.mailer.thunderbird.ThunderbirdMailboxReader.read
-taskcoachlib.persistence.csv.reader.CSVReader.read
-taskcoachlib.persistence.todotxt.reader.TodoTxtReader.read
-taskcoachlib.persistence.xml.reader.ChangesXMLReader.read
-taskcoachlib.persistence.xml.reader.TemplateXMLReader.read
-taskcoachlib.persistence.xml.reader.XMLReader.read
-taskcoachlib.thirdparty.googleapi.apiclient.http._StreamSlice.read" class="py-name" href="#" onclick="return doclink('link-23', 'read', 'link-23');">read</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">format</tt> <tt class="py-op">==</tt> <tt id="link-24" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.topicdefnprovider.TOPIC_TREE_FROM_STRING" class="py-name" href="#" onclick="return doclink('link-24', 'TOPIC_TREE_FROM_STRING', 'link-14');">TOPIC_TREE_FROM_STRING</a></tt><tt class="py-op">:</tt> </tt>
-<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider._parse_tree" class="py-name" href="#" onclick="return doclink('link-25', '_parse_tree', 'link-19');">_parse_tree</a></tt><tt class="py-op">(</tt><tt id="link-26" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider._get_elem" class="py-name" href="#" onclick="return doclink('link-26', '_get_elem', 'link-20');">_get_elem</a></tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="taskcoachlib.persistence.xml" class="py-name" href="#" onclick="return doclink('link-27', 'xml', 'link-15');">xml</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
-<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-28" class="py-name" targets="Class taskcoachlib.thirdparty.pubsub.core.topicdefnprovider.TopicDefnProvider.UnrecognizedImportFormat=taskcoachlib.thirdparty.pubsub.core.topicdefnprovider.TopicDefnProvider.UnrecognizedImportFormat-class.html,Class taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider.UnrecognizedImportFormat=taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider.UnrecognizedImportFormat-class.html"><a title="taskcoachlib.thirdparty.pubsub.core.topicdefnprovider.TopicDefnProvider.UnrecognizedImportFormat
-taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider.UnrecognizedImportFormat" class="py-name" href="#" onclick="return doclink('link-28', 'UnrecognizedImportFormat', 'link-28');">UnrecognizedImportFormat</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"> </tt>
-<a name="XmlTopicDefnProvider._parse_tree"></a><div id="XmlTopicDefnProvider._parse_tree-def"><a name="L108"></a><tt class="py-lineno">108</tt> <a class="py-toggle" href="#" id="XmlTopicDefnProvider._parse_tree-toggle" onclick="return toggle('XmlTopicDefnProvider._parse_tree');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider-class.html#_parse_tree">_parse_tree</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">tree</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="XmlTopicDefnProvider._parse_tree-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlTopicDefnProvider._parse_tree-expanded"><a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-name">doc_node</tt> <tt class="py-op">=</tt> <tt class="py-name">tree</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Method taskcoachlib.thirdparty.desktop.windows.Window.find()=taskcoachlib.thirdparty.desktop.windows.Window-class.html#find,Function taskcoachlib.thirdparty.desktop.windows.find()=taskcoachlib.thirdparty.desktop.windows-module.html#find"><a title="taskcoachlib.thirdparty.desktop.windows.Window.find
-taskcoachlib.thirdparty.desktop.windows.find" class="py-name" href="#" onclick="return doclink('link-29', 'find', 'link-29');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">'description'</tt><tt class="py-op">)</tt> </tt>
-<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"> </tt>
-<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">doc_node</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
-<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_treeDoc</tt> <tt class="py-op">=</tt> <tt class="py-string">"UNDOCUMENTED"</tt> </tt>
-<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
-<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_treeDoc</tt> <tt class="py-op">=</tt> <tt class="py-string">' '</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">doc_node</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Variable taskcoachlib.thirdparty.xdg.Mime.text=taskcoachlib.thirdparty.xdg.Mime-module.html#text"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-30', 'text', 'link-30');">text</a></tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Class Method taskcoachlib.thirdparty.dateutil.parser._timelex.split()=taskcoachlib.thirdparty.dateutil.parser._timelex-class.html#split"><a title="taskcoachlib.thirdparty.dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-31', 'split', 'link-31');">split</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"> </tt>
-<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">node</tt> <tt class="py-keyword">in</tt> <tt class="py-name">tree</tt><tt class="py-op">.</tt><tt class="py-name">findall</tt><tt class="py-op">(</tt><tt class="py-string">'topic'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider._parse_topic()=taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider-class.html#_parse_topic"><a title="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider._parse_topic" class="py-name" href="#" onclick="return doclink('link-32', '_parse_topic', 'link-32');">_parse_topic</a></tt><tt class="py-op">(</tt><tt class="py-name">node</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"> </tt>
-<a name="XmlTopicDefnProvider._parse_topic"></a><div id="XmlTopicDefnProvider._parse_topic-def"><a name="L119"></a><tt class="py-lineno">119</tt> <a class="py-toggle" href="#" id="XmlTopicDefnProvider._parse_topic-toggle" onclick="return toggle('XmlTopicDefnProvider._parse_topic');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider-class.html#_parse_topic">_parse_topic</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">node</tt><tt class="py-op">,</tt> <tt class="py-param">parents</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">specs</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">reqlist</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="XmlTopicDefnProvider._parse_topic-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlTopicDefnProvider._parse_topic-expanded"><a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt id="link-33" class="py-name" targets="Method taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.parents()=taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter-class.html#parents"><a title="taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.parents" class="py-name" href="#" onclick="return doclink('link-33', 'parents', 'link-33');">parents</a></tt> <tt class="py-op">=</tt> <tt id="link-34" class="py-name"><a title="taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.parents" class="py-name" href="#" onclick="return doclink('link-34', 'parents', 'link-33');">parents</a></tt> <tt class="py-keyword">or</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
-<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">        <tt class="py-name">specs</tt> <tt class="py-op">=</tt> <tt class="py-name">specs</tt> <tt class="py-keyword">or</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
-<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt class="py-name">reqlist</tt> <tt class="py-op">=</tt> <tt class="py-name">reqlist</tt> <tt class="py-keyword">or</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
-<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"> </tt>
-<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">        <tt class="py-name">descNode</tt> <tt class="py-op">=</tt> <tt class="py-name">node</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="taskcoachlib.thirdparty.desktop.windows.Window.find
-taskcoachlib.thirdparty.desktop.windows.find" class="py-name" href="#" onclick="return doclink('link-35', 'find', 'link-29');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">'description'</tt><tt class="py-op">)</tt> </tt>
-<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"> </tt>
-<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">descNode</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
-<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">            <tt class="py-name">desc</tt> <tt class="py-op">=</tt> <tt class="py-string">"UNDOCUMENTED"</tt> </tt>
-<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
-<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">            <tt class="py-name">desc</tt> <tt class="py-op">=</tt> <tt class="py-string">' '</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">descNode</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-36', 'text', 'link-30');">text</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-37', 'split', 'link-31');">split</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"> </tt>
-<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-name">node_id</tt> <tt class="py-op">=</tt> <tt class="py-name">node</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name" targets="Method taskcoachlib.command.clipboard.Clipboard.get()=taskcoachlib.command.clipboard.Clipboard-class.html#get,Method taskcoachlib.config.settings.CachingConfigParser.get()=taskcoachlib.config.settings.CachingConfigParser-class.html#get,Method taskcoachlib.config.settings.Settings.get()=taskcoachlib.config.settings.Settings-class.html#get,Method taskcoachlib.config.settings.UnicodeAwareConfigParser.get()=taskcoachlib.config.settings.UnicodeAwareConfigParser-class.html#get,Method taskcoachlib.domain.base.attribute.Attribute.get()=taskcoachlib.domain.base.attribute.Attribute-class.html#get,Method taskcoachlib.domain.base.attribute.SetAttribute.get()=taskcoachlib.domain.base.attribute.SetAttribute-class.html#get,Method taskcoachlib.gui.dialog.preferences.SettingsPage.get()=taskcoachlib.gui.dialog.preferences.SettingsPage-class.html#get,Method taskcoachlib.gui.dialog.preferences.SettingsPageBase.get()=taskcoachlib.gui.dialog.preferences.SettingsPageBase-class.html#get,Method taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.get()=taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage-class.html#get,Class Method taskcoachlib.notify.notifier.AbstractNotifier.get()=taskcoachlib.notify.notifier.AbstractNotifier-class.html#get,Method taskcoachlib.syncml.config.SyncMLConfigNode.get()=taskcoachlib.syncml.config.SyncMLConfigNode-class.html#get,Method taskcoachlib.thirdparty.dateutil.tz.tzical.get()=taskcoachlib.thirdparty.dateutil.tz.tzical-class.html#get,Method taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas.get()=taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas-class.html#get,Method taskcoachlib.thirdparty.googleapi.httplib2.FileCache.get()=taskcoachlib.thirdparty.googleapi.httplib2.FileCache-class.html#get,Method taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.get()=taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache-class.html#get,Method taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage.get()=taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage-class.html#get,Method taskcoachlib.thirdparty.pyparsing.ParseResults.get()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#get,Method taskcoachlib.thirdparty.wmi._wmi_namespace.get()=taskcoachlib.thirdparty.wmi._wmi_namespace-class.html#get,Method taskcoachlib.thirdparty.xdg.IniFile.IniFile.get()=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#get"><a title="taskcoachlib.command.clipboard.Clipboard.get
-taskcoachlib.config.settings.CachingConfigParser.get
-taskcoachlib.config.settings.Settings.get
-taskcoachlib.config.settings.UnicodeAwareConfigParser.get
-taskcoachlib.domain.base.attribute.Attribute.get
-taskcoachlib.domain.base.attribute.SetAttribute.get
-taskcoachlib.gui.dialog.preferences.SettingsPage.get
-taskcoachlib.gui.dialog.preferences.SettingsPageBase.get
-taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.get
-taskcoachlib.notify.notifier.AbstractNotifier.get
-taskcoachlib.syncml.config.SyncMLConfigNode.get
-taskcoachlib.thirdparty.dateutil.tz.tzical.get
-taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas.get
-taskcoachlib.thirdparty.googleapi.httplib2.FileCache.get
-taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.get
-taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage.get
-taskcoachlib.thirdparty.pyparsing.ParseResults.get
-taskcoachlib.thirdparty.wmi._wmi_namespace.get
-taskcoachlib.thirdparty.xdg.IniFile.IniFile.get" class="py-name" href="#" onclick="return doclink('link-38', 'get', 'link-38');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'id'</tt><tt class="py-op">)</tt> </tt>
-<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">node_id</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
-<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-39" class="py-name" targets="Class taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider.XmlParserError=taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider.XmlParserError-class.html"><a title="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider.XmlParserError" class="py-name" href="#" onclick="return doclink('link-39', 'XmlParserError', 'link-39');">XmlParserError</a></tt><tt class="py-op">(</tt><tt class="py-string">"topic element must have an id attribute"</tt><tt class="py-op">)</tt> </tt>
-<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"> </tt>
-<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">this</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">findall</tt><tt class="py-op">(</tt><tt class="py-string">'listenerspec/arg'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">            <tt class="py-name">this_id</tt> <tt class="py-op">=</tt> <tt class="py-name">this</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="taskcoachlib.command.clipboard.Clipboard.get
-taskcoachlib.config.settings.CachingConfigParser.get
-taskcoachlib.config.settings.Settings.get
-taskcoachlib.config.settings.UnicodeAwareConfigParser.get
-taskcoachlib.domain.base.attribute.Attribute.get
-taskcoachlib.domain.base.attribute.SetAttribute.get
-taskcoachlib.gui.dialog.preferences.SettingsPage.get
-taskcoachlib.gui.dialog.preferences.SettingsPageBase.get
-taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.get
-taskcoachlib.notify.notifier.AbstractNotifier.get
-taskcoachlib.syncml.config.SyncMLConfigNode.get
-taskcoachlib.thirdparty.dateutil.tz.tzical.get
-taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas.get
-taskcoachlib.thirdparty.googleapi.httplib2.FileCache.get
-taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.get
-taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage.get
-taskcoachlib.thirdparty.pyparsing.ParseResults.get
-taskcoachlib.thirdparty.wmi._wmi_namespace.get
-taskcoachlib.thirdparty.xdg.IniFile.IniFile.get" class="py-name" href="#" onclick="return doclink('link-40', 'get', 'link-38');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'id'</tt><tt class="py-op">)</tt> </tt>
-<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">this_id</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
-<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt id="link-41" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider.XmlParserError" class="py-name" href="#" onclick="return doclink('link-41', 'XmlParserError', 'link-39');">XmlParserError</a></tt><tt class="py-op">(</tt><tt class="py-string">"arg element must have an id attribute"</tt><tt class="py-op">)</tt> </tt>
-<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"> </tt>
-<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">            <tt class="py-name">this_desc</tt> <tt class="py-op">=</tt> <tt class="py-name">this</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-42', 'text', 'link-30');">text</a></tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">            <tt class="py-name">this_desc</tt> <tt class="py-op">=</tt> <tt class="py-name">this_desc</tt> <tt class="py-keyword">or</tt> <tt class="py-string">"UNDOCUMENTED"</tt> </tt>
-<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">            <tt class="py-name">this_desc</tt> <tt class="py-op">=</tt> <tt class="py-string">' '</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">this_desc</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-43', 'split', 'link-31');">split</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"> </tt>
-<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">            <tt class="py-name">specs</tt><tt class="py-op">[</tt><tt class="py-name">this_id</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">this_desc</tt> </tt>
-<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"> </tt>
-<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">this</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="taskcoachlib.command.clipboard.Clipboard.get
-taskcoachlib.config.settings.CachingConfigParser.get
-taskcoachlib.config.settings.Settings.get
-taskcoachlib.config.settings.UnicodeAwareConfigParser.get
-taskcoachlib.domain.base.attribute.Attribute.get
-taskcoachlib.domain.base.attribute.SetAttribute.get
-taskcoachlib.gui.dialog.preferences.SettingsPage.get
-taskcoachlib.gui.dialog.preferences.SettingsPageBase.get
-taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.get
-taskcoachlib.notify.notifier.AbstractNotifier.get
-taskcoachlib.syncml.config.SyncMLConfigNode.get
-taskcoachlib.thirdparty.dateutil.tz.tzical.get
-taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas.get
-taskcoachlib.thirdparty.googleapi.httplib2.FileCache.get
-taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.get
-taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage.get
-taskcoachlib.thirdparty.pyparsing.ParseResults.get
-taskcoachlib.thirdparty.wmi._wmi_namespace.get
-taskcoachlib.thirdparty.xdg.IniFile.IniFile.get" class="py-name" href="#" onclick="return doclink('link-44', 'get', 'link-38');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'optional'</tt><tt class="py-op">,</tt> <tt class="py-string">''</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">lower</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-op">[</tt><tt class="py-string">'true'</tt><tt class="py-op">,</tt> <tt class="py-string">'t'</tt><tt class="py-op">,</tt><tt class="py-string">'yes'</tt><tt class="py-op">,</tt><tt class="py-string">'y'</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
-<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">                <tt class="py-name">reqlist</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name" targets="Method taskcoachlib.iphone.protocol.CompositeItem.append()=taskcoachlib.iphone.protocol.CompositeItem-class.html#append,Method taskcoachlib.iphone.protocol.ListItem.append()=taskcoachlib.iphone.protocol.ListItem-class.html#append,Method taskcoachlib.patterns.command.CommandHistory.append()=taskcoachlib.patterns.command.CommandHistory-class.html#append,Method taskcoachlib.patterns.composite.CompositeCollection.append()=taskcoachlib.patterns.composite.CompositeCollection-class.html#append,Method taskcoachlib.patterns.observer.CollectionDecorator.append()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#append,Method taskcoachlib.patterns.observer.ObservableList.append()=taskcoachlib.patterns.observer.ObservableList-class.html#append,Method taskcoachlib.patterns.observer.ObservableSet.append()=taskcoachlib.patterns.observer.ObservableSet-class.html#append,Method taskcoachlib.thirdparty.pyparsing.ParseExpression.append()=taskcoachlib.thirdparty.pyparsing.ParseExpression-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append()=taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter-class.html#append,Method taskcoachlib.thirdparty.timeline.timeline.HotMap.append()=taskcoachlib.thirdparty.timeline.timeline.HotMap-class.html#append"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
-taskcoachlib.iphone.protocol.ListItem.append
-taskcoachlib.patterns.command.CommandHistory.append
-taskcoachlib.patterns.composite.CompositeCollection.append
-taskcoachlib.patterns.observer.CollectionDecorator.append
-taskcoachlib.patterns.observer.ObservableList.append
-taskcoachlib.patterns.observer.ObservableSet.append
-taskcoachlib.thirdparty.pyparsing.ParseExpression.append
-taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
-taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
-taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
-taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
-taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-45', 'append', 'link-45');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">this_id</tt><tt class="py-op">)</tt> </tt>
-<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line"> </tt>
-<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-name">defn</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name" targets="Variable taskcoachlib.thirdparty.pubsub.core.itopicdefnprovider.ITopicDefnProvider.ArgSpecGiven=taskcoachlib.thirdparty.pubsub.core.itopicdefnprovider.ITopicDefnProvider-class.html#ArgSpecGiven,Class taskcoachlib.thirdparty.pubsub.core.topicargspec.ArgSpecGiven=taskcoachlib.thirdparty.pubsub.core.topicargspec.ArgSpecGiven-class.html"><a title="taskcoachlib.thirdparty.pubsub.core.itopicdefnprovider.ITopicDefnProvider.ArgSpecGiven
-taskcoachlib.thirdparty.pubsub.core.topicargspec.ArgSpecGiven" class="py-name" href="#" onclick="return doclink('link-46', 'ArgSpecGiven', 'link-46');">ArgSpecGiven</a></tt><tt class="py-op">(</tt><tt class="py-name">specs</tt><tt class="py-op">,</tt> <tt class="py-name">tuple</tt><tt class="py-op">(</tt><tt class="py-name">reqlist</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"> </tt>
-<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">        <tt id="link-47" class="py-name"><a title="taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.parents" class="py-name" href="#" onclick="return doclink('link-47', 'parents', 'link-33');">parents</a></tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
-taskcoachlib.iphone.protocol.ListItem.append
-taskcoachlib.patterns.command.CommandHistory.append
-taskcoachlib.patterns.composite.CompositeCollection.append
-taskcoachlib.patterns.observer.CollectionDecorator.append
-taskcoachlib.patterns.observer.ObservableList.append
-taskcoachlib.patterns.observer.ObservableSet.append
-taskcoachlib.thirdparty.pyparsing.ParseExpression.append
-taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
-taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
-taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
-taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
-taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-48', 'append', 'link-45');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">node</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="taskcoachlib.command.clipboard.Clipboard.get
-taskcoachlib.config.settings.CachingConfigParser.get
-taskcoachlib.config.settings.Settings.get
-taskcoachlib.config.settings.UnicodeAwareConfigParser.get
-taskcoachlib.domain.base.attribute.Attribute.get
-taskcoachlib.domain.base.attribute.SetAttribute.get
-taskcoachlib.gui.dialog.preferences.SettingsPage.get
-taskcoachlib.gui.dialog.preferences.SettingsPageBase.get
-taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.get
-taskcoachlib.notify.notifier.AbstractNotifier.get
-taskcoachlib.syncml.config.SyncMLConfigNode.get
-taskcoachlib.thirdparty.dateutil.tz.tzical.get
-taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas.get
-taskcoachlib.thirdparty.googleapi.httplib2.FileCache.get
-taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.get
-taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage.get
-taskcoachlib.thirdparty.pyparsing.ParseResults.get
-taskcoachlib.thirdparty.wmi._wmi_namespace.get
-taskcoachlib.thirdparty.xdg.IniFile.IniFile.get" class="py-name" href="#" onclick="return doclink('link-49', 'get', 'link-38');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">'id'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line"> </tt>
-<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_topics</tt><tt class="py-op">[</tt><tt class="py-name">tuple</tt><tt class="py-op">(</tt><tt id="link-50" class="py-name"><a title="taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.parents" class="py-name" href="#" onclick="return doclink('link-50', 'parents', 'link-33');">parents</a></tt><tt class="py-op">)</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">desc</tt><tt class="py-op">,</tt> <tt class="py-name">defn</tt> </tt>
-<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"> </tt>
-<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">subtopic</tt> <tt class="py-keyword">in</tt> <tt class="py-name">node</tt><tt class="py-op">.</tt><tt class="py-name">findall</tt><tt class="py-op">(</tt><tt class="py-string">'topic'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider._parse_topic" class="py-name" href="#" onclick="return doclink('link-51', '_parse_topic', 'link-32');">_parse_topic</a></tt><tt class="py-op">(</tt><tt class="py-name">subtopic</tt><tt class="py-op">,</tt> <tt id="link-52" class="py-name"><a title="taskcoachlib.thirdparty.squaremap.squaremap.DefaultAdapter.parents" class="py-name" href="#" onclick="return doclink('link-52', 'parents', 'link-33');">parents</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">specs</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name" targets="Method taskcoachlib.domain.base.object.Object.copy()=taskcoachlib.domain.base.object.Object-class.html#copy,Method taskcoachlib.domain.date.recurrence.Recurrence.copy()=taskcoachlib.domain.date.recurrence.Recurrence-class.html#copy,Method taskcoachlib.patterns.composite.Composite.copy()=taskcoachlib.patterns.composite.Composite-class.html#copy,Method taskcoachlib.thirdparty._weakrefset.WeakSet.copy()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.Forward.copy()=taskcoachlib.thirdparty.pyparsing.Forward-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.Keyword.copy()=taskcoachlib.thirdparty.pyparsing.Keyword-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.ParseResults.copy()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#copy,Method taskcoachlib.thirdparty.pyparsing.ParserElement.copy()=taskcoachlib.thirdparty.pyparsing.ParserElement-class.html#copy"><a title="taskcoachlib.domain.base.object.Object.copy
-taskcoachlib.domain.date.recurrence.Recurrence.copy
-taskcoachlib.patterns.composite.Composite.copy
-taskcoachlib.thirdparty._weakrefset.WeakSet.copy
-taskcoachlib.thirdparty.pyparsing.Forward.copy
-taskcoachlib.thirdparty.pyparsing.Keyword.copy
-taskcoachlib.thirdparty.pyparsing.ParseResults.copy
-taskcoachlib.thirdparty.pyparsing.ParserElement.copy" class="py-name" href="#" onclick="return doclink('link-53', 'copy', 'link-53');">copy</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">reqlist</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"> </tt>
-<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"> </tt>
-<a name="XmlTopicDefnProvider.getDefn"></a><div id="XmlTopicDefnProvider.getDefn-def"><a name="L159"></a><tt class="py-lineno">159</tt> <a class="py-toggle" href="#" id="XmlTopicDefnProvider.getDefn-toggle" onclick="return toggle('XmlTopicDefnProvider.getDefn');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider-class.html#getDefn">getDefn</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">topicNameTuple</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="XmlTopicDefnProvider.getDefn-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlTopicDefnProvider.getDefn-expanded"><a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_topics</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="taskcoachlib.command.clipboard.Clipboard.get
-taskcoachlib.config.settings.CachingConfigParser.get
-taskcoachlib.config.settings.Settings.get
-taskcoachlib.config.settings.UnicodeAwareConfigParser.get
-taskcoachlib.domain.base.attribute.Attribute.get
-taskcoachlib.domain.base.attribute.SetAttribute.get
-taskcoachlib.gui.dialog.preferences.SettingsPage.get
-taskcoachlib.gui.dialog.preferences.SettingsPageBase.get
-taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.get
-taskcoachlib.notify.notifier.AbstractNotifier.get
-taskcoachlib.syncml.config.SyncMLConfigNode.get
-taskcoachlib.thirdparty.dateutil.tz.tzical.get
-taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas.get
-taskcoachlib.thirdparty.googleapi.httplib2.FileCache.get
-taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.get
-taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage.get
-taskcoachlib.thirdparty.pyparsing.ParseResults.get
-taskcoachlib.thirdparty.wmi._wmi_namespace.get
-taskcoachlib.thirdparty.xdg.IniFile.IniFile.get" class="py-name" href="#" onclick="return doclink('link-54', 'get', 'link-38');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">topicNameTuple</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"> </tt>
-<a name="XmlTopicDefnProvider.topicNames"></a><div id="XmlTopicDefnProvider.topicNames-def"><a name="L162"></a><tt class="py-lineno">162</tt> <a class="py-toggle" href="#" id="XmlTopicDefnProvider.topicNames-toggle" onclick="return toggle('XmlTopicDefnProvider.topicNames');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider-class.html#topicNames">topicNames</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="XmlTopicDefnProvider.topicNames-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlTopicDefnProvider.topicNames-expanded"><a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_topics</tt><tt class="py-op">.</tt><tt class="py-name">iterkeys</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"> </tt>
-<a name="XmlTopicDefnProvider.getTreeDoc"></a><div id="XmlTopicDefnProvider.getTreeDoc-def"><a name="L165"></a><tt class="py-lineno">165</tt> <a class="py-toggle" href="#" id="XmlTopicDefnProvider.getTreeDoc-toggle" onclick="return toggle('XmlTopicDefnProvider.getTreeDoc');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlTopicDefnProvider-class.html#getTreeDoc">getTreeDoc</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="XmlTopicDefnProvider.getTreeDoc-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlTopicDefnProvider.getTreeDoc-expanded"><a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_treeDoc</tt> </tt>
-</div></div><a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"> </tt>
-<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">     </tt>
-<a name="XmlVisitor"></a><div id="XmlVisitor-def"><a name="L169"></a><tt class="py-lineno">169</tt> <a class="py-toggle" href="#" id="XmlVisitor-toggle" onclick="return toggle('XmlVisitor');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlVisitor-class.html">XmlVisitor</a><tt class="py-op">(</tt><tt class="py-base-class">ITopicTreeVisitor</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="XmlVisitor-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="XmlVisitor-expanded"><a name="XmlVisitor.__init__"></a><div id="XmlVisitor.__init__-def"><a name="L170"></a><tt class="py-lineno">170</tt> <a class="py-toggle" href="#" id="XmlVisitor.__init__-toggle" onclick="return toggle('XmlVisitor.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlVisitor-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">elem</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="XmlVisitor.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlVisitor.__init__-expanded"><a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">tree</tt> <tt class="py-op">=</tt> <tt class="py-name">elem</tt> </tt>
-<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">known_topics</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
-</div><a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"> </tt>
-<a name="XmlVisitor._startTraversal"></a><div id="XmlVisitor._startTraversal-def"><a name="L174"></a><tt class="py-lineno">174</tt> <a class="py-toggle" href="#" id="XmlVisitor._startTraversal-toggle" onclick="return toggle('XmlVisitor._startTraversal');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlVisitor-class.html#_startTraversal">_startTraversal</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="XmlVisitor._startTraversal-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlVisitor._startTraversal-expanded"><a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">roots</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">tree</tt><tt class="py-op">]</tt> </tt>
-</div><a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line"> </tt>
-<a name="XmlVisitor._onTopic"></a><div id="XmlVisitor._onTopic-def"><a name="L177"></a><tt class="py-lineno">177</tt> <a class="py-toggle" href="#" id="XmlVisitor._onTopic-toggle" onclick="return toggle('XmlVisitor._onTopic');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlVisitor-class.html#_onTopic">_onTopic</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">topicObj</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="XmlVisitor._onTopic-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlVisitor._onTopic-expanded"><a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">topicObj</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.isAll()=taskcoachlib.thirdparty.pubsub.core.topicobj.Topic-class.html#isAll"><a title="taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.isAll" class="py-name" href="#" onclick="return doclink('link-55', 'isAll', 'link-55');">isAll</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">last_elem</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">tree</tt> </tt>
-<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> </tt>
-<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">roots</tt><tt class="py-op">:</tt> </tt>
-<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">            <tt class="py-name">this_elem</tt> <tt class="py-op">=</tt> <tt class="py-name">ET</tt><tt class="py-op">.</tt><tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">roots</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-string">'topic'</tt><tt class="py-op">,</tt> </tt>
-<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">                <tt class="py-op">{</tt><tt class="py-string">'id'</tt><tt class="py-op">:</tt><tt class="py-name">topicObj</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.getNodeName()=taskcoachlib.thirdparty.pubsub.core.topicobj.Topic-class.html#getNodeName"><a title="taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.getNodeName" class="py-name" href="#" onclick="return doclink('link-56', 'getNodeName', 'link-56');">getNodeName</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
-<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
-<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">            <tt class="py-name">this_elem</tt> <tt class="py-op">=</tt> <tt class="py-name">ET</tt><tt class="py-op">.</tt><tt class="py-name">Element</tt><tt class="py-op">(</tt><tt class="py-string">'topic'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">'id'</tt><tt class="py-op">:</tt><tt class="py-name">topicObj</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.getNodeName" class="py-name" href="#" onclick="return doclink('link-57', 'getNodeName', 'link-56');">getNodeName</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
-<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">        <tt class="py-name">req</tt><tt class="py-op">,</tt> <tt class="py-name">opt</tt> <tt class="py-op">=</tt> <tt class="py-name">topicObj</tt><tt class="py-op">.</tt><tt id="link-58" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.arg1.topicargspecimpl.ArgsInfo.getArgs()=taskcoachlib.thirdparty.pubsub.core.arg1.topicargspecimpl.ArgsInfo-class.html#getArgs,Function taskcoachlib.thirdparty.pubsub.core.callables.getArgs()=taskcoachlib.thirdparty.pubsub.core.callables-module.html#getArgs,Method taskcoachlib.thirdparty.pubsub.core.kwargs.topicargspecimpl.ArgsInfo.getArgs()=taskcoachlib.thirdparty.pubsub.core.kwargs.topicargspecimpl.ArgsInfo-class.html#getArgs,Method taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.getArgs()=taskcoachlib.thirdparty.pubsub.core.topicobj.Topic-class.html#getArgs"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.topicargspecimpl.ArgsInfo.getArgs
-taskcoachlib.thirdparty.pubsub.core.callables.getArgs
-taskcoachlib.thirdparty.pubsub.core.kwargs.topicargspecimpl.ArgsInfo.getArgs
-taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.getArgs" class="py-name" href="#" onclick="return doclink('link-58', 'getArgs', 'link-58');">getArgs</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">        <tt class="py-name">req</tt> <tt class="py-op">=</tt> <tt class="py-name">req</tt> <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">        <tt class="py-name">opt</tt> <tt class="py-op">=</tt> <tt class="py-name">opt</tt> <tt class="py-keyword">or</tt> <tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">        <tt class="py-name">desc_elem</tt> <tt class="py-op">=</tt> <tt class="py-name">ET</tt><tt class="py-op">.</tt><tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">this_elem</tt><tt class="py-op">,</tt> <tt class="py-string">'description'</tt><tt class="py-op">)</tt> </tt>
-<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">        <tt class="py-name">topicDesc</tt> <tt class="py-op">=</tt> <tt class="py-name">topicObj</tt><tt class="py-op">.</tt><tt id="link-59" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.getDescription()=taskcoachlib.thirdparty.pubsub.core.topicobj.Topic-class.html#getDescription"><a title="taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.getDescription" class="py-name" href="#" onclick="return doclink('link-59', 'getDescription', 'link-59');">getDescription</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">topicDesc</tt><tt class="py-op">:</tt> </tt>
-<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">            <tt class="py-name">desc_elem</tt><tt class="py-op">.</tt><tt id="link-60" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-60', 'text', 'link-30');">text</a></tt> <tt class="py-op">=</tt> <tt class="py-string">' '</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">topicDesc</tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-61', 'split', 'link-31');">split</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt>  </tt>
-<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
-<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">            <tt class="py-name">desc_elem</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-62', 'text', 'link-30');">text</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"UNDOCUMENTED"</tt> </tt>
-<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">        <tt class="py-name">argDescriptions</tt> <tt class="py-op">=</tt> <tt class="py-name">topicObj</tt><tt class="py-op">.</tt><tt id="link-63" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.getArgDescriptions()=taskcoachlib.thirdparty.pubsub.core.topicobj.Topic-class.html#getArgDescriptions"><a title="taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.getArgDescriptions" class="py-name" href="#" onclick="return doclink('link-63', 'getArgDescriptions', 'link-63');">getArgDescriptions</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line"> </tt>
-<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">        <tt class="py-comment"># pubsub way of getting known_args</tt> </tt>
-<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">        <tt class="py-name">known_args</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
-<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">        <tt id="link-64" class="py-name" targets="Method taskcoachlib.domain.effort.base.BaseEffort.parent()=taskcoachlib.domain.effort.base.BaseEffort-class.html#parent,Method taskcoachlib.domain.effort.composite.BaseCompositeEffort.parent()=taskcoachlib.domain.effort.composite.BaseCompositeEffort-class.html#parent,Method taskcoachlib.patterns.composite.Composite.parent()=taskcoachlib.patterns.composite.Composite-class.html#parent"><a title="taskcoachlib.domain.effort.base.BaseEffort.parent
-taskcoachlib.domain.effort.composite.BaseCompositeEffort.parent
-taskcoachlib.patterns.composite.Composite.parent" class="py-name" href="#" onclick="return doclink('link-64', 'parent', 'link-64');">parent</a></tt> <tt class="py-op">=</tt> <tt class="py-name">topicObj</tt><tt class="py-op">.</tt><tt id="link-65" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.getParent()=taskcoachlib.thirdparty.pubsub.core.topicobj.Topic-class.html#getParent"><a title="taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.getParent" class="py-name" href="#" onclick="return doclink('link-65', 'getParent', 'link-65');">getParent</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">        <tt class="py-keyword">while</tt> <tt id="link-66" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.parent
-taskcoachlib.domain.effort.composite.BaseCompositeEffort.parent
-taskcoachlib.patterns.composite.Composite.parent" class="py-name" href="#" onclick="return doclink('link-66', 'parent', 'link-64');">parent</a></tt><tt class="py-op">:</tt> </tt>
-<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-67" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.parent
-taskcoachlib.domain.effort.composite.BaseCompositeEffort.parent
-taskcoachlib.patterns.composite.Composite.parent" class="py-name" href="#" onclick="return doclink('link-67', 'parent', 'link-64');">parent</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">known_topics</tt><tt class="py-op">:</tt> </tt>
-<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">                <tt class="py-name">p_req</tt><tt class="py-op">,</tt> <tt class="py-name">p_opt</tt> <tt class="py-op">=</tt> <tt id="link-68" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.parent
-taskcoachlib.domain.effort.composite.BaseCompositeEffort.parent
-taskcoachlib.patterns.composite.Composite.parent" class="py-name" href="#" onclick="return doclink('link-68', 'parent', 'link-64');">parent</a></tt><tt class="py-op">.</tt><tt id="link-69" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.arg1.topicargspecimpl.ArgsInfo.getArgs
-taskcoachlib.thirdparty.pubsub.core.callables.getArgs
-taskcoachlib.thirdparty.pubsub.core.kwargs.topicargspecimpl.ArgsInfo.getArgs
-taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.getArgs" class="py-name" href="#" onclick="return doclink('link-69', 'getArgs', 'link-58');">getArgs</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">p_req</tt><tt class="py-op">:</tt> </tt>
-<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">                    <tt class="py-name">known_args</tt><tt class="py-op">.</tt><tt id="link-70" class="py-name" targets="Method taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer.extend()=taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer-class.html#extend,Method taskcoachlib.domain.category.categorycontainer.CategoryList.extend()=taskcoachlib.domain.category.categorycontainer.CategoryList-class.html#extend,Method taskcoachlib.domain.effort.effortlist.EffortList.extend()=taskcoachlib.domain.effort.effortlist.EffortList-class.html#extend,Method taskcoachlib.domain.effort.reducer.EffortAggregator.extend()=taskcoachlib.domain.effort.reducer.EffortAggregator-class.html#extend,Method taskcoachlib.patterns.composite.CompositeCollection.extend()=taskcoachlib.patterns.composite.CompositeCollection-class.html#extend,Method taskcoachlib.patterns.observer.CollectionDecorator.extend()=taskcoachlib.patterns.observer.CollectionDecorator-class.html#extend,Method taskcoachlib.patterns.observer.ObservableList.extend()=taskcoachlib.patterns.observer.ObservableList-class.html#extend,Method taskcoachlib.patterns.observer.ObservableSet.extend()=taskcoachlib.patterns.observer.ObservableSet-class.html#extend"><a title="taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer.extend
-taskcoachlib.domain.category.categorycontainer.CategoryList.extend
-taskcoachlib.domain.effort.effortlist.EffortList.extend
-taskcoachlib.domain.effort.reducer.EffortAggregator.extend
-taskcoachlib.patterns.composite.CompositeCollection.extend
-taskcoachlib.patterns.observer.CollectionDecorator.extend
-taskcoachlib.patterns.observer.ObservableList.extend
-taskcoachlib.patterns.observer.ObservableSet.extend" class="py-name" href="#" onclick="return doclink('link-70', 'extend', 'link-70');">extend</a></tt><tt class="py-op">(</tt><tt class="py-name">p_req</tt><tt class="py-op">)</tt> </tt>
-<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">p_opt</tt><tt class="py-op">:</tt> </tt>
-<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">                    <tt class="py-name">known_args</tt><tt class="py-op">.</tt><tt id="link-71" class="py-name"><a title="taskcoachlib.domain.categorizable.categorizablecontainer.CategorizableContainer.extend
-taskcoachlib.domain.category.categorycontainer.CategoryList.extend
-taskcoachlib.domain.effort.effortlist.EffortList.extend
-taskcoachlib.domain.effort.reducer.EffortAggregator.extend
-taskcoachlib.patterns.composite.CompositeCollection.extend
-taskcoachlib.patterns.observer.CollectionDecorator.extend
-taskcoachlib.patterns.observer.ObservableList.extend
-taskcoachlib.patterns.observer.ObservableSet.extend" class="py-name" href="#" onclick="return doclink('link-71', 'extend', 'link-70');">extend</a></tt><tt class="py-op">(</tt><tt class="py-name">p_opt</tt><tt class="py-op">)</tt> </tt>
-<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">            <tt id="link-72" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.parent
-taskcoachlib.domain.effort.composite.BaseCompositeEffort.parent
-taskcoachlib.patterns.composite.Composite.parent" class="py-name" href="#" onclick="return doclink('link-72', 'parent', 'link-64');">parent</a></tt> <tt class="py-op">=</tt> <tt id="link-73" class="py-name"><a title="taskcoachlib.domain.effort.base.BaseEffort.parent
-taskcoachlib.domain.effort.composite.BaseCompositeEffort.parent
-taskcoachlib.patterns.composite.Composite.parent" class="py-name" href="#" onclick="return doclink('link-73', 'parent', 'link-64');">parent</a></tt><tt class="py-op">.</tt><tt id="link-74" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.core.topicobj.Topic.getParent" class="py-name" href="#" onclick="return doclink('link-74', 'getParent', 'link-65');">getParent</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line"> </tt>
-<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">        <tt class="py-comment"># there is probably a cleaner way to do this</tt> </tt>
-<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">req</tt> <tt class="py-keyword">or</tt> <tt class="py-name">opt</tt><tt class="py-op">:</tt> </tt>
-<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">            <tt class="py-name">spec</tt> <tt class="py-op">=</tt> <tt class="py-name">ET</tt><tt class="py-op">.</tt><tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">this_elem</tt><tt class="py-op">,</tt> <tt class="py-string">'listenerspec'</tt><tt class="py-op">)</tt> </tt>
-<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">arg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">req</tt><tt class="py-op">:</tt> </tt>
-<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">arg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">known_args</tt><tt class="py-op">:</tt> </tt>
-<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line">                    <tt class="py-keyword">continue</tt> </tt>
-<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line">                <tt class="py-name">arg_elem</tt> <tt class="py-op">=</tt> <tt class="py-name">ET</tt><tt class="py-op">.</tt><tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">spec</tt><tt class="py-op">,</tt> <tt class="py-string">'arg'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">'id'</tt><tt class="py-op">:</tt> <tt class="py-name">arg</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
-<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">                <tt class="py-name">arg_elem</tt><tt class="py-op">.</tt><tt id="link-75" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-75', 'text', 'link-30');">text</a></tt> <tt class="py-op">=</tt> <tt class="py-string">' '</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">argDescriptions</tt><tt class="py-op">.</tt><tt id="link-76" class="py-name"><a title="taskcoachlib.command.clipboard.Clipboard.get
-taskcoachlib.config.settings.CachingConfigParser.get
-taskcoachlib.config.settings.Settings.get
-taskcoachlib.config.settings.UnicodeAwareConfigParser.get
-taskcoachlib.domain.base.attribute.Attribute.get
-taskcoachlib.domain.base.attribute.SetAttribute.get
-taskcoachlib.gui.dialog.preferences.SettingsPage.get
-taskcoachlib.gui.dialog.preferences.SettingsPageBase.get
-taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.get
-taskcoachlib.notify.notifier.AbstractNotifier.get
-taskcoachlib.syncml.config.SyncMLConfigNode.get
-taskcoachlib.thirdparty.dateutil.tz.tzical.get
-taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas.get
-taskcoachlib.thirdparty.googleapi.httplib2.FileCache.get
-taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.get
-taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage.get
-taskcoachlib.thirdparty.pyparsing.ParseResults.get
-taskcoachlib.thirdparty.wmi._wmi_namespace.get
-taskcoachlib.thirdparty.xdg.IniFile.IniFile.get" class="py-name" href="#" onclick="return doclink('link-76', 'get', 'link-38');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">arg</tt><tt class="py-op">,</tt> <tt class="py-string">'UNDOCUMENTED'</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-77" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-77', 'split', 'link-31');">split</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">arg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">opt</tt><tt class="py-op">:</tt> </tt>
-<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">arg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">known_args</tt><tt class="py-op">:</tt> </tt>
-<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">                    <tt class="py-keyword">continue</tt> </tt>
-<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">                <tt class="py-name">arg_elem</tt> <tt class="py-op">=</tt> <tt class="py-name">ET</tt><tt class="py-op">.</tt><tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">spec</tt><tt class="py-op">,</tt> <tt class="py-string">'arg'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt class="py-string">'id'</tt><tt class="py-op">:</tt> <tt class="py-name">arg</tt><tt class="py-op">,</tt> <tt class="py-string">'optional'</tt><tt class="py-op">:</tt><tt class="py-string">'True'</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
-<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">                <tt class="py-name">arg_elem</tt><tt class="py-op">.</tt><tt id="link-78" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-78', 'text', 'link-30');">text</a></tt> <tt class="py-op">=</tt> <tt class="py-string">' '</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">argDescriptions</tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="taskcoachlib.command.clipboard.Clipboard.get
-taskcoachlib.config.settings.CachingConfigParser.get
-taskcoachlib.config.settings.Settings.get
-taskcoachlib.config.settings.UnicodeAwareConfigParser.get
-taskcoachlib.domain.base.attribute.Attribute.get
-taskcoachlib.domain.base.attribute.SetAttribute.get
-taskcoachlib.gui.dialog.preferences.SettingsPage.get
-taskcoachlib.gui.dialog.preferences.SettingsPageBase.get
-taskcoachlib.gui.dialog.syncpreferences.SyncMLBasePage.get
-taskcoachlib.notify.notifier.AbstractNotifier.get
-taskcoachlib.syncml.config.SyncMLConfigNode.get
-taskcoachlib.thirdparty.dateutil.tz.tzical.get
-taskcoachlib.thirdparty.googleapi.apiclient.schema.Schemas.get
-taskcoachlib.thirdparty.googleapi.httplib2.FileCache.get
-taskcoachlib.thirdparty.googleapi.oauth2client.client.MemoryCache.get
-taskcoachlib.thirdparty.googleapi.oauth2client.client.Storage.get
-taskcoachlib.thirdparty.pyparsing.ParseResults.get
-taskcoachlib.thirdparty.wmi._wmi_namespace.get
-taskcoachlib.thirdparty.xdg.IniFile.IniFile.get" class="py-name" href="#" onclick="return doclink('link-79', 'get', 'link-38');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">arg</tt><tt class="py-op">,</tt> <tt class="py-string">'UNDOCUMENTED'</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-80" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-80', 'split', 'link-31');">split</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line"> </tt>
-<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">last_elem</tt> <tt class="py-op">=</tt> <tt class="py-name">this_elem</tt> </tt>
-<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">known_topics</tt><tt class="py-op">.</tt><tt id="link-81" class="py-name"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
-taskcoachlib.iphone.protocol.ListItem.append
-taskcoachlib.patterns.command.CommandHistory.append
-taskcoachlib.patterns.composite.CompositeCollection.append
-taskcoachlib.patterns.observer.CollectionDecorator.append
-taskcoachlib.patterns.observer.ObservableList.append
-taskcoachlib.patterns.observer.ObservableSet.append
-taskcoachlib.thirdparty.pyparsing.ParseExpression.append
-taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
-taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
-taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
-taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
-taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-81', 'append', 'link-45');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">topicObj</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line"> </tt>
-<a name="XmlVisitor._startChildren"></a><div id="XmlVisitor._startChildren-def"><a name="L226"></a><tt class="py-lineno">226</tt> <a class="py-toggle" href="#" id="XmlVisitor._startChildren-toggle" onclick="return toggle('XmlVisitor._startChildren');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlVisitor-class.html#_startChildren">_startChildren</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="XmlVisitor._startChildren-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlVisitor._startChildren-expanded"><a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">roots</tt><tt class="py-op">.</tt><tt id="link-82" class="py-name"><a title="taskcoachlib.iphone.protocol.CompositeItem.append
-taskcoachlib.iphone.protocol.ListItem.append
-taskcoachlib.patterns.command.CommandHistory.append
-taskcoachlib.patterns.composite.CompositeCollection.append
-taskcoachlib.patterns.observer.CollectionDecorator.append
-taskcoachlib.patterns.observer.ObservableList.append
-taskcoachlib.patterns.observer.ObservableSet.append
-taskcoachlib.thirdparty.pyparsing.ParseExpression.append
-taskcoachlib.thirdparty.smartdatetimectrl.AnyFormatCharacter.append
-taskcoachlib.thirdparty.smartdatetimectrl.FormatCharacter.append
-taskcoachlib.thirdparty.smartdatetimectrl.NumericField.NumericFormatCharacter.append
-taskcoachlib.thirdparty.smartdatetimectrl.SingleFormatCharacter.append
-taskcoachlib.thirdparty.timeline.timeline.HotMap.append" class="py-name" href="#" onclick="return doclink('link-82', 'append', 'link-45');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">last_elem</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line"> </tt>
-<a name="XmlVisitor._endChildren"></a><div id="XmlVisitor._endChildren-def"><a name="L229"></a><tt class="py-lineno">229</tt> <a class="py-toggle" href="#" id="XmlVisitor._endChildren-toggle" onclick="return toggle('XmlVisitor._endChildren');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlVisitor-class.html#_endChildren">_endChildren</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="XmlVisitor._endChildren-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="XmlVisitor._endChildren-expanded"><a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">roots</tt><tt class="py-op">.</tt><tt id="link-83" class="py-name" targets="Method taskcoachlib.thirdparty._weakrefset.WeakSet.pop()=taskcoachlib.thirdparty._weakrefset.WeakSet-class.html#pop,Method taskcoachlib.thirdparty.pyparsing.ParseResults.pop()=taskcoachlib.thirdparty.pyparsing.ParseResults-class.html#pop"><a title="taskcoachlib.thirdparty._weakrefset.WeakSet.pop
-taskcoachlib.thirdparty.pyparsing.ParseResults.pop" class="py-name" href="#" onclick="return doclink('link-83', 'pop', 'link-83');">pop</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-</div></div><a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line"> </tt>
-<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line">         </tt>
-<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line"><tt class="py-comment">## http://infix.se/2007/02/06/gentlemen-indent-your-xml</tt> </tt>
-<a name="indent"></a><div id="indent-def"><a name="L234"></a><tt class="py-lineno">234</tt> <a class="py-toggle" href="#" id="indent-toggle" onclick="return toggle('indent');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider-module.html#indent">indent</a><tt class="py-op">(</tt><tt class="py-param">elem</tt><tt class="py-op">,</tt> <tt class="py-param">level</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="indent-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="indent-expanded"><a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line">    <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt class="py-string">"\n"</tt> <tt class="py-op">+</tt> <tt class="py-name">level</tt><tt class="py-op">*</tt><tt class="py-string">"    "</tt> </tt>
-<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">elem</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">elem</tt><tt class="py-op">.</tt><tt id="link-84" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-84', 'text', 'link-30');">text</a></tt> <tt class="py-keyword">or</tt> <tt class="py-keyword">not</tt> <tt class="py-name">elem</tt><tt class="py-op">.</tt><tt id="link-85" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-85', 'text', 'link-30');">text</a></tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line">            <tt class="py-name">elem</tt><tt class="py-op">.</tt><tt id="link-86" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-86', 'text', 'link-30');">text</a></tt> <tt class="py-op">=</tt> <tt class="py-name">i</tt> <tt class="py-op">+</tt> <tt class="py-string">"  "</tt> </tt>
-<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">e</tt> <tt class="py-keyword">in</tt> <tt class="py-name">elem</tt><tt class="py-op">:</tt> </tt>
-<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line">            <tt id="link-87" class="py-name" targets="Static Method taskcoachlib.persistence.html.generator.Viewer2HTMLConverter.indent()=taskcoachlib.persistence.html.generator.Viewer2HTMLConverter-class.html#indent,Method taskcoachlib.thirdparty.googleapi.apiclient.schema._SchemaToStruct.indent()=taskcoachlib.thirdparty.googleapi.apiclient.schema._SchemaToStruct-class.html#indent,Function taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.indent()=taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider-module.html#indent"><a title="taskcoachlib.persistence.html.generator.Viewer2HTMLConverter.indent
-taskcoachlib.thirdparty.googleapi.apiclient.schema._SchemaToStruct.indent
-taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.indent" class="py-name" href="#" onclick="return doclink('link-87', 'indent', 'link-87');">indent</a></tt><tt class="py-op">(</tt><tt class="py-name">e</tt><tt class="py-op">,</tt> <tt class="py-name">level</tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
-<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">tail</tt> <tt class="py-keyword">or</tt> <tt class="py-keyword">not</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">tail</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line">                <tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">tail</tt> <tt class="py-op">=</tt> <tt class="py-name">i</tt> <tt class="py-op">+</tt> <tt class="py-string">"  "</tt> </tt>
-<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">tail</tt> <tt class="py-keyword">or</tt> <tt class="py-keyword">not</tt> <tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">tail</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line">            <tt class="py-name">e</tt><tt class="py-op">.</tt><tt class="py-name">tail</tt> <tt class="py-op">=</tt> <tt class="py-name">i</tt> </tt>
-<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
-<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">level</tt> <tt class="py-keyword">and</tt> <tt class="py-op">(</tt><tt class="py-keyword">not</tt> <tt class="py-name">elem</tt><tt class="py-op">.</tt><tt class="py-name">tail</tt> <tt class="py-keyword">or</tt> <tt class="py-keyword">not</tt> <tt class="py-name">elem</tt><tt class="py-op">.</tt><tt class="py-name">tail</tt><tt class="py-op">.</tt><tt class="py-name">strip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line">            <tt class="py-name">elem</tt><tt class="py-op">.</tt><tt class="py-name">tail</tt> <tt class="py-op">=</tt> <tt class="py-name">i</tt> </tt>
-<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
-<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line">            <tt class="py-name">elem</tt><tt class="py-op">.</tt><tt class="py-name">tail</tt><tt class="py-op">=</tt><tt class="py-string">"\n"</tt> </tt>
-</div><a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line"> </tt>
-<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line"> </tt>
-<a name="exportTopicTreeSpecXml"></a><div id="exportTopicTreeSpecXml-def"><a name="L252"></a><tt class="py-lineno">252</tt> <a class="py-toggle" href="#" id="exportTopicTreeSpecXml-toggle" onclick="return toggle('exportTopicTreeSpecXml');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider-module.html#exportTopicTreeSpecXml">exportTopicTreeSpecXml</a><tt class="py-op">(</tt><tt class="py-param">moduleName</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">rootTopic</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">bak</tt><tt class="py-op">=</tt><tt class="py-string">'bak'</tt><tt class="py-op">,</tt> <tt class="py-param">moduleDoc</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="exportTopicTreeSpecXml-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="exportTopicTreeSpecXml-expanded"><a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
-<a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line"><tt class="py-docstring">    If rootTopic is None, then pub.getDefaultTopicTreeRoot() is assumed.</tt> </tt>
-<a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
-<a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line"> </tt>
-<a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">rootTopic</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
-<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt id="link-88" class="py-name"><a title="taskcoachlib.thirdparty.pubsub" class="py-name" href="#" onclick="return doclink('link-88', 'pubsub', 'link-1');">pubsub</a></tt> <tt class="py-keyword">import</tt> <tt id="link-89" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.pub" class="py-name" href="#" onclick="return doclink('link-89', 'pub', 'link-2');">pub</a></tt> </tt>
-<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line">        <tt class="py-name">rootTopic</tt> <tt class="py-op">=</tt> <tt id="link-90" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.pub" class="py-name" href="#" onclick="return doclink('link-90', 'pub', 'link-2');">pub</a></tt><tt class="py-op">.</tt><tt id="link-91" class="py-name" targets="Function taskcoachlib.thirdparty.pubsub.pub.getDefaultTopicTreeRoot()=taskcoachlib.thirdparty.pubsub.pub-module.html#getDefaultTopicTreeRoot"><a title="taskcoachlib.thirdparty.pubsub.pub.getDefaultTopicTreeRoot" class="py-name" href="#" onclick="return doclink('link-91', 'getDefaultTopicTreeRoot', 'link-91');">getDefaultTopicTreeRoot</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">rootTopic</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt id="link-92" class="py-name" targets="Class str=str-class.html"><a title="str" class="py-name" href="#" onclick="return doclink('link-92', 'str', 'link-92');">str</a></tt><tt class="py-op">,</tt> <tt id="link-93" class="py-name" targets="Class unicode=unicode-class.html"><a title="unicode" class="py-name" href="#" onclick="return doclink('link-93', 'unicode', 'link-93');">unicode</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt id="link-94" class="py-name"><a title="taskcoachlib.thirdparty.pubsub" class="py-name" href="#" onclick="return doclink('link-94', 'pubsub', 'link-1');">pubsub</a></tt> <tt class="py-keyword">import</tt> <tt id="link-95" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.pub" class="py-name" href="#" onclick="return doclink('link-95', 'pub', 'link-2');">pub</a></tt> </tt>
-<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line">        <tt class="py-name">rootTopic</tt> <tt class="py-op">=</tt> <tt id="link-96" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.pub" class="py-name" href="#" onclick="return doclink('link-96', 'pub', 'link-2');">pub</a></tt><tt class="py-op">.</tt><tt id="link-97" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.topicmgr.TopicManager.getTopic()=taskcoachlib.thirdparty.pubsub.core.topicmgr.TopicManager-class.html#getTopic,Variable taskcoachlib.thirdparty.pubsub.pub.getTopic=taskcoachlib.thirdparty.pubsub.pub-module.html#getTopic"><a title="taskcoachlib.thirdparty.pubsub.core.topicmgr.TopicManager.getTopic
-taskcoachlib.thirdparty.pubsub.pub.getTopic" class="py-name" href="#" onclick="return doclink('link-97', 'getTopic', 'link-97');">getTopic</a></tt><tt class="py-op">(</tt><tt class="py-name">rootTopic</tt><tt class="py-op">)</tt> </tt>
-<a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line"> </tt>
-<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line">    <tt class="py-name">tree</tt> <tt class="py-op">=</tt> <tt class="py-name">ET</tt><tt class="py-op">.</tt><tt class="py-name">Element</tt><tt class="py-op">(</tt><tt class="py-string">'topicdefntree'</tt><tt class="py-op">)</tt> </tt>
-<a name="L265"></a><tt class="py-lineno">265</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">moduleDoc</tt><tt class="py-op">:</tt> </tt>
-<a name="L266"></a><tt class="py-lineno">266</tt>  <tt class="py-line">        <tt class="py-name">mod_desc</tt> <tt class="py-op">=</tt> <tt class="py-name">ET</tt><tt class="py-op">.</tt><tt class="py-name">SubElement</tt><tt class="py-op">(</tt><tt class="py-name">tree</tt><tt class="py-op">,</tt> <tt class="py-string">'description'</tt><tt class="py-op">)</tt> </tt>
-<a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line">        <tt class="py-name">mod_desc</tt><tt class="py-op">.</tt><tt id="link-98" class="py-name"><a title="taskcoachlib.thirdparty.xdg.Mime.text" class="py-name" href="#" onclick="return doclink('link-98', 'text', 'link-30');">text</a></tt> <tt class="py-op">=</tt> <tt class="py-string">' '</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">moduleDoc</tt><tt class="py-op">.</tt><tt id="link-99" class="py-name"><a title="taskcoachlib.thirdparty.dateutil.parser._timelex.split" class="py-name" href="#" onclick="return doclink('link-99', 'split', 'link-31');">split</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line"> </tt>
-<a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line">    <tt class="py-name">traverser</tt> <tt class="py-op">=</tt> <tt id="link-100" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.pub" class="py-name" href="#" onclick="return doclink('link-100', 'pub', 'link-2');">pub</a></tt><tt class="py-op">.</tt><tt id="link-101" class="py-name" targets="Class taskcoachlib.thirdparty.pubsub.core.topictreetraverser.TopicTreeTraverser=taskcoachlib.thirdparty.pubsub.core.topictreetraverser.TopicTreeTraverser-class.html"><a title="taskcoachlib.thirdparty.pubsub.core.topictreetraverser.TopicTreeTraverser" class="py-name" href="#" onclick="return doclink('link-101', 'TopicTreeTraverser', 'link-101');">TopicTreeTraverser</a></tt><tt class="py-op">(</tt><tt id="link-102" class="py-name" targets="Class taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlVisitor=taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlVisitor-class.html"><a title="taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.XmlVisitor" class="py-name" href="#" onclick="return doclink('link-102', 'XmlVisitor', 'link-102');">XmlVisitor</a></tt><tt class="py-op">(</tt><tt class="py-name">tree</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line">    <tt class="py-name">traverser</tt><tt class="py-op">.</tt><tt id="link-103" class="py-name" targets="Method taskcoachlib.thirdparty.pubsub.core.topictreetraverser.TopicTreeTraverser.traverse()=taskcoachlib.thirdparty.pubsub.core.topictreetraverser.TopicTreeTraverser-class.html#traverse"><a title="taskcoachlib.thirdparty.pubsub.core.topictreetraverser.TopicTreeTraverser.traverse" class="py-name" href="#" onclick="return doclink('link-103', 'traverse', 'link-103');">traverse</a></tt><tt class="py-op">(</tt><tt class="py-name">rootTopic</tt><tt class="py-op">)</tt> </tt>
-<a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line"> </tt>
-<a name="L272"></a><tt class="py-lineno">272</tt>  <tt class="py-line">    <tt id="link-104" class="py-name"><a title="taskcoachlib.persistence.html.generator.Viewer2HTMLConverter.indent
-taskcoachlib.thirdparty.googleapi.apiclient.schema._SchemaToStruct.indent
-taskcoachlib.thirdparty.pubsub.utils.xmltopicdefnprovider.indent" class="py-name" href="#" onclick="return doclink('link-104', 'indent', 'link-87');">indent</a></tt><tt class="py-op">(</tt><tt class="py-name">tree</tt><tt class="py-op">)</tt> </tt>
-<a name="L273"></a><tt class="py-lineno">273</tt>  <tt class="py-line"> </tt>
-<a name="L274"></a><tt class="py-lineno">274</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">moduleName</tt><tt class="py-op">:</tt> </tt>
-<a name="L275"></a><tt class="py-lineno">275</tt>  <tt class="py-line"> </tt>
-<a name="L276"></a><tt class="py-lineno">276</tt>  <tt class="py-line">        <tt id="link-105" class="py-name" targets="Method taskcoachlib.config.settings.Settings.filename()=taskcoachlib.config.settings.Settings-class.html#filename,Method taskcoachlib.gui.iocontroller.IOController.filename()=taskcoachlib.gui.iocontroller.IOController-class.html#filename,Variable taskcoachlib.meta.data.filename=taskcoachlib.meta.data-module.html#filename,Method taskcoachlib.persistence.taskfile.TaskFile.filename()=taskcoachlib.persistence.taskfile.TaskFile-class.html#filename,Method taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename()=taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile-class.html#filename,Method taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename()=taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener-class.html#filename,Method taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename()=taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename=taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename=taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring-class.html#filename,Variable taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename=taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring-class.html#filename,Variable taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#filename"><a title="taskcoachlib.config.settings.Settings.filename
-taskcoachlib.gui.iocontroller.IOController.filename
-taskcoachlib.meta.data.filename
-taskcoachlib.persistence.taskfile.TaskFile.filename
-taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
-taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
-taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
-taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
-taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
-taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
-taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-105', 'filename', 'link-105');">filename</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'%s.xml'</tt> <tt class="py-op">%</tt> <tt class="py-name">moduleName</tt> </tt>
-<a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">bak</tt><tt class="py-op">:</tt> </tt>
-<a name="L278"></a><tt class="py-lineno">278</tt>  <tt class="py-line">            <tt id="link-106" class="py-name"><a title="taskcoachlib.thirdparty.pubsub.pub" class="py-name" href="#" onclick="return doclink('link-106', 'pub', 'link-2');">pub</a></tt><tt class="py-op">.</tt><tt id="link-107" class="py-name" targets="Function taskcoachlib.thirdparty.pubsub.core.topicdefnprovider._backupIfExists()=taskcoachlib.thirdparty.pubsub.core.topicdefnprovider-module.html#_backupIfExists"><a title="taskcoachlib.thirdparty.pubsub.core.topicdefnprovider._backupIfExists" class="py-name" href="#" onclick="return doclink('link-107', '_backupIfExists', 'link-107');">_backupIfExists</a></tt><tt class="py-op">(</tt><tt id="link-108" class="py-name"><a title="taskcoachlib.config.settings.Settings.filename
-taskcoachlib.gui.iocontroller.IOController.filename
-taskcoachlib.meta.data.filename
-taskcoachlib.persistence.taskfile.TaskFile.filename
-taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
-taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
-taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
-taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
-taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
-taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
-taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-108', 'filename', 'link-105');">filename</a></tt><tt class="py-op">,</tt> <tt class="py-name">bak</tt><tt class="py-op">)</tt> </tt>
-<a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line"> </tt>
-<a name="L280"></a><tt class="py-lineno">280</tt>  <tt class="py-line">        <tt class="py-name">fulltree</tt><tt class="py-op">=</tt> <tt class="py-name">ET</tt><tt class="py-op">.</tt><tt class="py-name">ElementTree</tt><tt class="py-op">(</tt><tt class="py-name">tree</tt><tt class="py-op">)</tt> </tt>
-<a name="L281"></a><tt class="py-lineno">281</tt>  <tt class="py-line">        <tt class="py-name">fulltree</tt><tt class="py-op">.</tt><tt id="link-109" class="py-name" targets="Method taskcoachlib.application.application.RedirectedOutput.write()=taskcoachlib.application.application.RedirectedOutput-class.html#write,Method taskcoachlib.persistence.csv.writer.CSVWriter.write()=taskcoachlib.persistence.csv.writer.CSVWriter-class.html#write,Method taskcoachlib.persistence.html.writer.HTMLWriter.write()=taskcoachlib.persistence.html.writer.HTMLWriter-class.html#write,Method taskcoachlib.persistence.icalendar.writer.iCalendarWriter.write()=taskcoachlib.persistence.icalendar.writer.iCalendarWriter-class.html#write,Method taskcoachlib.persistence.pdf.writer.PDFWriter.write()=taskcoachlib.persistence.pdf.writer.PDFWriter-class.html#write,Method taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.write()=taskcoachlib.persistence.todotxt.writer.TodoTxtWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.ChangesXMLWriter.write()=taskcoachlib.persistence.xml.writer.ChangesXMLWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.PIElementTree.write()=taskcoachlib.persistence.xml.writer.PIElementTree-class.html#write,Method taskcoachlib.persistence.xml.writer.TemplateXMLWriter.write()=taskcoachlib.persistence.xml.writer.TemplateXMLWriter-class.html#write,Method taskcoachlib.persistence.xml.writer.XMLWriter.write()=taskcoachlib.persistence.xml.writer.XMLWriter-class.html#write,Method taskcoachlib.thirdparty.xdg.IniFile.IniFile.write()=taskcoachlib.thirdparty.xdg.IniFile.IniFile-class.html#write,Method taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.write()=taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles-class.html#write"><a title="taskcoachlib.application.application.RedirectedOutput.write
-taskcoachlib.persistence.csv.writer.CSVWriter.write
-taskcoachlib.persistence.html.writer.HTMLWriter.write
-taskcoachlib.persistence.icalendar.writer.iCalendarWriter.write
-taskcoachlib.persistence.pdf.writer.PDFWriter.write
-taskcoachlib.persistence.todotxt.writer.TodoTxtWriter.write
-taskcoachlib.persistence.xml.writer.ChangesXMLWriter.write
-taskcoachlib.persistence.xml.writer.PIElementTree.write
-taskcoachlib.persistence.xml.writer.TemplateXMLWriter.write
-taskcoachlib.persistence.xml.writer.XMLWriter.write
-taskcoachlib.thirdparty.xdg.IniFile.IniFile.write
-taskcoachlib.thirdparty.xdg.RecentFiles.RecentFiles.write" class="py-name" href="#" onclick="return doclink('link-109', 'write', 'link-109');">write</a></tt><tt class="py-op">(</tt><tt id="link-110" class="py-name"><a title="taskcoachlib.config.settings.Settings.filename
-taskcoachlib.gui.iocontroller.IOController.filename
-taskcoachlib.meta.data.filename
-taskcoachlib.persistence.taskfile.TaskFile.filename
-taskcoachlib.thirdparty.googleapi.oauth2client.locked_file.LockedFile.filename
-taskcoachlib.thirdparty.googleapi.oauth2client.locked_file._Opener.filename
-taskcoachlib.thirdparty.keyring.backend.BasicFileKeyring.filename
-taskcoachlib.thirdparty.keyring.backend.CryptedFileKeyring.filename
-taskcoachlib.thirdparty.keyring.backend.UncryptedFileKeyring.filename
-taskcoachlib.thirdparty.keyring.backend.Win32CryptoKeyring.filename
-taskcoachlib.thirdparty.xdg.IniFile.IniFile.filename" class="py-name" href="#" onclick="return doclink('link-110', 'filename', 'link-105');">filename</a></tt><tt class="py-op">,</tt> <tt class="py-string">"utf-8"</tt><tt class="py-op">,</tt> <tt id="link-111" class="py-name" targets="Variable taskcoachlib.thirdparty.chardet.constants.True=taskcoachlib.thirdparty.chardet.constants-module.html#True"><a title="taskcoachlib.thirdparty.chardet.constants.True" class="py-name" href="#" onclick="return doclink('link-111', 'True', 'link-111');">True</a></tt><tt class="py-op">)</tt> </tt>
-<a name="L282"></a><tt class="py-lineno">282</tt>  <tt class="py-line"> </tt>
-<a name="L283"></a><tt class="py-lineno">283</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">ET</tt><tt class="py-op">.</tt><tt class="py-name">tostring</tt><tt class="py-op">(</tt><tt class="py-name">tree</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L284"></a><tt class="py-lineno">284</tt>  <tt class="py-line"> </tt><script type="text/javascript">
-<!--
-expandto(location.href);
-// -->
-</script>
-</pre>
-<br />
-<!-- ==================== NAVIGATION BAR ==================== -->
-<table class="navbar" border="0" width="100%" cellpadding="0"
-       bgcolor="#a0c0ff" cellspacing="0">
-  <tr valign="middle">
-
-  <!-- Tree link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
-
-  <!-- Index link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
-
-  <!-- Help link -->
-      <th>&nbsp;&nbsp;&nbsp;<a
-        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
-
-      <th class="navbar" width="100%"></th>
-  </tr>
-</table>
-<table border="0" cellpadding="0" cellspacing="0" width="100%%">
-  <tr>
-    <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Nov 25 04:14:40 2013
-    </td>
-    <td align="right" class="footer">
-      <a target="mainFrame" href="http://epydoc.sourceforge.net"
-        >http://epydoc.sourceforge.net</a>
-    </td>
-  </tr>
-</table>
-
-<script type="text/javascript">
-  <!--
-  // Private objects are initially displayed (because if
-  // javascript is turned off then we want them to be
-  // visible); but by default, we want to hide them.  So hide
-  // them unless we have a cookie that says to show them.
-  checkCookie();
-  // -->
-</script>
-</body>
-</html>
