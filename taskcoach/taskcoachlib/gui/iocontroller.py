@@ -30,6 +30,8 @@ import gc
 import sys
 import codecs
 import traceback
+import dropbox
+from dropbox import client, rest, session
 
 try:
     from taskcoachlib.syncml import sync
@@ -282,7 +284,39 @@ class IOController(object):
                 errorMessage = _('Cannot import template %s\n%s') % (filename, 
                                ExceptionAsUnicode(reason))
                 showerror(errorMessage, **self.__errorMessageOptions)
+    
+    
+    def backupdropbox(self):
+        dbclient, message = persistence.dropboxapi.dbclient()
+        
+        if dbclient is not None:
+
+            # Open the file to upload to Dropbox (current file)
+            f = open(self.__taskFile.filename(), 'rb')
+            filename = os.path.basename(f.name) 
             
+            # Upload the file
+            try:
+                # put the file to Dropbox. The third option is for overwrite.
+                response = dbclient.put_file(filename, f, True)
+                wx.MessageBox('File successfully uploaded.', 'Backup to Dropbox', wx.OK | wx.ICON_INFORMATION)
+            except:
+                wx.MessageBox('Unknown error encountered.', 'Backup to Dropbox', wx.OK | wx.ICON_ERROR)
+        else:
+            wx.MessageBox('Error encountered:\n' + message, 'Backup to Dropbox.', wx.OK | wx.ICON_ERROR)
+
+
+    def ask(parent=None, message=''):
+        app = wx.App()
+        dlg = wx.TextEntryDialog(parent,
+                                  message)
+        dlg.ShowModal()
+        result = dlg.GetValue()
+        dlg.Destroy()
+        app.MainLoop() 
+        return result
+    
+    
     def close(self, force=False):
         if self.__taskFile.needSave():
             if force:

@@ -173,6 +173,7 @@ templates: taskcoachlib/persistence/xml/templates.py
 thirdpartymodules:
 	cd thirdparty; tar xzf APScheduler-2.0.3.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty APScheduler-2.0.3/apscheduler
 	cd thirdparty; tar xzf googleapi.tar.gz  -C ../taskcoachlib/thirdparty googleapi/
+	cd thirdparty; tar xzf dropbox-python-sdk-1.6.tar.gz  -C ../taskcoachlib/thirdparty dropbox-python-sdk-1.6/
 	cd thirdparty; tar xzf xhtml2pdf-0.0.5.tar.gz --strip-components=2 -C ../taskcoachlib/thirdparty xhtml2pdf-0.0.5/xhtml2pdf-0.0.5/xhtml2pdf
 	cd thirdparty; tar xzf reportlab.tar.gz --strip-components=3 -C ../taskcoachlib/thirdparty reportlab/reportlab/src
 	cd thirdparty; tar xzf html5lib.tar.gz --strip-components=2 -C ../taskcoachlib/thirdparty html5lib/html5lib/html5lib
