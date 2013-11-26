@@ -186,7 +186,7 @@ class FileBackupToDropbox(IOCommand):
     def __init__(self, *args, **kwargs):
         super(FileBackupToDropbox, self).__init__( \
             menuText=_('&Backup to Dropbox'),
-            helpText=help.fileSaveAs, bitmap='saveas', id=wx.ID_SAVEAS,
+            helpText=help.fileSaveAs, bitmap='saveas',
             *args, **kwargs)
         
     def doCommand(self, event):
