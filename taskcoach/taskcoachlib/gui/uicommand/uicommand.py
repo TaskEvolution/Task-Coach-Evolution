@@ -1107,13 +1107,17 @@ class Delete(mixin_uicommand.NeedsSelectionMixin, ViewerCommand):
         if self.windowIsTextCtrl(windowWithFocus):
             # Simulate Delete key press
             fromIndex, toIndex = windowWithFocus.GetSelection()
-            if fromIndex == toIndex: 
+            if fromIndex == toIndex:
                 pos = windowWithFocus.GetInsertionPoint()
                 fromIndex, toIndex = pos, pos + 1
-            windowWithFocus.Remove(fromIndex, toIndex)            
+            windowWithFocus.Remove(fromIndex, toIndex)
         else:
-            deleteCommand = self.viewer.deleteItemCommand()
-            deleteCommand.do()
+            result = wx.MessageBox(_('Do you really want to deleten this task?'),
+            "Confirm delete", 
+            style=wx.YES_NO | wx.ICON_QUESTION | wx.NO_DEFAULT)
+            if result == wx.YES:
+                deleteCommand = self.viewer.deleteItemCommand()
+                deleteCommand.do()
         
     def enabled(self, event):
         windowWithFocus = wx.Window.FindFocus()
