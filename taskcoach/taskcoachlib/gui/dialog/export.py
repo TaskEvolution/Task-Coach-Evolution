@@ -319,3 +319,23 @@ class ExportAsTodoTxtDialog(ExportDialog):
     def exportableViewers(self):
         viewers = super(ExportAsTodoTxtDialog, self).exportableViewers()
         return [viewer for viewer in viewers if viewer.isShowingTasks()]
+
+class ExportMailDialog(ExportDialog):
+    ''' Exporting dialog for Mail options'''
+    title = _('Mail options')
+    
+    def createInterior(self, pane):
+        viewerPicker = ViewerPicker(pane, self.exportableViewers(), self.activeViewer())
+        viewerPicker.Bind(EVT_VIEWERPICKED, self.onViewerChanged) #Bind the selectionChanged for options to add attributes
+        selectionOnlyCheckBox = SelectionOnlyCheckBox(pane, self.settings, 
+                                                      self.section, 'todotxt_selectiononly')
+        self.columnPicker = ColumnPicker(pane, viewerPicker.selectedViewer()) ## Include different attributes.
+        return viewerPicker, selectionOnlyCheckBox, self.columnPicker
+           
+    def exportableViewers(self):
+        viewers = super(ExportMailDialog, self).exportableViewers()
+        return [viewer for viewer in viewers if viewer.isShowingTasks()]
+        
+    def onViewerChanged(self, event):
+        event.Skip()
+        self.columnPicker.populateColumnPicker(event.viewer)

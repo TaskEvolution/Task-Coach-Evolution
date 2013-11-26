@@ -40,6 +40,7 @@ from taskcoachlib.workarounds import ExceptionAsUnicode
 import base_uicommand
 import mixin_uicommand
 import settings_uicommand
+import datetime
 
 
 class IOCommand(base_uicommand.UICommand):  # pylint: disable=W0223
@@ -180,6 +181,16 @@ class FileSaveSelection(mixin_uicommand.NeedsSelectedTasksMixin, IOCommand,
     def doCommand(self, event):
         self.iocontroller.saveselection(self.viewer.curselection())
 
+
+class FileBackupToDropbox(IOCommand):
+    def __init__(self, *args, **kwargs):
+        super(FileBackupToDropbox, self).__init__( \
+            menuText=_('&Backup to Dropbox'),
+            helpText=help.fileSaveAs, bitmap='saveas',
+            *args, **kwargs)
+        
+    def doCommand(self, event):
+        self.iocontroller.backupdropbox()
 
 class FileSaveSelectedTaskAsTemplate(mixin_uicommand.NeedsOneSelectedTaskMixin,
                                      IOCommand, ViewerCommand):
@@ -538,8 +549,7 @@ class FileImportFromGoogleTask(IOCommand):
                                                        description=task['notes'] if 'notes' in task else '',
                                                        dueDateTime=date.DateTime.strptime
                                                            (task['due'],'%Y-%m-%dT%H:%M:%S.%fz') if 'due' in task
-                                                            else date.DateTime.strptime
-                                                           ('2010-10-15T12:00:00.000Z','%Y-%m-%dT%H:%M:%S.%fz'),
+                                                            else None,
                                                        percentageComplete=100 if task['status']=='completed' else 0,
                                                        categories=[category],id=task['id'])
 
@@ -1218,8 +1228,12 @@ class Delete(mixin_uicommand.NeedsSelectionMixin, ViewerCommand):
                 fromIndex, toIndex = pos, pos + 1
             windowWithFocus.Remove(fromIndex, toIndex)
         else:
-            deleteCommand = self.viewer.deleteItemCommand()
-            deleteCommand.do()
+            result = wx.MessageBox(_('Do you really want to deleten this task?'),
+            "Confirm delete", 
+            style=wx.YES_NO | wx.ICON_QUESTION | wx.NO_DEFAULT)
+            if result == wx.YES:
+                deleteCommand = self.viewer.deleteItemCommand()
+                deleteCommand.do()
 
     def enabled(self, event):
         windowWithFocus = wx.Window.FindFocus()
@@ -1586,30 +1600,51 @@ class ToggleCategory(mixin_uicommand.NeedsSelectedCategorizableMixin,
         return True  # All mutually exclusive ancestors are checked
 
 
-class Mail(mixin_uicommand.NeedsSelectionMixin, ViewerCommand):
+class Mail(mixin_uicommand.NeedsSelectionMixin, ViewerCommand, settings_uicommand.SettingsCommand):
     def __init__(self, *args, **kwargs):
         menuText = _('&Mail...\tShift-Ctrl-M') if operating_system.isMac() else _('&Mail...\tCtrl-M')
         super(Mail, self).__init__(menuText=menuText,
                                    helpText=help.mailItem, bitmap='envelope_icon', *args, **kwargs)
 
     def doCommand(self, event, mail=sendMail, showerror=wx.MessageBox):  # pylint: disable=W0221
-        items = self.viewer.curselection()
-        subject = self.subject(items)
-        body = self.body(items)
+
+        #columns = None
+        itemList = []
+        items = self.mainWindow().viewer.visibleItems()
+        for item in items:
+            itemList.extend(str(item))
+
+        #columns = columns or self.mainWindow().viewer.visibleColumns()
+        #print columns
+        subject = self.subject(itemList, items)
+        body = self.body(itemList, items)
+
+        #dia = TestDialog(None, -1, 'Email config')
+        #dia.Show(True)
+
         self.mail(subject, body, mail, showerror)
 
-    def subject(self, items):
+    def subject(self, itList, items):
         assert items
-        if len(items) > 2:
-            return _('Several things')
-        elif len(items) == 2:
+        if len(itList) > 2:
+            #Allow the user to specify the subject line
+            sub = None
+            dlg = wx.TextEntryDialog(None, 'Enter subject','Subject')
+            dlg.SetValue("Subject...")
+            if dlg.ShowModal() == wx.ID_OK:
+
+                sub = dlg.GetValue()
+            dlg.Destroy()
+
+            return _(sub)
+        elif len(itList) == 2:
             subjects = [item.subject(recursive=True) for item in items]
             return ' '.join([subjects[0], _('and'), subjects[1]])
         else:
             return items[0].subject(recursive=True)
 
-    def body(self, items):
-        if len(items) > 1:
+    def body(self, itList, items):
+        if len(itList) > 1:
             bodyLines = []
             for item in items:
                 bodyLines.extend(self.itemToLines(item))
@@ -1638,6 +1673,108 @@ class Mail(mixin_uicommand.NeedsSelectionMixin, ViewerCommand):
                           caption=_('%s mail error') % meta.name,
                           style=wx.ICON_ERROR)
 
+    @staticmethod
+    def getExportDialogClass():
+        return dialog.export.ExportMailDialog
+
+'''class TestDialog(wx.Dialog):
+
+    def __init__(self, parent, ID, title):
+
+        wx.Dialog.__init__(self, parent, ID, title, wx.DefaultPosition, wx.Size(250, 270))
+
+        self.createColumnPicker()
+        self.populateColumnPicker(viewer)
+        
+    def createColumnPicker(self):
+        label = wx.StaticText(self, label=_('Columns to export:'))
+        label.SetSizerProps(valign='top')
+        self.columnPicker = widgets.CheckListBox(self)  # pylint: disable=W0201
+        self.columnPicker.SetSizerProps(expand=True, proportion=1)
+        
+    def populateColumnPicker(self, viewer):
+        self.columnPicker.Clear()
+        self.fillColumnPicker(viewer)
+                    
+    def fillColumnPicker(self, viewer):
+        if not viewer.hasHideableColumns():
+            return
+        visibleColumns = viewer.visibleColumns()
+        for column in viewer.selectableColumns():
+            if column.header():
+                index = self.columnPicker.Append(column.header(), clientData=column)
+                self.columnPicker.Check(index, column in visibleColumns)
+            
+    def selectedColumns(self):
+        indices = [index for index in range(self.columnPicker.GetCount()) if self.columnPicker.IsChecked(index)]
+        return [self.columnPicker.GetClientData(index) for index in indices]
+
+    def options(self):
+        return dict(columns=self.selectedColumns())
+
+        con = wx.Button(self, 1, 'Ok', (10, 160))
+   
+        self.Bind(wx.EVT_BUTTON, self.OnOk, id=1)
+
+        self.Centre()
+    
+    def OnOk(self,e):
+        result = wx.MessageBox(_('Heeeeeeej!)'),
+            "Titeln på boxen", 
+            style=wx.YES_NO | wx.ICON_QUESTION | wx.NO_DEFAULT)
+        if result == wx.YES:
+           self.Close(True)
+        elif result == wx.NO:
+            print "NO!" 
+            '''
+
+class Today(ViewerCommand, TaskListCommand):
+        def __init__(self, *args, **kwargs):
+            menuText = _('&Today View\tShift-Ctrl-T') if operating_system.isMac() else _('&Today View\tCtrl-T')
+            taskList = kwargs['taskList']
+            super(Today, self).__init__(menuText=menuText, *args, **kwargs)
+
+            
+        def doCommand(self, event):
+            tasks = self.taskList
+            dia = TodayDialog(None, -1, 'Today View', tasks)
+            dia.Show(True)
+
+
+
+
+
+class TodayDialog(wx.Dialog):
+        def __init__ (self, parent, ID, title, tasks):
+            wx.Dialog.__init__(self, parent, ID, title)
+   
+            font = wx.Font(10, wx.DEFAULT, wx.NORMAL, wx.BOLD)
+            fontDates = wx.Font(7, wx.DEFAULT, wx.NORMAL, wx.BOLD)
+            #fontTasks = wx.Font(7, wx.DEFAULT, wx.ITALIC, wx.NORMAL)
+            heading = wx.StaticText(self, -1, 'Tasks that are due to today', (25, 15))
+            heading.SetFont(font)
+            n = 0
+            currentDate = str(datetime.datetime.now())[:10]
+
+            wx.StaticLine(self, -1, (25, 50), (250,1))
+            for task in tasks:
+                date = str(task.dueDateTime())[:10]
+
+                if str(task.dueDateTime())[:4] != '9999' and date == currentDate:
+                    txtT = wx.StaticText(self, -1, task.subject(), (25, (70+n)), style=wx.ALIGN_RIGHT)
+                    txtD = wx.StaticText(self, -1, date, (250, (70+n)))
+                    #txtT.SetFont(fontTasks)
+                    txtD.SetFont(fontDates)
+                    n = n + 20
+            
+            wx.StaticLine(self, -1, (25, n+85), (250,1))
+            wx.Button(self, 1, 'Ok', (25, n+100), (45, 23))
+            self.Bind(wx.EVT_BUTTON, self.OnOk, id=1)
+            self.Fit()
+            self.Centre()
+   
+        def OnOk(self, event):
+            self.Close()
 
 class AddNote(mixin_uicommand.NeedsSelectedNoteOwnersMixin, ViewerCommand,
               settings_uicommand.SettingsCommand):

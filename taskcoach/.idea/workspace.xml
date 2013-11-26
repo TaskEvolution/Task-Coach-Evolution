@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b4203b6-1a3a-485a-9de8-382d59c2510b" name="Default" comment="" />
+    <list default="true" id="d177eb8b-eb4f-4fdd-a97e-dc84eefba66c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/thirdparty/googleapi.tar.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/googletask/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/googletask/apiconnect.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/googletask/client_secrets.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Makefile" afterPath="$PROJECT_DIR$/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/persistence/__init__.py" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/menu.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/menu.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/i18n.in/messages.pot" afterPath="$PROJECT_DIR$/i18n.in/messages.pot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="taskcoach.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -73,6 +87,14 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
@@ -100,14 +122,14 @@
     <option name="width" value="1268" />
     <option name="height" value="718" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="1" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -258,7 +280,10 @@
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <PyConsoleSettings />
+      <PyConsoleSettings>
+        <option name="mySdkHome" value="/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python" />
+        <option name="myModuleName" value="taskcoach" />
+      </PyConsoleSettings>
     </option>
   </component>
   <component name="RecentsManager">
@@ -282,7 +307,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="/usr/bin/python" />
+      <option name="SDK_HOME" value="/System/Library/Frameworks/Python.framework/Versions/2.7/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -580,9 +605,9 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1b4203b6-1a3a-485a-9de8-382d59c2510b" name="Default" comment="" />
-      <created>1384885306635</created>
-      <updated>1384885306635</updated>
+      <changelist id="d177eb8b-eb4f-4fdd-a97e-dc84eefba66c" name="Default" comment="" />
+      <created>1384636947207</created>
+      <updated>1384636947207</updated>
     </task>
     <servers />
   </component>
@@ -2281,8 +2306,12 @@
     <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="419" column="39" selection-start="16677" selection-end="16677" vertical-scroll-proportion="0.38050315" vertical-offset="5879" max-vertical-offset="40605">
+        <state line="1318" column="30" selection-start="54167" selection-end="54167" vertical-scroll-proportion="0.4041916" vertical-offset="19350" max-vertical-offset="40425">
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
   </component>
