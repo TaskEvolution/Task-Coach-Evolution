@@ -467,10 +467,10 @@ class ExportButton(mixin_uicommand.PopupButtonMixin,
         return menu.ExportMenu(self.mainWindow(),self.iocontroller,self.settings)
 
     def getMenuText(self):
-        return _('New from &template')
+        return _('Export')
 
     def getHelpText(self):
-        return _('Create a new task from a template')
+        return _('Export Taskfile')
 
 class FileImportCSV(IOCommand):
     ''' Action for importing data from a CSV file into the current task 
