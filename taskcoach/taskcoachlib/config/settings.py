@@ -69,6 +69,7 @@ class Settings(object, CachingConfigParser):
         self.__loadAndSave = load
         self.__iniFileSpecifiedOnCommandLine = iniFile
         self.migrateConfigurationFiles()
+        self.setGlobalCategories(True)
         if load:
             # First, try to load the settings file from the program directory,
             # if that fails, load the settings file from the settings directory
@@ -456,3 +457,10 @@ class Settings(object, CachingConfigParser):
             os.rmdir(self.pathToConfigDir_deprecated(environ=os.environ))
         except:
             pass
+
+
+    def getGlobalCategoeries(self):
+        return self.__globalCat
+
+    def setGlobalCategories(self, globalCat):
+        self.__globalCat = globalCat

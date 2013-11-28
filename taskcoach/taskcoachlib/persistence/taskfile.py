@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
 import xml
+import pwd
 from taskcoachlib import patterns
 from taskcoachlib.domain import base, task, category, note, effort, attachment
 from taskcoachlib.syncml.config import createDefaultSyncConfig
@@ -34,7 +35,7 @@ def getTemporaryFileName(path):
     when closed are deprecated (there is tempfile.NamedTemporaryFile
     but its 'delete' argument is new in Python 2.6). This is not
     secure, not thread-safe, but it works."""
-
+    
     idx = 0
     while True:
         name = os.path.join(path, 'tmp-%d' % idx)
@@ -339,7 +340,7 @@ class TaskFile(patterns.Observer):
         try:
             if self.exists():
                 fd = self._openForRead()
-                tasks, categories, notes, syncMLConfig, changes, guid = self._read(fd)
+                tasks, categories, globalcategories, notes, syncMLConfig, changes, guid = self._read(fd)
                 fd.close()
             else:
                 tasks = []
@@ -422,7 +423,7 @@ class TaskFile(patterns.Observer):
                 self.__monitor.freeze()
                 try:
                     fd = self._openForRead()
-                    tasks, categories, notes, syncMLConfig, allChanges, guid = self._read(fd)
+                    tasks, categories, globalcategories, notes, syncMLConfig, allChanges, guid = self._read(fd)
                     fd.close()
 
                     self.__changes = allChanges

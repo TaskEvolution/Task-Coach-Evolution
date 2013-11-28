@@ -113,7 +113,10 @@ class XMLReader(object):
         else:
             changes = dict()
 
-        return tasks, categories, notes, syncml_config, changes, guid
+        #Code for getting the global categories added in the global categories xml
+        globalcategories = self.__parse_category_nodes(root)
+
+        return tasks, categories, globalcategories, notes, syncml_config, changes, guid
 
     def __has_broken_lines(self):
         ''' tskversion 24 may contain newlines in element tags. '''

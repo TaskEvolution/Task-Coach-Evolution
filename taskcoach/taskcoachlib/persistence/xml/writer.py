@@ -80,12 +80,21 @@ class XMLWriter(object):
             self.taskNode(root, rootTask)
         
         ownedNotes = self.notesOwnedByNoteOwners(taskList, categoryContainer)
+
         for rootCategory in sortedById(categoryContainer.rootItems()):
-            self.categoryNode(root, rootCategory, taskList, noteContainer, ownedNotes)
+            if not rootCategory.isGlobal():
+                self.categoryNode(root, rootCategory, taskList, noteContainer, ownedNotes)
+            else:
+                self.categoryNode(root, rootCategory, taskList, noteContainer, ownedNotes)
+
+        print("JAG SKRIVER NÅGOT ARGT", type(root))
+        print("JAG SKRIVER NÅGOT ARGT", type(rootCategory))
+        print("JAG SKRIVER NÅGOT ARGT", type(noteContainer))
+        print("JAG SKRIVER NÅGOT ARGT", type(ownedNotes))
 
         for rootNote in sortedById(noteContainer.rootItems()):
             self.noteNode(root, rootNote)
-        
+
         if syncMLConfig:
             self.syncMLNode(root, syncMLConfig)
         if guid:
@@ -187,10 +196,13 @@ class XMLWriter(object):
             return False
         node = self.baseCompositeNode(parentNode, category, 'category', self.categoryNode, 
                                       categorizableContainers)
+
         if category.isFiltered():
             node.attrib['filtered'] = str(category.isFiltered())
         if category.hasExclusiveSubcategories():
             node.attrib['exclusiveSubcategories'] = str(category.hasExclusiveSubcategories())
+        if category.isGlobal():
+            node.attrib['isGlobal'] = str(category.isGlobal())
         for eachNote in sortedById(category.notes()):
             self.noteNode(node, eachNote)
         for attachment in sortedById(category.attachments()):

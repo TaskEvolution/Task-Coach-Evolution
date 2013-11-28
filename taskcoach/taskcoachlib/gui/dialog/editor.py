@@ -113,17 +113,20 @@ class SubjectPage(Page):
         self.addDescriptionEntry()
         self.addCreationDateTimeEntry()
         self.addModificationDateTimeEntry()
+        self.addGlobalCategoriesEntry()
         
     def addSubjectEntry(self):
         # pylint: disable=W0201
         current_subject = self.items[0].subject() if len(self.items) == 1 \
                           else _('Edit to change all subjects')
+        self._globalCategory = wx.CheckBox(self, label=_('Global category'))
         self._subjectEntry = widgets.SingleLineTextCtrl(self, current_subject)
         self._subjectSync = attributesync.AttributeSync('subject', 
             self._subjectEntry, current_subject, self.items,
             command.EditSubjectCommand, wx.EVT_KILL_FOCUS,
             self.items[0].subjectChangedEventType())
         self.addEntry(_('Subject'), self._subjectEntry)
+        self.addEntry(_('Category'), self._globalCategory)
 
     def addDescriptionEntry(self):
         # pylint: disable=W0201
@@ -168,12 +171,17 @@ class SubjectPage(Page):
                 patterns.Publisher().registerObserver(self.onAttributeChanged_Deprecated,
                                                       eventType=eventType,
                                                       eventSource=self.items[0])
-                          
+
+    def addGlobalCategoriesEntry(self):
+        globalCat = self.settings.getGlobalCategoeries()
+        self._categoryGlobal = wx.CheckBox(self, -1, "Checkbox")
+        self.addEntry('Global Categories', self._categoryGlobal)
+
     def __modification_text(self):
         modification_datetimes = [item.modificationDateTime() for item in self.items]
         min_modification_datetime = min(modification_datetimes)
         max_modification_datetime = max(modification_datetimes)
-        modification_text = render.dateTime(min_modification_datetime, 
+        modification_text = render.dateTime(min_modification_datetime,
                                             humanReadable=True)
         if max_modification_datetime - min_modification_datetime > date.ONE_MINUTE:
             modification_text += ' - %s' % render.dateTime(max_modification_datetime,
@@ -200,12 +208,13 @@ class SubjectPage(Page):
                     subject=self._subjectEntry,
                     description=self._descriptionEntry,
                     creationDateTime=self._subjectEntry,
-                    modificationDateTime=self._subjectEntry)
+                    modificationDateTime=self._subjectEntry,
+                    globalCategories=self._subjectEntry)
 
-    
+
 class TaskSubjectPage(SubjectPage):
     def addEntries(self):
-        # Override to insert a priority entry between the description and the 
+        # Override to insert a priority entry between the description and the
         # creation date/time entry
         self.addSubjectEntry()
         self.addDescriptionEntry()
@@ -218,21 +227,21 @@ class TaskSubjectPage(SubjectPage):
         current_priority = self.items[0].priority() if len(self.items) == 1 else 0
         self._priorityEntry = widgets.SpinCtrl(self, size=(100, -1),
             value=current_priority)
-        self._prioritySync = attributesync.AttributeSync('priority', 
+        self._prioritySync = attributesync.AttributeSync('priority',
             self._priorityEntry, current_priority, self.items,
-            command.EditPriorityCommand, wx.EVT_SPINCTRL, 
+            command.EditPriorityCommand, wx.EVT_SPINCTRL,
             self.items[0].priorityChangedEventType())
         self.addEntry(_('Priority'), self._priorityEntry, flags=[None, wx.ALL])
-            
+
     def entries(self):
         entries = super(TaskSubjectPage, self).entries()
         entries['priority'] = self._priorityEntry
         return entries
-            
+
 
 class CategorySubjectPage(SubjectPage):
     def addEntries(self):
-        # Override to insert an exclusive subcategories entry 
+        # Override to insert an exclusive subcategories entry
         # between the description and the creation date/time entry
         self.addSubjectEntry()
         self.addDescriptionEntry()
@@ -243,21 +252,21 @@ class CategorySubjectPage(SubjectPage):
     def addExclusiveSubcategoriesEntry(self):
         # pylint: disable=W0201
         currentExclusivity = self.items[0].hasExclusiveSubcategories() if len(self.items) == 1 else False
-        self._exclusiveSubcategoriesCheckBox = wx.CheckBox(self, 
-                                                           label=_('Mutually exclusive')) 
+        self._exclusiveSubcategoriesCheckBox = wx.CheckBox(self,
+                                                           label=_('Mutually exclusive'))
         self._exclusiveSubcategoriesCheckBox.SetValue(currentExclusivity)
         self._exclusiveSubcategoriesSync = attributesync.AttributeSync( \
-            'hasExclusiveSubcategories', self._exclusiveSubcategoriesCheckBox, 
-            currentExclusivity, self.items, 
+            'hasExclusiveSubcategories', self._exclusiveSubcategoriesCheckBox,
+            currentExclusivity, self.items,
             command.EditExclusiveSubcategoriesCommand, wx.EVT_CHECKBOX,
             self.items[0].exclusiveSubcategoriesChangedEventType())
         self.addEntry(_('Subcategories'), self._exclusiveSubcategoriesCheckBox,
                       flags=[None, wx.ALL])
-            
+
 
 class AttachmentSubjectPage(SubjectPage):
     def addEntries(self):
-        # Override to insert a location entry between the subject and 
+        # Override to insert a location entry between the subject and
         # description entry
         self.addSubjectEntry()
         self.addLocationEntry()
