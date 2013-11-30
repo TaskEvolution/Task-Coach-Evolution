@@ -30,7 +30,6 @@ DROPBOX_APP_KEY = '3jlovmrpanxteqg'
 DROPBOX_APP_SECRET = 'ckptu9i11x0ir7a'
 access_type = 'app_folder'
 
-
 def dbclient():
     # Get your app key and secret from the Dropbox developer website
     sess = session.DropboxSession(DROPBOX_APP_KEY, DROPBOX_APP_SECRET, access_type)
@@ -93,3 +92,21 @@ def testDropboxClient(dbclient):
     except rest.ErrorResponse:
         deleteTokenFile()
         return False
+    
+# get dropbox folder metadata
+def folderMetadata(dbclient):
+    return dbclient.metadata('/')
+
+# get filenames in dropbox app folder
+def fileNames(dbclient):
+    metadata = folderMetadata(dbclient)
+    filenameList = []
+    for listelement in metadata['contents']:
+        if listelement['is_dir'] == False and 'tsk' in listelement['path']:
+            filenameList.append(listelement['path'])
+    return filenameList
+
+# download file from dropbox by filename
+def restorefile(dbclient, filename):
+    file, metadata = dbclient.get_file_and_metadata(filename)
+    return file

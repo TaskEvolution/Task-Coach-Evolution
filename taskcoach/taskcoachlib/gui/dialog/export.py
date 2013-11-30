@@ -286,6 +286,7 @@ class ExportAsHTMLDialog(ExportDialog):
         event.Skip()
         self.columnPicker.populateColumnPicker(event.viewer)
 
+
 class ExportAsPDFDialog(ExportDialog):
     ''' Exporting dialog for PDF dialog '''
     title = _('Export as PDF')

@@ -299,13 +299,62 @@ class IOController(object):
             try:
                 # put the file to Dropbox. The third option is for overwrite.
                 response = dbclient.put_file(filename, f, True)
-                wx.MessageBox('File successfully uploaded.', 'Backup to Dropbox', wx.OK | wx.ICON_INFORMATION)
+                wx.MessageBox('File successfully uploaded.',
+                              'Backup to Dropbox', wx.OK | wx.ICON_INFORMATION)
             except:
-                wx.MessageBox('Unknown error encountered.', 'Backup to Dropbox', wx.OK | wx.ICON_ERROR)
+                wx.MessageBox('Unknown error encountered.',
+                              'Backup to Dropbox', wx.OK | wx.ICON_ERROR)
         else:
-            wx.MessageBox('Error encountered:\n' + message, 'Backup to Dropbox.', wx.OK | wx.ICON_ERROR)
+            wx.MessageBox('Error encountered:\n' + message,
+                          'Backup to Dropbox.', wx.OK | wx.ICON_ERROR)
 
-
+    def getdropboxdirectory(self):
+        # close current file
+        #self.close()
+        # connect to dropbox
+        dbclient, message = persistence.dropboxapi.dbclient()
+        
+        if dbclient is not None:
+            try:
+                filenamesList = persistence.dropboxapi.fileNames(dbclient)
+                return filenamesList
+            except:
+                wx.MessageBox('Unknown error encountered.',
+                              'Restore from Dropbox', wx.OK | wx.ICON_ERROR)
+        else:
+            wx.MessageBox('Error encountered:\n' + message,
+                          'Restore from Dropbox.', wx.OK | wx.ICON_ERROR)
+    
+    def getdropboxfile(self, filename):
+        dbclient, message = persistence.dropboxapi.dbclient()
+        
+        if dbclient is not None:
+            try:
+                file = persistence.dropboxapi.restorefile(dbclient, filename)
+                # Close current file
+                self.close()
+                # Save file as a temporary file
+                tempfile = 'temp.tsk'
+                out = open(tempfile, 'w')
+                out.write(file.read())
+                out.close()
+                # Open the temp file
+                lastfilename = self.__taskFile.lastFilename()
+                self.open(tempfile)
+                # File needs saving = mark dirty
+                self.__taskFile.markDirty(True)
+                # Revert filename to remove temp file from history
+                self.__taskFile.setFilename('')
+                self.__taskFile.setLastFilename(lastfilename)
+                # Remove temp file from disk
+                os.remove(tempfile)
+            except:
+                wx.MessageBox('Unknown error encountered.',
+                              'Restore from Dropbox', wx.OK | wx.ICON_ERROR)
+        else:
+            wx.MessageBox('Error encountered:\n' + message,
+                          'Restore from Dropbox.', wx.OK | wx.ICON_ERROR)
+    
     def ask(parent=None, message=''):
         app = wx.App()
         dlg = wx.TextEntryDialog(parent,
