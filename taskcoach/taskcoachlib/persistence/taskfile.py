@@ -263,6 +263,9 @@ class TaskFile(patterns.Observer):
         self.__filename = filename
         self.__notifier.setFilename(filename)
         pub.sendMessage('taskfile.filenameChanged', filename=filename)
+    
+    def setLastFilename(self, filename):
+        self.__lastFilename = filename
         
     def filename(self):
         return self.__filename

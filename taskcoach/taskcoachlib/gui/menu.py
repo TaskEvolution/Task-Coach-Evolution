@@ -243,7 +243,6 @@ class FileMenu(Menu):
         if not settings.getboolean('feature', 'syncml'):
             self.appendUICommands(uicommand.FilePurgeDeletedItems(iocontroller=iocontroller))
         self.appendUICommands(
-            uicommand.FileBackupToDropbox(iocontroller=iocontroller),
             None,
             uicommand.FileSaveSelectedTaskAsTemplate(iocontroller=iocontroller,
                                                      viewer=viewerContainer),
@@ -332,7 +331,11 @@ class BackupMenu(Menu):
     def __init__(self, mainwindow, iocontroller):
         super(BackupMenu, self).__init__(mainwindow)
         self.appendUICommands(
-            uicommand.FileBackupGoogleDrive(iocontroller=iocontroller))
+            uicommand.FileBackupToDropbox(iocontroller=iocontroller),
+            uicommand.FileBackupGoogleDrive(iocontroller=iocontroller),
+            None,
+            uicommand.FileRestoreFromDropbox(iocontroller=iocontroller)
+            )
 
 
 class TaskTemplateMenu(DynamicMenu):

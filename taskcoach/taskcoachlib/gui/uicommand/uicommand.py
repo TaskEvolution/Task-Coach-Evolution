@@ -192,6 +192,22 @@ class FileBackupToDropbox(IOCommand):
     def doCommand(self, event):
         self.iocontroller.backupdropbox()
 
+class FileRestoreFromDropbox(IOCommand):
+    def __init__(self, *args, **kwargs):
+        super(FileRestoreFromDropbox, self).__init__( \
+            menuText=_('&Restore from Dropbox'),
+            helpText=help.fileSaveAs, bitmap='fileopen',
+            *args, **kwargs)
+    
+    def doCommand(self, event):
+
+        dropbox_files = self.iocontroller.getdropboxdirectory()
+        restoreDialog = wx.SingleChoiceDialog(self.mainWindow(), 
+            "Select file to restore from Dropbox", 'Restore from Dropbox', dropbox_files, wx.CHOICEDLG_STYLE)
+        if wx.ID_OK == restoreDialog.ShowModal():
+            filename = restoreDialog.GetStringSelection()
+            self.iocontroller.getdropboxfile(filename)
+    
 class FileSaveSelectedTaskAsTemplate(mixin_uicommand.NeedsOneSelectedTaskMixin,
                                      IOCommand, ViewerCommand):
     def __init__(self, *args, **kwargs):
