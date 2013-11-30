@@ -185,7 +185,7 @@ class FileSaveSelection(mixin_uicommand.NeedsSelectedTasksMixin, IOCommand,
 class FileBackupToDropbox(IOCommand):
     def __init__(self, *args, **kwargs):
         super(FileBackupToDropbox, self).__init__( \
-            menuText=_('&Backup to Dropbox'),
+            menuText=_('&Backup to Dropbox\tAlt+D'),
             helpText=help.fileSaveAs, bitmap='saveas',
             *args, **kwargs)
         
@@ -434,7 +434,7 @@ class FileExportAsPDF(FileExportCommand):
 
     def __init__(self, *args, **kwargs):
         super(FileExportAsPDF, self).__init__( \
-            menuText=_('Export as &PDF'),
+            menuText=_('Export as &PDF...\tAlt+A'),
             helpText=_('Export items from a viewer in PDF format'),
             bitmap='exportascsv', *args, **kwargs)
 
@@ -450,7 +450,7 @@ class FileExportToGoogleTask(IOCommand):
 
     def __init__(self, *args, **kwargs):
         super(FileExportToGoogleTask, self).__init__( \
-            menuText=_('Export as &Google Task...'),
+            menuText=_('Export as &Google Task...\tAlt+B'),
             helpText=_('Export items from a viewer to Google Task'),
             bitmap='exportascsv', *args, **kwargs)
 
@@ -506,7 +506,7 @@ class FileImportTodoTxt(IOCommand):
 class FileImportFromGoogleTask(IOCommand):
     def __init__(self, *args, **kwargs):
         super(FileImportFromGoogleTask, self).__init__( \
-            menuText=_('&Import Google Task...'),
+            menuText=_('&Import Google Task...\tAlt+E'),
             helpText=_('Import Tasks from Google Task'),
             bitmap='exportascsv', *args, **kwargs)
 
@@ -547,7 +547,7 @@ class FileImportFromGoogleTask(IOCommand):
 class FileBackupGoogleDrive(IOCommand):
     def __init__(self, *args, **kwargs):
         super(FileBackupGoogleDrive, self).__init__( \
-            menuText=_('&Backup to Google Drive'),
+            menuText=_('&Backup to Google Drive\tAlt+C'),
             helpText=_('Backup your Taskfile to Google Drive'),
             bitmap='', *args, **kwargs)
 
