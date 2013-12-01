@@ -628,7 +628,8 @@ class ActionMenu(Menu):
                 None,
                 uicommand.EffortStart(viewer=viewerContainer, taskList=tasks),
                 uicommand.EffortStop(viewer=viewerContainer, effortList=efforts, taskList=tasks),
-                uicommand.EditTrackedTasks(taskList=tasks, settings=settings))
+                uicommand.EditTrackedTasks(taskList=tasks, settings=settings),
+                uicommand.SikuliTests(settings=settings, viewer=viewerContainer))
 
 
 class TaskPriorityMenu(Menu):

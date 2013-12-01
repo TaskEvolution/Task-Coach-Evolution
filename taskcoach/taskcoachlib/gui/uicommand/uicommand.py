@@ -41,6 +41,7 @@ import base_uicommand
 import mixin_uicommand
 import settings_uicommand
 import datetime
+import os
 
 
 class IOCommand(base_uicommand.UICommand):  # pylint: disable=W0223
@@ -2843,3 +2844,76 @@ class AlwaysRoundUp(settings_uicommand.UICheckCommand, ViewerCommand):
     def enable(self, enable=True):
         if self.checkboxCtrl is not None:
             self.checkboxCtrl.Enable(enable)
+
+class SikuliTests(settings_uicommand.SettingsCommand, ViewerCommand):
+    def __init__(self, *args, **kwargs):
+        super(SikuliTests, self).__init__(menuText=_('Execute Sikuli tests'),
+                                                helpText=_('Execute Sikuli tests'),
+                                                *args, **kwargs)
+
+    def doCommand(self, event):
+        #mixin_uicommand.NeedsSelectedTasksMixin,
+        ''' 
+        dlg = wx.TextEntryDialog(None, 'Enter search path for the Sikuli script','Sikuli')
+        dlg.SetValue("")
+        sub = ""
+        if dlg.ShowModal() == wx.ID_OK:
+            sub = dlg.GetValue()
+            if operating_system.isMac():
+                # java -jar $SIKULI_HOME/sikuli-script.jar path-to-your-script/yourScript.sikuli
+                print "not yet supported"
+            else:
+                # java -jar %SIKULI_HOME%\sikuli-script.jar path-to-your-script\yourScript.sikuli
+                os.system(r"java -jar %SIKULI_HOME%\sikuli-script.jar -r" + sub)
+        dlg.Destroy()
+        print sub '''
+
+        SikuliBox(None, -1, 'Sikuli tests')
+
+
+class SikuliBox(wx.Frame):
+    def __init__(self, parent, id, title):
+        wx.Frame.__init__(self, parent, id, title, size=(330, 170))
+
+        wx.StaticText(self, -1, 'Execute sikuli tests', (10, 20))
+
+        self.path = wx.TextCtrl(self, -1, '',  (10, 45), (275, -1))
+
+        ok = wx.Button(self, 1, 'Execute', (210, 75))
+
+        self.Bind(wx.EVT_BUTTON, self.OnOk, id=1)
+        self.cb = wx.CheckBox(self, -1, 'Execute .bat file', (10, 80))
+
+        wx.EVT_CHECKBOX(self, self.cb.GetId(), self.OpenBat)
+
+        self.Show()
+        self.Centre()
+
+    def OpenBat(self, event):
+
+        if self.cb.GetValue():
+            self.dirname = ''
+            dlg = wx.FileDialog(self, "Choose a .bat file", self.dirname, "", "*.bat", wx.OPEN)
+            if dlg.ShowModal() == wx.ID_OK:
+                self.filename = dlg.GetFilename()
+                self.dirname = dlg.GetDirectory()
+                s = self.dirname + "\\" + self.filename
+                self.path.SetValue(s)
+            
+            dlg.Destroy()
+        else:
+            self.path.SetValue("")
+
+    def OnOk(self, event):
+        if not self.cb.GetValue():
+
+            if operating_system.isMac():
+                # java -jar $SIKULI_HOME/sikuli-script.jar path-to-your-script/yourScript.sikuli
+                print "not yet supported"
+            else:
+                # java -jar %SIKULI_HOME%\sikuli-script.jar path-to-your-script\yourScript.sikuli
+                os.system(r"java -jar %SIKULI_HOME%\sikuli-script.jar -r" + self.path.GetValue())
+        else:
+            os.system(r"start " + self.path.GetValue())
+
+        

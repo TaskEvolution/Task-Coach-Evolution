@@ -1,4 +1,4 @@
-"C:\sikuliX\runIDE.cmd" -r "Taskcoach-DropboxBackup.sikuli"
-"C:\sikuliX\runIDE.cmd" -r "Taskcoach-PDFexport.sikuli"
-"C:\sikuliX\runIDE.cmd" -r "Taskcoach-TaskDeletion.sikuli"
-"C:\sikuliX\runIDE.cmd" -r "Taskcoach-TodayView.sikuli"
+java -jar %SIKULI_HOME%\sikuli-script.jar -r C:\Task-Coach-Evolution\taskcoach\tests\sikuli\windows\TaskcoachDropboxBackup.sikuli
+java -jar %SIKULI_HOME%\sikuli-script.jar -r C:\Task-Coach-Evolution\taskcoach\tests\sikuli\windows\TaskcoachTodayView.sikuli
+java -jar %SIKULI_HOME%\sikuli-script.jar -r C:\Task-Coach-Evolution\taskcoach\tests\sikuli\windows\TaskcoachPDFexport.sikuli
+java -jar %SIKULI_HOME%\sikuli-script.jar -r C:\Task-Coach-Evolution\taskcoach\tests\sikuli\windows\TaskcoachTodayView.sikuli

@@ -1,0 +1,1 @@
+C:\sikuliX\runIDE.cmd -r Taskcoach-DropboxBackup.sikuli
