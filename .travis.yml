@@ -4,17 +4,7 @@ python:
   - "2.7"
 # command to install dependencies
 install:
-    - wget http://sourceforge.net/projects/wxpython/files/wxPython/2.9.4.0/wxPython-src-2.9.4.0.tar.bz2
-    - tar xf wxPython-src-2.9.4.0.tar.bz2
-    - cd wxPython-src-2.9.4.0/
-    - wget http://sourceforge.net/projects/wxpython/files/wxPython/2.9.4.0/wxPython-src-2.9.4.1.patch
-    - patch -p0 < wxPython-src-2.9.4.1.patch
-    - cd wxPython/
-    - python build-wxpython.py --build_dir=../bld
-    - cd ..
-    - export PYTHONPATH="$PWD/wxPython"
-    - export LD_LIBRARY_PATH="$PWD/bld/lib"
-    - cd ..
+    - apt-get install python-wxgtk2.8
     - cd taskcoach
     - make prepare
     - python taskcoach.py
