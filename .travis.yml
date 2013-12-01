@@ -4,14 +4,7 @@ python:
   - "2.7"
 # command to install dependencies
 install:
-    - sudo apt-get install python-wxgtk2.8
-    - sudo apt-get source -d wxwidgets2.8
-    - sudo dpkg-source -x wxwidgets2.8_2.8.12.1-6ubuntu2.dsc
-    - cd wxwidgets2.8-2.8.12.1
-    - cd wxPython
-    - sudo python setup.py install
-    - cd ..
-    - cd ..
+    - sudo apt-get install python-wxgtk2.8 python-wxtools wx2.8-i18n libwxgtk2.8-dev libgtk2.0-dev
     - cd taskcoach
     - make prepare
     - python taskcoach.py
