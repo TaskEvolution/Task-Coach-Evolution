@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 '''
 Task Coach - Your friendly task manager
 Copyright (C) 2004-2013 Task Coach developers <developers@taskcoach.org>
@@ -41,6 +40,7 @@ import base_uicommand
 import mixin_uicommand
 import settings_uicommand
 import datetime
+import os
 
 
 class IOCommand(base_uicommand.UICommand):  # pylint: disable=W0223
@@ -450,7 +450,7 @@ class FileExportAsPDF(FileExportCommand):
 
     def __init__(self, *args, **kwargs):
         super(FileExportAsPDF, self).__init__( \
-            menuText=_('Export as &PDF'),
+            menuText=_('Export as &PDF...\tAlt+A'),
             helpText=_('Export items from a viewer in PDF format'),
             bitmap='exportascsv', *args, **kwargs)
 
@@ -466,7 +466,7 @@ class FileExportToGoogleTask(IOCommand):
 
     def __init__(self, *args, **kwargs):
         super(FileExportToGoogleTask, self).__init__( \
-            menuText=_('Export as &Google Task...'),
+            menuText=_('Export as &Google Task...\tAlt+B'),
             helpText=_('Export items from a viewer to Google Task'),
             bitmap='exportascsv', *args, **kwargs)
 
@@ -534,7 +534,7 @@ class FileImportTodoTxt(IOCommand):
 class FileImportFromGoogleTask(IOCommand):
     def __init__(self, *args, **kwargs):
         super(FileImportFromGoogleTask, self).__init__( \
-            menuText=_('&Import Google Task...'),
+            menuText=_('&Import Google Task...\tAlt+E'),
             helpText=_('Import Tasks from Google Task'),
             bitmap='exportascsv', *args, **kwargs)
 
@@ -575,7 +575,7 @@ class FileImportFromGoogleTask(IOCommand):
 class FileBackupGoogleDrive(IOCommand):
     def __init__(self, *args, **kwargs):
         super(FileBackupGoogleDrive, self).__init__( \
-            menuText=_('&Backup to Google Drive'),
+            menuText=_('&Backup to Google Drive\tAlt+C'),
             helpText=_('Backup your Taskfile to Google Drive'),
             bitmap='', *args, **kwargs)
 
@@ -2871,3 +2871,100 @@ class AlwaysRoundUp(settings_uicommand.UICheckCommand, ViewerCommand):
     def enable(self, enable=True):
         if self.checkboxCtrl is not None:
             self.checkboxCtrl.Enable(enable)
+
+class SikuliTests(settings_uicommand.SettingsCommand, ViewerCommand):
+    def __init__(self, *args, **kwargs):
+        super(SikuliTests, self).__init__(menuText=_('Execute Sikuli tests'),
+                                                helpText=_('Execute Sikuli tests'),
+                                                *args, **kwargs)
+
+    def doCommand(self, event):
+        #mixin_uicommand.NeedsSelectedTasksMixin,
+        ''' 
+        dlg = wx.TextEntryDialog(None, 'Enter search path for the Sikuli script','Sikuli')
+        dlg.SetValue("")
+        sub = ""
+        if dlg.ShowModal() == wx.ID_OK:
+            sub = dlg.GetValue()
+            if operating_system.isMac():
+                # java -jar $SIKULI_HOME/sikuli-script.jar path-to-your-script/yourScript.sikuli
+                print "not yet supported"
+            else:
+                # java -jar %SIKULI_HOME%\sikuli-script.jar path-to-your-script\yourScript.sikuli
+                os.system(r"java -jar %SIKULI_HOME%\sikuli-script.jar -r" + sub)
+        dlg.Destroy()
+        print sub '''
+
+        SikuliBox(None, -1, 'Execute sikuli tests')
+
+
+class SikuliBox(wx.Frame):
+    def __init__(self, parent, id, title):
+        wx.Frame.__init__(self, parent, id, title, size=(330, 170))
+
+        self.txt = wx.StaticText(self, -1, 'Set the path to the Sikuli test folder', (10, 20))
+
+        self.path = wx.TextCtrl(self, -1, '',  (10, 45), (290, -1))
+        #self.path.SetHint("Enter path...")
+
+        ok = wx.Button(self, 1, 'Execute', (225, 105))
+        self.Bind(wx.EVT_BUTTON, self.OnOk, ok)
+        browse = wx.Button(self, 2, 'Browse', (225, 75))
+        self.Bind(wx.EVT_BUTTON, self.OnBrowse, browse)
+
+        self.cb = wx.CheckBox(self, -1, 'Execute .bat file (Windows)', (10, 80))
+        self.Bind(wx.EVT_CHECKBOX, self.OnToggle, self.cb)
+
+        self.Show()
+        self.Centre()
+
+    def OnToggle(self, event):
+        if self.cb.GetValue():
+            self.txt.SetLabel("Set path to .bat file")
+        else:
+            self.txt.SetLabel("Set the path to the Sikuli test folder")
+
+    def OnBrowse(self, event):
+        if not self.cb.GetValue():
+            #wx.DirDialog
+            self._dirname = ''
+            userPath = 'c:/'
+            dlg = wx.DirDialog(None, "Please choose your project directory:",\
+              style=1 ,defaultPath=userPath, pos = (10,10))
+            if dlg.ShowModal() == wx.ID_OK:
+                self._dirname = dlg.GetPath()
+                self.path.SetValue(self._dirname)
+            dlg.Destroy()
+        else:
+            self._dirname = ''
+            dlg = wx.FileDialog(self, "Choose a .bat file", self._dirname, "", "*.bat", wx.OPEN)
+            if dlg.ShowModal() == wx.ID_OK:
+                self.filename = dlg.GetFilename()
+                self._dirname = dlg.GetDirectory()
+                s = self._dirname + "\\" + self.filename
+                self.path.SetValue(s)
+            dlg.Destroy()
+
+    def OnOk(self, event):
+        try:
+            if not self.cb.GetValue():
+                if operating_system.isMac():
+                    # java -jar $SIKULI_HOME/sikuli-script.jar path-to-your-script/yourScript.sikuli
+                    self.Close(True)
+                    print "not yet supported"
+                else:
+                    # java -jar %SIKULI_HOME%\sikuli-script.jar path-to-your-script\yourScript.sikuli
+                    #print (r'java -jar %SIKULI_HOME%\\sikuli-script.jar -r ' + self._dirname)
+                    #print (r"java -jar %SIKULI_HOME%\sikuli-script.jar -r " + self._dirname)
+                    os.system("java -jar %SIKULI_HOME%\sikuli-script.jar -r " + self._dirname) #self._dirname
+            else:
+                if operating_system.isMac():
+                    self.Close(True)
+                    print "not yet supported"
+                else:
+                    os.system(r"start " + self.path.GetValue())
+            
+        except AttributeError:
+            self.path.SetValue("Please supply a valid path")
+        except:
+            self.path.SetValue("error")
