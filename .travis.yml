@@ -9,6 +9,7 @@ install:
     - sudo apt-get update -qq
     - sudo apt-get install -qq python-wxgtk2.8
     - cd taskcoach
+    - make clean
     - make prepare
     - python taskcoach.py
 # command to run tests
