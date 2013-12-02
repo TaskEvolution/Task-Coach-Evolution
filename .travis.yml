@@ -8,9 +8,18 @@ install:
     #- sudo apt-get install python-wxgtk2.8 python-wxtools wx2.8-i18n libwxgtk2.8-dev libgtk2.0-dev
     #- sudo apt-get update -qq
     #- sudo apt-get install -qq python-wxgtk2.8
+    First make sure that you have Python installed
+    - sudo apt-get install python-wxgtk2.8
+    - apt-get source -d wxwidgets2.8
+    - dpkg-source -x wxwidgets2.8_2.8.12.1-6ubuntu2.dsc
+    - cd wxwidgets2.8-2.8.12.1
+    - cd wxPython
+    - sudo python setup.py install
+    - cd ..
+    - cd ..
     - cd taskcoach
-    #- make clean
-    #- make prepare
+    - make clean
+    - make prepare
     - python taskcoach.py
 # command to run tests
 script: 
