@@ -67,41 +67,32 @@
    </head>
 <body>
 <div class="info">
-<h2>TaskcoachMain.sikuli\main.sikuli</h2> <a href="TaskcoachMain.sikuli\main.zip">(Download this script)</a>
+<h2>TaskcoachDropboxBackup.sikuli\TaskcoachDropboxBackup.sikuli</h2> <a href="TaskcoachDropboxBackup.sikuli\TaskcoachDropboxBackup.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
-myScriptPath = <span class="str">"C:\\Task-Coach-Evolution\\taskcoach\\tests\\sikuli"</span>
-<span class="kw">if</span> <span class="kw">not</span> myScriptPath <span class="kw">in</span> sys.path: sys.path.append(myScriptPath)
-
-
-<span class="kw">import</span> TaskcoachPDFexport
-<span class="kw">import</span> TaskcoachDropboxBackup
-<span class="kw">import</span> TaskcoachTodayView
-<span class="cmt">#import TaskcoachDelete
-</span>
-<span class="kw">def</span> setUp():
-    <span class="skw">click</span>(<img src="1385560224304.png" />)
-    <span class="skw">type</span>(<span class="str">"cmd"</span>)
-    <span class="skw">sleep</span>(<span class="dig">2</span>)
-    <span class="skw">type</span>(Key.ENTER)
+<span class="skw">sleep</span>(<span class="dig">2</span>)
+<span class="kw">assert</span> exists (<img src="1385718239031.png" />)
+<span class="skw">sleep</span>(<span class="dig">2</span>)
+<span class="skw">type</span>(<span class="str">'d'</span>, KEY_ALT)
+<span class="skw">sleep</span>(<span class="dig">5</span>)
+<span class="cmt">#Requires that you delete your authentication .dat first, since this is the interesting part.
+</span><span class="kw">if</span> exists(<img src="1385765333899.png" />):
+    paste(<img src="1385766759856.png" />, <span class="str">"gula_bananen@msn.com"</span>)
     <span class="skw">sleep</span>(<span class="dig">1</span>)
-    <span class="skw">type</span>(<span class="str">"cd .."</span> + Key.ENTER)
-    <span class="skw">type</span>(<span class="str">"cd .."</span> + Key.ENTER)
-    <span class="skw">type</span>(<span class="str">"cd Task-Coach-Evolution"</span> + Key.ENTER)
-    <span class="skw">type</span>(<span class="str">"cd taskcoach"</span> + Key.ENTER)
-    <span class="skw">type</span>(<span class="str">"python taskcoach.py"</span> + Key.ENTER)
-    <span class="skw">sleep</span>(<span class="dig">8</span>)
-    <span class="kw">assert</span> exists (<img src="1385718239031.png" />)
-    <span class="skw">sleep</span>(<span class="dig">2</span>)
-
-<span class="kw">def</span> closeApp():
-    <span class="skw">sleep</span>(<span class="dig">1</span>)
-    <span class="skw">click</span>(<img src="1385770367703.png" />)
-
-TaskcoachPDFexport.pdf()
-TaskcoachDropboxBackup.dropbox()
-TaskcoachTodayView.today()
-TaskcoachTaskDeletion.deletion()
+    <span class="skw">type</span>(Key.TAB)
+    <span class="skw">type</span>(<span class="str">"ocicatleo"</span> + Key.ENTER)
+    <span class="skw">sleep</span>(<span class="dig">3</span>)
+<span class="kw">assert</span> exists(<img src="1385765432378.png" />)
+<span class="skw">click</span>(<img src="1385765458210.png" />)
+<span class="skw">sleep</span>(<span class="dig">2</span>)
+<span class="kw">assert</span> exists(<img src="1385765498459.png" />)
+<span class="skw">click</span>(<img src="1385765531131.png" />)
+<span class="skw">sleep</span>(<span class="dig">2</span>)
+Region(<span class="dig">457</span>,<span class="dig">333</span>,<span class="dig">456</span>,<span class="dig">130</span>).<span class="skw">click</span>(<img src="1385772775833.png" />)
+<span class="skw">sleep</span>(<span class="dig">3</span>)
+<span class="kw">assert</span> exists(<img src="1385765661633.png" />)
+<span class="skw">click</span>(<img src="1385765688747.png" />)
+<span class="kw">print</span>(<span class="str">"Successfully uploaded the tasks to Dropbox"</span>)
 </pre>
 </body>
 </html>

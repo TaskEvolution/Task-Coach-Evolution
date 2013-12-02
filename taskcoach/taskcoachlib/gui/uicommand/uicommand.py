@@ -2868,52 +2868,78 @@ class SikuliTests(settings_uicommand.SettingsCommand, ViewerCommand):
         dlg.Destroy()
         print sub '''
 
-        SikuliBox(None, -1, 'Sikuli tests')
+        SikuliBox(None, -1, 'Execute sikuli tests')
 
 
 class SikuliBox(wx.Frame):
     def __init__(self, parent, id, title):
         wx.Frame.__init__(self, parent, id, title, size=(330, 170))
 
-        wx.StaticText(self, -1, 'Execute sikuli tests', (10, 20))
+        self.txt = wx.StaticText(self, -1, 'Set the path to the Sikuli test folder', (10, 20))
 
-        self.path = wx.TextCtrl(self, -1, '',  (10, 45), (275, -1))
+        self.path = wx.TextCtrl(self, -1, '',  (10, 45), (290, -1))
+        #self.path.SetHint("Enter path...")
 
-        ok = wx.Button(self, 1, 'Execute', (210, 75))
+        ok = wx.Button(self, 1, 'Execute', (225, 105))
+        self.Bind(wx.EVT_BUTTON, self.OnOk, ok)
+        browse = wx.Button(self, 2, 'Browse', (225, 75))
+        self.Bind(wx.EVT_BUTTON, self.OnBrowse, browse)
 
-        self.Bind(wx.EVT_BUTTON, self.OnOk, id=1)
-        self.cb = wx.CheckBox(self, -1, 'Execute .bat file', (10, 80))
-
-        wx.EVT_CHECKBOX(self, self.cb.GetId(), self.OpenBat)
+        self.cb = wx.CheckBox(self, -1, 'Execute .bat file (Windows)', (10, 80))
+        self.Bind(wx.EVT_CHECKBOX, self.OnToggle, self.cb)
 
         self.Show()
         self.Centre()
 
-    def OpenBat(self, event):
-
+    def OnToggle(self, event):
         if self.cb.GetValue():
-            self.dirname = ''
-            dlg = wx.FileDialog(self, "Choose a .bat file", self.dirname, "", "*.bat", wx.OPEN)
+            self.txt.SetLabel("Set path to .bat file")
+        else:
+            self.txt.SetLabel("Set the path to the Sikuli test folder")
+
+    def OnBrowse(self, event):
+        if not self.cb.GetValue():
+            #wx.DirDialog
+            self._dirname = ''
+            userPath = 'c:/'
+            dlg = wx.DirDialog(None, "Please choose your project directory:",\
+              style=1 ,defaultPath=userPath, pos = (10,10))
             if dlg.ShowModal() == wx.ID_OK:
-                self.filename = dlg.GetFilename()
-                self.dirname = dlg.GetDirectory()
-                s = self.dirname + "\\" + self.filename
-                self.path.SetValue(s)
-            
+                self._dirname = dlg.GetPath()
+                self.path.SetValue(self._dirname)
             dlg.Destroy()
         else:
-            self.path.SetValue("")
+            self._dirname = ''
+            dlg = wx.FileDialog(self, "Choose a .bat file", self._dirname, "", "*.bat", wx.OPEN)
+            if dlg.ShowModal() == wx.ID_OK:
+                self.filename = dlg.GetFilename()
+                self._dirname = dlg.GetDirectory()
+                s = self._dirname + "\\" + self.filename
+                self.path.SetValue(s)
+            dlg.Destroy()
 
     def OnOk(self, event):
-        if not self.cb.GetValue():
-
-            if operating_system.isMac():
-                # java -jar $SIKULI_HOME/sikuli-script.jar path-to-your-script/yourScript.sikuli
-                print "not yet supported"
+        try:
+            if not self.cb.GetValue():
+                if operating_system.isMac():
+                    # java -jar $SIKULI_HOME/sikuli-script.jar path-to-your-script/yourScript.sikuli
+                    self.Close(True)
+                    print "not yet supported"
+                else:
+                    # java -jar %SIKULI_HOME%\sikuli-script.jar path-to-your-script\yourScript.sikuli
+                    #print (r'java -jar %SIKULI_HOME%\\sikuli-script.jar -r ' + self._dirname)
+                    #print (r"java -jar %SIKULI_HOME%\sikuli-script.jar -r " + self._dirname)
+                    os.system("java -jar %SIKULI_HOME%\sikuli-script.jar -r " + self._dirname) #self._dirname
             else:
-                # java -jar %SIKULI_HOME%\sikuli-script.jar path-to-your-script\yourScript.sikuli
-                os.system(r"java -jar %SIKULI_HOME%\sikuli-script.jar -r" + self.path.GetValue())
-        else:
-            os.system(r"start " + self.path.GetValue())
+                if operating_system.isMac():
+                    self.Close(True)
+                    print "not yet supported"
+                else:
+                    os.system(r"start " + self.path.GetValue())
+            
+        except AttributeError:
+            self.path.SetValue("Please supply a valid path")
+        except:
+            self.path.SetValue("error")
 
         
