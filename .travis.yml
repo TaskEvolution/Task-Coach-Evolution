@@ -6,6 +6,6 @@ before_install:
   - sudo apt-get install -qq python-wxgtk2.8
 install:
 # command to run tests
-script: 
-    - cd taskcoach
-    - make unittests
+#script: 
+#    - cd taskcoach
+#    - make unittests
