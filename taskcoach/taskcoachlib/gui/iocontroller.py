@@ -287,30 +287,31 @@ class IOController(object):
     
     
     def backupdropbox(self):
-        dbclient, message = persistence.dropboxapi.dbclient()
-        
-        if dbclient is not None:
-
-            # Open the file to upload to Dropbox (current file)
-            f = open(self.__taskFile.filename(), 'rb')
-            filename = os.path.basename(f.name) 
-            
-            # Upload the file
-            try:
-                # put the file to Dropbox. The third option is for overwrite.
-                response = dbclient.put_file(filename, f, True)
-                wx.MessageBox('File successfully uploaded.',
-                              'Backup to Dropbox', wx.OK | wx.ICON_INFORMATION)
-            except:
-                wx.MessageBox('Unknown error encountered.',
-                              'Backup to Dropbox', wx.OK | wx.ICON_ERROR)
-        else:
-            wx.MessageBox('Error encountered:\n' + message,
+        if self.__taskFile.filename()=='' or self.__taskFile is None:
+            wx.MessageBox('Please save the current file first.', 
                           'Backup to Dropbox.', wx.OK | wx.ICON_ERROR)
+        else:
+            dbclient, message = persistence.dropboxapi.dbclient()
+                    
+            if dbclient is not None:
+                # Open the file to upload to Dropbox (current file)
+                f = open(self.__taskFile.filename(), 'rb')
+                filename = os.path.basename(f.name) 
+                
+                # Upload the file
+                try:
+                    # put the file to Dropbox. The third option is for overwrite.
+                    response = dbclient.put_file(filename, f, True)
+                    wx.MessageBox('File successfully uploaded.',
+                                  'Backup to Dropbox', wx.OK | wx.ICON_INFORMATION)
+                except:
+                    wx.MessageBox('Unknown error encountered.',
+                                  'Backup to Dropbox', wx.OK | wx.ICON_ERROR)
+            else:
+                wx.MessageBox('Error encountered:\n' + message,
+                              'Backup to Dropbox.', wx.OK | wx.ICON_ERROR)
 
     def getdropboxdirectory(self):
-        # close current file
-        #self.close()
         # connect to dropbox
         dbclient, message = persistence.dropboxapi.dbclient()
         
