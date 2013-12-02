@@ -1,10 +1,8 @@
 language: python
 python:
   - "2.7"
-before_install:
-    - brew install --python wxmac --devel
-    - sudo ln -s /usr/local/Cellar/wxmac/2.9.4.0/lib/python2.7/site-packages/wx /Library/Python/2.7/site-packages/wx
 install:
+    - pip install wxPython==src-2.8.12.1
 # command to run tests
 script: 
     - cd taskcoach
