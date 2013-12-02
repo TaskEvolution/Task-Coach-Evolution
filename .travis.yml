@@ -3,7 +3,7 @@ python:
   - "2.7"
 # command to install dependencies
 # command to install wxPython using apt
-before_install: sudo apt-get update && sudo apt-get install python-wxgtk2.8 language-pack-ru-base language-pack-fr-base
+#before_install: sudo apt-get update && sudo apt-get install python-wxgtk2.8 language-pack-ru-base language-pack-fr-base
 install:
     #- sudo apt-get install python-wxgtk2.8 python-wxtools wx2.8-i18n libwxgtk2.8-dev libgtk2.0-dev
     #- sudo apt-get update -qq
