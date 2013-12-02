@@ -22,5 +22,4 @@ import entry
 import export
 import preferences
 import syncpreferences
-import restore
 import templates
