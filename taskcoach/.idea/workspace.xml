@@ -670,11 +670,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HACKING.txt">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="61" selection-start="534" selection-end="534" vertical-scroll-proportion="0.4643963" vertical-offset="0" max-vertical-offset="2850" />
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py">
@@ -746,7 +746,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py">
+    <entry file="file://$PROJECT_DIR$/icons.in/iconmap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="317" column="61" selection-start="13532" selection-end="13532" vertical-scroll-proportion="-4.730769" vertical-offset="4422" max-vertical-offset="6810">
           <folding />
