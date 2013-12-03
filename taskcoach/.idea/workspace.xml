@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b4203b6-1a3a-485a-9de8-382d59c2510b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tests/.coverage" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons.in/nuvola.zip" afterPath="$PROJECT_DIR$/icons.in/nuvola.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Makefile" afterPath="$PROJECT_DIR$/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons.in/iconmap.py" afterPath="$PROJECT_DIR$/icons.in/iconmap.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/icons.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/icons.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/i18n.in/messages.pot" afterPath="$PROJECT_DIR$/i18n.in/messages.pot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="taskcoach.iws" />
@@ -39,64 +35,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="uicommand.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="472" column="35" selection-start="18477" selection-end="18477" vertical-scroll-proportion="-12.346154" vertical-offset="6459" max-vertical-offset="42645">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/menu.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="187" column="31" selection-start="7619" selection-end="7619" vertical-scroll-proportion="1361.5" vertical-offset="5423" max-vertical-offset="15045">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taskcoachlib/application/application.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="3" selection-start="729" selection-end="729" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="5085">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mainwindow.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="mainwindow.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="320" column="22" selection-start="13681" selection-end="13681" vertical-scroll-proportion="0.6837607" vertical-offset="4350" max-vertical-offset="6810">
+            <state line="317" column="61" selection-start="13532" selection-end="13532" vertical-scroll-proportion="0.0" vertical-offset="4425" max-vertical-offset="6810">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="icons.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/icons.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="115425">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PDFWriterTest.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/unittests/persistenceTests/PDFWriterTest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="6" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="2475">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="iconmap.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="iconmap.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/icons.in/iconmap.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="2" selection-start="3005" selection-end="3018" vertical-scroll-proportion="-6.4615383" vertical-offset="837" max-vertical-offset="2790">
+            <state line="20" column="39" selection-start="829" selection-end="829" vertical-scroll-proportion="0.79787236" vertical-offset="0" max-vertical-offset="2790">
               <folding />
             </state>
           </provider>
@@ -133,9 +84,9 @@
         <option value="$PROJECT_DIR$/tests/unittests/AppTest.py" />
         <option value="$PROJECT_DIR$/taskcoachlib/gui/menu.py" />
         <option value="$PROJECT_DIR$/taskcoachlib/gui/icons.py" />
-        <option value="$PROJECT_DIR$/icons.in/iconmap.py" />
         <option value="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" />
         <option value="$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py" />
+        <option value="$PROJECT_DIR$/icons.in/iconmap.py" />
       </list>
     </option>
   </component>
@@ -186,6 +137,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="taskcoach" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskcoach" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskcoach" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taskcoachlib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -536,12 +501,11 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3277592" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32666665" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277592" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2381342" sideWeight="0.6705686" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33469722" sideWeight="0.6722408" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34615386" sideWeight="0.67333335" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -550,6 +514,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277592" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3502455" sideWeight="0.6705686" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -602,61 +567,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/uicommand/base_uicommand.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="35" selection-start="3577" selection-end="3585" vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="2820">
-          <folding />
-        </state>
+        <state line="85" column="35" selection-start="3577" selection-end="3585" vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="2820" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/splash.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="40" selection-start="1125" selection-end="1125" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="735">
-          <folding />
-        </state>
+        <state line="32" column="40" selection-start="1125" selection-end="1125" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="735" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/HACKING.txt">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="61" selection-start="534" selection-end="534" vertical-scroll-proportion="0.4643963" vertical-offset="0" max-vertical-offset="2850" />
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="22" selection-start="1444" selection-end="1444" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="9120">
-          <folding />
-        </state>
+        <state line="44" column="22" selection-start="1444" selection-end="1444" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="9120" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/viewer/task.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="153" column="79" selection-start="7071" selection-end="7077" vertical-scroll-proportion="0.0" vertical-offset="2295" max-vertical-offset="20835">
-          <folding />
-        </state>
+        <state line="153" column="79" selection-start="7071" selection-end="7077" vertical-scroll-proportion="0.0" vertical-offset="2295" max-vertical-offset="20835" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="15" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5175">
-          <folding />
-        </state>
+        <state line="13" column="15" selection-start="520" selection-end="520" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5175" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/thirdparty/treeadapters/sax.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <folding>
-            <element signature="e#0#66#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/unittests/persistenceTests/PDFWriterTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="6" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="2475">
-          <folding />
-        </state>
+        <state line="40" column="6" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="2475" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/icons.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="115425" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="472" column="35" selection-start="18477" selection-end="18477" vertical-scroll-proportion="0.0" vertical-offset="7080" max-vertical-offset="42945" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/menu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="187" column="31" selection-start="7619" selection-end="7619" vertical-scroll-proportion="0.0" vertical-offset="2805" max-vertical-offset="15150" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/application/application.py">
@@ -666,37 +630,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/menu.py">
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="187" column="31" selection-start="7619" selection-end="7619" vertical-scroll-proportion="1361.5" vertical-offset="5423" max-vertical-offset="15045">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="472" column="35" selection-start="18477" selection-end="18477" vertical-scroll-proportion="-12.346154" vertical-offset="6459" max-vertical-offset="42645">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/icons.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="115425">
+        <state line="317" column="61" selection-start="13532" selection-end="13532" vertical-scroll-proportion="0.0" vertical-offset="4425" max-vertical-offset="6810">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/icons.in/iconmap.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="2" selection-start="3005" selection-end="3018" vertical-scroll-proportion="-6.4615383" vertical-offset="837" max-vertical-offset="2790">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="320" column="22" selection-start="13681" selection-end="13681" vertical-scroll-proportion="0.6837607" vertical-offset="4350" max-vertical-offset="6810">
+        <state line="20" column="39" selection-start="829" selection-end="829" vertical-scroll-proportion="0.79787236" vertical-offset="0" max-vertical-offset="2790">
           <folding />
         </state>
       </provider>
