@@ -1,4 +1,6 @@
 sleep(2)
+if exists ("1386056187843.png"):
+    click("1386056206027.png")
 assert exists ("1385718239031.png")
 sleep(2)
 type(Key.INSERT)
@@ -14,6 +16,6 @@ else:
    click("1385765016616.png")
    sleep(2)
    if exists("1385986728875.png"):
-        print("Fail")
+        print("Fail, task is not deleted")
    else:
         print("Success in deleting the task")      

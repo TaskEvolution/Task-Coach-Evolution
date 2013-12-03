@@ -1,6 +1,7 @@
-if exists("1385991758202.png"):
-    click("1385991923341.png")
-sleep(2)
+sleep(1)
+if exists ("1386056187843.png"):
+    click("1386056206027.png")
+assert exists ("1385718239031.png")
 sleep(1)
 type(Key.INSERT)
 sleep(1)

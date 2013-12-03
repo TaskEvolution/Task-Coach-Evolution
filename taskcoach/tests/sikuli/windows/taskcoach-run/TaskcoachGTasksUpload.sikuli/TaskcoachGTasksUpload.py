@@ -1,4 +1,7 @@
 sleep(2)
+if exists ("1386056187843.png"):
+    click("1386056206027.png")
+sleep(1)
 assert exists ("1385718239031.png")
 sleep(1)
 type('b', KEY_ALT)

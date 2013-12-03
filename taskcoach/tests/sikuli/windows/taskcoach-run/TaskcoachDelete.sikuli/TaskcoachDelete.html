@@ -71,6 +71,8 @@
 </div>
 <pre class="sikuli-code">
 <span class="skw">sleep</span>(<span class="dig">2</span>)
+<span class="kw">if</span> exists (<img src="1386056187843.png" />):
+    <span class="skw">click</span>(<img src="1386056206027.png" />)
 <span class="kw">assert</span> exists (<img src="1385718239031.png" />)
 <span class="skw">sleep</span>(<span class="dig">2</span>)
 <span class="skw">type</span>(Key.INSERT)
@@ -86,7 +88,7 @@
    <span class="skw">click</span>(<img src="1385765016616.png" />)
    <span class="skw">sleep</span>(<span class="dig">2</span>)
    <span class="kw">if</span> exists(<img src="1385986728875.png" />):
-        <span class="kw">print</span>(<span class="str">"Fail"</span>)
+        <span class="kw">print</span>(<span class="str">"Fail, task is not deleted"</span>)
    <span class="kw">else</span>:
         <span class="kw">print</span>(<span class="str">"Success in deleting the task"</span>)
 </pre>

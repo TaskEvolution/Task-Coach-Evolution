@@ -185,7 +185,7 @@ class FileSaveSelection(mixin_uicommand.NeedsSelectedTasksMixin, IOCommand,
 class FileBackupToDropbox(IOCommand):
     def __init__(self, *args, **kwargs):
         super(FileBackupToDropbox, self).__init__( \
-            menuText=_('&Backup to Dropbox'),
+            menuText=_('&Backup to Dropbox\tAlt+D'),
             helpText=help.fileSaveAs, bitmap='saveas',
             *args, **kwargs)
         
