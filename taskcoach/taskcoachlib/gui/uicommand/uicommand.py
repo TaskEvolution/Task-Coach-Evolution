@@ -1509,6 +1509,7 @@ class DragAndDropCommand(ViewerCommand):
     def onCommandActivate(self, dropItem, dragItems, part):  # pylint: disable=W0221
         ''' Override onCommandActivate to be able to accept two items instead
             of one event. '''
+        print "DragAndDropCommand", dropItem, dragItems, part
         self.doCommand(dropItem, dragItems, part)
 
     def doCommand(self, dropItem, dragItems, part):  # pylint: disable=W0221

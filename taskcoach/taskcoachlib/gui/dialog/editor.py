@@ -239,7 +239,71 @@ class TaskSubjectPage(SubjectPage):
         entries = super(TaskSubjectPage, self).entries()
         entries['priority'] = self._priorityEntry
         return entries
-            
+
+
+class TaskSubjectPage2(TaskSubjectPage):
+    def __init__(self, theTask, parent, settings, items_are_new, *args, **kwargs):
+        self.__settings = settings
+        self._duration = None
+        self.__items_are_new = items_are_new
+        super(TaskSubjectPage2, self).__init__(theTask, parent, settings, *args, **kwargs)
+        pub.subscribe(self.__onChoicesConfigChanged, 'settings.feature.sdtcspans')
+
+    def __onChoicesConfigChanged(self, value=''):
+        self._dueDateTimeEntry.LoadChoices(value)
+
+    def __onTimeChoicesChange(self, event):
+        self.__settings.settext('feature', 'sdtcspans', event.GetValue())
+
+    def __onPlannedStartDateTimeChanged(self, value):
+        self._dueDateTimeEntry.SetRelativeChoicesStart(None if value == date.DateTime() else value)
+
+    def addEntries(self):
+        self.addSubjectEntry()
+        self.addDescriptionEntry()
+        self.addPriorityEntry()
+        self.addCreationDateTimeEntry()
+        self.addDateEntries()
+        self.addModificationDateTimeEntry()
+
+
+    def addDateEntries(self):
+        self.addDateEntry(_('Planned start date'), 'plannedStartDateTime')
+        self.addDateEntry(_('Due date'), 'dueDateTime')
+
+    def addDateEntry(self, label, taskMethodName):
+        TaskMethodName = taskMethodName[0].capitalize() + taskMethodName[1:]
+        dateTime = getattr(self.items[0], taskMethodName)() if len(self.items) == 1 else date.DateTime()
+        setattr(self, '_current%s' % TaskMethodName, dateTime)
+        suggestedDateTimeMethodName = 'suggested' + TaskMethodName
+        suggestedDateTime = getattr(self.items[0], suggestedDateTimeMethodName)()
+        dateTimeEntry = entry.DateTimeEntry(self, self.__settings, dateTime,
+                                            suggestedDateTime=suggestedDateTime,
+                                            showRelative=taskMethodName == 'dueDateTime',
+                                            adjustEndOfDay=taskMethodName == 'dueDateTime')
+        setattr(self, '_%sEntry' % taskMethodName, dateTimeEntry)
+        commandClass = getattr(command, 'Edit%sCommand' % TaskMethodName)
+        eventType = getattr(self.items[0],
+                            '%sChangedEventType' % taskMethodName)()
+        keep_delta = self.__keep_delta(taskMethodName)
+        datetimeSync = attributesync.AttributeSync(taskMethodName,
+            dateTimeEntry, dateTime, self.items, commandClass,
+            entry.EVT_DATETIMEENTRY, eventType, keep_delta=keep_delta,
+            callback=self.__onPlannedStartDateTimeChanged if taskMethodName == 'plannedStartDateTime' else None)
+        setattr(self, '_%sSync' % taskMethodName, datetimeSync)
+        self.addEntry(label, dateTimeEntry)
+
+    def __keep_delta(self, taskMethodName):
+        datesTied = self.__settings.get('view', 'datestied')
+        return (datesTied == 'startdue' and taskMethodName == 'plannedStartDateTime') or \
+               (datesTied == 'duestart' and taskMethodName == 'dueDateTime')
+
+    def entries(self):
+        # pylint: disable=E1191
+        entries = super(TaskSubjectPage, self).entries()
+        entries['plannedStartDateTime'] = self._plannedStartDateTimeEntry
+        entries['dueDateTime'] = self._dueDateTimeEntry
+        return entries
 
 class CategorySubjectPage(SubjectPage):
     def addEntries(self):
@@ -1070,8 +1134,8 @@ class TaskEditBook(EditBook):
                     'appearance']
     domainObject = 'task'
 
-    def create_subject_page(self):    
-        return TaskSubjectPage(self.items, self, self.settings)
+    def create_subject_page(self):
+        return TaskSubjectPage2(self.items, self, self.settings, True)
 
 
 class CategoryEditBook(EditBook):
