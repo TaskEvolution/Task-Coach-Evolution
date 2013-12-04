@@ -1757,9 +1757,6 @@ class Today(ViewerCommand, TaskListCommand):
             dia.Show(True)
 
 
-
-
-
 class TodayDialog(wx.Dialog):
         def __init__ (self, parent, ID, title, tasks):
             wx.Dialog.__init__(self, parent, ID, title)
