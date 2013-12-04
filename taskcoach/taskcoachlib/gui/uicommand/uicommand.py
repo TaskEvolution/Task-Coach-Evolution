@@ -1228,12 +1228,12 @@ class Delete(mixin_uicommand.NeedsSelectionMixin, ViewerCommand):
                 fromIndex, toIndex = pos, pos + 1
             windowWithFocus.Remove(fromIndex, toIndex)
         else:
-            result = wx.MessageBox(_('Do you really want to deleten this task?'),
-            "Confirm delete", 
-            style=wx.YES_NO | wx.ICON_QUESTION | wx.NO_DEFAULT)
-            if result == wx.YES:
-                deleteCommand = self.viewer.deleteItemCommand()
-                deleteCommand.do()
+            #result = wx.MessageBox(_('Do you really want to deleten this task?'),
+            #"Confirm delete",
+            #style=wx.YES_NO | wx.ICON_QUESTION | wx.NO_DEFAULT)
+            #if result == wx.YES:
+            deleteCommand = self.viewer.deleteItemCommand()
+            deleteCommand.do()
 
     def enabled(self, event):
         windowWithFocus = wx.Window.FindFocus()

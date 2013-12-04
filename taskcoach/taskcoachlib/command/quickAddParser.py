@@ -5,7 +5,7 @@ class Parser(object):
     def findStartDate(self, line):
         try:
             startdate = None
-            m = re.search(r'start\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}\]', line, re.M | re.I)
+            m = re.search(r'start\[(19|20)\d\d([- /.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])\]', line, re.M | re.I)
 
             if m is not None:
                 match = m.group(0)[6:-1]
@@ -30,10 +30,10 @@ class Parser(object):
                         day = 5
                     elif match.lower() == 'sunday':
                         day = 6
-                    startdate = date.DateTime.now() + date.TimeDelta(days=(day - date.DateTime.now().weekday())%7+1)
+                    startdate = (date.DateTime.now() + date.TimeDelta(days=(day - date.DateTime.now().weekday())%7+1)).replace(hour=0,minute=0,second=0,microsecond=0)
                     line = line.replace(match, "",1)
 
-                m = re.search(r'\d{4}-\d{2}-\d{2}', line, re.M | re.I)
+                m = re.search(r'(19|20)\d\d([- /.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])', line, re.M | re.I)
 
                 if m is not None:
                     match = m.group(0)
@@ -46,9 +46,9 @@ class Parser(object):
                     match = m.group(0)
                     tmpDate=date.DateTime.strptime(match, "%H:%M")
                     if(startdate is None):
-                        startdate=date.DateTime.today().replace(hour=tmpDate.hour,minute=tmpDate.minute)
+                        startdate=date.DateTime.today().replace(hour=tmpDate.hour,minute=tmpDate.minute,second=0,microsecond=0)
                     else:
-                        startdate=startdate.replace().replace(hour=tmpDate.hour,minute=tmpDate.minute)
+                        startdate=startdate.replace().replace(hour=tmpDate.hour,minute=tmpDate.minute,second=0,microsecond=0)
                     line = line.replace(match, "",1)
 
                 return (startdate,line)
@@ -57,10 +57,11 @@ class Parser(object):
 
 
     def findEndDate(self, line,startdate):
+        enddate=None
         try:
-            m = re.search(r'start\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}\]', line, re.M | re.I)
+            m = re.search(r'end\[(19|20)\d\d([- /.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])\]', line, re.M | re.I)
             if m is not None:
-                match = m.group(0)[6:-1]
+                match = m.group(0)[4:-1]
                 return (date.DateTime.strptime(match, "%Y-%m-%d %H:%M"),
                         line.replace('end[' + match + ']', "",1).replace('Start[' + match + ']', "",1))
             else:
@@ -82,14 +83,15 @@ class Parser(object):
                         day = 5
                     elif match.lower() == 'sunday':
                         day = 6
-                    startdate = startdate + date.TimeDelta(days=(day - startdate.weekday())%7+1)
+                    enddate = startdate + date.TimeDelta(days=(day - startdate.weekday())%7+1)
+                    enddate=enddate.replace(hour=0,minute=0)
                     line = line.replace(match, "",1)
 
-                m = re.search(r'\d{4}-\d{2}-\d{2}', line, re.M | re.I)
+                m = re.search(r'(19|20)\d\d([- /.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])', line, re.M | re.I)
 
                 if m is not None:
                     match = m.group(0)
-                    startdate=date.DateTime.strptime(match, "%Y-%m-%d")
+                    enddate=date.DateTime.strptime(match, "%Y-%m-%d")
                     line = line.replace(match, "",1)
 
                 m = re.search(r'\d{1,2}:\d{1,2}', line, re.M | re.I)
@@ -97,13 +99,13 @@ class Parser(object):
                 if m is not None:
                     match = m.group(0)
                     tmpDate=date.DateTime.strptime(match, "%H:%M")
-                    if(startdate is None):
-                        startdate=startdate.date().replace(hour=tmpDate.hour,minute=tmpDate.minute)
+                    if(enddate is None):
+                        enddate=startdate.replace(hour=tmpDate.hour,minute=tmpDate.minute)
                     else:
-                        startdate=startdate.replace().replace(hour=tmpDate.hour,minute=tmpDate.minute)
+                        enddate=enddate.replace().replace(hour=tmpDate.hour,minute=tmpDate.minute)
                     line = line.replace(match, "",1)
 
-                return (startdate,line)
+                return (enddate,line)
         except ValueError:
             return (None,line)
 
