@@ -29,6 +29,17 @@ iconlist = [
 ('exportashtml', 'mimetypes', 'html', [16]),
 ('exportascsv', 'mimetypes', 'txt', [16]),
 ('exportasvcal', 'mimetypes', 'vcalendar', [16]),
+('exportaspdf', 'actions', 'pdf', [16, 22, 32]),
+('backuptoDropbox', 'actions', 'dropbox', [16]),
+('exporttoGoogletask', 'actions', 'googletask', [16]),
+('backupgoogledrive', 'actions', 'googledrive', [16]),
+('pagesetup', 'actions', 'pagesetup', [16]),
+('printpreview', 'actions', 'printpreview', [16]),
+('exportastodo.txt', 'actions', 'todo', [16]),
+('exportascsv', 'actions', 'csv', [16]),
+('importascsv', 'actions', 'csv', [16]),
+('importasgoogletask', 'actions', 'googletask', [16]),
+('importastodo', 'actions', 'todo', [16]),
 ('close', 'actions', 'fileclose', [16]),
 ('exit', 'actions', 'exit', [16]),
 ('markcompleted', 'apps', 'korganizer_todo', [16, 22, 32]),
@@ -65,11 +76,7 @@ iconlist = [
 ('down', 'actions', '1downarrow', [16]),
 
 # These icons are named after what they display:
-<<<<<<< HEAD
-('arrow_up_icon', 'actions', 'up', [16,22, 32]),
-=======
 ('arrow_up_icon', 'actions', 'up', [16,22,32]),
->>>>>>> marcus
 ('arrow_down_icon', 'actions', 'down', [16, 32]),
 ('arrow_up_with_status_icon', 'actions', 'sort_ascending_with_status', [16]),
 ('arrow_down_with_status_icon', 'actions', 'sort_descending_with_status', [16]),
