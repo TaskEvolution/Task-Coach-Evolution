@@ -55,7 +55,8 @@ def uploadTaskfile(path):
     credentials = storage.get()
     if credentials is None or credentials.invalid:
         credentials = tools.run_flow(FLOW, storage,parser.parse_args(""))
-    print credentials
+        if credentials is None:
+            return None
 
     FILENAME = path
     TITLE = os.path.basename(path)

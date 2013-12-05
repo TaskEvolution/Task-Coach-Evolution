@@ -71,7 +71,7 @@ Panel->RecurrenceEntry
 
 subgraph clusterexport {
 label=export
-ExportDialog ViewerPicker SelectionOnlyCheckBox ColumnPicker SeparateDateAndTimeColumnsCheckBox SeparateCSSCheckBox ExportAsCSVDialog ExportAsICalendarDialog ExportAsHTMLDialog ExportAsPDFDialog ExportAsTodoTxtDialog
+ExportDialog ViewerPicker SelectionOnlyCheckBox ColumnPicker SeparateDateAndTimeColumnsCheckBox SeparateCSSCheckBox ExportAsCSVDialog ExportAsICalendarDialog ExportAsHTMLDialog ExportAsPDFDialog ExportAsTodoTxtDialog ExportMailDialog
 }
 
 SizedDialog->ExportDialog
@@ -85,6 +85,7 @@ ExportDialog->ExportAsICalendarDialog
 ExportDialog->ExportAsHTMLDialog
 ExportDialog->ExportAsPDFDialog
 ExportDialog->ExportAsTodoTxtDialog
+ExportDialog->ExportMailDialog
 
 subgraph clusteriphone {
 label=iphone

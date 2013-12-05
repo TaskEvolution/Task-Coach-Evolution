@@ -195,4 +195,6 @@ class Parser(object):
 
         answerDict['Title'] = re.sub(' +', ' ', answer[1])
 
+        print answerDict
+
         return answerDict
