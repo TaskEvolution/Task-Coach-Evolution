@@ -29,6 +29,7 @@ from taskcoachlib.i18n import _
 from taskcoachlib.thirdparty.pubsub import pub
 from taskcoachlib.thirdparty import smartdatetimectrl as sdtc
 from taskcoachlib.help.balloontips import BalloonTipManager
+from ...config.settings import Settings
 import os.path
 import wx
 
@@ -38,6 +39,7 @@ class Page(patterns.Observer, widgets.BookPage):
     
     def __init__(self, items, *args, **kwargs):
         self.items = items
+        self.__settings = Settings()
         self.__observers = []
         super(Page, self).__init__(columns=self.columns, *args, **kwargs)
         self.addEntries()
@@ -113,20 +115,17 @@ class SubjectPage(Page):
         self.addDescriptionEntry()
         self.addCreationDateTimeEntry()
         self.addModificationDateTimeEntry()
-        self.addGlobalCategoriesEntry()
         
     def addSubjectEntry(self):
         # pylint: disable=W0201
         current_subject = self.items[0].subject() if len(self.items) == 1 \
                           else _('Edit to change all subjects')
-        self._globalCategory = wx.CheckBox(self, label=_('Global category'))
         self._subjectEntry = widgets.SingleLineTextCtrl(self, current_subject)
         self._subjectSync = attributesync.AttributeSync('subject', 
             self._subjectEntry, current_subject, self.items,
             command.EditSubjectCommand, wx.EVT_KILL_FOCUS,
             self.items[0].subjectChangedEventType())
         self.addEntry(_('Subject'), self._subjectEntry)
-        self.addEntry(_('Category'), self._globalCategory)
 
     def addDescriptionEntry(self):
         # pylint: disable=W0201
@@ -172,10 +171,6 @@ class SubjectPage(Page):
                                                       eventType=eventType,
                                                       eventSource=self.items[0])
 
-    def addGlobalCategoriesEntry(self):
-        globalCat = self.settings.getGlobalCategoeries()
-        self._categoryGlobal = wx.CheckBox(self, -1, "Checkbox")
-        self.addEntry('Global Categories', self._categoryGlobal)
 
     def __modification_text(self):
         modification_datetimes = [item.modificationDateTime() for item in self.items]
@@ -240,6 +235,7 @@ class TaskSubjectPage(SubjectPage):
 
 
 class CategorySubjectPage(SubjectPage):
+
     def addEntries(self):
         # Override to insert an exclusive subcategories entry
         # between the description and the creation date/time entry
@@ -248,6 +244,9 @@ class CategorySubjectPage(SubjectPage):
         self.addExclusiveSubcategoriesEntry()
         self.addCreationDateTimeEntry()
         self.addModificationDateTimeEntry()
+        #self.addGlobalCategoriesEntry()
+
+
 
     def addExclusiveSubcategoriesEntry(self):
         # pylint: disable=W0201
@@ -262,6 +261,15 @@ class CategorySubjectPage(SubjectPage):
             self.items[0].exclusiveSubcategoriesChangedEventType())
         self.addEntry(_('Subcategories'), self._exclusiveSubcategoriesCheckBox,
                       flags=[None, wx.ALL])
+
+
+
+    #Just uncomment this code to add the checkbox to activate choice of global categories.
+    #An event listener connected to this is needed in order to make it work, something that we didn't
+    #have time to implement. That could connect to the settings.setIsGlobal(bool)
+    '''def addGlobalCategoriesEntry(self):
+        self._globalCategory = wx.CheckBox(self, label=_('Global category'))
+        self.addEntry('Global Categories', self._globalCategory)'''
 
 
 class AttachmentSubjectPage(SubjectPage):

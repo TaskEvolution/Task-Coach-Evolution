@@ -47,12 +47,13 @@ class IOController(object):
         super(IOController, self).__init__()
 
         # Creates the global categories, both files and folders if necessary
-        self.__glocalCat = pwd.getpwuid(os.getuid()).pw_dir + '/Documents/TaskCoach/Categories/'
-        if not os.path.exists(self.__glocalCat):
-            os.makedirs(self.__glocalCat)
-        self.__glocalCat = open(self.__glocalCat + "categories.tsk", "w")
+        self.__path = pwd.getpwuid(os.getuid()).pw_dir + '/Documents/TaskCoach/Categories/'
+        if not os.path.exists(self.__path):
+            os.makedirs(self.__path)
+        self.__path = self.__path + "categories.tsk"
+        self.__globalCat = open(self.__path, "w")
+        print("init, iocontroller", type(self.__globalCat))
         self.__taskFile = taskFile
-        self.__taskFileGlobal = self.__glocalCat
         self.__messageCallback = messageCallback
         self.__settings = settings
         self.__splash = splash
@@ -79,7 +80,7 @@ class IOController(object):
             _('Todo.txt files (*.txt)|*.txt|All files (*.*)|*')}
         self.__errorMessageOptions = dict(caption=_('%s file error') % \
                                           meta.name, style=wx.ICON_ERROR)
-        self.__settings.setGlobalCategories(self.__glocalCat)
+        self.__settings.setGlobalCategories(self.__globalCat)
 
     def syncMLConfig(self):
         return self.__taskFile.syncMLConfig()

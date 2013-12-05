@@ -22,6 +22,7 @@ from xml.etree import ElementTree as ET
 from taskcoachlib import meta
 from taskcoachlib.domain import date, task, note, category
 from xml.etree import ElementTree as ET
+from ...config import Settings
 import os
 import sys
 
@@ -71,6 +72,8 @@ class XMLWriter(object):
     def __init__(self, fd, versionnr=meta.data.tskversion):
         self.__fd = fd
         self.__versionnr = versionnr
+        self.__settings = Settings()
+        print("init writer.py")
 
     def write(self, taskList, categoryContainer,
               noteContainer, syncMLConfig, guid):
@@ -87,11 +90,6 @@ class XMLWriter(object):
             else:
                 self.categoryNode(root, rootCategory, taskList, noteContainer, ownedNotes)
 
-        print("JAG SKRIVER NÅGOT ARGT", type(root))
-        print("JAG SKRIVER NÅGOT ARGT", type(rootCategory))
-        print("JAG SKRIVER NÅGOT ARGT", type(noteContainer))
-        print("JAG SKRIVER NÅGOT ARGT", type(ownedNotes))
-
         for rootNote in sortedById(noteContainer.rootItems()):
             self.noteNode(root, rootNote)
 
@@ -104,7 +102,38 @@ class XMLWriter(object):
         PIElementTree('<?taskcoach release="%s" tskversion="%d"?>\n' % (meta.data.version,
                                                                          self.__versionnr),
                                                 root).write(self.__fd, 'utf-8')
-    
+        #print(type(self.__fd))
+        self.writeglobalcategories(taskList, categoryContainer, noteContainer, syncMLConfig, guid)
+
+    def writeglobalcategories(self, taskList, categoryContainer,
+              noteContainer, syncMLConfig, guid):
+        print("writeglobal write.py")
+        root = ET.Element('tasks')
+
+        for rootTask in sortedById(taskList.rootItems()):
+            self.taskNode(root, rootTask)
+
+        ownedNotes = self.notesOwnedByNoteOwners(taskList, categoryContainer)
+
+        for rootCategory in sortedById(categoryContainer.rootItems()):
+            self.categoryNode(root, rootCategory, taskList, noteContainer, ownedNotes)
+
+        for rootNote in sortedById(noteContainer.rootItems()):
+            self.noteNode(root, rootNote)
+
+        if syncMLConfig:
+            self.syncMLNode(root, syncMLConfig)
+        if guid:
+            ET.SubElement(root, 'guid').text = guid
+
+        flatten(root)
+
+        print(type(self.__settings.getGlobalCategories()))
+
+        PIElementTree('<?taskcoach release="%s" tskversion="%d"?>\n' % (meta.data.version,
+                                                                         self.__versionnr),
+                                                root).write(self.__settings.getGlobalCategories(), 'utf-8')
+
     def notesOwnedByNoteOwners(self, *collectionOfNoteOwners):
         notes = []
         for noteOwners in collectionOfNoteOwners:
