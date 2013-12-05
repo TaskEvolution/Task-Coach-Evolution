@@ -186,7 +186,7 @@ class FileBackupToDropbox(IOCommand):
     def __init__(self, *args, **kwargs):
         super(FileBackupToDropbox, self).__init__( \
             menuText=_('&Backup to Dropbox'),
-            helpText=help.fileSaveAs, bitmap='saveas',
+            helpText=help.fileSaveAs, bitmap='backuptoDropbox',
             *args, **kwargs)
         
     def doCommand(self, event):
@@ -318,7 +318,7 @@ class Print(ViewerCommand, settings_uicommand.SettingsCommand):
 
 class FileExportCommand(IOCommand, settings_uicommand.SettingsCommand):
     ''' Base class for export actions. '''
-
+	
     def doCommand(self, event):
         exportDialog = self.getExportDialogClass()(self.mainWindow(),
                                                    settings=self.settings)  # pylint: disable=E1101
@@ -410,7 +410,7 @@ class FileExportAsTodoTxt(FileExportCommand):
             menuText=_('Export as &Todo.txt...'),
             helpText=_('Export items from a viewer in Todo.txt format '
                        '(see todotxt.com)'),
-            bitmap='exportascsv', *args, **kwargs)
+            bitmap='exportastodo.txt', *args, **kwargs)
 
     def exportFunction(self):
         return self.iocontroller.exportAsTodoTxt
@@ -436,7 +436,7 @@ class FileExportAsPDF(FileExportCommand):
         super(FileExportAsPDF, self).__init__( \
             menuText=_('Export as &PDF'),
             helpText=_('Export items from a viewer in PDF format'),
-            bitmap='exportascsv', *args, **kwargs)
+            bitmap='exportaspdf', *args, **kwargs)
 
     @staticmethod
     def getExportDialogClass():
@@ -452,7 +452,7 @@ class FileExportToGoogleTask(IOCommand):
         super(FileExportToGoogleTask, self).__init__( \
             menuText=_('Export as &Google Task...'),
             helpText=_('Export items from a viewer to Google Task'),
-            bitmap='exportascsv', *args, **kwargs)
+            bitmap='exporttoGoogletask', *args, **kwargs)
 
     def doCommand(self,event):
         self.iocontroller.exportToGoogleTasks(self.mainWindow().viewer.visibleItems())
@@ -467,7 +467,7 @@ class FileImportCSV(IOCommand):
     def __init__(self, *args, **kwargs):
         super(FileImportCSV, self).__init__(menuText=_('&Import CSV...'),
                                             helpText=_('Import tasks from a Comma Separated Values (CSV) file'),
-                                            bitmap='exportascsv', *args, **kwargs)
+                                            bitmap='importascsv', *args, **kwargs)
 
     def doCommand(self, event):
         while True:
@@ -495,7 +495,7 @@ class FileImportTodoTxt(IOCommand):
         super(FileImportTodoTxt, self).__init__( \
             menuText=_('&Import Todo.txt...'),
             helpText=_('Import tasks from a Todo.txt (see todotxt.com) file'),
-            bitmap='exportascsv', *args, **kwargs)
+            bitmap='importastodo', *args, **kwargs)
 
     def doCommand(self, event):
         filename = wx.FileSelector(_('Import Todo.txt'), wildcard='*.txt')
@@ -508,7 +508,7 @@ class FileImportFromGoogleTask(IOCommand):
         super(FileImportFromGoogleTask, self).__init__( \
             menuText=_('&Import Google Task...'),
             helpText=_('Import Tasks from Google Task'),
-            bitmap='exportascsv', *args, **kwargs)
+            bitmap='importasgoogletask', *args, **kwargs)
 
     def doCommand(self, event):
         tasklist=self.iocontroller.importFromGoogleTasks()
@@ -549,7 +549,7 @@ class FileBackupGoogleDrive(IOCommand):
         super(FileBackupGoogleDrive, self).__init__( \
             menuText=_('&Backup to Google Drive'),
             helpText=_('Backup your Taskfile to Google Drive'),
-            bitmap='', *args, **kwargs)
+            bitmap='backupgoogledrive', *args, **kwargs)
 
     def doCommand(self, event):
         if self.mainWindow().viewer.taskFile.__str__() != "":
