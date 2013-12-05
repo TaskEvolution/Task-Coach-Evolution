@@ -215,7 +215,7 @@ website: changes
 	$(PYTHON) tools/webchecker.py website.out/index.html
 
 epydoc:
-	$(EPYDOC) --parse-only -v --simple-term -o epydoc.out taskcoachlib taskcoach.py
+	$(EPYDOC) --graph-font-size=32 --parse-only -v --simple-term -o epydoc.out taskcoachlib taskcoach.py
 
 dot:
 	$(PYTHON) tools/dot.py taskcoachlib/gui/viewer > doc/viewer.dot

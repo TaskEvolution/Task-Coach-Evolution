@@ -486,7 +486,21 @@ class ExportButton(mixin_uicommand.PopupButtonMixin,
         return _('Export')
 
     def getHelpText(self):
-        return _('Export Taskfile')
+        return _('Export')
+
+class ImportButton(mixin_uicommand.PopupButtonMixin,
+                    settings_uicommand.SettingsCommand,IOCommand):
+
+    def createPopupMenu(self):
+        from taskcoachlib.gui import menu
+
+        return menu.ImportMenu(self.mainWindow(),self.iocontroller,self.settings)
+
+    def getMenuText(self):
+        return _('Import')
+
+    def getHelpText(self):
+        return _('Import')
 
 class FileImportCSV(IOCommand):
     ''' Action for importing data from a CSV file into the current task 
@@ -1755,9 +1769,6 @@ class Today(ViewerCommand, TaskListCommand):
             tasks = self.taskList
             dia = TodayDialog(None, -1, 'Today View', tasks)
             dia.Show(True)
-
-
-
 
 
 class TodayDialog(wx.Dialog):

@@ -1,0 +1,3953 @@
+Release 1.3.33 - Semptember ??, 2013
+This is a bugfix release.
+
+
+Release 1.3.32 - August 28, 2013
+This is a bugfix release.
+
+Bugs fixed:
+- Don't prevent shutdown on Windows if the minimize on close option is set.
+- Prevent a PyGTK warning on recent Linux distributions. (SF#1435)
+- Fix main toolbar shrinking when resizing a viewer. (SF#1431)
+- Improve performance when tracking effort. (SF#1442)
+- Prevent TypeError in date selection widget. (SF#1445)
+- Fix initial tab when creating new items
+- Fix undo/redo in text controls on OS X. (SF#1436)
+- Fix loss of description edits when closing/quitting while editors are still
+  open. (SF#1437)
+- Fix strange Escape behavior on multiple open editors on OS X. (SF#1438)
+- Fix German translation. (SF#1448)
+- "New note with selected categories" would create a new category. (SF#1447)
+- Fix search issue when editing the toolbar. (SF#1449)
+- Fix note creation in editor windows. (SF#1451)
+- Fix opening preferences dialog when the end of work day is set to 24.
+
+
+Release 1.3.31 - July 29, 2013
+This is a bugfix release.
+
+Bugs fixed:
+- Fix crash at startup on Ubuntu 13 if python-apscheduler is installed.
+  (SF#1428)
+- Use the "Suggests" mechanism instead of "Recommends" for the Debian package
+  (python-kde4). (SF#1430)
+- Handle short date formats with weekday
+- When adding a viewer, the main toolbar would shrink. (SF#1431)
+- Fix an error when the user types a numeric value in the AM/PM field of the
+  date/time picker. (SF#1425)
+- Don't open floating viewers on the top-left corner of the screen (SF#1432,
+  SF#1349)
+- Add a hint that the task file needs to be saved in the main window title.
+  (SF#1434)
+
+
+Release 1.3.30 - July 7, 2013
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Working day start hour would be reset to 0 every time preferences are
+  opened. (SF#1418)
+- Fix the ICC warning with recent versions of libpng. (SF#1422)
+- Fix path to log file. (SF#1350)
+- Total duration of efforts is the sum of rounded durations, not the rounded
+  sum of durations. (SF#1426)
+
+Feature added:
+- Display effort statistics in the status bar (patch from Ivan Romanov).
+  (https://taskcoach.uservoice.com/admin/forums/26465-desktop-version-windows-
+  linux-mac-of-task-coach/suggestions/606269-section-in-status-bar-for-
+  calculated-information-a)
+
+Dependencies changed:
+- The minimal version of Python is back to 2.6.
+- On Linux, Task Coach does not depend on KDE any more, but it is recommended.
+
+
+Release 1.3.29 - April 14, 2013
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Fix password entry on Windows. (SF#1410)
+- Fix category filter menu on Windows 7 (SF#1281)
+
+Feature added:
+- Display a few days of previous and next month in the calendar popup.
+
+
+Release 1.3.28 - March 24, 2013
+This is a bugfix release.
+
+Bugs fixed:
+- Fix a console warning on Ubuntu 64 bits. (SF#1393)
+- Fix task selection through keyboard in effort editor (MS Windows and GTK).
+  (SF#1400)
+- Fix editing of effort start in the effort dialog. (SF#1399)
+- Fix timezone-related display bug that would prevent the task editor from
+  opening on OS X. (SF#1395)
+- Use presets for tasks created through mail DnD. (SF#1403)
+- Fix loading of categories for notes belonging to a subtask, and other such
+  imbrications. (SF#1404)
+- Fix preferences opening when end of work day is set to 24. (SF#1394)
+
+
+Release 1.3.27 - March 10, 2013
+This is a bugfix release.
+
+Bugs fixed:
+- Follow system preferences to format dates (instead of just times). (SF#1386)
+- Fix date rendering on some versions of OSX. (SF#1391)
+
+
+Release 1.3.26 - March 6, 2013
+This is a bugfix release.
+
+Bugs fixed:
+- Exporting efforts in CSV with the 'Period' column and date/time splitting
+  would not work. (SF#1387)
+- Task Coach would not launch on OS X 10.6 and later. (SF#1388, SF#1390)
+
+
+Release 1.3.25 - March 5, 2013
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Fix fonts in calendar viewer. (SF#1370)
+- Fix cutting attachments.
+- Fix focus on category viewer in task editor. (SF#1382)
+- Fix keyboard navigation in the editor's tabs. (SF#1216)
+- Make the effort stop menu a bit more contextual. (SF#1381)
+- Fix effort stop button interaction with undo. (SF#1381)
+- Fix flickering on Windows 7 when Aero is enabled. (SF#1384)
+- Fix opening of the task editor and preferences on some locales. (SF#1360)
+- Sorting by modification or creation date/time didn't work. (SF#1380)
+- Fix checkbox focus hint on Windows (in the date picker). (SF#1372)
+- Use system settings for date and time formatting on OSX.
+- Use system settings for date and time formatting on KDE4. (SF#1386)
+- Save templates to program directory for Task Coach Portable.
+
+Features added:
+- Getting the subject from Mail.app on drag and drop is now optional (takes
+  too long).
+- Focus subject field when opening the task editor on Linux. This is
+  configurable. (SF#1263)
+
+
+Release 1.3.24 - February 17, 2013
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Clicking in the hour choice popup in the date/time picker would select the
+  wrong value. (SF#1377)
+- Task Coach now follows the XDG specification for configuration and data
+  (template) files on Linux. (SF#367)
+- Fix menu "Stop tracking multiple tasks" menu (SF#1366)
+- Fix focus issue in date picker. (SF#1368)
+- Fix discrepancy in due date time precision (SF#1253)
+- Fix multiple effort notices when idle. (SF#1365)
+- Fix font issue with calendar viewer. (SF#1370)
+- Fix "NoneType object is not callable" problem. (SF#1371)
+- Prevent reminder dialogs and editors from stealing focus. (SF#956)
+- Add a visual hint that the checkbox has focus in the date picker. (SF#1372)
+- Fix opening of editor dialog on some locales (SF#1360, SF#1375)
+- Fix idle notifications. (SF#1365)
+- Sort case insensitive in the toggle category menu. (SF#1369)
+- Fix the N shortcut in datetime picker. (SF#1378)
+
+Features added:
+- The "notes" and "attachments" columns can now be exported to HTML and CSV.
+- Store the IMAP passwords in the user's keychain.
+- The default icon for completed tasks is now the green checkmark.
+
+
+Release 1.3.23 - February 7, 2013
+This is a bugfix release.
+
+Bugs fixed:
+- Some navigation shortcuts in the date/time picker would not work on Windows
+  or Linux. (SF#1340)
+- Typing would not do anything on Windows in the date/time picker if the
+  calendar is shown. (SF#1340)
+- The calendar popup from the date/time picker would not show all days.
+  (SF#1340)
+- Task Coach would fail to start when the user had selected an empty bitmap
+  for one of the task statuses.
+- Non-ASCII characters would display wrong in the calendar popup on OS X.
+- Start/end of day choice in preferences now follow the user's format
+  preferences. (SF#1331)
+- Resizing the toolbar would truncate it. (SF#1341)
+- Try to fetch Mail.app message subject. (SF#1342, SF#1003)
+- Don't let the user pick columns that cannot be exported
+- When cancelling application shutdown, the window would close nonetheless.
+  (SF#1346)
+- The calendar popup in the date picker would not use the first week day
+  setting. (SF#1348)
+- Disable hide all filters when in tree mode and the only filter is "hide
+  composite tasks". (SF#1351)
+- The task editor would not open on Windows if the user's short date format
+  used abbreviated or full month name. (SF#1338)
+- Increase timer value for the date picker. (SF#1354)
+- Backspace/delete removes the last digit in the date picker. (SF#1354)
+- Fix Shift-S and Shift-E shortcuts in date picker on Linux. (SF#1358)
+- Fix overlay in toolbar icons. (SF#1356)
+- Use system default GUI font in date picker. (SF#1361)
+- Add shortcuts for AM/PM in date picker. (SF#1362)
+- Escape now dismisses calendar popup in date picker. (SF#1362)
+- Fix crash when a task status icon has been set to "No icon". (SF#1364)
+- Fix refreshing of spent time in effort viewer (SF#1363)
+
+Features added:
+- Add a modification date attribute to tasks, notes, attachments, and
+  categories. (http://uservoice.com/a/-2HX-)
+- Hitting Ctrl+V (or Cmd+V on OS X) while the date or time picker has focus
+  will try to interpret the clipboard's content. Ctrl+C stores the current
+  value in the clipboard. (SF#1352)
+
+Dependency changed:
+- Task Coach now needs Python 2.7.
+
+
+Release 1.3.22 - January 2, 2013
+This is a bugfix release.
+
+Bug fixed:
+- The task editor would not open after some time on Windows and OS X.
+  (SF#1338)
+
+
+Release 1.3.21 - January 1, 2013
+This is a mixed feature and bugfix release.
+
+Bugs fixed:
+- Changing the percentage complete would not cause the calendar viewer to
+  refresh.
+- On Mac OS X, clicking the period column in effort viewers to change the
+  sort order didn't work.
+- Adapt font size to available space in calendar view. (SF#1309)
+- Using Shift+Enter key on the number keypad would not work on Mac OS X nor
+  Linux. (SF#1285)
+- Search defaults to simple substring matching. (SF#1286)
+- Growl notifications didn't work with Growl 2.0. (SF#1324)
+- Fix another encoding problem on some locales (Windows). (SF#1310, SF#1321)
+- Performance improvement in the edit dialogs. (SF#991)
+- Fix icon size in Unity. (SF#1329)
+- Fix docking of floating viewers on Windows.
+- When toggling the category of multiple items, not all of which are in the
+  selected category, don't remove the items from the category that already
+  belonged to that category. (SF#1271)
+- Toolbar icons to show/hide tasks according to status now respect appearance
+  settings, and are overlayed with a red cross. (SF#1104, SF#1323)
+- New date/time picker should fix most existing problems with the old one.
+  (SF#702, SF#1089, SF#1212, SF#1266, SF#1233)
+- Fix wording for task statuses. (SF#1333)
+
+Features added:
+- New, hopefully more intuitive date/time control.
+- Display dates in human-readable form in viewers (today, yesterday,
+  tomorrow).
+- Startup and shutdown performance improvements.
+- Autosave is now on by default.
+- Support for Growl on Windows.
+- Toolbars are now customizable.
+- Add a creation date attribute to tasks, notes, attachments, and categories.
+  (http://uservoice.com/a/-2HX-)
+- Shift+Click on a filter button in the toolbar shows only the corresponding
+  task status
+
+
+Release 1.3.20 - October 21, 2012
+This is a bugfix release.
+
+Bugs fixed:
+- Fix an encoding problem on Windows non-European locales (SF#1306)
+- On Linux, Ctrl-Z in a text control would always remove the whole contents of
+  the text control instead of undoing the recent changes. (SF#1267)
+- When adding a new item, always start the edit dialog with the description
+  tab raised and focus on the item subject. (SF#1263)
+- Editing templates would not work.
+- The effort dialog wouldn't function properly when the time format contained
+  dots, like in Italian. (SF#1307)
+- Moving efforts between tasks would sometimes trigger an exception,
+  resulting in lost efforts. (SF#1203)
+- When there are multiple reminders and speech is on, don't say all the
+  reminders simultaneously, but one at a time. (SF#1313)
+
+
+Release 1.3.19 - October 7, 2012
+This is a mixed feature and bugfix release.
+
+Bugs fixed:
+- Format times in the calendar view according to the user's preferences.
+  (SF#3563441)
+- Do not automatically give focus to the subject field in the task editor on
+  Linux (it overwrites the X clipboard). (SF#3539452)
+- After loading a task file, tasks would not become due soon on time.
+  (SF#3562925)
+- On OS X, the first entry in an editor page would not be automatically
+  selected. (SF#3562922)
+- On Linux, drag and drop of email messages from Evolution didn't work.
+  (SF#3562808)
+- With autosaving on, Task Coach would actually save too often. (SF#3562836)
+- On Ubuntu, a file was missing causing Task Coach not to start. (SF#3562695)
+- On Ubuntu, the native text control doesn't support undo and redo, added a
+  home grown version. (SF#3563376)
+- Don't silently adjust dates of parent and child tasks. See also the changed
+  feature below. (SF#3561465, SF#3564794)
+- Remember whether the "make this snooze time the default snooze time for
+  future reminders" check box was checked in the reminder dialog. (SF#3567139)
+- The task viewer would not refresh at midnight.
+- On Windows with some locale settings, Task Coach would crash trying to
+  render dates. (SF#1306)
+
+Features added:
+- In addition to specifying a maximum number of recurrences, it is now also
+  possible to specify an end date for recurrence. If both an end date and a
+  maximum number of recurrences are specified, recurrence stops when the first
+  of both conditions is met.
+- Put a link to our IndieGoGo campaign on the toolbar of the main window. The
+  link will disappear when the campaign is over.
+
+Features changed:
+- Task Coach no longer enforces that the dates of child tasks lie between the
+  dates of its parent task. Previously, if the start date of a child task
+  would be made earlier than the start date of its parent task, Task Coach
+  would silently make the start of the parent task equal to the start date of
+  the child task. The same for the due date: setting the due date of the
+  parent task earlier than the due date of a child task would silently change
+  the due date of the child tasks if their due date would otherwise become
+  later than the due date of the parent task. When viewing tasks in the task
+  tree viewer, collapsing a task with child tasks will show recursive dates
+  when relevant. This means that the planned start date column will show the
+  earliest start date of the task itself and all of its child tasks. If the
+  earliest start date is the start date of one of the child tasks, the date
+  will be shown between brackets. Likewise, the actual start date column will
+  show the earliest actual start date of the task and all of its child tasks.
+  The due date column and the completion date column will show the latest
+  date of the parent and child tasks combined. When sorting on a date
+  column, the recursive value is used for sorting. So when sorting ascending
+  by due date a parent task without due date but with a child task due today
+  will sort before a task that is due tomorrow. This change makes the date
+  behavior consistent with priorities and other attributes.
+- New viewers will open floating so that is easier to put them in the position
+  you want. Hopefully this will also make it more obvious for new users that
+  viewers can be reordered any way they like since moving a floating viewer
+  will show the docking guides.
+- Clicking outside an inplace editor now accepts the changes instead of
+  discarding them.
+- On Windows, both left clicking and left double clicking the Task Coach icon
+  in the notification area (often called the system tray) will raise or
+  minimize the main window (in accordance with http://msdn.microsoft.com/en-
+  us/library/windows/desktop/aa511448.aspx#interaction).
+  (http://uservoice.com/a/m3P6j)
+
+
+Release 1.3.18 - August 28, 2012
+This is a mixed feature and bugfix release.
+
+Team change:
+- We're happy to announce that Aaron Wolf joined the Task Coach team. Aaron is
+  already doing a great job scrutinizing the large number of feature requests
+  we have open on http://taskcoach.uservoice.com. In addition, he is helping
+  us testing Task Coach and ironing out as many bugs as we can, see the first
+  results below. Furthermore, he is planning to develop an in-app tutorial
+  for Task Coach so we're glad to have him on board. Welcome, Aaron!
+
+Bugs fixed:
+- Get rid of the infamous "AttributeError: __onDead" error (SF#3546400)
+- Do not automatically give focus to the subject field in the task editor on
+  Linux (it overwrites the X clipboard). (SF#3539452)
+- On Mac OS X, the window would shrink at each launch. Tested on 10.5, 10.7
+  and 10.8DP4.
+- Do not singularize user-set icons. (SF#3539824)
+- Disable spell checking on Mountain Lion because it makes Task Coach crash.
+  (SF#3554534)
+- Fix opening URLs from the Help menu on KDE4. (SF#3542487)
+- Fix the About dialog on Kubuntu. (SF#3542487)
+- Reminders sometimes wouldn't fire. (SF#3554603)
+- On Mac OS X, idle time notifications would not work. (SF#3554603)
+- On Mac OS X Snow Leopard (10.6) and earlier, the system would ask the user
+  to allow Task coach use a port (firewall) or the keychain on every launch.
+  (SF#3556753)
+- On Mac OS X, the search options menu wouldn't work. (SF#3558511)
+- When the language is set to English/US, use 12 hour clock in task and
+  effort dialogs instead of 24 hour clock.
+- Don't reset the edit dialog layout for editing single items after editing
+  multiple items at the same time. (SF#3559292)
+- When changing the "Mark task completed when all children are
+  completed?"-setting in the "Progress" tab of the task edit dialog, Task
+  Coach would set the percentage complete slider in the "Progress" tab to the
+  recursive percentage complete while the slider is meant to only display and
+  change the percentage complete of the task itself. (SF#3559740)
+- When a task with subtasks does not override the global setting for marking a
+  task completed when all of its subtasks are completed, actually use that
+  setting when displaying the percentage complete of the parent task in the
+  task viewer. (SF#3559740)
+- The settings for the viewers in the edit dialogs (such as the visible
+  columns in the effort tab and the notes tab) wouldn't be consistently
+  applied to each edit dialog. (SF#3559057)
+- On Mac OS X, the button in the effort edit dialog for dropping down the tree
+  of tasks didn't work. (SF#3560296)
+- Make recurrence label in the task edit dialog clearer. (SF#3560420)
+- Make the description of the "idle time notice" setting in the preferences
+  clearer. (SF#3555498)
+- Make the description of the "minutes between suggested times" setting in the
+  preferences clearer. (SF#3556765)
+- The combobox for selecting the snooze time in the reminder dialog was not
+  read only. This suggested that one could type in custom snooze times while
+  that is not supported (yet). (SF#3560416)
+- The "Filter on all checked categories/Filter on any checked category" option
+  was only available via the toolbar of the category viewer. Due to the width
+  of the option, it could be difficult to access. The option is now also
+  available as menu item in the View->Filter menu. (SF#3554627)
+- When the budget left is negative, the budget left field in the task edit
+  dialog would not show a minus sign. (SF#3554616)
+- On Mac OS X, the tip of the day window would block the dialog for unlocking
+  a locked task file. (SF#3561499)
+- When saving selected tasks, not only include the categories the selected
+  tasks belong to, but also the parent categories of the used categories, even
+  though they may not have been used themselves. (SF#3561159)
+- When creating a new item, set focus to the subject field so that the
+  description tab is raised if needed. (SF#3561515)
+- On Mac OS X, dropping of URLs without a protocol specification ('http:',
+  'https:', 'ftp:', etc.) would result in attachments that couldn't be opened.
+  (SF#3561889)
+- On Linux, dropping of URLs didn't work. (SF#3561889)
+- The order of tabs in edit dialogs wouldn't be restored correctly after it
+  had been changed by the user. (SF#3562239)
+- Save size, position and maximization state of dialogs separately for single-
+  item and multi-item dialogs. (SF#3562239)
+
+Features added:
+- Increase font size in the calendar view's header. (SF#3558650)
+- In the calendar view, unplanned dates are now cropped to the current day.
+- Add support for Thunderbird IMAP accounts that use NTLM authentication
+  (typically Exchange accounts).
+- When starting up, Task Coach checks for messages from the Task Coach
+  developers. This allows us to reach all users for e.g. notifications on
+  critical bugs or requests for support. Each message is displayed only once
+  and the display of messages can be turned off completely. This feature will
+  be used sparingly, of course.
+- Added almost complete Belarusian translation thanks to Korney San.
+- Allow for changing the font used in the description field of edit dialogs.
+  The font can be changed in the editor tab of the preferences dialog. Patch
+  supplied by Nicola Chiapolini.
+
+Feature changed:
+- When a task has no due date, instead of displaying "Infinite" for the time
+  left in the task viewer, Task Coach now displays blank space.
+
+
+Release 1.3.17 - July 2, 2012
+This is a bugfix release.
+
+Bugs fixed:
+- Use the user-specified time format on Windows. (SF#3530080)
+- In the effort viewer, when calculating total effort for tasks in a certain
+  period, one effort would be skipped. (SF#3537707)
+- When tracking effort for one task, don't show "Stop tracking multiple tasks"
+  as the menu label for the "Stop tracking" menu item in the action menu.
+  (SF#3536577)
+- On Windows, use a more recent Python27.dll to satisfy Secunia PSI.
+  (SF#3539139)
+- Loading a big task file is now much faster.
+- The calendar view would not react to changes to tasks. (SF#3539402)
+
+
+Release 1.3.16 - June 16, 2012
+This is a bugfix release.
+
+Bugs fixed:
+- Fix a crash during iPhone synchronization if a category associated with a
+  modified task has been deleted on the desktop.
+- The stop/resume effort tracking button on the toolbar wasn't working
+  correctly. (SF#3529025)
+- When tracking effort, the time spent in the effort viewer was not always
+  updated.
+
+
+Release 1.3.15 - May 24, 2012
+This is a mixed feature and bugfix release.
+
+Bugs fixed:
+- On Windows 7, when the language is English (US), render times in the task
+  viewer using AM/PM.
+- On Mac OS X and Windows, don't crash when waking up from stand by.
+  (SF#3523648)
+- Resetting task filters at midnight was not working properly.
+- Faster opening of task files when there are many effort records.
+
+Feature added:
+- Better word wrapping in calendar view.
+
+
+Release 1.3.14 - May 13, 2012
+This is a mixed feature and bugfix release.
+
+Bug fixed:
+- Task Coach wouldn't start on Ubuntu 12.04. (SF#3522305)
+
+Feature added:
+- Added support for pipe as separator symbol when importing from CSV.
+  (http://uservoice.com/a/arHeO)
+
+
+Release 1.3.13 - April 14, 2012
+This is a bugfix release.
+
+Bugs fixed:
+- Translations couldn't be changed. (SF#3516306)
+- Exporting to CSV with dates and times to separate columns would fail if any
+  of the tasks had a date before 1900. (SF#3516964)
+- Disable the checkbox for separate date and time columns in the CSV export
+  dialog when the user picks a viewer that doesn't contain tasks. (SF#3515241)
+- Don't complain about a missing log handler in the log file on Windows.
+  (SF#3517705)
+
+
+Release 1.3.12 - April 9, 2012
+This is a mixed feature and bugfix release.
+
+Bugs fixed:
+- X session management is now disabled by default. (SF#3502180)
+- The percentage of tasks completed, active, etc. in the task statistics
+  viewer (the pie chart) would be wrong when filtering categories.
+- The category drop down menu for filtering on any or all categories didn't
+  have effect. (SF#3514880)
+- Merging a file that would remove a subcategory linked to existing tasks or
+  notes would not work. (SF#3515503)
+- Drag and drop was broken. (SF#3514209)
+- On Windows, when emailing items, new lines in the description would
+  disappear. (SF#3514288)
+- Properly shut down the internal scheduler before closing Task Coach to
+  prevent an exception. (SF#3514651)
+- Changing the task appearance in the preference dialog didn't work unless no
+  tasks had been edited before changing the appearance. (SF#3514174)
+- Marking a recurring task complete from a reminder could throw an exception.
+  (SF#3514174)
+
+Feature added:
+- The calendar view can now be printed as is. (SF#3503258)
+
+
+Release 1.3.11 - March 31, 2012
+This is a bugfix release.
+
+Bug fixed:
+- Task Coach wouldn't start due to a missing module. (SF#3513392)
+
+
+Release 1.3.10 - March 30, 2012
+This is a mixed feature and bugfix release.
+
+Bug fixed:
+- The statusbar counts of over due tasks, late tasks, etc. would include
+  deleted tasks. (SF#3501289)
+
+Features added:
+- Allow for importing reminder date/time when importing from a CSV file.
+  (http://uservoice.com/a/2xhV6)
+- Allow for setting the first day of the week (either Sunday or Monday) in the
+  preferences dialog (features tab). (http://uservoice.com/a/81C1K)
+
+
+Release 1.3.9 - March 8, 2012
+This is a bugfix release.
+
+Bugs fixed:
+- The drop down menu for the option 'Schedule each next recurrence based on'
+  in the dates tab of the task edit dialog wasn't being enabled when the user
+  turned on the recurrence of a task. (SF#3496505)
+- On Xubuntu, Task Coach would briefly show dialogs centered over the Task
+  Coach main window before showing them on their destined location.
+  (SF#3496271)
+- When exporting to CSV with separate date and time columns, don't write
+  31/12/9999 for empty dates. (SF#3495429)
+- On Linux, honor the LC_TIME setting. (SF#3495925)
+- After reading a task file with a deleted task that had a subtask with
+  prerequisites, Task Coach would refuse to save the file. (SF#3496986)
+
+
+Release 1.3.8 - February 25, 2012
+This is a mixed feature and bugfix release.
+
+Bugs fixed:
+- Show a warning dialog when running XFCE4 to highlight the session management
+  issues and tell the user about the option to disable it (SF#3482752)
+- Display times with a 12 hour clock (AM/PM) when the language is set to
+  English (US).
+- Don't change the selection when deleting or hiding items that are not
+  selected. When adding a new item, select it. When adding a new sub item,
+  also expand the parent item if necessary. (SF#3484930)
+- When using the Norsk translation on Linux (both Nynorsk and Bokmal), Task
+  Coach would crash when displaying a date picker control. This is a bug in
+  the underlying wxWidgets toolkit. Worked around by using another locale for
+  dates and times when the language is Norsk. (SF#1820497)
+- On Mac OS X, the shortcut to email a task is now Shift-Cmd-M instead of
+  Cmd-M (which is the system shortcut to minimize the active window).
+  (SF#3489341)
+- Don't escape characters on Mac OS X when emailing a task. (SF#3489341)
+
+Features added:
+- In task viewers, late tasks, due soon tasks, and over due tasks can be
+  hidden. It was already possible to hide inactive tasks, active tasks, and
+  completed tasks. This makes it possible to create a task viewer that only
+  shows e.g. due soon tasks or late tasks, or any combination of task
+  statuses.
+- Add an option to disable session management on GTK. The XFCE session manager
+  causes Task Coach to hang randomly on start.
+- On Mac OS X and Linux (with espeak installed), reminders can be spoken.
+  This can be turned on in the preferences dialog, on the task reminder tab.
+
+
+Release 1.3.7 - February 3, 2012
+This is a bug fix release.
+
+Bugs fixed:
+- Paste as subitem didn't work for efforts. (SF#3479734)
+- Hiding inactive tasks would also hide some active tasks. (SF#3479952)
+- Setting the task font back to the default font in the preferences dialog
+  wouldn't work.
+- Put a little bit of white space to the right of the priority column in the
+  task viewer to separate the numbers from the scroll bar. (SF#3479686)
+- Disable the Anonymize menu item if there is no task file. (SF#3482373)
+- After removing an actual start date of a task with effort and saving and
+  opening the task file, the task would still have an actual start date
+  (based on the earliest effort). (SF#3478684, SF#3479444)
+- Marking an inactive task active wouldn't properly update the task icon from
+  grey to blue. (SF#3479444)
+- Exporting to iCalendar wouldn't work if the subject or description had non-
+  ASCII characters. (SF#3483124)
+
+Feature removed:
+- The more complex filtering options for hiding tasks have been removed. The
+  complexity was causing bugs.
+
+
+Release 1.3.6 - January 24, 2012
+This is a bug fix release.
+
+Bugs fixed:
+- The link on the website for downloading sources pointed to the iOS
+  downloads.
+- Task Coach couldn't deal with circular dependencies between tasks.
+  (SF#3477762, SF#3477637)
+- The default actual start date and time couldn't be set in the preferences.
+  (SF#3478747)
+
+
+Release 1.3.5 - January 22, 2012
+This is a mixed feature and bug fix release.
+
+Bugs fixed:
+- After a reminder of a recurring task had been dismissed, Task Coach would
+  not create a new reminder when recurring the task. (SF#3469217)
+- When the user is not using a translation, still set the locale so that the
+  proper formatting for dates and numbers is used. (SF#3091934)
+- Sorting case sensitive didn't work.
+- Categories of notes belonging to tasks and categories weren't saved.
+  (SF#3474487)
+- On OpenSuse, Task Coach would crash when changing the width of columns.
+
+Features added:
+- Note categories are now synced as well (SyncML)
+- Add "actual start date" attribute to tasks.
+- Add toolbar buttons and menu items for marking tasks inactive, active and
+  completed.
+- When exporting to iCal, include percentage complete of a task in the
+  exported data.
+
+Feature changed:
+- Rename "start date" to "planned start date" to enable adding a separate
+  "actual start date" attribute to tasks.
+
+Website change:
+- Redesigned website using Twitter Bootstrap. (index.html)
+
+
+Release 1.3.4 - December 25, 2011
+This is a bugfix release.
+
+Bugs fixed:
+- Changing the color and font of tasks in the preferences dialog didn't work.
+- In Spanish, showing reminders wouldn't work. (SF#3459524)
+- Fix a small translation error in the French translation. (SF#3459028)
+- Changes on a newly created template in the template editor were discarded.
+- Help text referred to "Add template", but the menu item is called "Import
+  template". (SF#3462367)
+- On Mac OS X, associate .tsk files with Task Coach and let the Finder use
+  the Task Coach icon for .tsk files. (SF#3462366)
+- On Linux without libXss installed (seen on Fedora 16), Task Coach would
+  fail to start. Fixed by adding libXss as an explicit dependency to the RPM-
+  package. (SF#3463044)
+- A lock created under Mac OS X Lion on a network share could not be broken on
+  another OS.
+- Trying to save to a disconnected network share/USB drive would fail on
+  Windows. (SF#3462383)
+
+Feature added:
+- Provide for an option to always round effort up to the next increment in the
+  effort viewer. (http://uservoice.com/a/5Hbrf)
+
+
+Release 1.3.3 - December 13, 2011
+This is a bugfix release.
+
+Bugs fixed:
+- On Linux, after every edit of a task, the undo history would contain a
+  "recurrence edited" action even though the recurrence was not changed.
+  (SF#3453625)
+- On Ubuntu, the date controls in the effort edit dialog would be invisible.
+  (SF#3452446)
+- On Windows, when users try to save the task file in a folder where they
+  don't have permission, Task Coach would not give a proper warning.
+- When editing multiple items at once, show all descriptions in the
+  description field for easier editing and/or copying. (SF#3446417)
+
+
+Release 1.3.2 - December 5, 2011
+This is a bugfix release.
+
+Bugs fixed:
+- When a subject contained an ampersand (&), the ampersand would not be shown
+  in menu's where the subject is used.
+- When creating new subtasks, they would always be inactive. (SF#3446309)
+- Closing task dialogs was very slow with a large task file.
+- Setting a budget to zero would make it impossible to save the task file.
+  (SF#3449423)
+- When the subject is too long to be displayed in the editor, display its
+  start instead of its end. (SF#3433481)
+
+Feature added:
+- Rounding of effort in effort viewers. (http://uservoice.com/a/6IzRQ)
+
+
+Release 1.3.1 - November 27, 2011
+This is a bugfix release.
+
+Bugs fixed:
+- Don't turn off the start date on new tasks when users have indicated in the
+  preferences that they want a default start date. (SF#3440634)
+- The "Start tracking from last effort" button in the effort dialog didn't
+  work. (SF#3440794)
+- "View->Tree options->Collapse all items" did only collapse top level items.
+  (SF#3441180)
+- The language choice control in the preferences dialog would always show
+  "Let the system determine the language", no matter what language the user
+  had picked before. (SF#3441456)
+- Allow for flat pie charts, because reading data from flat pie charts is
+  easier than from 3D pie charts. (SF#3441469)
+- On Windows, the Edit menu could become very wide if the user would edit a
+  long subject. (SF# 3441474)
+- When the user edits the reminder date and time and it is in the past, don't
+  fire the reminder immediately, but wait a minute to give the user a change
+  to finish changing the reminder date and time into a future date and time.
+  (SF#3441442)
+- Make sure the edit dialogs are by default big enough to show all controls.
+  (SF#3441783)
+- On Linux without libXss installed (seen on Ubuntu 11.10), Task Coach would
+  fail to start. Fixed by adding libXss as an explicit dependency to the
+  Debian (.deb) package.
+
+Features added:
+- The effort dialog now has a button to set the stop date and time of the
+  effort to the current date and time.
+- Allow for changing the angle of the pie charts via a slider in the toolbar
+  of the task statistics viewer.
+- Allow for 6 minutes between effort start and stop times, in addition to 5,
+  10, 15, etc. See the features tab in the preferences dialog.
+  (http://uservoice.com/a/3nnfc)
+- Dependencies can now be set using drag and drop.
+
+
+Release 1.3.0 - November 20, 2011
+This release makes all edits done in dialogs immediate.
+
+Bugs fixed:
+- It was and is possible to open multiple edit dialogs for the same item. With
+  earlier releases of Task Coach, the last edit dialog closed would overwrite
+  changes made with edit dialogs that were closed earlier. With the new edit
+  dialog functionality introduced in this release, changes are propagated
+  immediately to all open dialogs. This will prevent overwriting changes made
+  in other dialogs. (SF#1152561)
+- Don't close the edit dialog when dragging and dropping an item.
+  (SF#3424138)
+- When editing start or due date inline, Task Coach would ignore the
+  preference for keeping the time between the two dates constant.
+- Prevent an exception when opening the View menu when the task statistics
+  viewer is selected.
+- The Ctrl-F shortcut didn't work in most viewers. (SF#3438256)
+- The export to HTML and CSV dialog didn't work on Windows XP. (SF#3440438)
+- On Windows, use wider date and time controls when the user is running the
+  display with a higher DPI-setting. (SF#3439774)
+
+Features added:
+- Item edit dialogs make changes immediately, thus no need for OK and Cancel
+  buttons anymore. (http://uservoice.com/a/oNbcq)
+- If there is no user input for some (configurable) time, Task coach now asks
+  what to do with tracked efforts when the user comes back.
+  (http://uservoice.com/a/4656L)
+
+
+Release 1.2.31 - November 13, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Immediately update the number of tasks completed in the status bar of the
+  task viewer when the user marks a task completed. (SF#3185805)
+- When adding new tasks, Task Coach would first show them briefly as inactive
+  before showing them as active. (SF#3085362)
+- Only "preset" dates on new tasks.
+- When changing a date/time inline, hitting enter in the date part of the
+  control would close the inline control, but not change the date.
+  (SF#3428503)
+- The inline edit controls for dates/times didn't use the preferences for
+  start and end of working day. (SF#3431160)
+- Using drag and drop to change dates in the calendar view would produce
+  erroneous results in some configurations. (SF#3428525)
+- In some configurations, some hours would not be drawn in the calendar view
+  in vertical mode. (SF#3428524)
+
+Features added:
+- When exporting to CSV, dates and times can optionally be put in separate
+  columns.
+- When exporting to CSV and HTML, the columns to be exported can be changed in
+  the export dialog.
+- Simple task statistics viewer added that shows a pie chart of the
+  distribution of task states.
+
+
+Release 1.2.30 - October 23, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Better explanation of the automatic import and export of Todo.txt format in
+  the preferences dialog. (SF#3418906)
+- The task viewer in list mode now also shows the categories, prerequisites
+  and dependencies inherited from parent tasks, between parentheses. In
+  addition, the inherited categories, prerequisites or dependencies are taken
+  into account when sorting by categories, prerequisites or dependencies.
+  (SF#3414914)
+- Don't reset the percentage complete to 0 when the user changes it from 100
+  to some other percentage less than 100.
+- Fix a memory leak when opening edit dialogs.
+
+Features added:
+- The task viewer in list mode now also shows the categories, prerequisites
+  and dependencies inherited from parent tasks, between parentheses. In
+  addition, the inherited categories, prerequisites or dependencies are taken
+  into account when sorting by categories, prerequisites or dependencies.
+  (http://uservoice.com/a/ksD1q)
+- Percentage complete, hourly fee and fixed fee of tasks can be edited in
+  place.
+
+
+Release 1.2.29 - October 3, 2011
+This is a bugfix release.
+
+Bugs fixed:
+- If auto importing of Todo.txt files was turned on, but there was no Todo.txt
+  file available for importing, saving would fail. (SF#3410648)
+- When the priority field gets focus, select all priority digits so the user
+  can simply type a new number to overwrite the previous one. (SF#3411384)
+- When showing effort in detail mode, Task Coach would only consider the
+  start of a period to decide whether to hide the period as a repeated period.
+  Now it considers both the start and the end date and time.
+- When editing multiple tasks at the same time, changing the priority would
+  not automatically check the priority checkbox. (SF#3414423)
+- Don't reorder the contents of the task file randomly when saving the task
+  file. This makes it possible to easily see the differences between versions
+  of a task file using diff. (SF#3412300)
+
+
+Release 1.2.28 - September 18, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Task Coach would not work correctly with dates before 1900.
+- When recovering from an error in the TaskCoach.ini file, get the default
+  settings from the right section. (SF#3404024)
+- When opening a URL fails, show an error message dialog.
+- Task Coach would crash when editing a task/category/etc on some versions of
+  wxPython.
+- Adding a subtask without a due date would reset its parent's due date.
+  (SF#3405053)
+- Using the Delete key when editing the priority inline would delete the task
+  on Windows. (SF#3400086)
+- On Windows, SyncML couldn't be turned on. (SF#3406653)
+- When adding a new (recurring) subtask to a parent task, push back the start
+  date of the parent if necessary. (SF#3409716)
+- On Mac OS X Tiger, whenever trying to give focus to the search control focus
+  would return to the viewer immediately, making searching impossible.
+  (SF#3410268)
+
+Features added:
+- The SyncML password is now stored encrypted in the system keychain, if
+  available.
+- Add task subject to the reminder dialog window title so that it's easier to
+  find a particular reminder when cycling through windows with Alt-Tab.
+  (http://uservoice.com/a/au6wa)
+- Allow for dragging and dropping multiple items (tasks, notes, etc.) at once.
+  Patch provided by Kirill Müller. (http://uservoice.com/a/hledQ)
+
+
+Release 1.2.27 - August 28, 2011
+This is a bugfix release.
+
+Bugs fixed:
+- When importing a CVS file, Task Coach would not always guess the day/month
+  order correctly. It is now possible to specify whether days or months come
+  first in date columns.
+- Unchecking an already checked mutually exclusive subcategory would uncheck
+  it, but not change the filtering. (SF#3377145)
+- The calendar configuration dialog wouldn't open. (SF#3395689)
+- Saving could fail after a reminder was first snoozed and then later the
+  reminder dialog was closed without snoozing. (SF#3397920)
+- Using the Delete key when editing the priority inline would delete the
+  task. (SF#3400086)
+- Using the Enter key when editing the priority inline would not accept the
+  changes on Mac OS X.
+- Fix issues in Italian translation. (SF#3398600)
+
+
+Release 1.2.26 - August 20, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Checking an already checked mutually exclusive subcategory now unchecks it.
+  (SF#3377145)
+- Task Coach would not start on PPC Macs. (SF#3388666)
+- Saving a task as template would not work if the subject or description
+  contains non-ascii characters
+- Fix case insensitive searching with non-ascii languages. (SF#3395268)
+- The recent searches menu in the search control wasn't working properly on
+  Mac OS X.
+
+Features added:
+- Importing and exporting of Todo.txt format task files. Todo.txt is an open
+  source todo list manager that works with plain text files. Todo.txt Touch
+  is a version of Todo.txt for the Android platform, that syncs with Dropbox.
+  By exporting your tasks to a todo.txt file in your Dropbox folder, you can
+  then edit them on your Android device with Todo.txt Touch. See the help
+  contents for more information. (http://uservoice.com/a/6Z54H,
+  http://uservoice.com/a/ceNES)
+- Automatic importing and/or exporting on every save. This can be turned on
+  in the preferences dialog. Currently only possible for the Todo.txt format.
+- When turning on the stop date and time in the effort edit dialog, set the
+  date and time to the current date and time. (http://uservoice.com/a/iFkds)
+- When editing templates, one can now also edit subtasks.
+- Remember the last visited path when choosing a file attachment.
+  (http://uservoice.com/a/jz5dE)
+- Support times in addition to dates when importing from CSV.
+
+Feature changed:
+- The maximum of the number of hours that tasks are considered "due soon" is
+  now a big number instead of a mere 90. (http://uservoice.com/a/dVIBF)
+
+
+Release 1.2.25 - August 8, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- The anonymize function wouldn't give a notification after saving the file.
+- Refresh subtask appearance when moving it to a different parent task.
+- Indentation of categories with and without subcategories in the category
+  viewer was slightly different. (SF#3345002)
+- Windows would appear on the wrong monitor on Windows 7. (SF#3370403)
+- On Windows 7, the task view would flicker every second. (SF#3354402)
+- On Mac OS X, Task Coach would hang when both the splash screen and the "file
+  locked" dialog are displayed. (SF#3383050)
+- Startup even when reading one of the templates fails. (SF#3386296)
+- Task Coach would sometimes crash on startup on Linux.
+
+Features added:
+- Users can choose default (relative) dates and times for tasks in the
+  preference dialog. This allows for e.g. automatically setting a reminder
+  the next day. (http://uservoice.com/a/g9xpy)
+- Faster saving.
+- Preset common SyncML servers (MemoToo)
+- The user can choose to use the selected snooze time in the reminder dialog
+  as default snooze time for future reminders.
+- Support drag and drop of email messages from local folders in Thunderbird.
+- Support drag and drop of email messages from Claws Mail. Patch provided by
+  Tobias Gradl.
+
+
+Release 1.2.24 - July 17, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Synchronizing with an iDevice could change the whole UI font.
+- Drag and drop from Thunderbird would not work in some circumstances.
+- When recurring tasks with a snoozed reminder, use the original reminder date
+  and time as basis for the next reminder, instead of the snoozed reminder.
+  (SF#2942198)
+- In-place editing of reminders didn't work. (SF#3361971)
+- Completed tasks with a start date would not show up in the calendar.
+
+Features changed:
+- New "Anonymize" item in the Help menu. This saves an anonymized copy of all
+  data from a task file in order to safely attach it to a bug report.
+- Recurring tasks can recur based on the original start and due date (as was
+  the only option until now) or based on the last completion date.
+  (http://uservoice.com/a/d3n3g)
+
+
+Release 1.2.23 - July 7, 2011
+This is a bugfix release.
+
+Bug fixed:
+- Task Coach would fail on parsing old templates, causing it not to start
+  properly.
+
+
+Release 1.2.22 - July 2, 2011
+This is a mixed bugfix and feature release.
+
+Bug fixed:
+- Properly open task files with email attachments that have a non-ascii
+  subject. (SF#3333730)
+
+Feature changed:
+- You can set a default snooze time in the preferences that is used in the
+  reminder dialog as the default suggestion for the snooze time. If you use
+  Growl or Snarl, the default snooze time is added to the reminder after the
+  reminder fires.
+
+
+Release 1.2.21 - June 25, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Prevent exception messages in log file (Windows) or on command line
+  (Linux). (SF#3315358, SF#3316220, SF#3324330)
+- Properly decode non-ascii email subject headers. (SF#3311272)
+- Creating a template from a task would not work any more. (SF#3317048)
+- Unplugging a monitor while Task Coach was running would cause the dialogs to
+  always open in the top left corner on Windows.
+
+Feature added:
+- Start, due, completion, and reminder date and time of tasks can be edited
+  in-place when the relevant column is visible.
+
+
+Release 1.2.20 - June 10, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Task Coach tried to use Python 2.5 on Ubuntu. (SF#3309089, SF#3309317)
+- The total number of effort records displayed in the status bar of an effort
+  viewer would be incorrect when the effort viewer was showing aggregated
+  effort (per day, per week or per month).
+- When hiding completed tasks and showing tasks belonging to a specific
+  category (say C), Task Coach would show a task even though it didn't belong
+  to that category if that task had completed subtasks belonging to category
+  C. (SF#3309006)
+- Floating and then closing the task viewer didn't work. (SF#3313199)
+
+Features added:
+- Descriptions of tasks, notes and categories can be edited in-place when the
+  description column is visible. Priority of tasks can be edited in-place when
+  the priority column is visible. Budget of tasks can be edited in-place when
+  the budget column is visible.
+- Basic editing (dates, subject) of task templates.
+- Session management on Linux is back. (SF#2929786)
+
+
+Release 1.2.19 - May 29, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Editing multiple items would hang Task Coach. (SF#3305844)
+- Changing the task of an effort record would make it invisible. (SF#3304940)
+- The keyboard shortcut for adding effort (Ctrl-E) wouldn't work in edit
+  dialogs. (SF#3306827)
+- Closing Task Coach with a square task viewer open caused exceptions in the
+  log file. (SF#3307836)
+- Drag and drop email from Thunderbird, PortableApps edition, didn't work.
+  (SF#3058781)
+- On Mac OS X, the main window would grow 11 pixels in height at each launch.
+- On Mac OS X, the editor dialogs would shrink a little each time they were
+  opened.
+
+Features added:
+- The default foreground color, background color, font and icon of active,
+  inactive, completed, over due and due soon tasks can be changed in the
+  preferences. (http://uservoice.com/a/nLMgZ)
+- The way start and due dates are tied together when changing one of them is
+  now configurable.
+- Add percentage complete to CSV import fields.
+
+Distribution changed:
+- Removed support for Fedora 13.
+
+
+Release 1.2.18 - May 21, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Make sure long menu texts don't overlap the keyboard shortcut.
+- CSV import would crash on Mac OS X if the number of fields wasn't constant.
+- When starting or stopping an effort, the task's icon in the calendar viewer
+  would not change.
+- Session management wouldn't work on XFCE.
+- Start up even if the TaskCoach.ini file contains garbage. (SF#3299850,
+  SF#3300722)
+- Don't crash if there is no session manager on Linux (SF#3300643)
+- Give the import dialog a proper window title bar.
+- Going back and then forward in the CSV import wizard didn't work.
+- Task Coach wouldn't keep the inline subject edit control open in the task
+  viewer when tracking effort. (SF#3301562)
+
+Features added:
+- Open tracked tasks without looking them up using the Actions->Edit tracked
+  task menu item (Shift-Alt-T). (http://uservoice.com/a/itBB5)
+- Effort tracking can be started for inactive/future tasks. Doing so sets the
+  start date and time of the task to the current date and time.
+  (http://uservoice.com/a/oyhL7)
+- Show name of the current task file in the system tray tooltip window.
+  (http://uservoice.com/a/959Qc)
+- Tabs in the edit dialogs can be dragged and dropped to create any layout
+  the user may want.
+- CSV files may also have colons or semicolons as separators.
+- It is possible to select which rows to import from a CSV file.
+- The CSV import wizard tries to match column headers from the CSV file to
+  task attributes.
+- The CSV import will reuse existing categories if the names match.
+
+Feature removed:
+- Session management for X is temporarily removed, until we can fix the
+  occasional crashes associated with it.
+
+
+Release 1.2.17 - May 5, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Make sure one of the viewers is selected in the export to iCalendar dialog.
+- Properly update the icon of a task with subtasks when adding it to a
+  category with an icon. (SF#3295077)
+- The calendar view would cause spurious errors on Windows. (SF#3294878)
+- Use the actual system font on Mac OS X and Windows in the tree and list
+  viewers. (SF#3295070)
+- Dutch translation used Ctrl-H as shortcut for both help and increase
+  priority. Increase priority is now Ctrl-I. Maximize priority is Shift-
+  Ctrl-I, for consistency. (SF#3296141)
+- The Ctrl-Enter keyboard shortcut for marking a task completed wasn't working
+  in the French translation. (SF#3293786)
+- When quitting Task Coach in minimized mode, make sure the main window is
+  minimized the next session and not completely hidden. (SF#3296144)
+- Packages of the previous release did not install correctly on some Linux
+  distributions due to a non standard version number in the package (RPM or
+  Deb). (SF#3294852, SF#3297345)
+- For tasks with a non-default icon, still show the clock icon when tracking
+  effort. (SF#3085094)
+- The width of the period column in the effort viewer would not be reused
+  across sessions. (SF#3296303)
+- Fix session management on some Linux distributions. Also automatically
+  restart Task Coach when reopening the session. (SF#3296733)
+- Category mappings in CSV import would not work
+- On Windows, rearranging the order of the templates would have no effect.
+  (SF#3297913)
+
+Feature added:
+- When importing a CSV file, let the user decide if quote characters are
+  escaped by doubling them or escaping them with another character.
+
+
+Release 1.2.16 - April 28, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Installing as a non-admin user on Mac OS X wouldn't work. (SF#3288682)
+- Don't crash when the SESSION_MANAGER environment variable is not set
+  (Linux). (SF#3292509)
+- Update the task viewer every minute when the time left column is shown.
+- Task Coach would crash after 1 minute on XFCE. (SF#3292509)
+- When multiple effort viewers are open, correctly remember how effort is
+  grouped in each effort viewer across sessions. (SF#3294304)
+
+Features added:
+- Added a "Check for update" menu item to the help menu.
+  (http://uservoice.com/a/dwNJ0)
+- Allow for exporting to HTML with CSS style information included in the HTML
+  file. (http://uservoice.com/a/i1LqL)
+
+
+Release 1.2.15 - April 23, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- When deleting items, correctly move the selection. (SF#3056999)
+- Saving would fail when the task file contains deleted tasks with
+  prerequisite tasks. (SF#3290163, SF#3290300)
+- Try to guess the correct encoding when dragging and dropping email messages
+  from Outlook. (SF#3288820)
+
+Features added:
+- Added a "Help improve translations" menu item to the help menu.
+  (http://uservoice.com/a/468yX)
+- Remember size and position of edit dialogs. (http://uservoice.com/a/70ZTj)
+- Start effort tracking from the reminder dialog.
+  (http://uservoice.com/a/f4UUt)
+
+
+Release 1.2.14 - April 17, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- None of the translations were working. (SF#3283447)
+- Delete key was not working properly in the search box. (SF#3286497)
+
+Features added:
+- More extensive help menu.
+- Import from CSV now includes budget, fixed fee and hourly fee fields.
+- Task Coach now supports a limited form of session management under Windows
+  and Linux; pending changes are automatically saved when the user logs out.
+
+
+Release 1.2.13 - April 9, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- The notes section was missing from the help contents. (SF#3241219)
+- Mark subtasks of tasks that have uncompleted prerequisites as inactive
+  (grey). (SF#3237286)
+- In the setup script, don't assume Mac OS X when the operating system isn't
+  Linux or Windows. There's also the possibility the user is using BSD.
+  (SF#3236769)
+- Don't force users to accept the license since the license doesn't actually
+  require users to accept it (Windows). (SF#3247643)
+- Upon startup, effort viewers would always show the column header popup menu
+  for detail mode, even when the effort viewer would be in aggregate mode
+  (i.e. effort aggregated per day, per week or per month).
+- Ask the user for confirmation before overwriting existing files.
+  (SF#2794041)
+- When adding an item, automatically select it. When removing an item with a
+  parent, automatically select it. Make sure keyboard navigation (up and
+  down) correctly moves the selection after marking a task completed.
+  (SF#3056999)
+
+Features added:
+- Allow for filtering by category via the View->Filter menu. This also adds a
+  menu item for showing all items regardless of category, with Ctrl-R (R for
+  Reset) as keyboard shortcut.
+- When possible, try to keep the task duration when changing its start date.
+- Tasks in the calendar view can now be dragged and dropped and resized to
+  change their dates.
+
+Feature changed:
+- For consistency with the menu item for resetting category filters, the
+  keyboard shortcut for resetting all filters is now Shift-Ctrl-R (R for
+  Reset).
+
+
+Release 1.2.12 - March 20, 2011
+This is a bugfix release.
+
+Bugs fixed:
+- Bring back the 'Stop tracking effort' menu item in the context menu of task
+  and effort viewers and make menu's more consistent. (SF#3206702)
+- Added keyboard shortcuts for adding categories and notes.
+- The Delete key wasn't working in text controls. (SF#3206464, SF#3213964)
+- The Enter key wasn't working in text controls on Mac OS X. (SF#3223714)
+- The Enter key would stop working after opening and closing a new viewer.
+  (SF#3206366)
+- Make Ctrl-Z (undo), Ctrl-Y (redo), Enter (edit) and Delete work in edit
+  dialogs.
+- Fixed a performance issue with the calendar viewer when tracking efforts.
+- Don't clear the clipboard after pasting an item, so that an item can be
+  pasted multiple times. (SF#3198880 )
+- Don't try to add deleted prerequisite tasks when loading the task file.
+  (SF#3219001)
+
+Feature added:
+- Provide more options for filtering completed, due and inactive tasks.
+  (http://uservoice.com/a/eBFSz)
+
+
+Release 1.2.11 - March 10, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Sometimes the total effort per period displayed in the effort viewer would
+  be wrong. (SF#3146576)
+- On Windows, the icons of the undo and redo menu items would disappear after
+  their first use.
+- Correctly remember the main window position when closing Task Coach while
+  the main window is minimized. (SF#3199529)
+
+Features added:
+- Import tasks from CSV file.
+- In addition to hiding all completed tasks, it is now also possible to hide
+  completed tasks but keep recently completed tasks visible for a limited
+  amount of time. This can be done by hiding tasks that were completed before
+  today, before yesterday, before the current week or before the current
+  month, using the View->Filter menu. (http://uservoice.com/a/lZ8ss)
+- In addition to hiding all future tasks, it is now also possible to hide
+  future tasks but still show future tasks that will become active in a short
+  while. This can be done by hiding future tasks that start today, tomorrow,
+  next week or next month, using the View->Filter menu.
+
+Features changed:
+- Keyboard shortcut improvements: On Windows and Linux, the keyboard shortcut
+  for adding a task is now simply Insert. A new subtask can be added with
+  Shift-Insert. On Mac OS X, the Insert shortcut doesn't work for some reason
+  so there a new task can be added with Cmd-N and a new subtask with Shift-
+  Cmd-N. The Delete keyboard shortcut works for all viewers. Notes can be
+  added to tasks and categories with the Ctrl-B keyboard shortcut. Tasks and
+  notes can be mailed with the Ctrl-M keyboard shortcut. Attachments can be
+  added with the Shift-Ctrl-A keyboard shortcut and all attachments of an
+  item can be opened with the Shift-Ctrl-O keyboard shortcut.
+- Rearranged the menu's: Instead of a Task, Category, Effort and Note menu,
+  there are now a New menu for creating new items and an Actions menu for
+  applying actions such as marking a task completed, mailing an item and
+  starting and stopping effort tracking. The Edit and Delete menu items are
+  now placed in the Edit menu.
+
+Distribution changed:
+- Task Coach was added to the Ports collection of FreeBSD thanks to Kevin Lo.
+  See the download section of the Task Coach website.
+
+
+Release 1.2.10 - February 20, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Column header popup menu's didn't work. (SF#3175083)
+- The stop effort tracking button on the toolbar of effort viewers wasn't
+  working.
+- The viewer background color would not obey the global user setting.
+  (http://uservoice.com/a/g2CST)
+- Task files wouldn't specify the encoding in the XML header, making it harder
+  to process them with other tools. (SF#3182504)
+- In the calendar viewer, use the completion date as end date when a task is
+  completed. (SF#3183086)
+
+Features added:
+- Efforts are filtered by categories like tasks and notes.
+- Pausing effort tracking: clicking the stop tracking effort button when no
+  effort is being tracked will resume tracking for the task that was last
+  being tracked. (http://uservoice.com/a/cXLhb)
+- Start tracking effort and stop/resume tracking effort have keyboard
+  shortcuts: Ctrl-T for start tracking effort and Shift-Ctrl-T for
+  stop/resume tracking effort. (http://uservoice.com/a/9hhaE)
+- Clear all filters via a keyboard shortcut: Shift-Ctrl-F
+  (http://uservoice.com/a/4Tt4T)
+- Support for CRAM-MD5 authentication when dropping IMAP mails from
+  Thunderbird.
+
+Feature changed:
+- Show left/right scroll buttons in notebook controls so that it is more clear
+  for users that there might be more tabs in the notebook than currently
+  visible. A drop down list of all tabs in the notebook can still be accessed
+  using the Ctrl-Tab shortcut.
+
+
+Release 1.2.9 - February 5, 2011
+This is a mixed bugfix and feature release.
+
+Bugs fixed:
+- Improve keyboard navigation between viewers.
+- Accept dropped mail messages from Outlook with non-ascii characters.
+  (SF#3172736)
+- Open editor on the same display as the main window on multi-monitor setups.
+  (SF#3166563)
+- The shortcut for "Decrease priority" (Ctrl-D) wasn't working in the Spanish
+  translation. (SF#3165234)
+- Prevent the tooltip overlapping popup menus on Linux. (SF#2989198)
+- Dropping IMAP e-mails from Thunderbird would not work on some
+  configurations.
+
+Features added:
+- Hitting Ctrl-F when a viewer has keyboard focus moves keyboard focus to the
+  toolbar search control. Hitting Escape when the toolbar search control has
+  keyboard focus moves the focus back to the viewer. Hitting Ctrl-Down when
+  the toolbar search control has keyboard focus pops up the search control
+  menu. (http://uservoice.com/a/6fW73)
+- Added overview of keyboard shortcuts to help information.
+- The calendar viewer configuration has been moved to its own dialog. Add more
+  configurable attributes: highlight color, show now, font size.
+- Effort viewers can be sorted ascending and descending.
+- Edit, preferences and help dialogs have maximize and minimize buttons.
+  (http://uservoice.com/a/mymqf)
+
+
+Release 1.2.8 - January 22, 2011
+This is a bugfix release.
+
+Bugs fixed:
+- Task Coach wouldn't open task files when a task viewer was sorted by
+  reminder date/time. (SF#3153541)
+- Correctly fix drag-and-drop from Thunderbird. (SF#2916405, SF#3058781)
+- Correctly keep track of selected items when using shift-click to select a
+  range of items so that the right items are exported when the user exports a
+  selection. (SF#3154036)
+- Task Coach would crash at launch if TaskCoach.ini could not be loaded.
+- When marking the only subtask of a task uncompleted, the subtask would stay
+  green. (SF#3151018)
+- On Windows 7 and Vista, the application icon wouldn't show up correctly.
+  (SF#3158445)
+- Correctly use mail message subject when dropping a mail message from
+  Outlook. (SF#2806617)
+
+Features added:
+- The effort edit dialog now has a "Edit task" button next to the task
+  selection drop down to quickly open the effort's task.
+- The effort viewer now has "Start tracking effort" and "Stop tracking
+  effort" buttons on the toolbar. The "Start tracking effort" starts tracking
+  effort for the task(s) of the selected effort(s). This enables you to
+  quickly resume tracking the most recent task by selecting the topmost effort
+  record and hit the "Start tracking effort" button. The "Stop tracking
+  effort" button simply does what it says and was added for consistencies
+  sake. (http://uservoice.com/a/fHSAX)
+
+
+Release 1.2.7 - January 8, 2011
+This is a bugfix release.
+
+Bugs fixed:
+- Performance improvements: faster closing of task dialogs, faster item
+  selection, no redraw of task viewers every minute.
+- When removing all efforts, correctly update the effort viewer. (SF#3125553)
+- When editing a task that already has prerequisite tasks, don't reset the
+  prerequisites. (SF#3137055)
+- Huge performance fix in the calendar viewer.
+- When double clicking a column header border don't set the column width to
+  zero.
+- Process drag-and-drops from Thunderbird. (SF#2916405, SF#3058781)
+- When canceling the save dialog, the task file would be saved with an empty
+  filename. (SF#3152160)
+
+Features added:
+- Always highlight the current day in the calendar view.
+- Show current time in calendar view.
+
+
+Release 1.2.6 - December 5, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- Avoid the "Pas de sujet" bug when dropping a mail from Outlook on a French
+  Windows OS.
+- Don't crash when the note viewer is open. (SF#3122115)
+- Don't crash when the square task viewer is open.
+- When double clicking the latest effort, don't open the previous one, but the
+  one double clicked. (SF#3121403)
+- When searching in the effort viewer with "Include subitems" turned on,
+  actually include effort for subtasks in the search results. (SF#3124833)
+- Some more performance improvements.
+
+
+Release 1.2.5 - November 28, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- Fixed another memory leak in the calendar view. (SF#3108959)
+- Some performance improvements. (SF#3117375)
+- Don't throw exception when Snarl is not available. (SF#3119740)
+
+
+Release 1.2.4 - November 21, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- On Windows, make the installer check for running instances of Task Coach
+  before installing a new version. The installer is able to detect running
+  instances of Task Coach release 1.2.4 or newer. (SF#3109658)
+- Mass editing of items wouldn't work after selecting items with Ctrl-A
+  (select all). (SF#3108176)
+- Bring back total time spent and total revenue columns in the effort viewer.
+  (SF#3112807)
+- Fixed a memory leak in the calendar viewer. (SF#3108959)
+
+
+Release 1.2.3 - November 14, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- Show clock icon for tracked tasks in the task viewer. (SF#3106158)
+- File => Save task as template didn't work any more.
+- Hide parent task when all of its subtasks are hidden by filtered categories
+  and the parent task itself doesn't belong to the filtered categories.
+- Don't throw exception when end of working day is 24. (SF#3105496)
+- When recurring a task, make sure its start date stays before its due date.
+  Patch provided by Svetoslav Trochev.
+- The edit templates dialog was unresponsive under MS Windows. (SF#3106221)
+- When setting the column width to the minimum in horizontal monthly view,
+  switching to weekly view would hang Task Coach and prevent it from launching
+  again. (SF#3091151)
+
+Feature added:
+- Updated translations and added partial Occitan and Papiamento translations.
+
+
+Release 1.2.2 - November 6, 2010
+This release adds a template edit dialog and fixes some bugs.
+
+Bugs fixed:
+- Type indicator of attachments in the attachment tab of edit dialogs was
+  missing. (SF#3087177)
+- After editing the subject of a composite task in the task list viewer (e.g.
+  changing 'Project A' into 'Project B'), also update the subjects of the
+  subtasks (e.g. 'Project A -> Task 1' should update to 'Project B -> Task
+  1').
+- When editing a subject of a subtask in the task list viewer inline, don't
+  include the subjects of its ancestors in the text control.
+- When filtering on categories, don't show tasks whose subtasks (that belong
+  to the filtered categories) are all hidden by another filter.
+- When double clicking in the calendar viewer (when it is in vertical month
+  mode) to create a new task, set the due date of the new task to the end of
+  the day. This makes sure the new task is visible in the calendar after
+  closing the task edit dialog. (SF#3103011)
+- Include end of work day as option when selecting a time in the effort edit
+  dialog. (http://uservoice.com/a/380R8)
+- Remember column widths in the category viewer across sessions.
+
+Features added:
+- Don't ask for a name when creating a new template. There is now a template
+  edit dialog; one can only delete templates though.
+  (http://uservoice.com/a/4Ntz6)
+- Allow the user to change the ordering of templates
+
+Distribution changed:
+- Added support for Fedora 14. (SF#3101814)
+
+
+Release 1.2.1 - October 16, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- Don't refuse to open a task file when it is sorted on a "total" column.
+  (SF#3085056)
+- Don't expand tasks in the prerequisite tab when opening a task dialog, it's
+  really slow. (SF#3085358)
+- Always display the month name in the horizontal monthly calendar view.
+  (SF#3062505)
+- Allow the user to resize columns in horizontal calendar view (SF#3062505)
+- Reset percentage complete when recurring a task.
+- When using relative paths for attachments, attachments couldn't be opened
+  from the attachments tab in the edit dialog. (SF#3087177)
+
+
+Release 1.2.0 - October 9, 2010
+This release adds task dependencies.
+
+Bugs fixed:
+- An exception would be thrown if search strings contained a percentage
+  symbol.
+- When printing, correctly align columns.
+- Show sort indicator in attachment viewers.
+- Task Coach would always change budget, hourly fee, and fixed fee to zero
+  when mass editing tasks. (SF#3081666)
+- Better contrast in the calendar view (SF#3072138)
+- Tasks started at 00:00 would be displayed twice in the monthly vertical
+  calendar view (SF#3062501)
+
+Feature added:
+- Tasks can have one or more prerequisite tasks. As long as a task has one or
+  more prerequisite tasks that are not completed, the dependent task is
+  inactive. The task tree viewer has two extra columns, one for showing
+  prerequisite tasks and one for showing dependent tasks. Prerequisite tasks
+  can be selected in the Prerequisites tab of the task edit dialog. Dependent
+  tasks cannot be selected explicitly but are simply derived from the
+  prerequisite tasks. For example, if task B can be started only after task A
+  has been completed, task A is called a prerequisite for task B and task B
+  is called a dependency of task A.
+
+Features changed:
+- To simplify the application and reduce the number of columns all "total"
+  and "overall" columns have been removed. For composite items that have
+  children, the tree viewers show the "total" or "overall" value when the
+  item is collapsed and the individual value when the item is not collapsed.
+  An example may help: suppose task A has a budget of 20 hours and subtask A1
+  has a budget of 10 hours. In the task viewer in tree mode, the budget
+  column shows 20 hours for task A when it is expanded and 30 hours when it
+  is collapsed. For task A1 the budget shown is always 10 hour. In list mode,
+  the task viewer shows the individual values, so a budget of 20 hours for
+  task A and 10 hours for task A1.
+- The order of tabs in tabbed dialogs can be changed. Task Coach now
+  remembers the order of the tabs in the item edit dialogs and the
+  preferences dialog. (http://uservoice.com/a/oa7jx)
+- When printing, show the sorted column by underlining the column header.
+- Reorganized some menu items differently and added mnemonics to all menu
+  items.
+
+Implementation changed:
+- The task file format was changed to support task dependencies. The task
+  file format version number is now 31.
+
+
+Release 1.1.4 - September 30, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- Task Coach would not properly use the system's locale to select the language
+  if the language was set to 'Let the system determine the language',
+  resulting in the wrong language being used. (SF#3064566)
+- Don't switch top/bottom and left/right margins in the print preview.
+- Refresh task viewer filters every minute so that when the task viewer is
+  hiding inactive tasks, inactive tasks that become active also become
+  visible. (SF#3072013)
+- Displaying revenue in effort viewers was slow. The effort viewer has a
+  revenue column that shows the revenue earned per effort record. Until now,
+  this would be the task fee per hour times the duration of the effort record
+  plus the part of the fixed fee of the task earned with this effort record.
+  So if a task had a fixed fee of 1000,- and you had spent 10 hours on the
+  task, an effort record of one hour would have a revenue of 100,-. However,
+  calculating all this would get slow for larger amounts of effort records,
+  so the effort revenue now only shows the variable part, i.e. fee per hour
+  times effort duration. (SF#3056540)
+- In the situation where Task Coach was started minimized in the system tray
+  and with the setting "Hide window when minimizing" turned on, the main
+  window would not be hidden when minimizing it. (SF#3077271)
+
+Features added:
+- Allow hiding composite tasks in calendar view.
+  (http://uservoice.com/a/aul3S)
+- In the tree/list task viewer, allow additional selection with Cmd-click on
+  Mac OS X.
+
+
+Release 1.1.3 - September 10, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- When closing a edit dialog, don't delete the category, note, and attachment
+  viewers in the dialog before the data has been processed. (SF#3059143)
+- The PortableApps platform would override the language selected by the user
+  in Task Coach. (SF#2965342, SF#3059429)
+- When retrieving the latest available Task Coach version number from the Task
+  Coach website doesn't work, simply ignore that.
+- Don't crash when searching efforts with "Include subitems" turned on.
+
+Feature added:
+- When selecting the language in the preferences dialog, you can select 'Let
+  the system determine the language'. If you're using the PortableApps
+  version of Task Coach and the PortableApps platform, the PortableApps
+  platform language will be used. Otherwise, Task Coach will let your system's
+  locale determine the language.
+
+
+Release 1.1.2 - September 2, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- Task Coach wouldn't run on Ubuntu 9.04. This is because Task Coach tried to
+  use a feature from wxPython 2.8.9.2 while Ubuntu 9.04 ships with wxPython
+  2.8.9.1. (SF#3054431)
+- Only close edit dialogs when the edited item is really deleted, not when the
+  item is hidden by a filter. (SF#3042880)
+- Refresh filtered task viewers at midnight to properly show tasks that
+  become active. (SF#3035384)
+- The checkbox for mutually exclusive subcategories in the category editor
+  would be unchecked even if a category had exclusive subcategories.
+
+
+Release 1.1.1 - August 26, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- On Mac OS X, properly read task files when the font description cannot be
+  parsed. This may happen when reading a task file that was last saved on a
+  different platform. Unfortunately, font specifications are platform
+  specific. (SF#3047183)
+- Prevent exception when reading old task files.
+- Saving of templates didn't work, resulting in invalid template files that
+  would in turn prevent Task Coach from starting properly. (SF#3052090)
+- On Windows, the tabs of the dialogs would flicker when moving the mouse over
+  the tabs.
+- Use dialogs for reminders. (SF#3050445)
+
+
+Release 1.1.0 - August 20, 2010
+This release adds time to start, due and completion dates of tasks and adds
+support for mass editing of items. It also adds support for the upcoming
+version 3.0 for the iPhone/iPod/iPad.
+
+Bugs fixed:
+- Icons in edit dialogs would be lined up vertically on some versions of
+  Windows XP. Fixed by using a notebook widget instead of the listbook widget.
+  (SF#2927384)
+- The new edit dialogs better support tabbing through the dialogs.
+  (SF#2687959)
+- On Mac OS X, the tabs in the editor and preferences dialogs were too small.
+- Searching descriptions wasn't working in the effort viewer. (SF#3031411)
+
+Features added:
+- The start, due and completion dates of tasks now also include a time. When
+  reading old task files, Task Coach adds a default time to tasks: start
+  dates get a time of "00:00", due dates and completion dates get a time of
+  "23:59". (http://uservoice.com/a/nd3mH)
+- Mass editing of items. When editing multiple items (tasks, notes, etc.),
+  the edit dialog allows for selectively changing attributes of all edited
+  items. (http://uservoice.com/a/ahxq8)
+- Less intrusive notifications (reminders).
+- The calendar orientation can be changed.
+- Add an option to the calendar viewer to show all tasks but those which have
+  no start nor due date (SF#3008517)
+- The headers in the calendar view are now always visible.
+  (http://uservoice.com/a/irtQs)
+- The calendar view can show an arbitrary number of periods (except months).
+  (http://uservoice.com/a/5F5Ka)
+
+Implementation changed:
+- The task file format was changed to support start, due and completion date
+  and time. The task file format version number is now 30.
+
+
+Release 1.0.10 - August 15, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- When SyncML was on, the effort viewer would show effort for deleted tasks.
+- When dragging panes and dropping them onto each other to create an automatic
+  notebook, make sure dropped viewers are properly contained in the notebook.
+- When renaming a viewer, apply the new name to the active viewer.
+  (SF#3042037)
+
+Feature added:
+- Allow automatic creation of a notebook of viewers on top of the initial task
+  viewer. This makes the user interface functionally equivalent to the
+  previously removed "tabbed" mode.
+
+
+Release 1.0.9 - August 8, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- On Windows, Task Coach wouldn't start when the user interface was in
+  "tabbed" mode. (SF#3041123)
+- On Windows, toolbar items that should trigger a popup menu (e.g. templates)
+  wouldn't.
+- On Windows, disabled toolbar buttons wouldn't be greyed out.
+
+Feature removed:
+- The "tabbed" user interface mode has been removed. Having two different
+  user interfaces makes it harder to test changes that affect the user
+  interface, as evidenced by a bug in the previous release.
+
+
+Release 1.0.8 - August 6, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- Drop support for SyncML on Debian; too many architectures/versions to
+  support.
+- File attachments would not open on Lubuntu
+- Task Coach would crash on start on Ubuntu 10.10
+- Fix an exception that would prevent Task Coach from closing. (SF#3031709,
+  SF#3031711)
+- Close task tree popup (in the effort dialog) when clicking the dropdown
+  button twice. (SF#3032835)
+- On Windows, toolbar buttons in dialogs would stop working after a while.
+  (SF#3032834, SF#2560895)
+- Refresh filter for tasks due today/tomorrow/etc. at midnight. (SF#3035384)
+- On Linux, when selecting an effort in the effort viewer with the mouse also
+  give keyboard focus to the effort viewer. (SF#3039519)
+
+
+Release 1.0.7 - July 2, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- On some Linux platforms, when using KDE, Task Coach would not properly
+  restore after being minimized to the system tray. (SF#2988693, SF#3011539)
+- Reduce flickering when tracking effort. (SF#2819141, SF#2995374)
+- Task Coach wasn't installing on Ubuntu 9.04. (SF#3022926)
+- The right-click column header menu still wasn't working in task, note and
+  category viewers.
+
+
+Release 1.0.6 - June 26, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- The right-click column header menu wasn't working in task, note and category
+  viewers.
+- On Jolicloud, don't crash when printing. (SF#3018038)
+- On Ubuntu 10.4, don't crash when clicking the font button in the appearance
+  tab of edit dialogs. (SF#2992006, SF#3021759)
+- Don't display long descriptions in an inline text control, it's too buggy.
+  (SF#2992853, SF#2992850, SF#2992848)
+- On Mac OS X, don't cut text in text controls when users type <cmd><shift>X,
+  only when they type <cmd>X. (SF#2942288)
+- Properly save the task file when the font name contains non-ascii
+  characters. (SF#3014110)
+- Correctly export tasks and effort to vCalendar (.ics) when they contain non-
+  ascii characters. (SF#3016528)
+
+
+Release 1.0.5 - June 8, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- Task Coach would fail to save the task file correctly, when it couldn't
+  read temporary files for email attachments. (SF#2369711)
+- Don't crash when using a purple folder or led icon. (SF#3009432)
+- Don't allow exporting efforts to iCalendar when effort viewer is in
+  aggregate mode, it would result in an empty .ics file. (SF#2935616)
+- SyncML synchronization did not work for tasks. (SF#3012234)
+
+Feature changed:
+- Renamed the Edit->Paste into task menu item to Edit->Paste as subitem and
+  made it work for categories and notes too.
+
+
+Release 1.0.4 - May 30, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- When starting iconized on Mac OS X, the application window would close.
+  (SF#2992764)
+- When exporting tasks with descriptions that contain newlines to iCalendar
+  (.ics) format, produce a valid iCalendar file. (SF#2975805)
+- When reading a task file saved on another platform, be prepared for fonts
+  with size zero; use the default font size instead. (SF#2968199, SF#3002577)
+- After deleting multiple efforts for one task in the effort viewer, the
+  effort viewer would still show some of the removed efforts.
+- When waking up from standby/sleep, only request user attention when there
+  are reminders to display. (SF#2992049)
+- The synchronization with the iPhone would crash in some circumstances, when
+  parent objects have been used on the iPhone and are deleted on the desktop.
+  (SF#3007248)
+- When maximizing or minimizing priority, don't take the priority of deleted
+  tasks into account. (SF#3008495)
+- When calculating overall percentage complete of a task, consider whether the
+  task will be completed automatically when all of its subtasks are completed.
+  (SF#2992534)
+
+Feature changed:
+- Added some more possible snooze times. Use the preferences dialog to turn
+  them on.
+
+Distributions changed:
+- We no longer build a Task Coach RPM for Fedora 8, 9, and 10. These releases
+  of Fedora are unsupported by the Fedora project.
+- The OpenSuse RPM is not "noarch" but "i386". (SF#2997377)
+
+
+Release 1.0.3 - April 25, 2010
+This release fixes a few bugs, and improves a few features, such as making the
+calendar view sortable.
+
+Bugs fixed:
+- When showing effort records in aggregate mode (per day, per week, per
+  month), always put the Total row on the first line of its period.
+  (SF#2895940)
+- The download link for the Debian package wasn't pointing at any package.
+  (SF#2985649)
+- Don't show deleted tasks in the task dropdown of the effort edit dialog.
+  (SF#2987202)
+- Snarl notifications wouldn't work when the subject or description included
+  non-ASCII characters. (SF#2986071)
+- When saving files, make sure the default extension is added to filenames if
+  both the user and the native save dialog don't add it. (SF#2987204)
+- When listing notes and attachment in a popup window, show them sorted
+  instead of in a seemingly random order. (SF#2991230)
+- Don't crash and corrupt the task file when the user assigns the green folder
+  icon to a task, category or note. (SF#2991511)
+- Tasks wouldn't use the exact same font as the category they belong to.
+  (SF#2990350)
+- The calendar view didn't handle the task's font. (SF#2990875)
+
+Features added:
+- Use item titles in dialogs and in the undo/redo menu to make it clearer what
+  items the user is/was working on. (http://uservoice.com/a/9zBuo)
+- In the task, category, and note viewers, show long descriptions in a text
+  control with scrollbars so the rows don't take up too much vertical space.
+  (http://uservoice.com/a/h37jH)
+- Tasks can now be sorted in the calendar viewer.
+- Support for libnotify under Linux (for reminders).
+
+
+Release 1.0.2 - April 10, 2010
+This release fixes some bugs, and adds support for the Snarl notification
+system.
+
+Bugs fixed:
+- Exports and prints would show long descriptions abbreviated with "...",
+  exactly as the long descriptions were displayed in the description column
+  of task, category, and note tree viewers. To fix this, the task, category,
+  and note tree viewers show descriptions fully (when the description column
+  is visible). (SF#2975805)
+- In the calendar viewer, March 31st would not appear. (SF#2979461)
+- The 13th hour would not show up in thr daily calendar view. (SF#2979452)
+- The position of the main window wouldn't be saved so it couldn't be restored
+  the next session. (SF#2969292)
+- On Ubuntu, when the user would scroll to the bottom of a tree viewer and
+  collaps an item, the tree would not be redrawn correctly. (SF#2947136)
+- Setting a task to 100 percent complete didn't work. (SF#2982561)
+- When the user clicks on a URL embedded in a description and the URL fails to
+  open, show an error dialog instead of throwing an exception.
+- The website pointed Ubuntu 9.10 users to the wrong deb package. (SF#2983202)
+- On Ubuntu 10.04, Task Coach wouldn't be added to the Applications/Office
+  menu. (SF#2978098)
+- After double clicking a task in the calendar viewer and changing its dates,
+  if the change would make the task disappear from the current period, the
+  task would not be properly drawn.
+
+Feature added:
+- Support for Snarl under Windows (for reminders).
+
+
+Release 1.0.1 - March 26, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- Task Coach would try to use a non-existing icon when the SyncML feature was
+  turned on. (SF#2975952)
+- Task Coach wouldn't install properly on Ubuntu 10.04. Added a deb for Ubuntu
+  10.04. (SF#2975538)
+- When setting the end working hour to 24, the calendar viewer would crash.
+  (SF#2975347)
+- When trying to display tasks with notes, the calendar viewer would crash.
+- Synchronization with the iPhone did not work. (SF#2975920, SF#2976427)
+
+
+Release 1.0.0 - March 22, 2010
+To mark that Task Coach has been available for five years now, we call this
+release version 1.0. This release adds a calendar viewer for tasks, partial
+drag and drop support for Mail.app under Mac OS X Leopard and Snow Leopard,
+and configurable icons.
+
+Bug fixed:
+- The template pop-up menu in task viewers would not show up at the right
+  position.
+
+Features added:
+- Calendar viewer for tasks. (http://uservoice.com/a/iQI4g)
+- Drag and drop e-mail from Mail.app, on Max OS X Leopard and Snow Leopard.
+  (http://uservoice.com/a/niJMS)
+- The square map task viewer can also display tasks by priority. Note that
+  tasks with negative priorities are not displayed.
+  (http://uservoice.com/a/kxeoS)
+- The icons of tasks, notes, and categories can be changed.
+
+
+Release 0.78.4 - March 6, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- In some cases, when typing dates in the editor, they would be reset to the
+  current day. (SF#2942425)
+- Clear the drag image after dropping an item onto white space (on Linux).
+  (SF#2947127)
+- Reminders that should have fired when the computer was asleep wouldn't until
+  the next launch of Task Coach (Windows and Mac OS X only). (SF#2888688)
+- On Mac OS X, task viewers would not be refreshed at midnight if the computer
+  was sleeping by this time.
+- Having too many mail attachments on Windows would cause a "Too many open
+  files" error.
+- When closing a viewer, Task Coach would sometimes try to destroy an already
+  deleted right-click menu, leading to an exception or an error message in the
+  log file. (SF#2948302)
+
+
+Release 0.78.3 - January 31, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- Free up resources (user objects and memory) on Windows when closing dialogs.
+  The memory leak was caused by popup menu's in dialogs not being deleted.
+  (SF#2938091, SF#2891350, SF#2560895, SF#2444185, SF#2214043)
+- Close the inline subject edit control before showing or hiding columns in
+  tree viewers, to prevent problems redrawing the tree items. (SF#2940211)
+- Prevent "zombie" viewers; viewers that are not visible but do still use
+  processing power. (SF#2932609)
+
+
+Release 0.78.2 - January 23, 2010
+This is a bugfix release.
+
+Bug fixed:
+- Faster redrawing of task/category/note trees.
+
+
+Release 0.78.1 - January 17, 2010
+This is a bugfix release.
+
+Bugs fixed:
+- Bring back the "Don't snooze" option in reminder dialogs.
+- Synchronizing with the iPhone didn't work. (SF#2925618)
+- When an active task's foreground color is the default (black), don't mix
+  that color with the foreground colors of the task's categories. (SF#2930751)
+- Let subtasks use their parent's category-based foreground color when they
+  don't have their own foreground color. (SF#2930751)
+- When there are a lot of old backup files don't clean them up all at once,
+  but instead a few on each save. (SF#2929692, SF#2929475)
+
+
+Release 0.78.0 - January 10, 2010
+This release adds configurable fonts and foreground colors, enhances the
+reminder dialog, makes other small changes and fixes some bugs.
+
+Bugs fixed:
+- Make file locking work on Windows computers that have a hostname with non-
+  ASCII characters in it. (SF#2904864)
+- Avoid deploying UxTheme.dll because it causes problems on 64-bits Windows
+  systems. (SF#2911280, SF#2897639, SF#2886396)
+- Correctly refresh task square map and task time line viewers after stopping
+  effort tracking, i.e. stop showing the clock icon on the previously tracked
+  task.
+- When maximizing and restoring panes (viewers), don't change the order.
+  (SF#2922952)
+- Slightly faster redrawing of task viewers after sorting or filtering.
+- In some circumstances, synchronization with an iPhone/iPod Touch device
+  would crash the app. (SF#2925618)
+
+Features added:
+- Tasks, categories, notes and attachment can have their own font. Tasks,
+  notes and attachments that don't have their own font use the font of the
+  categories they belong to. Effort records use the font of the task they
+  belong to.
+- In addition to the background color, the foreground (text) color of tasks,
+  categories, notes and attachments can now also be changed. Tasks, notes and
+  attachments that don't have their own foreground color use the foreground
+  color of the categories they belong to. Effort records use the foreground
+  color of the task they belong to.
+- Added Ctrl+E keyboard shortcut to "New effort..." menu item.
+- Reminder dialogs have an extra button to mark the task completed.
+  (http://uservoice.com/a/5HVq3)
+- The snooze times offered by the reminder dialog can be configured via the
+  preferences dialog.
+
+Features changed:
+- Task Coach now limits the number of backups made of a task file. The number
+  of backups retained increases logarithmically with the age of the oldest
+  backup of the task file. When Task Coach needs to remove a backup it tries
+  to keep the remaining backups spread evenly across time.
+  (http://uservoice.com/a/5FrtF)
+- Merged the four menu items for exporting tasks and effort to iCalendar and
+  vCalendar formats into two menu items.
+
+
+Release 0.77.0 - December 6, 2009
+This release adds mutually exclusive categories and fixes some bugs.
+
+Bugs fixed:
+- Only the first reminder defined in a session would be fired. (SF#2901254)
+- Don't start in-line editing of subjects when an item is double clicked.
+  Properly close the subject edit text control, e.g. when sort order is
+  changed. (SF#2896654, SF#2899913)
+- Don't open effort viewer contex (right-click) menu twice on every right-
+  click. (SF#2902389)
+
+Features added:
+- Categories can have mutually exclusive subcategories. This makes it easier
+  to e.g. create your own statuses or to keep track of which task was assigned
+  to whom. (http://uservoice.com/a/tvOIS)
+- F2 can be used to start in-line editing of the subject of a task, category
+  or note. (http://uservoice.com/a/9pLUT)
+- Added partial Mongolian translation.
+
+
+Release 0.76.1 - November 13, 2009
+This release adds Growl support on Mac OS X, and fixes some bugs.
+
+Bugs fixed:
+- The notes and attachment columns were not properly refreshed after removing
+  the last note or attachment. (SF#2894530)
+- Reminders would randomly not work. (SF#2888688)
+- Recurrence frequency would be reset to zero when edited. (SF#2895085)
+- Instead of the whole description, show only the first few lines of
+  descriptions in the description column of task, note, and category viewers.
+
+Features added:
+- On Mac OS X, you can optionally choose to use Growl for reminders. When
+  enabled, this disables two other features: snooze/don't snooze and open task
+  on reminder.
+- Added back the possibility to hide active tasks so that people can have a
+  task viewer that only displays completed tasks.
+  (http://uservoice.com/a/NQCUV)
+
+
+Release 0.76.0 - November 7, 2009
+This release adds buttons on the toolbar of task viewers to hide completed
+and/or future tasks, makes subjects editable in-line, removes a couple of
+silly features, and fixes some bugs.
+
+Bugs fixed:
+- Iterating over viewers wasn't working in tabbed mode.
+- When merging a task file with categories, don't break the links between
+  tasks/notes and categories. (SF#2882493)
+- Tree viewers wouldn't properly refresh when an attribute of a task,
+  category, or note was changed to be empty. (SF#2806354)
+- When tracking effort, effort viewers in aggregated mode (showing effort per
+  day/week/month) were not being updated every second.
+- Tabs in the tabbed window layout could not be closed.
+- Don't complain when the system locale has a thousands separator that
+  consists of more than one character. (SF#2889931, SF#2888714)
+
+Features added:
+- Task viewers now have buttons on the toolbar to hide or show completed
+  and/or inactive (future) tasks. (http://uservoice.com/a/EfkNL)
+- Subjects of tasks, notes and categories can be edited in-line by clicking
+  the subject of a selected item.
+
+Features removed:
+- Don't have a setting for the maximum number of recent files to show, simply
+  use some reasonable maximum (9).
+- It's no longer possible to hide active tasks, over budget tasks, and
+  overdue tasks. These filters were silly.
+
+
+Release 0.75.0 - October 24, 2009
+This release adds percentage complete tracking for tasks, a PortableApps
+version of Task Coach and some minor features and bug fixes.
+
+Bugs fixed:
+- Make opening (task) edit dialogs faster. (SF#2884522)
+- Use 'now' as default time in effort dialogs on Mac OS X instead of
+  '0:00:00'. (SF#2874824)
+
+Features added:
+- Tasks have a percentage complete property. (http://uservoice.com/a/Icogx)
+- Double clicking the task bar icon will iconize the main window when it is
+  visible and restore it when iconized (Mac OS X and Windows).
+  (http://uservoice.com/a/dKfBt)
+- When browsing for an attachment, start in the current attachment directory.
+- Under Windows, prevent users from deleting temporary files and thus loosing
+  all their e-mail attachments.
+
+Distribution changed:
+- Added a PortableApps version of Task Coach to the set of available
+  distributions.
+
+
+Release 0.74.4 - October 17, 2009
+This is a bugfix release that fixes some user interface bugs, most notably
+that entering dates with the keyboard was not working on Mac OS X and Linux.
+
+Bugs fixed:
+- Typing in time controls (effort start and stop, reminder) didn't work on Mac
+  OS X. (SF#2798239)
+- Prevent the locked file dialog and the new version notification dialog of
+  blocking each other on Mac OS X.
+- When using the context menu of a selected effort record to create a new
+  effort record use the task of the selected effort record as task of the new
+  effort record as well. (SF#2873933)
+- After expanding all items (Shift+Ctrl+E), keep items expanded even when sort
+  order changes or tasks are completed. (SF#2841854)
+- The "Open all attachments" menu item was always disabled. (SF#2874180)
+- When sorting tasks and notes by their categories use the recursive subjects
+  (e.g. 'Parent -> Child') of the categories to sort by. Previous versions
+  would only use the 'Child' part. (SF#2874153)
+- Remove double slash ('//') from URL used in Windows installer. (SF#2877126)
+- On Linux and Mac OS X, changing dates by typing a new date (i.e. not using
+  the dropdown menu) didn't work. (SF#2874408, SF#2867623)
+
+
+Release 0.74.3 - October 4, 2009
+This is a bugfix release.
+
+Bugs fixed:
+- Exporting and printing, including displaying the print preview, is now much
+  faster.
+- Drag and drop wasn't working.
+- Starting or stopping effort tracking for a selected task would cause the
+  task to be unselected. (SF#2869959)
+- Don't show effort records twice in the effort viewer after deleting or
+  dragging and dropping a task. (SF#2869520, SF#2859882)
+- Fix printing of non-task viewers. (SF#2871365)
+- Task Coach wouldn't start when using the tabbed main window mode on Mac OS
+  X. (SF#2867585)
+
+
+Release 0.74.2 - September 25, 2009
+This is a bugfix release that fixes several minor bugs and increases
+performance.
+
+Bugs fixed:
+- iPhone synchronization: when doing a full refresh from desktop, categories
+  parents could be mismatched.
+- A bug in the task filter would cause tasks to be shown that were supposed to
+  be hidden. (SF#2841854)
+- The filter submenu would sometimes be in the wrong state (enabled or
+  disabled).
+- On Linux, locking two task files in the same folder, e.g. when merging,
+  would make Task Coach think that its task file was locked by another
+  instance of Task Coach. (SF#2852216)
+- Performance improvements. Task Coach still isn't super fast, but at least
+  performance should be a bit better now. (SF#2807678, SF#2683002)
+
+Features added:
+- Add an option to avoid uploading completed tasks to the iPhone/iPod Touch
+  when synchronizing. For people who hide completed tasks, this can make the
+  synchronization much quicker.
+- Under MS Windows, the task template directory may now be a shortcut to
+  another directory.
+- In the attachment viewer, display a red icon for files attachments when the
+  file does not exist. Also prevent the user from trying to open it.
+
+Feature removed:
+- Removed the Edit->Select->Invert selection menu item since it was very slow
+  and not very useful.
+
+
+Release 0.74.1 - August 22, 2009
+This is a bugfix release.
+
+Bugs fixed:
+- Printing didn't work. (SF#2840010)
+- Prevent exception when locking a file on a machine with a hostname
+  containing non-ascii characters. (SF#2835047)
+- Make the winPenPack portable app start in English by default.
+- Drag and drop from Thunderbird would not work if the storage directory
+  wasn't the default. (SF#2840460)
+- Expand parent item when adding a sub item.
+
+Feature added:
+- Drag and drop from Thunderbird now works with multiple accounts in the
+  default profile.
+
+
+Release 0.74.0 - August 16, 2009
+This release adds better HTML export, a winPenPack version of Task Coach, and
+fixes some bugs. Task Coach now uses Uservoice.com for feature requests.
+
+Bugs fixed:
+- Avoid nested syncml tags in the XML task file (SF#2832062, SF#2813816)
+- Some macro's (e.g. "%(name)s") in the help text were not properly expanded.
+  (SF#2833904, SF#2833903)
+- Translate tip window and search controls on Windows. (SF#2825463)
+
+Features added:
+- When exporting data to an HTML file, Task Coach writes a simple CSS
+  stylesheet alongside it. The CSS stylesheet can be edited by the user using
+  a text editor; Task Coach won't overwrite it.
+- Tasks that are due soon are colored orange. How many days left is to be
+  considered 'soon' can now be set via the preferences dialog, in the task
+  behavior tab. (SF#1312000)
+
+Distribution changed:
+- Added a winPackPen (http://www.winpackpen.com) portable package to the set
+  of available distributions.
+
+Website change:
+- We're now using http://taskcoach.uservoice.com for feature requests. The
+  big advantage of Uservoice over the Sourceforge feature request tracker is
+  that Uservoice allows for voting. Because we have over 250 open feature
+  requests on Sourceforge, it is not possible for us to move all feature
+  requests ourselves. People that submitted a feature request on Sourceforge
+  will receive a notification and a request to help us move their request(s)
+  to Uservoice. (index.html)
+
+
+Release 0.73.4 - August 6, 2009
+This is a bugfix release.
+
+Bugs fixed:
+- Prevent text in right-aligned columns, like dates in the task viewer, to be
+  partially cut off. (SF#2806466)
+- Don't crash when a template task has an empty subject. (SF#2831233)
+- Always show the correct 'mark task (un)completed' bitmap in the task
+  context menu. (SF#2830125)
+- The GUI would always display English, instead of the language set via the
+  preference dialog or specified on the command line. (SF#2831534)
+
+
+Release 0.73.3 - August 2, 2009
+This release fixes some bugs, and adds support for synchronizing with the next
+version of the iPhone app (1.1).
+
+Bugs fixed:
+- Opening the task menu in the main menu bar while a category viewer was
+  active would result in exceptions. (SF#2818254)
+- The time control in the effort editor was too narrow (SF#2790805)
+- Link to http://www.cygwin.com on the website had a typo. (SF#2819702)
+- The context menu key didn't work. (SF#2807326)
+- With SyncML enabled, tasks deleted on the desktop would still show up on
+  the iPhone/iPod Touch.
+- Translate tip window controls, search controls, and viewer titles.
+  (SF#2825463, SF#2825222)
+- Prevent exception when opening a new viewer. (SF#2825222)
+- Don't fail silently when something goes wrong while opening an attachment.
+  (SF#2826178)
+
+Features added:
+- Specify which language to use on the command line. Type "taskcoach[.py|.exe]
+  --help" on the command line for more information.
+- Load a .po file (a file containing translations) with a command line
+  option. Type "taskcoach[.py|.exe] --help" on the command line for more
+  information. This option allows translators to check their work more
+  easily. (SF#1599933)
+- Synchronizing with the next version for the iPhone (1.1) is now supported
+  (one can edit a task's categories from the device).
+
+
+Release 0.73.2 - July 8, 2009
+This release fixes some bugs, and adds synchronization with the iPhone version
+now available on the AppStore.
+
+Bugs fixed:
+- Export of selected effort to a CSV-file would result in an empty file.
+  (SF#2810978)
+- Fix a crash when creating/editing tasks for non-english locales.
+  (SF#2817287, SF#2817335, SF#2812005)
+
+Feature added:
+- Two-way synchronization with Task Coach for the iPhone. (SF#2042153,
+  SF#2722216)
+
+
+Release 0.73.1 - June 24, 2009
+This is a bugfix release.
+
+Bugs fixed:
+- Dates and amounts were not localized. (SF#2806189, SF#1625111, SF#1790055)
+- Use folder icons for tasks with subtasks in the task viewer. (SF#2806191)
+- Export of selected effort to a CSV-file would result in an empty file.
+  (SF#2806383, SF#2807003, SF#2810978)
+
+
+Release 0.73.0 - June 12, 2009
+This release adds a timeline viewer, the ability to search item descriptions,
+total-per-period information in the effort viewer, and easier category
+manipulation.
+
+Features added:
+- Added a timeline viewer that shows tasks and efforts on a horizontal time
+  scale. (SF#2533644, SF#1230080)
+- When an effort viewer is displaying effort per day, week, or month, a total
+  line is shown for each period. (SF#1962219)
+- The search control in the toolbar of viewers now includes an option to
+  search descriptions too. (SF#1816660, SF#2020347, SF#2157010, SF#2510045)
+- Add or remove tasks and notes from categories using the task and note menus
+  in the menubar or the right-click popup menu for tasks and notes.
+  (SF#1931323, SF#2011031, SF#1918685)
+- Added largely incomplete Bosnian and Basque translations. Please help make
+  these translations complete. See http://www.taskcoach.org/i18n.html.
+
+
+Release 0.72.10 - June 9, 2009
+This is a bugfix release.
+
+Bugs fixed:
+- When opening a task edit dialog, the priority field would not show the
+  priority until the up or down button was clicked (Mac OS X only).
+- When opening a locked file, Task Coach would hang (Mac OS X only).
+- Require wxPython 2.8.9.1 instead of 2.8.9.2 in the Debian package file
+  (.deb) because Ubuntu 9.04 is still shipping 2.8.9.1 (Ubuntu only).
+  (SF#2798457)
+- Fix drag and drop from Outlook (Windows only). (SF#2803013)
+- When logging off or shutting down the computer save unsaved changes (Linux
+  only).
+- When using SyncML the task file could get corrupted.
+
+
+Release 0.72.9 - May 28, 2009
+This is a bugfix release.
+
+Bugs fixed:
+- Don't throw an exception when exporting an active effort record to iCal
+  format.
+- Refuse to open task files that have a different format because they are
+  created by a newer version of Task Coach than the one the user is using.
+- Updating menu items would trigger exceptions after closing a (task) viewer.
+- After merging, Task Coach would display the wrong filename in the window
+  title.
+- Smaller task edit dialog to cater for lower resolution screens.
+  (SF#2214687)
+- Dragging email from a Thunderbird client that uses Gmail as IMAP server
+  didn't work.
+- When the SyncML feature is turned on, Task Coach would show deleted tasks
+  in the drop down menu of the start effort tracking button on the toolbar
+  and it would show effort for deleted tasks in the effort viewer.
+  (SF#2679544, SF#2214043)
+
+Features added:
+- All export options can now also export selected items only.
+- Put line breaks in the XML so that task files are easier to examine in a
+  text editor. (SF#1277365)
+
+
+Release 0.72.8 - May 17, 2009
+This is a bugfix release.
+
+Bugs fixed:
+- Drag and drop from Thunderbird would not work on Debian-derived
+  distributions. (SF#2790274)
+- Work around a bug in wxPython 2.8.9.2 on Mac OS X that prevented dialogs to
+  be opened for items that have a color set. (SF#2789977)
+- Draw check boxes instead of black squares in the category viewer on Windows
+  XP and Vista with the classic theme.
+- The background of check boxes were corrupted under Linux.
+- Double clicking an item in a specific column wouldn't select the
+  appropriate tab in the dialog. (SF#2791100)
+- Reduce flickering when tracking effort for a task.
+- Opening a task file with e-mail attachments not specifying their encoding on
+  a different system than the one the task file was created could fail.
+- Couldn't add effort to a freshly created task.
+
+Feature added:
+- Use the settings for effort dialog start and stop times for the reminder
+  drop down as well. (SF#2792160)
+
+Dependency changed:
+- Task Coach now at least needs wxPython 2.8.9.2-unicode. Since the Windows
+  installer and the Mac OS X dmg package have wxPython included, this only
+  affects users of the RPM, Debian, and source distributions.
+
+
+Release 0.72.7 - May 10, 2009
+This is a bugfix release.
+
+Bugs fixed:
+- Support locking of task files on USB sticks/drives that have a different
+  file system than the host system has. (SF#2776249)
+- Task Coach would sometimes crash when dragging a task onto another task on
+  Windows. Fixed by using a different widget for tree-list controls.
+  (SF#2573263, SF#1995248, SF#2247808, SF#1963262)
+
+Feature added:
+- The category viewer can show additional columns (description, attachment,
+  ...) besides just the subject of categories. This is a side effect of the
+  fix for the drag and drop issues.
+
+Website changes:
+- Follow Task Coach on twitter: http://twitter.com/taskcoach. The latest
+  tweets are also listed on http://www.taskcoach.org. (index.html)
+- Added Google Ads to generate additional revenue to cover the cost of
+  hardware and commercial operating systems. (index.html)
+
+
+Release 0.72.6 - April 18, 2009
+This is a bugfix release.
+
+Bugs fixed:
+- Task Coach couldn't be installed using EasyInstall.
+- Task Coach couldn't be installed on Linux systems that have 2.6 as their
+  default Python version. Task Coach currently needs Python 2.5. Fixed by
+  forcing an install for Python 2.5 on all Linux systems when installing from
+  a RPM or Debian package. (SF#2724839)
+- The lockfile package used for file locking had a bug when used with Python
+  2.6. Fixed by upgrading the lockfile package to version 0.8. (SF#2761466)
+- Task Coach would sometimes crash when dragging a task onto another task on
+  Windows. (SF#2573263, SF#1995248)
+
+
+Release 0.72.5 - April 5, 2009
+This is a bugfix release.
+
+Bug fixed:
+- Include the lockfile package in the distributions.
+
+
+Release 0.72.4 - April 5, 2009
+This is a bugfix release.
+
+Bugs fixed:
+- When exporting effort to iCalendar format, use 'floating times' rather than
+  UTC. (SF#2722224)
+- Lock a task file while the user is working on it. Note that locks are only
+  honored by Task Coach itself; locked files can still be removed using a
+  file explorer. (SF#2318647, SF#2236420)
+- Fail silently if checking for the availability of a new Task Coach version
+  doesn't work for some reason. (SF#2669995)
+- Don't open the category edit dialog when the user double clicks a category
+  check box. (SF#2685754)
+- In the budget page of the task edit dialog, make sure that selected values
+  can be overwritten. (SF#2654254)
+- Make the Debian package work with python versions >= 2.5 (but smaller than
+  python 3.0). (SF#2724839)
+
+
+Release 0.72.3 - March 13, 2009
+This is a bugfix release.
+
+Bugs fixed:
+- Don't turn on the color selection in the task edit dialog when the task
+  color is based on the category it belongs to.
+- Make it easier to edit budget values in the task edit dialog. (SF#2654254)
+- Fix regression caused by the saving of print margins added in release
+  0.72.2. (SF#2632431)
+
+
+Release 0.72.2 - March 11, 2009
+This is a bugfix release.
+
+Bugs fixed:
+- Support drag and drop from Thunderbird Portable under Windows (SF#2665317)
+- Correctly read task files with version <= 13 (Task Coach release 0.57 and
+  earlier) that contain categories.
+- When a subtask belongs to a category with color, use that color to color
+  the subtask, rather than the color of the parent task.
+- Save print margins in the TaskCoach.ini file. (SF#2632431)
+
+
+Release 0.72.1 - February 14, 2009
+This is a bugfix release.
+
+Bugs fixed:
+- Drag and drop from Thunderbird wouldn't work with GMail IMAP accounts.
+  (SF#2549194)
+- Exception when synchronizing with the new version of ScheduleWorld.
+  (SF#2553046)
+- On MacOS, the window height would increase by 29 pixels each time Task Coach
+  was launched.
+- Exporting a selection of effort records resulted in an empty HTML file.
+- Opening a task from a reminder dialog didn't work. (SF#2580772)
+- Include effort for subtasks in the effort viewer for one task.
+- Correctly display error message when the user enters an invalid regular
+  expression in a search control.
+- Update the task square map viewer when the task status changes (e.g. when a
+  task is completed).
+- When SyncML is enabled and the last subtask of a task is deleted, correctly
+  update the icon in the task viewer.
+
+Features added:
+- When the single task, whose effort records are shown in a single task effort
+  viewer, is removed, the effort viewer resets to show all effort records of
+  all tasks.
+- Tool tips for task square map viewer.
+
+
+Release 0.72.0 - January 30, 2009
+This release adds a square map task viewer and a single-task effort viewer.
+This release also fixes a few bugs and adds a few smaller feature
+enhancements.
+
+Bugs fixed:
+- Don't crash when adding a task. (SF#2467347)
+- Update the total fixed fee column in the task viewer when adding a subtask
+  with a fixed fee.
+- Mark task file dirty when the user edits a task color.
+- Update the hourly fee column in the task viewer when the the user edits the
+  hourly fee of a task.
+- Make it possible to add an effort record to a new task.
+- When opening all attachments of an item, give an error message for each
+  attachment that cannot be opened.
+
+Features added:
+- One can now export only the current selection as HTML.
+- When using yearly recurrence of tasks, allow for keeping the recurring date
+  on the same weekday (e.g. to recur on the first Monday of the year).
+  (SF#2164568)
+- Added a square map viewer for tasks that displays tasks in the form of a
+  set of nested squares. The relative size of the squares is determined by
+  either budget, budget left, time spent, fixed fee or revenue.
+- One can now open an effort viewer for a specific task.
+- Added (incomplete) Hindi and German (Low) translations.
+
+
+Release 0.71.5 - December 24, 2008
+This release adds one usability enhancement and a few bug fixes.
+
+Bugs fixed:
+- Don't wake up every second just to keep track of reminders and midnight.
+- Hide main window after showing reminder dialog when it was hidden before.
+  (SF#2372909)
+- When marking a recurring task completed, recur its reminder too, if any.
+  (SF#2376415)
+- Refresh task status at midnight. (SF#2095205)
+- Fix tab traversal in the effort editor on Linux. (SF#1965751)
+
+Feature added:
+- When double clicking an item in a viewer, open the editor on the right page,
+  depending on the column clicked. For example, when clicking on the due date
+  column in a task viewer, Task Coach will open the task editor with the dates
+  page raised. Patch provided by Carl Zmola.
+
+
+Release 0.71.4 - December 6, 2008
+This is a bugfix release.
+
+Bugs fixed:
+- Opening an old .tsk file with missing e-mail attachments would crash Task
+  Coach.
+- Don't throw exception when showing an (error) message while synchronizing.
+  (SF#2356799)
+- When merging from the same file multiple times, update the existing items
+  instead of duplicating them. (SF#2062616)
+- Don't set negative priorities to zero in the task editor (Linux only).
+  (SF#2324869)
+- Save the column width of the first column when automatic resizing of
+  columns is off. (SF#2255690)
+- Actually delete tasks and notes when SyncML is disabled. (SF#2319921)
+- Do not create subitems in two steps, this is counter intuitive.
+- Properly iterate over the open viewers with Ctrl-PgDn and Ctrl-PgUp.
+  (SF#1973357)
+- Update the task viewer when a note is deleted from a task. (SF#2277217)
+- Update the tray icon tool tip when deleting an overdue task. (SF#2321351)
+- Wrap long lines in description tool tip windows. (SF#2318094)
+
+Feature added:
+- Add a "Purge deleted items" entry in the File menu for people who have been
+  using Task Coach with SyncML disabled.
+
+
+Release 0.71.3 - November 10, 2008
+This is a bugfix release.
+
+Bugs fixed:
+- Spell checking in editor didn't work under Mac OS X. (SF#2214676)
+- Dropping a mail with several recipients from Outlook would result in a "No
+  subject" subject. (SF#2220224)
+- A ghost window would appear on the secondary display under Mac OS X if it's
+  placed on the right. (SF#2206656)
+- The note total would include deleted notes. (SF#2209640)
+- Don't hang when exiting the application. (SF#2185910, SF#2209679)
+- Don't show all effort in the effort tab of a task editor, but only effort
+  for the task being edited. (SF#2207166)
+- Fix for a backwards incompatible change in python 2.6. (SF#2212857)
+- Update task details at midnight, even when Task Coach is not active at
+  precisely midnight. (SF#2095205, SF#2061826)
+- Allow for empty task subjects. (SF#2214812)
+- Make the drop down button for picking dates look disabled when it is
+  disabled. (SF#2214706)
+
+
+Release 0.71.2 - October 24, 2008
+This is a bugfix release.
+
+Bugs fixed:
+- The reminder dialog didn't work. (SF#2168756)
+- One couldn't add an URI attachment "by hand". (SF#2167705)
+- The combobox with tasks in the effort editor wouldn't always be properly
+  filled, making it impossible to edit the effort record. (SF#2167798,
+  SF#2173127)
+- Warn the user when the task file cannot be saved. (SF#2121470)
+- Warn the user when the TaskCoach.ini file cannot be loaded. (SF#2101765)
+- When saving selected tasks, also include any categories the selected tasks
+  are in.
+- The right-click menu item 'Start tracking effort' wouldn't work for
+  recurring tasks. (SF#2165652)
+
+Features added:
+- The SyncML password dialog now has a more specific title. (SF#2176781)
+- The system tray popup menu now has a 'New note' menu item. (SF#2182735)
+
+
+Release 0.71.1 - October 13, 2008
+This is a bugfix release.
+
+Bugs fixed:
+- Older task files containing e-mail attachments could not be opened.
+- Newly created templates would not appear in the Task menu, only in the
+  toolbar template button.
+- Installing from source wouldn't work on platforms where pysyncml is not
+  supported. (SF#2164313)
+- The installers for Mac OS X and Windows for release 0.71.0 were missing some
+  files, causing Task Coach not to be able to save. (SF#2162181)
+
+
+Release 0.71.0 - October 12, 2008
+This release adds task and note synchronization, task templates, more task
+recurrence options, more translations and a whole bunch of smaller
+enhancements.
+
+Bugs fixed:
+- Undo would not work well when creating notes in a category or task.
+- An IndexError would be raised when undoing then editing.
+- Ctrl-PgDn and Ctrl-PgUp would sometimes need to be pressed multiple times
+  before the next or previous viewer would be activated.
+
+Features added:
+- E-mail attachments are now stored directly in the task file.
+- Tasks and notes can now be synchronized with a Funambol server
+  (http://www.funambol.com/). (SF#2006123, SF#1892874)
+- Tasks can now be saved and reused as templates. (SF#1851847, SF#1549002,
+  SF#1484368, SF#1601869)
+- Attachments are now regular domain objects; they may have notes.
+- The task and note editors now use an actual category viewer. It is possible
+  to create and edit categories from these editors.
+- The description tooltip now works for efforts and categories. It also
+  contains a summary of notes and attachments belonging to the hovered object.
+  (SF#1642608, SF#1917999)
+- More task recurrence options. Tasks can now also recur yearly, in addition
+  to daily, weekly, and monthly. Tasks can also recur with a multiple period
+  frequency, e.g. every other week or every three months. Monthly recurring
+  tasks can be set to recur on the same week day (e.g. first Monday of the
+  month). (SF#1963803, SF#1917090, SF#1913656, SF#2076511)
+- The times used in the drop down menus of the start and stop entries of the
+  effort dialog can now be changed via the preferences dialog. Patch supplied
+  by Rob McMullen.
+- The effort tracking feature can be turned off via the preferences dialog.
+- The system tray icon shows the task being tracked in its tool tip. Patch
+  provided by JoÃ£o Alexandre de Toledo.
+- Categories and notes can have attachments.
+- Tasks and categories can contain notes. (SF#1954879, SF#2140239,
+  SF#1525434)
+- The four different effort viewers are integrated in one viewer that can
+  switch between different effort aggregation modes, i.e. details, per day,
+  per week and per month, via the toolbar.
+- The two different task viewers are integrated in one viewer that can switch
+  between list and tree mode, via the toolbar.
+- Category filtering is done either by showing tasks and notes that match any
+  category or that match all categories. This filtering mode can be switched
+  via the toolbar of the category viewer. (SF#2024510)
+- The effort background is now colored with the same color as the task it
+  belongs to.
+- The effort viewer can show the (overall) categories of the task of each
+  effort in an (overall) categories column. Patch provided by Thomas Sonne
+  Olesen. (SF#1911052, SF#1791670)
+- When the effort viewer is in weekly mode, it can show effort per weekday.
+  Patch provided by Thomas Sonne Olesen.
+- The automatic resizing of columns can be turned off on a viewer by viewer
+  basis, using the 'Automatic column resizing' checkable menu item in the
+  View->Columns menu and/or in the column header right-click menu.
+  (SF#2047851, SF#1466164)
+- The expansion state of tasks, categories and notes is saved in the task
+  file. (SF#2045453, SF#1790057)
+- Added Catalan translation thanks to Ferran Roig, Jordi Mallach, Josep-Miquel
+  Ivars, and devaleitzer.
+- Added an (incomplete) Arabic translation thanks to Moayyed. Please help
+  finish it. See http://www.taskcoach.org/i18n.html.
+- Added largely incomplete Esperanto, Estonian, Indonesian, Marathi,
+  Lithuanian, Norwegion Nynorsk, Slovenian, Telugu, and Vietnamese
+  translations. Please help finish them. See
+  http://www.taskcoach.org/i18n.html.
+
+Implementation changed:
+- The task file format (version 20) was changed. Task nodes may have a
+  recurrence node that contains the recurrence state of the task. Categories
+  and notes can contain attachments. Tasks and categories can now contain
+  notes.
+
+
+Release 0.70.4 - September 28, 2008
+Bug fix release.
+
+Bugs fixed:
+- Allow Task Coach to be installed on Ubuntu 7.10. (SF#2117477)
+- Task Coach wasn't notifying users of new versions.
+- When merging, merge notes too.
+- When the notes feature is turned off, hide the 'Create new note' menu item
+  in the category pop up menu.
+- Fixed a translation bug. (SF#2087395)
+- Hide/show the main window with one click on the task bar icon instead of a
+  double click (Linux only).
+- The Task Coach main window would get a very small size if it was started
+  minimized and had not been restored in the previous session. (SF#2052910)
+
+
+Release 0.70.3 - August 17, 2008
+Bug fix release.
+
+Bugs fixed:
+- wxPython 2.8.8.1 generates images in a new, backwards incompatible way,
+  even when told not to do that. This bug affects users that have an older
+  version of wxPython installed and use one of the Linux packages. Fixed by
+  adding the relevant pieces from wxPython 2.8.8.1 to the Task Coach sources.
+  (SF#2046084)
+- Opening a new task viewer didn't work. (SF#2053008)
+- Closing effort viewers causes exceptions. (SF#2053008)
+
+
+Release 0.70.2 - August 6, 2008
+This release fixes some bugs and brings back the Fedora RPM.
+
+Bugs fixed:
+- Using the "Save selection" feature together with mail attachments could
+  result in data loss.
+- Under KDE, the maximized state of the main window would not be restored.
+- One couldn't e-mail tasks with non-ASCII characters in their description.
+  (SF#2025676)
+- Dragging an email message from Thunderbird and dropping it on Task Coach
+  could give a "UnicodeDecodeError" on Fedora. (SF#1953166)
+- When an invalid regular expression was entered in a search control, no items
+  were displayed. Additionally, if it was saved in TaskCoach.ini, TaskCoach
+  would crash on launch later.
+- Mention of non-existing files in taskcoach.spec prevented the Fedora RPM
+  from being built.
+- The category viewer would sometimes skip keyboard navigation or need an
+  extra mouse-click to get focus. (SF#2020816, SF#2020812)
+- On Mac OS X, the keyboard shortcut for 'help' was interfering with the
+  shortcut for 'hide window'. (SF#2006455)
+
+Features added:
+- Notes can be e-mailed.
+- Display a tool tip to warn user when a search string is an invalid regular
+  expression. In this case, default to substring search.
+- Optionally put Task Coach in the user's startup menu so that Task Coach is
+  started automatically when the user logs on (Windows only). (SF#2017400,
+  SF#1913650)
+- Made (right-click) context menu's more consistent.
+
+Feature removed:
+- Don't supply the dummy recipient 'Please enter recipient' to the email
+  program when mailing a task. This only forces users to perform an extra
+  action to remove that dummy text, while most if not all email programs will
+  warn users when they forget to enter a recipient. (SF#2026833)
+
+
+Release 0.70.1 - June 28, 2008
+This release optionally brings back the tabbed user interface that was
+removed in the previous release and fixes a few bugs.
+
+Bugs fixed:
+- The search control in the toolbar did not maintain state correctly for
+  different viewers. Task Coach viewers now each have their own toolbar with
+  search control. (SF#1977196)
+- Marking tasks completed or changing their priority would change the
+  selection. (SF#1888598, SF#1926362)
+- On Max OS X, put preferences menu item in the TaskCoach menu instead of the
+  Edit menu to conform with Mac OS X standards. (SF#1965861)
+- Focus issues: On Mac OS X, text couldn't be edited while the timer was
+  running. On Windows, notifications from other programs overlapping with the
+  main window would take away focus from dialogs. (SF#1995469, SF#2000152)
+- Prevent crash under Windows XP when dropping e-mail from Thunderbird if the
+  APPDATA environment variable is not defined. (SF#1960827)
+- ImportError: No module named thirdparty.ElementTree. This exception would
+  happen when using a source distribution of Task Coach or a package (rpm,
+  deb) for Linux *and* when the default version of Python on the system is
+  Python 2.4. Task Coach tried to import a module from the wrong package.
+  (SF#1964069)
+- On Linux, when using a dark theme, use appropriate background colors for
+  the category viewer and the text color buttons in the preferences dialog.
+  (SF#1988160)
+- Remember whether the main window was maximized and if so, maximize the main
+  window when starting the next time. (SF#1969266)
+- Correctly sort tasks on startup when sort column is 'Overall categories'.
+  (SF#1962003)
+- Correctly redraw toolbar when it is 'damaged' by other windows (SF#1977208)
+- Correctly sort effort for subtasks in effort per day, per week, and per
+  month effort viewers. (SF#1989553)
+- Better navigation with tab key in dialogs.
+- Keep newlines in descriptions when printing or exporting to HTML.
+
+Feature added:
+- Task Coach can now use either the old tabbed user interface (whose layout
+  still cannot be saved, by the way) or the 'managed frame' interface
+  introduced in release 0.70.0. This can be changed in the Preferences dialog.
+  (SF#1964213)
+
+
+Release 0.70.0 - May 12, 2008
+Small feature enhancements, more translations and several bug fixes. Task
+Coach is now distributed under the GPLv3+.
+
+Bugs fixed:
+- Allow for editing seconds in effort editor. (SF#1925748)
+- The combobox in the effort detail editor always picked the first task when
+  multiple tasks had the same subject, effectively prohibiting the user to
+  move an effort record to another task with the same subject. (SF#1918033)
+- Reset invalid input in the priority field of the task editor to 0 instead of
+  to the minimum priority (a large negative value). (SF#1949222)
+- "View->Filter->Reset all filters" now also unchecks all categories.
+- Task Coach now is packaged as a proper Debian package, thanks to Stani
+  Michiels. The Debian package installs a menu item for Task Coach in the
+  Applications/Office menu. (SF#1792706, SF#1792711, SF#1896796)
+
+Features added:
+- Paths to file attachments may be relative.
+- Monthly recurrence of tasks. (SF#1933222, SF#1957687)
+- Added and reorganized keyboard short cuts. (SF#1857101)
+- Start tracking effort for any active task using the system tray icon right-
+  click menu. (SF#1934738, SF#1739666)
+- Added a largely complete Ukranian translation thanks to Vitovt and
+  incomplete Finnish, Greek, Persian and Thai translations.
+
+Feature changed:
+- Slightly higher preference window so all icons fit and no scrolling is
+  needed. (SF#1918678)
+
+Dependencies changed:
+- Task Coach now uses Subversion for version control. See
+  http://sourceforge.net/svn/?group_id=130831. This only affects you if you
+  want to develop or use Task Coach source code.
+- Task Coach is now distributed under the GNU General Public License version
+  3 or (at your option) any later version. This only affects you if you want
+  to distribute changed versions of Task Coach or want to include source code
+  from Task Coach in other software.
+
+
+Release 0.69.2 - March 28, 2008
+Bug fix release.
+
+Bugs fixed:
+- Tasks created via the context menu of the category view now automatically
+  belong to the selected category. (SF#1592103)
+- Update task status and colors at midnight. (SF#1183043)
+- Exception when starting Task Coach ("AttributeError: 'CategoryList' object
+  has no attribute 'EventTypePrefix'"). (SF#1901385)
+- Exception when reopening a closed viewer (with the message
+  "ConfigParser.NoSectionError: No section: 'effortperdayviewer1'" in the log
+  file). (SF#1894488)
+- Exception when resetting all filters in the task tree viewer (with the
+  message "No option 'hidecompositetasks' in section: 'tasktreelistview'" in
+  the log file). (SF#1903679)
+- Don't take the priority of completed subtasks into account when calculating
+  the overall priority of a task. (SF#1905774)
+- It was not clear that backup files can be opened in Task Coach. Backup files
+  now have the extension '.tsk.bak'. The file open dialog has '*.tsk.bak' as
+  selectable file type to make it easier to open backup files. (SF#1911538)
+- Exception when opening the task menu while the toolbar is hidden.
+
+Features added:
+- Task Coach now suggests a reminder date, based on the due date or start date
+  of a task.
+- Added a complete Norwegion Bokmal translation thanks to Amund Amundsen and
+  incomplete Galician, Korean and Romanian translations.
+
+
+Release 0.69.1 - February 14, 2008
+Bug fix release.
+
+Bugs fixed:
+- Exception when closing a task editor dialog. This causes updates of task
+  states not to be displayed properly. The bug itself does not cause data
+  loss, but it might trick users into saving an empty task file over their
+  existing data. (SF#1893634)
+- On Mac OS X, users couldn't enter 'P' and 'M' in text boxes, because these
+  were mapped to menu items. Reorganized keyboard shortcuts to fix this.
+  (SF#1890566)
+- The arrow ('â†’') and infinity symbol ('âˆž') are not visible on
+  all computers, so Task Coach is back to using '->' and 'Infinite' again.
+
+
+Release 0.69.0 - February 9, 2008
+This release makes it possible to repeat tasks on either a daily or a weekly
+basis and to add notes to categories. It also contains a number of other
+changes and bug fixes.
+
+Bugs fixed:
+- The reminder dialog didn't close when opening the task from the reminder
+  dialog. If the user had entered a snooze option in the reminder dialog, that
+  snooze option would be overwritten when closing the task editor.
+  (SF#1862286)
+- Don't allow filtering by both a parent and a child category at the same
+  time.
+- Sorting by total categories in the task viewers didn't sort correctly.
+- Save didn't work for task files without a file name and without tasks, but
+  with categories or notes.
+- Adding a task to a category or removing it from a category was not undoable.
+
+Features added:
+- Tasks can recur on a daily or weekly basis. This feature is not complete
+  yet. Most obviously, recurring on a monthly basis is missing. Also,
+  recurring tasks with recurring subtasks do not behave entirely correctly
+  yet. (SF#1623364, SF#1464793, SF#1264210)
+- Notes can be assigned to categories.
+- Added Bulgarian translation, thanks to Rumen Belev.
+- Added Danish translation, thanks to different translators.
+- Added a number of rather incomplete translations (Italian, Portuguese,
+  Swedish, and Turkish). See http://www.taskcoach.org/i18n.html for how you
+  can help improve these translations.
+- When filtering by one or more categories, new tasks and notes are
+  automatically added to those categories. Of course, you can still change the
+  categories in the category tab of the edit dialog before pressing the OK
+  button.
+- Whether descriptions of tasks, effort records, categories and notes are
+  shown in a popup tooltip window is now a setting. (SF#1857098)
+- Added menu items for increasing, decreasing, maximizing, and minimizing
+  task priority. (SF#1768210, SF#1570616)
+- Clicking a column header in a task viewer now iterates through the following
+  sort orders: 'ascending, after sorting by task status first', 'descending,
+  after sorting by task status first', 'ascending, without sorting by task
+  status first', 'descending, without sorting by task status first'.
+
+Features changed:
+- Previously, unset dates were displayed as 'None' in date columns. To be
+  consistent with how other attributes are displayed in columns, Task Coach
+  now simply displays nothing for unset dates in date columns.
+- Task Coach now uses the infinity symbol ('âˆž') to display the number of
+  days left for tasks without a due date, instead of the word 'Infinite'.
+- Task Coach now uses a real arrow symbol ('â†’') instead of '->' for
+  separating parent and child subjects in the different viewers.
+
+Feature removed:
+- Task Coach no longer keeps track of the 'last modification time' of tasks.
+
+
+Release 0.68.0 - December 26, 2007
+This release makes it possible to open a task from its reminder dialog, adds a
+command line option to facilitate the PortableApps.com Task Coach
+distribution, makes starting and stopping effort tracking quicker and fixes a
+number of bugs.
+
+Bugs fixed:
+- Start and stop tracking effort is faster for tasks that have a large number
+  of associated effort records.
+- Task Coach now gives an error message if the file that it tries to open
+  doesn't exist. (SF#1857093)
+- When selecting all text in a text control with '<cmd>a', indeed select all
+  text and not all tasks (Max OSX only). (SF#1857091)
+- Attempt to prevent crashes on Fedora 8 that sometimes happen when adding top
+  level tasks. (SF#1840111)
+
+Features added:
+- It is possible to open a task from its reminder dialog.
+- Task Coach has a --ini command line option that can be used to specify where
+  the ini file is located.
+
+
+Release 0.67.0 - December 16, 2007
+This release make it possible to color tasks via their categories, adds a
+translation in Hebrew, and makes it easier to mark tasks as not completed.
+
+Bug fixed:
+- Don't move selection to the first line of the task tree viewer when deleting
+  a subtask. (SF#1849171)
+
+Features added:
+- Added Hebrew translation thanks to Ziv Barcesat.
+- You can assign a color to a category. Tasks are colored according to the
+  color of the categories they belong to. (SF#1466159, SF#1784932)
+- The 'mark task completed' button and menu items can now also be used to
+  mark tasks as not completed. (SF#1449714)
+
+Dependency changed:
+- Task Coach now needs at least wxPython 2.8.6.0-unicode. Since the Windows
+  installer and the Mac OSX dmg package have wxPython included, this only
+  affects users of the RPM, Debian, and source distributions.
+
+
+Release 0.66.3 - December 11, 2007
+Bug fix release to address crashes.
+
+Bug fixed:
+- Work around a bug in the TreeListCtrl widget that caused crashes. The
+  TreeListCtrl widget is used by Task Coach for the task tree view.
+  (SF#1846906, SF#1840111, SF#1832490, SF#1829622, SF#1821858, SF#1820497)
+
+
+Release 0.66.2 - November 9, 2007
+Bug fix release to address crashes.
+
+Bug fixed:
+- Don't crash when refreshing a tree view. (SF#1828846)
+
+
+Release 0.66.1 - November 7, 2007
+This release fixes a number of minor bugs.
+
+Bugs fixed:
+- When changing the sort order in a tree viewer, keep collapsed items
+  collapsed and expanded items expanded. (SF#1791638)
+- Sort categories alphabetically in task editor. (SF#1824180)
+- Double clicking a task in the tree view did not open the task edit dialog.
+- When filtering on a specific category, a newly added task belonging to that
+  category was not shown in the task viewers.
+
+
+Release 0.66.0 - October 31, 2007
+Small feature enhancements and a translation in Traditional Chinese.
+
+Bug fixed:
+- Make categories and category viewer more robust. (SF#1821776)
+
+Features added:
+- Added Traditional Chinese translation thanks to Joey Weng.
+- Added an 'overall categories' column that recursively shows the categories
+  a task belongs to, i.e. its own categories and the categories of its parent
+  task(s). (SF#1790054)
+- Column widths are saved between sessions. (SF#1799998)
+- Ctrl-PageUp and Ctrl-PageDown can be used to cycle through open viewers.
+  (SF#1818428)
+
+
+Release 0.65.3 - October 20, 2007
+This bugfix release fixes one critical bug that affects users on the Windows
+platform and several minor bugs that affect users on all platforms.
+
+Bugs fixed:
+- Don't leak GDI objects on Windows. (SF#1813632, SF#1811058, SF#1810297,
+  SF#1806004, SF#1803085)
+- Don't notify of new version when the user has just installed that version.
+- Mail disappears from Outlook when dropped in TaskCoach. Try to use Outlook
+  to open mail attachment when it's the "default" mailer. (SF#1812399)
+- Mail task doesn't work. (SF#1810356)
+- Categories not sorted correctly. (SF#1810469)
+
+
+Release 0.65.2 - October 8, 2007
+This release is aimed at better performance.
+
+Bugs fixed:
+- Slow performance. (SF#1806001, SF#1794007)
+- Don't require administrator privileges for installation on Windows XP/Vista.
+
+
+Release 0.65.1 - September 23, 2007
+This release fixes one critical bug and two minor bugs.
+
+Bugs fixed:
+- Tooltip windows steals keyboard focus on some platforms. (SF#1791627)
+- Taskbar icon is not transparent on Linux. (SF#1648082)
+- Saving a task file after adding attachments via the 'add attachment' menu or
+  context menu fails. (SF#1796829)
+
+
+Release 0.65.0 - September 9, 2007
+This release adds the ability to record notes, improves the flexibility of
+the different views, and fixes several bugs.
+
+Bugs fixed:
+- Made subject column resizable. (SF#1702270, SF#1766664)
+- Enable export of data containing non-ASCII characters to CSV. (SF#1753422)
+- Don't activate another viewer when another application is minimized (Windows
+  only). (SF#1765103)
+- Outlook 2003 email messages added as attachment couldn't be opened from Task
+  Coach. (SF#1748738)
+- German translation had wrong menu accelerators. (SF#1772019)
+- Apply undo/redo/cut/copy/paste actions to text if a text control is visible
+  and has focus (Mac OSX only) (SF#1768315)
+- Added a copy of the ElementTree package to the Task Coach source code, so
+  the source code distribution of Task Coach works with Python 2.4, without
+  needing to install ElementTree. (SF#1783575)
+
+Features added:
+- Notes. Notes have a subject and an optional description. Notes can be
+  hierarchical, i.e. notes may contain subnotes. Notes can be sorted and
+  searched (filtered), printed, and exported. This feature can be turned on or
+  off via the preferences dialog.
+- Categories can be searched (filtered) using the search control on the
+  toolbar.
+- Category sorting can be changed: ascending or descending, case sensitive or
+  case insensitive.
+- Categories can have a description.
+- Each viewer/tab has its own settings for sort order and visible columns.
+  Viewers can be renamed. This makes it possible to e.g. create a 'Todo
+  today'.
+- The search control on the toolbar can (optionally) include subitems in the
+  search result. This makes it easy to show one task and its subtasks in a
+  task viewer or show effort for one task and its subtasks in an effort
+  viewer.
+- Added a setting to start Task Coach iconized either always, never, or only
+  when Task Coach was iconized when last quitted. (SF#1749886)
+- Added a setting to turn off spell checking (Mac OSX only) (SF#1768330)
+- Added (incomplete) translations in Brazilian Portuguese, Czech, Latvian and
+  Polish. See http://www.taskcoach.org/i18n.html for more information about
+  translations and on how you can help.
+
+
+Release 0.64.2 - June 30, 2007
+This release fixes sorting of tasks by priority and makes sure that Task Coach
+does not block OS shutdown.
+
+Bugs fixed:
+- Don't take child task priority into account when sorting by priority in the
+  task tree view. (SF#1732968)
+- Don't block OS shutdown on Windows. (SF#1735532, SF#1484652, SF#1489870)
+
+
+Release 0.64.1 - June 10, 2007
+
+Bugs fixed:
+- Task Coach would complain about an error when closing the application. This
+  was due to a missing package in the Windows executable distribution.
+  (SF#1727237)
+- On Linux, Task Coach was not very helpful when the taskcoachlib package is
+  installed for a different python version than the one the user is starting
+  Task Coach with. (SF#1728485)
+
+
+Release 0.64.0 - May 28, 2007
+
+Bugs fixed:
+- Ubuntu users had to manually install the wxaddons package. This package is
+  now included in the Task Coach distribution.
+- Don't hide the main window when it's iconized by default because on Linux
+  with some window managers the main window receives minimize events in other
+  situations as well, most notably when changing virtual desktops. So, to
+  reduce the chances of confusing new users this option is off by default.
+  (SF#1721166)
+
+Features added:
+- Added Breton translation thanks to Ronan Le DÃ©roff
+- Show a tooltip with a task's description when the mouse is hovering over a
+  task. Patch provided by Jérôme Laheurte. (SF#1642608, SF#1619521,
+  SF#1578623)
+- Allow for dragging emails from Thunderbird and Outlook to the attachment
+  pane of tasks to create email attachments. Opening an attached email will
+  open it in the user's default mail program. Patch provided by Jérôme
+  Laheurte.
+
+
+Release 0.63.2 - April 20, 2007
+
+Bug fixed:
+- Task tree view does not refresh tasks after task editing. (SF#1701368)
+
+
+Release 0.63.1 - April 16, 2007
+
+Bugs fixed:
+- Dropping a file on a task in the tree viewer didn't work.
+- Showing the description column in the composite effort viewers (effort per
+  day, per week, per month) caused exceptions.
+- The task tree viewer was trying to update tasks that weren't shown,
+  resulting in exceptions. (SF#1697568, SF#1697574)
+
+
+Release 0.63.0 - April 9, 2007
+
+Bugs fixed:
+- Cancelling printing would give a 'Task Coach Error'
+- Make sure the main window is on a visible display when starting. This is
+  for laptop users that sometimes extend their desktop to a second display.
+  (SF#1667120)
+- Sort categories alphabetically in the categories viewer. (SF#1694532)
+- Filtering a category no longer automatically checks all subcategories.
+  However, tasks belonging to a subcategory are still filtered (since they
+  belong to the filtered category via the subcategory).
+
+Features added:
+- Export to HTML and printing of tasks colors tasks appropriately.
+- Added description columns to the task and effort viewers. Like other
+  columns, the description column is printed and exported if visible.
+- Added reminder column to the task viewers.
+
+
+Release 0.62.0 - April 1, 2007
+
+Bugs fixed:
+- When saving timestamps in a task file, e.g. for effort start and stop times,
+  microseconds are no longer saved as part of the timestamp. The microseconds
+  caused problems when importing Task Coach data in Excel. (SF#1660670)
+- When exporting tasks to HTML or CSV format from the task tree viewer, child
+  tasks hidden by a filter would still be exported. (SF#1659307)
+
+Features added:
+- Added Slovak translation thanks to Viliam BÃºr
+- Printing a selection is enabled (except on Mac OSX).
+- The notebook that contains the different views allows for dragging and
+  dropping of tabs, enabling you to create almost any layout you like.
+  Unfortunately, this widget does not yet provide functionality to store the
+  layout in the TaskCoach.ini file.
+- Whether the clock icon in the task bar blinks or not is now a setting (see
+  Edit -> Preferences -> Window behavior.
+- The toolbar buttons for 'new item', 'new sub item', 'edit item' and 'delete
+  item' now work for tasks, effort records and categories, depending on what
+  view is active.
+- Added a category column for task viewers. (SF#1629283)
+- Added an attachment column that shows whether a task has one or more
+  attachments.
+- Added an 'Open all attachments' menu item for tasks
+- Added snooze option to reminders.
+
+Feature changed:
+- Removed filter sidebar. Filter options previously available on the sidebar
+  are now available via the search filter on the toolbar, the category tab and
+  the view menu.
+
+Dependency changed:
+- Task Coach now requires wxPython 2.8.3-unicode or newer (this is only
+  relevant if you use the source distribution).
+
+
+Release 0.61.6 - January 27, 2007
+
+Bugs fixed:
+- Crash on trying to use down-arrow to move to sub-task. (SF#1640806)
+- When deleting a task that has subtasks that belong to categories, the task
+  file gets 'corrupted', giving errors when loading it. (SF#1638419,
+  SF#1589993)
+
+
+Release 0.61.5 - January 10, 2007
+
+Bug fixed:
+- Opening a Task Coach file with many effort records is slow. Opening an edit
+  dialog for a task with many effort records is slow too. (SF#1630102)
+
+
+Release 0.61.4 - December 30, 2006
+
+Bugs fixed:
+- Make Task Coach work with Python 2.5.
+- Cancel reminders when marking a task completed. (SF#1606990)
+- Unchecking a reminder would cause an exception. (SF#1606990)
+- Column resizing is now less jumpy. (SF#1606319)
+- MSVCP71.DLL was missing from the Windows distribution. (SF#1602364)
+- Marking a task completed while completed tasks are hidden wouldn't
+  immediately hide the completed task. (SF#1572920)
+- The category filter was not applied correctly on launch; showing categories
+  as filtered but not hiding the associated tasks. (SF#1603846)
+- Turning on filtering for a category didn't mark the task file as changed.
+  (SF#1603846)
+
+Feature added:
+- Added RPM and Debian distributions.
+
+
+Release 0.61.3 - November 19, 2006
+
+Bugs fixed:
+- If saving the TaskCoach.ini file would fail, displaying the error message
+  would fail (too) because the i18n translator had not been imported at that
+  point. (SF#1598568)
+- Mac OSX distribution did not start. Upgraded py2app. (SF#1594190)
+- Dragging and dropping a task in the task tree view would sometimes drag the
+  wrong task.
+- Give category dialog focus and select default category title to make it
+  easier to quickly enter categories using the keyboard.
+- The gdiplus.dll was missing from the Windows distribution. (SF#1596843)
+
+
+Release 0.61.2 - November 11, 2006
+
+Bugs fixed:
+- Some Linux distributions do not have the BROWSER environment variable set,
+  causing errors. Be prepared. (SF#1567244)
+- Saving failed with a UnicodeError if a category description would contain
+  non-ASCII characters. (SF#1589991)
+- Deleting a task would not delete the task from the categories it belonged
+  to, resulting in errors upon next loading of the task file. (SF#1589993)
+
+
+Release 0.61.1 - November 3, 2006
+
+Bug fixed:
+- Source distribution was missing some files.
+
+
+Release 0.61.0 - November 2, 2006
+
+Bugs fixed:
+- Displaying a previously hidden toolbar would result in an incorrectly drawn
+  window. (SF#1551885)
+- Exported HTML didn't contain an explicit charset. (SF#1561490)
+- Negative effort preventation was not working correctly. (SF#1575458)
+
+Features added:
+- Hierarchical categories.
+- Export in Comma Separated Values (CSV) format. As with export to HTML, the
+  current view is exported. (SF#1534862)
+- Task Coach can be run from a removable medium, such as a USB stick. On
+  Windows, use the installer to install Task Coach to the medium. Then, start
+  Task Coach and turn the setting 'Save settings to same directory as
+  program' on. This setting can be found in Edit -> Preferences -> File).
+  This makes sure the TaskCoach.ini file is saved on the removable medium, in
+  the same directory as the main program. (SF#1464435)
+
+
+Release 0.60 - August 30, 2006
+
+Bugs fixed:
+- Closing a task file did not reset the 'lastfile' setting. (SF#1548126)
+- Selecting Japanese translation would cause error upon next restart.
+  (SF#1545593)
+- Task Coach wouldn't quit when the setting 'Minimize window when closing' was
+  set. (SF#1545936)
+- Deleting an effort record would throw an exception. (SF#1548117)
+
+Website change:
+- Added MD5 digests to download page. (download.html)
+
+
+Release 0.59 - August 23, 2006
+
+Bugs fixed:
+- Improved efficiency while tracking effort for tasks. (SF#1429545)
+- The column width of the list with filenames in the attachment page of the
+  task editor is now adaptable, so that long filenames can be made visible
+  entirely. (SF#1503006)
+- Translation errors in tips. (SF#1525410, SF#1525423)
+- When having multiple tasks with the same subject, new effort records would
+  always be created for the first of these tasks instead of the selected task.
+  (SF#1513403, SF#1524037)
+- Opening a file with a non-ascii filename specified on the command line did
+  not work. (SF#1532528)
+
+Features added:
+- Japanese translation thanks to Yutaka Usui.
+- Filter sidebar.
+- Printing. Selecting 'File' -> 'Print' will print the currently active view.
+  This means only the visible columns will be printed and only the filtered
+  tasks will be printed, in the current sort order. (SF#1481881, SF#1472662,
+  SF#1307275, SF#1205819)
+- Export to HTML. Selecting 'File' -> 'Export' -> 'Export to HTML' will export
+  the currently active view to HTML. This means only the visible columns will
+  be exported and only the filtered tasks will be printed, in the current sort
+  order. (SF#1375773, SF#1205819)
+- Columns with numbers or dates are right-aligned.
+
+
+Release 0.58 - May 14, 2006
+
+Bugs fixed:
+- On Mac OSX, Task Coach would seg fault upon exiting.
+- Right-clicking a task in the task tree view would, correctly, pop up the
+  context menu, but would not select the underlying task. (SF#1440416)
+- The memory leak in the TreeListCtrl was fixed in wxPython 2.6.3.2. The
+  installer for Windows and the disk image for Mac OSX use wxPython 2.6.3.2,
+  thus fixing the memory leak in Task Coach. If you use the source
+  distribution of Task Coach you will have to install wxPython 2.6.3.2
+  yourself to get the fix. (SF#1309858)
+- Filtering on task categories was improved.
+- Hitting Delete when editing the text in the find dialog would delete any
+  selected tasks. Unfortunately, to fix this bug some accelerators had to be
+  changed: the accelerator for "Delete task" is now Ctrl-Delete, for "New
+  task" it is now Ctrl-Insert, and for "New subtask" it is now Shift-Ctrl-
+  Insert. (SF#1463316)
+- Don't close the current file when user cancels opening another file.
+  (SF#1475473)
+
+Features added:
+- Added toolbar button for 'new subtask'.
+- Task Coach searches incrementally as you type a query in the find bar.
+- When dragging a task in the tree view, hover over a tree button (a boxed
+  plus-sign or a triangle, depending on your platform) to expand the sub tree.
+- To promote a sub task to a top-level task in the tree view, drag it and drop
+  it anywhere as long as it is not on another task.
+- When filtering tasks by multiple categories, you may either choose to view
+  tasks that belong to at least one of the selected categories, or view tasks
+  that belong to all selected categories.
+
+
+Release 0.57 - March 16, 2006
+
+Bugs fixed:
+- When adding a new effort to a task, take into account that the user may have
+  changed the task that the effort belongs to in the effort editor dialog
+  (using the dropdown combobox). Because Task Coach didn't do that, the effort
+  would be added twice if the user changed the task of the new effort record.
+  (SF#1443906)
+- A file that was saved with an active effort couldn't be loaded again. Task
+  Coach would complain that the file was invalid. (SF#1433611)
+- Added different sizes of the Task Coach icon. This prevents scaling up the
+  16x16 version to 32x32 on Windows or to even 128x128 on the Mac.
+  (SF#1406651, SF#1434044)
+
+Feature added:
+- Task Coach is now also available as disk image (.dmg) for Mac OSX (tested on
+  OSX 10.4).
+
+
+Release 0.56 - February 14, 2006
+
+Features added:
+- Tasks can have attachments. Attachments can be added, removed and opened.
+  Opening of attachments is done by starting the default application for the
+  attachment file type. Attachments can also be dragged from a file browser
+  and dropped onto a task in one of the task viewers or on the task
+  attachment pane in the task editor dialog. (SF#1250241, SF#1339113)
+- Whether a task is marked completed when all its child tasks are completed is
+  now a setting that can be changed application-wide via the preferences
+  dialog. The application-wide setting can be overruled on a task-by-task
+  basis via the task editor dialog. (SF#1393803)
+- Task Coach shows a 'tips' dialog at startup. Hopefully it is helpful for new
+  users. Experienced users can turn it off.
+
+Features changed:
+- More visual feedback when dragging tasks in the tree view.
+- Task editor layout changed. Priority is now part of the task description.
+  Budget and revenue have been merged into one pane. (SF#1312284)
+
+Implementation changed:
+- Default values for task and effort attributes are no longer saved in the
+  Task Coach file, resulting in an estimated 33%% reduction of file size.
+
+
+Release 0.55 - January 13, 2006
+
+Bug fixed:
+- Sorting by total budget was broken. (SF#1399116)
+
+Feature added:
+- Simple reminders. (SF#1372932)
+
+Dependency changed:
+- Task Coach now requires wxPython 2.6.1.0-unicode or newer (this is only
+  relevant if you use the source distribution).
+
+
+Release 0.54 - January 6, 2006
+
+Bugs fixed:
+- The accelerators INSERT and Ctrl+INSERT were mapped to 'c' and 'Command-
+  Copy' on the Mac, which caused Task Coach to create a new task whenever the
+  user typed a 'c'. Fixed by changing the accelerators for new task and new
+  subtask to Ctrl+N and Shift+Ctrl+N (on the Mac only). (SF#1311413)
+- It was possible to enter control characters -- by copy-and-pasting --
+  resulting in invalid XML in the Task Coach file. (SF#1288689)
+- One python file was missing in the source distribution of release 0.53.
+  Added a test to check that all python files in the source are actually added
+  to the source distributions, so hopefully this will never happen again.
+  (SF#1389224)
+
+Feature added:
+- Effort can be exported as iCalendar (ICS) file and imported into e.g.
+  Mozilla Sunbird. Each effort record is exported as a "VEVENT". This is an
+  experimental feature. Patch provided by Gissehel.
+
+
+Release 0.53 - December 19, 2005
+
+Bugs fixed:
+- On some platforms, Python and wxPython seem to disagree on what the maximum
+  integer is. The maximum integer is used to set the maximum and minimum
+  allowed priority values. Fixed by allowing priority values between the
+  rather arbitrary minimum and maximum values of -1000000000 and 1000000000.
+- Fixed exception: "wx._core.PyAssertionError: C++ assertion "ucf.GotUpdate()"
+  failed in ..\..\src\msw extctrl.cpp(813): EM_STREAMIN didn't send
+  EN_UPDATE?". This seems to be a bug in wxPython 2.6.0 and 2.6.1. Patch
+  provided by Franz Steinhaeusler. (SF#1344023)
+
+Features added:
+- Columns in the effort view are hideable too, just like columns in the task
+  views. See 'View' -> 'Effort columns', or right-click a column header in the
+  effort view.
+- Added possibility to mail tasks via your default mailer, see 'Task' ->
+  'Mail task' or right-click a task in one of the task views.
+- Added option to minimize the window when you attempt to close the
+  application via the close button on the window title bar or the system
+  menu. See 'Edit' -> 'Preferences' -> 'Window behavior'.
+
+
+Release 0.52 - November 29, 2005
+
+Bugs fixed:
+- For completed tasks, the number of days left for a task is now the number
+  of days between the completion date and the due date. This prevents that
+  the number of days left of completed tasks keeps decreasing, i.e. becoming
+  more negative. For uncompleted tasks, the number of days left is still the
+  number of days between today and the due date, of course. Patch provided by
+  Maciej Malycha.
+- Put taskocachlib package first on the Python search path to prevent name
+  conflict with the config module on Gentoo Linux. (SF#1353636)
+- Mention blue icon in the help on task colors. (SF#1355985)
+- Don't allow empty categories. (SF#1333896)
+
+Features added:
+- Tasks can be dragged and dropped. (SF#1262863)
+- Tasks can have an hourly fee and/or a fixed fee. Revenue is calculated based
+  on effort spent. (SF#1361790)
+- First tiny steps towards a user manual, see 'Help' -> 'Help contents'.
+- Whether the main window hides itself when iconized is now adjustable
+  behavior. See 'Edit' -> 'Preferences'.
+
+Feature changed:
+- Backups are created just before saving, instead of when loading a .tsk
+  file. Patch provided by Maciej Malycha.
+
+Feature removed:
+- Files in the old comma-separated format can no longer be read by Task Coach.
+
+
+Release 0.51 - October 30, 2005
+
+Bugs fixed:
+- Hitting enter in the find dialog didn't work on Linux.
+- Old TaskCoach.ini files with a language setting of 'en' instead of 'en_US'
+  or 'en_GB' would cause an exception. Patch provided by Nirendra Maharaj.
+
+Features added:
+- Escape closes pop-up windows. Patch provided by Markus Meyer. (SF#1241547)
+- The task of an effort record can be changed.
+- Effort records can be cut, copied, and pasted.
+
+
+Release 0.50 - October 2, 2005
+
+Bug fixed:
+- Exception was thrown when opening a task with logged effort.
+
+
+Release 0.49 - October 2, 2005
+
+Bug fixed:
+- Previous release did not work on Linux/Mac OSX because of a platform
+  inconsistency between Windows and Linux (GetCountPerPage method is missing
+  on Linux, added manually). (SF#1305457)
+
+Feature added:
+- Task colors can be adjusted via 'Edit' -> 'Preferences'. (SF#1205579)
+
+
+Release 0.48 - September 24, 2005
+
+Bugs fixed:
+- Filtering tasks by status ('View' -> 'Tasks that are' -> '...') would cause
+  an exception.
+- Sorting by days left would cause an exception. (SF#1295122)
+
+
+Release 0.47 - September 18, 2005
+
+Bugs fixed:
+- 'View'->'All tasks' now also resets any search criterium entered by the user
+  in the search bar.
+- When opening a task with a (long) description, the cursor will be positioned
+  on the first line of the text, instead of on the last line. (SF#1265845)
+- When viewing tasks due before a certain date in the tree view, tasks with
+  subtasks due before that date will be visible. (SF#1275708)
+
+Features added:
+- Added Hungarian translation thanks to Majsa Norbert.
+- The task tree view now also shows columns with task details, similar to the
+  task list view. (SF#1194642)
+- Sorting on task subject can now also be case insensitive. See the menu item
+  'View' -> 'Sort' -> 'Sort case sensitive'. (SF#1228873)
+- Recent files are remembered and can be opened from the File menu. The
+  maximum number of recent files shown can be set in the Preferences dialog.
+  Set the maximum to zero to disable this feature. (SF#1191707)
+- The last modification time of tasks can be viewed.
+
+
+Release 0.46 - August 12, 2005
+
+Bugs fixed:
+- In the effort views, the status bar would show information about tasks, not
+  about effort.
+- Entering a negative effort duration while using a non-english language
+  would crash Task Coach. (SF#1250177)
+- Having a two letter language string (e.g. 'en') in the TaskCoach.ini file
+  would cause an error in the preferences dialog. (SF#1247506)
+
+Features added:
+- Double-clicking the system tray icon when Task Coach is not minimized will
+  raise the Task Coach window. (SF#1242520)
+- Added Spanish translation thanks to Juan JosÃ©.
+
+Feature changed:
+- Keyboard shortcut for deleting a task is now 'Delete' instead of 'Ctrl-D'
+  and 'Ctrl-Enter' marks the selected task(s) completed. (SF#1241549)
+
+Implementations changed:
+- Task ids are now persistent, i.e. they are saved to and loaded from the Task
+  Coach (XML) file. This will make it easier, in the future, to keep tasks
+  synchronized with external sources, e.g. Outlook.
+- Task Coach now keeps track of the last modification time of tasks. These
+  times are saved to and loaded from the Task Coach (XML) file. This change is
+  also in preparation of synchronization functionality.
+
+
+Release 0.45 - July 26, 2005
+
+Bugs fixed:
+- When tracking effort the task file would be marked as changed after every
+  clock tick.
+- Task priority can now be set to both positive and negative integers.
+- Opening a help dialog before the splash screen disappeared would make Task
+  Coach stop responding to input. Fixed by making the helpdialogs modeless (as
+  they should be). (SF#1241058)
+
+Feature changed:
+- Setting the start date of a subtask earlier than the start date of the
+  parent task, or setting the due date of a subtask later than the due date of
+  the parent task will adapt the parent start or due date as necessary.
+  (SF#1237634)
+
+
+Release 0.44 - July 21, 2005
+
+Feature added:
+- Added Russian translation thanks to Valdimir Ilyash.
+
+
+Release 0.43 - July 19, 2005
+
+Bug fixed:
+- Tree and list view were not updated correctly when changing sort key or
+  sort order.
+
+
+Release 0.42 - July 17, 2005
+
+Bugs fixed:
+- Double clicking a task with children in the tree view would open the edit
+  dialog and expand or collapse the task as well. Fixed to not collapse or
+  expand the task when double clicking it.
+- Adding a subtask to a collapsed parent task now automatically expands the
+  parent task.
+- Changing the description of a task or effort record wouldn't mark the task
+  file as changed.
+- Time spent is now updated every second. (SF#1173048)
+- Don't try to make a backup when loading the file fails. Reported by Scott
+  Schroeder.
+- (Windows installer only) Association between .tsk files and Task Coach was
+  broken.
+
+Feature changed:
+- The start date of a task can now be left unset, creating a task that is
+  permanently inactive. This can be useful for activities that you would
+  normally not want to plan, but have to keep a time record for, e.g.
+  sickness.
+
+
+Release 0.41 - June 20, 2005
+
+Features added:
+- URL's (including mailto) in task and effort descriptions are clickable.
+  (SF#1190310)
+- Tasks can have a priority. Priorities are integer numbers: the higher the
+  number, the higher the priority. Default priority is 0. Negative numbers are
+  allowed (SF#1194527, SF#1194567, SF#1210154)
+
+Features changed:
+- Default start date of new subtasks is today (used to be the start date of
+  the parent task)
+- When 'sort by status first' is on, active tasks always come before inactive
+  tasks which in turn come before completed tasks, regardless of whether the
+  sort order is ascending or descending.
+
+
+Release 0.40 - June 16, 2005
+
+Bug fixed:
+- Budget left was rendered incorrectly when over budget. (SF#1216951)
+
+Feature added:
+- Tasks can belong to zero or more categories. Tasks can be viewed/hidden by
+  category. (SF#1182172)
+
+
+Release 0.39 - June 6, 2005
+
+Bug fixed:
+- When sorting by due date, composite tasks in the tree view are now sorted
+  according to the most urgent subtask instead of the least urgent subtask.
+
+Features added:
+- Tasks can be sorted on all attributes (subject, start date, due date,
+  budget, etc.) This includes options to sort ascending or descending and to
+  first sort by status (active/inactive/completed).
+- Sorting order can be changed by clicking on column headers.
+- Added German translation, thanks to J. Martin.
+- Minor view menu changes. (SF#1189978)
+
+
+Release 0.38 - May 22, 2005
+
+Features added:
+- Simplified Chinese user interface added, thanks to limodou.
+- Autosave setting to automatically save after every change. (SF#1188194)
+- Backup setting to create a backup when opening a Task Coach file.
+- Added preference dialog to edit preferences not related to the view
+  settings.
+- Now using gettext for i18n.
+
+
+Release 0.37 - May 14, 2005
+
+Bug fixed:
+- Icons in tree view on Windows 2000. (SF#1194654)
+
+Features added:
+- Columns in the task list view can be turned on/off by right-clicking on the
+  column headers.
+- Tasks can be sorted either by due date or alphabetically. (SF#1177984)
+- More options when editing an effort record.
+- Used a new DatePickerCtrl. (SF#1191909)
+
+
+Release 0.36 - May 5, 2005
+
+Bug fixed:
+- Descriptions loose newlines after reload. (SF#1194259)
+
+Feature added:
+- French user interface added, thanks to Jérôme Laheurte.
+
+
+Release 0.35 - May 2, 2005
+
+Bugs fixed:
+- Toolbar icons had a black background instead of a transparent background on
+  some Windows platforms. (SF#1190230)
+- Package i18n was missing. (SF#1190967)
+
+Features added:
+- Internationalization support. Task Coach is available with Dutch and English
+  user interface. (SF#1164461)
+- Added 'expand selected task' and 'collapse selected task' menu items to the
+  view menu and the task context menu. (SF#1189978)
+
+Feature removed:
+- 'Select' -> 'Completed tasks'. This can be done through the View menu too.
+
+
+Release 0.34 - April 25, 2005
+
+Bugs fixed:
+- msvcr71.dll was not shipped with the Windows installer. (SF#1189311)
+- Budgets larger than 24 hours were not written correctly to the XML file.
+- Mark completed stops effort tracking of parent task. (SF#1186667)
+
+
+Release 0.33 - April 24, 2005
+
+Bug fixed:
+- The .tsk fileformat is now XML, making Task Coach fully unicode-enabled.
+
+
+Release 0.32 - April 18, 2005
+
+Bugs fixed:
+- Task Coach failure on startup due to trying to add a column from the task
+  list view to the effort view.
+- Budget couldn't be filled in in the executable Windows distribution
+  "LookupError: unknown encoding: latin1".
+- Loading files with the executable Windows distribution failed. (SF#1185259)
+
+
+Release 0.31 - April 17, 2005
+
+Bugs fixed:
+- A unittest.py bug that was fixed in Python 2.4 revealed a bug in test.py.
+  (SF#1181714)
+- When searching for a task that is completed, while the 'show completed'
+  switch is off, the search shows the path to the task (i.e. parent tasks),
+  but not the matched task itself. (SF#1182528)
+- When searching for tasks in the tree view, composite tasks are expanded
+  automatically to show the children that match the search string.
+  (SF#1182528)
+- Columns were hidden by setting their width to 0, but that did not make them
+  entirely invisible on some Linux platforms. (SF#1152566)
+- When editing a subtask, sometimes its branch would be collapsed.
+  (SF#1179266)
+
+Features added:
+- In the task list and effort list the task column is automatically resized
+  to take up the available space.
+- Added columns to the task list view for: budget, total budget, budget left,
+  and total budget left.
+- Reorganized view menu, added extra task filters, added menu item to reset
+  filters (SF#1181762, SF#1178882, SF#1178780)
+- The subject is selected in the task editor so that replacing it is a bit
+  easier. (SF#1180887)
+
+Dependency changed:
+- Task Coach migrated to Python 2.4.1 and wxPython 2.5.5.1. Added check to
+  give friendly message if wxPython version is below the required version
+  number.
+
+
+Release 0.30 - April 11, 2005
+
+Bug fixed:
+- More than one task due today would crash Task Coach. (SF#1180641)
+
+
+Release 0.29 - April 10, 2005
+
+Bugs fixed:
+- New effort in the context menu did not work in release 0.28. (SF#1178562)
+- When selecting 'View' -> 'Completed tasks' in the task tree, only completed
+  root tasks were hidden. (SF#1179372)
+
+Features added:
+- What tab is active is now a persistent setting. This includes the tabs and
+  choices in the main window and the effort choices in the task editor.
+  (SF#1178779)
+- Reordered 'View' -> 'Tasks due before end of' menu. (SF#1178880)
+- Added a separate 'Budget' tab in the task editor.
+- Taskbar icon now indicates whether task effort tracking is on. (SF#1178057)
+- Effort is sorted from most recent to least recent. (SF#1179332)
+- Changed task/subtask separator in the task list view from '|' to ' -> '.
+  (SF#1179374)
+
+
+Release 0.28 - April 6, 2005
+
+Bugs fixed:
+- Hitting return or double click to edit effort in the task editor now works.
+  (SF#1172164)
+- Subtasks with the same name would only be visible once in the task tree
+  view.
+
+Feature added:
+- You can hide composite tasks in the task list view so that only leaf tasks
+  are visible. Menu item 'View' -> 'Tasks with subtasks'. Requested by Brian
+  Crounse.
+
+
+Release 0.27 - April 4, 2005
+
+Feature added:
+- Tasks can have a budget.
+
+
+Release 0.26 - March 28, 2005
+
+Bugs fixed:
+- Marking a task completed did not stop effort tracking. (SF#1159918)
+- Reading lots of efforts was slow.
+
+Features added:
+- Save button is disabled when saving is not necessary, requested by Mike
+  Vorozhbensky. (SF#1164472)
+- Effort records have a description field, requested by Kent. (SF#1167147)
+
+
+Release 0.25 - March 13, 2005
+
+Bug fixed:
+- The menu item 'Effort' -> 'New effort' did not work in release 0.24.
+
+Features added:
+- XML export now includes effort records.
+- Effort per day, per week and per month view now also show total time spent
+  (i.e. time including time spent on subtasks).
+
+
+Release 0.24 - March 10, 2005
+
+Bugs fixed:
+- Saving a selection of tasks to a separate file would also save all effort
+  records to that file (instead of just the effort records for the selected
+  tasks), giving errors when loading that file.
+- Deleting a task with effort records would not delete the effort records.
+
+Feature added:
+- The tracking status of tasks is saved. So if you start tracking a task,
+  quit Task Coach, and restart Task Coach later, effort for that task is
+  still being tracked. Requested by Bob Hossley.
+
+
+Release 0.23 - February 20, 2005
+
+Bug fixed:
+- Fixed a couple of bugs in the unit tests, discovered by Stephen Boulet and
+  Jérôme Laheurte on the Linux platform.
+
+
+Release 0.22 - February 17, 2005
+
+Bugs fixed:
+- In the effort summary view, effort spent on a task in the same month or week
+  but in different years would erroneously be added. E.g. effort in January
+  2004 and January 2006 would be added.
+- The mechanism to prevent effort periods with a negative duration (i.e. a
+  start time later than the stop time) in the effort editor was invoked on
+  each key stroke which caused inconvenient behavior. Fixed it by only
+  invoking it when the user leaves the text or combo box.
+
+Features added:
+- Added possibility to start tracking effort for a task, with start time
+  equal to the end time of the previous effort period. This is for example
+  convenient if you stop working on a task and then spend some time deciding
+  on what to do next. This is the 'Start tracking from last stop time' menu
+  item in the 'Effort' menu.
+- (Re)Added the unittests to the source distribution. See INSTALL.txt.
+- Export to XML. Currently limited to tasks, effort is not exported yet.
+
+
+Release 0.21 - February 9, 2005
+
+Bugs fixed:
+- Setting the start date/time in the effort editor would change the stop
+  date/time while not strictly necessary to prevent negative durations.
+- Refreshing the virtual ListCtrl failed under
+  wxPython2.5-gtk2-unicode-2.5.3.1-fc2_py2.3 and wxPython-common-
+  gtk2-unicode-2.5.3.1-fc2_py2.3. Reported by Stephen Boulet.
+- After iconizing the main window for a second time, the icon in the task bar
+  wouldn't be hidden anymore. Reported and fixed by Jérôme Laheurte.
+
+
+Release 0.20 - February 6, 2005
+
+Bugs fixed:
+- Reading .tsk files version 2 failed.
+- Completed child tasks were not hidden in the tree view when 'View->Completed
+  tasks' was on.
+- Hiding the find panel did not clear the search filter.
+- When searching for tasks, not all matches were shown in the tree view.
+- Displaying time spent and total time spent in the list view for more than a
+  dozen tasks and efforts was slow. Used caching to speed it up.
+- Tool tips on the toolbar included mnemonics and accelerator characters on
+  Linux. Reported on python-2.3.4 and
+  wxPython2.5-gtk2-unicode-2.5.3.1-fc2_py2.3 on Suse 9.2 by Stephen Boulet.
+
+Features added:
+- Effort can be viewed summarized per day, per week, and per month.
+- Effort for a specific task can be viewed (and edited) in the task editor.
+- Effort tracking can be stopped from the taskbar menu.
+- Size and position of the main window are saved in the settings and restored
+  on the next session. This also includes whether the main window is iconized
+  or not.
+- Splash screen can be turned off.
+
+
