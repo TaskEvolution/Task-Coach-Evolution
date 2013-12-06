@@ -466,9 +466,7 @@ class Settings(object, CachingConfigParser):
             if not os.path.exists(self.__globalCat):
                 os.makedirs(self.__globalCat)
             self.__globalCat = open(self.__globalCat + "categories.tsk", "w")
-        print("getGlobalCat", type(self.__globalCat))
         return self.__globalCat
 
     def setGlobalCategories(self, globalCat):
         self.__globalCat = globalCat
-        print("setGlobalCat", type(self.__globalCat))

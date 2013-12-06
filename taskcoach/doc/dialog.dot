@@ -1,0 +1,162 @@
+digraph G {
+rankdir="LR"
+subgraph clusterattributesync {
+label=attributesync
+AttributeSync FontColorSync
+}
+
+AttributeSync->FontColorSync
+
+subgraph clusterdeveloper_message {
+label=developer_message
+MessageDialog
+}
+
+SizedDialog->MessageDialog
+
+subgraph clustereditor {
+label=editor
+Page SubjectPage TaskSubjectPage CategorySubjectPage AttachmentSubjectPage TaskAppearancePage DatesPage ProgressPage BudgetPage PageWithViewer EffortPage LocalCategoryViewer CategoriesPage LocalAttachmentViewer AttachmentsPage LocalNoteViewer NotesPage LocalPrerequisiteViewer PrerequisitesPage EditBook TaskEditBook CategoryEditBook NoteEditBook AttachmentEditBook EffortEditBook Editor TaskEditor CategoryEditor NoteEditor AttachmentEditor EffortEditor
+}
+
+Observer->Page
+BookPage->Page
+Page->SubjectPage
+SubjectPage->TaskSubjectPage
+SubjectPage->CategorySubjectPage
+SubjectPage->AttachmentSubjectPage
+Page->TaskAppearancePage
+Page->DatesPage
+Page->ProgressPage
+Page->BudgetPage
+Page->PageWithViewer
+PageWithViewer->EffortPage
+BaseCategoryViewer->LocalCategoryViewer
+PageWithViewer->CategoriesPage
+AttachmentViewer->LocalAttachmentViewer
+PageWithViewer->AttachmentsPage
+BaseNoteViewer->LocalNoteViewer
+PageWithViewer->NotesPage
+CheckableTaskViewer->LocalPrerequisiteViewer
+PageWithViewer->PrerequisitesPage
+Notebook->EditBook
+EditBook->TaskEditBook
+EditBook->CategoryEditBook
+EditBook->NoteEditBook
+EditBook->AttachmentEditBook
+Page->EffortEditBook
+BalloonTipManager->Editor
+Dialog->Editor
+Editor->TaskEditor
+Editor->CategoryEditor
+Editor->NoteEditor
+Editor->AttachmentEditor
+Editor->EffortEditor
+
+subgraph clusterentry {
+label=entry
+DateTimeEntry TimeDeltaEntry AmountEntry PercentageEntry FontEntry ColorEntry IconEntry ChoiceEntry TaskEntry RecurrenceEntry
+}
+
+DateTimeCtrl->DateTimeEntry
+PanelWithBoxSizer->TimeDeltaEntry
+PanelWithBoxSizer->AmountEntry
+PanelWithBoxSizer->PercentageEntry
+PanelWithBoxSizer->FontEntry
+PanelWithBoxSizer->ColorEntry
+BitmapComboBox->IconEntry
+Choice->ChoiceEntry
+Panel->TaskEntry
+Panel->RecurrenceEntry
+
+subgraph clusterexport {
+label=export
+ExportDialog ViewerPicker SelectionOnlyCheckBox ColumnPicker SeparateDateAndTimeColumnsCheckBox SeparateCSSCheckBox ExportAsCSVDialog ExportAsICalendarDialog ExportAsHTMLDialog ExportAsPDFDialog ExportAsTodoTxtDialog ExportMailDialog
+}
+
+SizedDialog->ExportDialog
+SizedPanel->ViewerPicker
+CheckBox->SelectionOnlyCheckBox
+SizedPanel->ColumnPicker
+CheckBox->SeparateDateAndTimeColumnsCheckBox
+SizedPanel->SeparateCSSCheckBox
+ExportDialog->ExportAsCSVDialog
+ExportDialog->ExportAsICalendarDialog
+ExportDialog->ExportAsHTMLDialog
+ExportDialog->ExportAsPDFDialog
+ExportDialog->ExportAsTodoTxtDialog
+ExportDialog->ExportMailDialog
+
+subgraph clusteriphone {
+label=iphone
+IPhoneSyncTypeDialog IPhoneBonjourDialog
+}
+
+Dialog->IPhoneSyncTypeDialog
+Dialog->IPhoneBonjourDialog
+
+subgraph clusterpreferences {
+label=preferences
+FontColorSyncer SettingsPageBase SettingsPage SavePage WindowBehaviorPage LanguagePage TaskAppearancePage FeaturesPage TaskDatesPage TaskReminderPage IPhonePage EditorPage OSXPage LinuxPage Preferences
+}
+
+BookPage->SettingsPageBase
+SettingsPageBase->SettingsPage
+SettingsPage->SavePage
+SettingsPage->WindowBehaviorPage
+SettingsPage->LanguagePage
+SettingsPage->TaskAppearancePage
+SettingsPage->FeaturesPage
+SettingsPage->TaskDatesPage
+SettingsPage->TaskReminderPage
+SettingsPage->IPhonePage
+SettingsPage->EditorPage
+SettingsPage->OSXPage
+SettingsPage->LinuxPage
+NotebookDialog->Preferences
+
+subgraph clusterreminder {
+label=reminder
+ReminderDialog
+}
+
+Observer->ReminderDialog
+SizedDialog->ReminderDialog
+
+subgraph clustersyncpreferences {
+label=syncpreferences
+SyncMLBasePage SyncMLAccessPage SyncMLPreferences
+}
+
+SettingsPageBase->SyncMLBasePage
+SyncMLBasePage->SyncMLAccessPage
+NotebookDialog->SyncMLPreferences
+
+subgraph clustertemplates {
+label=templates
+TimeExpressionEntry TemplatesDialog
+}
+
+TextCtrl->TimeExpressionEntry
+SizedDialog->TemplatesDialog
+
+subgraph clustertoolbar {
+label=toolbar
+ToolBarEditor
+}
+
+BalloonTipManager->ToolBarEditor
+Dialog->ToolBarEditor
+
+subgraph clusterversion {
+label=version
+VersionDialog NewVersionDialog VersionUpToDateDialog NoVersionDialog PrereleaseVersionDialog
+}
+
+SizedDialog->VersionDialog
+VersionDialog->NewVersionDialog
+VersionDialog->VersionUpToDateDialog
+VersionDialog->NoVersionDialog
+VersionDialog->PrereleaseVersionDialog
+
+}

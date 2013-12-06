@@ -172,6 +172,12 @@ templates: taskcoachlib/persistence/xml/templates.py
 
 thirdpartymodules:
 	cd thirdparty; tar xzf APScheduler-2.0.3.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty APScheduler-2.0.3/apscheduler
+	cd thirdparty; tar xzf googleapi.tar.gz  -C ../taskcoachlib/thirdparty googleapi/
+	cd thirdparty; tar xzf dropbox-python-sdk-1.6.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty dropbox-python-sdk-1.6/dropbox
+	cd thirdparty; tar xzf xhtml2pdf-0.0.5.tar.gz --strip-components=2 -C ../taskcoachlib/thirdparty xhtml2pdf-0.0.5/xhtml2pdf-0.0.5/xhtml2pdf
+	cd thirdparty; tar xzf reportlab.tar.gz --strip-components=3 -C ../taskcoachlib/thirdparty reportlab/reportlab/src
+	cd thirdparty; tar xzf html5lib.tar.gz --strip-components=2 -C ../taskcoachlib/thirdparty html5lib/html5lib/html5lib
+	cd thirdparty; tar xzf six-1.4.1.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty six-1.4.1/
 	cd thirdparty; tar xzf chardet-2.1.1.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty chardet-2.1.1/chardet
 	cd thirdparty; tar xzf python-dateutil-1.5.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty python-dateutil-1.5/dateutil
 	cd thirdparty; tar xzf desktop-0.4.1.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty desktop-0.4.1/desktop
@@ -209,7 +215,7 @@ website: changes
 	$(PYTHON) tools/webchecker.py website.out/index.html
 
 epydoc:
-	$(EPYDOC) --parse-only -v --simple-term -o epydoc.out taskcoachlib taskcoach.py
+	$(EPYDOC) --graph-font-size=32 --parse-only -v --simple-term -o epydoc.out taskcoachlib taskcoach.py
 
 dot:
 	$(PYTHON) tools/dot.py taskcoachlib/gui/viewer > doc/viewer.dot

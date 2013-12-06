@@ -1,6 +1,13 @@
 
 *.svn-base
 *.pyc
+taskcoach/taskcoachlib/thirdparty/
+
+taskcoach/*.dat
+
+taskcoach/taskcoachlib/i18n/
+
+taskcoach/taskcoachlib/persistence/googletask/credentials.dat
 
 taskcoach/.svn/dir-prop-base
 
@@ -29,5 +36,8 @@ taskcoach/extension/.svn/entries
 taskcoach/taskcoachlib/bin.in/.svn/entries
 
 taskcoach/taskcoachlib/bin.in/.svn/dir-prop-base
+<<<<<<< HEAD
 
 taskcoach/taskcoachlib/thirdparty/*
+=======
+>>>>>>> develop

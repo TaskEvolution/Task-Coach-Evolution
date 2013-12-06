@@ -31,7 +31,7 @@ class _Toolbar(aui.AuiToolBar):
         short_help_string = kwargs.pop('shortHelp', '')
         bitmap2 = self.MakeDisabledBitmap(bitmap1)
         super(_Toolbar, self).AddTool(id, label, bitmap1, bitmap2, kind, 
-                                      short_help_string, long_help_string, None, None)
+                                     short_help_string, long_help_string, None, None)
 
     def GetToolState(self, toolid):
         return self.GetToolToggled(toolid)
@@ -108,7 +108,7 @@ class ToolBar(_Toolbar, uicommand.UICommandContainerMixin):
             index['Spacer'] = 1
             for className in perspective.split(','):
                 if className in index:
-                    commands.append(index[className])
+                   commands.append(index[className])
         else:
             commands = list(self.uiCommands(cache=cache))
         return commands

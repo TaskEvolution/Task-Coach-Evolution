@@ -258,6 +258,9 @@ class FileMenu(Menu):
         self.appendMenu(_('&Export'),
                         ExportMenu(mainwindow, iocontroller, settings),
                         'export')
+        self.appendMenu(_('&Backup'),
+                        BackupMenu(mainwindow, iocontroller),
+                        'export')
         if settings.getboolean('feature', 'syncml'):
             try:
                 import taskcoachlib.syncml.core  # pylint: disable=W0612,W0404
@@ -275,7 +278,6 @@ class FileMenu(Menu):
             self.__removeRecentFileMenuItems()
             self.__insertRecentFileMenuItems()        
         event.Skip()
-    
     def __insertRecentFileMenuItems(self):
         recentFiles = self.__settings.getlist('file', 'recentfiles')
         if not recentFiles:
@@ -289,7 +291,7 @@ class FileMenu(Menu):
             recentFileMenuPosition = self.__recentFilesStartPosition + 1 + index
             recentFileOpenUICommand = uicommand.RecentFileOpen(filename=recentFile,
                 index=recentFileNumber, iocontroller=self.__iocontroller)
-            recentFileOpenUICommand.addToMenu(self, self._window, 
+            recentFileOpenUICommand.addToMenu(self, self._window,
                 recentFileMenuPosition)
             self.__recentFileUICommands.append(recentFileOpenUICommand)
 
@@ -311,7 +313,9 @@ class ExportMenu(Menu):
             uicommand.FileExportAsHTML(**kwargs),
             uicommand.FileExportAsCSV(**kwargs),
             uicommand.FileExportAsICalendar(**kwargs),
-            uicommand.FileExportAsTodoTxt(**kwargs))
+            uicommand.FileExportAsTodoTxt(**kwargs),
+			uicommand.FileExportAsPDF(**kwargs),
+            uicommand.FileExportToGoogleTask(iocontroller=iocontroller))
         
         
 class ImportMenu(Menu):
@@ -319,7 +323,19 @@ class ImportMenu(Menu):
         super(ImportMenu, self).__init__(mainwindow)
         self.appendUICommands(
             uicommand.FileImportCSV(iocontroller=iocontroller),
-            uicommand.FileImportTodoTxt(iocontroller=iocontroller))
+            uicommand.FileImportTodoTxt(iocontroller=iocontroller),
+            uicommand.FileImportFromGoogleTask(iocontroller=iocontroller))
+
+
+class BackupMenu(Menu):
+    def __init__(self, mainwindow, iocontroller):
+        super(BackupMenu, self).__init__(mainwindow)
+        self.appendUICommands(
+            uicommand.FileBackupToDropbox(iocontroller=iocontroller),
+            uicommand.FileBackupGoogleDrive(iocontroller=iocontroller),
+            None,
+            uicommand.FileRestoreFromDropbox(iocontroller=iocontroller)
+            )
 
 
 class TaskTemplateMenu(DynamicMenu):
@@ -395,6 +411,7 @@ activatePreviousViewerId = wx.NewId()
 class ViewMenu(Menu):
     def __init__(self, mainwindow, settings, viewerContainer, taskFile):
         super(ViewMenu, self).__init__(mainwindow)
+        tasks = taskFile.tasks()
         self.appendMenu(_('&New viewer'), 
             ViewViewerMenu(mainwindow, settings, viewerContainer, taskFile),
                 'viewnewviewer')
@@ -406,10 +423,12 @@ class ViewMenu(Menu):
             menuText=_('Activate &previous viewer\tCtrl+PgUp'),
             helpText=help.viewPreviousViewer, forward=False,
             bitmap='activatepreviousviewer', id=activatePreviousViewerId)
+
         self.appendUICommands(
             activateNextViewer,
             activatePreviousViewer,
             uicommand.RenameViewer(viewer=viewerContainer),
+            uicommand.Today(viewer=viewerContainer, taskList=tasks),
             None)
         self.appendMenu(_('&Mode'),
                         ModeMenu(mainwindow, self, _('&Mode')))
@@ -431,6 +450,7 @@ class ViewMenu(Menu):
         self.appendUICommands(uicommand.UICheckCommand(settings=settings,
             menuText=_('Status&bar'), helpText=_('Show/hide status bar'),
             setting='statusbar'))
+
 
 
 class ViewViewerMenu(Menu):
@@ -551,9 +571,9 @@ class NewMenu(Menu):
                 viewer=viewerContainer, settings=settings),
             uicommand.NewTaskWithSelectedTasksAsDependencies(taskList=tasks, 
                 viewer=viewerContainer, settings=settings))
-        self.appendMenu(_('New task from &template'),
-            TaskTemplateMenu(mainwindow, taskList=tasks, settings=settings),
-            'newtmpl')
+	self.appendMenu(_('New task from &template'),
+            	TaskTemplateMenu(mainwindow, taskList=tasks, settings=settings),
+            	'newtmpl')
         self.appendUICommands(None)
         if settings.getboolean('feature', 'effort'):
             self.appendUICommands(
@@ -590,7 +610,7 @@ class ActionMenu(Menu):
                                        settings=settings),
                 None)
         self.appendUICommands(
-            uicommand.Mail(viewer=viewerContainer),
+            uicommand.Mail(viewer=viewerContainer, settings=settings),
             None)
         self.appendMenu(_('&Toggle category'),
                         ToggleCategoryMenu(mainwindow, categories=categories,
@@ -611,7 +631,8 @@ class ActionMenu(Menu):
                 None,
                 uicommand.EffortStart(viewer=viewerContainer, taskList=tasks),
                 uicommand.EffortStop(viewer=viewerContainer, effortList=efforts, taskList=tasks),
-                uicommand.EditTrackedTasks(taskList=tasks, settings=settings))
+                uicommand.EditTrackedTasks(taskList=tasks, settings=settings),
+                uicommand.SikuliTests(settings=settings, viewer=viewerContainer))
 
 
 class TaskPriorityMenu(Menu):
@@ -985,3 +1006,4 @@ class AttachmentPopupMenu(Menu):
             uicommand.AttachmentOpen(viewer=attachmentViewer, 
                                      attachments=attachments, 
                                      settings=settings))
+

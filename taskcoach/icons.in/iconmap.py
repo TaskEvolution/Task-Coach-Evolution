@@ -65,7 +65,11 @@ iconlist = [
 ('down', 'actions', '1downarrow', [16]),
 
 # These icons are named after what they display:
-('arrow_up_icon', 'actions', 'up', [16, 32]),
+<<<<<<< HEAD
+('arrow_up_icon', 'actions', 'up', [16,22, 32]),
+=======
+('arrow_up_icon', 'actions', 'up', [16,22,32]),
+>>>>>>> marcus
 ('arrow_down_icon', 'actions', 'down', [16, 32]),
 ('arrow_up_with_status_icon', 'actions', 'sort_ascending_with_status', [16]),
 ('arrow_down_with_status_icon', 'actions', 'sort_descending_with_status', [16]),

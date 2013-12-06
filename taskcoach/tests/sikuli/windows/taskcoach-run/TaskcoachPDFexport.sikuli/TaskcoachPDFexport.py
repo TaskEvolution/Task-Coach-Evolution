@@ -1,0 +1,37 @@
+sleep(1)
+if exists ("1386056187843.png"):
+    click("1386056206027.png")
+assert exists ("1385718239031.png")
+sleep(1)
+type(Key.INSERT)
+sleep(1)
+type("New Task 1" + Key.ENTER)
+type('a',KEY_ALT)
+sleep(2)
+Region(565,486,246,40).click("1385720208610.png")
+sleep(2)
+type("test1" + Key.ENTER)
+sleep(2)
+if exists("1385727577034.png"):
+   click("1385727597476.png")
+click("1385560224304.png")
+type("cmd")
+sleep(2)
+type(Key.ENTER)
+sleep(1)
+type("start test1.pdf" + Key.ENTER)
+sleep(3)
+if("1385718839786.png"):
+    print("Yeah, PDF loaded")
+else:
+    print("Fail...")
+click("1385987724003.png")
+sleep(1)
+click("1385765531131.png")
+sleep(1)
+type(Key.DELETE)
+sleep(1)
+if not exists("1385764911450.png"):
+   print("Fail")
+else:
+   click("1385765016616.png")

@@ -73,7 +73,6 @@ class XMLWriter(object):
         self.__fd = fd
         self.__versionnr = versionnr
         self.__settings = Settings()
-        print("init writer.py")
 
     def write(self, taskList, categoryContainer,
               noteContainer, syncMLConfig, guid):
@@ -102,12 +101,10 @@ class XMLWriter(object):
         PIElementTree('<?taskcoach release="%s" tskversion="%d"?>\n' % (meta.data.version,
                                                                          self.__versionnr),
                                                 root).write(self.__fd, 'utf-8')
-        #print(type(self.__fd))
         self.writeglobalcategories(taskList, categoryContainer, noteContainer, syncMLConfig, guid)
 
     def writeglobalcategories(self, taskList, categoryContainer,
               noteContainer, syncMLConfig, guid):
-        print("writeglobal write.py")
         root = ET.Element('tasks')
 
         for rootTask in sortedById(taskList.rootItems()):
@@ -127,8 +124,6 @@ class XMLWriter(object):
             ET.SubElement(root, 'guid').text = guid
 
         flatten(root)
-
-        print(type(self.__settings.getGlobalCategories()))
 
         PIElementTree('<?taskcoach release="%s" tskversion="%d"?>\n' % (meta.data.version,
                                                                          self.__versionnr),

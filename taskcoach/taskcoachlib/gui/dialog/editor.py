@@ -191,12 +191,23 @@ class SubjectPage(Page):
         
     def close(self):
         super(SubjectPage, self).close()
+        creation_date = self.items[0].creationDateTime()
+        dtnow = date.Now()
+
+        modification_date = self.items[0].modificationDateTime()
+        moddate = render.dateTime(modification_date, humanReadable=True)
+        '''If event was created and not modified, set creation and modification date to now'''
+        if modification_date.year == 1:
+            self.items[0].setModificationDateTime(dtnow)
+            self.items[0].setCreationDateTime(dtnow)
+        
         for eventType in self.items[0].modificationEventTypes():
             try:
                 pub.unsubscribe(self.onAttributeChanged, eventType)
             except pub.UndefinedTopic:
                 pass
         patterns.Publisher().removeObserver(self.onAttributeChanged_Deprecated)
+
                  
     def entries(self):
         return dict(firstEntry=self._subjectEntry,
@@ -374,7 +385,7 @@ class TaskAppearancePage(Page):
 
 class DatesPage(Page):
     pageName = 'dates'
-    pageTitle = _('Dates') 
+    pageTitle = _('Dates')
     pageIcon = 'calendar_icon'
     
     def __init__(self, theTask, parent, settings, items_are_new, *args, **kwargs):

@@ -21,6 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from taskcoachlib import meta, persistence, patterns, operating_system
 from taskcoachlib.i18n import _
 from taskcoachlib.thirdparty import lockfile
+from taskcoachlib.thirdparty.googleapi.oauth2client import client
 from taskcoachlib.widgets import GetPassword
 from taskcoachlib.workarounds import ExceptionAsUnicode
 import wx
@@ -30,6 +31,8 @@ import gc
 import sys
 import codecs
 import traceback
+import dropbox
+from dropbox import client, rest, session
 
 try:
     from taskcoachlib.syncml import sync
@@ -52,7 +55,6 @@ class IOController(object):
             os.makedirs(self.__path)
         self.__path = self.__path + "categories.tsk"
         self.__globalCat = open(self.__path, "w")
-        print("init, iocontroller", type(self.__globalCat))
         self.__taskFile = taskFile
         self.__messageCallback = messageCallback
         self.__settings = settings
@@ -78,6 +80,9 @@ class IOController(object):
         self.__todotxtFileDialogOpts = {'default_path': defaultPath,
             'default_extension': 'txt', 'wildcard':
             _('Todo.txt files (*.txt)|*.txt|All files (*.*)|*')}
+        self.__pdfFileDialogOpts = {'default_path': defaultPath,
+            'default_extension': 'pdf', 'wildcard':
+            _('PDF files (*.pdf)|*.pdf|All files (*.*)|*')}
         self.__errorMessageOptions = dict(caption=_('%s file error') % \
                                           meta.name, style=wx.ICON_ERROR)
         self.__settings.setGlobalCategories(self.__globalCat)
@@ -292,7 +297,89 @@ class IOController(object):
                 errorMessage = _('Cannot import template %s\n%s') % (filename, 
                                ExceptionAsUnicode(reason))
                 showerror(errorMessage, **self.__errorMessageOptions)
-            
+    
+    
+    def backupdropbox(self):
+        if self.__taskFile.filename()=='' or self.__taskFile is None:
+            wx.MessageBox('Please save the current file first.', 
+                          'Backup to Dropbox.', wx.OK | wx.ICON_ERROR)
+        else:
+            dbclient, message = persistence.dropboxapi.dbclient()
+                    
+            if dbclient is not None:
+                # Open the file to upload to Dropbox (current file)
+                f = open(self.__taskFile.filename(), 'rb')
+                filename = os.path.basename(f.name) 
+                
+                # Upload the file
+                try:
+                    # put the file to Dropbox. The third option is for overwrite.
+                    response = dbclient.put_file(filename, f, True)
+                    wx.MessageBox('File successfully uploaded.',
+                                  'Backup to Dropbox', wx.OK | wx.ICON_INFORMATION)
+                except:
+                    wx.MessageBox('Unknown error encountered.',
+                                  'Backup to Dropbox', wx.OK | wx.ICON_ERROR)
+            else:
+                wx.MessageBox('Error encountered:\n' + message,
+                              'Backup to Dropbox.', wx.OK | wx.ICON_ERROR)
+
+    def getdropboxdirectory(self):
+        # connect to dropbox
+        dbclient, message = persistence.dropboxapi.dbclient()
+        
+        if dbclient is not None:
+            try:
+                filenamesList = persistence.dropboxapi.fileNames(dbclient)
+                return filenamesList
+            except:
+                wx.MessageBox('Unknown error encountered.',
+                              'Restore from Dropbox', wx.OK | wx.ICON_ERROR)
+        else:
+            wx.MessageBox('Error encountered:\n' + message,
+                          'Restore from Dropbox.', wx.OK | wx.ICON_ERROR)
+    
+    def getdropboxfile(self, filename):
+        dbclient, message = persistence.dropboxapi.dbclient()
+        
+        if dbclient is not None:
+            try:
+                file = persistence.dropboxapi.restorefile(dbclient, filename)
+                # Close current file
+                self.close()
+                # Save file as a temporary file
+                tempfile = 'temp.tsk'
+                out = open(tempfile, 'w')
+                out.write(file.read())
+                out.close()
+                # Open the temp file
+                lastfilename = self.__taskFile.lastFilename()
+                self.open(tempfile)
+                # File needs saving = mark dirty
+                self.__taskFile.markDirty(True)
+                # Revert filename to remove temp file from history
+                self.__taskFile.setFilename('')
+                self.__taskFile.setLastFilename(lastfilename)
+                # Remove temp file from disk
+                os.remove(tempfile)
+            except:
+                wx.MessageBox('Unknown error encountered.',
+                              'Restore from Dropbox', wx.OK | wx.ICON_ERROR)
+        else:
+            wx.MessageBox('Error encountered:\n' + message,
+                          'Restore from Dropbox.', wx.OK | wx.ICON_ERROR)
+    
+    def ask(parent=None, message=''):
+        app = wx.App()
+        dlg = wx.TextEntryDialog(parent,
+                                  message)
+        dlg.ShowModal()
+        result = dlg.GetValue()
+        dlg.Destroy()
+        app.MainLoop() 
+        return result
+    
+    
     def close(self, force=False):
         if self.__taskFile.needSave():
             if force:
@@ -355,6 +442,19 @@ class IOController(object):
             self.__todotxtFileDialogOpts, persistence.TodoTxtWriter, viewer,
             selectionOnly, fileExists=fileExists)
 
+    def exportAsPDF(self, viewer, selectionOnly=False, columns=None,
+                        fileExists=os.path.exists):
+        #Export as PDF
+        return self.export(_('Export as PDF'),
+            self.__pdfFileDialogOpts, persistence.PDFWriter, viewer,
+            selectionOnly, fileExists=fileExists, columns=columns)
+
+    def openAttatchFileDialog(self):
+        filename = None
+        filename = self.__askUserForFile(_('Select File'), 
+                                             self.__tskFileOpenDialogOpts)
+        return filename
+
     def importCSV(self, **kwargs):
         persistence.CSVReader(self.__taskFile.tasks(),
                               self.__taskFile.categories()).read(**kwargs)
@@ -362,6 +462,66 @@ class IOController(object):
     def importTodoTxt(self, filename):
         persistence.TodoTxtReader(self.__taskFile.tasks(),
                                   self.__taskFile.categories()).read(filename)
+    def importFromGoogleTasks(self):
+        service = persistence.apiconnect.connect("")
+        answerDict = []
+        if service is not None:
+            try:
+                tasklists = service.tasklists().list().execute()
+                for tasklist in tasklists['items']:
+                    tasks = service.tasks().list(tasklist=tasklist['id']).execute()
+                    print "Items: "
+                    print tasks
+                    for item in tasks['items'] if 'items' in tasks else []:
+                        item['Category'] = tasklist['title']
+                        answerDict.append(item)
+                return answerDict
+            except client.AccessTokenRefreshError:
+                print ("The credentials have been revoked or expired, please re-run"
+                        "the application to re-authorize")
+        else:
+            return []
+
+    def uploadToGoogleDrive(self,path):
+        persistence.driveconnect.uploadTaskfile(path)
+
+    def exportToGoogleTasks(self,existingTasks):
+        service = persistence.apiconnect.connect("")
+        if service is not None:
+            try:
+                #tasklists = service.tasklists().list().execute()
+                #gCategories = []
+
+                """for tasklist in tasklists['items']:
+                    gCategories.append(tasklist['title'])"""
+
+                """if 'Task Coach' not in gCategories:
+                    tasklist = {'title': 'Task Coach'}
+                    service.tasklists().insert(body=tasklist).execute()
+                    gCategories.append('Task Coach')"""
+
+                tmptasks = service.tasks().list(tasklist='@default').execute()
+                gTask=[]
+                for tmptask in tmptasks['items']:
+                    gTask.append([tmptask['title'],tmptask['due'] if 'due' in tmptask else '%Y-%m-%dT00:00:00.000Z'])
+
+                for existingTask in existingTasks:
+                    print [existingTask.subject(),existingTask.dueDateTime().strftime('%Y-%m-%dT00:00:00.000Z')]
+                    if [existingTask.subject(),
+                        existingTask.dueDateTime().strftime('%Y-%m-%dT00:00:00.000Z')] not in gTask:
+
+
+
+                        task = {'title': existingTask.subject(),'notes': existingTask.description(),
+                                'due': existingTask.dueDateTime().strftime('%Y-%m-%dT00:00:00.000Z')}
+                        result = service.tasks().insert(tasklist='@default', body=task).execute()
+                        print result['id']
+
+            except client.AccessTokenRefreshError:
+                print ("The credentials have been revoked or expired, please re-run"
+                        "the application to re-authorize")
+
+            wx.MessageBox("Export to Googe Task completed",'Export completed',wx.OK|wx.ICON_INFORMATION)
 
     def synchronize(self):
         doReset = False
