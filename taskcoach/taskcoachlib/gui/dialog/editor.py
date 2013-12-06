@@ -245,6 +245,100 @@ class TaskSubjectPage(SubjectPage):
         return entries
 
 
+class TaskSubjectPage2(SubjectPage):
+    def __init__(self, theTask, parent, settings, items_are_new, taskFile=None, settingsSection=None, *args, **kwargs):
+        self.__settings = settings
+        self.__taskFile = taskFile
+        self.__settingsSection = settingsSection
+        self._duration = None
+        self.__items_are_new = items_are_new
+        super(TaskSubjectPage2, self).__init__(theTask, parent, settings, *args, **kwargs)
+        pub.subscribe(self.__onChoicesConfigChanged, 'settings.feature.sdtcspans')
+
+    def __onChoicesConfigChanged(self, value=''):
+        self._dueDateTimeEntry.LoadChoices(value)
+
+    def __onTimeChoicesChange(self, event):
+        self.__settings.settext('feature', 'sdtcspans', event.GetValue())
+
+    def __onPlannedStartDateTimeChanged(self, value):
+        self._dueDateTimeEntry.SetRelativeChoicesStart(None if value == date.DateTime() else value)
+
+    def addEntries(self):
+        self.addSubjectEntry()
+        self.addDescriptionEntry()
+        self.addPriorityEntry()
+        self.addCreationDateTimeEntry()
+        self.addDateEntries()
+        self.addModificationDateTimeEntry()
+
+    def addPriorityEntry(self):
+        # pylint: disable=W0201
+        current_priority = self.items[0].priority() if len(self.items) == 1 else 0
+        self._priorityEntry = widgets.SpinCtrl(self, size=(100, -1),
+            value=current_priority)
+        self._prioritySync = attributesync.AttributeSync('priority',
+            self._priorityEntry, current_priority, self.items,
+            command.EditPriorityCommand, wx.EVT_SPINCTRL,
+            self.items[0].priorityChangedEventType())
+        self.addEntry(_('Priority'), self._priorityEntry, flags=[None, wx.ALL])
+
+    def createCategoriesViewer(self, taskFile, settingsSection):
+        assert len(self.items) == 1
+        item = self.items[0]
+        for eventType in (item.categoryAddedEventType(),
+                        item.categoryRemovedEventType()):
+            self.registerObserver(self.onCategoryChanged, eventType=eventType,
+                                  eventSource=item)
+        return LocalCategoryViewer(self.items, self, taskFile, self.__settings,
+                                   settingsSection=settingsSection,
+                                   use_separate_settings_section=False)
+
+    def addCategoryEntries(self):
+        pass
+
+    def addDateEntries(self):
+        self.addDateEntry(_('Planned start date'), 'plannedStartDateTime')
+        self.addDateEntry(_('Due date'), 'dueDateTime')
+
+    def addDateEntry(self, label, taskMethodName):
+        TaskMethodName = taskMethodName[0].capitalize() + taskMethodName[1:]
+        dateTime = getattr(self.items[0], taskMethodName)() if len(self.items) == 1 else date.DateTime()
+        setattr(self, '_current%s' % TaskMethodName, dateTime)
+        suggestedDateTimeMethodName = 'suggested' + TaskMethodName
+        suggestedDateTime = getattr(self.items[0], suggestedDateTimeMethodName)()
+        dateTimeEntry = entry.DateTimeEntry(self, self.__settings, dateTime,
+                                            suggestedDateTime=suggestedDateTime,
+                                            showRelative=taskMethodName == 'dueDateTime',
+                                            adjustEndOfDay=taskMethodName == 'dueDateTime')
+        setattr(self, '_%sEntry' % taskMethodName, dateTimeEntry)
+        commandClass = getattr(command, 'Edit%sCommand' % TaskMethodName)
+        eventType = getattr(self.items[0],
+                            '%sChangedEventType' % taskMethodName)()
+        keep_delta = self.__keep_delta(taskMethodName)
+        datetimeSync = attributesync.AttributeSync(taskMethodName,
+            dateTimeEntry, dateTime, self.items, commandClass,
+            entry.EVT_DATETIMEENTRY, eventType, keep_delta=keep_delta,
+            callback=self.__onPlannedStartDateTimeChanged if taskMethodName == 'plannedStartDateTime' else None)
+        setattr(self, '_%sSync' % taskMethodName, datetimeSync)
+        self.addEntry(label, dateTimeEntry)
+
+    def onCategoryChanged(selfself, event):
+        self.categoryViewer.refreshItems(*event.values())
+
+    def __keep_delta(self, taskMethodName):
+        datesTied = self.__settings.get('view', 'datestied')
+        return (datesTied == 'startdue' and taskMethodName == 'plannedStartDateTime') or \
+               (datesTied == 'duestart' and taskMethodName == 'dueDateTime')
+
+    def entries(self):
+        # pylint: disable=E1191
+        entries = super(TaskSubjectPage2, self).entries()
+        entries['priority'] = self._priorityEntry
+        entries['plannedStartDateTime'] = self._plannedStartDateTimeEntry
+        entries['dueDateTime'] = self._dueDateTimeEntry
+        return entries
+
 class CategorySubjectPage(SubjectPage):
 
     def addEntries(self):
@@ -1087,8 +1181,8 @@ class TaskEditBook(EditBook):
                     'appearance']
     domainObject = 'task'
 
-    def create_subject_page(self):    
-        return TaskSubjectPage(self.items, self, self.settings)
+    def create_subject_page(self):
+        return TaskSubjectPage2(self.items, self, self.settings, True)
 
 
 class CategoryEditBook(EditBook):

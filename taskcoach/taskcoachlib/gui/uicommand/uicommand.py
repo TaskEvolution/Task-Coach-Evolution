@@ -2979,3 +2979,4 @@ class SikuliBox(wx.Frame):
             self.path.SetValue("Please supply a valid path")
         except:
             self.path.SetValue("error")
+
