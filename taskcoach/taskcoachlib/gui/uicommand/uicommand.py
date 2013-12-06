@@ -584,7 +584,6 @@ class FileImportFromGoogleTask(IOCommand):
                                                        categories=[category],id=task['id'])
 
                 newTaskCommand.do()
-                wx.MessageBox("Import from Google Task has finished",'Import complete',wx.OK|wx.ICON_INFORMATION)
 
 
 class FileBackupGoogleDrive(IOCommand):
@@ -596,7 +595,7 @@ class FileBackupGoogleDrive(IOCommand):
 
     def doCommand(self, event):
         if self.mainWindow().viewer.taskFile.__str__() != "":
-            if self.iocontroller.uploadToGoogleDrive(self.mainWindow().viewer.taskFile.__str__()) is not None:
+            if self.iocontroller.uploadToGoogleDrive(self.mainWindow().viewer.taskFile.__str__()):
                 wx.MessageBox("Backup completed",'Backup completed',wx.OK|wx.ICON_INFORMATION)
             else:
                 wx.MessageBox("Backup was cancelled",'Backup failed',wx.OK|wx.ICON_INFORMATION)
@@ -1261,7 +1260,7 @@ class Delete(mixin_uicommand.NeedsSelectionMixin, ViewerCommand):
                 fromIndex, toIndex = pos, pos + 1
             windowWithFocus.Remove(fromIndex, toIndex)
         else:
-            result = wx.MessageBox(_('Do you really want to delete this task?'),
+            result = wx.MessageBox(_('Do you really want to delete this item?'),
             "Confirm delete", 
             style=wx.YES_NO | wx.ICON_QUESTION | wx.NO_DEFAULT)
             if result == wx.YES:
@@ -1644,8 +1643,9 @@ class Mail(mixin_uicommand.NeedsSelectionMixin, ViewerCommand, settings_uicomman
         #columns = None
         itemList = []
         items = self.mainWindow().viewer.visibleItems()
+        items = [task for task in items if self.mainWindow().viewer.isselected(task)]
         for item in items:
-            itemList.extend(str(item))
+            itemList.append(item.subject())
 
         #columns = columns or self.mainWindow().viewer.visibleColumns()
         #print columns
@@ -1659,7 +1659,7 @@ class Mail(mixin_uicommand.NeedsSelectionMixin, ViewerCommand, settings_uicomman
 
     def subject(self, itList, items):
         assert items
-        if len(itList) > 2:
+        if  len(items) > 2:
             #Allow the user to specify the subject line
             sub = None
             dlg = wx.TextEntryDialog(None, 'Enter subject','Subject')

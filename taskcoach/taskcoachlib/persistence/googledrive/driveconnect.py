@@ -57,7 +57,7 @@ def uploadTaskfile(path):
         wx.MessageBox("Click OK to open webbrowser and authorize TaskCoach to connect to Google Drive",'Backup failed',wx.OK|wx.ICON_INFORMATION)
         credentials = tools.run_flow(FLOW, storage,parser.parse_args(""))
         if credentials is None:
-            return None
+            return False
 
     FILENAME = path
     TITLE = os.path.basename(path)
@@ -78,3 +78,5 @@ def uploadTaskfile(path):
     }
 
     file1 = drive_service.files().insert(body=body, media_body=media_body).execute()
+
+    return True
