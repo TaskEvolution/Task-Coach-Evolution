@@ -467,26 +467,16 @@ class IOController(object):
                 print ("The credentials have been revoked or expired, please re-run"
                         "the application to re-authorize")
         else:
+            wx.MessageBox("Authorization was cancelled",'Authorization failed',wx.OK|wx.ICON_INFORMATION)
             return []
 
     def uploadToGoogleDrive(self,path):
-        persistence.driveconnect.uploadTaskfile(path)
+        return persistence.driveconnect.uploadTaskfile(path)
 
     def exportToGoogleTasks(self,existingTasks):
         service = persistence.apiconnect.connect("")
         if service is not None:
             try:
-                #tasklists = service.tasklists().list().execute()
-                #gCategories = []
-
-                """for tasklist in tasklists['items']:
-                    gCategories.append(tasklist['title'])"""
-
-                """if 'Task Coach' not in gCategories:
-                    tasklist = {'title': 'Task Coach'}
-                    service.tasklists().insert(body=tasklist).execute()
-                    gCategories.append('Task Coach')"""
-
                 tmptasks = service.tasks().list(tasklist='@default').execute()
                 gTask=[]
                 for tmptask in tmptasks['items']:
@@ -509,7 +499,8 @@ class IOController(object):
                         "the application to re-authorize")
 
             wx.MessageBox("Export to Googe Task completed",'Export completed',wx.OK|wx.ICON_INFORMATION)
-
+        else:
+            wx.MessageBox("You cancelled the authorization",'Authorization failed',wx.OK|wx.ICON_INFORMATION)
     def synchronize(self):
         doReset = False
         while True:
