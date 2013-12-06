@@ -29,6 +29,7 @@ from taskcoachlib.i18n import _
 from taskcoachlib.thirdparty.pubsub import pub
 from taskcoachlib.thirdparty import smartdatetimectrl as sdtc
 from taskcoachlib.help.balloontips import BalloonTipManager
+from ...config.settings import Settings
 import os.path
 import wx
 
@@ -38,6 +39,7 @@ class Page(patterns.Observer, widgets.BookPage):
     
     def __init__(self, items, *args, **kwargs):
         self.items = items
+        self.__settings = Settings()
         self.__observers = []
         super(Page, self).__init__(columns=self.columns, *args, **kwargs)
         self.addEntries()
@@ -168,12 +170,13 @@ class SubjectPage(Page):
                 patterns.Publisher().registerObserver(self.onAttributeChanged_Deprecated,
                                                       eventType=eventType,
                                                       eventSource=self.items[0])
-                          
+
+
     def __modification_text(self):
         modification_datetimes = [item.modificationDateTime() for item in self.items]
         min_modification_datetime = min(modification_datetimes)
         max_modification_datetime = max(modification_datetimes)
-        modification_text = render.dateTime(min_modification_datetime, 
+        modification_text = render.dateTime(min_modification_datetime,
                                             humanReadable=True)
         if max_modification_datetime - min_modification_datetime > date.ONE_MINUTE:
             modification_text += ' - %s' % render.dateTime(max_modification_datetime,
@@ -211,12 +214,13 @@ class SubjectPage(Page):
                     subject=self._subjectEntry,
                     description=self._descriptionEntry,
                     creationDateTime=self._subjectEntry,
-                    modificationDateTime=self._subjectEntry)
+                    modificationDateTime=self._subjectEntry,
+                    globalCategories=self._subjectEntry)
 
-    
+
 class TaskSubjectPage(SubjectPage):
     def addEntries(self):
-        # Override to insert a priority entry between the description and the 
+        # Override to insert a priority entry between the description and the
         # creation date/time entry
         self.addSubjectEntry()
         self.addDescriptionEntry()
@@ -229,46 +233,59 @@ class TaskSubjectPage(SubjectPage):
         current_priority = self.items[0].priority() if len(self.items) == 1 else 0
         self._priorityEntry = widgets.SpinCtrl(self, size=(100, -1),
             value=current_priority)
-        self._prioritySync = attributesync.AttributeSync('priority', 
+        self._prioritySync = attributesync.AttributeSync('priority',
             self._priorityEntry, current_priority, self.items,
-            command.EditPriorityCommand, wx.EVT_SPINCTRL, 
+            command.EditPriorityCommand, wx.EVT_SPINCTRL,
             self.items[0].priorityChangedEventType())
         self.addEntry(_('Priority'), self._priorityEntry, flags=[None, wx.ALL])
-            
+
     def entries(self):
         entries = super(TaskSubjectPage, self).entries()
         entries['priority'] = self._priorityEntry
         return entries
-            
+
 
 class CategorySubjectPage(SubjectPage):
+
     def addEntries(self):
-        # Override to insert an exclusive subcategories entry 
+        # Override to insert an exclusive subcategories entry
         # between the description and the creation date/time entry
         self.addSubjectEntry()
         self.addDescriptionEntry()
         self.addExclusiveSubcategoriesEntry()
         self.addCreationDateTimeEntry()
         self.addModificationDateTimeEntry()
+        #self.addGlobalCategoriesEntry()
+
+
 
     def addExclusiveSubcategoriesEntry(self):
         # pylint: disable=W0201
         currentExclusivity = self.items[0].hasExclusiveSubcategories() if len(self.items) == 1 else False
-        self._exclusiveSubcategoriesCheckBox = wx.CheckBox(self, 
-                                                           label=_('Mutually exclusive')) 
+        self._exclusiveSubcategoriesCheckBox = wx.CheckBox(self,
+                                                           label=_('Mutually exclusive'))
         self._exclusiveSubcategoriesCheckBox.SetValue(currentExclusivity)
         self._exclusiveSubcategoriesSync = attributesync.AttributeSync( \
-            'hasExclusiveSubcategories', self._exclusiveSubcategoriesCheckBox, 
-            currentExclusivity, self.items, 
+            'hasExclusiveSubcategories', self._exclusiveSubcategoriesCheckBox,
+            currentExclusivity, self.items,
             command.EditExclusiveSubcategoriesCommand, wx.EVT_CHECKBOX,
             self.items[0].exclusiveSubcategoriesChangedEventType())
         self.addEntry(_('Subcategories'), self._exclusiveSubcategoriesCheckBox,
                       flags=[None, wx.ALL])
-            
+
+
+
+    #Just uncomment this code to add the checkbox to activate choice of global categories.
+    #An event listener connected to this is needed in order to make it work, something that we didn't
+    #have time to implement. That could connect to the settings.setIsGlobal(bool)
+    '''def addGlobalCategoriesEntry(self):
+        self._globalCategory = wx.CheckBox(self, label=_('Global category'))
+        self.addEntry('Global Categories', self._globalCategory)'''
+
 
 class AttachmentSubjectPage(SubjectPage):
     def addEntries(self):
-        # Override to insert a location entry between the subject and 
+        # Override to insert a location entry between the subject and
         # description entry
         self.addSubjectEntry()
         self.addLocationEntry()

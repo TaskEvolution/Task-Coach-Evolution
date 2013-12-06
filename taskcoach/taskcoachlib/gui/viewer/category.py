@@ -18,6 +18,11 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+CLASS COMMENT:
+The purpose of this class is to view the category window when the user is
+ either editing a category or creating a new category.
 '''
 
 import wx
@@ -122,6 +127,7 @@ class BaseCategoryViewer(mixin.AttachmentDropTargetMixin,  # pylint: disable=W02
                        sortCallback=uicommand.ViewerSortByCommand(viewer=self,
                                                                   value='modificationDateTime'),
                        *category.Category.modificationEventTypes(), **kwargs))
+        #columns.append(widgets.Column('Create global category'))
         return columns
     
     def createCreationToolBarUICommands(self):
