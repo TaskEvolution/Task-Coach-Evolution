@@ -18,7 +18,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
 import xml
-import pwd
 from taskcoachlib import patterns
 from taskcoachlib.domain import base, task, category, note, effort, attachment
 from taskcoachlib.syncml.config import createDefaultSyncConfig

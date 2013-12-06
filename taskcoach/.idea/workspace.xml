@@ -2,18 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b4203b6-1a3a-485a-9de8-382d59c2510b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/dialog.dot.png" afterPath="$PROJECT_DIR$/doc/dialog.dot.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Makefile" afterPath="$PROJECT_DIR$/Makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/persistence/googletask/apiconnect.py" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/googletask/apiconnect.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/credentials.dat" afterPath="$PROJECT_DIR$/credentials.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/credentials_googledrive.dat" afterPath="$PROJECT_DIR$/credentials_googledrive.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/dialog.dot" afterPath="$PROJECT_DIR$/doc/dialog.dot" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/persistence/googledrive/driveconnect.py" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/googledrive/driveconnect.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/thirdparty/__init__.py" afterPath="$PROJECT_DIR$/taskcoachlib/thirdparty/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/domain/category/category.py" afterPath="$PROJECT_DIR$/taskcoachlib/domain/category/category.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/viewer/category.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/viewer/category.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/dialog/editor.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/dialog/editor.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/command/quickAddParser.py" afterPath="$PROJECT_DIR$/taskcoachlib/command/quickAddParser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/i18n.in/messages.pot" afterPath="$PROJECT_DIR$/i18n.in/messages.pot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/persistence/xml/reader.py" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/xml/reader.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/config/settings.py" afterPath="$PROJECT_DIR$/taskcoachlib/config/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/persistence/taskfile.py" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/taskfile.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/persistence/xml/writer.py" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/xml/writer.py" />
     </list>
     <ignored path="taskcoach.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,22 +45,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="uicommand.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="uicommand.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="499" column="20" selection-start="19547" selection-end="19547" vertical-scroll-proportion="-17.884615" vertical-offset="6705" max-vertical-offset="44475">
+            <state line="2983" column="39" selection-start="124943" selection-end="124943" vertical-scroll-proportion="0.71849865" vertical-offset="44162" max-vertical-offset="44535">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainwindow.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="mainwindow.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="318" column="32" selection-start="13600" selection-end="13600" vertical-scroll-proportion="0.371134" vertical-offset="4626" max-vertical-offset="7065">
-              <folding>
-                <element signature="e#756#855#0" expanded="true" />
-              </folding>
+            <state line="318" column="32" selection-start="13600" selection-end="13600" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6855">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,7 +66,7 @@
       <file leaf-file-name="iocontroller.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="471" column="27" selection-start="21130" selection-end="21135" vertical-scroll-proportion="-4.8076925" vertical-offset="6940" max-vertical-offset="9960">
+            <state line="77" column="17" selection-start="3226" selection-end="3226" vertical-scroll-proportion="-6.923077" vertical-offset="975" max-vertical-offset="10005">
               <folding>
                 <element signature="e#756#826#0" expanded="true" />
               </folding>
@@ -74,10 +74,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="QuickAddParserTest.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/unittests/commandTests/QuickAddParserTest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="103" column="37" selection-start="5668" selection-end="5668" vertical-scroll-proportion="-7.5" vertical-offset="1305" max-vertical-offset="3150">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="apiconnect.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/googletask/apiconnect.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="0" selection-start="2203" selection-end="2305" vertical-scroll-proportion="0.0" vertical-offset="711" max-vertical-offset="1155">
+            <state line="60" column="114" selection-start="2299" selection-end="2299" vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1155">
               <folding>
                 <element signature="e#822#837#0" expanded="true" />
               </folding>
@@ -88,17 +97,10 @@
       <file leaf-file-name="driveconnect.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/googledrive/driveconnect.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="12" selection-start="2209" selection-end="2209" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tools.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/taskcoachlib/thirdparty/googleapi/oauth2client/tools.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="219" column="24" selection-start="7675" selection-end="7675" vertical-scroll-proportion="-25.73077" vertical-offset="2451" max-vertical-offset="3585">
-              <folding />
+            <state line="29" column="64" selection-start="1174" selection-end="1174" vertical-scroll-proportion="0.0" vertical-offset="771" max-vertical-offset="1275">
+              <folding>
+                <element signature="e#822#837#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -106,7 +108,7 @@
       <file leaf-file-name="client_secrets.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/googletask/client_secrets.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="317" selection-start="278" selection-end="317" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
+            <state line="0" column="317" selection-start="278" selection-end="317" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
               <folding />
             </state>
           </provider>
@@ -115,7 +117,7 @@
       <file leaf-file-name="quickAddParser.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taskcoachlib/command/quickAddParser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="197" column="24" selection-start="7911" selection-end="7911" vertical-scroll-proportion="0.0" vertical-offset="2488" max-vertical-offset="3060">
+            <state line="197" column="24" selection-start="7911" selection-end="7911" vertical-scroll-proportion="0.0" vertical-offset="2955" max-vertical-offset="3075">
               <folding />
             </state>
           </provider>
@@ -124,10 +126,8 @@
       <file leaf-file-name="dropboxapi.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/dropbox/dropboxapi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="16" selection-start="2791" selection-end="2799" vertical-scroll-proportion="9.807693" vertical-offset="1380" max-vertical-offset="1755">
-              <folding>
-                <element signature="e#756#771#0" expanded="true" />
-              </folding>
+            <state line="75" column="16" selection-start="2791" selection-end="2799" vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="1755">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -170,10 +170,10 @@
         <option value="$PROJECT_DIR$/tests/unittests/__init__.py" />
         <option value="$PROJECT_DIR$/taskcoachlib/command/quickAddParser.py" />
         <option value="$PROJECT_DIR$/taskcoachlib/thirdparty/googleapi/oauth2client/tools.py" />
+        <option value="$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py" />
         <option value="$PROJECT_DIR$/taskcoachlib/persistence/googletask/apiconnect.py" />
         <option value="$PROJECT_DIR$/taskcoachlib/persistence/googledrive/driveconnect.py" />
         <option value="$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py" />
-        <option value="$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py" />
         <option value="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" />
       </list>
     </option>
@@ -209,7 +209,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -238,66 +237,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoachlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoach" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoach" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoachlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="thirdparty" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoach" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoach" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoachlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="persistence" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoach" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoach" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="taskcoachlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -614,14 +560,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="718" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18666667" sideWeight="0.88006485" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18729097" sideWeight="0.88006485" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2381342" sideWeight="0.6705686" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36790925" sideWeight="0.81333333" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3808752" sideWeight="0.81270903" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4548495" sideWeight="0.11993517" order="8" side_tool="true" content_ui="tabs" />
@@ -683,30 +629,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/unittests/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="6" selection-start="596" selection-end="596" vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="360">
-          <folding />
-        </state>
+        <state line="14" column="6" selection-start="596" selection-end="596" vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="360" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/dialog/editor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="216" column="15" selection-start="9584" selection-end="9593" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="21990">
-          <folding />
-        </state>
+        <state line="216" column="15" selection-start="9584" selection-end="9593" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="21990" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/credentials_googledrive.dat">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/unittests/commandTests/QuickAddParserTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="40" selection-start="3028" selection-end="3028" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="3195">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="414" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/credentials.dat">
@@ -723,13 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/thirdparty/googleapi/oauth2client/tools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="219" column="24" selection-start="7675" selection-end="7675" vertical-scroll-proportion="-25.73077" vertical-offset="2451" max-vertical-offset="3585">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/command/quickAddParser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="197" column="24" selection-start="7911" selection-end="7911" vertical-scroll-proportion="0.0" vertical-offset="2488" max-vertical-offset="3060">
@@ -737,16 +663,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/googledrive/driveconnect.py">
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/dropbox/dropboxapi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="12" selection-start="2209" selection-end="2209" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1155">
+        <state line="75" column="16" selection-start="2791" selection-end="2799" vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="1755">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/thirdparty/googleapi/oauth2client/tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="219" column="24" selection-start="7675" selection-end="7675" vertical-scroll-proportion="4.442029" vertical-offset="1281" max-vertical-offset="3585" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/unittests/commandTests/QuickAddParserTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="37" selection-start="5668" selection-end="5668" vertical-scroll-proportion="-7.5" vertical-offset="1305" max-vertical-offset="3150">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/googletask/apiconnect.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="0" selection-start="2203" selection-end="2305" vertical-scroll-proportion="0.0" vertical-offset="711" max-vertical-offset="1155">
+        <state line="60" column="114" selection-start="2299" selection-end="2299" vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="1155">
+          <folding>
+            <element signature="e#822#837#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="318" column="32" selection-start="13600" selection-end="13600" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="7065">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/googledrive/driveconnect.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="64" selection-start="1174" selection-end="1174" vertical-scroll-proportion="0.0" vertical-offset="771" max-vertical-offset="1275">
           <folding>
             <element signature="e#822#837#0" expanded="true" />
           </folding>
@@ -755,35 +709,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="471" column="27" selection-start="21130" selection-end="21135" vertical-scroll-proportion="-4.8076925" vertical-offset="6940" max-vertical-offset="9960">
+        <state line="77" column="17" selection-start="3226" selection-end="3226" vertical-scroll-proportion="-6.923077" vertical-offset="975" max-vertical-offset="10005">
           <folding>
             <element signature="e#756#826#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/persistence/dropbox/dropboxapi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="16" selection-start="2791" selection-end="2799" vertical-scroll-proportion="9.807693" vertical-offset="1380" max-vertical-offset="1755">
-          <folding>
-            <element signature="e#756#771#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="499" column="20" selection-start="19547" selection-end="19547" vertical-scroll-proportion="-17.884615" vertical-offset="6705" max-vertical-offset="44475">
+        <state line="2983" column="39" selection-start="124943" selection-end="124943" vertical-scroll-proportion="0.71849865" vertical-offset="44162" max-vertical-offset="44535">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="318" column="32" selection-start="13600" selection-end="13600" vertical-scroll-proportion="0.371134" vertical-offset="4626" max-vertical-offset="7065">
-          <folding>
-            <element signature="e#756#855#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

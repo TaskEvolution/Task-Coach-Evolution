@@ -584,6 +584,7 @@ class FileImportFromGoogleTask(IOCommand):
                                                        categories=[category],id=task['id'])
 
                 newTaskCommand.do()
+                wx.MessageBox("Import from Google Task has finished",'Import complete',wx.OK|wx.ICON_INFORMATION)
 
 
 class FileBackupGoogleDrive(IOCommand):
@@ -595,8 +596,10 @@ class FileBackupGoogleDrive(IOCommand):
 
     def doCommand(self, event):
         if self.mainWindow().viewer.taskFile.__str__() != "":
-            self.iocontroller.uploadToGoogleDrive(self.mainWindow().viewer.taskFile.__str__())
-            wx.MessageBox("Backup completed",'Backup completed',wx.OK|wx.ICON_INFORMATION)
+            if self.iocontroller.uploadToGoogleDrive(self.mainWindow().viewer.taskFile.__str__()) is not None:
+                wx.MessageBox("Backup completed",'Backup completed',wx.OK|wx.ICON_INFORMATION)
+            else:
+                wx.MessageBox("Backup was cancelled",'Backup failed',wx.OK|wx.ICON_INFORMATION)
         else:
             wx.MessageBox('Please save task before doing a backup','Backup error',wx.OK|wx.ICON_ERROR)
 
@@ -2979,4 +2982,3 @@ class SikuliBox(wx.Frame):
             self.path.SetValue("Please supply a valid path")
         except:
             self.path.SetValue("error")
-

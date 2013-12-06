@@ -22,12 +22,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import argparse
 from taskcoachlib.thirdparty.googleapi import httplib2
 import os
+import wx
 
 from taskcoachlib.thirdparty.googleapi.apiclient import discovery
 from taskcoachlib.thirdparty.googleapi.oauth2client import file
 from taskcoachlib.thirdparty.googleapi.oauth2client import client
 from taskcoachlib.thirdparty.googleapi.oauth2client import tools
-from taskcoachlib.thirdparty.googleapi.apiclient import errors
 
 # Parser for command-line arguments.
 parser = argparse.ArgumentParser(
@@ -54,6 +54,7 @@ def uploadTaskfile(path):
     storage = file.Storage('credentials_googledrive.dat')
     credentials = storage.get()
     if credentials is None or credentials.invalid:
+        wx.MessageBox("Click OK to open webbrowser and authorize TaskCoach to connect to Google Drive",'Backup failed',wx.OK|wx.ICON_INFORMATION)
         credentials = tools.run_flow(FLOW, storage,parser.parse_args(""))
         if credentials is None:
             return None
@@ -77,24 +78,3 @@ def uploadTaskfile(path):
     }
 
     file1 = drive_service.files().insert(body=body, media_body=media_body).execute()
-
-    result = []
-    page_token = None
-    count = True
-    while count:
-        try:
-            param = {}
-            if page_token:
-                param['pageToken'] = page_token
-            files = drive_service.files().list(**param).execute()
-
-            filelist = files['items']
-            for savedfile in filelist:
-                print savedfile['title']
-            print drivefile['title']
-            page_token = files.get('nextPageToken')
-            if not page_token:
-                count=False
-        except errors.HttpError, error:
-            print 'An error occurred: %s' % error
-            break

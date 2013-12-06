@@ -22,7 +22,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 import argparse
 from taskcoachlib.thirdparty.googleapi import httplib2
 import os
-import webbrowser
 import wx
 
 from taskcoachlib.thirdparty.googleapi.apiclient import discovery
@@ -59,6 +58,7 @@ def connect(argv):
   storage = file.Storage('credentials.dat')
   credentials = storage.get()
   if credentials is None or credentials.invalid:
+    wx.MessageBox("Click OK to open webbrowser and authorize TaskCoach to access your Google Tasks",'Authorization',wx.OK|wx.ICON_INFORMATION)
     credentials = tools.run_flow(FLOW, storage, flags)
     if credentials is None:
         return None
