@@ -242,8 +242,10 @@ class TaskSubjectPage(SubjectPage):
 
 
 class TaskSubjectPage2(SubjectPage):
-    def __init__(self, theTask, parent, settings, items_are_new, *args, **kwargs):
+    def __init__(self, theTask, parent, settings, items_are_new, taskFile=None, settingsSection=None, *args, **kwargs):
         self.__settings = settings
+        self.__taskFile = taskFile
+        self.__settingsSection = settingsSection
         self._duration = None
         self.__items_are_new = items_are_new
         super(TaskSubjectPage2, self).__init__(theTask, parent, settings, *args, **kwargs)
@@ -277,9 +279,16 @@ class TaskSubjectPage2(SubjectPage):
             self.items[0].priorityChangedEventType())
         self.addEntry(_('Priority'), self._priorityEntry, flags=[None, wx.ALL])
 
-    def createCategoriesViewer(self, taskFile, settings, settingsSection):
+    def createCategoriesViewer(self, taskFile, settingsSection):
         assert len(self.items) == 1
         item = self.items[0]
+        for eventType in (item.categoryAddedEventType(),
+                        item.categoryRemovedEventType()):
+            self.registerObserver(self.onCategoryChanged, eventType=eventType,
+                                  eventSource=item)
+        return LocalCategoryViewer(self.items, self, taskFile, self.__settings,
+                                   settingsSection=settingsSection,
+                                   use_separate_settings_section=False)
 
     def addCategoryEntries(self):
         pass
