@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-12-06 13:34+CET\n"
+"POT-Creation-Date: 2013-12-06 19:08+CET\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3011,297 +3011,297 @@ msgstr ""
 msgid "Import Tasks from Google Task"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:593
+#: taskcoachlib/gui/uicommand/uicommand.py:592
 msgid "&Backup to Google Drive\tAlt+C"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:594
+#: taskcoachlib/gui/uicommand/uicommand.py:593
 msgid "Backup your Taskfile to Google Drive"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:613
+#: taskcoachlib/gui/uicommand/uicommand.py:612
 msgid "S&yncML synchronization..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:614
+#: taskcoachlib/gui/uicommand/uicommand.py:613
 msgid "Synchronize with a SyncML server"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:625
+#: taskcoachlib/gui/uicommand/uicommand.py:624
 msgid "&Quit\tCtrl+Q"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:645
+#: taskcoachlib/gui/uicommand/uicommand.py:644
 msgid "&Undo"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:679
+#: taskcoachlib/gui/uicommand/uicommand.py:678
 msgid "&Redo"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:706
+#: taskcoachlib/gui/uicommand/uicommand.py:705
 msgid "Cu&t\tCtrl+X"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:730
+#: taskcoachlib/gui/uicommand/uicommand.py:729
 msgid "&Copy\tCtrl+C"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:755
+#: taskcoachlib/gui/uicommand/uicommand.py:754
 msgid "&Paste\tCtrl+V"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:782
+#: taskcoachlib/gui/uicommand/uicommand.py:781
 msgid "P&aste as subitem\tShift+Ctrl+V"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:822
+#: taskcoachlib/gui/uicommand/uicommand.py:821
 msgid "&Preferences...\tAlt+P"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:828
+#: taskcoachlib/gui/uicommand/uicommand.py:827
 msgid "Preferences"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:837
+#: taskcoachlib/gui/uicommand/uicommand.py:836
 msgid "&SyncML preferences..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:838
+#: taskcoachlib/gui/uicommand/uicommand.py:837
 msgid "Edit SyncML preferences"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:844
+#: taskcoachlib/gui/uicommand/uicommand.py:843
 msgid "SyncML preferences"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:855
-#: taskcoachlib/gui/uicommand/uicommand.py:860
+#: taskcoachlib/gui/uicommand/uicommand.py:854
+#: taskcoachlib/gui/uicommand/uicommand.py:859
 msgid "Customize toolbar"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:856
+#: taskcoachlib/gui/uicommand/uicommand.py:855
 msgid "Customize"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:867
+#: taskcoachlib/gui/uicommand/uicommand.py:866
 msgid "&All\tCtrl+A"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:889
+#: taskcoachlib/gui/uicommand/uicommand.py:888
 msgid "&Clear selection"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:890
+#: taskcoachlib/gui/uicommand/uicommand.py:889
 msgid "Unselect all items"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:902
+#: taskcoachlib/gui/uicommand/uicommand.py:901
 msgid "&Clear all filters\tShift-Ctrl-R"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:919
+#: taskcoachlib/gui/uicommand/uicommand.py:918
 msgid "&Reset all categories\tCtrl-R"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:944
+#: taskcoachlib/gui/uicommand/uicommand.py:943
 msgid "Show/hide items belonging to %s"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:996
+#: taskcoachlib/gui/uicommand/uicommand.py:995
 msgid "&Rename viewer..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:997
+#: taskcoachlib/gui/uicommand/uicommand.py:996
 msgid "Rename the selected viewer"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1002
+#: taskcoachlib/gui/uicommand/uicommand.py:1001
 msgid "New title for the viewer:"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1002
+#: taskcoachlib/gui/uicommand/uicommand.py:1001
 msgid "Rename viewer"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1026
+#: taskcoachlib/gui/uicommand/uicommand.py:1025
 msgid "&Hide this column"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1027
+#: taskcoachlib/gui/uicommand/uicommand.py:1026
 msgid "Hide the selected column"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1073
+#: taskcoachlib/gui/uicommand/uicommand.py:1072
 msgid "&Expand all items\tShift+Ctrl+E"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1087
+#: taskcoachlib/gui/uicommand/uicommand.py:1086
 msgid "&Collapse all items\tShift+Ctrl+C"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1108
+#: taskcoachlib/gui/uicommand/uicommand.py:1107
 msgid "&Ascending"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1109
+#: taskcoachlib/gui/uicommand/uicommand.py:1108
 msgid "Sort ascending (checked) or descending (unchecked)"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1122
+#: taskcoachlib/gui/uicommand/uicommand.py:1121
 msgid "Sort &case sensitive"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1123
+#: taskcoachlib/gui/uicommand/uicommand.py:1122
 msgid "When comparing text, sorting is case sensitive (checked) or insensitive (unchecked)"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1138
+#: taskcoachlib/gui/uicommand/uicommand.py:1137
 msgid "Sort by status &first"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1139
+#: taskcoachlib/gui/uicommand/uicommand.py:1138
 msgid "Sort tasks by status (active/inactive/completed) first"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1176
+#: taskcoachlib/gui/uicommand/uicommand.py:1175
 msgid "Hide c&omposite tasks"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1177
+#: taskcoachlib/gui/uicommand/uicommand.py:1176
 msgid "Show/hide tasks with subtasks in list mode"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1192
+#: taskcoachlib/gui/uicommand/uicommand.py:1191
 msgid "&Edit...\tRETURN"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1193
+#: taskcoachlib/gui/uicommand/uicommand.py:1192
 msgid "Edit the selected item(s)"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1233
+#: taskcoachlib/gui/uicommand/uicommand.py:1232
 msgid "Edit &tracked task...\tShift-Alt-T"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1234
+#: taskcoachlib/gui/uicommand/uicommand.py:1233
 msgid "Edit the currently tracked task(s)"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1250
+#: taskcoachlib/gui/uicommand/uicommand.py:1249
 msgid "&Delete\tDEL"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1251
+#: taskcoachlib/gui/uicommand/uicommand.py:1250
 #: taskcoachlib/help/__init__.py:820
 msgid "Delete the selected item(s)"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1264
-msgid "Do you really want to deleten this task?"
+#: taskcoachlib/gui/uicommand/uicommand.py:1263
+msgid "Do you really want to delete this item?"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1385
+#: taskcoachlib/gui/uicommand/uicommand.py:1384
 msgid "New from &template"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1388
+#: taskcoachlib/gui/uicommand/uicommand.py:1387
 msgid "Create a new task from a template"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1394
+#: taskcoachlib/gui/uicommand/uicommand.py:1393
 msgid "New task with selected &categories..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1395
+#: taskcoachlib/gui/uicommand/uicommand.py:1394
 msgid "Insert a new task with the selected categories checked"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1406
+#: taskcoachlib/gui/uicommand/uicommand.py:1405
 msgid "New task with selected tasks as &prerequisites..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1407
+#: taskcoachlib/gui/uicommand/uicommand.py:1406
 msgid "Insert a new task with the selected tasks as prerequisite tasks"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1418
+#: taskcoachlib/gui/uicommand/uicommand.py:1417
 msgid "New task with selected tasks as &dependents..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1419
+#: taskcoachlib/gui/uicommand/uicommand.py:1418
 msgid "Insert a new task with the selected tasks as dependent tasks"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1429
+#: taskcoachlib/gui/uicommand/uicommand.py:1428
 msgid "New &subitem..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1430
+#: taskcoachlib/gui/uicommand/uicommand.py:1429
 msgid "New &subtask..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1431
+#: taskcoachlib/gui/uicommand/uicommand.py:1430
 msgid "New &subnote..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1432
+#: taskcoachlib/gui/uicommand/uicommand.py:1431
 msgid "New &subcategory..."
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1436
+#: taskcoachlib/gui/uicommand/uicommand.py:1435
 msgid "Insert a new subitem of the selected item"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1456
+#: taskcoachlib/gui/uicommand/uicommand.py:1455
 msgid "Mark task &active\tAlt+RETURN"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1457
+#: taskcoachlib/gui/uicommand/uicommand.py:1456
 msgid "Mark the selected task(s) active"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1475
+#: taskcoachlib/gui/uicommand/uicommand.py:1474
 msgid "Mark task &inactive\tCtrl+Alt+RETURN"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1476
+#: taskcoachlib/gui/uicommand/uicommand.py:1475
 msgid "Mark the selected task(s) inactive"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1494
+#: taskcoachlib/gui/uicommand/uicommand.py:1493
 msgid "Mark task &completed\tCtrl+RETURN"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1495
+#: taskcoachlib/gui/uicommand/uicommand.py:1494
 msgid "Mark the selected task(s) completed"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1515
+#: taskcoachlib/gui/uicommand/uicommand.py:1514
 msgid "&Maximize priority\tShift+Ctrl+I"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1529
+#: taskcoachlib/gui/uicommand/uicommand.py:1528
 msgid "&Minimize priority\tShift+Ctrl+D"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1543
+#: taskcoachlib/gui/uicommand/uicommand.py:1542
 msgid "&Increase priority\tCtrl+I"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1557
+#: taskcoachlib/gui/uicommand/uicommand.py:1556
 msgid "&Decrease priority\tCtrl+D"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1604
+#: taskcoachlib/gui/uicommand/uicommand.py:1603
 msgid "Toggle %s"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1638
+#: taskcoachlib/gui/uicommand/uicommand.py:1637
 msgid "&Mail...\tCtrl-M"
 msgstr ""
 
-#: taskcoachlib/gui/uicommand/uicommand.py:1638
+#: taskcoachlib/gui/uicommand/uicommand.py:1637
 msgid "&Mail...\tShift-Ctrl-M"
 msgstr ""
 

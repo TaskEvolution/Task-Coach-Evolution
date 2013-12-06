@@ -26,7 +26,7 @@ DOT="dot"       # dot should be on the path
 # make it the default does not seem to work on Lion).
 
 ifeq "$(shell uname -sm)" "Darwin x86_64"
-    PYTHON?="python"
+    PYTHON?="python_32"
 else
     PYTHON?="python"
 endif
@@ -173,6 +173,10 @@ templates: taskcoachlib/persistence/xml/templates.py
 thirdpartymodules:
 	cd thirdparty; tar xzf APScheduler-2.0.3.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty APScheduler-2.0.3/apscheduler
 	cd thirdparty; tar xzf googleapi.tar.gz  -C ../taskcoachlib/thirdparty googleapi/
+	cd thirdparty; tar xzf googleapi.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty googleapi/httplib2/
+	cd thirdparty; tar xzf googleapi.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty googleapi/apiclient/
+	cd thirdparty; tar xzf googleapi.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty googleapi/oauth2client/
+	cd thirdparty; tar xzf googleapi.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty googleapi/uritemplate/
 	cd thirdparty; tar xzf dropbox-python-sdk-1.6.tar.gz --strip-components=1 -C ../taskcoachlib/thirdparty dropbox-python-sdk-1.6/dropbox
 	cd thirdparty; tar xzf xhtml2pdf-0.0.5.tar.gz --strip-components=2 -C ../taskcoachlib/thirdparty xhtml2pdf-0.0.5/xhtml2pdf-0.0.5/xhtml2pdf
 	cd thirdparty; tar xzf reportlab.tar.gz --strip-components=3 -C ../taskcoachlib/thirdparty reportlab/reportlab/src
