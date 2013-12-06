@@ -26,7 +26,6 @@ from taskcoachlib.widgets import GetPassword
 from taskcoachlib.workarounds import ExceptionAsUnicode
 import wx
 import os
-import pwd
 import gc
 import sys
 import codecs
@@ -50,7 +49,7 @@ class IOController(object):
         super(IOController, self).__init__()
 
         # Creates the global categories, both files and folders if necessary
-        self.__path = pwd.getpwuid(os.getuid()).pw_dir + '/Documents/TaskCoach/Categories/'
+        self.__path = os.path.expanduser("~") + '/Documents/TaskCoach/Categories/'
         if not os.path.exists(self.__path):
             os.makedirs(self.__path)
         self.__path = self.__path + "categories.tsk"

@@ -22,7 +22,6 @@ from taskcoachlib.thirdparty.pubsub import pub
 from taskcoachlib.workarounds import ExceptionAsUnicode
 import ConfigParser
 import os
-import pwd
 import sys
 import wx
 import shutil
@@ -462,7 +461,7 @@ class Settings(object, CachingConfigParser):
 
     def getGlobalCategories(self):
         if not self.__globalCat:
-            self.__globalCat = pwd.getpwuid(os.getuid()).pw_dir + '/Documents/TaskCoach/Categories/'
+            self.__globalCat = os.path.expanduser("~") + '/Documents/TaskCoach/Categories/'
             if not os.path.exists(self.__globalCat):
                 os.makedirs(self.__globalCat)
             self.__globalCat = open(self.__globalCat + "categories.tsk", "w")
