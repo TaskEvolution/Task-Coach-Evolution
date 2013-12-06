@@ -241,7 +241,7 @@ class TaskSubjectPage(SubjectPage):
         return entries
 
 
-class TaskSubjectPage2(TaskSubjectPage):
+class TaskSubjectPage2(SubjectPage):
     def __init__(self, theTask, parent, settings, items_are_new, *args, **kwargs):
         self.__settings = settings
         self._duration = None
@@ -266,6 +266,23 @@ class TaskSubjectPage2(TaskSubjectPage):
         self.addDateEntries()
         self.addModificationDateTimeEntry()
 
+    def addPriorityEntry(self):
+        # pylint: disable=W0201
+        current_priority = self.items[0].priority() if len(self.items) == 1 else 0
+        self._priorityEntry = widgets.SpinCtrl(self, size=(100, -1),
+            value=current_priority)
+        self._prioritySync = attributesync.AttributeSync('priority',
+            self._priorityEntry, current_priority, self.items,
+            command.EditPriorityCommand, wx.EVT_SPINCTRL,
+            self.items[0].priorityChangedEventType())
+        self.addEntry(_('Priority'), self._priorityEntry, flags=[None, wx.ALL])
+
+    def createCategoriesViewer(self, taskFile, settings, settingsSection):
+        assert len(self.items) == 1
+        item = self.items[0]
+
+    def addCategoryEntries(self):
+        pass
 
     def addDateEntries(self):
         self.addDateEntry(_('Planned start date'), 'plannedStartDateTime')
@@ -293,6 +310,9 @@ class TaskSubjectPage2(TaskSubjectPage):
         setattr(self, '_%sSync' % taskMethodName, datetimeSync)
         self.addEntry(label, dateTimeEntry)
 
+    def onCategoryChanged(selfself, event):
+        self.categoryViewer.refreshItems(*event.values())
+
     def __keep_delta(self, taskMethodName):
         datesTied = self.__settings.get('view', 'datestied')
         return (datesTied == 'startdue' and taskMethodName == 'plannedStartDateTime') or \
@@ -300,7 +320,8 @@ class TaskSubjectPage2(TaskSubjectPage):
 
     def entries(self):
         # pylint: disable=E1191
-        entries = super(TaskSubjectPage, self).entries()
+        entries = super(TaskSubjectPage2, self).entries()
+        entries['priority'] = self._priorityEntry
         entries['plannedStartDateTime'] = self._plannedStartDateTimeEntry
         entries['dueDateTime'] = self._dueDateTimeEntry
         return entries
