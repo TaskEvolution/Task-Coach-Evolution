@@ -47,6 +47,13 @@ class IOController(object):
 
     def __init__(self, taskFile, messageCallback, settings, splash=None): 
         super(IOController, self).__init__()
+
+        # Creates the global categories, both files and folders if necessary
+        self.__path = os.path.expanduser("~") + '/Documents/TaskCoach/Categories/'
+        if not os.path.exists(self.__path):
+            os.makedirs(self.__path)
+        self.__path = self.__path + "categories.tsk"
+        self.__globalCat = open(self.__path, "w")
         self.__taskFile = taskFile
         self.__messageCallback = messageCallback
         self.__settings = settings
@@ -77,6 +84,7 @@ class IOController(object):
             _('PDF files (*.pdf)|*.pdf|All files (*.*)|*')}
         self.__errorMessageOptions = dict(caption=_('%s file error') % \
                                           meta.name, style=wx.ICON_ERROR)
+        self.__settings.setGlobalCategories(self.__globalCat)
 
     def syncMLConfig(self):
         return self.__taskFile.syncMLConfig()
@@ -85,6 +93,7 @@ class IOController(object):
         self.__taskFile.setSyncMLConfig(config)
 
     def needSave(self):
+        print(self.__taskFile)
         return self.__taskFile.needSave()
 
     def changedOnDisk(self):
@@ -116,7 +125,7 @@ class IOController(object):
             if not self.__saveUnsavedChanges():
                 return
         if not filename:
-            filename = self.__askUserForFile(_('Open'), 
+            filename = self.__askUserForFile(_('Open'),
                                              self.__tskFileOpenDialogOpts)
         if not filename:
             return
@@ -188,6 +197,9 @@ class IOController(object):
             self.__addRecentFile(filename)
 
     def save(self, showerror=wx.MessageBox):
+        #Should be something like this...
+        # self._saveSave(self.__taskFileGlobal, showerror)
+
         if self.__taskFile.filename():
             if self._saveSave(self.__taskFile, showerror):
                 return True

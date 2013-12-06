@@ -29,6 +29,7 @@ from taskcoachlib.i18n import _
 from taskcoachlib.thirdparty.pubsub import pub
 from taskcoachlib.thirdparty import smartdatetimectrl as sdtc
 from taskcoachlib.help.balloontips import BalloonTipManager
+from ...config.settings import Settings
 import os.path
 import wx
 
@@ -38,6 +39,7 @@ class Page(patterns.Observer, widgets.BookPage):
     
     def __init__(self, items, *args, **kwargs):
         self.items = items
+        self.__settings = Settings()
         self.__observers = []
         super(Page, self).__init__(columns=self.columns, *args, **kwargs)
         self.addEntries()
@@ -168,12 +170,13 @@ class SubjectPage(Page):
                 patterns.Publisher().registerObserver(self.onAttributeChanged_Deprecated,
                                                       eventType=eventType,
                                                       eventSource=self.items[0])
-                          
+
+
     def __modification_text(self):
         modification_datetimes = [item.modificationDateTime() for item in self.items]
         min_modification_datetime = min(modification_datetimes)
         max_modification_datetime = max(modification_datetimes)
-        modification_text = render.dateTime(min_modification_datetime, 
+        modification_text = render.dateTime(min_modification_datetime,
                                             humanReadable=True)
         if max_modification_datetime - min_modification_datetime > date.ONE_MINUTE:
             modification_text += ' - %s' % render.dateTime(max_modification_datetime,
@@ -211,12 +214,13 @@ class SubjectPage(Page):
                     subject=self._subjectEntry,
                     description=self._descriptionEntry,
                     creationDateTime=self._subjectEntry,
-                    modificationDateTime=self._subjectEntry)
+                    modificationDateTime=self._subjectEntry,
+                    globalCategories=self._subjectEntry)
 
-    
+
 class TaskSubjectPage(SubjectPage):
     def addEntries(self):
-        # Override to insert a priority entry between the description and the 
+        # Override to insert a priority entry between the description and the
         # creation date/time entry
         self.addSubjectEntry()
         self.addDescriptionEntry()
@@ -229,46 +233,153 @@ class TaskSubjectPage(SubjectPage):
         current_priority = self.items[0].priority() if len(self.items) == 1 else 0
         self._priorityEntry = widgets.SpinCtrl(self, size=(100, -1),
             value=current_priority)
-        self._prioritySync = attributesync.AttributeSync('priority', 
+        self._prioritySync = attributesync.AttributeSync('priority',
             self._priorityEntry, current_priority, self.items,
-            command.EditPriorityCommand, wx.EVT_SPINCTRL, 
+            command.EditPriorityCommand, wx.EVT_SPINCTRL,
             self.items[0].priorityChangedEventType())
         self.addEntry(_('Priority'), self._priorityEntry, flags=[None, wx.ALL])
-            
+
     def entries(self):
         entries = super(TaskSubjectPage, self).entries()
         entries['priority'] = self._priorityEntry
         return entries
-            
+
+
+class TaskSubjectPage2(SubjectPage):
+    def __init__(self, theTask, parent, settings, items_are_new, taskFile=None, settingsSection=None, *args, **kwargs):
+        self.__settings = settings
+        self.__taskFile = taskFile
+        self.__settingsSection = settingsSection
+        self._duration = None
+        self.__items_are_new = items_are_new
+        super(TaskSubjectPage2, self).__init__(theTask, parent, settings, *args, **kwargs)
+        pub.subscribe(self.__onChoicesConfigChanged, 'settings.feature.sdtcspans')
+
+    def __onChoicesConfigChanged(self, value=''):
+        self._dueDateTimeEntry.LoadChoices(value)
+
+    def __onTimeChoicesChange(self, event):
+        self.__settings.settext('feature', 'sdtcspans', event.GetValue())
+
+    def __onPlannedStartDateTimeChanged(self, value):
+        self._dueDateTimeEntry.SetRelativeChoicesStart(None if value == date.DateTime() else value)
+
+    def addEntries(self):
+        self.addSubjectEntry()
+        self.addDescriptionEntry()
+        self.addPriorityEntry()
+        self.addCreationDateTimeEntry()
+        self.addDateEntries()
+        self.addModificationDateTimeEntry()
+
+    def addPriorityEntry(self):
+        # pylint: disable=W0201
+        current_priority = self.items[0].priority() if len(self.items) == 1 else 0
+        self._priorityEntry = widgets.SpinCtrl(self, size=(100, -1),
+            value=current_priority)
+        self._prioritySync = attributesync.AttributeSync('priority',
+            self._priorityEntry, current_priority, self.items,
+            command.EditPriorityCommand, wx.EVT_SPINCTRL,
+            self.items[0].priorityChangedEventType())
+        self.addEntry(_('Priority'), self._priorityEntry, flags=[None, wx.ALL])
+
+    def createCategoriesViewer(self, taskFile, settingsSection):
+        assert len(self.items) == 1
+        item = self.items[0]
+        for eventType in (item.categoryAddedEventType(),
+                        item.categoryRemovedEventType()):
+            self.registerObserver(self.onCategoryChanged, eventType=eventType,
+                                  eventSource=item)
+        return LocalCategoryViewer(self.items, self, taskFile, self.__settings,
+                                   settingsSection=settingsSection,
+                                   use_separate_settings_section=False)
+
+    def addCategoryEntries(self):
+        pass
+
+    def addDateEntries(self):
+        self.addDateEntry(_('Planned start date'), 'plannedStartDateTime')
+        self.addDateEntry(_('Due date'), 'dueDateTime')
+
+    def addDateEntry(self, label, taskMethodName):
+        TaskMethodName = taskMethodName[0].capitalize() + taskMethodName[1:]
+        dateTime = getattr(self.items[0], taskMethodName)() if len(self.items) == 1 else date.DateTime()
+        setattr(self, '_current%s' % TaskMethodName, dateTime)
+        suggestedDateTimeMethodName = 'suggested' + TaskMethodName
+        suggestedDateTime = getattr(self.items[0], suggestedDateTimeMethodName)()
+        dateTimeEntry = entry.DateTimeEntry(self, self.__settings, dateTime,
+                                            suggestedDateTime=suggestedDateTime,
+                                            showRelative=taskMethodName == 'dueDateTime',
+                                            adjustEndOfDay=taskMethodName == 'dueDateTime')
+        setattr(self, '_%sEntry' % taskMethodName, dateTimeEntry)
+        commandClass = getattr(command, 'Edit%sCommand' % TaskMethodName)
+        eventType = getattr(self.items[0],
+                            '%sChangedEventType' % taskMethodName)()
+        keep_delta = self.__keep_delta(taskMethodName)
+        datetimeSync = attributesync.AttributeSync(taskMethodName,
+            dateTimeEntry, dateTime, self.items, commandClass,
+            entry.EVT_DATETIMEENTRY, eventType, keep_delta=keep_delta,
+            callback=self.__onPlannedStartDateTimeChanged if taskMethodName == 'plannedStartDateTime' else None)
+        setattr(self, '_%sSync' % taskMethodName, datetimeSync)
+        self.addEntry(label, dateTimeEntry)
+
+    def onCategoryChanged(selfself, event):
+        self.categoryViewer.refreshItems(*event.values())
+
+    def __keep_delta(self, taskMethodName):
+        datesTied = self.__settings.get('view', 'datestied')
+        return (datesTied == 'startdue' and taskMethodName == 'plannedStartDateTime') or \
+               (datesTied == 'duestart' and taskMethodName == 'dueDateTime')
+
+    def entries(self):
+        # pylint: disable=E1191
+        entries = super(TaskSubjectPage2, self).entries()
+        entries['priority'] = self._priorityEntry
+        entries['plannedStartDateTime'] = self._plannedStartDateTimeEntry
+        entries['dueDateTime'] = self._dueDateTimeEntry
+        return entries
 
 class CategorySubjectPage(SubjectPage):
+
     def addEntries(self):
-        # Override to insert an exclusive subcategories entry 
+        # Override to insert an exclusive subcategories entry
         # between the description and the creation date/time entry
         self.addSubjectEntry()
         self.addDescriptionEntry()
         self.addExclusiveSubcategoriesEntry()
         self.addCreationDateTimeEntry()
         self.addModificationDateTimeEntry()
+        #self.addGlobalCategoriesEntry()
+
+
 
     def addExclusiveSubcategoriesEntry(self):
         # pylint: disable=W0201
         currentExclusivity = self.items[0].hasExclusiveSubcategories() if len(self.items) == 1 else False
-        self._exclusiveSubcategoriesCheckBox = wx.CheckBox(self, 
-                                                           label=_('Mutually exclusive')) 
+        self._exclusiveSubcategoriesCheckBox = wx.CheckBox(self,
+                                                           label=_('Mutually exclusive'))
         self._exclusiveSubcategoriesCheckBox.SetValue(currentExclusivity)
         self._exclusiveSubcategoriesSync = attributesync.AttributeSync( \
-            'hasExclusiveSubcategories', self._exclusiveSubcategoriesCheckBox, 
-            currentExclusivity, self.items, 
+            'hasExclusiveSubcategories', self._exclusiveSubcategoriesCheckBox,
+            currentExclusivity, self.items,
             command.EditExclusiveSubcategoriesCommand, wx.EVT_CHECKBOX,
             self.items[0].exclusiveSubcategoriesChangedEventType())
         self.addEntry(_('Subcategories'), self._exclusiveSubcategoriesCheckBox,
                       flags=[None, wx.ALL])
-            
+
+
+
+    #Just uncomment this code to add the checkbox to activate choice of global categories.
+    #An event listener connected to this is needed in order to make it work, something that we didn't
+    #have time to implement. That could connect to the settings.setIsGlobal(bool)
+    '''def addGlobalCategoriesEntry(self):
+        self._globalCategory = wx.CheckBox(self, label=_('Global category'))
+        self.addEntry('Global Categories', self._globalCategory)'''
+
 
 class AttachmentSubjectPage(SubjectPage):
     def addEntries(self):
-        # Override to insert a location entry between the subject and 
+        # Override to insert a location entry between the subject and
         # description entry
         self.addSubjectEntry()
         self.addLocationEntry()
@@ -1070,8 +1181,8 @@ class TaskEditBook(EditBook):
                     'appearance']
     domainObject = 'task'
 
-    def create_subject_page(self):    
-        return TaskSubjectPage(self.items, self, self.settings)
+    def create_subject_page(self):
+        return TaskSubjectPage2(self.items, self, self.settings, True)
 
 
 class CategoryEditBook(EditBook):

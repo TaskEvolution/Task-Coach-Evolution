@@ -2,15 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b4203b6-1a3a-485a-9de8-382d59c2510b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/thirdparty/googleapi.tar.gz" afterPath="$PROJECT_DIR$/thirdparty/googleapi.tar.gz" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/persistence/googletask/apiconnect.py" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/googletask/apiconnect.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/credentials.dat" afterPath="$PROJECT_DIR$/credentials.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/credentials_googledrive.dat" afterPath="$PROJECT_DIR$/credentials_googledrive.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/persistence/googledrive/driveconnect.py" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/googledrive/driveconnect.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Makefile" afterPath="$PROJECT_DIR$/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/thirdparty/__init__.py" afterPath="$PROJECT_DIR$/taskcoachlib/thirdparty/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/domain/category/category.py" afterPath="$PROJECT_DIR$/taskcoachlib/domain/category/category.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/viewer/category.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/viewer/category.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/dialog/editor.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/dialog/editor.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/i18n.in/messages.pot" afterPath="$PROJECT_DIR$/i18n.in/messages.pot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/persistence/xml/reader.py" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/xml/reader.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/config/settings.py" afterPath="$PROJECT_DIR$/taskcoachlib/config/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/persistence/taskfile.py" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/taskfile.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" afterPath="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/taskcoachlib/persistence/xml/writer.py" afterPath="$PROJECT_DIR$/taskcoachlib/persistence/xml/writer.py" />
     </list>
     <ignored path="taskcoach.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,10 +45,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="uicommand.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="uicommand.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="587" column="0" selection-start="23754" selection-end="23754" vertical-scroll-proportion="-14.0" vertical-offset="8126" max-vertical-offset="44535">
+            <state line="2983" column="39" selection-start="124943" selection-end="124943" vertical-scroll-proportion="0.71849865" vertical-offset="44162" max-vertical-offset="44535">
               <folding />
             </state>
           </provider>
@@ -58,10 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="iocontroller.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="iocontroller.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="466" column="71" selection-start="20998" selection-end="20998" vertical-scroll-proportion="0.69437" vertical-offset="6731" max-vertical-offset="9825">
+            <state line="77" column="17" selection-start="3226" selection-end="3226" vertical-scroll-proportion="-6.923077" vertical-offset="975" max-vertical-offset="10005">
               <folding>
                 <element signature="e#756#826#0" expanded="true" />
               </folding>
@@ -168,8 +173,8 @@
         <option value="$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py" />
         <option value="$PROJECT_DIR$/taskcoachlib/persistence/googletask/apiconnect.py" />
         <option value="$PROJECT_DIR$/taskcoachlib/persistence/googledrive/driveconnect.py" />
-        <option value="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" />
         <option value="$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py" />
+        <option value="$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py" />
       </list>
     </option>
   </component>
@@ -555,10 +560,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="718" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18729097" sideWeight="0.88006485" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18729097" sideWeight="0.88006485" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2381342" sideWeight="0.6705686" order="1" side_tool="false" content_ui="tabs" />
@@ -686,13 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="587" column="0" selection-start="23754" selection-end="23754" vertical-scroll-proportion="-14.0" vertical-offset="8126" max-vertical-offset="44535">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/mainwindow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="318" column="32" selection-start="13600" selection-end="13600" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="7065">
@@ -711,10 +709,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/iocontroller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="466" column="71" selection-start="20998" selection-end="20998" vertical-scroll-proportion="0.69437" vertical-offset="6731" max-vertical-offset="9825">
+        <state line="77" column="17" selection-start="3226" selection-end="3226" vertical-scroll-proportion="-6.923077" vertical-offset="975" max-vertical-offset="10005">
           <folding>
             <element signature="e#756#826#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/taskcoachlib/gui/uicommand/uicommand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2983" column="39" selection-start="124943" selection-end="124943" vertical-scroll-proportion="0.71849865" vertical-offset="44162" max-vertical-offset="44535">
+          <folding />
         </state>
       </provider>
     </entry>

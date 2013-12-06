@@ -172,3 +172,6 @@ class Category(attachment.AttachmentOwner, note.NoteOwner, base.CompositeObject)
     def exclusiveSubcategoriesEvent(self, event):
         event.addSource(self, self.hasExclusiveSubcategories(), 
                         type=self.exclusiveSubcategoriesChangedEventType())
+
+    def isGlobal(self):
+        return True
